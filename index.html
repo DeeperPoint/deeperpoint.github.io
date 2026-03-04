@@ -5,9 +5,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeeperPoint — Engineering Markets That Work</title>
+  <title>DeeperPoint — Thin Market Engineering with AI</title>
   <meta name="description"
-    content="New markets fail in predictable ways. AI can make the fix practical. DeeperPoint provides the thin market science and open-source engineering toolkit.">
+    content="DeeperPoint is an open research and engineering project exploring how AI can make thin markets thicker and more functional. Open-source tools for marketplace builders.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -31,195 +31,296 @@
       <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
       <ul class="nav__links">
         <li><a href="spoke-science.html" class="nav__link">The Science</a></li>
-        <li><a href="spoke-build.html" class="nav__link">Build Your Market</a></li>
-        <li><a href="spoke-matching.html" class="nav__link">Solve Matching</a></li>
+        <li><a href="spoke-build.html" class="nav__link">Build</a></li>
+        <li><a href="spoke-matching.html" class="nav__link">Matching</a></li>
         <li><a href="blog/index.html" class="nav__link">Blog</a></li>
         <li><a href="about.html" class="nav__link">About</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero hero--with-bg" id="hero">
-    <div class="hero__content">
-      <div class="hero__badge">
-        <span class="hero__badge__dot"></span>
-        Open-Source Thin Market Engineering
-      </div>
-      <h1 class="hero__headline">New markets fail in predictable ways.</h1>
-      <p class="hero__sub">AI can make the fix practical.</p>
-      <p class="hero__desc">
-        Most markets work. Some don't — not because participants don't want to trade,
-        but because the market itself is too thin. DeeperPoint identified the failure patterns.
-        Now we're building the engineering toolkit.
-      </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="#doors" class="btn btn--primary">Explore the Three Paths ↓</a>
-        <a href="https://deeperpoint.com" class="btn btn--outline" target="_blank" rel="noopener">About DeeperPoint</a>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__content reveal">
+        <h1 class="hero__headline">
+          Making thin markets<br><span class="hero__accent">work better.</span>
+        </h1>
+        <p class="hero__sub">
+          An open research and engineering project exploring how AI can help buyers and sellers
+          find each other in markets where they currently can't.
+        </p>
+        <div class="hero__cta">
+          <a href="thin-markets.html" class="btn btn--primary">What are thin markets?</a>
+          <a href="#roadmap" class="btn btn--outline">Explore the project ↓</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- The Insight Section -->
+  <!-- The Insight -->
   <section class="section" id="insight">
-    <div class="container container--narrow text-center reveal">
-      <span class="section__label">The Insight</span>
-      <h2 class="section__title">Thin markets have predictable physics</h2>
-      <p class="section__desc section__desc--centered">
-        Nobel laureate Alvin Roth identified it: some markets are too thin to function.
-        Too few participants, too little trust, too much complexity — beneficial exchanges
-        fail to occur despite willing participants on both sides. DeeperPoint's research shows
-        these failures fall into a <em>finite set of known patterns</em>.
-        And for the first time, AI can engineer around them.
-      </p>
+    <div class="container container--narrow">
+      <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
+        <span class="section__label">The Idea</span>
+        <h2 class="section__title">Some markets fail — not for lack of supply or demand, but because of friction.</h2>
+      </div>
+      <div class="hook__grid reveal">
+        <div class="hook__content">
+          <p class="hook__text">
+            Nobel laureate <strong>Alvin Roth</strong> identified <a href="thin-markets.html"
+              style="color: var(--dp-blue);">thin markets</a> as a fundamental economic
+            problem: markets where transactions are infrequent, matching is difficult, and
+            beneficial exchanges fail to occur despite willing participants on both sides.
+          </p>
+          <p class="hook__text">
+            The DeeperPoint framework identifies two categories of forces that prevent markets from
+            working: <strong>existential threats</strong> (risk, trust, regulation) that can prevent
+            a market from forming at all, and <strong>resistance challenges</strong> (opacity,
+            offering complexity, distance, cognitive overload) that reduce efficiency.
+          </p>
+          <p class="hook__text">
+            For centuries, overcoming these forces required a painful tradeoff:
+            <strong>standardize</strong> to create thickness (destroying useful information)
+            or <strong>preserve uniqueness</strong> to maintain relevance (fragmenting markets).
+            AI dissolves this tradeoff.
+          </p>
+          <a href="thin-markets.html" class="btn btn--outline">Learn more about thin markets →</a>
+        </div>
+        <div class="hook__visual">
+          <div style="text-align: center; padding: var(--space-xl); color: var(--dp-silver);">
+            <div
+              style="font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--dp-blue); margin-bottom: var(--space-lg);">
+              The Historical Tradeoff</div>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md); align-items: center;">
+              <div
+                style="padding: 0.75rem 1.25rem; border-radius: 8px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); max-width: 200px;">
+                <div style="font-weight: 600; color: var(--dp-violet);">Standardize</div>
+                <div style="font-size: 0.8125rem; color: var(--dp-muted);">Thick but irrelevant</div>
+              </div>
+              <div style="color: var(--dp-muted); font-size: 1.5rem;">⇅</div>
+              <div
+                style="padding: 0.75rem 1.25rem; border-radius: 8px; background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.2); max-width: 200px;">
+                <div style="font-weight: 600; color: var(--dp-cyan);">Preserve Detail</div>
+                <div style="font-size: 0.8125rem; color: var(--dp-muted);">Relevant but thin</div>
+              </div>
+              <div style="color: var(--dp-emerald); font-size: 0.875rem; margin-top: var(--space-md);">
+                AI dissolves this tradeoff ↗</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- The Three Doors -->
-  <section class="section" id="doors">
+  <!-- Three Doors -->
+  <section class="section" id="doors" style="border-top: 1px solid var(--glass-border);">
     <div class="container">
       <div class="text-center reveal" style="margin-bottom: var(--space-2xl);">
-        <span class="section__label">Choose Your Path</span>
-        <h2 class="section__title">Three ways into the same problem</h2>
+        <span class="section__label">Explore the Project</span>
+        <h2 class="section__title">Three ways in</h2>
         <p class="section__desc section__desc--centered">
-          Whether you're studying the science, building a market, or solving
-          a matching challenge — the underlying physics are the same.
+          Whether you want to understand the theory, build something, or solve a matching problem —
+          there's a path for you.
         </p>
       </div>
 
-      <div class="doors">
+      <div class="doors reveal">
         <!-- Door 1: Science -->
-        <div class="card card--science reveal" id="door-science">
+        <a href="spoke-science.html" class="card card--science" style="text-decoration: none;">
           <div class="door__icon door__icon--science">🔬</div>
-          <h3 class="door__title">The Science of Thin Markets</h3>
+          <h3 class="door__title">The Science</h3>
           <p class="door__hook">
-            Your market isn't unique. Its physics are. Every thin market — from specialty
-            grain to rare expertise — suffers from the same predictable frictions.
-            There is a standard now.
+            Understand the physics of thin markets — why they fail,
+            what forces prevent thickness, and where engineering can help.
           </p>
-          <p class="door__audience">
-            For: <strong>Investors</strong>, <strong>Policy Makers</strong>,
-            <strong>Academics</strong>, <strong>Trade Officials</strong>
-          </p>
-          <a href="spoke-science.html" class="btn btn--outline btn--spoke">
-            Explore the Science →
-          </a>
-        </div>
+          <span class="door__link">Explore the framework →</span>
+        </a>
 
         <!-- Door 2: Build -->
-        <div class="card card--build reveal" id="door-build">
+        <a href="spoke-build.html" class="card card--build" style="text-decoration: none;">
           <div class="door__icon door__icon--build">⚙️</div>
-          <h3 class="door__title">Build Your Market in Weeks</h3>
+          <h3 class="door__title">Build</h3>
           <p class="door__hook">
-            Don't launch with hope. Launch with a Digital Twin.
-            Scaffold your marketplace ecosystem, stress-test it with
-            synthetic users, and validate before you recruit real ones.
+            Use our open-source tools to scaffold, test, and launch
+            a marketplace. Start with a digital twin, not a prayer.
           </p>
-          <p class="door__audience">
-            For: <strong>Founders</strong>, <strong>Accelerators</strong>,
-            <strong>Exporters</strong>, <strong>Canadian Businesses</strong>
-          </p>
-          <a href="spoke-build.html" class="btn btn--outline btn--spoke">
-            Start Building →
-          </a>
-        </div>
+          <span class="door__link door__link--build">Start building →</span>
+        </a>
 
         <!-- Door 3: Matching -->
-        <div class="card card--match reveal" id="door-matching">
+        <a href="spoke-matching.html" class="card card--match" style="text-decoration: none;">
           <div class="door__icon door__icon--match">🧠</div>
-          <h3 class="door__title">Solve the Matching Problem</h3>
+          <h3 class="door__title">Matching</h3>
           <p class="door__hook">
-            Stop playing poker with your prospects. AI-driven matching
-            finds "fit" without forcing mutual disclosure — closing deals
-            that strategic information withholding would kill.
+            See how AI-driven semantic matching, trusted intermediation,
+            and asynchronous brokerage solve problems that couldn't be solved before.
           </p>
-          <p class="door__audience">
-            For: <strong>Founders</strong>, <strong>Social Services</strong>,
-            <strong>Exporters</strong>
-          </p>
-          <a href="spoke-matching.html" class="btn btn--outline btn--spoke">
-            See How Matching Works →
-          </a>
-        </div>
+          <span class="door__link door__link--match">See how it works →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Convergence Argument -->
-  <section class="section convergence" id="convergence">
+  <!-- Project Roadmap -->
+  <section class="section" id="roadmap" style="border-top: 1px solid var(--glass-border);">
     <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-2xl);">
+        <span class="section__label">The Toolkit</span>
+        <h2 class="section__title">Four interconnected initiatives</h2>
+        <p class="section__desc section__desc--centered">
+          Each tool addresses a different piece of the thin market puzzle. Together, they form the
+          MarketForge ecosystem.
+        </p>
+      </div>
+
+      <div class="reveal"
+        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg);">
+
+        <!-- Cosolvent -->
+        <a href="mf-cosolvent.html" class="card card--build" style="text-decoration: none; padding: var(--space-lg);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="door__icon door__icon--build" style="width: 40px; height: 40px; font-size: 1.25rem;">⚙️</div>
+            <div>
+              <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.125rem; margin: 0;">Cosolvent</h3>
+              <span
+                style="font-size: 0.75rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em;">Open
+                Source · MIT</span>
+            </div>
+          </div>
+          <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
+            Composable marketplace scaffolding framework. Matching engine, deal assembly,
+            role-based permissions, handoff artifacts. Build a functioning marketplace
+            in days instead of months.
+          </p>
+        </a>
+
+        <!-- ClientSynth -->
+        <a href="mf-clientsynth.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="door__icon door__icon--science" style="width: 40px; height: 40px; font-size: 1.25rem;">👥</div>
+            <div>
+              <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.125rem; margin: 0;">ClientSynth
+              </h3>
+              <span
+                style="font-size: 0.75rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em;">Testing
+                Tool</span>
+            </div>
+          </div>
+          <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
+            Generate realistic synthetic populations of marketplace participants for
+            testing and demonstration. Stress-test your market physics before committing
+            real resources to user recruitment.
+          </p>
+        </a>
+
+        <!-- KnowledgeSlot -->
+        <a href="mf-curation.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="door__icon door__icon--match" style="width: 40px; height: 40px; font-size: 1.25rem;">📚</div>
+            <div>
+              <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.125rem; margin: 0;">KnowledgeSlot
+              </h3>
+              <span
+                style="font-size: 0.75rem; color: var(--dp-amber); text-transform: uppercase; letter-spacing: 0.05em;">Knowledge
+                Management</span>
+            </div>
+          </div>
+          <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
+            AI-curated domain knowledge management. Captures, structures, and maintains
+            the expertise that marketplace operation requires — from industry standards
+            to regulatory requirements.
+          </p>
+        </a>
+
+        <!-- MarketForge -->
+        <a href="marketforge.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="door__icon"
+              style="width: 40px; height: 40px; font-size: 1.25rem; background: rgba(59, 130, 246, 0.15);">🔧</div>
+            <div>
+              <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.125rem; margin: 0;">MarketForge
+              </h3>
+              <span
+                style="font-size: 0.75rem; color: var(--dp-blue); text-transform: uppercase; letter-spacing: 0.05em;">Platform</span>
+            </div>
+          </div>
+          <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
+            The integration layer that combines all three tools into deployable,
+            sponsor-ready marketplace platforms. Where the science becomes working
+            software.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools & Resources -->
+  <section class="section" id="tools" style="border-top: 1px solid var(--glass-border);">
+    <div class="container container--narrow">
       <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
-        <span class="section__label">Why Now</span>
-        <h2 class="section__title">Two forces are converging</h2>
+        <span class="section__label">Resources</span>
+        <h2 class="section__title">Go deeper</h2>
       </div>
 
-      <div class="convergence__grid reveal">
-        <div class="convergence__item">
-          <span class="convergence__number">1</span>
-          <div>
-            <h3>Geopolitical Trade Diversification</h3>
-            <p>
-              Canada and other middle powers are urgently diversifying trade away from
-              single-market dependency. New trade corridors are being built between
-              nations that have never traded directly. Every new corridor is a thin market.
-            </p>
+      <div style="display: flex; flex-direction: column; gap: var(--space-lg);" class="reveal">
+
+        <div class="crosslink" style="border-left-color: var(--dp-violet); background: rgba(139, 92, 246, 0.05);">
+          <div class="crosslink__text">
+            <h3 style="color: var(--dp-violet);">Read the whitepaper</h3>
+            <p>The full 1,100-line treatment of market physics, engineering interventions, AI capabilities,
+              and the strategic implications for global trade.</p>
           </div>
+          <a href="whitepaper.html" class="btn btn--primary"
+            style="background: var(--dp-violet); border-color: var(--dp-violet); color: #fff;">Read
+            Whitepaper →</a>
         </div>
-        <div class="convergence__item">
-          <span class="convergence__number">2</span>
-          <div>
-            <h3>AI Technical Maturity</h3>
-            <p>
-              Large language models, vector search, and semantic matching have reached
-              the point where they can handle the information density and nuance that
-              thin markets demand. The engineering toolkit didn't exist two years ago.
-            </p>
+
+        <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6, 182, 212, 0.05);">
+          <div class="crosslink__text">
+            <h3 style="color: var(--dp-cyan);">Diagnose your market</h3>
+            <p>An interactive version of the Market Engineer's Diagnostic Checklist. Walk through your specific market's
+              challenges and get a structured assessment.</p>
           </div>
+          <a href="market-diagnostic.html" class="btn btn--primary"
+            style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;">Start
+            Diagnostic →</a>
         </div>
+
+        <div class="crosslink" style="border-left-color: var(--dp-emerald); background: rgba(16, 185, 129, 0.05);">
+          <div class="crosslink__text">
+            <h3 style="color: var(--dp-emerald);">Browse the source code</h3>
+            <p>All of DeeperPoint's tools are open-source. Cosolvent is MIT-licensed.
+              Explore, fork, and adapt.</p>
+          </div>
+          <a href="https://github.com/DeeperPoint" class="btn btn--primary" target="_blank" rel="noopener"
+            style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff;">GitHub →</a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Credibility Strip -->
-  <section class="section credibility" id="credibility">
+  <!-- Credibility -->
+  <section class="section" id="credibility" style="border-top: 1px solid var(--glass-border);">
     <div class="container">
-      <div class="credibility__grid reveal">
-        <div class="credibility__item">
-          <div class="credibility__icon">📄</div>
-          <div class="credibility__label">Foundational Whitepaper</div>
-          <div class="credibility__detail">A comprehensive synthesis of the thin markets problem</div>
+      <div class="cred reveal">
+        <div class="cred__item">
+          <div class="cred__value">MIT</div>
+          <div class="cred__label">Cosolvent License</div>
         </div>
-        <div class="credibility__item">
-          <div class="credibility__icon">🔓</div>
-          <div class="credibility__label">Open Source (MIT)</div>
-          <div class="credibility__detail">Cosolvent framework — build once, deploy many</div>
+        <div class="cred__item">
+          <div class="cred__value">B2B</div>
+          <div class="cred__label">Many-to-Many Focus</div>
         </div>
-        <div class="credibility__item">
-          <div class="credibility__icon">🧪</div>
-          <div class="credibility__label">Synthetic Data Engine</div>
-          <div class="credibility__detail">ClientSynth generates test populations</div>
+        <div class="cred__item">
+          <div class="cred__value">4</div>
+          <div class="cred__label">Integrated Tools</div>
         </div>
-        <div class="credibility__item">
-          <div class="credibility__icon">📐</div>
-          <div class="credibility__label">Documented Architecture</div>
-          <div class="credibility__detail">1,100+ lines of design decisions</div>
+        <div class="cred__item">
+          <div class="cred__value">$37.7T</div>
+          <div class="cred__label">Middle Powers Bloc</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer CTA -->
-  <section class="section" id="footer-cta">
-    <div class="container text-center reveal">
-      <h2 class="section__title">Ready to explore?</h2>
-      <p class="section__desc section__desc--centered" style="margin-bottom: var(--space-2xl);">
-        Pick the path that matches your perspective. Each leads deeper into
-        the same underlying science.
-      </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="spoke-science.html" class="btn btn--outline">The Science →</a>
-        <a href="spoke-build.html" class="btn btn--outline">Build a Market →</a>
-        <a href="spoke-matching.html" class="btn btn--outline">Solve Matching →</a>
       </div>
     </div>
   </section>
@@ -228,10 +329,9 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__copyright">
-          © 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
-        </div>
+        <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
         <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About</a></li>
           <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a>
           </li>
           <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a>
@@ -241,7 +341,6 @@
     </div>
   </footer>
 
-  <!-- Scroll Reveal Script -->
   <script src="reveal.js"></script>
 </body>
 

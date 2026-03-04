@@ -1,0 +1,777 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Diagnostic — DeeperPoint</title>
+    <meta name="description"
+        content="Walk through a structured diagnostic of your market's thin market challenges. Based on the DeeperPoint whitepaper framework.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .diag {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .diag-step {
+            display: none;
+        }
+
+        .diag-step.active {
+            display: block;
+        }
+
+        .diag-card {
+            background: var(--glass-bg);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            margin-bottom: var(--space-lg);
+        }
+
+        .diag-card h2 {
+            font-family: var(--font-display);
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .diag-card h3 {
+            font-family: var(--font-display);
+            color: var(--dp-cyan);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        .diag-card p {
+            color: var(--dp-silver);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .diag-card .why {
+            background: rgba(139, 92, 246, 0.06);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            margin: 1rem 0;
+            font-size: 0.9375rem;
+            color: var(--dp-silver);
+        }
+
+        .diag-card .why strong {
+            color: var(--dp-violet);
+        }
+
+        .diag-q {
+            margin-bottom: 1.25rem;
+        }
+
+        .diag-q label {
+            display: block;
+            color: var(--dp-silver);
+            font-size: 0.9375rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .diag-q label strong {
+            color: #fff;
+        }
+
+        .diag-q select,
+        .diag-q textarea {
+            width: 100%;
+            padding: 0.625rem 0.75rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--dp-silver);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            transition: border-color 0.2s;
+        }
+
+        .diag-q select:focus,
+        .diag-q textarea:focus {
+            outline: none;
+            border-color: var(--dp-blue);
+        }
+
+        .diag-q select option {
+            background: #1a1e2e;
+            color: var(--dp-silver);
+        }
+
+        .diag-q textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+
+        .diag-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .diag-progress {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .diag-progress__dot {
+            width: 32px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .diag-progress__dot.done {
+            background: var(--dp-emerald);
+        }
+
+        .diag-progress__dot.current {
+            background: var(--dp-blue);
+        }
+
+        .diag-summary {
+            display: none;
+        }
+
+        .diag-summary.active {
+            display: block;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 0.125rem 0.5rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .severity-none {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--dp-emerald);
+        }
+
+        .severity-low {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--dp-cyan);
+        }
+
+        .severity-moderate {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--dp-amber);
+        }
+
+        .severity-high {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+        }
+
+        .severity-critical {
+            background: rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <ul class="nav__links">
+                <li><a href="spoke-science.html" class="nav__link">The Science</a></li>
+                <li><a href="spoke-build.html" class="nav__link">Build</a></li>
+                <li><a href="spoke-matching.html" class="nav__link">Matching</a></li>
+                <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section" style="padding-top: calc(var(--nav-height) + var(--space-xl));">
+        <div class="diag">
+
+            <div class="reveal" style="text-align: center; margin-bottom: var(--space-xl);">
+                <span class="section__label"
+                    style="background: rgba(6, 182, 212, 0.1); color: var(--dp-cyan); border: 1px solid rgba(6, 182, 212, 0.3);">Interactive
+                    Tool</span>
+                <h1 class="section__title">Market Engineer's Diagnostic</h1>
+                <p class="section__desc section__desc--centered">
+                    Walk through a structured assessment of your market's thin market challenges.
+                    Based on the framework in our <a href="whitepaper.html"
+                        style="color: var(--dp-cyan);">whitepaper</a>.
+                </p>
+            </div>
+
+            <!-- Progress -->
+            <div class="diag-progress" id="diag-progress"></div>
+
+            <!-- Step 0: Intro -->
+            <div class="diag-step active" data-step="0">
+                <div class="diag-card">
+                    <h2>Before You Begin</h2>
+                    <p>This diagnostic walks you through the key structural, existential, and resistance factors
+                        that determine whether a market is thin, <em>why</em> it is thin, and where engineering
+                        interventions can make the greatest difference.</p>
+                    <p>There are <strong>6 sections</strong> with a total of about 30 questions. You can skip any
+                        question — incomplete answers still produce a useful profile. At the end you'll get a summary
+                        of your market's challenge profile with suggested engineering responses.</p>
+                    <p style="color: var(--dp-muted); font-size: 0.875rem;">Your answers stay in your browser. Nothing
+                        is sent to any server.</p>
+                </div>
+                <div class="diag-nav">
+                    <span></span>
+                    <button class="btn btn--primary" onclick="goToStep(1)">Begin Diagnostic →</button>
+                </div>
+            </div>
+
+            <!-- Step 1: Market Structure -->
+            <div class="diag-step" data-step="1">
+                <div class="diag-card">
+                    <h2>1. Market Structure</h2>
+                    <p>Before assessing challenges, characterize the market you are dealing with.</p>
+
+                    <h3>Counterparty Arrangement</h3>
+                    <div class="diag-q">
+                        <label><strong>Is this a one-to-one, one-to-many, or many-to-many market?</strong></label>
+                        <select id="q-arrangement">
+                            <option value="">Select...</option>
+                            <option value="one-to-one">One-to-one (single buyer faces single seller)</option>
+                            <option value="one-to-many">One-to-many (one side singular, other multiple)</option>
+                            <option value="many-to-many">Many-to-many (multiple participants on both sides)</option>
+                        </select>
+                    </div>
+                    <div class="why"><strong>Why it matters:</strong> Many-to-many markets have the highest potential
+                        for thin-to-thick transformation but also the most complex matching problems.</div>
+
+                    <h3>Participant Types</h3>
+                    <div class="diag-q">
+                        <label><strong>What type of transaction is this?</strong></label>
+                        <select id="q-participant">
+                            <option value="">Select...</option>
+                            <option value="B2B">B2B (Business-to-Business)</option>
+                            <option value="B2C">B2C (Business-to-Consumer)</option>
+                            <option value="C2C">C2C (Consumer-to-Consumer)</option>
+                            <option value="C2B">C2B (Consumer-to-Business)</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label>How long are typical sales/procurement cycles?</label>
+                        <select id="q-cycle">
+                            <option value="">Select...</option>
+                            <option value="instant">Instant / same-day</option>
+                            <option value="days">Days to weeks</option>
+                            <option value="weeks">Weeks to months</option>
+                            <option value="months">Months to years</option>
+                        </select>
+                    </div>
+
+                    <h3>Theoretical Maximum Market Size</h3>
+                    <div class="diag-q">
+                        <label><strong>How many potential participants could possibly exist?</strong></label>
+                        <select id="q-market-size">
+                            <option value="">Select...</option>
+                            <option value="tiny">Very small — dozens to low hundreds worldwide</option>
+                            <option value="small">Small — hundreds to low thousands</option>
+                            <option value="medium">Medium — thousands to tens of thousands</option>
+                            <option value="large">Large — tens of thousands or more</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label>Could user aggregation (combining small actors into collectives) expand the pool?</label>
+                        <select id="q-aggregation">
+                            <option value="">Select...</option>
+                            <option value="yes">Yes — significant aggregation potential</option>
+                            <option value="some">Somewhat</option>
+                            <option value="no">No — participants are already at viable scale</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="diag-nav">
+                    <button class="btn btn--outline" onclick="goToStep(0)">← Back</button>
+                    <button class="btn btn--primary" onclick="goToStep(2)">Next: Desire to Exchange →</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Desire to Exchange -->
+            <div class="diag-step" data-step="2">
+                <div class="diag-card">
+                    <h2>2. Desire to Exchange</h2>
+                    <p>The most fundamental question: <strong>do participants actually want to make this trade?</strong>
+                    </p>
+
+                    <h3>Structural Desire</h3>
+                    <div class="diag-q">
+                        <label><strong>How well do buyer needs match seller offerings?</strong> (Coincidence of
+                            wants)</label>
+                        <select id="q-coincidence">
+                            <option value="">Select...</option>
+                            <option value="strong">Strong — clear mutual need, many potential matches</option>
+                            <option value="moderate">Moderate — some overlap, narrower specification needed</option>
+                            <option value="weak">Weak — very narrow specification, rare matches</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label><strong>How urgently do participants need this trade to happen?</strong></label>
+                        <select id="q-urgency">
+                            <option value="">Select...</option>
+                            <option value="critical">Critical — life-or-death or immediate operational need</option>
+                            <option value="high">High — significant business impact if delayed</option>
+                            <option value="moderate">Moderate — important but can wait</option>
+                            <option value="low">Low — nice to have, can wait indefinitely</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label><strong>How much value is created by exchange?</strong> (Gains from trade)</label>
+                        <select id="q-gains">
+                            <option value="">Select...</option>
+                            <option value="high">High — significant value, worth overcoming substantial friction
+                            </option>
+                            <option value="moderate">Moderate — worthwhile but friction-sensitive</option>
+                            <option value="marginal">Marginal — only viable if friction is very low</option>
+                        </select>
+                    </div>
+                    <div class="why"><strong>Key principle:</strong> No amount of marketing can manufacture structural
+                        desire that does not exist. If structural desire is absent, there is no market to engineer.
+                    </div>
+                </div>
+                <div class="diag-nav">
+                    <button class="btn btn--outline" onclick="goToStep(1)">← Back</button>
+                    <button class="btn btn--primary" onclick="goToStep(3)">Next: Existential Threats →</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Existential Threats -->
+            <div class="diag-step" data-step="3">
+                <div class="diag-card">
+                    <h2>3. Existential Threats</h2>
+                    <p>These are binary below a threshold: if not adequately addressed, the market <strong>cannot
+                            function at all</strong>.</p>
+
+                    <h3>Risk</h3>
+                    <div class="diag-q">
+                        <label><strong>How well can participants assess fair value?</strong></label>
+                        <select id="q-fair-value">
+                            <option value="">Select...</option>
+                            <option value="easy">Easy — many comparable transactions available</option>
+                            <option value="difficult">Difficult — few comparables, opaque pricing</option>
+                            <option value="impossible">Nearly impossible — every transaction is unique</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label><strong>Is there market safety risk?</strong> (Could trust in market structure itself
+                            evaporate?)</label>
+                        <select id="q-safety-risk">
+                            <option value="">Select...</option>
+                            <option value="low">Low — stable, well-understood market</option>
+                            <option value="moderate">Moderate — some structural concerns</option>
+                            <option value="high">High — fragile market structure</option>
+                        </select>
+                    </div>
+
+                    <h3>Trust</h3>
+                    <div class="diag-q">
+                        <label><strong>Do participants have prior experience with each other?</strong></label>
+                        <select id="q-prior-trust">
+                            <option value="">Select...</option>
+                            <option value="yes">Yes — repeat relationships with established trust</option>
+                            <option value="some">Some — occasional interactions, partial track records</option>
+                            <option value="no">No — cold relationships, no history</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label><strong>Is confidentiality a major concern?</strong></label>
+                        <select id="q-confidentiality">
+                            <option value="">Select...</option>
+                            <option value="low">Low — information sharing is comfortable</option>
+                            <option value="moderate">Moderate — some sensitive details</option>
+                            <option value="high">High — budgets, capacities, and strategies are closely guarded</option>
+                        </select>
+                    </div>
+
+                    <h3>Regulatory Environment</h3>
+                    <div class="diag-q">
+                        <label><strong>Do regulatory differences fragment the market?</strong></label>
+                        <select id="q-regulation">
+                            <option value="">Select...</option>
+                            <option value="none">Minimal — uniform regulatory landscape</option>
+                            <option value="moderate">Moderate — some jurisdictional differences</option>
+                            <option value="severe">Severe — multiple jurisdictions, licensing requirements, data
+                                sovereignty</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="diag-nav">
+                    <button class="btn btn--outline" onclick="goToStep(2)">← Back</button>
+                    <button class="btn btn--primary" onclick="goToStep(4)">Next: Resistance Challenges →</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Resistance Challenges -->
+            <div class="diag-step" data-step="4">
+                <div class="diag-card">
+                    <h2>4. Resistance Challenges</h2>
+                    <p>These don't prevent all transactions, but they reduce efficiency and thickness.</p>
+
+                    <h3>Offering Complexity</h3>
+                    <div class="diag-q">
+                        <label><strong>How many distinct attributes matter for each offering?</strong></label>
+                        <select id="q-complexity">
+                            <option value="">Select...</option>
+                            <option value="low">Few — offerings are largely fungible</option>
+                            <option value="moderate">Moderate — some important distinguishing attributes</option>
+                            <option value="high">High — every offering is genuinely unique with many attributes</option>
+                        </select>
+                    </div>
+
+                    <h3>Geographic Distance</h3>
+                    <div class="diag-q">
+                        <label><strong>Where on the distance spectrum does this market sit?</strong></label>
+                        <select id="q-geo-distance">
+                            <option value="">Select...</option>
+                            <option value="local">Hyper-local (< 50 km)</option>
+                            <option value="regional">Regional (50–500 km)</option>
+                            <option value="national">National (500–5,000 km)</option>
+                            <option value="continental">Continental / cross-border</option>
+                            <option value="global">Global</option>
+                            <option value="virtual">Virtual (no physical component)</option>
+                        </select>
+                    </div>
+
+                    <h3>Temporal Distance</h3>
+                    <div class="diag-q">
+                        <label><strong>What is the typical time gap between buyer readiness and seller
+                                availability?</strong></label>
+                        <select id="q-temporal">
+                            <option value="">Select...</option>
+                            <option value="short">Short — hours to days (time zones, async arrivals)</option>
+                            <option value="medium">Medium — weeks to months (procurement cycles, seasons)</option>
+                            <option value="long">Long — months to years (capital projects, strategic planning)</option>
+                            <option value="minimal">Minimal — simultaneous availability is common</option>
+                        </select>
+                    </div>
+
+                    <h3>Opacity</h3>
+                    <div class="diag-q">
+                        <label><strong>Is strategic information withholding a problem?</strong></label>
+                        <select id="q-withholding">
+                            <option value="">Select...</option>
+                            <option value="no">No — parties share information freely</option>
+                            <option value="some">Some — normal business caution</option>
+                            <option value="severe">Severe — deals die because neither party will share enough to
+                                determine fit</option>
+                        </select>
+                    </div>
+
+                    <h3>Cognitive Bandwidth</h3>
+                    <div class="diag-q">
+                        <label><strong>Are participants experiencing choice overload?</strong></label>
+                        <select id="q-cognitive">
+                            <option value="">Select...</option>
+                            <option value="no">No — manageable number of options</option>
+                            <option value="some">Some — evaluation takes significant effort</option>
+                            <option value="severe">Severe — paralyzed by complexity and volume of options</option>
+                        </select>
+                    </div>
+
+                    <h3>Fulfillment</h3>
+                    <div class="diag-q">
+                        <label><strong>Could this market have perfect matching but still fail because delivery is
+                                impractical?</strong></label>
+                        <select id="q-fulfillment">
+                            <option value="">Select...</option>
+                            <option value="no">No — fulfillment is straightforward</option>
+                            <option value="some">Somewhat — logistics adds meaningful friction</option>
+                            <option value="severe">Yes — fulfillment is a serious constraint (perishability, provider
+                                availability, shipping)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="diag-nav">
+                    <button class="btn btn--outline" onclick="goToStep(3)">← Back</button>
+                    <button class="btn btn--primary" onclick="goToStep(5)">Next: Cold Start →</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Cold Start -->
+            <div class="diag-step" data-step="5">
+                <div class="diag-card">
+                    <h2>5. The Cold Start Problem</h2>
+                    <p>The chicken-and-egg challenge of getting both sides of the market activated simultaneously.</p>
+
+                    <div class="diag-q">
+                        <label><strong>How severe is the cold start challenge for this market?</strong></label>
+                        <select id="q-cold-start">
+                            <option value="">Select...</option>
+                            <option value="na">Not applicable — existing relationships, not building a new platform
+                            </option>
+                            <option value="low">Low — one side is easy to attract, the other follows</option>
+                            <option value="moderate">Moderate — both sides need encouragement but some natural demand
+                                exists</option>
+                            <option value="severe">Severe — both sides must reach critical mass simultaneously with no
+                                existing base</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label>Could synthetic bootstrapping demonstrate viability before real participants
+                            commit?</label>
+                        <select id="q-synthetic">
+                            <option value="">Select...</option>
+                            <option value="yes">Yes — synthetic populations could convincingly demonstrate marketplace
+                                value</option>
+                            <option value="maybe">Maybe — worth exploring</option>
+                            <option value="no">No — the market requires real participants from day one</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="diag-nav">
+                    <button class="btn btn--outline" onclick="goToStep(4)">← Back</button>
+                    <button class="btn btn--primary" onclick="generateSummary()">Generate Summary →</button>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="diag-summary" id="diag-summary">
+                <div class="diag-card" id="summary-content">
+                    <!-- Generated by JS -->
+                </div>
+                <div class="diag-nav">
+                    <button class="btn btn--outline" onclick="goToStep(0)">← Start Over</button>
+                    <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                        <a href="whitepaper.html" class="btn btn--outline">Read Full Whitepaper</a>
+                        <a href="spoke-build.html" class="btn btn--primary">Explore Building Tools →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank"
+                            rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank"
+                            rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reveal.js"></script>
+    <script>
+        /**
+         * Market Diagnostic Tool
+         * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+         *
+         * Guides users through a structured thin market assessment based on
+         * the MarketEngineerChecklist from the DeeperPoint whitepaper framework.
+         */
+
+        const TOTAL_STEPS = 6; // 0-5
+
+        /** Navigate to a specific step in the diagnostic */
+        function goToStep(stepNum) {
+            document.querySelectorAll('.diag-step').forEach(el => el.classList.remove('active'));
+            const target = document.querySelector(`[data-step="${stepNum}"]`);
+            if (target) target.classList.add('active');
+
+            document.getElementById('diag-summary').classList.remove('active');
+            updateProgress(stepNum);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /** Update the progress dots */
+        function updateProgress(currentStep) {
+            const container = document.getElementById('diag-progress');
+            container.innerHTML = '';
+            for (let i = 0; i < TOTAL_STEPS; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'diag-progress__dot';
+                if (i < currentStep) dot.classList.add('done');
+                if (i === currentStep) dot.classList.add('current');
+                container.appendChild(dot);
+            }
+        }
+
+        /** Map select values to severity levels */
+        function assessSeverity(id, mapping) {
+            const val = document.getElementById(id)?.value || '';
+            return mapping[val] || 'Not assessed';
+        }
+
+        /** Generate the summary report */
+        function generateSummary() {
+            document.querySelectorAll('.diag-step').forEach(el => el.classList.remove('active'));
+            const summaryEl = document.getElementById('diag-summary');
+            summaryEl.classList.add('active');
+
+            const arrangement = document.getElementById('q-arrangement')?.value || 'Not specified';
+            const participant = document.getElementById('q-participant')?.value || 'Not specified';
+            const marketSize = document.getElementById('q-market-size')?.value || 'Not specified';
+
+            const dimensions = [
+                { label: 'Structural desire', severity: assessDesire(), interventions: getDesireInterventions() },
+                { label: 'Risk', severity: assessSeverity('q-fair-value', { 'easy': 'Low', 'difficult': 'Moderate', 'impossible': 'High' }), interventions: 'Clearinghouse/escrow mechanisms, AI-driven fair value estimation' },
+                { label: 'Trust deficit', severity: assessSeverity('q-prior-trust', { 'yes': 'Low', 'some': 'Moderate', 'no': 'High' }), interventions: 'Progressive trust building, AI reputation inference, trusted intermediation' },
+                { label: 'Regulatory fragmentation', severity: assessSeverity('q-regulation', { 'none': 'None', 'moderate': 'Moderate', 'severe': 'High' }), interventions: 'Benign standards adoption, regulatory alignment, compliance translation' },
+                { label: 'Offering complexity', severity: assessSeverity('q-complexity', { 'low': 'Low', 'moderate': 'Moderate', 'high': 'High' }), interventions: 'Semantic matching, vector embeddings, generative preference elicitation' },
+                { label: 'Geographic distance', severity: assessGeo(), interventions: 'Digital delivery, AI cross-border matching, asynchronous brokerage' },
+                { label: 'Temporal distance', severity: assessSeverity('q-temporal', { 'minimal': 'None', 'short': 'Low', 'medium': 'Moderate', 'long': 'High' }), interventions: 'Market makers, storage/futures, AI asynchronous brokerage, intent persistence' },
+                { label: 'Opacity', severity: assessSeverity('q-withholding', { 'no': 'Low', 'some': 'Moderate', 'severe': 'Critical' }), interventions: 'AI trusted intermediation, confidential information synthesis' },
+                { label: 'Cognitive overload', severity: assessSeverity('q-cognitive', { 'no': 'None', 'some': 'Moderate', 'severe': 'High' }), interventions: 'Curated matching, generative preference elicitation, personalized translation' },
+                { label: 'Fulfillment constraints', severity: assessSeverity('q-fulfillment', { 'no': 'None', 'some': 'Moderate', 'severe': 'High' }), interventions: 'Cold chain infrastructure, settlement mechanisms, scheduling coordination' },
+                { label: 'Cold start severity', severity: assessSeverity('q-cold-start', { 'na': 'None', 'low': 'Low', 'moderate': 'Moderate', 'severe': 'Critical' }), interventions: 'Synthetic bootstrapping (ClientSynth), pre-qualified match suggestions' },
+            ];
+
+            const dominant = dimensions.filter(d => d.severity === 'High' || d.severity === 'Critical');
+            const moderate = dimensions.filter(d => d.severity === 'Moderate');
+
+            let html = `
+                <h2>Your Market Profile</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-lg);">
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                        <div style="color: var(--dp-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Arrangement</div>
+                        <div style="color: #fff; font-weight: 600;">${formatValue(arrangement)}</div>
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                        <div style="color: var(--dp-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Participant Type</div>
+                        <div style="color: #fff; font-weight: 600;">${formatValue(participant)}</div>
+                    </div>
+                    <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                        <div style="color: var(--dp-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Market Size</div>
+                        <div style="color: #fff; font-weight: 600;">${formatValue(marketSize)}</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #fff; margin-top: var(--space-lg);">Challenge Assessment</h3>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9375rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--glass-border);">
+                                <th style="text-align: left; padding: 0.75rem; color: var(--dp-muted); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.03em;">Dimension</th>
+                                <th style="text-align: left; padding: 0.75rem; color: var(--dp-muted); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.03em;">Severity</th>
+                                <th style="text-align: left; padding: 0.75rem; color: var(--dp-muted); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.03em;">Suggested Interventions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${dimensions.map(d => `
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                                    <td style="padding: 0.75rem; color: #fff; font-weight: 500;">${d.label}</td>
+                                    <td style="padding: 0.75rem;"><span class="severity-badge severity-${d.severity.toLowerCase()}">${d.severity}</span></td>
+                                    <td style="padding: 0.75rem; color: var(--dp-silver); font-size: 0.875rem;">${d.severity !== 'None' && d.severity !== 'Low' && d.severity !== 'Not assessed' ? d.interventions : '—'}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            if (dominant.length > 0) {
+                html += `
+                    <div style="margin-top: var(--space-lg); padding: 1rem; background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: var(--radius-md);">
+                        <h4 style="color: #fca5a5; margin-bottom: 0.5rem;">⚠️ Dominant Challenges</h4>
+                        <p style="color: var(--dp-silver); font-size: 0.9375rem; margin: 0;">${dominant.map(d => `<strong>${d.label}</strong>`).join(', ')} — these require priority attention and likely AI-driven engineering interventions to overcome.</p>
+                    </div>
+                `;
+            }
+
+            if (arrangement === 'many-to-many' && participant === 'B2B') {
+                html += `
+                    <div style="margin-top: var(--space-md); padding: 1rem; background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.15); border-radius: var(--radius-md);">
+                        <h4 style="color: var(--dp-emerald); margin-bottom: 0.5rem;">✅ Good Fit for DeeperPoint Tools</h4>
+                        <p style="color: var(--dp-silver); font-size: 0.9375rem; margin: 0;">Your market profile (many-to-many, B2B) aligns with DeeperPoint's primary focus area. The <a href="marketforge.html" style="color: var(--dp-emerald);">MarketForge ecosystem</a> — Cosolvent, ClientSynth, KnowledgeSlot — is designed for exactly this type of challenge.</p>
+                    </div>
+                `;
+            }
+
+            html += `
+                <div style="margin-top: var(--space-lg); padding: 1rem; background: rgba(139, 92, 246, 0.06); border: 1px solid rgba(139, 92, 246, 0.15); border-radius: var(--radius-md);">
+                    <h4 style="color: var(--dp-violet); margin-bottom: 0.5rem;">📖 Learn More</h4>
+                    <p style="color: var(--dp-silver); font-size: 0.9375rem; margin: 0;">For detailed explanations of each challenge, case examples, and the full intervention matrix, see the <a href="whitepaper.html" style="color: var(--dp-violet);">complete whitepaper</a>.</p>
+                </div>
+            `;
+
+            document.getElementById('summary-content').innerHTML = html;
+            updateProgress(TOTAL_STEPS);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /** Assess structural desire from multiple inputs */
+        function assessDesire() {
+            const coincidence = document.getElementById('q-coincidence')?.value;
+            const urgency = document.getElementById('q-urgency')?.value;
+            const gains = document.getElementById('q-gains')?.value;
+            if (!coincidence && !urgency && !gains) return 'Not assessed';
+            let score = 0;
+            if (coincidence === 'strong') score += 2; else if (coincidence === 'moderate') score += 1;
+            if (urgency === 'critical' || urgency === 'high') score += 2; else if (urgency === 'moderate') score += 1;
+            if (gains === 'high') score += 2; else if (gains === 'moderate') score += 1;
+            // Higher desire = lower severity (desire is a strength, not a challenge)
+            if (score >= 5) return 'None';
+            if (score >= 3) return 'Low';
+            if (score >= 1) return 'Moderate';
+            return 'Critical';
+        }
+
+        /** Get desire-specific interventions */
+        function getDesireInterventions() {
+            return 'If structural desire is weak, reconsider whether this market is worth engineering. Transient desire techniques can amplify existing desire but cannot create it.';
+        }
+
+        /** Assess geographic distance */
+        function assessGeo() {
+            const val = document.getElementById('q-geo-distance')?.value;
+            const map = { 'local': 'Low', 'regional': 'Low', 'national': 'Moderate', 'continental': 'High', 'global': 'High', 'virtual': 'Low' };
+            return map[val] || 'Not assessed';
+        }
+
+        /** Format display values */
+        function formatValue(val) {
+            const map = {
+                'one-to-one': 'One-to-One', 'one-to-many': 'One-to-Many', 'many-to-many': 'Many-to-Many',
+                'tiny': 'Very Small', 'small': 'Small', 'medium': 'Medium', 'large': 'Large',
+                'Not specified': '—'
+            };
+            return map[val] || val;
+        }
+
+        // Initialize progress
+        updateProgress(0);
+    </script>
+</body>
+
+</html>
