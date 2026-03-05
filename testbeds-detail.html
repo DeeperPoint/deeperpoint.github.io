@@ -1,0 +1,1143 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twenty Examples — In Detail | DeeperPoint</title>
+    <meta name="description"
+        content="Explore twenty real-world thin markets in depth — each a credible example of AI-driven market engineering. See the forces, the DeeperPoint fit, and the economic prize.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ═══════════════════════════════════════════
+           3-COLUMN LAYOUT — Desktop / Tablet / Mobile
+           ═══════════════════════════════════════════ */
+
+        /* ── Main layout container ── */
+        .examples-layout {
+            display: grid;
+            gap: 0;
+            min-height: 70vh;
+        }
+
+        /* ── Sidebar button columns ── */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+            padding: 0.5rem;
+        }
+
+        .sidebar-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--dp-silver);
+            font-size: 0.8125rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+            line-height: 1.3;
+            width: 100%;
+        }
+
+        .sidebar-btn:hover {
+            background: rgba(139, 92, 246, 0.08);
+            border-color: rgba(139, 92, 246, 0.25);
+            color: #fff;
+        }
+
+        .sidebar-btn.active {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: var(--dp-violet);
+            color: #fff;
+            box-shadow: 0 0 0 1px var(--dp-violet);
+        }
+
+        .sidebar-btn__num {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            color: var(--dp-violet);
+            background: rgba(139, 92, 246, 0.12);
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ── Center detail panel ── */
+        .detail-center {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .detail-center__placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 300px;
+            text-align: center;
+            color: var(--dp-muted);
+            gap: 0.75rem;
+        }
+
+        .detail-center__placeholder span {
+            font-size: 2.5rem;
+        }
+
+        .detail-center__placeholder p {
+            font-size: 1rem;
+            max-width: 300px;
+        }
+
+        .detail-center__title {
+            font-family: var(--font-display);
+            font-size: 1.375rem;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-center__field {
+            font-size: 0.75rem;
+            color: var(--dp-blue-light);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: var(--space-md);
+        }
+
+        .detail-center h4 {
+            font-size: 0.9375rem;
+            color: #fff;
+            margin-top: var(--space-md);
+            margin-bottom: 0.375rem;
+        }
+
+        .detail-center p,
+        .detail-center li {
+            color: var(--dp-silver);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        .detail-center ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .detail-center ul li {
+            padding-left: 1.25rem;
+            position: relative;
+            margin-bottom: 0.375rem;
+        }
+
+        .detail-center ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--dp-violet);
+            font-weight: 600;
+        }
+
+        .detail-center .econ-box {
+            margin-top: var(--space-md);
+            padding: 0.875rem;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            border-radius: var(--radius-md);
+        }
+
+        .detail-center .econ-box h4 {
+            color: var(--dp-emerald);
+            margin-top: 0;
+        }
+
+        .detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .detail-meta__item {
+            padding: 0.625rem 0.875rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+        }
+
+        .detail-meta__label {
+            font-size: 0.625rem;
+            color: var(--dp-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.125rem;
+        }
+
+        .detail-meta__value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .readiness-high {
+            color: var(--dp-emerald);
+        }
+
+        .readiness-medium-high {
+            color: var(--dp-cyan);
+        }
+
+        .readiness-medium {
+            color: var(--dp-amber);
+        }
+
+        .detail-center .force-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Force tag pills */
+        .force-tag {
+            display: inline-block;
+            padding: 0.125rem 0.5rem;
+            border-radius: 100px;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .force-tag--opacity {
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--dp-violet);
+        }
+
+        .force-tag--trust {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--dp-amber);
+        }
+
+        .force-tag--distance {
+            background: rgba(6, 182, 212, 0.12);
+            color: var(--dp-cyan);
+        }
+
+        .force-tag--regulation {
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+        }
+
+        .force-tag--complexity {
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--dp-emerald);
+        }
+
+        .force-tag--scarcity {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--dp-blue-light);
+        }
+
+        .force-tag--search {
+            background: rgba(168, 85, 247, 0.12);
+            color: #c084fc;
+        }
+
+        .force-tag--fulfillment {
+            background: rgba(251, 146, 60, 0.12);
+            color: #fb923c;
+        }
+
+        .force-tag--temporal {
+            background: rgba(236, 72, 153, 0.12);
+            color: #f472b6;
+        }
+
+        .force-tag--overload {
+            background: rgba(148, 163, 184, 0.12);
+            color: var(--dp-silver);
+        }
+
+        .force-tag--asymmetry {
+            background: rgba(34, 211, 238, 0.12);
+            color: #22d3ee;
+        }
+
+        .force-tag--risk {
+            background: rgba(244, 63, 94, 0.12);
+            color: #fb7185;
+        }
+
+        .force-tag--withholding {
+            background: rgba(251, 191, 36, 0.12);
+            color: #fbbf24;
+        }
+
+        /* ── Mobile tab strip ── */
+        .tab-strip {
+            display: none;
+        }
+
+        /* ═══════════════════════════════════
+           RESPONSIVE BREAKPOINTS
+           ═══════════════════════════════════ */
+
+        /* DESKTOP ≥ 1100px — 3 columns: sidebar | detail | sidebar */
+        @media (min-width: 1100px) {
+            .examples-layout {
+                grid-template-columns: 200px 1fr 200px;
+                gap: var(--space-sm);
+            }
+
+            .detail-center {
+                max-height: calc(100vh - 180px);
+                position: sticky;
+                top: 90px;
+            }
+
+            .sidebar {
+                max-height: calc(100vh - 180px);
+                overflow-y: auto;
+                position: sticky;
+                top: 90px;
+            }
+
+            /* Thin scrollbar for sidebars */
+            .sidebar::-webkit-scrollbar,
+            .detail-center::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .sidebar::-webkit-scrollbar-track,
+            .detail-center::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb,
+            .detail-center::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+        }
+
+        /* TABLET 700–1099px — 2 columns: all buttons | detail */
+        @media (min-width: 700px) and (max-width: 1099px) {
+            .examples-layout {
+                grid-template-columns: 180px 1fr;
+                gap: var(--space-sm);
+            }
+
+            .sidebar--right {
+                display: none;
+            }
+
+            .sidebar--left-tablet-extra {
+                display: flex;
+            }
+
+            .detail-center {
+                max-height: calc(100vh - 180px);
+                overflow-y: auto;
+                position: sticky;
+                top: 90px;
+            }
+
+            .sidebar {
+                max-height: calc(100vh - 180px);
+                overflow-y: auto;
+                position: sticky;
+                top: 90px;
+            }
+
+            .sidebar::-webkit-scrollbar,
+            .detail-center::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .sidebar::-webkit-scrollbar-track,
+            .detail-center::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb,
+            .detail-center::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+        }
+
+        /* MOBILE < 700px — tab strip + detail */
+        @media (max-width: 699px) {
+            .sidebar {
+                display: none;
+            }
+
+            .tab-strip {
+                display: flex;
+                gap: 0.375rem;
+                overflow-x: auto;
+                padding: 0.5rem 0;
+                margin-bottom: var(--space-md);
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+            }
+
+            .tab-strip::-webkit-scrollbar {
+                height: 3px;
+            }
+
+            .tab-strip::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .tab-strip::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+
+            .tab-pill {
+                padding: 0.375rem 0.75rem;
+                border-radius: 100px;
+                font-size: 0.75rem;
+                font-weight: 500;
+                border: 1px solid var(--glass-border);
+                background: rgba(255, 255, 255, 0.03);
+                color: var(--dp-silver);
+                cursor: pointer;
+                transition: all var(--transition-fast);
+                white-space: nowrap;
+                flex-shrink: 0;
+                font-family: var(--font-body);
+            }
+
+            .tab-pill:hover {
+                background: rgba(139, 92, 246, 0.08);
+                color: #fff;
+            }
+
+            .tab-pill.active {
+                background: rgba(139, 92, 246, 0.15);
+                border-color: var(--dp-violet);
+                color: #fff;
+            }
+
+            .detail-center {
+                padding: var(--space-md);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <ul class="nav__links">
+                <li><a href="thin-markets.html" class="nav__link nav__link--active">The Problem</a></li>
+                <li><a href="marketforge.html" class="nav__link">The Project</a></li>
+                <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero (compact) -->
+    <section class="spoke-hero" id="spoke-hero" style="padding-bottom: var(--space-lg);">
+        <div class="container container--narrow">
+            <div class="reveal">
+                <span class="spoke-hero__badge">🔬 Deep Dive</span>
+                <h1 class="spoke-hero__headline" style="font-size: clamp(1.75rem, 4vw, 2.5rem);">Twenty Examples — In
+                    Detail</h1>
+                <p class="spoke-hero__sub" style="color: var(--dp-blue-light); font-size: 1rem;">
+                    Select any example to explore the thin market problem, dominant forces, DeeperPoint fit, and
+                    economic prize.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main 3-Column Section -->
+    <section class="section" id="examples" style="padding-top: 0;">
+        <div class="container" style="max-width: 1300px;">
+
+            <!-- Mobile Tab Strip (hidden on desktop/tablet) -->
+            <div class="tab-strip reveal" id="tab-strip"></div>
+
+            <!-- 3-Column Grid -->
+            <div class="examples-layout reveal" id="examples-layout">
+
+                <!-- Left Sidebar: Examples 1–10 -->
+                <div class="sidebar sidebar--left" id="sidebar-left"></div>
+
+                <!-- Center Detail Panel -->
+                <div class="detail-center" id="detail-center">
+                    <div class="detail-center__placeholder" id="placeholder">
+                        <span>←</span>
+                        <p>Select an example from either side to view its full analysis</p>
+                    </div>
+                    <div id="detail-content" style="display:none;"></div>
+                </div>
+
+                <!-- Right Sidebar: Examples 11–20 -->
+                <div class="sidebar sidebar--right" id="sidebar-right"></div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-links -->
+    <section class="section" id="crosslinks" style="padding-top: var(--space-lg);">
+        <div class="container container--narrow">
+            <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <div class="crosslink" style="border-left-color: var(--dp-emerald); background: rgba(16,185,129,0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-emerald);">See the summary table</h3>
+                        <p>View all twenty examples in a compact reference table with force tags and readiness rankings.
+                        </p>
+                    </div>
+                    <a href="testbeds.html" class="btn btn--primary"
+                        style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff;">Summary
+                        Table →</a>
+                </div>
+
+                <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6,182,212,0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-cyan);">Diagnose your market</h3>
+                        <p>Walk through a structured assessment of your specific market's challenges using the Market
+                            Engineer's Diagnostic Checklist.</p>
+                    </div>
+                    <a href="market-diagnostic.html" class="btn btn--primary"
+                        style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;">Start Diagnostic
+                        →</a>
+                </div>
+
+                <div class="crosslink" style="border-left-color: var(--dp-violet); background: rgba(139,92,246,0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-violet);">Read the whitepaper</h3>
+                        <p>A comprehensive treatment of market physics, engineering interventions, and the AI revolution
+                            in market design.</p>
+                    </div>
+                    <a href="whitepaper.html" class="btn btn--primary"
+                        style="background: var(--dp-violet); border-color: var(--dp-violet); color: #fff;">Read
+                        Whitepaper →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank"
+                            rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank"
+                            rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reveal.js"></script>
+    <script>
+        /**
+         * Testbeds Detail Page — 3-Column Layout with Responsive Breakpoints
+         * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+         */
+        const DATA = [
+            {
+                id: 1, name: "Cross-Border Specialty Grain Trade", short: "Cross-Border Grain Trade",
+                field: "Agricultural commodities / international trade",
+                problem: "Canadian producers of malting barley, durum wheat, and specialty canola face fragmented demand across Southeast Asia. Mills and processors need reliable supply but cannot identify, evaluate, or contract with individual Canadian farms or regional aggregators.",
+                forces: ["distance", "opacity", "regulation", "trust", "complexity"],
+                forceDetails: [
+                    "Geographic distance — oceans separate supply from demand; logistics are complex and costly",
+                    "Opacity — quality grading systems (CGC, GAFTA) are neither well-known nor mutually understood across jurisdictions",
+                    "Regulatory fragmentation — phytosanitary requirements, import permits, and tariff schedules differ by destination country",
+                    "Trust deficit — neither party can easily verify the other's reliability without intermediaries",
+                    "Offering complexity — grain lots vary by grade, moisture content, protein levels, origin, and certification"
+                ],
+                fit: [
+                    "Reference vertical already identified in the MarketForge roadmap (§10 — first complete digital twin: Tier 2, grain trade)",
+                    "KnowledgeSlot curation underway (GAFTA Contract No. 27 already converted)",
+                    "Deal Brief / Handoff Artifact maps directly to commercial documents needed",
+                    "Geographic and temporal distance modelling (Cosolvent §15) addresses cross-border logistics",
+                    "Multilateral deal assembly (Cosolvent §3) accommodates the buyer-seller-facilitator triad"
+                ],
+                econ: "Canada exported over CAD $30 billion in agricultural products in 2024, but participation by smaller farms and cooperatives is thin. Even a modest increase in direct matching between mid-sized Canadian growers and Southeast Asian processors could create hundreds of new commercial relationships.",
+                tier: "Tier 2", readiness: "Highest", readinessClass: "readiness-high"
+            },
+            {
+                id: 2, name: "Freelance Localization and Translation Services", short: "Freelance Localization",
+                field: "Professional services / creative economy",
+                problem: "Companies needing high-quality translation into low-resource language pairs (e.g., Tagalog–Norwegian, Swahili–Korean) struggle to find qualified linguists. Meanwhile, skilled translators in these pairs struggle to find clients.",
+                forces: ["scarcity", "opacity", "overload", "complexity", "temporal"],
+                forceDetails: [
+                    "Participant scarcity — very few translators work in low-resource pairs; very few clients know to look for them",
+                    "Opacity — quality is hard to assess without domain expertise; credentials vary wildly across countries",
+                    "Cognitive overload — buyers cannot evaluate translator quality across unfamiliar language pairs",
+                    "Offering complexity — localization involves translation, cultural adaptation, format conversion, terminology management",
+                    "Temporal distance — urgent, asynchronous timelines; time zone coordination adds friction"
+                ],
+                fit: [
+                    "Semantic matching (Cosolvent §4) encodes language pairs, domain specializations, certification levels as rich embedding signals",
+                    "Three-layer information architecture protects linguists' rate information while revealing capabilities",
+                    "Trusted intermediary protocol assesses fit without exposing confidential details prematurely",
+                    "Asynchronous brokerage agents (Cosolvent §7) handle time-zone challenges",
+                    "Knowledge Slot stores localization standards (ISO 17100, ASTM F2575) and terminology databases"
+                ],
+                econ: "The global translation and localization market exceeds USD $60 billion but is dominated by a few large providers. AI-driven matching in underserved language pairs could directly create freelance income for thousands of linguists in developing countries.",
+                tier: "Tier 1–2", readiness: "High", readinessClass: "readiness-high"
+            },
+            {
+                id: 3, name: "Surplus Industrial Equipment Resale", short: "Surplus Equipment",
+                field: "Industrial manufacturing / secondary markets",
+                problem: "When a manufacturer decommissions a CNC milling machine or laser cutter, it often sits idle or is sold for scrap — despite another manufacturer across the region valuing it. No efficient discovery mechanism exists.",
+                forces: ["search", "complexity", "trust", "fulfillment", "asymmetry"],
+                forceDetails: [
+                    "Search friction — no single platform aggregates surplus industrial equipment with sufficient detail",
+                    "Offering complexity — each piece is effectively unique (year, condition, tooling, modifications, power requirements)",
+                    "Trust deficit — buying a $200K machine from an unknown seller without inspection is high-risk",
+                    "Fulfillment constraints — heavy equipment requires specialized transport, rigging, and sometimes permitting",
+                    "Information asymmetry — the seller knows the machine's history; the buyer does not"
+                ],
+                fit: [
+                    "Semantic matching handles offering complexity: AI matches based on capability specifications rather than exact model numbers",
+                    "Deal Brief captures inspection requirements, transport logistics, warranty terms, and installation constraints",
+                    "Facilitator role slots (Cosolvent §3) accommodate inspectors, riggers, freight companies, and installation technicians",
+                    "Gallery profile / matching profile split protects pricing while revealing capabilities",
+                    "Reputation and verification (Cosolvent §9) build trust across transactions"
+                ],
+                econ: "The used industrial machinery market is estimated at over USD $200 billion globally but is profoundly fragmented. Equipment that depreciates to scrap value could retain 40–70% of its original value if matched appropriately.",
+                tier: "Tier 2", readiness: "High", readinessClass: "readiness-high"
+            },
+            {
+                id: 4, name: "Cross-Border Telehealth for Underserved Specialties", short: "Cross-Border Telehealth",
+                field: "Healthcare / professional services",
+                problem: "Patients in rural areas need specialists (e.g., pediatric endocrinology, neuropsychology) who may not exist within hundreds of miles. Specialists have capacity but can't discover distant patients — especially across licensing jurisdictions.",
+                forces: ["regulation", "scarcity", "trust", "asymmetry", "overload"],
+                forceDetails: [
+                    "Regulatory fragmentation — medical licensing is jurisdiction-specific; cross-border telehealth involves overlapping regulatory regimes",
+                    "Participant scarcity — sub-specialists are inherently few; rural patients are dispersed",
+                    "Trust deficit — patients need assurance of legitimate credentials; providers need assurance of appropriate referral",
+                    "Information asymmetry — patients cannot evaluate specialist qualifications; specialists cannot assess patient complexity remotely",
+                    "Cognitive overload — navigating insurance coverage, licensing reciprocity, and appointment availability across jurisdictions"
+                ],
+                fit: [
+                    "Knowledge Slot curates licensing reciprocity agreements, telehealth regulations, insurance rules, and clinical guidelines",
+                    "Semantic matching aligns patient conditions, specialist expertise, licensing jurisdictions, and insurance acceptance",
+                    "Trusted intermediary protocol protects patient health information while enabling AI-assessed matching",
+                    "Deal assembly captures the referral structure: referring provider → specialist → patient",
+                    "User aggregation (Cosolvent §12) allows rural health networks to participate collectively"
+                ],
+                econ: "Connecting even a small percentage of tens of millions of underserved patients to available specialists would generate new telehealth revenue, create clinical coordinator jobs, and improve health outcomes.",
+                tier: "Tier 3", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 5, name: "Independent Film Distribution to Regional Markets", short: "Indie Film Distribution",
+                field: "Entertainment / creative economy",
+                problem: "Independent filmmakers — especially in non-English languages — struggle to find theatrical distributors and regional streaming buyers. Art-house cinemas in smaller markets struggle to find quality content. Both sides exist; neither can find the other.",
+                forces: ["opacity", "complexity", "distance", "trust", "risk"],
+                forceDetails: [
+                    "Opacity — the distribution ecosystem is relationship-driven and opaque to outsiders",
+                    "Offering complexity — assessing fit requires considering genre, language, runtime, certification, format, rights windows, and territory",
+                    "Geographic distance — buyers and sellers are dispersed across continents and time zones",
+                    "Trust deficit — unproven filmmakers have no track record; small distributors offer uncertain returns",
+                    "Risk — distribution deals involve upfront investment with uncertain returns"
+                ],
+                fit: [
+                    "Semantic matching handles multi-attribute film-to-market fit: genre, language, territory, audience profile, thematic alignment",
+                    "Three-layer architecture protects financial terms while revealing creative and technical attributes",
+                    "Knowledge Slot curates territory-specific certification requirements (BBFC, KFCB, MTRCB) and standard contract terms",
+                    "Handoff Artifact / Deal Brief captures rights window, territory, financial terms, and deliverables",
+                    "Facilitator roles accommodate sales agents, subtitling services, and technical delivery partners"
+                ],
+                econ: "The global film industry produces thousands of features annually that never reach viable audiences. Matching even a fraction to underserved regional markets would generate new revenue for filmmakers and create jobs in subtitling, marketing, and exhibition.",
+                tier: "Tier 2", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 6, name: "Specialty Timber and Sustainably Harvested Wood Products", short: "Specialty Timber",
+                field: "Forestry / construction / artisan manufacturing",
+                problem: "Producers of FSC-certified sustainable timber, reclaimed wood, and specialty hardwoods cannot easily connect with the architects, furniture makers, and instrument manufacturers who would pay a premium.",
+                forces: ["complexity", "search", "trust", "distance", "fulfillment"],
+                forceDetails: [
+                    "Offering complexity — each lot is unique: species, dimensions, grade, certification, seasoning method, provenance",
+                    "Search friction — no effective mechanism to search across small producers for specific species, dimensions, and certifications",
+                    "Trust deficit — sustainability certification and provenance claims are hard to verify without chain-of-custody documentation",
+                    "Geographic distance — best sources are often remote (rural sawmills, salvage operations, managed forests)",
+                    "Fulfillment constraints — timber transport requires specialized handling; small lots are uneconomical for standard freight"
+                ],
+                fit: [
+                    "Knowledge Slot curates FSC/PEFC standards, chain-of-custody documentation, species identification guides",
+                    "Semantic matching handles multidimensional search: species, dimensions, grade, certification, geographic origin",
+                    "Verification pipeline (Cosolvent §9.1) validates sustainability certifications through document analysis",
+                    "User aggregation (Cosolvent §12) allows small producers to pool offerings for economical logistics",
+                    "Deal Brief captures species, dimensions, grade, certification chain, transport requirements"
+                ],
+                econ: "The global market for sustainable wood products is growing at over 8% annually. AI-driven matching could connect thousands of small-scale sustainable forestry operations with premium buyers — generating rural forestry income and certified-sustainable supply chains.",
+                tier: "Tier 1–2", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 7, name: "Contract Research Organizations and Biotech Startups", short: "Biotech–CRO Matching",
+                field: "Life sciences / pharmaceutical outsourcing",
+                problem: "Early-stage biotech startups need specialized contract research services but cannot identify which CROs have the specific capability, capacity, and regulatory accreditation they need. Mid-sized CROs with niche expertise cannot efficiently reach the startups that need them.",
+                forces: ["opacity", "complexity", "risk", "regulation", "asymmetry"],
+                forceDetails: [
+                    "Opacity — CRO capabilities are described in generic marketing language; actual expertise is buried in technical documentation",
+                    "Offering complexity — each CRO offers a unique combination of capabilities, accreditations, therapeutic area experience",
+                    "Risk — choosing the wrong CRO can delay a drug program by months or years",
+                    "Regulatory fragmentation — accreditation requirements (GLP, GMP, ICH) vary by target regulatory jurisdiction",
+                    "Information asymmetry — the CRO knows its capacity; the startup knows its requirements; neither has full visibility"
+                ],
+                fit: [
+                    "Semantic matching encodes therapeutic area, study type, species experience, accreditation status, and capacity",
+                    "Knowledge Slot curates regulatory guidance documents (FDA guidances, ICH guidelines, GLP requirements)",
+                    "Trusted intermediary protocol protects proprietary program details during matching",
+                    "Deal Brief captures protocol outline, regulatory requirements, timeline, milestones, and deliverables",
+                    "Facilitator role slots accommodate regulatory consultants, sample logistics providers, and data management"
+                ],
+                econ: "The global CRO market exceeds USD $80 billion. Better matching could accelerate hundreds of drug development programs annually, creating research jobs at mid-sized CROs and shortening timelines for life-saving therapies.",
+                tier: "Tier 2–3", readiness: "Medium", readinessClass: "readiness-medium"
+            },
+            {
+                id: 8, name: "Artisan Food Producers and Specialty Retail / HoReCa", short: "Artisan Food → Retail",
+                field: "Food and beverage / specialty retail",
+                problem: "Small-batch producers of artisan cheeses, cured meats, heritage grains, and craft condiments are too small and geographically dispersed for conventional food distribution to serve profitably. Specialty retailers and restaurants can't find them.",
+                forces: ["distance", "fulfillment", "complexity", "trust", "search"],
+                forceDetails: [
+                    "Geographic distance — artisan producers are often rural; buyers are urban",
+                    "Fulfillment constraints — many products require cold chain, short shelf life management, or small-lot delivery",
+                    "Offering complexity — each product is unique in provenance, production method, flavor profile, certification, and seasonal availability",
+                    "Trust deficit — food safety certification, production scale reliability, and consistent quality are hard to verify remotely",
+                    "Search friction — neither producers nor buyers have efficient discovery mechanisms beyond trade shows"
+                ],
+                fit: [
+                    "Semantic matching handles multi-attribute product-to-buyer fit: product type, flavor profile, certification, delivery capability",
+                    "Knowledge Slot curates food safety regulations (HACCP, SQF), certification requirements, and labeling standards",
+                    "User aggregation (Cosolvent §12) allows small producers to form virtual cooperatives for logistics",
+                    "Verification pipeline validates food safety certifications and production capacity claims",
+                    "Facilitator role slots accommodate cold chain logistics, food safety inspectors, and specialty distributors"
+                ],
+                econ: "The global specialty food market exceeds USD $170 billion and is growing rapidly. AI-driven matching could bring hundreds of artisan producers into premium distribution channels — creating farm income and enriching the culinary landscape.",
+                tier: "Tier 1–2", readiness: "Medium", readinessClass: "readiness-medium"
+            },
+            {
+                id: 9, name: "Pro Bono and Low Bono Legal Services Matching", short: "Pro Bono Legal",
+                field: "Legal services / social impact",
+                problem: "Nonprofits and underserved individuals need specialized legal help. Qualified attorneys willing to provide pro bono work can't find the clients who need them. Bar association clearinghouses are local, primitive, and unable to match on expertise.",
+                forces: ["scarcity", "opacity", "overload", "trust", "asymmetry"],
+                forceDetails: [
+                    "Participant scarcity — the pool of attorneys with relevant expertise and willingness to do pro bono work is small",
+                    "Opacity — organizations cannot assess which attorneys have relevant experience; attorneys cannot discover matching organizations",
+                    "Cognitive overload — a nonprofit needing 'immigration help' may not distinguish asylum specialists from visa attorneys",
+                    "Trust deficit — attorneys need case legitimacy assurance; clients need competence assurance",
+                    "Strategic information withholding — attorneys may be reluctant to advertise pro bono availability; clients may be reluctant to disclose sensitive needs"
+                ],
+                fit: [
+                    "Semantic matching encodes legal specialty, jurisdiction, case type, language capability, and availability",
+                    "Trusted intermediary protocol assesses match quality without exposing sensitive client details",
+                    "Knowledge Slot curates pro bono hour requirements, legal aid eligibility guidelines, and practice resources",
+                    "Three-layer architecture protects client confidentiality while revealing case characteristics",
+                    "Psychological framing (Cosolvent §13) presents opportunities in frames that motivate different attorney segments"
+                ],
+                econ: "The 'justice gap' affects tens of millions. Better matching would generate measurable economic value: prevented evictions, resolved immigration status enabling employment, protected IP for social enterprises.",
+                tier: "Tier 1", readiness: "Medium", readinessClass: "readiness-medium"
+            },
+            {
+                id: 10, name: "Indigenous and Community-Based Ecotourism", short: "Community Ecotourism",
+                field: "Tourism / community development / conservation",
+                problem: "Small community-based ecotourism operators in biodiverse regions — Indigenous-led lodges, community conservancies, village-based reef tourism — are invisible to the international travelers who would pay for them. Conventional OTAs can't model these complex, culturally embedded experiences.",
+                forces: ["opacity", "complexity", "trust", "fulfillment", "overload"],
+                forceDetails: [
+                    "Opacity — these operators are invisible on mainstream platforms; travelers don't know they exist",
+                    "Offering complexity — each experience is unique: cultural protocols, seasonal availability, group size limits, permit needs",
+                    "Trust deficit — travelers need assurance of safety and authenticity; operators need assurance of guest suitability",
+                    "Fulfillment constraints — reaching remote locations involves multi-modal transport and local infrastructure",
+                    "Cognitive overload — comparing community-based options across countries and ecosystems is overwhelming"
+                ],
+                fit: [
+                    "Semantic matching handles complex experience-to-traveler fit: ecosystem, cultural focus, physical difficulty, season, price",
+                    "Knowledge Slot curates conservation regulations, permits, cultural protocols, and responsible tourism guidelines",
+                    "Three-layer architecture protects community-sensitive information while revealing experience characteristics",
+                    "Facilitator role slots accommodate local transport, licensed guides, permit agencies, and responsible travel certifiers",
+                    "User aggregation (Cosolvent §12) lets community operators present unified regional offerings"
+                ],
+                econ: "The global ecotourism market is projected to reach USD $335 billion by 2027, but community-based operators capture only a tiny fraction. AI-driven matching could channel tourism revenue directly to communities currently bypassed.",
+                tier: "Tier 2", readiness: "Medium", readinessClass: "readiness-medium"
+            },
+            {
+                id: 11, name: "Adaptive Reuse of Commercial Real Estate", short: "Commercial RE Reuse",
+                field: "Real estate / urban development / small business",
+                problem: "In mid-sized cities, vacant commercial properties sit idle for years while entrepreneurs can't find affordable, appropriate space. Properties are too idiosyncratic for standard listings; prospective uses too nonstandard for commercial brokers.",
+                forces: ["complexity", "search", "asymmetry", "regulation", "risk"],
+                forceDetails: [
+                    "Offering complexity — each property is unique in zoning, condition, utilities, accessibility, and renovation requirements",
+                    "Search friction — commercial RE platforms are designed for standardized searches, not adaptive reuse",
+                    "Information asymmetry — landlords know the property's true condition; tenants know their actual needs",
+                    "Regulatory fragmentation — zoning, building code, ADA compliance, and environmental requirements vary by municipality",
+                    "Risk — landlords risk tenant default; tenants risk renovation overruns"
+                ],
+                fit: [
+                    "Semantic matching handles multidimensional fit: footage, zoning, condition, renovation potential, transit proximity",
+                    "Knowledge Slot curates municipal zoning codes, tax incentive programs, historic preservation credits, ADA guides",
+                    "Deal Brief captures lease terms, tenant improvement allowance, zoning variance, renovation scope",
+                    "Facilitator role slots accommodate architects, zoning attorneys, inspectors, and adaptive reuse lenders",
+                    "Trusted intermediary protocol protects landlord's minimum rent and tenant's maximum budget"
+                ],
+                econ: "The National Main Street Center estimates every $1 invested in downtown revitalization generates $26 in economic impact. Matching vacant properties to viable tenants directly creates small business jobs and local economic activity.",
+                tier: "Tier 2", readiness: "High", readinessClass: "readiness-high"
+            },
+            {
+                id: 12, name: "Heritage Craft Apprenticeship and Commission Matching", short: "Heritage Crafts",
+                field: "Traditional crafts / cultural heritage / skilled trades",
+                problem: "Master craftspeople in heritage trades — blacksmithing, stone masonry, timber framing, bookbinding — face twin problems: they can't find apprentices willing to learn, and they can't find clients willing to commission bespoke work at sustainable prices.",
+                forces: ["scarcity", "opacity", "complexity", "overload", "trust"],
+                forceDetails: [
+                    "Participant scarcity — both master craftspeople and qualified apprentice candidates are few and dispersed",
+                    "Opacity — master craftspeople have minimal web presence; reputations circulate by word of mouth",
+                    "Offering complexity — a timber framer specializing in Japanese joinery is not interchangeable with one doing English barn frames",
+                    "Cognitive overload — a client commissioning heritage stonework cannot easily evaluate technique distinctions",
+                    "Trust deficit — commissions are high-value, high-trust; requires confidence in craftsmanship and timeline reliability"
+                ],
+                fit: [
+                    "Semantic matching encodes craft disciplines, techniques, materials expertise, geographic availability, and apprenticeship capacity",
+                    "Gallery profile showcases portfolio work while matching profile captures capacity, pricing, and project preferences",
+                    "Knowledge Slot curates heritage conservation standards, material specifications, and certification requirements",
+                    "Deal Brief captures commission scope, materials, timeline, site conditions, and conservation constraints",
+                    "Facilitator role slots accommodate conservation officers, material suppliers, and heritage certification bodies"
+                ],
+                econ: "Heritage craft skills are recognized by UNESCO as endangered intangible cultural heritage. A functioning market that connects craftspeople with commissions sustains their livelihood, justifies apprenticeships, and preserves irreplaceable skills.",
+                tier: "Tier 1", readiness: "High", readinessClass: "readiness-high"
+            },
+            {
+                id: 13, name: "Licensed Technology Transfer from University Labs", short: "University Tech Transfer",
+                field: "Technology commercialization / intellectual property",
+                problem: "Universities generate thousands of patentable inventions annually, but TTOs struggle to find licensees. Small manufacturers seeking novel materials or processes have no mechanism to discover relevant university-held IP.",
+                forces: ["opacity", "search", "asymmetry", "risk", "withholding"],
+                forceDetails: [
+                    "Opacity — university patents are described in legal language incomprehensible to most industry practitioners",
+                    "Search friction — patent databases are searchable by legal classification, not commercial application",
+                    "Information asymmetry — the university knows the science; the licensee knows the market need",
+                    "Risk — licensing a lab-stage invention requires development investment with uncertain return",
+                    "Strategic information withholding — both sides are reluctant to disclose prematurely"
+                ],
+                fit: [
+                    "Semantic matching bridges the language gap: encoding inventions by technical capability rather than patent classification",
+                    "Trusted intermediary protocol is essential: AI assesses fit without revealing proprietary details",
+                    "Knowledge Slot curates license term benchmarks, Bayh-Dole obligations, and regulatory requirements",
+                    "Deal Brief captures field of use, territory, exclusivity, royalty terms, and development milestones",
+                    "Facilitator role slots accommodate IP attorneys, due diligence consultants, and commercialization advisors"
+                ],
+                econ: "U.S. university licensing generated over USD $4 billion in recent years, but represents a small fraction of available portfolio. Unlocking even 5% more dormant IP could generate billions in new product revenue.",
+                tier: "Tier 2", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 14, name: "Emergency and Disaster Relief Supply Chain Coordination", short: "Disaster Relief Supply",
+                field: "Humanitarian logistics / disaster response",
+                problem: "When disaster strikes, relief organizations need specific commodities urgently. Local suppliers may have stock — but matching happens under extreme time pressure with degraded communications and no pre-existing relationships. Local suppliers are bypassed in favor of slow international procurement.",
+                forces: ["temporal", "opacity", "trust", "regulation", "fulfillment"],
+                forceDetails: [
+                    "Temporal distance — extreme urgency; the value of a match decays rapidly with time",
+                    "Opacity — local supplier inventories are not visible to relief coordinators; relief needs are not visible to suppliers",
+                    "Trust deficit — relief organizations need quality/delivery assurance; suppliers need payment assurance",
+                    "Regulatory fragmentation — customs clearance, import permits, and quality certifications vary by country and commodity",
+                    "Fulfillment constraints — disaster conditions degrade transport infrastructure"
+                ],
+                fit: [
+                    "Semantic matching pre-indexes supplier inventories against standardized relief commodity categories (UNHCR, WHO)",
+                    "Knowledge Slot curates disaster response protocols (Sphere Standards, OCHA frameworks), customs fast-track procedures",
+                    "Geographic and temporal distance modelling (Cosolvent §15) prioritizes proximity and speed over lowest cost",
+                    "Deal Brief captures item type, quantity, quality standard, delivery point and window, payment terms, customs docs",
+                    "Pre-registration and pre-verification (Cosolvent §9) transform crisis-time matching into readiness-time configuration"
+                ],
+                econ: "The humanitarian aid market exceeds USD $31 billion annually. Shifting emergency procurement to pre-verified local suppliers would reduce delivery times, create local economic activity in disaster-affected regions, and reduce transport costs.",
+                tier: "Tier 2–3", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 15, name: "Immigrant Professional Credential Recognition", short: "Immigrant Credentials",
+                field: "Labour market / immigration / professional services",
+                problem: "Skilled immigrants — engineers, nurses, accountants — arrive with credentials not recognized by local professional bodies. Meanwhile, employers face persistent labor shortages in those same professions. Neither side can navigate the credential recognition labyrinth.",
+                forces: ["regulation", "opacity", "asymmetry", "overload", "trust"],
+                forceDetails: [
+                    "Regulatory fragmentation — professional licensing varies by state/province and profession; multiple overlapping bodies",
+                    "Opacity — immigrants cannot discover relevant bridging programs; employers cannot identify immigrants with genuine skills",
+                    "Information asymmetry — the immigrant knows their qualifications; the employer knows local requirements; neither sees the gap",
+                    "Cognitive overload — navigating which body evaluates credentials, what exams are needed, which employer sponsors bridging",
+                    "Trust deficit — employers face risk hiring someone whose credentials they cannot verify through familiar channels"
+                ],
+                fit: [
+                    "Semantic matching aligns immigrant profiles with employer requirements, bridging eligibility, and mentorship opportunities",
+                    "Knowledge Slot curates licensing requirements by jurisdiction and profession, credential equivalency tables",
+                    "Trusted intermediary protocol shares verified credential results without exposing personal immigration details",
+                    "Deal Brief captures position, credential gaps, bridging plan, mentorship commitment, and timeline to licensure",
+                    "Psychological framing (Cosolvent §13) addresses immigrant uncertainty and employer risk perception"
+                ],
+                econ: "Skilled immigrants in OECD countries earn 20–40% below potential due to credential non-recognition — representing billions in lost GDP. Matching immigrants to credential pathways and employers simultaneously alleviates labor shortages in critical professions.",
+                tier: "Tier 2", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 16, name: "Marine Vessel Chartering for Small Cargo", short: "Short Sea Shipping",
+                field: "Maritime logistics / coastal trade",
+                problem: "Manufacturers and agricultural exporters in coastal regions need to move cargo too large for trucking but too small for container lines. Small vessel operators have capacity but can't find matching cargo. Vessels sail under-loaded while shippers pay premium trucking rates.",
+                forces: ["temporal", "search", "complexity", "distance", "fulfillment"],
+                forceDetails: [
+                    "Temporal distance — cargo availability and vessel schedules must align within narrow windows",
+                    "Search friction — no platform aggregates small vessel availability with small cargo demand",
+                    "Offering complexity — each vessel has specific capabilities: draft, cargo gear, deck/hold capacity, hazmat certification",
+                    "Geographic distance — coastal and island routes are inherently dispersed; each corridor is its own micro-market",
+                    "Fulfillment constraints — port infrastructure, tidal windows, berth availability, and cargo handling vary by port"
+                ],
+                fit: [
+                    "Semantic matching handles multidimensional vessel-cargo fit: type, volume, weight, handling, ports, time window",
+                    "Geographic and temporal distance modelling (Cosolvent §15) accounts for vessel positioning, sailing time, weather",
+                    "Knowledge Slot curates port facility data, draft restrictions, hazmat regulations, and standard BIMCO chartering terms",
+                    "Deal Brief captures voyage charter specification: cargo, ports, laydays, demurrage, freight rate, insurance",
+                    "Anticipatory matching (Cosolvent §8) proactively notifies shippers when matching vessels reposition through their corridor"
+                ],
+                econ: "Short sea shipping is recognized by the EU and ASEAN as a critical but underutilized transport mode. Better matching would increase vessel utilization, reduce shipping costs, create port-side employment, and reduce road carbon emissions.",
+                tier: "Tier 2", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 17, name: "Independent Music Sync Licensing", short: "Music Sync Licensing",
+                field: "Music industry / media production / licensing",
+                problem: "Music supervisors for films, TV, and games need specific musical-emotional qualities. Independent musicians produce thousands of suitable tracks at lower cost — but the matching problem is acute. Neither side can efficiently search the other's space.",
+                forces: ["search", "opacity", "complexity", "asymmetry", "withholding"],
+                forceDetails: [
+                    "Search friction — existing sync platforms offer keyword search, but musical-emotional fit is subjective and multidimensional",
+                    "Opacity — independent artists are invisible to most supervisors; sync opportunities are invisible to most artists",
+                    "Offering complexity — each track has unique attributes: mood, tempo, instrumentation, lyrical content, stems availability",
+                    "Information asymmetry — the supervisor knows the visual/emotional context; the artist knows their catalog's potential",
+                    "Strategic information withholding — supervisors won't broadcast projects; artists won't reveal minimum fees"
+                ],
+                fit: [
+                    "Semantic matching is the defining capability: AI encodes musical-emotional qualities as embedding signals",
+                    "Trusted intermediary protocol protects project details and minimum acceptable fees",
+                    "Three-layer architecture lets artists curate listening profiles while keeping pricing in the matching profile",
+                    "Deal Brief captures sync license terms: usage type, territory, duration, fee, credit, exclusivity",
+                    "Knowledge Slot curates standard sync terms, PRO registration requirements (ASCAP/BMI/SESAC/PRS)"
+                ],
+                econ: "The global sync licensing market exceeds USD $5 billion and is growing rapidly. AI-driven matching could channel significant sync revenue to independent musicians while reducing costs for supervisors.",
+                tier: "Tier 1–2", readiness: "High", readinessClass: "readiness-high"
+            },
+            {
+                id: 18, name: "Small-Scale Renewable Energy and Community Microgrids", short: "Community Energy",
+                field: "Energy / sustainability / community development",
+                problem: "Community organizations and small municipalities seeking renewable energy systems can't find qualified installers at their scale. Small renewable energy companies can't find projects matching their capabilities. Government incentives are fragmented and opaque.",
+                forces: ["search", "regulation", "complexity", "overload", "trust"],
+                forceDetails: [
+                    "Search friction — no platform matches small-scale energy projects with appropriately scaled installers",
+                    "Regulatory fragmentation — interconnection requirements, net metering rules, permits, and incentives vary by utility territory",
+                    "Offering complexity — each project involves unique site characteristics, energy needs, technology options, and financing structures",
+                    "Cognitive overload — a community board faces bewildering technology, financing, and regulatory choices",
+                    "Trust deficit — communities are wary of fly-by-night installers; installers are wary of governance complications"
+                ],
+                fit: [
+                    "Semantic matching handles project-to-provider fit: scale, technology, site, interconnection, and financing structure",
+                    "Knowledge Slot curates incentive inventories, interconnection standards, net metering rules, and standard PPA/lease structures",
+                    "Deal Brief captures site assessment, system design, interconnection application, incentives, financing, and timeline",
+                    "Facilitator role slots accommodate interconnection engineers, permitting consultants, and financing providers",
+                    "User aggregation (Cosolvent §12) allows communities to pool demand for better pricing"
+                ],
+                econ: "The IEA projects that distributed and community-scale renewables will account for over 40% of new capacity globally. The U.S. DOE estimates community solar alone could generate 26 GW of capacity.",
+                tier: "Tier 2", readiness: "Medium-High", readinessClass: "readiness-medium-high"
+            },
+            {
+                id: 19, name: "Rare and Orphan Disease Patient-to-Trial Matching", short: "Rare Disease Trials",
+                field: "Healthcare / clinical research",
+                problem: "Patients with rare diseases need access to clinical trials that may be their only treatment option. Trial sponsors can't recruit adequate enrollment because they can't locate eligible patients. Both sides desperately want to connect.",
+                forces: ["scarcity", "opacity", "complexity", "overload", "distance"],
+                forceDetails: [
+                    "Participant scarcity — by definition, rare disease patients are few and geographically dispersed",
+                    "Opacity — patients may not know a trial exists; researchers may not know a patient exists",
+                    "Offering complexity — eligibility criteria involve specific genetic markers, disease stage, treatment history, co-morbidity exclusions",
+                    "Cognitive overload — patients face overwhelming registries, databases, advocacy groups, and compassionate use programs",
+                    "Geographic distance — the nearest qualifying trial site may be in another state or country"
+                ],
+                fit: [
+                    "Semantic matching aligns patient profiles with trial eligibility criteria far more effectively than keyword search",
+                    "Trusted intermediary protocol protects patient health information while enabling AI-assessed matching",
+                    "Knowledge Slot curates trial eligibility criteria, rare disease taxonomy (Orphanet), advocacy directories, travel assistance",
+                    "Three-layer architecture keeps medical history in the matching profile; gallery profile reveals only consented information",
+                    "Anticipatory matching (Cosolvent §8) proactively matches registered patients as new trials open enrollment"
+                ],
+                econ: "The global orphan drug market exceeds USD $200 billion and is the fastest-growing pharma segment. Every month of trial delay costs sponsors USD $600K–$8M and delays patient access to life-saving treatment.",
+                tier: "Tier 2–3", readiness: "Medium", readinessClass: "readiness-medium"
+            },
+            {
+                id: 20, name: "Decommissioned Military Technology Transfer", short: "Military Tech Transfer",
+                field: "Defense / technology conversion / industrial innovation",
+                problem: "Defense agencies hold vast portfolios of decommissioned technology with civilian potential — advanced materials, ruggedized electronics, water purification — but civilian companies cannot discover what's available, and defense TTOs cannot find the right civilian partners.",
+                forces: ["opacity", "regulation", "asymmetry", "trust", "withholding"],
+                forceDetails: [
+                    "Opacity — decommissioned technology is described in defense-specific terminology inaccessible to civilian industry",
+                    "Regulatory fragmentation — export control regimes (ITAR, EAR, Wassenaar), security clearances, and procurement rules create a labyrinth",
+                    "Information asymmetry — the defense agency knows capabilities; the civilian company knows the application",
+                    "Trust deficit — defense agencies need assurance against misuse/re-export; civilians need assurance of commercializability",
+                    "Strategic information withholding — some details require clearance; commercial partners won't reveal development plans"
+                ],
+                fit: [
+                    "Semantic matching bridges defense and civilian terminology by encoding technologies by functional capability rather than military designation",
+                    "Trusted intermediary protocol handles clearance: AI assesses fit based on unclassified characterizations before classified engagement",
+                    "Knowledge Slot curates export control regulations (ITAR categories, EAR classifications), TRL definitions, and standard transfer terms",
+                    "Deal Brief captures license scope, field of use, export compliance plan, development milestones, and royalty terms",
+                    "Facilitator role slots accommodate export control counsel, technical due diligence consultants, and security facilitators"
+                ],
+                econ: "Historically, military-to-civilian technology transfer produced GPS, the internet, microwave ovens, jet engines, and advanced composites. Yet the systematic pipeline is inefficient — U.S. defense labs alone generate thousands of licensable technologies annually, most never finding civilian application.",
+                tier: "Tier 2–3", readiness: "Medium", readinessClass: "readiness-medium"
+            }
+        ];
+
+        const FORCE_LABELS = {
+            opacity: 'Opacity', trust: 'Trust', distance: 'Distance', regulation: 'Regulation',
+            complexity: 'Complexity', scarcity: 'Scarcity', search: 'Search Friction',
+            fulfillment: 'Fulfillment', temporal: 'Temporal', overload: 'Cognitive Overload',
+            asymmetry: 'Asymmetry', risk: 'Risk', withholding: 'Withholding'
+        };
+
+        /* ── Build sidebar buttons ── */
+        const leftSidebar = document.getElementById('sidebar-left');
+        const rightSidebar = document.getElementById('sidebar-right');
+        const tabStrip = document.getElementById('tab-strip');
+
+        DATA.forEach((d, i) => {
+            // Sidebar button
+            const btn = document.createElement('button');
+            btn.className = 'sidebar-btn';
+            btn.dataset.id = d.id;
+            btn.innerHTML = `<span class="sidebar-btn__num">${d.id}</span>${d.short}`;
+            btn.addEventListener('click', () => showDetail(d));
+
+            // Put 1–10 in left, 11–20 in right
+            if (d.id <= 10) {
+                leftSidebar.appendChild(btn);
+            } else {
+                rightSidebar.appendChild(btn);
+            }
+
+            // Tablet: clone 11–20 into left sidebar (hidden via CSS on desktop)
+            if (d.id > 10) {
+                const clone = btn.cloneNode(true);
+                clone.className = 'sidebar-btn sidebar--left-tablet-extra';
+                clone.style.display = 'none'; // controlled by CSS media query
+                clone.addEventListener('click', () => showDetail(d));
+                leftSidebar.appendChild(clone);
+            }
+
+            // Mobile tab pill
+            const pill = document.createElement('button');
+            pill.className = 'tab-pill';
+            pill.dataset.id = d.id;
+            pill.textContent = `${d.id}. ${d.short}`;
+            pill.addEventListener('click', () => showDetail(d));
+            tabStrip.appendChild(pill);
+        });
+
+        /* ── Show detail ── */
+        const detailContent = document.getElementById('detail-content');
+        const placeholder = document.getElementById('placeholder');
+
+        function showDetail(d) {
+            // Update active states across all button sets
+            document.querySelectorAll('.sidebar-btn, .tab-pill').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll(`[data-id="${d.id}"]`).forEach(b => b.classList.add('active'));
+
+            placeholder.style.display = 'none';
+            detailContent.style.display = 'block';
+
+            detailContent.innerHTML = `
+        <h2 class="detail-center__title">${d.id}. ${d.name}</h2>
+        <div class="detail-center__field">${d.field}</div>
+        <div class="force-tags-row">
+          ${d.forces.map(f => `<span class="force-tag force-tag--${f}">${FORCE_LABELS[f] || f}</span>`).join('')}
+        </div>
+        <h4>The Thin Market Problem</h4>
+        <p>${d.problem}</p>
+        <h4>Dominant Forces</h4>
+        <ul>${d.forceDetails.map(f => `<li>${f}</li>`).join('')}</ul>
+        <h4>Why It Fits the DeeperPoint Approach</h4>
+        <ul>${d.fit.map(f => `<li>${f}</li>`).join('')}</ul>
+        <div class="econ-box">
+          <h4>💰 Economic Upside</h4>
+          <p>${d.econ}</p>
+        </div>
+        <div class="detail-meta">
+          <div class="detail-meta__item">
+            <div class="detail-meta__label">Forge Tier</div>
+            <div class="detail-meta__value">${d.tier}</div>
+          </div>
+          <div class="detail-meta__item">
+            <div class="detail-meta__label">Readiness</div>
+            <div class="detail-meta__value ${d.readinessClass}">${d.readiness}</div>
+          </div>
+        </div>`;
+
+            // On mobile, scroll to detail
+            if (window.innerWidth < 700) {
+                document.getElementById('detail-center').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                // On desktop/tablet, scroll detail panel to top
+                document.getElementById('detail-center').scrollTop = 0;
+            }
+
+            // Scroll tab pill into view on mobile
+            const activePill = tabStrip.querySelector('.tab-pill.active');
+            if (activePill) activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        /* ── Tablet responsive: show/hide cloned buttons ── */
+        function handleTabletLayout() {
+            const isTablet = window.innerWidth >= 700 && window.innerWidth < 1100;
+            document.querySelectorAll('.sidebar--left-tablet-extra').forEach(el => {
+                el.style.display = isTablet ? 'flex' : 'none';
+            });
+            // On tablet, hide right sidebar
+            const rightEl = document.getElementById('sidebar-right');
+            if (isTablet) {
+                rightEl.style.display = 'none';
+            } else if (window.innerWidth >= 1100) {
+                rightEl.style.display = 'flex';
+            }
+        }
+        handleTabletLayout();
+        window.addEventListener('resize', handleTabletLayout);
+
+        // Auto-select first example
+        showDetail(DATA[0]);
+    </script>
+</body>
+
+</html>
