@@ -138,14 +138,28 @@
             height: 4px;
             border-radius: 2px;
             background: rgba(255, 255, 255, .1);
-            transition: background .3s
+            transition: background .3s, transform .15s;
+            cursor: pointer
+        }
+
+        .diag-progress__dot:hover {
+            transform: scaleY(2.5);
+            background: rgba(255, 255, 255, .25)
         }
 
         .diag-progress__dot.done {
             background: var(--dp-emerald)
         }
 
+        .diag-progress__dot.done:hover {
+            background: var(--dp-emerald)
+        }
+
         .diag-progress__dot.current {
+            background: var(--dp-blue)
+        }
+
+        .diag-progress__dot.current:hover {
             background: var(--dp-blue)
         }
 
@@ -249,7 +263,7 @@
 
     <section class="section" style="padding-top:calc(var(--nav-height) + var(--space-xl));">
         <div class="diag">
-            <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
+            <div class="reveal" id="diag-intro-header" style="text-align:center;margin-bottom:var(--space-xl);">
                 <span class="section__label"
                     style="background:rgba(6,182,212,.1);color:var(--dp-cyan);border:1px solid rgba(6,182,212,.3);">Interactive
                     Tool</span>
@@ -980,7 +994,9 @@
             <div class="diag-summary" id="diag-summary">
                 <div class="diag-card" id="summary-content"></div>
                 <div class="diag-nav">
-                    <button class="btn btn--outline" onclick="goToStep(0)">← Start Over</button>
+                    <button class="btn btn--outline"
+                        onclick="clearSavedData(); document.querySelectorAll('.diag-q select').forEach(s => s.selectedIndex = 0); document.querySelectorAll('.diag-q textarea').forEach(t => t.value = ''); highestStep = 0; goToStep(0);">←
+                        Start Over</button>
                     <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;">
                         <button class="copy-btn" onclick="copyReport()">📋 Copy Report</button>
                         <a href="whitepaper.html" class="btn btn--outline">Read Full Whitepaper</a>
@@ -1011,10 +1027,111 @@
         /**
          * Market Diagnostic Tool — Comprehensive Version
          * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+         *
+         * Resilience features:
+         * - localStorage persists all form values across page reloads
+         * - URL hash tracking enables browser Back/Forward between steps
+         * - Clickable progress dots for safe intra-form navigation
+         * - Intro header hides once diagnostic starts to prevent accidental nav-away
          */
         const TOTAL_STEPS = 8;
-        function goToStep(n) { document.querySelectorAll('.diag-step').forEach(e => e.classList.remove('active')); const t = document.querySelector('[data-step="' + n + '"]'); if (t) t.classList.add('active'); document.getElementById('diag-summary').classList.remove('active'); updateProgress(n); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        function updateProgress(c) { const p = document.getElementById('diag-progress'); p.innerHTML = ''; for (let i = 0; i < TOTAL_STEPS; i++) { const d = document.createElement('div'); d.className = 'diag-progress__dot'; if (i < c) d.classList.add('done'); if (i === c) d.classList.add('current'); p.appendChild(d); } }
+        const STORAGE_KEY = 'dp_diag_values';
+        let currentStep = 0;
+        let highestStep = 0;
+
+        /* ── localStorage persistence ── */
+        function saveFormValues() {
+            const data = {};
+            document.querySelectorAll('.diag-q select, .diag-q textarea').forEach(el => {
+                if (el.id) data[el.id] = el.value;
+            });
+            data._highestStep = highestStep;
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* quota */ }
+        }
+        function restoreFormValues() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return false;
+                const data = JSON.parse(raw);
+                let restored = false;
+                Object.keys(data).forEach(id => {
+                    if (id === '_highestStep') { highestStep = data[id] || 0; return; }
+                    const el = document.getElementById(id);
+                    if (el && data[id]) { el.value = data[id]; restored = true; }
+                });
+                return restored;
+            } catch (e) { return false; }
+        }
+        function clearSavedData() {
+            try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ok */ }
+        }
+
+        /* ── Auto-save on every input change ── */
+        document.addEventListener('change', e => {
+            if (e.target.closest('.diag-q')) saveFormValues();
+        });
+        document.addEventListener('input', e => {
+            if (e.target.tagName === 'TEXTAREA' && e.target.closest('.diag-q')) saveFormValues();
+        });
+
+        /* ── Step navigation ── */
+        function goToStep(n, pushHash) {
+            if (pushHash === undefined) pushHash = true;
+            currentStep = n;
+            if (n > highestStep) highestStep = n;
+
+            // Hide intro header once past step 0
+            const intro = document.getElementById('diag-intro-header');
+            if (intro) intro.style.display = n > 0 ? 'none' : '';
+
+            document.querySelectorAll('.diag-step').forEach(e => e.classList.remove('active'));
+            const t = document.querySelector('[data-step="' + n + '"]');
+            if (t) t.classList.add('active');
+            document.getElementById('diag-summary').classList.remove('active');
+            updateProgress(n);
+
+            // URL hash for browser Back/Forward
+            if (pushHash) {
+                const hash = '#step' + n;
+                if (window.location.hash !== hash) {
+                    history.pushState({ step: n }, '', hash);
+                }
+            }
+
+            saveFormValues();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ── Clickable progress dots ── */
+        function updateProgress(c) {
+            const p = document.getElementById('diag-progress');
+            p.innerHTML = '';
+            for (let i = 0; i < TOTAL_STEPS; i++) {
+                const d = document.createElement('div');
+                d.className = 'diag-progress__dot';
+                if (i < c) d.classList.add('done');
+                if (i === c) d.classList.add('current');
+                // Allow clicking to any completed step or current step
+                if (i <= highestStep) {
+                    d.title = 'Step ' + i;
+                    d.addEventListener('click', ((step) => () => goToStep(step))(i));
+                }
+                p.appendChild(d);
+            }
+        }
+
+        /* ── Browser Back/Forward support ── */
+        window.addEventListener('popstate', e => {
+            if (e.state && typeof e.state.step === 'number') {
+                goToStep(e.state.step, false);
+            } else {
+                // Parse hash
+                const m = window.location.hash.match(/^#step(\d+)$/);
+                if (m) goToStep(parseInt(m[1], 10), false);
+            }
+        });
+
+        /* ── Assessment functions (unchanged logic) ── */
         function sv(id, m) { const v = document.getElementById(id)?.value || ''; return m[v] || 'Not assessed'; }
         function sn(s) { return { None: 0, Low: 1, Moderate: 2, High: 3, Critical: 4 }[s] ?? -1; }
         function fv(v) { return { ['one-to-one']: 'One-to-One', ['one-to-many']: 'One-to-Many', ['many-to-many']: 'Many-to-Many', tiny: 'Very Small', small: 'Small', medium: 'Medium', large: 'Large', ['Not specified']: '—' }[v] || v; }
@@ -1065,12 +1182,32 @@
             if (dom.length) h += '<div style="margin-top:var(--space-lg);padding:1rem;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);border-radius:var(--radius-md);"><h4 style="color:#fca5a5;margin-bottom:.5rem;">\u26A0\uFE0F Dominant Challenges</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">' + dom.map(d => '<strong>' + d.label + '</strong>').join(', ') + ' \u2014 these require priority attention and likely AI-driven engineering interventions.</p></div>';
             if (arr === 'many-to-many' && par === 'B2B') h += '<div style="margin-top:var(--space-md);padding:1rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);border-radius:var(--radius-md);"><h4 style="color:var(--dp-emerald);margin-bottom:.5rem;">\u2705 Good Fit for DeeperPoint Tools</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">Your market profile (many-to-many, B2B) aligns with DeeperPoint\u2019s primary focus. The <a href="marketforge.html" style="color:var(--dp-emerald);">MarketForge ecosystem</a> is designed for this challenge.</p></div>';
             h += '<div style="margin-top:var(--space-lg);padding:1rem;background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.15);border-radius:var(--radius-md);"><h4 style="color:var(--dp-violet);margin-bottom:.5rem;">\uD83D\uDCD6 Learn More</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">See the <a href="whitepaper.html" style="color:var(--dp-violet);">whitepaper</a> for detailed explanations, or explore real-world applications on the <a href="testbeds.html" style="color:var(--dp-violet);">test beds</a> page.</p></div>';
-            document.getElementById('summary-content').innerHTML = h; updateProgress(TOTAL_STEPS); window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('summary-content').innerHTML = h;
+            highestStep = TOTAL_STEPS;
+            updateProgress(TOTAL_STEPS);
+            saveFormValues();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function copyReport() { if (!lastDims.length) { alert('Generate a summary first.'); return; } let t = 'MARKET ENGINEER\'S DIAGNOSTIC REPORT\n' + '='.repeat(40) + '\n\n'; lastDims.forEach(d => { t += d.label + ': ' + d.severity + (d.severity !== 'None' && d.severity !== 'Low' && d.severity !== 'Not assessed' ? ' -> ' + d.interventions : '') + '\n'; }); const dom = lastDims.filter(d => d.severity === 'High' || d.severity === 'Critical'); if (dom.length) t += '\nDominant: ' + dom.map(d => d.label).join(', ') + '\n'; t += '\nGenerated by DeeperPoint Market Diagnostic\n'; navigator.clipboard.writeText(t).then(() => { const b = document.querySelector('.copy-btn'); b.textContent = '\u2713 Copied!'; setTimeout(() => b.textContent = '\uD83D\uDCCB Copy Report', 2000); }).catch(() => alert('Copy failed.')); }
 
-        updateProgress(0);
+        /* ── Initialization: restore saved state or start fresh ── */
+        (function init() {
+            const hadData = restoreFormValues();
+            // Check URL hash first
+            const m = window.location.hash.match(/^#step(\d+)$/);
+            if (m) {
+                const step = parseInt(m[1], 10);
+                goToStep(step, false);
+            } else if (hadData && highestStep > 0) {
+                // Restored from localStorage — jump to highest completed step
+                goToStep(highestStep, false);
+            } else {
+                updateProgress(0);
+            }
+            // Replace current history entry with initial state
+            history.replaceState({ step: currentStep }, '', '#step' + currentStep);
+        })();
     </script>
 </body>
 
