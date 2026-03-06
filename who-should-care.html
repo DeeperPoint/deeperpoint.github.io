@@ -1,0 +1,731 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Should Care | DeeperPoint</title>
+    <meta name="description"
+        content="Discover which stakeholders benefit most from solving thin market problems — from startup founders to trade officials, investors to social service agencies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ═══════════════════════════════════════════
+           PERSONA PAGE LAYOUT
+           ═══════════════════════════════════════════ */
+
+        .personas-layout {
+            display: grid;
+            gap: 0;
+            min-height: 70vh;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+            padding: 0.5rem;
+        }
+
+        .sidebar-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 0.625rem 0.875rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            color: var(--dp-silver);
+            font-size: 0.8125rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+            line-height: 1.3;
+            width: 100%;
+        }
+
+        .sidebar-btn:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+        }
+
+        .sidebar-btn.active {
+            color: #fff;
+            box-shadow: 0 0 0 1px var(--btn-color, var(--dp-violet));
+            background: var(--btn-bg, rgba(139, 92, 246, 0.15));
+            border-color: var(--btn-color, var(--dp-violet));
+        }
+
+        .sidebar-btn__icon {
+            font-size: 1.125rem;
+            flex-shrink: 0;
+        }
+
+        .sidebar-btn__label {
+            font-weight: 500;
+        }
+
+        /* ── Centre detail panel ── */
+        .detail-center {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .detail-center__placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 300px;
+            text-align: center;
+            color: var(--dp-muted);
+            gap: 0.75rem;
+        }
+
+        .detail-center__placeholder span {
+            font-size: 2.5rem;
+        }
+
+        .detail-center__placeholder p {
+            font-size: 1rem;
+            max-width: 300px;
+        }
+
+        /* ── Detail content styles ── */
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .persona-icon {
+            font-size: 2rem;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            flex-shrink: 0;
+        }
+
+        .persona-title {
+            font-family: var(--font-display);
+            font-size: 1.375rem;
+            color: #fff;
+            margin-bottom: 0.125rem;
+        }
+
+        .persona-subtitle {
+            font-size: 0.8125rem;
+            color: var(--dp-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .detail-center h4 {
+            font-size: 0.9375rem;
+            font-family: var(--font-display);
+            color: #fff;
+            margin-top: var(--space-md);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-center p,
+        .detail-center li {
+            color: var(--dp-silver);
+            font-size: 0.875rem;
+            line-height: 1.75;
+        }
+
+        .detail-center ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .detail-center ul li {
+            padding-left: 1.375rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-center ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+
+        .opportunity-box {
+            margin-top: var(--space-md);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .opportunity-box h4 {
+            margin-top: 0 !important;
+        }
+
+        /* ── Mobile tab strip ── */
+        .tab-strip {
+            display: none;
+        }
+
+        /* ═══════════════════════════════════
+           RESPONSIVE BREAKPOINTS
+           ═══════════════════════════════════ */
+
+        /* DESKTOP ≥ 900px */
+        @media (min-width: 900px) {
+            .personas-layout {
+                grid-template-columns: 220px 1fr;
+                gap: var(--space-sm);
+            }
+
+            .detail-center {
+                max-height: calc(100vh - 180px);
+                position: sticky;
+                top: 90px;
+            }
+
+            .sidebar {
+                max-height: calc(100vh - 180px);
+                overflow-y: auto;
+                position: sticky;
+                top: 90px;
+            }
+
+            .sidebar::-webkit-scrollbar,
+            .detail-center::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .sidebar::-webkit-scrollbar-track,
+            .detail-center::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb,
+            .detail-center::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+        }
+
+        /* MOBILE < 900px */
+        @media (max-width: 899px) {
+            .sidebar {
+                display: none;
+            }
+
+            .tab-strip {
+                display: flex;
+                gap: 0.375rem;
+                overflow-x: auto;
+                padding: 0.5rem 0;
+                margin-bottom: var(--space-md);
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+            }
+
+            .tab-strip::-webkit-scrollbar {
+                height: 3px;
+            }
+
+            .tab-strip::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .tab-strip::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 2px;
+            }
+
+            .tab-pill {
+                padding: 0.375rem 0.875rem;
+                border-radius: 100px;
+                font-size: 0.75rem;
+                font-weight: 500;
+                border: 1px solid var(--glass-border);
+                background: rgba(255, 255, 255, 0.03);
+                color: var(--dp-silver);
+                cursor: pointer;
+                transition: all var(--transition-fast);
+                white-space: nowrap;
+                flex-shrink: 0;
+                font-family: var(--font-body);
+            }
+
+            .tab-pill:hover {
+                background: rgba(255, 255, 255, 0.06);
+                color: #fff;
+            }
+
+            .tab-pill.active {
+                color: #fff;
+                border-color: var(--btn-color, var(--dp-violet));
+                background: var(--btn-bg, rgba(139, 92, 246, 0.15));
+            }
+
+            .detail-center {
+                padding: var(--space-md);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <ul class="nav__links">
+                <li><a href="thin-markets.html" class="nav__link">The Problem</a></li>
+                <li><a href="marketforge.html" class="nav__link">The Project</a></li>
+                <li><a href="testbeds-detail.html" class="nav__link">Examples</a></li>
+                <li><a href="who-should-care.html" class="nav__link nav__link--active">Who's It For</a></li>
+                <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero (compact) -->
+    <section class="spoke-hero" id="spoke-hero" style="padding: calc(var(--space-3xl) + 52px) 0 var(--space-md);">
+        <div class="container container--narrow">
+            <div class="reveal">
+                <h1 class="spoke-hero__headline"
+                    style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 0.375rem;">Who Should Care?</h1>
+                <p class="spoke-hero__sub" style="color: var(--dp-blue-light); font-size: 1rem; margin-bottom: 0;">
+                    Thin markets affect a wide range of decision-makers. Select a stakeholder group to see how the
+                    problem shows up in their world — and what DeeperPoint offers them.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Layout -->
+    <section class="section" id="personas" style="padding-top: 0;">
+        <div class="container" style="max-width: 1100px;">
+
+            <!-- Mobile Tab Strip -->
+            <div class="tab-strip reveal" id="tab-strip"></div>
+
+            <!-- 2-Column Grid -->
+            <div class="personas-layout reveal" id="personas-layout">
+
+                <!-- Left Sidebar -->
+                <div class="sidebar" id="sidebar-left"></div>
+
+                <!-- Centre Detail Panel -->
+                <div class="detail-center" id="detail-center">
+                    <div class="detail-center__placeholder" id="placeholder">
+                        <span>←</span>
+                        <p>Select a stakeholder group to see how thin markets affect them</p>
+                    </div>
+                    <div id="detail-content" style="display:none;"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-links -->
+    <section class="section" id="crosslinks" style="padding-top: var(--space-lg);">
+        <div class="container container--narrow">
+            <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <div class="crosslink" style="border-left-color: var(--dp-emerald); background: rgba(16,185,129,0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-emerald);">See real-world examples</h3>
+                        <p>Explore twenty concrete thin market cases — each with a detailed analysis of forces, fit, and
+                            economic opportunity.</p>
+                    </div>
+                    <a href="testbeds-detail.html" class="btn btn--primary"
+                        style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff;">View
+                        Examples →</a>
+                </div>
+                <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6,182,212,0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-cyan);">Diagnose your market</h3>
+                        <p>Walk through the Market Engineer's Diagnostic Checklist to identify the specific thin market
+                            forces at work in your situation.</p>
+                    </div>
+                    <a href="market-diagnostic.html" class="btn btn--primary"
+                        style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;">Start Diagnostic
+                        →</a>
+                </div>
+                <div class="crosslink" style="border-left-color: var(--dp-violet); background: rgba(139,92,246,0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-violet);">Read the whitepaper</h3>
+                        <p>A comprehensive treatment of market physics, engineering interventions, and the AI revolution
+                            in market design.</p>
+                    </div>
+                    <a href="whitepaper.html" class="btn btn--primary"
+                        style="background: var(--dp-violet); border-color: var(--dp-violet); color: #fff;">Read
+                        Whitepaper →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank"
+                            rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank"
+                            rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reveal.js"></script>
+    <script>
+        /**
+         * Who Should Care — Persona Detail Page
+         * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+         */
+        const PERSONAS = [
+            {
+                id: 1,
+                icon: '🚀',
+                name: 'Startup Founders',
+                subtitle: 'Early-stage ventures in specialized markets',
+                color: '#8b5cf6',
+                colorBg: 'rgba(139, 92, 246, 0.12)',
+                situation: 'You have an idea for a platform that connects buyers and sellers in a niche you know well. The problem is visceral to you — you may have lived it. But when you try to build the marketplace, you hit a wall: not enough participants on either side to make it feel real, and the participants you do have can\'t easily express what they need or offer in a way your software can match.',
+                challenges: [
+                    'Cold-start problem — you need supply to attract demand and demand to attract supply, simultaneously',
+                    'Participants can\'t express their needs precisely enough for keyword or filter-based matching to work',
+                    'Trust barriers make early participants reluctant to share the information the platform needs to match them well',
+                    'Every new vertical requires rebuilding the domain knowledge layer from scratch',
+                    'Investor pressure to show traction before the market is thick enough to produce it organically'
+                ],
+                howHelps: [
+                    'Cosolvent provides pre-built marketplace scaffolding — matching engine, deal assembly, role permissions — so you build your vertical, not infrastructure',
+                    'Semantic matching handles the "I\'ll know it when I see it" problem that kills filter-based platforms in niche markets',
+                    'ClientSynthAI lets you populate a working prototype with realistic synthetic participants — demonstrating the platform\'s physics to investors before real users arrive',
+                    'KnowledgeSlot captures and structures the domain knowledge your matching engine needs, without rebuilding it each time',
+                    'The three-layer trust architecture lets participants share enough to be matched without exposing sensitive details prematurely'
+                ],
+                opportunity: 'The thin market isn\'t a sign your idea is wrong — it\'s the reason incumbent platforms haven\'t solved it. With the right infrastructure, being first to crack a thin market creates a durable, defensible position. DeeperPoint gives you that infrastructure without the infrastructure build.'
+            },
+            {
+                id: 2,
+                icon: '💼',
+                name: 'VCs & Investors',
+                subtitle: 'Portfolio managers with cross-cutting thin market exposure',
+                color: '#3b82f6',
+                colorBg: 'rgba(59, 130, 246, 0.12)',
+                situation: 'Across your portfolio, you have multiple companies that face the same class of problem: they\'re trying to build functioning markets in verticals where participants are too few, too dispersed, or too specialized for conventional marketplace mechanics to work. Each portfolio company is solving this independently — at great cost, with limited success, and without realizing that the core infrastructure challenge is the same.',
+                challenges: [
+                    'Portfolio-wide exposure to thin market risk that is not being addressed systematically',
+                    'Each investee is rebuilding matching, trust, and deal-flow infrastructure from scratch — compounding burn across the portfolio',
+                    'Thin market mechanics are poorly understood by founders, making it hard to diagnose root causes of slow growth',
+                    'Conventional venture metrics (DAU, GMV ramp) don\'t capture thin market health — leading to premature pivots away from valid ideas',
+                    'No shared infrastructure or shared knowledge across investees facing similar vertical challenges'
+                ],
+                howHelps: [
+                    'A single DeeperPoint infrastructure layer — Cosolvent + KnowledgeSlot + ClientSynthAI — can be deployed across multiple portfolio companies facing thin markets',
+                    'Shared domain knowledge curation reduces the cost of building the semantic layer each vertical requires',
+                    'ClientSynthAI generates synthetic market populations for each portfolio company\'s vertical, enabling investor-grade demonstrations without needing live traction',
+                    'The MarketForge diagnostic framework gives you a vocabulary and methodology to evaluate thin market health across investees',
+                    'Co-investment or consortium structures become viable when the technical infrastructure is shared and proven'
+                ],
+                opportunity: 'Portfolio-wide thin market challenges that are currently siloed, expensive, and often misdiagnosed become a shared opportunity. A systematic infrastructure play across your portfolio can compress time-to-traction, reduce burn, and create a defensible technology position across multiple verticals simultaneously.'
+            },
+            {
+                id: 3,
+                icon: '🌐',
+                name: 'Trade Officials',
+                subtitle: 'Government officials opening new bilateral trade corridors',
+                color: '#06b6d4',
+                colorBg: 'rgba(6, 182, 212, 0.12)',
+                situation: 'Your government has successfully negotiated a free trade agreement or preferential access arrangement. The legal barriers are down. But the economic reality is sobering: the businesses in your country that should be exporting into this new market don\'t know how to find buyers, can\'t evaluate counterparty credibility across cultural and linguistic distances, and face regulatory and documentation requirements they\'ve never encountered. The market exists on paper. It\'s thin in practice.',
+                challenges: [
+                    'Exporters and importers lack the discovery infrastructure to find credible counterparties in unfamiliar markets',
+                    'Trust and credibility verification across jurisdictions is costly and unreliable',
+                    'Regulatory complexity — documentation, standards, phytosanitary requirements, tariff schedules — creates search friction that small and mid-sized businesses can\'t absorb',
+                    'Geographic and cultural distance compounds the information asymmetry between potential trading partners',
+                    'SMEs that would benefit most from new trade corridors have the fewest resources to navigate them'
+                ],
+                howHelps: [
+                    'KnowledgeSlot curates the trade corridor\'s regulatory environment — standards, documentation requirements, certification bodies — making it navigable for SMEs',
+                    'Semantic matching connects exporters and importers across jurisdictions based on what they actually offer and need, not just keyword searches',
+                    'The deal assembly framework maps to international commercial documents (letters of credit, B/L, phytosanitary certificates) so the platform speaks the language of trade',
+                    'Trusted intermediary protocol enables credibility verification across jurisdictions — integrating with existing trade finance and certification infrastructure',
+                    'User aggregation allows SME cooperatives and trade associations to participate collectively, making thin-volume exporters economically viable counterparties'
+                ],
+                opportunity: 'A free trade agreement that generates real trade — not just legal rights to trade — is the difference between a diplomatic achievement and an economic one. Thin market infrastructure turns new trade corridors into functioning markets, channeling the economic gains to the SMEs that need them most.'
+            },
+            {
+                id: 4,
+                icon: '🍁',
+                name: 'Canadian Businesses',
+                subtitle: 'Companies navigating dissolving interprovincial trade barriers',
+                color: '#10b981',
+                colorBg: 'rgba(16, 185, 129, 0.12)',
+                situation: 'Canadian governments are dismantling interprovincial trade barriers — a long-overdue reform that creates new legal access to customers and suppliers across provincial lines. But legal access is not the same as market access. A manufacturer in Manitoba that has never sold into Quebec faces a market that is effectively thin for them: they don\'t know the buyers, the buyers don\'t know them, and the regulatory differences — even when reduced — still create friction that neither side has systems to absorb.',
+                challenges: [
+                    'Unknown market: businesses lack the discovery infrastructure to find credible interprovincial counterparties',
+                    'Residual regulatory differences — provincial professional licensing, product standards, labeling requirements — remain even after federal harmonization',
+                    'No established relationships or trust signals across provincial lines for businesses new to a region',
+                    'Procurement systems in other provinces may not be structured to accommodate unfamiliar suppliers, even when they are now legally eligible',
+                    'Smaller businesses face disproportionate friction — they can\'t absorb the search and compliance costs that large enterprises manage routinely'
+                ],
+                howHelps: [
+                    'Semantic matching surfaces credible interprovincial suppliers and buyers by capability, not just geography — bypassing the cold-start of unfamiliar markets',
+                    'KnowledgeSlot curates provincial regulatory differences in key sectors — construction standards, food labeling, professional certification reciprocity — making compliance navigable',
+                    'The three-layer trust architecture lets businesses share enough information to evaluate fit without premature exposure of pricing or proprietary details',
+                    'Deal assembly captures the interprovincial trade documentation structure — harmonized certificates, compliance declarations, delivery terms — reducing bilateral friction',
+                    'User aggregation allows regional business associations and chambers of commerce to pool their members, creating critical mass in thin interprovincial niches'
+                ],
+                opportunity: 'The economic case for internal free trade in Canada is well-established — estimates range into tens of billions of dollars in foregone GDP annually. The barrier is not just legal; it is infrastructural. Thin market platforms that make interprovincial discovery, trust, and deal-flow efficient are the missing link between policy reform and economic gain.'
+            },
+            {
+                id: 5,
+                icon: '⚡',
+                name: 'Accelerators & Incubators',
+                subtitle: 'Managers of startup cohorts with repeated thin market challenges',
+                color: '#f59e0b',
+                colorBg: 'rgba(245, 158, 11, 0.12)',
+                situation: 'Your cohort includes founders working on platforms in specialized verticals — cleantech supply chains, medtech procurement, specialty food distribution, legal tech for underserved communities, and more. Many of them are hitting the same wall at the same stage: the market they\'re trying to serve is thin, the conventional marketplace playbook isn\'t working, and neither the founders nor your mentors have a clear vocabulary for why. The problem gets misread as a product problem or a sales problem, when it\'s a market structure problem.',
+                challenges: [
+                    'Founders in thin market verticals stall at the same stage for reasons that are structural, not executional — but the structural diagnosis is rarely available',
+                    'Mentors and advisors apply conventional marketplace frameworks (Airbnb, eBay, Uber) that don\'t fit thin market dynamics',
+                    'Each cohort member rebuilds marketplace infrastructure independently, compounding burn across your portfolio',
+                    'Investor pitch prep for thin market startups is difficult when the market\'s "thinness" looks like small TAM rather than a structural opportunity',
+                    'Demo days and pilot presentations are hampered by the cold-start problem — no real users means nothing live to show'
+                ],
+                howHelps: [
+                    'The thin market diagnostic framework gives you a shared vocabulary for identifying and describing the structural forces at work in each cohort member\'s vertical',
+                    'Cosolvent provides shared marketplace infrastructure that cohort members can fork and customize — eliminating redundant infrastructure builds across the cohort',
+                    'ClientSynthAI generates vertical-specific synthetic populations for demo days — giving investors a credible, working demonstration even before real users are onboarded',
+                    'KnowledgeSlot provides a curation methodology that each cohort member can apply to build the domain knowledge layer their matching engine requires',
+                    'The MarketForge framework positions thin market challenges as an engineering problem with known solutions — strengthening investor narratives for the whole cohort'
+                ],
+                opportunity: 'Accelerators and incubators that develop genuine thin market expertise become the go-to program for a class of high-value, high-defensibility startups that other programs consistently mishandle. The infrastructure compounds: what you build for one cohort member becomes a shared asset for the next.'
+            },
+            {
+                id: 6,
+                icon: '🤝',
+                name: 'Social Service Agencies',
+                subtitle: 'Organizations expanding reach of specialist social services',
+                color: '#f472b6',
+                colorBg: 'rgba(244, 114, 182, 0.12)',
+                situation: 'Your agency provides specialized services — mental health counseling in specific languages, legal aid for a specific immigrant population, disability support for a rare condition, housing assistance for a particular at-risk group. The people who need your services are dispersed and hard to reach. The specialists who can serve them are scarce and often unknown to the people who need them. Both sides exist, but the market between them is profoundly thin.',
+                challenges: [
+                    'Participant scarcity — your target population is small, dispersed, and often actively hidden from discovery',
+                    'Trust barriers are especially high — vulnerable populations cannot risk exposing their situation to unknown platforms',
+                    'Specialists with the relevant expertise (language, cultural knowledge, condition-specific training) are few and geographically scattered',
+                    'Funding and regulatory constraints limit what information can be shared and through what channels',
+                    'Referral pipelines are relationship-dependent and do not scale — word of mouth fails when the population is dispersed'
+                ],
+                howHelps: [
+                    'Semantic matching works with incomplete, sensitive information — matching service needs to available specialists without requiring disclosure of identifying details',
+                    'The trusted intermediary protocol is designed for exactly this context: enabling quality-of-fit assessment while protecting participant privacy and dignity',
+                    'KnowledgeSlot curates the regulatory, cultural, and clinical knowledge that makes referrals accurate — eligibility criteria, intake protocols, jurisdictional rules',
+                    'User aggregation allows networks of community organizations to participate collectively — creating a referral mesh that no single agency could sustain alone',
+                    'The three-layer information architecture lets agencies control what is disclosed to whom at each stage of the matching process'
+                ],
+                opportunity: 'Social service delivery is one of the most consequential thin markets there is. Improving the match rate between vulnerable people and the specialists who can help them — across geography, language, and institutional boundaries — creates measurable human impact without proportional increases in cost.'
+            },
+            {
+                id: 7,
+                icon: '🎓',
+                name: 'Academic Researchers',
+                subtitle: 'Research teams seeking industry partners for commercialization',
+                color: '#c084fc',
+                colorBg: 'rgba(192, 132, 252, 0.12)',
+                situation: 'Your lab has produced research with clear commercial potential — a new materials process, a diagnostic algorithm, a novel sensor design. Technology transfer offices are overwhelmed and under-resourced. Industry contacts are relationship-dependent. The companies that would most benefit from licensing or co-developing your research don\'t know you exist, and you don\'t know them. The research commercialization market is structurally thin.',
+                challenges: [
+                    'Technology transfer offices operate on relationship networks that systematically exclude emerging researchers and researchers at smaller institutions',
+                    'Industry partners can\'t evaluate research relevance without detailed technical context — and most discovery surfaces are too shallow to provide it',
+                    'IP protection concerns create information withholding that makes meaningful matching difficult before agreements are in place',
+                    'The mismatch between research timelines and industry product cycles creates timing friction that kills otherwise viable partnerships',
+                    'Researchers in non-flagship institutions, non-English-language environments, or emerging disciplines are invisible to industry partner search processes'
+                ],
+                howHelps: [
+                    'KnowledgeSlot structures research outputs as machine-readable capability profiles — enabling semantic matching against industry application needs without sacrificing IP control',
+                    'The three-layer architecture enables a research team to reveal enough about a capability to attract relevant industry interest while protecting patentable details until NDAs are in place',
+                    'Trusted intermediary protocol manages the information asymmetry between researchers (who know what they have) and industry (who know what they need)',
+                    'Deal assembly maps to the standard instruments of research commercialization: option agreements, licensing terms, sponsored research agreements, co-development milestones',
+                    'User aggregation allows research consortia, university networks, and national labs to present unified capability profiles to industry — creating the critical mass that thin individual research profiles cannot'
+                ],
+                opportunity: 'The gap between funded research and commercialized product is one of the most expensive failures in modern innovation ecosystems. Matching researchers to industry partners at the right moment — before the research ages out of relevance and before industry locks in an inferior solution — creates economic value that currently evaporates by default.'
+            },
+            {
+                id: 8,
+                icon: '🏘️',
+                name: 'Rural & Remote Municipalities',
+                subtitle: 'Local governments attracting services to underserved communities',
+                color: '#34d399',
+                colorBg: 'rgba(52, 211, 153, 0.12)',
+                situation: 'Your municipality or regional authority represents a community that is underserved by private markets: remote geography, small population, or unconventional economic mix means that businesses don\'t come to you unless specifically recruited. You need healthcare providers, tradespeople, specialized educators, broadband infrastructure partners, and economic development investments — but the processes for finding and attracting them are informal, slow, and dependent on personal networks that most small municipalities don\'t have.',
+                challenges: [
+                    'Small, dispersed populations make it uneconomical for service providers to serve the community through standard market mechanisms',
+                    'Discovery is relationship-dependent — municipalities without strong external networks are systematically bypassed by providers who don\'t know they exist',
+                    'Procurement requirements and government contracting processes are designed for large-population contexts and create friction for small-municipality needs',
+                    'Aggregating demand across geographically dispersed communities to create viable contract sizes is a coordination problem municipalities can\'t solve alone',
+                    'The value proposition for remote service is real but requires creative packaging — combining community benefit, government subsidy, and market opportunity — that standard procurement doesn\'t support'
+                ],
+                howHelps: [
+                    'Semantic matching surfaces service providers and investors who have expressed interest in remote or underserved community settings — finding the counterparties that standard procurement misses',
+                    'User aggregation enables regional clusters of small municipalities to pool procurement needs — creating contract sizes that are commercially viable for providers',
+                    'KnowledgeSlot curates the incentive landscape: federal and provincial subsidy programs, remote service premiums, crown corporation mandates, and development finance instruments',
+                    'Deal assembly maps to the multi-party structures of rural service delivery — government guarantees, community benefit agreements, phased deployment schedules',
+                    'The MarketForge diagnostic framework helps regional development authorities identify which service gaps are thin market problems and which require direct government provision'
+                ],
+                opportunity: 'Rural and remote service gaps are not simply market failures — they are thin markets that function poorly because both sides lack visibility into each other. Matching willing providers with underserved communities, and aggregating dispersed demand into viable contracts, transforms what looks like a subsidy problem into a market engineering problem with solvable structure.'
+            },
+            {
+                id: 9,
+                icon: '🏥',
+                name: 'Healthcare Procurement',
+                subtitle: 'Procurement officers sourcing rare devices, drugs, and specialist supplies',
+                color: '#fb923c',
+                colorBg: 'rgba(251, 146, 60, 0.12)',
+                situation: 'You are responsible for sourcing medical products, devices, or services that fall outside the standard hospital formulary or national supply contracts: orphan drugs, rare diagnostic equipment, specialist prosthetics, or highly specialized clinical services. The suppliers who can meet your specification are few, may be in other jurisdictions, and are not discoverable through standard procurement portals. The market is thin by definition — and the stakes of a failed match are measured in patient outcomes.',
+                challenges: [
+                    'Participant scarcity — for rare conditions, the number of qualified suppliers globally may be in single digits',
+                    'Regulatory complexity — rare drug and device sourcing crosses multiple regulatory jurisdictions, each with different approval pathways',
+                    'Specification complexity — each procurement is effectively unique: dosage form, indication, contraindication profile, device compatibility, shelf life under specific storage conditions',
+                    'Supply chain fragility — thin markets have thin redundancy; a single supplier failure can create a patient care crisis',
+                    'Information asymmetry — suppliers know their capacity and regulatory status; procurement officers know their clinical requirements; aligning the two across jurisdictions is costly and slow'
+                ],
+                howHelps: [
+                    'KnowledgeSlot curates the regulatory landscape for rare drugs and devices — approval pathways, compassionate use mechanisms, special access programs, import permits — by jurisdiction',
+                    'Semantic matching encodes clinical specifications, regulatory status, formulation compatibility, and supply capacity — finding matches that keyword-based procurement portals miss',
+                    'The trusted intermediary protocol enables pre-qualification of suppliers against clinical and regulatory criteria before sensitive patient-specific details are shared',
+                    'Deal assembly maps to healthcare procurement instruments: framework agreements, emergency supply contracts, multi-jurisdictional sourcing arrangements, and patient-specific compassionate use agreements',
+                    'User aggregation enables hospital networks and national health authorities to aggregate rare-condition procurement demand — creating viable contract volumes for otherwise uneconomical suppliers'
+                ],
+                opportunity: 'Healthcare procurement for rare conditions is among the highest-stakes thin markets in existence. Improving the match rate between clinical requirements and qualified suppliers — and accelerating the process by weeks in contexts where delay has direct patient consequences — is a quantifiable, compelling case for thin market infrastructure.'
+            }
+        ];
+
+        // ── Build sidebar and tab strip ──
+        const sidebar = document.getElementById('sidebar-left');
+        const tabStrip = document.getElementById('tab-strip');
+
+        PERSONAS.forEach(p => {
+            // Sidebar button
+            const btn = document.createElement('button');
+            btn.className = 'sidebar-btn';
+            btn.id = `btn-${p.id}`;
+            btn.style.setProperty('--btn-color', p.color);
+            btn.style.setProperty('--btn-bg', p.colorBg);
+            btn.innerHTML = `<span class="sidebar-btn__icon">${p.icon}</span><span class="sidebar-btn__label">${p.name}</span>`;
+            btn.addEventListener('click', () => showPersona(p.id));
+            sidebar.appendChild(btn);
+
+            // Mobile pill
+            const pill = document.createElement('button');
+            pill.className = 'tab-pill';
+            pill.id = `pill-${p.id}`;
+            pill.style.setProperty('--btn-color', p.color);
+            pill.style.setProperty('--btn-bg', p.colorBg);
+            pill.textContent = `${p.icon} ${p.name}`;
+            pill.addEventListener('click', () => showPersona(p.id));
+            tabStrip.appendChild(pill);
+        });
+
+        // ── Render detail panel ──
+        function showPersona(id) {
+            const p = PERSONAS.find(x => x.id === id);
+            if (!p) return;
+
+            // Update active states
+            document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-pill').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-${id}`);
+            const activePill = document.getElementById(`pill-${id}`);
+            if (activeBtn) activeBtn.classList.add('active');
+            if (activePill) activePill.classList.add('active');
+
+            document.getElementById('placeholder').style.display = 'none';
+
+            const content = document.getElementById('detail-content');
+            content.style.display = 'block';
+
+            content.innerHTML = `
+                <div class="persona-header">
+                    <div class="persona-icon" style="background: ${p.colorBg};">${p.icon}</div>
+                    <div>
+                        <div class="persona-title">${p.name}</div>
+                        <div class="persona-subtitle">${p.subtitle}</div>
+                    </div>
+                </div>
+
+                <h4>The Situation</h4>
+                <p>${p.situation}</p>
+
+                <h4 style="color: ${p.color};">Thin Market Challenges They Face</h4>
+                <ul>${p.challenges.map(c => `<li style="--arrow-color: ${p.color};">${c}</li>`).join('')}</ul>
+
+                <h4>How DeeperPoint Helps</h4>
+                <ul>${p.howHelps.map(h => `<li>${h}</li>`).join('')}</ul>
+
+                <div class="opportunity-box" style="background: ${p.colorBg.replace('0.12', '0.06')}; border: 1px solid ${p.colorBg.replace('0.12', '0.2')};">
+                    <h4 style="color: ${p.color};">The Opportunity</h4>
+                    <p>${p.opportunity}</p>
+                </div>
+            `;
+
+            // Apply arrow colours via CSS variable
+            content.querySelectorAll('ul li').forEach(li => {
+                const col = li.style.getPropertyValue('--arrow-color') || '#8b5cf6';
+                if (li.style.getPropertyValue('--arrow-color')) {
+                    li.style.removeProperty('--arrow-color');
+                    li.style.setProperty('--arrow', `'→'`);
+                }
+            });
+
+            // Coloured arrows for challenges list
+            content.querySelectorAll('h4[style*="' + p.color + '"] + ul li::before').forEach(() => { });
+            // Simple inline approach: style the first ul's ::before via a scoped class
+            const challengeUl = content.querySelector('ul:first-of-type');
+            if (challengeUl) {
+                challengeUl.querySelectorAll('li').forEach(li => {
+                    li.style.setProperty('--li-arrow-color', p.color);
+                });
+            }
+
+            // Scroll to top of panel
+            document.getElementById('detail-center').scrollTop = 0;
+        }
+
+        // Activate first persona by default on load
+        showPersona(1);
+    </script>
+</body>
+
+</html>
