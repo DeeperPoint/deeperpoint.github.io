@@ -52,7 +52,7 @@ The top-level navigation follows a guided narrative:
 ## Blog Workflow
 
 1. Write a post in `blog/posts/your-post.md` with YAML frontmatter
-2. Run `python scripts/build_blog.py` (or push to `main` to trigger GitHub Actions)
+2. Run `python scripts/build_blog.py` (or push to `master` to trigger GitHub Actions)
 3. Optionally cross-post to LinkedIn: `python scripts/post_to_linkedin.py your-post-slug`
 
 ## Local Preview
@@ -65,9 +65,10 @@ python -m http.server 8000
 
 ## Deployment
 
-Push to `main` → GitHub Actions builds blog → deploys to GitHub Pages → serves at `deeperpoint.com`.
+Push to `master` → GitHub Actions builds blog → deploys to GitHub Pages → serves at `deeperpoint.com`.
 
 The CI pipeline (`.github/workflows/deploy.yml`) runs on Python 3.11 and:
+
 1. Installs dependencies from `requirements.txt`
 2. Runs `build_blog.py` to generate blog HTML from Markdown sources
 3. Deploys the entire repo root to GitHub Pages
