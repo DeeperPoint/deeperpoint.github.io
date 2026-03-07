@@ -1,14 +1,16 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
-
 ---
 title: The Vase and the Table Runner — How AI Could Unlock a New Market for Cooperative Artisanal Craft
 date: 2026-03-07
 tags: [thin-markets, ai, market-design, case-study, artisans]
 summary: When artisans who work in different media collaborate on complementary pieces, a "set" commands more than the sum of its parts. The problem has always been finding the right collaborators — and the right buyers.
 estimated-read: 6 min read
-hero-image: images/blog/artisanal-craft-set-hero.jpg
-hero-caption: A hand-painted ceramic vase and Turkish-fabric table runner — a one-off collaborative "set" made in Alabama, ca. 2010. Photo courtesy of the author.
+slug: artisanal-craft-collaboration
 ---
+<figure class="blog-hero">
+    <img class="blog-hero__img" src="../images/blog/artisanal-craft-set-hero.png" alt="A hand-painted ceramic vase and Turkish-fabric table runner — a one-off collaborative "set" made in Alabama, ca. 2010. Photo courtesy of the author." loading="lazy">
+    <figcaption>A hand-painted ceramic vase and Turkish-fabric table runner — a one-off collaborative "set" made in Alabama, ca. 2010. Photo courtesy of the author.</figcaption>
+</figure>
 
 About fifteen years ago, my wife came home from a trip to Turkey with a collection of fabrics — richly patterned textiles with the kind of floral density and earthy color palette that Anatolian weavers have been perfecting for centuries. She brought them back to Alabama with no specific plan, just the conviction that they were too beautiful to leave in a shop.
 

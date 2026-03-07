@@ -1,13 +1,11 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
-
 ---
 title: The Market That Keyword Search Can't Fix — Freelance Localization and AI Matching
 date: 2026-03-07
 tags: [thin-markets, ai, market-design, explainer]
 summary: Skilled translators in rare language pairs and the clients who need them both exist. The problem is they have no way to find each other — and keyword search makes it worse.
-estimated-read: 5 min read
+estimated-read: 5 min readslug: freelance-localization-thin-market
 ---
-
 Search for a Tagalog-Norwegian technical translator on any mainstream platform and you will find a handful of results, at most. Sort by rating and you find someone who has never translated a technical manual. Filter by "medical" and you find someone whose only medical experience was translating a patient intake form. The translator you actually need — the one with a decade of pharmaceutical experience who happens to be bilingual in exactly those two languages — exists. She is simply invisible.
 
 This is a textbook thin market. The supply exists. The demand exists. Both parties genuinely want to transact. And yet the market systematically fails to bring them together — not because of lack of technology, but because the technology that exists was built for a different kind of problem.
