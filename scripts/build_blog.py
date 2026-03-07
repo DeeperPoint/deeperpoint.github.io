@@ -192,10 +192,10 @@ def buildPostPage(meta, body_html):
         <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
           {tags_html}
         </div>
-        <article class="blog-post">
-          {body_html}
-        </article>
       </div>
+      <article class="blog-post">
+        {body_html}
+      </article>
     </div>
   </section>
 """
