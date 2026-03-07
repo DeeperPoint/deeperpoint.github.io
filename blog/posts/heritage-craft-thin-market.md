@@ -4,7 +4,8 @@ title: The Last Timber Framers — Heritage Craft and the Market That's Disappea
 date: 2026-03-07
 tags: [thin-markets, ai, market-design, case-study]
 summary: Master craftspeople in endangered heritage trades cannot find clients; clients cannot find them. The market works by word of mouth — which means it barely works at all.
-estimated-read: 5 min readslug: heritage-craft-thin-market
+estimated-read: 5 min read
+slug: heritage-craft-thin-market
 ---
 Ask an architect restoring a 19th-century timber-frame barn how they find a timber framer who actually understands the original joinery — the mortise-and-tenon joints, the wooden pegs, the species-specific wood behavior — and they will pause for a moment before answering. Usually, the answer involves a name. Someone who knew someone. A specialist who appeared in a heritage conservation forum years ago. A mention in a regional historic preservation newsletter.
 

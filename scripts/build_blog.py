@@ -124,7 +124,7 @@ def parsePost(filepath):
     text = filepath.read_text(encoding="utf-8")
 
     # Split frontmatter from body
-    match = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)", text, re.DOTALL)
+    match = re.search(r"^---\s*\n(.*?)\n---\s*\n(.*)", text, flags=re.DOTALL | re.MULTILINE)
     if not match:
         print(f"  SKIP {filepath.name} — no YAML frontmatter")
         return None, None

@@ -1,10 +1,11 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 ---
-title: "Melancholy Appalachian Twilight" — Why Music Sync Licensing Is a Thin Market Problem
+title: "'Melancholy Appalachian Twilight' — Why Music Sync Licensing Is a Thin Market Problem"
 date: 2026-03-07
 tags: [thin-markets, ai, market-design, explainer]
 summary: Music supervisors need tracks they can't describe in words. Independent musicians have those tracks and no one to hear them. This is what a thin market looks like when the commodity is emotion.
-estimated-read: 5 min readslug: music-sync-thin-market
+estimated-read: 5 min read
+slug: music-sync-thin-market
 ---
 A music supervisor working on an independent film needs a track for the final scene. The director's note says: "melancholy Appalachian twilight — the moment someone realizes they aren't going home." The supervisor has a licensing budget, a rights window, and a deadline.
 
