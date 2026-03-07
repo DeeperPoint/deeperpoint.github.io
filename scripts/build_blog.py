@@ -82,9 +82,10 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     <div class="nav__inner">
       <a href="{root}index.html" class="nav__logo">Deeper<span>Point</span></a>
       <ul class="nav__links">
-        <li><a href="{root}spoke-science.html" class="nav__link">The Science</a></li>
-        <li><a href="{root}spoke-build.html" class="nav__link">Build Your Market</a></li>
-        <li><a href="{root}spoke-matching.html" class="nav__link">Solve Matching</a></li>
+        <li><a href="{root}thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="{root}marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="{root}testbeds-detail.html" class="nav__link">Examples</a></li>
+        <li><a href="{root}who-should-care.html" class="nav__link">Who's It For</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
         <li><a href="{root}about.html" class="nav__link">About</a></li>
       </ul>
