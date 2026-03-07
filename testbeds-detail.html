@@ -463,7 +463,12 @@
     <nav class="nav" id="nav">
         <div class="nav__inner">
             <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
-            <ul class="nav__links">
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
                 <li><a href="thin-markets.html" class="nav__link">The Problem</a></li>
                 <li><a href="marketforge.html" class="nav__link">The Project</a></li>
                 <li><a href="testbeds-detail.html" class="nav__link nav__link--active">Examples</a></li>
@@ -574,6 +579,7 @@
     </footer>
 
     <script src="reveal.js"></script>
+  <script src="nav-mobile.js"></script>
     <script>
         /**
          * Testbeds Detail Page — 3-Column Layout with Responsive Breakpoints

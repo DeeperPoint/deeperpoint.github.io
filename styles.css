@@ -1812,3 +1812,218 @@ img {
     padding: var(--space-lg);
   }
 }
+
+/* ============================================
+   Mobile Navigation (Hamburger Menu)
+   ============================================ */
+
+/* --- Hamburger Toggle Button --- */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  z-index: 110;
+  transition: background var(--transition-fast);
+}
+
+.nav__toggle:hover {
+  background: var(--glass-bg);
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--dp-silver);
+  border-radius: 2px;
+  transition: all var(--transition-med);
+  transform-origin: center;
+}
+
+/* Animate bars into X when open */
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--dp-blue-light);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--dp-blue-light);
+}
+
+/* --- Lock body scroll when mobile menu is open --- */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* --- Mobile Breakpoint --- */
+@media (max-width: 768px) {
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__links {
+    /* Full-screen overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 105;
+    padding: var(--space-2xl) var(--space-xl);
+    background: var(--dp-midnight);
+
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity var(--transition-med),
+      visibility var(--transition-med),
+      transform var(--transition-med);
+  }
+
+  .nav__links--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .nav__links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav__link {
+    display: block;
+    padding: var(--space-lg) var(--space-md);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--dp-silver);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .nav__link:hover,
+  .nav__link--active {
+    color: var(--dp-white);
+    background: rgba(59, 130, 246, 0.08);
+  }
+
+  .nav__link::after {
+    display: none;
+  }
+
+  /* Staggered entrance for each link */
+  .nav__links--open li {
+    animation: navSlideIn var(--transition-slow) both;
+  }
+
+  .nav__links--open li:nth-child(1) {
+    animation-delay: 50ms;
+  }
+
+  .nav__links--open li:nth-child(2) {
+    animation-delay: 100ms;
+  }
+
+  .nav__links--open li:nth-child(3) {
+    animation-delay: 150ms;
+  }
+
+  .nav__links--open li:nth-child(4) {
+    animation-delay: 200ms;
+  }
+
+  .nav__links--open li:nth-child(5) {
+    animation-delay: 250ms;
+  }
+
+  .nav__links--open li:nth-child(6) {
+    animation-delay: 300ms;
+  }
+
+  .nav__links--open li:nth-child(7) {
+    animation-delay: 350ms;
+  }
+
+  .nav__links--open li:nth-child(8) {
+    animation-delay: 400ms;
+  }
+
+  @keyframes navSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Push hero down a bit less on mobile since nav is shorter */
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--space-4xl) + 40px);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Stack grids single-column on mobile */
+  .hook__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .hook__grid--reverse {
+    direction: ltr;
+  }
+
+  .convergence__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doors {
+    grid-template-columns: 1fr;
+  }
+
+  .credibility__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Crosslink stacking */
+  .crosslink {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+}
