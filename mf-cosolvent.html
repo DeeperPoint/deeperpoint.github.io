@@ -29,11 +29,11 @@
         <div class="nav__inner">
             <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
             <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="nav__toggle-bar"></span>
-        <span class="nav__toggle-bar"></span>
-        <span class="nav__toggle-bar"></span>
-      </button>
-      <ul class="nav__links">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            <ul class="nav__links">
                 <li><a href="thin-markets.html" class="nav__link">The Problem</a></li>
                 <li><a href="marketforge.html" class="nav__link nav__link--active">The Project</a></li>
                 <li><a href="testbeds-detail.html" class="nav__link">Examples</a></li>
@@ -85,6 +85,26 @@
                     <li>✅ <strong>Open Source:</strong> MIT License ensures you own and control what you build.</li>
                 </ul>
 
+                <h3 id="scope"
+                    style="font-family: var(--font-display); font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--dp-cyan);">
+                    Scope Boundaries: What We Build vs. What You Build</h3>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver);">
+                    Cosolvent is deliberately scoped as a headless matching engine. It provides the universal
+                    scaffolding for thin market formation, but explicitly defers domain-specific customisation to the
+                    market sponsor.
+                </p>
+                <ul
+                    style="list-style-type: none; margin-left: 0; margin-bottom: 2rem; color: var(--dp-silver); display: flex; flex-direction: column; gap: 0.5rem;">
+                    <li>❌ <strong>Frontend UIs:</strong> Cosolvent provides APIs. The vertical sponsor builds the web or
+                        mobile app.</li>
+                    <li>❌ <strong>Monetization & Payments:</strong> We defer payment processing and business models to
+                        existing tools like Stripe.</li>
+                    <li>❌ <strong>Trust & Verification:</strong> Escrow, dispute resolution, and regulatory compliance
+                        are handled by the sponsor.</li>
+                    <li>❌ <strong>Digital Twins:</strong> Simulated populations belong in ClientSynth, separated from
+                        live market data.</li>
+                </ul>
+
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
                     <a href="assets/mysitedocs/Coswebroadmap.pdf" class="btn btn--outline" download>⬇ Roadmap (PDF)</a>
                     <a href="https://github.com/DeeperPoint/cosolvent-beta" class="btn btn--primary" target="_blank"
@@ -109,7 +129,7 @@
     </footer>
 
     <script src="reveal.js"></script>
-  <script src="nav-mobile.js"></script>
+    <script src="nav-mobile.js"></script>
 </body>
 
 </html>
