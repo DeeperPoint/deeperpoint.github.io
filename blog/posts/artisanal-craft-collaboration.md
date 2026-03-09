@@ -30,7 +30,7 @@ But what if it didn't have to be?
 
 What if the aesthetic compatibility that my wife's friend recognized — the shared botanical vocabulary between an Anatolian textile and an American ceramic surface — could be detected *computationally*, across hundreds of kilometers, between artisans who have never met? What if a platform could find those aesthetic correspondences, support the creative conversation, structure the deal, and connect the resulting set with the buyers who would recognize its value?
 
-That's the thin market engineering problem. And to show how MarketForge could make it work, let me tell you a story about two artisans in Mexico.
+That's the thin market engineering problem. And to show what a platform like MarketForge could make possible, let me tell you a story. The two artisans you're about to meet are fictional — but the craft traditions, the market forces, and the platform architecture are real. This is a scenario, not a case study: a detailed illustration of what thin market automation could look like if the infrastructure existed.
 
 ## 1. Luisa's Morning
 
@@ -182,6 +182,6 @@ My wife's friend made a vase that belonged with a Turkish table runner. It was b
 
 ---
 
-*This post describes a concept — the kind of application a sponsor organization like FONART could build using the Cosolvent framework and KnowledgeSlot curation tools. The operational details — which craft traditions to include, how to structure artisan agreements, how to verify quality, how to navigate cultural protocols — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Luisa and Rodrigo is fictional — an imagined scenario, not a description of an existing platform or real participants. But the craft traditions described are real, the market forces are documented, and the platform architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a sponsor organization like FONART could build using those tools. The operational details — which craft traditions to include, how to structure artisan agreements, how to verify quality, how to navigate cultural protocols — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](../thin-markets.html) · [The MarketForge platform →](../marketforge.html) · [Who should build this? →](../who-should-care.html)*
