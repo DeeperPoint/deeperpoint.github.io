@@ -16,7 +16,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 │   └── mf-curation.html        # KnowledgeSlot — AI-curated domain knowledge
 ├── whitepaper.html             # Full whitepaper on thin market theory
 ├── testbeds.html               # Thin market example summaries
-├── testbeds-detail.html        # 20 detailed thin market analyses
+├── examples.html               # 20 detailed thin market analyses
 ├── market-diagnostic.html      # Interactive Market Engineer's Diagnostic Checklist
 ├── blog/
 │   ├── posts/                  # Markdown blog posts (source)
