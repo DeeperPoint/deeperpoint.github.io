@@ -3,13 +3,13 @@
 title: The Machine Under the Tarp — Why Used Manufacturing Equipment Is a Thin Market Problem
 date: 2026-03-09
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge]
-summary: A $140,000 CNC machining center sits under a tarp at the back of a factory in Ohio. A manufacturer in Querétaro needs exactly that machine. Neither knows the other exists — and even if they did, the 180-page technical manual makes compatibility nearly impossible to evaluate remotely. This is a thin market.
+summary: A $140,000 CNC machining center sits under a tarp at the back of a factory in Ontario. A manufacturer in Querétaro needs exactly that machine. Neither knows the other exists — and even if they did, the 180-page technical manual makes compatibility nearly impossible to evaluate remotely. This is a thin market.
 estimated-read: 11 min read
 slug: used-machinery-thin-market
 ---
 <figure class="blog-hero">
-    <img class="blog-hero__img" src="../images/blog/used-machinery-thin-market-hero.png" alt="Before and after: a CNC machining center under a tarp in Dayton, then clean and operational on a factory floor in Querétaro" loading="lazy">
-    <figcaption>Before and after — a CNC machining center under a tarp in Dayton, then clean and operational on a factory floor in Querétaro.</figcaption>
+    <img class="blog-hero__img" src="../images/blog/used-machinery-thin-market-hero.png" alt="Before and after: a CNC machining center under a tarp in Stratford, then clean and operational on a factory floor in Querétaro" loading="lazy">
+    <figcaption>Before and after — a CNC machining center under a tarp in Stratford, then clean and operational on a factory floor in Querétaro.</figcaption>
 </figure>
 
 ## The Machine Under the Tarp
@@ -34,7 +34,7 @@ That's the thin market engineering problem. And to show what a platform like Mar
 
 ## 1. Frank's Problem
 
-Frank Kowalski is the plant manager at a mid-size precision parts manufacturer in Dayton, Ohio. The company makes aerospace-grade aluminum components — housings, brackets, structural fittings — for two Tier 1 suppliers. Eighteen months ago, they redesigned their primary product line to consolidate three part families into one, which meant retooling the floor.
+Frank Kowalski is the plant manager at a mid-size precision parts manufacturer in Stratford, Ontario. The company makes aerospace-grade aluminum components — housings, brackets, structural fittings — for two Tier 1 suppliers. Eighteen months ago, they redesigned their primary product line to consolidate three part families into one, which meant retooling the floor.
 
 The retooling left Frank with a Mazak Variaxis i-700 — a five-axis CNC machining center with a 30,000 RPM spindle, 40-tool automatic changer, Mazatrol SmoothX CNC control, and a work envelope designed for complex contoured surfaces on parts up to 700 mm diameter. It's a $340,000 machine new. Frank's is six years old, 11,000 spindle hours, well-maintained, with full service records. He estimates it's worth $130,000–$150,000 on the secondary market.
 
@@ -70,7 +70,7 @@ The match confidence is high. The platform notifies both parties.
 
 Sofía sees:
 
-> *"We found a Mazak Variaxis i-700 in Dayton, Ohio, that matches your production requirements for turbocharger housing machining. The machine's spindle speed, work envelope, tool capacity, and control system all meet or exceed your specified parameters. The seller reports 11,000 spindle hours with full service documentation. The asking price is within your stated budget. Would you like to review the detailed capability comparison?"*
+> *"We found a Mazak Variaxis i-700 in Stratford, Ontario, that matches your production requirements for turbocharger housing machining. The machine's spindle speed, work envelope, tool capacity, and control system all meet or exceed your specified parameters. The seller reports 11,000 spindle hours with full service documentation. The asking price is within your stated budget. Would you like to review the detailed capability comparison?"*
 
 What she receives is not a listing. It's a **capability match report** — a side-by-side comparison of the machine's extracted specifications against her production requirements, with match/exceed/gap indicators for each parameter. She can see, at a glance, that this machine fits her process. She didn't have to read the manual. The platform read it for her.
 
@@ -85,7 +85,7 @@ For Frank, this is the first time in eight months that someone has expressed int
 When AMT and the regional MEP configured the platform, they populated the **Knowledge Slot** — the sponsor-curated reference library — with vertical-specific information that neither Frank nor Sofía would easily find on their own:
 
 - **Valuation benchmarks**: depreciation curves for CNC equipment by brand, model, age, and spindle hours — data typically locked inside appraisal firms and auction houses
-- **Cross-border logistics for heavy machinery**: freight forwarders with experience shipping 8,000 kg machine tools from the US to Mexico, customs classification codes (HS 8457.10 for machining centers), USMCA tariff treatment, and the import licensing requirements for machine tools entering Mexico
+- **Cross-border logistics for heavy machinery**: freight forwarders with experience shipping 8,000 kg machine tools from Canada to Mexico, customs classification codes (HS 8457.10 for machining centers), USMCA tariff treatment, and the import licensing requirements for machine tools entering Mexico from Canada
 - **Inspection and certification protocols**: what an independent machine inspection covers (geometric accuracy tests, spindle runout measurement, ballbar testing), who provides certified inspections, and what documentation a buyer should require
 - **Rigging and installation standards**: requirements for machine decommissioning, crating, and rigging — the specialized knowledge that determines whether a 4-ton machine arrives in calibration or arrives as scrap
 - **Warranty and service transfer**: whether the original manufacturer's service contract can transfer to a new owner, what extended warranty options exist for used equipment, and how to verify that software licenses are transferable
@@ -106,7 +106,7 @@ Over five days, they exchange specifications, test results, photos of wear surfa
 
 When both parties indicate they're ready to proceed, the platform moves into deal structuring — Cosolvent's multilateral deal model. This is not a two-party handshake. The platform identifies that this transaction requires:
 
-- **Independent inspection**: a certified machine tool inspector in Dayton who can perform the geometric accuracy tests and condition assessment that Sofía requires before committing. The platform finds an inspector registered as a facilitator on the platform and proposes the engagement.
+- **Independent inspection**: a certified machine tool inspector in Stratford who can perform the geometric accuracy tests and condition assessment that Sofía requires before committing. The platform finds an inspector registered as a facilitator on the platform and proposes the engagement.
 - **Freight and rigging**: decommissioning a CNC machining center requires specialized riggers, a flatbed with air-ride suspension, and a freight forwarder who handles cross-border heavy machinery shipments. The Knowledge Slot provides guidance on crating standards; the platform surfaces a logistics facilitator with Mexico-US experience.
 - **Customs brokerage**: USMCA tariff classification, import licensing, and the documentation package that Mexican customs will require. A customs broker in Laredo who specializes in industrial machinery is proposed as a facilitator.
 - **Pricing guidance**: the platform's reference library, drawing from the Knowledge Slot's valuation benchmarks, suggests that a six-year-old Variaxis i-700 with 11,000 spindle hours and a clean inspection report should trade in the range of $120,000–$155,000 — consistent with Frank's asking price.
@@ -119,7 +119,7 @@ Step back from the narrative and look at the structural forces:
 
 **Information asymmetry** — This is the defining force. The information required to evaluate whether Frank's machine fits Sofía's process lives inside a 184-page technical manual, a maintenance log, and a set of test results that no listing platform can interpret. Buyers can't evaluate suitability without deep technical analysis; sellers can't communicate suitability without knowing what the buyer needs. The platform closes this gap by extracting structured capabilities from documentation and matching them against structured requirements — computationally, at scale.
 
-**Discovery** — Frank in Dayton and Sofía in Querétaro had no mechanism to find each other. Used equipment marketplaces list machines by category and model; they don't match machine capabilities against production requirements. Frank's Variaxis was invisible to Sofía not because she wasn't looking, but because no platform could tell her it was the right machine.
+**Discovery** — Frank in Stratford and Sofía in Querétaro had no mechanism to find each other. Used equipment marketplaces list machines by category and model; they don't match machine capabilities against production requirements. Frank's Variaxis was invisible to Sofía not because she wasn't looking, but because no platform could tell her it was the right machine.
 
 **Trust deficit** — Sofía has no way to verify Frank's claims about the machine's condition from 4,000 kilometers away. The platform's facilitation layer — independent inspection, documented test results, communication trail — builds verifiable trust without requiring either party to take the other's word.
 
