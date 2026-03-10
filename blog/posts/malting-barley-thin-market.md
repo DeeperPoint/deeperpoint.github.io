@@ -14,7 +14,7 @@ slug: malting-barley-thin-market
   <figcaption>Golden malting barley ready for harvest on the Canadian prairies — destined for a brewery 12,000 kilometres away.</figcaption>
 </figure>
 
-## The Grain Under the Tarp
+## The Grain in the Bin
 
 Every grain farmer on the Canadian prairies knows the feeling. You grow something exceptional — a two-row malting barley with protein sitting perfectly at 11.8%, plump kernels grading Select, germination energy above 95% — and then you sell it to a grain elevator for the commodity price because there is no other option.
 
