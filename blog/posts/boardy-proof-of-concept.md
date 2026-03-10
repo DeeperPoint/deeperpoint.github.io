@@ -116,11 +116,17 @@ DeeperPoint's architecture explicitly separates the *platform* (matching infrast
 
 Boardy's commercial model works for the startup ecosystem because the ecosystem is self-selecting and relatively homogeneous. Founders and investors share vocabulary, incentives, and cultural norms. In more complex verticals — where participants speak different languages, operate under different regulatory regimes, and have fundamentally different levels of digital literacy — the sponsor model is essential.
 
-### Boardy Stops at the Introduction; DeeperPoint Builds to the Deal
+### From Introduction to Investment — Boardy Ventures
 
-Boardy's output is an email introduction. What happens next — the pitch, the due diligence, the term sheet — is up to the humans. Boardy is a top-of-funnel tool.
+Early in its life, Boardy stopped at the email introduction. What happened next — the pitch, the due diligence, the term sheet — was up to the humans. That is no longer the case.
 
-DeeperPoint's architecture extends much further: from initial matching through *deal structuring* (assembling the multilateral participants — logistics providers, quality inspectors, trade finance — needed for complex transactions), *dynamic pricing* (fair-value estimation from comparable transactions), and the *Handoff Artifact* (a structured output that captures the full deal context and hands it off to human execution). This difference reflects the complexity of the markets DeeperPoint targets. An introduction is enough when a founder and an investor share a coffee. It is not enough when a grain farmer in Saskatchewan, a craft brewery in the Philippines, a shipping company in Vancouver, and a customs broker in Manila need to coordinate a specialty barley shipment.
+In 2025, Boardy launched **Boardy Ventures** — billed as the world's first AI-led venture fund, built in partnership with AngelList. The fund attracted $300 million in LP interest and recruited over 1,000 deal partners across 70+ countries, each offered 50% carry on deals they refer. Boardy Ventures plans to engage 50,000–100,000 founders and invest approximately $100,000 into promising opportunities. The AI identifies, evaluates, and structures deals; a rotating group of human investing partners reviews them; and CEO Andrew D'Souza retains final approval.
+
+This evolution is significant for the DeeperPoint thesis because it shows **the natural trajectory of a thin market platform**: once you build the matching infrastructure and accumulate enough institutional memory about participants and deal patterns, the platform is pulled toward deal participation — not just introduction. Boardy didn't plan to become a venture fund on day one; the matching engine *generated* the deal flow, the deal flow *generated* the intelligence, and the intelligence *justified* deploying capital.
+
+DeeperPoint's architecture anticipates this trajectory through what we call the *Handoff Artifact* — a structured output that captures the full deal context (participants, terms, logistics, regulatory requirements) and hands it off to human execution. In complex verticals — where a grain farmer in Saskatchewan, a craft brewery in the Philippines, a shipping company in Vancouver, and a customs broker in Manila need to coordinate a specialty barley shipment — the platform must do more than introduce two parties. It must assemble the multilateral participants, estimate fair value through *dynamic pricing*, and structure the deal skeleton that humans then execute.
+
+Boardy Ventures suggests that this trajectory is not unique to complex verticals. Even in the relatively simple world of founder-investor matching, the platform naturally evolves from connector to participant. That is a powerful validation of the framework's prediction that matching infrastructure, given enough memory and deal flow, becomes deal infrastructure.
 
 ### Boardy Has No Knowledge Slot
 
