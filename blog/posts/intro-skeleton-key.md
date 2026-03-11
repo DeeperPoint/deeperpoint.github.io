@@ -66,7 +66,7 @@ I want to be transparent about readiness. The DeeperPoint stack is under active 
 
 One concrete milestone on that roadmap: DeeperPoint is building **GPSim**, a MarketForge-inspired market simulator that models the Canadian specialty grain-to-Asia scenario end to end. GPSim is well into development but still some months from public release. When it's ready, it will be the first full demonstration of how the toolkit handles a real cross-border thin market — from semantic onboarding through matching through deal assembly — against realistic synthetic participants.
 
-You can examine the open-source core of Cosolvent [right now](https://github.com/DeeperPoint/Cosolvent). But a framework without people who use it is just code. What it needs is the right collaborators.
+You can examine the open-source core of Cosolvent [right now](https://github.com/DeeperPoint/Cosolvent). But a harness without people who use it is just code. What it needs is the right collaborators.
 
 That's the subject of Part 4.
 

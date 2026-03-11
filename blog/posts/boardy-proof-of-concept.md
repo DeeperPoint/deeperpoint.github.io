@@ -104,7 +104,7 @@ The convergences are remarkable. The divergences are equally instructive — and
 
 Boardy operates in one vertical: professional networking, with a heavy emphasis on founders and investors. Its Knowledge Slot equivalent is the AI's accumulated understanding of the startup ecosystem — who are credible investors, what stage-appropriate introductions look like, what founders need at seed versus Series A.
 
-DeeperPoint's architecture is designed to be *vertical-agnostic*. The Cosolvent framework, the Knowledge Slot, and the YAML-driven marketplace configuration are designed so that a sponsor — a trade association, a government agency, a regulatory body — can deploy a matching platform for *any* thin market: [specialty grain](malting-barley-thin-market.html), [rural legal services](rural-legal-thin-market.html), [heritage crafts](heritage-craft-thin-market.html), or [developing-world produce distribution](ethiopia-produce-thin-market.html).
+DeeperPoint's architecture is designed to be *vertical-agnostic*. The Cosolvent harness, the Knowledge Slot, and the YAML-driven marketplace configuration are designed so that a sponsor — a trade association, a government agency, a regulatory body — can deploy a matching platform for *any* thin market: [specialty grain](malting-barley-thin-market.html), [rural legal services](rural-legal-thin-market.html), [heritage crafts](heritage-craft-thin-market.html), or [developing-world produce distribution](ethiopia-produce-thin-market.html).
 
 This is not a criticism of Boardy — single-vertical focus is a perfectly legitimate strategy, especially at seed stage. But it does mean Boardy's proof of concept applies to the *principles* of thin market engineering, not to the *framework generalization* problem that DeeperPoint is solving.
 
@@ -160,7 +160,7 @@ It would be easy to frame Boardy and DeeperPoint as competitors. We use similar 
 
 But the framing is wrong, for three reasons:
 
-1. **DeeperPoint is a framework, not a product.** Cosolvent is open source. MarketForge is a deployment architecture for sponsors. DeeperPoint does not compete with anyone because it does not operate marketplaces — it builds tools for organizations that want to operate them.
+1. **DeeperPoint is an ecosystem, not a product.** Cosolvent is open source. MarketForge is a deployment architecture for sponsors. DeeperPoint does not compete with anyone because it does not operate marketplaces — it builds tools for organizations that want to operate them.
 
 2. **The market is measured in trillions.** Our recent analysis estimates [thin market friction at $5.7–10.4 trillion globally](thin-market-size.html). Startup networking is one vertical among thousands. There is no scarcity of problems to solve.
 

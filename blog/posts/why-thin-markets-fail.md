@@ -33,7 +33,7 @@ Two forces are converging:
 
 ## What We're Building
 
-DeeperPoint is building an open-source framework called **Cosolvent** that addresses thin market failures systematically:
+DeeperPoint is building an open-source harness called **Cosolvent** that addresses thin market failures systematically:
 
 1. **AI-mediated matching** that finds "fit" without forcing mutual disclosure — solving the information asymmetry problem
 2. **Trust gradation** that builds confidence incrementally, from anonymous browsing to verified transactions

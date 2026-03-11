@@ -48,7 +48,7 @@ Concretely, I'm looking for five kinds of people:
 
 **Investors and venture builders.** You see the commercial potential in matching platforms for specific verticals — transaction fees, premium services, data products — and you want to build businesses on top of proven infrastructure rather than reinventing the plumbing. A venture firm managing a portfolio of thin-market startups could use the shared DeeperPoint framework to mine structural commonalities across its portfolio, making each venture more capital-efficient. The underlying market physics are the same; the revenue model differs by vertical.
 
-**Open-source developers.** You want to contribute to an MIT-licensed framework that solves real-world semantic matching problems at the intersection of AI and market design. The [Cosolvent codebase](https://github.com/DeeperPoint/Cosolvent) is on GitHub. Pull requests are welcome.
+**Open-source developers.** You want to contribute to an MIT-licensed harness that solves real-world semantic matching problems at the intersection of AI and market design. The [Cosolvent codebase](https://github.com/DeeperPoint/Cosolvent) is on GitHub. Pull requests are welcome.
 
 **Curious generalists.** You don't fit the categories above, but you recognise thin markets in your own world — in your industry, your community, your country — and you want to understand the framework better before deciding how to engage. Start with the [whitepaper](../whitepaper.html), try the [market diagnostic](../market-diagnostic.html), read the [story posts](index.html) — and then get in touch.
 

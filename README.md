@@ -11,7 +11,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 ├── index.html                  # Landing page (hero + overview narrative)
 ├── thin-markets.html           # The Problem — thin market theory explained
 ├── marketforge.html            # The Project — MarketForge integration overview
-│   ├── mf-cosolvent.html       # Cosolvent — marketplace scaffolding framework (MIT)
+│   ├── mf-cosolvent.html       # Cosolvent — marketplace integration harness (MIT)
 │   ├── mf-clientsynth.html     # ClientSynth — synthetic user populations for testing
 │   └── mf-curation.html        # KnowledgeSlot — AI-curated domain knowledge
 ├── whitepaper.html             # Full whitepaper on thin market theory
