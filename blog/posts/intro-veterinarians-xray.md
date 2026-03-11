@@ -14,6 +14,8 @@ estimated-read: 5 min read
   <figcaption>Once you learn to read the x-ray, you see the same five forces in every failing market.</figcaption>
 </figure>
 
+*(No actual animals in this article. The patients here are markets.)*
+
 *Part 1 of 4 — Why I'm Building Tools for Markets That Don't Exist Yet*
 
 In 1974, I was a young engineer in Ontario, converting manual travel-demand calculations into Fortran for one of Canada's first full metropolitan transportation studies. By 1977, I was helping assemble a consortium bid for the Caracas subway. A decade later, I was doing PhD research on product family manufacturing — why factories that make related but not identical things behave so differently from textbook assembly lines. Then came two decades of building software tools for explaining complex industrial systems, followed by work on global standards for tracking shipping containers and truck loads.
