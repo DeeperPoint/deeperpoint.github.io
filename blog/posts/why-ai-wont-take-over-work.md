@@ -27,6 +27,11 @@ In a previous life, I produced over 500 projects involving video-based eLearning
 
 There are all kinds of tacit knowledge. One of the most interesting is sensorimotor knowledge. In one very simple training video, an operator shows how to change the ribbon on a Zebra barcode printer. Given that Zebra printers are everywhere, one might assume that everything required to explain their use would be written in their user manual. Except it wasn't.
 
+<figure class="blog-figure">
+  <img src="../../images/blog/why-ai-wont-take-over-work-zebra.png" alt="Frame from a training video showing an operator changing a ribbon on a Zebra barcode printer" loading="lazy">
+  <figcaption>Frame from a training video we made in the late 2000s. The operator demonstrates how much force is needed to push a ribbon onto the tensioning spindle — undocumented sensorimotor knowledge that caused real problems on the factory floor.</figcaption>
+</figure>
+
 The operator is instructed to push the new ribbon onto a spindle that has a tensioning mechanism. The ribbon is held tight by friction. The challenge is to get the newbie operator to push the ribbon through the significant resistance that the mechanism exerts. The company we were helping had a lot of problems with operators who were too timid to push hard. It also had damaged printers from operators who literally took a hammer to the ribbon, even though part of the cardboard roll spindle was folded over and effectively blocked insertion. The video used voice instructions and relied on human ability to read the body language in the video to show pretty accurately how much force was reasonable.
 
 How can you capture this type of subtle "tribal knowledge" to train an LLM? … or accurately describe it to a RAG embedding? The printer ribbon example only caused a problem from time to time, so until we made the video, no one had noted the concern, let alone made a systematic attempt to explain it. It also wasn't the only bit of undocumented detail that was associated with that machine. Little snippets of tacit knowledge were scattered throughout the finished training video … and that was one of the simplest we ever made.
@@ -39,11 +44,21 @@ I can attest that significant information gaps surfaced in every one of the 500 
 
 Many things in real life are complex or hard to see with the naked eye. Consider a device with a set of nozzles that each eject a ball of dough that will later be baked into a sweet pastry. Every second or two, another row of dough balls is ejected onto a conveyor. When we watched and filmed the operation, every row seemed identical. Then, to be double sure, we took some frames from later in the video and made them partially transparent to lay over an earlier video sequence. Lo and behold, even though the two overlaid frames were synchronized to match the exact moment when the cycle began, the dough balls fell at different times.
 
+<figure class="blog-figure">
+  <img src="../../images/blog/why-ai-wont-take-over-work-dough.png" alt="Overlaid video frames showing dough balls dropping at different times from identical nozzles" loading="lazy">
+  <figcaption>Two video frames overlaid and synchronized to the start of the cycle. The dough balls fell at different times because a sensor waited for the correct dough volume before releasing — a detail that wasn't in the manual.</figcaption>
+</figure>
+
 If this is an automated machine, how could they be so different?
 
 We contacted the plant manager who had installed the machine. He informed us that there was a sensor just above the nozzles that measured when enough dough had entered the nozzle to guarantee a dough ball of the correct size. Then, and only then, did the machine release the correctly sized ball. We only saw this behavior because the video was captured at 60 frames per second. The balls fell at different times because the dough was not absolutely consistent. Even though it all came from the same batch in a big hopper above the nozzles, the dough could vary in consistency even within the same batch. Then the sensor would drop the balls at a different time. The manager knew that, but he didn't think it was in the manual. Plus, the manual was on paper and he wasn't sure where it was shelved.
 
 If you think deeply about real-world tasks, you will find important tasks that are hard to see or study. Tasks that happen too fast or too slow. Tasks that require careful sequencing and precise timing. Tasks that are too big or too small to view clearly. Tasks where the mysteries occur inside a black box where they are invisible to the casual viewer.
+
+<figure class="blog-figure">
+  <img src="../../images/blog/why-ai-wont-take-over-work-dimensions.png" alt="Four key dimensions that make tasks opaque: speed, timing, scale, and visibility" loading="lazy">
+  <figcaption>Four dimensions that make real-world tasks opaque to casual observation — and to LLMs trained on written documentation.</figcaption>
+</figure>
 
 If you take a really close look at almost any human activity or process, you will find some unexplained mysteries or undocumented subtleties. If these are not widely understood, or written down — or what is written is not digitized — hardly anyone will even know that these subtleties exist. How is the LLM supposed to learn about them?
 
@@ -54,6 +69,11 @@ This last example is perhaps the most mundane, and possibly the most profound. P
 The workers are grabbing the pastries as they emerge and stacking them beside a conveyor that will take them one at a time into a machine where they are automatically placed and heat-sealed into a plastic bag. If everything works properly, the pastries are bagged as fast as they come through from the oven.
 
 What happens when there is a stoppage or problem in the bagging machine? The pastries are arriving, but the bagger cannot process them. One worker is not running the bagging machine — he is frantically trying to clear the jam. Another worker just ran over and pulled a rolling stack of clean racks to absorb the overflow. All of the workers are quickly stacking the pastries on every clean surface and passing them to the operator with the rack. Everyone is wearing gloves so they can handle the pastries as needed.
+
+<figure class="blog-figure">
+  <img src="../../images/blog/why-ai-wont-take-over-work-teamwork.png" alt="Workers on a pastry production line spontaneously reorganizing to handle a bagging machine stoppage" loading="lazy">
+  <figcaption>Spontaneous teamwork on the pastry line. When the bagging machine jams, the team reorganizes instantly — no programming, no rehearsal, just humans doing work the way they normally do.</figcaption>
+</figure>
 
 This is the type of mundane teamwork that infuses every human activity. When something needs to be done, humans adjust as a group to meet the challenge. It's likely that stoppages like this happen often enough that no one thinks twice. If there is a newbie on the line, the old hands just tell them where to stand and what to do. No prior programming or rehearsal. Just humans doing work the way they normally do.
 
