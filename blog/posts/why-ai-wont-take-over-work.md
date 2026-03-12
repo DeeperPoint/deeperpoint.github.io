@@ -9,6 +9,10 @@ summary: "Monolithic frontier LLMs face fundamental barriers to replacing human 
 estimated-read: 10 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/why-ai-wont-take-over-work-hero.png" alt="Task speed and complexity dimensions" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, October 2025.*
 
 I've watched with bemusement as AI enthusiasts advocate the need for massive investment in gargantuan datacenters and ever-larger LLMs. A few nights ago, I attended a seminar where a very smart (I daresay brilliant) presenter explained an economic model that predicted astounding AI growth and a surprising trajectory for wages and human work. The proposed model had a core assumption that presumed that LLMs will grow huge in order to achieve AGI and perform every intellectual task that we can throw at them. Since that pattern actually sort of matches what we are witnessing so far, the audience seemed to accept it without objection. However, I have been using and studying, and above all documenting and teaching about complex operations and systems for more than 40 years and I see so many areas where the monolithic AI model will be a really bad fit with human activity — especially commercial and technical activity.

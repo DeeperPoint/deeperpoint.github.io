@@ -9,6 +9,10 @@ summary: "How physical clustering — from Istanbul's Gold Street to grain eleva
 estimated-read: 3 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/pre-technology-solutions-thin-markets-hero.png" alt="Gold street in Istanbul's Grand Bazaar" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, July 2025.*
 
 ## Question

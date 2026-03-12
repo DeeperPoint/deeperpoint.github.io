@@ -9,6 +9,10 @@ summary: "In manufacturing, repetition drives excellence. In thin markets, repet
 estimated-read: 3 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/repetition-lean-thinking-thin-markets-hero.png" alt="Repetition and lean thinking in digital markets" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, August 2025.*
 
 In manufacturing, repetition is the key to excellence. Systems like Lean Manufacturing, Kaizen, and Just-In-Time production rely on continuous, incremental improvement of processes that are performed over and over again. But what happens when markets are thin — when transactions are rare, participants change frequently, and no two deals look exactly alike?

@@ -9,6 +9,10 @@ summary: "A comparison of bulk and containerized grain shipping from Western Can
 estimated-read: 4 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/bulk-vs-containerized-shipment-hero.png" alt="Bulk carrier and container ships" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, July 2025.*
 
 ## Bulk Shipping (Through Grain Traders)

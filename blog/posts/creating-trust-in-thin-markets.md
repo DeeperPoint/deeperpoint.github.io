@@ -9,6 +9,10 @@ summary: "Trust is the hardest problem in thin markets. When participants rarely
 estimated-read: 5 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/creating-trust-in-thin-markets-hero.png" alt="Trust between strangers in thin markets" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, July 2025.*
 
 When Nobel Prize winner [Alvin Roth](https://www.nobelprize.org/prizes/economic-sciences/2012/roth/biographical/) identified "thin markets" as a fundamental economic challenge, he highlighted a problem that has plagued commerce for centuries. These markets, where buyers and sellers are widely scattered and have difficulty finding each other, represent enormous untapped potential. Yet even when participants do connect, a critical barrier remains: trust.

@@ -9,6 +9,10 @@ summary: "Mexico City's Central de Abasto — the largest wholesale market on Ea
 estimated-read: 6 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/market-that-feeds-22-million-hero.jpg" alt="Central de Abasto, Mexico City" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, September 2025.*
 
 I'm standing on a dusty overpass in eastern Mexico City, and laid out before me is something that almost defies belief. It's not a city, but it's bigger than many. It's the Central de Abasto, or CEDA, the largest wholesale market on Earth. From here, you see an endless ocean of warehouses, a blur of 18-wheelers, and a current of human activity that never seems to stop. In a few days, I'm going inside.

@@ -9,6 +9,10 @@ summary: "World grain trade is dominated by large trading companies who manage t
 estimated-read: 5 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/thick-thin-structure-grain-trade-hero.png" alt="Thick and thin market structure in grain trade" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, July 2025.*
 
 World grain trade is dominated by large international grain trading companies who orchestrate massive shipments of bulk grains. To pay for that, grain companies typically buy the grain outright from the producers and sell it on to the eventual buyers. The difference between price at the farm gate and final delivered price is the margin they use to fund their operations and profit.

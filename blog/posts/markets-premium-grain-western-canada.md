@@ -9,6 +9,10 @@ summary: "Western Canadian grain producers can capture 10–40% price premiums b
 estimated-read: 12 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../../images/blog/markets-premium-grain-western-canada-hero.png" alt="Barley field and brewery" loading="lazy">
+</figure>
+
 *Originally published on deeperpoint.com, July 2025. Market data sourced through Claude Sonnet 4.0.*
 
 Western Canadian grain producers can capture significant premiums by targeting specialty markets through identity-preserved container shipping, with opportunities ranging from 10–40% price premiums over commodity pricing. Container grain exports tripled from 1.38 million to 3.87 million tonnes in recent years, now representing 10% of total grain exports.
