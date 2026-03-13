@@ -82,6 +82,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     <div class="nav__inner">
       <a href="{root}index.html" class="nav__logo">Deeper<span>Point</span></a>
       <ul class="nav__links">
+        <li><a href="{root}index.html" class="nav__link">Home</a></li>
         <li><a href="{root}thin-markets.html" class="nav__link">The Problem</a></li>
         <li><a href="{root}marketforge.html" class="nav__link">The Project</a></li>
         <li><a href="{root}examples.html" class="nav__link">Examples</a></li>
