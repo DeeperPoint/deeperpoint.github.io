@@ -9,6 +9,11 @@ summary: How a MarketForge-powered platform could connect willing industry exper
 estimated-read: 7 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/virtual-guest-lectures-hero.png" alt="A virtual guest lecture bridging Sydney and Peru" loading="lazy">
+  <figcaption>AI-powered guest lecture exchange bridging global divides.</figcaption>
+</figure>
+
 I frequently hear a familiar lament from senior industry professionals: they would love to teach. They fantasize about returning to a university campus to share their hard-won, real-world experience with the next generation. But when they look at the reality of guest lecturing—taking a half-day away from the office, commuting to a campus, coordinating schedules with an overworked professor—the fantasy evaporates.
 
 On the other side of this divide are university instructors. They are often overloaded with teaching requirements and administrative tasks, leaving them feeling disconnected from the cutting-edge, day-to-day realities of their field. They know their students would benefit immensely from hearing directly from practitioners, particularly in rapidly evolving industries. But finding the right expert, convincing them to take the time, and aligning schedules is an exhausting logistical hurdle. 
