@@ -29,41 +29,33 @@ That's the thin market engineering problem. And to show what a platform like Mar
 
 ## 1. Caitlín's Profile
 
-Caitlín Ní Dhonnabháin is a concertina player and sean-nós singer from Miltown Malbay, County Clare. She is thirty-eight, has been playing since she was six, and carries three distinctive credentials: she won the All-Ireland senior concertina title twice, she is one of a handful of musicians who learned the West Clare concertina style directly from an elderly master — Kitty Hayes — who died in 2018, and she holds a Higher Diploma in Arts Education from the University of Limerick with a specialisation in traditional music pedagogy.
+Caitlín Ní Dhonnabháin is a concertina player and sean-nós singer from Miltown Malbay, County Clare. She won the All-Ireland senior concertina title twice, she learned the West Clare concertina style directly from an elderly master, and she holds a Higher Diploma in Arts Education with a specialisation in traditional music pedagogy.
 
-Caitlín teaches part-time at a secondary school in Ennis and plays four sessions a week. She supplements her income with workshops at Fleadhanna (traditional music festivals) during the summer, but these engagements are local — mostly within Ireland. She has never performed or taught outside Europe.
+Caitlín teaches part-time and plays sessions. She supplements her income with workshops at festivals during the summer, mostly within Ireland. She has never performed or taught outside Europe.
 
-She is, in the language of thin market theory, a high-value supply-side participant who is invisible to the vast majority of the demand side. A cultural center in Melbourne that is looking for precisely her combination — a master-class-level concertina player with specific West Clare stylistic lineage and formal teaching credentials — would have almost no way to find her. They might post on the Mudcat Café forum, or email Comhaltas Ceoltóirí Éireann headquarters in Dublin to ask if they know anyone, or ask around at sessions — all mechanisms that depend on pre-existing social connections and that systematically favour musicians who already have international profiles.
+She is a high-value supply-side participant who is invisible to the vast majority of the demand side. A cultural center in Melbourne looking for precisely her combination — a master-class-level concertina player with specific West Clare stylistic lineage and formal teaching credentials — would have almost no way to find her. They might post on forums or ask around at sessions, but these mechanisms depend on pre-existing social connections and favour musicians who already have international profiles.
 
 Caitlín does not have an international profile. She has deep skill, regional stylistic specificity, and formal pedagogical training — exactly the combination that cultural organizations worldwide are looking for. She just has no way to signal it beyond West Clare.
 
-One Thursday morning, she opens an app she was introduced to by a coordinator at the Irish Traditional Music Archive (ITMA) in Dublin. The Archive has partnered with a cultural development agency — Ealaín na Gaeltachta, the arts body serving Ireland's Irish-speaking regions — to pilot a thin market platform for Irish traditional cultural services. Caitlín knows the platform as *Ceol Ceangal* — "Music Connection" — the name the sponsors chose when they configured the deployment.
+She opens an app piloted by a partnership between the Irish Traditional Music Archive (ITMA) and Ealaín na Gaeltachta (the arts body serving Ireland's Irish-speaking regions). The platform is called *Ceol Ceangal* — "Music Connection".
 
-The app asks her to describe herself. Not a form. A conversation, in English (though Irish is available). She talks for five minutes: what she plays, where she learned, from whom, what regional style she carries, what she teaches and how, what kinds of engagements she's open to — residencies, festival workshops, masterclasses, recording session work, online teaching.
+The app asks her to describe herself. She talks for a few minutes about what she plays, her regional style, her teaching approach, and the kinds of engagements she's open to. She uploads three short audio recordings and a CV.
 
-She uploads audio — three recordings from her phone: a slow air (*An Droighneán Donn*), a set of reels in the West Clare rolling style, and a sean-nós song. She adds a photo from the Willie Clancy Summer School and a one-page CV she put together years ago for a grant application.
-
-The platform's multimodal pipeline transcribes her audio descriptions, extracts structured data — *concertina, Anglo system, West Clare style, Kitty Hayes lineage, sean-nós vocals, pedagogical certification, workshop delivery, English and Irish* — and builds a layered profile. The **gallery profile** shows her public information: name, location, playing tradition, selected recordings, and a narrative bio the AI drafted from her voice input and CV, which she reviews and approves. The **matching profile** includes richer signals: her availability windows, travel willingness, fee expectations, the specific stylistic traditions she transmits, her comfort level with different audience types (advanced players, beginners, non-musician cultural audiences) — data visible only to the matching engine, never to other users.
-
-Caitlín puts her phone down and walks to school.
+The platform's multimodal pipeline transcribes her audio descriptions, extracts structured data — *concertina, West Clare style, sean-nós vocals, pedagogical certification, workshop delivery* — and builds a layered profile. The **gallery profile** shows her public information and a narrative bio. The **matching profile** includes richer signals visible only to the matching engine: her availability, travel willingness, fee expectations, and comfort level with different audience types.
 
 ---
 
 ## 2. Martín's Search
 
-Nine thousand kilometers to the southwest, in the San Telmo district of Buenos Aires, Martín Echeverría is trying to solve a problem he's been circling for eighteen months.
+Nine thousand kilometers to the southwest, in Buenos Aires, Martín Echeverría is the programme director of the Centro Cultural Irlandés, an established Irish cultural center running a traditional music residency programme.
 
-Martín is the programme director of the Centro Cultural Irlandés — one of South America's most established Irish cultural centers, founded in 1999 by descendants of the 40,000-strong Irish-Argentine community that traces its origins to the mid-nineteenth-century emigration wave. The Centro runs a year-round programme of language classes, cultural events, and — its flagship — a traditional music residency programme that brings Irish musicians to Buenos Aires for two-week immersive workshops.
+The programme is successful, but sourcing artists is a persistent problem. Martín needs a specific kind of musician: a *tradition-bearer* who carries a specific regional style, can teach that style to intermediate players, and is comfortable working with a Spanish-speaking audience. He needs someone who can explain not just *what* to play but *why* this tune sits in this tradition.
 
-The residency programme is successful and well-funded by the Argentine-Irish community. The problem is sourcing artists. Martín needs a very specific kind of musician: not a pub performer, not a touring act, but a *tradition-bearer* — someone who carries a specific regional style, who can teach that style to intermediate and advanced players, and who is comfortable working with a Spanish-speaking audience that is musically serious but culturally diverse. He needs someone who can explain, in a workshop setting, not just *what* to play but *why* this ornament goes here and not there, why this tune sits in this key in this tradition, what the difference is between a Sliabh Luachra polka and a West Clare one.
+His current sourcing method relies on emailing friends and attending festivals in Ireland to make connections in person. He finds one musician per year, but he has no way to systematically compare candidates or discover musicians outside his existing network.
 
-His current sourcing method is to email friends in Dublin, post in private Facebook groups, and attend Fleadh Cheoil na hÉireann every August to make connections in person. This works, barely. He finds one musician per year for the residency. He has no way to systematically compare candidates, no way to discover musicians outside his existing network, and no mechanism to match his specific requirements — *regional stylistic lineage, pedagogical ability, willingness to travel to South America, comfort with a Spanish-speaking audience* — against the actual profiles of available musicians.
+Martín registers the Centro as a **demand-side participant** on *Ceol Ceangal*.
 
-Last month, the Centro Cultural Irlandés was approached by the same ITMA/Ealaín partnership that onboarded Caitlín. The Argentine-Irish diaspora organisation *Federación de Sociedades Argentino-Irlandesas* is a supporting partner. Martín registered the Centro as a **demand-side participant** on *Ceol Ceangal*.
-
-His onboarding was different from Caitlín's. The platform asked him to describe what he's looking for — not in catalogue terms but in practical ones. What does a successful residency look like? What has gone wrong in the past? What regional styles does his community most want to learn? What languages do participants speak? What level are they?
-
-Martín described an ideal engagement: a two-week residency, twelve workshop sessions, one public concert, an artist talk, and a house session with the Centro's regular session players. He wants someone with strong concertina or fiddle skills in a recognisable regional tradition — Clare, Sliabh Luachra, East Galway, Donegal. Formal teaching experience preferred. Willingness to work with an interpreter for Spanish-language Q&A essential. Fee: the Centro's budget for the residency is €4,500 plus flights and accommodation.
+The platform asks him to describe an ideal residency. Martín outlines a two-week engagement with workshop sessions, a public concert, and an artist talk. He wants someone with strong concertina or fiddle skills in a recognisable regional tradition. Formal teaching experience and a willingness to work with a Spanish-language interpreter are essential. He inputs the Centro's budget for the residency.
 
 ---
 
@@ -113,26 +105,21 @@ Caitlín could not have found this specific, contextual insight through a web se
 
 ## 5. The Conversation
 
-Caitlín and Martín are now in a **match-scoped communication channel**. The platform provides AI-assisted translation — Martín writes in Spanish, Caitlín reads in English, and vice versa. The channel also includes the chatbot in "domain reference" mode for questions that come up during the conversation.
+Caitlín and Martín are now in a **match-scoped communication channel**. The platform provides AI-assisted translation — Martín writes in Spanish, Caitlín reads in English, and vice versa. 
 
-The exchange is practical and warm. Martín sends a video from last year's residency — a house session at the Centro, fifteen players in a circle, playing a set of reels. Caitlín watches it and responds with a voice note: *"They're good. Strong rhythmic sense. I'd start with ornamentation — rolls and crans — because that's the hardest thing to teach outside Ireland, and it's where the regional style really lives."*
-
-Martín asks if she can do a sean-nós singing session. Caitlín checks the Knowledge Slot — *"Is there interest in sean-nós in Buenos Aires?"* — and gets a nuanced answer: the community has some exposure through recordings but no one has taught it in person. She responds: *"I'll include two sessions on sean-nós — it'll be a contrast to the instrumental workshops, and it opens a conversation about the vocal roots of the dance music."*
-
-Over a week, they co-design the residency programme: twelve workshop sessions (six on West Clare concertina style, two on ornamentation for all instruments, two on sean-nós, two on session etiquette and ensemble playing), one public concert with the Centro's house band, an artist talk on the role of regional style in Irish traditional music, and a closing house session.
+The exchange is practical. Martín shares a video from last year's residency. Caitlín watches it and notes their strong rhythmic sense, suggesting they focus on specific ornamentation. They co-design the residency programme: workshop sessions on West Clare concertina style, ornamentation, sean-nós singing, and an artist talk.
 
 ---
 
 ## 6. The Deal
 
-When both parties confirm the engagement, the platform moves into **deal structuring**. The residency is not a simple two-party contract — it requires facilitation:
+When both parties confirm the engagement, the platform moves into **deal structuring**. The residency requires specific facilitation:
 
-- **Travel logistics**: the platform's facilitator pool includes a travel coordinator experienced with artist visas for Argentina, who is flagged as available. The Knowledge Slot provides the specific visa requirements for Irish citizens (visa-free for stays under 90 days, but the Centro's sponsorship letter needs specific formatting for immigration)
-- **Technical requirements**: Caitlín needs a venue with specific acoustic properties for concertina workshops (small room, no amplification, good natural reverb). The Knowledge Slot includes notes from previous residencies about suitable venues in Buenos Aires
-- **Recording and documentation**: the ITMA partnership requests that residencies be documented — audio recordings of workshops and the concert, with participant consent — for the Archive's collection. A local audio engineer registered on the platform is proposed as a facilitator
-- **Payment**: the platform structures the payment in two tranches — 50% on confirmation, 50% on completion — through the Centro's existing grant mechanism, with the platform providing the invoicing template and documentation trail the funding body requires
+- **Travel logistics**: The Knowledge Slot provides visa requirements, and a travel coordinator from the platform's facilitator pool is engaged.
+- **Technical requirements**: Caitlín needs an unamplified venue with good natural reverb. The Knowledge Slot suggests suitable venues in Buenos Aires based on previous residencies.
+- **Payment**: The platform structures the payment in tranches through the Centro's existing grant mechanism, providing the necessary documentation trail.
 
-The deal structure — principal participants, facilitators, role assignments, timeline, fee structure, documentation requirements — is assembled in a **Handoff Artifact** that both parties review and confirm.
+The deal structure — principal participants, facilitators, role assignments, timeline, and fee structure — is assembled in a **Handoff Artifact** that both parties review and confirm.
 
 ---
 
