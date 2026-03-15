@@ -111,6 +111,8 @@ PAGE_FOOTER = """
   </footer>
 
   <script src="{root}reveal.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </body>
 
 </html>
