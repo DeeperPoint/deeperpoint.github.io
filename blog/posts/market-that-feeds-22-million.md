@@ -105,6 +105,11 @@ At DeeperPoint, we wonder whether an AI-driven virtual marketplace could replica
 
 Two months after visiting CEDA, I was in Addis Ababa and walked through the Merkato — the largest open-air market in Africa. The Merkato is smaller than CEDA but unmistakably its East African cousin: the same logic of geographic concentration, the same teeming human energy, the same role as the gravitational center of a city's food supply.
 
+<figure class="blog-figure">
+  <img src="../../images/blog/merkato_bldg.jpg" alt="A building in the Merkato, Addis Ababa" loading="lazy">
+  <figcaption>The Merkato, Addis Ababa — the largest open-air market in Africa. Photo by Mustafa Uzumeri.</figcaption>
+</figure>
+
 What struck me, though, was not the similarity but the difference in trajectory. Ethiopia, Uganda, and several other East African nations are actively experimenting with digital platforms designed to connect smallholder farmers more directly with urban markets. Platforms like Ethiopia's Birrama and OpenAgriNet, and Uganda's Kudu and EzyAgric, are early-stage efforts to do precisely what the coyote system resists: give small producers transparent price information, direct access to buyers, and alternatives to extractive middlemen. The technology is still nascent and the challenges — rural connectivity, digital literacy, trust — are real. But the intent is explicit: use technology to extend market thickness past the warehouse walls and back to the farm.
 
 In a sense, East Africa may be a step closer to the [MarketForge](https://deeperpoint.com/marketforge.html) vision than Mexico — not because its markets are more advanced, but because its reformers are already asking the right question.
