@@ -24,7 +24,7 @@ I am retired. I am self-funded. I have no venture capital investors, no board to
 
 I could present this as a limitation, but it's actually the most unusual thing about DeeperPoint. Because I'm not optimising for a Series A or an exit multiple, I have the freedom to optimise for something that venture-backed projects almost never can: **long-term structural impact.** I can choose open source over lock-in. I can let the framework evolve at the pace of real-world learning rather than the pace of a burn rate. I can say no to approaches that would generate revenue quickly but undermine the architecture.
 
-I do have constraints. I can't risk financial ruin in pursuit of impact — to use the phrase I keep coming back to, *I can't afford to die penniless in a provincial nursing home.* That line is half-joke, half-budget discipline. It means I spend carefully, I don't over-commit, and the proprietary layers of the toolkit exist partly because the labour of customisation is real and has to be funded. But within those guardrails, the project is free to pursue the problem rather than the quarterly target.
+I do have constraints. I can't risk financial ruin in pursuit of impact. It means I spend carefully, I don't over-commit, and the proprietary layers of the toolkit exist partly because the labour of customisation is real and has to be funded. But within those guardrails, the project is free to pursue the problem rather than the quarterly target.
 
 That freedom is a competitive advantage. I intend to use it.
 
