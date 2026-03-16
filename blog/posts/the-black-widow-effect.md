@@ -32,11 +32,12 @@ But it may not have been an accident and SMALLCO didn’t (willingly) commit sui
 
 ## Context
 
-Anyone who has worked on either side of the B2B buyer/seller relationship knows that large companies are increasing their payment terms. If you aren’t following the issue, read the following blogs and articles, or do a search and you will find many more:
+Anyone who has worked on either side of the B2B buyer/seller relationship knows that large companies are increasing their payment terms. This isn't just anecdotal; recent data paints a stark picture of a global shift toward longer payment periods as big companies prioritize preserving their own cash:
 
-* [It’s the new normal: big companies are paying their bills late, later, and latest.](http://ww2.cfo.com/credit-capital/2013/01/when-your-big-customer-wants-to-pay-late/)  
-* [P\&G, Big Companies Pinch Suppliers on Payments](http://online.wsj.com/articles/SB10001424127887324010704578418361635041842)  
-* [Small businesses forced to wait average of 23 days longer for payment](http://www.thisismoney.co.uk/money/smallbusiness/article-2689929/Small-businesses-forced-wait-longer-payment-big-companies.html)
+* **Global Working Capital at Crisis Levels:** According to a 2024 report by Allianz Trade, the average global payment term reached 62 days, pushing the global working capital requirement to 78 days—its highest level since the 2008 financial crisis.
+* **The "Pay Later" Default:** In Europe alone, companies collectively extended an additional €11 billion in credit to their business partners between late 2024 and early 2025 simply through longer payment terms.
+* **Shifting Standards:** In the United States, while "Net 30" remains a common standard, there is a noticeable shift toward "Net 60", particularly among established retailers. Larger firms are increasingly taking 60 to 90 days to pay. Meanwhile, in the Asia-Pacific region, "ultra-long payment delays" (over 180 days) are anticipated to increasingly become the norm.
+* **Informal Lenders:** Experts predict this trend will only worsen into 2026. This practice essentially turns small companies into informal lenders to their massive corporate customers, drastically raising the risk of supplier defaults and bankruptcies.
 
 While many big companies are lengthening their supplier payment terms, the smarter ones have set up vendor invoice financing systems to help limit the damage to their suppliers.  In these systems, the buyer (or third party) typically advances payment of buyer-approved invoices (minus interest and fees) to suppliers who want faster cash. Factoring companies have been doing this forever.
 
