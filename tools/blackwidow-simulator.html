@@ -62,7 +62,14 @@ body {
 }
 
 @media (max-width: 560px) {
-  .controls { grid-template-columns: 1fr; }
+  .controls { grid-template-columns: 1fr; gap: 0.625rem; }
+}
+
+@media (max-width: 400px) {
+  body { padding: 0.5rem; }
+  .control-group { padding: 0.5rem 0.75rem; }
+  .controls { gap: 0.5rem; margin-bottom: 0.75rem; }
+  .sim-header { margin-bottom: 0.75rem; }
 }
 
 .control-group {
@@ -161,8 +168,17 @@ input[type="range"]:hover::-webkit-slider-thumb {
 }
 
 .status-item strong {
-  color: #fff;
+  color: #e2e8f0;
   font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 400px) {
+  .status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
 }
 
 .regime-badge {
@@ -229,6 +245,16 @@ input[type="range"]:hover::-webkit-slider-thumb {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 400px) {
+  .mode-toggle {
+    flex-direction: column;
+    width: 100%;
+  }
+  .mode-btn {
+    padding: 0.5rem 0.75rem;
+  }
 }
 
 .mode-btn {
