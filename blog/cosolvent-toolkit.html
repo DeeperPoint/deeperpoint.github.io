@@ -1,0 +1,124 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Thin Market Toolkit — What Cosolvent Does (and What It Defers) — DeeperPoint</title>
+  <meta name="description" content="Open-source Cosolvent handles the heavy lifting of semantic matching and AI-driven onboarding, while deferring domain-specific workflows and trust frameworks to the market sponsors who know their vertical best.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Thin Market Toolkit — What Cosolvent Does (and What It Defers)">
+  <meta property="og:description" content="Open-source Cosolvent handles the heavy lifting of semantic matching and AI-driven onboarding, while deferring domain-specific workflows and trust frameworks to the market sponsors who know their vertical best.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/cosolvent-toolkit.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Thin Market Toolkit — What Cosolvent Does (and What It Defers)">
+  <meta name="twitter:description" content="Open-source Cosolvent handles the heavy lifting of semantic matching and AI-driven onboarding, while deferring domain-specific workflows and trust frameworks to the market sponsors who know their vertical best.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../search.html" class="nav__link">Search</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-03-07">March 07, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>3 min read</span>
+        </div>
+        <h1 class="blog-post__title">The Thin Market Toolkit — What Cosolvent Does (and What It Defers)</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">cosolvent</span><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">explainer</span>
+        </div>
+      </div>
+      <article class="blog-post">
+        <p>If you set out to engineer a market for a highly specific, low-volume trade — say, custom architectural metalwork or collaborative artisanal craft — you will almost immediately hit a wall. Generic e-commerce platforms like Shopify are built for standardized SKUs, not complex, multi-party negotiations. And building a custom semantic matching engine from scratch is generally too expensive and complex for a boutique market sponsor to justify.</p>
+<p>This is the gap that <strong>Cosolvent</strong> is designed to fill.</p>
+<p>Cosolvent is the open-source foundational matching engine at the heart of the DeeperPoint ecosystem. It is not an out-of-the-box marketplace that you just drop your logo onto. Instead, it is a highly capable, headless backend that solves the fundamental computational challenges of thin markets, while deliberately deferring the domain-specific nuances to the people who understand them best: the market vertical admins and their complementary tools.</p>
+<p>Here is how that division of labor works in practice.</p>
+<h2 id="what-cosolvent-handles-the-heavy-lifting">What Cosolvent Handles: The Heavy Lifting</h2>
+<p>Cosolvent takes on the hardest, most universal technical challenges of thin market engineering. When you deploy the Cosolvent backend, you get out-of-the-box capabilities that would normally take a dedicated machine learning team to build:</p>
+<p><strong>1. AI-Driven Onboarding and Extraction</strong><br />
+In thin markets, participants cannot be forced into rigid drop-down menus. They need to describe their capabilities and needs in natural language, or simply upload their existing portfolios, cvs, or project specs. Cosolvent&rsquo;s pipeline automatically ingests these unstructured documents, uses Large Language Models to extract structured data against a configurable schema, and builds rich, searchable participant profiles without introducing massive friction.</p>
+<p><strong>2. Semantic Vector Matching</strong><br />
+Keyword search fails in thin markets because buyers and sellers rarely use the exact same vocabulary to describe complex needs. Cosolvent uses vector embeddings (via PostgreSQL and pgvector) to perform semantic matching. It understands that a buyer looking for &ldquo;precision heritage restoration&rdquo; and a seller offering &ldquo;historical masonry conservation&rdquo; are a high-quality match, even if they share zero keywords.</p>
+<p><strong>3. Multilateral Deal Assembly</strong><br />
+Unlike standard two-sided markets (buyer meets seller), thin markets frequently require facilitators — insurers, logistics experts, quality certifiers. Cosolvent&rsquo;s architecture natively supports multilateral matching, allowing a core transaction to pull in the necessary supporting actors required to make a complex deal work.</p>
+<p><strong>4. Privacy and Role-Based Permissions</strong><br />
+Thin markets are high-trust environments. Participants rarely want their exact capabilities or needs broadcast to the public internet. Cosolvent provides a granular, configurable permission engine where onboarding visibility and messaging rights are strictly controlled based on user roles and verification status.</p>
+<h2 id="what-cosolvent-defers-the-local-context">What Cosolvent Defers: The Local Context</h2>
+<p>While Cosolvent is a powerful engine, an engine is not a car. To create a successful market, Cosolvent specifically defers several critical components to the market sponsor (the organization standing up the market) and the specialized tools they choose to integrate.</p>
+<p><strong>1. The User Interface and Experience</strong><br />
+Cosolvent is entirely headless — it communicates exclusively via a robust API. It does not provide web pages or mobile apps. Whether a market needs a sleek, consumer-style mobile app or a dense, data-rich desktop dashboard for procurement officers is entirely up to the sponsor to build (or buy). This ensures the interface exactly matches the expectations of the vertical&rsquo;s participants.</p>
+<p><strong>2. The Domain Ontology</strong><br />
+Cosolvent doesn&rsquo;t know what makes a good timber framer or a reliable custom software developer. The sponsor must define the specific &ldquo;schema&rdquo; (the required fields, qualifications, and parameters) that matter for their market. Cosolvent&rsquo;s configuration engine adapts to this schema, but the sponsor must bring the domain expertise required to write it.</p>
+<p><strong>3. The Trust and Verification Framework</strong><br />
+A matching engine can connect two parties, but it cannot verify that a contractor actually holds a valid certification or that a buyer actually has the funds to pay. Establishing the &ldquo;rules of the road&rdquo; — verifying credentials, mediating disputes, and ensuring psychological safety — remains the job of the market sponsor. Cosolvent provides the permission flags to enforce these rules, but the sponsor must do the human work of deciding who gets to play.</p>
+<p><strong>4. Generative Discovery and Conversational UI</strong><br />
+While Cosolvent does the matching, the process of eliciting a user&rsquo;s true preferences is often best handled by a conversational AI. In the broader DeeperPoint ecosystem, tools like <strong>MarketForge</strong> or specialized AI agents can sit in front of Cosolvent, acting as an interactive concierge that guides users through the discovery process before handing the structured requirements back to Cosolvent for the actual search.</p>
+<h2 id="a-toolkit-not-a-straitjacket">A Toolkit, Not a Straitjacket</h2>
+<p>By keeping Cosolvent strictly focused on the universal plumbing of thin markets — extraction, embedding, and semantic matching — we keep the open-source core lightweight and adaptable. </p>
+<p>It provides market sponsors with the advanced AI capabilities they need to break the matching bottleneck, while leaving them entirely free to design the exact user experience, trust mechanics, and business logic that their specific market vertical requires to thrive.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

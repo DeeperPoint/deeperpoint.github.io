@@ -1,0 +1,122 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search — DeeperPoint</title>
+  <meta name="description" content="Search the DeeperPoint website and blog for thin market engineering resources.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <style>
+    /* Customising Pagefind to match DeeperPoint theme */
+    :root {
+      --pagefind-ui-scale: 1;
+      --pagefind-ui-primary: #8b5cf6;
+      --pagefind-ui-text: #e2e8f0;
+      --pagefind-ui-background: #111827;
+      --pagefind-ui-border: #334155;
+      --pagefind-ui-tag: #1e293b;
+      --pagefind-ui-border-width: 1px;
+      --pagefind-ui-border-radius: 8px;
+      --pagefind-ui-font: 'Inter', sans-serif;
+    }
+    .pagefind-ui mark {
+      background-color: rgba(139, 92, 246, 0.3) !important;
+      color: #fff !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="examples.html" class="nav__link">Examples</a></li>
+        <li><a href="who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="search.html" class="nav__link nav__link--active">Search</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="section" id="search-page" style="padding-top: calc(var(--space-4xl) + 60px); min-height: 80vh;">
+    <div class="container container--narrow">
+      <div class="text-center reveal" style="margin-bottom: var(--space-2xl);">
+        <h1 class="section__title">Search DeeperPoint</h1>
+        <p class="section__desc section__desc--centered">
+          Find analyses, blog posts, and resources about thin market theory.
+        </p>
+      </div>
+      
+      <div class="reveal" style="background: rgba(17, 24, 39, 0.6); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); backdrop-filter: blur(12px);">
+        <div id="search"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+  <script src="nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        // Pagefind UI initialization
+        if (typeof PagefindUI !== 'undefined') {
+            new PagefindUI({ 
+                element: "#search", 
+                showSubResults: true,
+                showImages: false
+            });
+            // Focus search box automatically
+            setTimeout(() => {
+                const searchInput = document.querySelector('.pagefind-ui__search-input');
+                if (searchInput) searchInput.focus();
+            }, 100);
+        } else {
+            document.getElementById('search').innerHTML = '<p style="color: var(--dp-silver); text-align: center;">Search is loading or only available on the deployed site.</p>';
+        }
+    });
+  </script>
+</body>
+</html>
