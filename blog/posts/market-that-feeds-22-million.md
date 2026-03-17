@@ -11,7 +11,7 @@ estimated-read: 8 min read
 
 <figure class="blog-hero">
   <img class="blog-hero__img" src="../../images/blog/ceda_aerial.jpg" alt="Aerial view of the Central de Abasto, Mexico City" loading="lazy">
-  <figcaption>The Central de Abasto, Mexico City — the largest wholesale market on Earth. Photo by Mustafa Uzumeri.</figcaption>
+  <figcaption>The Central de Abasto, Mexico City — the largest wholesale market on Earth.</figcaption>
 </figure>
 
 *Originally published on deeperpoint.com, September 2025.*
