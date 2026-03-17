@@ -22,7 +22,7 @@ The problem isn't a lack of willingness. The structural desire is clearly there 
 
 What if the friction of physical presence was removed entirely? What if a professional could drop into a classroom virtually for precisely one hour, treating it like just another block on their calendar? And what if a "dating service" existed to seamlessly match the specific curricular needs of an instructor with the precise domain expertise of a willing professional? 
 
-That's the thin market engineering problem. And to show what a platform like MarketForge could make possible, let me tell you a story. The characters you're about to meet are fictional—but the educational needs, the market forces, and the platform architecture are real. This is a scenario, not a case study: a detailed illustration of what thin market automation could look like if the infrastructure existed.
+That's the thin market engineering problem. And to show what a platform like MarketForge could make possible, let me tell you a story. I have purposely picked a scenario with great distance and language differences to highlight the value of the concept. The characters you're about to meet are fictional—but the educational needs, the market forces, and the platform architecture are real. This is a scenario, not a case study: a detailed illustration of what thin market automation could look like if the infrastructure existed.
 
 ---
 
