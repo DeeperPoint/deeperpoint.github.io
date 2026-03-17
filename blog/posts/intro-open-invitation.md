@@ -64,6 +64,6 @@ And time. The most valuable thing a retired person has, and the scarcest resourc
 
 Getting money is secondary. Finding the right people is the point.
 
-If you see a thin market in your world — a place where transactions should be happening but aren't, where AI-driven matching could unlock real value for real participants — I want to hear from you.
+If you see a thin market in your world — a place where transactions should be happening but aren't, where AI-driven matching could unlock real value for real participants — I want to hear from you. If you are not the right person, maybe a colleague, friend or acquaintance would be interested.
 
 *Explore the [theory](../thin-markets.html). Read the [whitepaper](../whitepaper.html). Review the [toolkit](../marketforge.html). Examine the [code](https://github.com/DeeperPoint/Cosolvent). And [reach out](../about.html).*

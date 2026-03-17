@@ -1,0 +1,764 @@
+<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
+<!--Based on the original BlackWidowPaymentCalcs model by Vic Uzumeri, PhD (2010-2014)-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Widow Payment Simulator — DeeperPoint</title>
+<meta name="description" content="Interactive simulator demonstrating how extended payment terms and rapid sales growth can create a lethal cash trap for smaller vendors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: transparent;
+  color: #cbd5e1;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 1rem;
+}
+
+/* === Layout === */
+.simulator {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sim-header {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.sim-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.sim-title span {
+  color: #f87171;
+}
+
+.sim-subtitle {
+  font-size: 0.8125rem;
+  color: #94a3b8;
+}
+
+/* === Controls === */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 560px) {
+  .controls { grid-template-columns: 1fr; gap: 0.625rem; }
+}
+
+@media (max-width: 400px) {
+  body { padding: 0.5rem; }
+  .control-group { padding: 0.5rem 0.75rem; }
+  .controls { gap: 0.5rem; margin-bottom: 0.75rem; }
+  .sim-header { margin-bottom: 0.75rem; }
+}
+
+.control-group {
+  background: rgba(17, 24, 39, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(12px);
+}
+
+.control-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.control-label__text {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.control-label__value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.control-label__value--markup { color: #60a5fa; }
+.control-label__value--growth { color: #34d399; }
+.control-label__value--lag    { color: #fbbf24; }
+
+/* === Range Slider Styling === */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+
+#markupSlider::-webkit-slider-thumb { background: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.5); }
+#growthSlider::-webkit-slider-thumb { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
+#lagSlider::-webkit-slider-thumb    { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
+
+#markupSlider::-moz-range-thumb { background: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.5); }
+#growthSlider::-moz-range-thumb { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
+#lagSlider::-moz-range-thumb    { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
+
+/* === Status Bar === */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.status-item {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status-item strong {
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 400px) {
+  .status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+.regime-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.regime-badge--safe {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.3);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.regime-badge--bank {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.regime-badge--critical {
+  color: #fb923c;
+  border-color: rgba(251, 146, 60, 0.3);
+  background: rgba(251, 146, 60, 0.08);
+}
+
+.regime-badge--widow {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.3);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+/* === Chart Container === */
+.chart-container {
+  position: relative;
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 0.75rem 0.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.chart-container canvas {
+  max-height: 320px;
+}
+
+/* === Scenario Presets === */
+.scenarios {
+  margin-top: 0.75rem;
+}
+
+.scenarios__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 0.4rem;
+}
+
+.scenarios__pills {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.scenario-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: all 150ms ease;
+  white-space: nowrap;
+}
+
+.scenario-pill:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(17, 24, 39, 0.6);
+}
+
+.scenario-pill--active {
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.scenario-desc {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 0.4rem;
+  min-height: 1.2em;
+  transition: opacity 200ms ease;
+}
+
+.scenario-desc strong {
+  color: #e2e8f0;
+  font-style: normal;
+}
+
+@media (max-width: 400px) {
+  .scenario-pill {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.45rem;
+  }
+}
+
+/* === Mode Toggle === */
+.mode-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.2rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 400px) {
+  .mode-toggle {
+    flex-direction: column;
+    width: 100%;
+  }
+  .mode-btn {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+.mode-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.mode-btn:hover {
+  color: #fff;
+}
+
+.mode-btn--active {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+/* === Footer === */
+.sim-footer {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  color: #64748b;
+}
+
+.sim-footer a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.sim-footer a:hover {
+  color: #fff;
+}
+</style>
+</head>
+<body>
+
+<div class="simulator">
+  <header class="sim-header">
+    <h1 class="sim-title">The <span>Black Widow</span> Effect</h1>
+    <p class="sim-subtitle">How payment terms and sales growth create cash traps for smaller vendors</p>
+  </header>
+
+  <div class="controls">
+    <div class="control-group">
+      <div class="control-label">
+        <span class="control-label__text">Price Markup</span>
+        <span class="control-label__value control-label__value--markup" id="markupValue">75%</span>
+      </div>
+      <input type="range" id="markupSlider" min="10" max="200" value="75" step="5">
+    </div>
+    <div class="control-group">
+      <div class="control-label">
+        <span class="control-label__text">Annual Growth</span>
+        <span class="control-label__value control-label__value--growth" id="growthValue">3.0×</span>
+      </div>
+      <input type="range" id="growthSlider" min="1.0" max="5.0" value="3.0" step="0.1">
+    </div>
+    <div class="control-group">
+      <div class="control-label">
+        <span class="control-label__text">Payment Lag</span>
+        <span class="control-label__value control-label__value--lag" id="lagValue">3 mo</span>
+      </div>
+      <input type="range" id="lagSlider" min="0" max="11" value="3" step="1">
+    </div>
+  </div>
+
+  <div class="status-bar">
+    <span class="status-item">Monthly rate: <strong id="monthlyRate">9.6%</strong></span>
+    <span class="status-item">Critical markup: <strong id="criticalMarkup">—</strong></span>
+    <span class="regime-badge regime-badge--safe" id="regimeBadge">✅ Traditional</span>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="cashFlowChart"></canvas>
+  </div>
+
+  <div class="scenarios">
+    <div class="scenarios__label">Scenarios</div>
+    <div class="scenarios__pills" id="scenarioPills"></div>
+    <div class="scenario-desc" id="scenarioDesc"></div>
+  </div>
+
+  <div class="mode-toggle">
+    <button class="mode-btn mode-btn--active" id="modeSingle" onclick="setMode('single')">Single Payment</button>
+    <button class="mode-btn" id="modePartial" onclick="setMode('partial')">50% Progress Payment</button>
+  </div>
+
+  <footer class="sim-footer">
+    Based on the original model by Vic Uzumeri, PhD (2010–2014) · 
+    <a href="../thin-markets.html">Learn about thin markets</a>
+  </footer>
+</div>
+
+<script>
+/**
+ * Black Widow Payment Simulator
+ * Demonstrates how extended payment terms + rapid sales growth
+ * create a lethal cash trap for smaller vendors.
+ *
+ * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+ * Based on original BlackWidowPaymentCalcs model by Vic Uzumeri, PhD.
+ */
+
+const MONTHS = 18;
+const BASE_EXPENSE = 5;
+let currentMode = 'single';
+
+/* --- DOM refs --- */
+const markupSlider  = document.getElementById('markupSlider');
+const growthSlider  = document.getElementById('growthSlider');
+const lagSlider     = document.getElementById('lagSlider');
+const markupValue   = document.getElementById('markupValue');
+const growthValue   = document.getElementById('growthValue');
+const lagValue      = document.getElementById('lagValue');
+const monthlyRateEl = document.getElementById('monthlyRate');
+const criticalEl    = document.getElementById('criticalMarkup');
+const regimeBadge   = document.getElementById('regimeBadge');
+
+/* --- Chart setup --- */
+const ctx = document.getElementById('cashFlowChart').getContext('2d');
+
+const chartData = {
+  labels: Array.from({ length: MONTHS }, (_, i) => `${i + 1}`),
+  datasets: [{
+    label: 'Cumulative Cash Flow',
+    data: [],
+    borderColor: '#3b82f6',
+    backgroundColor: 'rgba(59, 130, 246, 0.08)',
+    borderWidth: 2,
+    pointRadius: 3,
+    pointHoverRadius: 6,
+    pointBackgroundColor: '#3b82f6',
+    pointBorderColor: '#1e293b',
+    pointBorderWidth: 1.5,
+    fill: true,
+    tension: 0.3
+  }]
+};
+
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: chartData,
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 2,
+    interaction: {
+      intersect: false,
+      mode: 'index'
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: 'rgba(10, 14, 26, 0.9)',
+        titleColor: '#fff',
+        bodyColor: '#cbd5e1',
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 1,
+        cornerRadius: 8,
+        padding: 10,
+        titleFont: { family: 'Outfit', weight: 700, size: 13 },
+        bodyFont: { family: 'Inter', size: 12 },
+        callbacks: {
+          title: (items) => `Month ${items[0].label}`,
+          label: (item) => `Cash Flow: ${item.parsed.y.toFixed(2)}`
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Month',
+          color: '#64748b',
+          font: { family: 'Inter', size: 11, weight: 500 }
+        },
+        ticks: { color: '#64748b', font: { size: 10 } },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        border: { color: 'rgba(255,255,255,0.08)' }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Cumulative Cash ($)',
+          color: '#64748b',
+          font: { family: 'Inter', size: 11, weight: 500 }
+        },
+        ticks: {
+          color: '#64748b',
+          font: { size: 10 },
+          callback: (v) => v.toFixed(1)
+        },
+        grid: {
+          color: (context) => context.tick.value === 0
+            ? 'rgba(255,255,255,0.25)'
+            : 'rgba(255,255,255,0.04)'
+        },
+        border: { color: 'rgba(255,255,255,0.08)' }
+      }
+    },
+    animation: {
+      duration: 400,
+      easing: 'easeOutQuart'
+    }
+  }
+});
+
+/**
+ * Computes expenses, revenue, net and cumulative cash flow.
+ * @param {number} markup - Price markup as a fraction (e.g. 0.75 for 75%).
+ * @param {number} annualGrowth - Year-over-year growth multiplier.
+ * @param {number} lag - Payment lag in months (integer).
+ * @param {string} mode - 'single' or 'partial'.
+ * @returns {{ cumulative: number[], monthlyRate: number }}
+ */
+function computeCashFlow(markup, annualGrowth, lag, mode) {
+  const monthlyRate = Math.pow(annualGrowth, 1 / 12) - 1;
+
+  /* Build expense series */
+  const expenses = new Array(MONTHS);
+  expenses[0] = BASE_EXPENSE;
+  for (let i = 1; i < MONTHS; i++) {
+    expenses[i] = expenses[i - 1] * (1 + monthlyRate);
+  }
+
+  /* Build revenue series */
+  const revenue = new Array(MONTHS).fill(0);
+
+  if (mode === 'single') {
+    for (let i = 0; i < MONTHS; i++) {
+      const src = i - lag;
+      if (src >= 0) {
+        revenue[i] = expenses[src] * (1 + markup);
+      }
+    }
+  } else {
+    /* 50% partial payment variant */
+    const halfLag = Math.floor(lag / 2);
+    for (let i = 0; i < MONTHS; i++) {
+      const srcFull = i - lag;
+      const srcHalf = i - halfLag;
+      if (srcFull >= 0) {
+        revenue[i] += (expenses[srcFull] / 2) * (1 + markup);
+      }
+      if (srcHalf >= 0) {
+        revenue[i] += (expenses[srcHalf] / 2) * (1 + markup);
+      }
+    }
+  }
+
+  /* Net and cumulative cash flow */
+  const cumulative = new Array(MONTHS);
+  let running = 0;
+  for (let i = 0; i < MONTHS; i++) {
+    running += revenue[i] - expenses[i];
+    cumulative[i] = running;
+  }
+
+  return { cumulative, monthlyRate };
+}
+
+/**
+ * Classifies the cash flow regime.
+ * @param {number[]} cumulative - Cumulative cash flow array.
+ * @param {number} markup - Price markup fraction.
+ * @param {number} lag - Payment lag in months.
+ * @param {number} monthlyRate - Monthly compound growth rate.
+ * @returns {{ label: string, icon: string, cls: string }}
+ */
+function classifyRegime(cumulative, markup, lag, monthlyRate) {
+  const minVal = Math.min(...cumulative);
+  const endVal = cumulative[cumulative.length - 1];
+  const criticalMarkup = lag * monthlyRate;
+
+  if (lag === 0 || minVal >= -0.01) {
+    return { label: 'Traditional', icon: '✅', cls: 'safe' };
+  }
+  if (endVal > 0.01 && minVal < -0.01) {
+    return { label: 'Vendor as Bank', icon: '⚠️', cls: 'bank' };
+  }
+  if (markup <= criticalMarkup * 1.05 && markup >= criticalMarkup * 0.95) {
+    return { label: 'Critical Position', icon: '🔴', cls: 'critical' };
+  }
+  if (endVal <= 0.01) {
+    const declining = cumulative[MONTHS - 1] < cumulative[MONTHS - 4];
+    if (declining) {
+      return { label: 'Black Widow', icon: '💀', cls: 'widow' };
+    }
+    return { label: 'Critical Position', icon: '🔴', cls: 'critical' };
+  }
+  return { label: 'Vendor as Bank', icon: '⚠️', cls: 'bank' };
+}
+
+/**
+ * Updates the chart line color based on the regime.
+ * @param {string} cls - Regime class string.
+ */
+function updateChartColor(cls) {
+  const colors = {
+    safe:     { line: '#34d399', fill: 'rgba(52, 211, 153, 0.08)' },
+    bank:     { line: '#fbbf24', fill: 'rgba(251, 191, 36, 0.08)' },
+    critical: { line: '#fb923c', fill: 'rgba(251, 146, 60, 0.08)' },
+    widow:    { line: '#f87171', fill: 'rgba(248, 113, 113, 0.08)' }
+  };
+  const c = colors[cls] || colors.safe;
+  chart.data.datasets[0].borderColor = c.line;
+  chart.data.datasets[0].backgroundColor = c.fill;
+  chart.data.datasets[0].pointBackgroundColor = c.line;
+}
+
+/** Main update loop — called on every slider change. */
+function update() {
+  const markup = parseFloat(markupSlider.value) / 100;
+  const growth = parseFloat(growthSlider.value);
+  const lag    = parseInt(lagSlider.value, 10);
+
+  /* Update display values */
+  markupValue.textContent = `${markupSlider.value}%`;
+  growthValue.textContent = `${growth.toFixed(1)}×`;
+  lagValue.textContent    = `${lag} mo`;
+
+  /* Compute */
+  const { cumulative, monthlyRate } = computeCashFlow(markup, growth, lag, currentMode);
+  monthlyRateEl.textContent = `${(monthlyRate * 100).toFixed(1)}%`;
+
+  const criticalMarkup = lag * monthlyRate;
+  criticalEl.textContent = `${(criticalMarkup * 100).toFixed(1)}%`;
+
+  /* Classify */
+  const regime = classifyRegime(cumulative, markup, lag, monthlyRate);
+  regimeBadge.textContent = `${regime.icon} ${regime.label}`;
+  regimeBadge.className = `regime-badge regime-badge--${regime.cls}`;
+
+  /* Update chart */
+  updateChartColor(regime.cls);
+  chart.data.datasets[0].data = cumulative;
+  chart.update();
+}
+
+/**
+ * Sets the payment mode (single or partial).
+ * @param {string} mode - 'single' or 'partial'.
+ */
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('modeSingle').classList.toggle('mode-btn--active', mode === 'single');
+  document.getElementById('modePartial').classList.toggle('mode-btn--active', mode === 'partial');
+  update();
+}
+
+/* === Scenario Presets === */
+const SCENARIOS = [
+  { id: 1, label: '1. Steady & Prompt',   markup: 75, growth: 1.0, lag: 0,
+    desc: 'BIGCO buys a steady amount and pays promptly. <strong>Nothing to see here — traditional and healthy.</strong>' },
+  { id: 2, label: '2. Growing & Prompt',   markup: 75, growth: 3.0, lag: 0,
+    desc: 'BIGCO triples its orders each year but still pays promptly. <strong>Cash reserves grow fast. Everyone\'s happy.</strong>' },
+  { id: 3, label: '3. One Month Lag',      markup: 75, growth: 3.0, lag: 1,
+    desc: 'BIGCO extends payment terms by one month. <strong>SMALLCO suddenly needs 7 months to recover its initial cash investment.</strong>' },
+  { id: 4, label: '4. Two Month Lag',      markup: 75, growth: 3.0, lag: 2,
+    desc: 'BIGCO extends payment terms by another month. <strong>It now takes 13 months for SMALLCO to regain cash neutrality.</strong>' },
+  { id: 5, label: '5. Three Month Lag',    markup: 75, growth: 3.0, lag: 3,
+    desc: 'BIGCO extends payment terms for another month. <strong>SMALLCO faces a deep initial cash drain and it may take years to catch up.</strong>' },
+  { id: 6, label: '6. Black Widow',        markup: 75, growth: 3.0, lag: 6,
+    desc: 'BIGCO keeps its extended payment terms at 6 months. <strong>SMALLCO faces a permanently deteriorating cash position. This is lethal.</strong>' }
+];
+
+let activeScenario = null;
+const scenarioPills = document.getElementById('scenarioPills');
+const scenarioDesc  = document.getElementById('scenarioDesc');
+
+/** Renders the scenario pill buttons. */
+function buildScenarioPills() {
+  SCENARIOS.forEach((s) => {
+    const btn = document.createElement('button');
+    btn.className = 'scenario-pill';
+    btn.textContent = s.label;
+    btn.dataset.scenarioId = s.id;
+    btn.addEventListener('click', () => selectScenario(s.id));
+    scenarioPills.appendChild(btn);
+  });
+}
+
+/**
+ * Selects a scenario preset and updates all controls.
+ * @param {number} id - Scenario ID (1-6).
+ */
+function selectScenario(id) {
+  const s = SCENARIOS.find(sc => sc.id === id);
+  if (!s) return;
+
+  activeScenario = id;
+
+  /* Set slider values */
+  markupSlider.value = s.markup;
+  growthSlider.value = s.growth;
+  lagSlider.value    = s.lag;
+
+  /* Update pill highlight */
+  scenarioPills.querySelectorAll('.scenario-pill').forEach(btn => {
+    btn.classList.toggle('scenario-pill--active',
+      parseInt(btn.dataset.scenarioId) === id);
+  });
+
+  /* Show description */
+  scenarioDesc.innerHTML = s.desc;
+
+  update();
+}
+
+/** Clears the active scenario (called when user manually moves a slider). */
+function clearScenario() {
+  if (activeScenario !== null) {
+    activeScenario = null;
+    scenarioPills.querySelectorAll('.scenario-pill').forEach(btn => {
+      btn.classList.remove('scenario-pill--active');
+    });
+    scenarioDesc.innerHTML = '';
+  }
+}
+
+/* Wire up sliders — clear scenario on manual interaction */
+markupSlider.addEventListener('input', () => { clearScenario(); update(); });
+growthSlider.addEventListener('input', () => { clearScenario(); update(); });
+lagSlider.addEventListener('input',    () => { clearScenario(); update(); });
+
+/* Build preset buttons and initial render */
+buildScenarioPills();
+update();
+</script>
+
+</body>
+</html>
