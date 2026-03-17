@@ -232,6 +232,73 @@ input[type="range"]:hover::-webkit-slider-thumb {
   max-height: 320px;
 }
 
+/* === Scenario Presets === */
+.scenarios {
+  margin-top: 0.75rem;
+}
+
+.scenarios__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 0.4rem;
+}
+
+.scenarios__pills {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.scenario-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: all 150ms ease;
+  white-space: nowrap;
+}
+
+.scenario-pill:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(17, 24, 39, 0.6);
+}
+
+.scenario-pill--active {
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.scenario-desc {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 0.4rem;
+  min-height: 1.2em;
+  transition: opacity 200ms ease;
+}
+
+.scenario-desc strong {
+  color: #e2e8f0;
+  font-style: normal;
+}
+
+@media (max-width: 400px) {
+  .scenario-pill {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.45rem;
+  }
+}
+
 /* === Mode Toggle === */
 .mode-toggle {
   display: flex;
@@ -337,6 +404,12 @@ input[type="range"]:hover::-webkit-slider-thumb {
 
   <div class="chart-container">
     <canvas id="cashFlowChart"></canvas>
+  </div>
+
+  <div class="scenarios">
+    <div class="scenarios__label">Scenarios</div>
+    <div class="scenarios__pills" id="scenarioPills"></div>
+    <div class="scenario-desc" id="scenarioDesc"></div>
   </div>
 
   <div class="mode-toggle">
@@ -607,12 +680,83 @@ function setMode(mode) {
   update();
 }
 
-/* Wire up sliders */
-markupSlider.addEventListener('input', update);
-growthSlider.addEventListener('input', update);
-lagSlider.addEventListener('input', update);
+/* === Scenario Presets === */
+const SCENARIOS = [
+  { id: 1, label: '1. Steady & Prompt',   markup: 75, growth: 1.0, lag: 0,
+    desc: 'BIGCO buys a steady amount and pays promptly. <strong>Nothing to see here — traditional and healthy.</strong>' },
+  { id: 2, label: '2. Growing & Prompt',   markup: 75, growth: 3.0, lag: 0,
+    desc: 'BIGCO triples its orders each year but still pays promptly. <strong>Cash reserves grow fast. Everyone\'s happy.</strong>' },
+  { id: 3, label: '3. One Month Lag',      markup: 75, growth: 3.0, lag: 1,
+    desc: 'BIGCO extends payment terms by one month. <strong>SMALLCO suddenly needs 7 months to recover its initial cash investment.</strong>' },
+  { id: 4, label: '4. Two Month Lag',      markup: 75, growth: 3.0, lag: 2,
+    desc: 'BIGCO extends payment terms by another month. <strong>It now takes 13 months for SMALLCO to regain cash neutrality.</strong>' },
+  { id: 5, label: '5. Three Month Lag',    markup: 75, growth: 3.0, lag: 3,
+    desc: 'BIGCO extends payment terms for another month. <strong>SMALLCO faces a deep initial cash drain and it may take years to catch up.</strong>' },
+  { id: 6, label: '6. Black Widow',        markup: 75, growth: 3.0, lag: 6,
+    desc: 'BIGCO keeps its extended payment terms at 6 months. <strong>SMALLCO faces a permanently deteriorating cash position. This is lethal.</strong>' }
+];
 
-/* Initial render */
+let activeScenario = null;
+const scenarioPills = document.getElementById('scenarioPills');
+const scenarioDesc  = document.getElementById('scenarioDesc');
+
+/** Renders the scenario pill buttons. */
+function buildScenarioPills() {
+  SCENARIOS.forEach((s) => {
+    const btn = document.createElement('button');
+    btn.className = 'scenario-pill';
+    btn.textContent = s.label;
+    btn.dataset.scenarioId = s.id;
+    btn.addEventListener('click', () => selectScenario(s.id));
+    scenarioPills.appendChild(btn);
+  });
+}
+
+/**
+ * Selects a scenario preset and updates all controls.
+ * @param {number} id - Scenario ID (1-6).
+ */
+function selectScenario(id) {
+  const s = SCENARIOS.find(sc => sc.id === id);
+  if (!s) return;
+
+  activeScenario = id;
+
+  /* Set slider values */
+  markupSlider.value = s.markup;
+  growthSlider.value = s.growth;
+  lagSlider.value    = s.lag;
+
+  /* Update pill highlight */
+  scenarioPills.querySelectorAll('.scenario-pill').forEach(btn => {
+    btn.classList.toggle('scenario-pill--active',
+      parseInt(btn.dataset.scenarioId) === id);
+  });
+
+  /* Show description */
+  scenarioDesc.innerHTML = s.desc;
+
+  update();
+}
+
+/** Clears the active scenario (called when user manually moves a slider). */
+function clearScenario() {
+  if (activeScenario !== null) {
+    activeScenario = null;
+    scenarioPills.querySelectorAll('.scenario-pill').forEach(btn => {
+      btn.classList.remove('scenario-pill--active');
+    });
+    scenarioDesc.innerHTML = '';
+  }
+}
+
+/* Wire up sliders — clear scenario on manual interaction */
+markupSlider.addEventListener('input', () => { clearScenario(); update(); });
+growthSlider.addEventListener('input', () => { clearScenario(); update(); });
+lagSlider.addEventListener('input',    () => { clearScenario(); update(); });
+
+/* Build preset buttons and initial render */
+buildScenarioPills();
 update();
 </script>
 
