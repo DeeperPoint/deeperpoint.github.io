@@ -1,7 +1,7 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-title: "Market Scenario: The Tensile Test That Almost Didn't Happen — How a Welding Shop in Prince George and a College Lab in Kamloops Found Each Other Across 500 Kilometres of Nothing"
+title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 slug: fractional-testing-thin-market
 date: 2026-03-18
 stream: market-scenario
