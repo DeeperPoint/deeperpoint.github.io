@@ -5,7 +5,7 @@ title: "Market Scenario: Six Hundred Kilometres from a Family Lawyer"
 stream: market-scenario
 slug: rural-legal-thin-market
 date: 2026-03-10
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, canada]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, canada]
 summary: "In rural and northern Ontario, people face legal problems just as complex as anyone in Toronto — but the nearest specialist may be a six-hour drive away. A Law Society portal based on MarketForge could match rural clients to urban specialists and expand access to justice across the province."
 estimated-read: 10 min read
 ---

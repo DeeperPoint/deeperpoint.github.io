@@ -3,7 +3,7 @@ title: "Market Scenario - Happy St. Paddy's Day"
 date: 2026-03-20
 slug: irish-trad-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, cultural-services]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, cultural-services]
 summary: A global community of Irish traditional musicians, instrument makers, and cultural organizations generates a fragmented market for cultural services with almost no matching infrastructure. A thin market platform could connect a concertina player in Clare with a cultural festival in Buenos Aires — if someone built the plumbing.
 estimated-read: 10 min read
 ---

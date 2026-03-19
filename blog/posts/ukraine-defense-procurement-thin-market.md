@@ -3,7 +3,7 @@ title: "Market Scenario: Defense Innovation at the Speed of War"
 date: 2026-03-13
 slug: ukraine-defense-procurement-thin-market
 stream: market-scenario
-tags: [thin-markets, market-design, ai, cosolvent, knowledgeslot, marketforge, defense, case-study, supply-chain]
+tags: [thin-markets, market-design, ai, cosolvent, knowledgeslot, marketforge, defense, case-study, scenario, supply-chain]
 summary: How a specialized thin market platform could match fragmented dual-use technology suppliers with Ukraine's rapidly evolving battlefield requirements.
 estimated-read: 7 min read
 ---

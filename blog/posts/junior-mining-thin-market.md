@@ -5,7 +5,7 @@ title: "Market Scenario: Drill Core and Deal Flow"
 stream: market-scenario
 slug: junior-mining-thin-market
 date: 2026-03-12
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, mining, exploration, critical-minerals]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, mining, exploration, critical-minerals]
 summary: A junior exploration geologist in a bush camp near Kapuskasing has drill core that tells a compelling copper-gold story. A critical minerals investment fund in Stockholm has a mandate to deploy capital into exactly that kind of project. Neither knows the other exists — because the mining industry's discovery infrastructure runs on conference circuits and personal networks that systematically exclude the geologically excellent but promotionally invisible.
 estimated-read: 12 min read
 ---

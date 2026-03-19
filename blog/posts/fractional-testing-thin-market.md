@@ -5,7 +5,7 @@ title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 slug: fractional-testing-thin-market
 date: 2026-03-18
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, manufacturing, welding, testing]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, manufacturing, welding, testing]
 summary: A fabrication shop in northern British Columbia needs a weld procedure qualified to CWB standards. The nearest commercial testing lab is a five-day round trip away in Vancouver. A community college metallurgy lab 500 km south has certified equipment sitting idle — but neither side knows the other exists.
 estimated-read: 14 min read
 hero-caption: A tensile testing machine at a community college metallurgy lab — capable, certified, and idle most of the week.

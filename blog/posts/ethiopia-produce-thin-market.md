@@ -5,7 +5,7 @@ title: "Market Scenario: Tomatoes in the Sun"
 stream: market-scenario
 slug: ethiopia-produce-thin-market
 date: 2026-03-10
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge]
 summary: A smallholder farmer in the Rift Valley and a hotel chef in Addis Ababa are 160 kilometres apart. Between them stand five intermediaries, no cold chain, and a system that wastes a third of everything it touches. This is a thin market.
 estimated-read: 13 min read
 ---

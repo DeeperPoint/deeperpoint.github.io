@@ -4,7 +4,7 @@
 title: "Market Scenario: One Container of Barley"
 stream: market-scenario
 date: 2026-03-10
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, grain, craft-beer]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, grain, craft-beer]
 summary: A grain farmer in Saskatchewan grows premium two-row malting barley that the big trading companies blend into commodity shipments. A craft brewery purchasing manager in Cebu wants one container of something special for a seasonal lager. They need each other — but neither knows the other exists.
 estimated-read: 12 min read
 slug: malting-barley-thin-market

@@ -4,7 +4,7 @@ title: "Market Scenario: The Virtual Guest Lecture Dating Service"
 date: 2026-03-12
 slug: virtual-guest-lectures
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, education, knowledge-sharing]
+tags: [thin-markets, ai, market-design, case-study, scenario, education, knowledge-sharing]
 summary: How a MarketForge-powered platform could connect willing industry experts with university instructors across geographical and temporal divides.
 estimated-read: 7 min read
 ---

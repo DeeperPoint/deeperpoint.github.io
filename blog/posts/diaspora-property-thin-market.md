@@ -3,7 +3,7 @@
 title: "Market Scenario: The House You Can't Visit"
 stream: market-scenario
 date: 2026-03-09
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, diaspora]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, diaspora]
 summary: An Ethiopian-Canadian professional in Toronto owns a rental property in Addis Ababa that needs $10,000 in upgrades. She can't fly over to manage the work. Her cousins can help, but they can't evaluate a contractor's electrical work or negotiate material prices. This is a thin market — and the trust gap costs more than the renovation.
 estimated-read: 12 min read
 slug: diaspora-property-thin-market

@@ -3,7 +3,7 @@
 title: "Market Scenario: The Vase and the Rebozo"
 stream: market-scenario
 date: 2026-03-09
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, artisans]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, artisans]
 summary: A personal story about a ceramic vase and a Turkish textile became the seed of a question — what if the right collaborators could find each other at scale? A thin market platform built on Cosolvent and KnowledgeSlot sketches the answer, told through the eyes of two Mexican artisans.
 estimated-read: 12 min read
 slug: artisanal-craft-collaboration
