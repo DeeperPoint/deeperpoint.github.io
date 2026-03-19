@@ -1,6 +1,7 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 ---
-title: The Last Timber Framers — Heritage Craft and the Market That's Disappearing With Its Masters
+title: "Market Scenario: The Last Timber Framers"
+stream: market-scenario
 date: 2026-03-07
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge]
 summary: A master timber framer in rural Vermont can't find commissions. A homeowner in Virginia can't find a timber framer. The market between them works by word of mouth — which means it barely works at all. This is a thin market, and the craft is aging out.

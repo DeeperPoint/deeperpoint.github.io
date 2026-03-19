@@ -1,7 +1,8 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-title: The Machine Under the Tarp — Why Used Manufacturing Equipment Is a Thin Market Problem
+title: "Market Scenario: The Machine Under the Tarp"
+stream: market-scenario
 slug: used-machinery-thin-market
 date: 2026-03-09
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge]

@@ -1,6 +1,7 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 ---
-title: The Vase and the Rebozo — From an Alabama Living Room to a Thin Market Platform for Artisanal Collaboration
+title: "Market Scenario: The Vase and the Rebozo"
+stream: market-scenario
 date: 2026-03-09
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, artisans]
 summary: A personal story about a ceramic vase and a Turkish textile became the seed of a question — what if the right collaborators could find each other at scale? A thin market platform built on Cosolvent and KnowledgeSlot sketches the answer, told through the eyes of two Mexican artisans.

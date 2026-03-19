@@ -1,7 +1,8 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-title: Drill Core and Deal Flow — How a Geologist in Northern Ontario and a Copper Fund in Stockholm Found Each Other Without a Conference Badge
+title: "Market Scenario: Drill Core and Deal Flow"
+stream: market-scenario
 slug: junior-mining-thin-market
 date: 2026-03-12
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, mining, exploration, critical-minerals]

@@ -1,7 +1,8 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-title: Tomatoes in the Sun — Why Ethiopia's Fresh Produce Chain Is a Thin Market Problem
+title: "Market Scenario: Tomatoes in the Sun"
+stream: market-scenario
 slug: ethiopia-produce-thin-market
 date: 2026-03-10
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge]

@@ -1,7 +1,8 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-title: "Six Hundred Kilometres from a Family Lawyer"
+title: "Market Scenario: Six Hundred Kilometres from a Family Lawyer"
+stream: market-scenario
 slug: rural-legal-thin-market
 date: 2026-03-10
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, canada]
