@@ -1,0 +1,306 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Notes: Flexible Specialization Is Not Italian — It's Universal — DeeperPoint</title>
+  <meta name="description" content="The Italian textile cluster model is not an anomaly — it appears across industries and continents. Examining six other cases reveals what makes these systems thrive, what makes them fail, and where AI-mediated coordination could matter most.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Workshop Notes: Flexible Specialization Is Not Italian — It's Universal">
+  <meta property="og:description" content="The Italian textile cluster model is not an anomaly — it appears across industries and continents. Examining six other cases reveals what makes these systems thrive, what makes them fail, and where AI-mediated coordination could matter most.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/flexspec-not-italian-its-universal.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Workshop Notes: Flexible Specialization Is Not Italian — It's Universal">
+  <meta name="twitter:description" content="The Italian textile cluster model is not an anomaly — it appears across industries and continents. Examining six other cases reveals what makes these systems thrive, what makes them fail, and where AI-mediated coordination could matter most.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+  <style>
+    /* ---- Series index card ---- */
+    .series-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-left: 4px solid #6366f1;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 1.25rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .series-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,.2); }
+    .series-card__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .series-card__title {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9);
+      margin-bottom: .35rem; line-height: 1.35;
+    }
+    .series-card__meta {
+      font-size: .78rem; color: var(--color-text-muted, #94a3b8); margin-bottom: .9rem;
+    }
+    .series-card__summary {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      margin-bottom: 1rem; line-height: 1.55;
+    }
+    .series-posts-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .series-posts-list__item { display: flex; align-items: flex-start; gap: .6rem; }
+    .series-posts-list__num {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(99,102,241,.2); border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; font-size: .65rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .series-posts-list__link {
+      font-size: .84rem; color: var(--color-text-secondary, #cbd5e1);
+      text-decoration: none; line-height: 1.45; transition: color .15s;
+    }
+    .series-posts-list__link:hover { color: #a5b4fc; }
+
+    /* ---- Series nav bar (in-post) ---- */
+    .series-nav {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem;
+    }
+    .series-nav__header {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .5rem;
+    }
+    .series-nav__title { font-size: .95rem; font-weight: 600; color: var(--color-text-primary, #f1f5f9); margin-bottom: .85rem; }
+    .series-nav__steps { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: .85rem; }
+    .series-nav__step {
+      display: flex; align-items: center; gap: 5px; padding: 3px 10px 3px 4px;
+      border-radius: 20px; text-decoration: none; font-size: .76rem; font-weight: 500;
+      border: 1px solid rgba(99,102,241,.28); color: var(--color-text-secondary, #cbd5e1);
+      background: transparent; transition: background .15s, color .15s;
+    }
+    .series-nav__step:hover { background: rgba(99,102,241,.15); color: #a5b4fc; }
+    .series-nav__step--current { background: rgba(99,102,241,.22); border-color: #6366f1; color: #c7d2fe; }
+    .series-nav__step-num {
+      width: 18px; height: 18px; border-radius: 50%; background: rgba(99,102,241,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 700; color: #a5b4fc; flex-shrink: 0;
+    }
+    .series-nav__step--current .series-nav__step-num { background: #6366f1; color: #fff; }
+    .series-nav__arrows { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .series-nav__arrow { font-size: .8rem; color: #818cf8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .series-nav__arrow:hover { color: #a5b4fc; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../search.html" class="nav__link">Search</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-03-19">March 19, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>9 min read</span>
+        </div>
+        <h1 class="blog-post__title">Workshop Notes: Flexible Specialization Is Not Italian — It's Universal</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">marketforge</span><span class="blog-tag">explainer</span>
+        </div>
+      </div>
+      
+      <div class="series-nav">
+        <div class="series-nav__header">Part of a 5-post series</div>
+        <div class="series-nav__title">The Flexible Specialization Playbook</div>
+        <div class="series-nav__steps"><a href="flexspec-italian-impannatore.html" class="series-nav__step"><span class="series-nav__step-num">1</span>The Italian Impannatore — What…</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">2</span>Flexible Specialization Is Not…</span><a href="flexspec-magna-small-plant-model.html" class="series-nav__step"><span class="series-nav__step-num">3</span>Magna's Small-Plant Model — An…</a><a href="flexspec-ontario-manufacturing.html" class="series-nav__step"><span class="series-nav__step-num">4</span>Ontario Manufacturing and the…</a><a href="flexspec-ontario-pocket.html" class="series-nav__step"><span class="series-nav__step-num">5</span>The Pocket</a></div>
+        <div class="series-nav__arrows"><a href="flexspec-italian-impannatore.html" class="series-nav__arrow">&larr; The Italian Impannatore — What…</a><a href="flexspec-magna-small-plant-model.html" class="series-nav__arrow">Magna's Small-Plant Model — An… &rarr;</a></div>
+      </div>
+      <article class="blog-post">
+        <h2 id="the-pattern-keeps-appearing">The Pattern Keeps Appearing</h2>
+<p>The previous piece in this series examined the Italian textile districts — Como, Biella, Prato — as a case study in <strong>flexible specialization</strong>: the model of production in which a geographically concentrated cluster of highly specialized micro-enterprises, coordinated by a broker intermediary, consistently outcompetes vertically integrated manufacturers on quality and responsiveness.</p>
+<p>The Italian case is the most documented, but it is far from unique. The same structure — fragmented specialist capacity, coordinated through a central orchestrating function, embedded in social and geographic proximity — appears with remarkable regularity across industries and continents. Each instance is its own story, but the common structural logic is unmistakable.</p>
+<p>This report examines six such cases: what they share with the Italian model, where they diverge, and what the pattern reveals about the conditions under which these systems thrive, collapse, or remain trapped below their potential.</p>
+<hr />
+<h2 id="the-six-cases">The Six Cases</h2>
+<h3 id="1-hollywood-film-production-los-angeles-usa">1. Hollywood Film Production — Los Angeles, USA</h3>
+<p>Since the collapse of the major studio system in the 1950s, Hollywood has operated as a textbook flexible specialization economy. A film production is a temporary, purpose-built supply chain assembled from dozens of specialized micro-enterprises: VFX studios, prop fabrication shops, costume ateliers, sound design houses, grip-and-lighting rental companies, location scouting services, and many others. None owns the others. Most are small firms or even sole operators with a narrow specialty maintained to a world-class standard.</p>
+<p>The studio, and increasingly the streaming platform, plays the role of the <em>impannatore</em>: it holds the rights, controls the capital, and coordinates the assembly. The parallels are precise. The studio knows which VFX house is currently doing the best work with a specific visual technique; it knows which costume designer can dress a period drama and which prop house has the inventory for a specific era. It brokers the knowledge of the cluster to assemble a specific production.</p>
+<p>The structural pathologies are equally familiar. Hollywood labor economics are extensively studied for exactly the dynamics the Italian literature documents: wage compression, concentration of returns at the coordination level, exploitation of below-the-line workers who lack market alternatives. Vancouver operates as a satellite district — a geographic cluster of specialized firms that has established itself as a reliable overflow site for Hollywood production, offering a second instance of the same ecosystem at lower total cost.</p>
+<p><strong>Italian analogy:</strong> Tight. The studio is the <em>impannatore</em>; the specialist firms are the artisan shops; the barrier between producer and market is nearly total.</p>
+<hr />
+<h3 id="2-jepara-furniture-central-java-indonesia">2. Jepara Furniture — Central Java, Indonesia</h3>
+<p>In Jepara, on the north coast of Java, tens of thousands of artisan woodworking micro-enterprises produce hand-carved furniture for global export. The cluster is embedded in dense kinship networks — family firms that have been in the trade for generations, with skills passed from parent to child and specialization accumulated over decades. Individual firms typically master one or two operations: rough shaping, fine carving, joinery, finishing, lacquering.</p>
+<p>Coordination is provided by local traders who aggregate export orders and route work through the cluster. These traders function as the <em>impannatore</em> equivalent: they hold the buyer relationship, determine which firms get which work, and set prices. The artisan firms have essentially no direct access to the export market.</p>
+<p>The information asymmetry is severe. Because the artisans cannot observe what the traders are selling their work for abroad, they cannot negotiate against the margin the traders capture. Development economists who have studied Jepara extensively document the same rent extraction dynamics as the Italian case — without the offsetting benefit of the strong collective institutions that made the Italian districts more equitable in their early decades.</p>
+<p><strong>Italian analogy:</strong> Tight on structure; weaker on institutional support. Jepara has the craft tradition and the specialization but lacks the trade associations, technical schools, and shared service infrastructure that buffered Italian artisans from pure broker capture.</p>
+<hr />
+<h3 id="3-tsubame-sanjo-metalworking-niigata-prefecture-japan">3. Tsubame-Sanjo Metalworking — Niigata Prefecture, Japan</h3>
+<p>Tsubame-Sanjo is a cluster of highly specialized metalworking firms in Niigata Prefecture that has been producing cutlery, kitchenware, and precision metal parts for over three centuries. It is frequently cited as a <strong>success story of adaptive flexible specialization</strong> — a cluster that encountered the same structural stresses that destroyed Sheffield (see below) and navigated them successfully.</p>
+<p>When the global market for mass-produced stainless-steel cutlery was captured by lower-cost manufacturers, Tsubame-Sanjo did not attempt to compete on volume. The cluster&rsquo;s collective institutions — its trade associations, its local technical college, its shared investment in precision tooling — enabled a coordinated pivot toward ultra-high-end handcrafted goods (knives costing hundreds of dollars each, sought by professional chefs internationally) and toward precision industrial components for aerospace and electronics.</p>
+<p>The broker function here is more diffuse than in the Italian or Jepara cases: the cluster has developed more direct export relationships over time, partly through collective marketing organized by its trade association. The reduced dependence on any single intermediary is likely part of why the district has proven more resilient.</p>
+<p><strong>Italian analogy:</strong> Structural match, but with notably stronger collective institutions and a more successful history of avoiding broker capture. Tsubame-Sanjo is what the Italian districts might look like with better governance.</p>
+<hr />
+<h3 id="4-sheffield-cutlery-yorkshire-england-historical">4. Sheffield Cutlery — Yorkshire, England (Historical)</h3>
+<p>Sheffield&rsquo;s cutlery industry through the 19th century was Alfred Marshall&rsquo;s original archetype for what he called the &ldquo;industrial district&rdquo; — a concentration of economic activity in which knowledge, skills, and methods diffuse through a community rather than being trapped in any single firm. Thousands of &ldquo;little mesters&rdquo; (small master craftsmen) worked out of rented workshop spaces, each contributing one specialized operation — grinding, hafting, stamping, polishing — in a chain of production that produced the finest cutlery in the world.</p>
+<p>Sheffield&rsquo;s story is now studied primarily as a <strong>failure case</strong>, and the failure is instructive. When competitive pressure arrived — first from American mass production, later from continental and Asian competitors — Sheffield&rsquo;s cluster could not coordinate a response. The social capital that had made cooperation easy in stable conditions was insufficient to drive collective upgrading under stress. The little mesters lacked any institutional mechanism to pool capital for investment in new machinery. The informal network that had been the cluster&rsquo;s strength became, under pressure, a mechanism for collective stagnation.</p>
+<p>By the late 20th century, the Sheffield cutlery industry had largely collapsed. Some remnants persist in the ultra-high-end niche, but the district as a functioning ecosystem no longer exists.</p>
+<p><strong>Italian analogy:</strong> Structurally identical in its origin. The divergent outcome (survival and adaptation in Como; collapse in Sheffield) is almost entirely explained by the presence or absence of collective institutions that provided upgrading capacity and counterweighted broker power.</p>
+<hr />
+<h3 id="5-suame-magazine-kumasi-ghana">5. Suame Magazine — Kumasi, Ghana</h3>
+<p>Near Kumasi, Ghana, a dense district of roughly 200,000 workers occupying thousands of small metal workshops collectively known as &ldquo;Suame Magazine&rdquo; has operated for decades as an informal industrial district. The firms repair vehicles, fabricate agricultural equipment, reverse-engineer replacement parts, and produce custom metalwork for local and regional clients.</p>
+<p>Suame Magazine is remarkable because it emerged entirely organically — no government policy created it, no formal institutions designed it. The specialization is real and deep. Individual workshops focus on specific operations: engine rebuilding, bodywork, electrical systems, machining. Informal knowledge transfer between workshops is extensive. The district has produced considerable technical capability in a context with minimal access to formal technical education.</p>
+<p>What Suame Magazine lacks almost entirely is the coordination infrastructure that would allow it to access larger or more remote markets. There is no <em>impannatore</em> equivalent with relationships to clients outside Kumasi. There is no quality assurance mechanism visible to external buyers. There is no reputation system. Firms cannot credibly signal their capability to anyone they have not previously worked with.</p>
+<p>The result is a cluster that has reached the ceiling of what proximity and informal networks can achieve, but cannot go further. It serves local and regional markets well; it cannot access global markets at all.</p>
+<p><strong>Italian analogy:</strong> The artisan base is there. The specialization is there. The coordination infrastructure is entirely absent. Suame Magazine is the closest real-world analog to what a thin market looks like before any brokering function emerges — and therefore the clearest illustration of what that brokering function is actually worth.</p>
+<hr />
+<h3 id="6-swiss-watchmaking-the-jura-arc">6. Swiss Watchmaking — The Jura Arc</h3>
+<p>The Jura region of Switzerland — centered on Le Locle and La Chaux-de-Fonds — is perhaps the most storied example of an artisan cluster outside of Italy. At the height of its traditional structure, Swiss watchmaking was organized around hundreds of specialized micro-enterprises, each mastering a single component type — escapements, mainsprings, jewels, dials, hands, cases, crown-and-pusher mechanisms — coordinated by <em>établisseurs</em>: brokers who assembled finished watches under brand names without owning the component manufacturers.</p>
+<p>The Swiss system differed from the Italian in one important respect: the brand was always dominant. The <em>établisseur</em> was not upstream of the brand; in most cases, the <em>établisseur</em> <em>was</em> the brand, with the component specialists as anonymous suppliers. This created strong brand equity but also high dependence for the specialists.</p>
+<p>When the quartz crisis hit in the 1970s — Japanese manufacturers producing accurate watches at a fraction of the Swiss cost — the traditional cluster structure nearly collapsed entirely. The recovery came not through the organic adaptation of the cluster (as in Tsubame-Sanjo) but through a top-down restructuring driven by Nicolas Hayek and the creation of the Swatch Group. Hayek effectively replaced the distributed <em>établisseur</em> coordination model with a semi-integrated group structure, retaining the specialist knowledge of the individual firms while providing centralized capital, R&amp;D, and brand strategy.</p>
+<p>The Swiss case is therefore a counterpoint as much as a parallel: it demonstrates that when market shock exceeds the cluster&rsquo;s adaptive capacity, coordination can be imposed from the top rather than built from below — but the result is a fundamentally different structure, closer to a diversified corporation with artisan subsidiaries than a true industrial district.</p>
+<p><strong>Italian analogy:</strong> Strong in origin, divergent in outcome. The quartz crisis forced a transition that reorganized the <em>établisseur</em> function out of independent hands into corporate ownership. What would the Italian districts look like if Como silk faced the equivalent of an AI-generated textile disruption?</p>
+<hr />
+<h2 id="the-pattern-extracted-what-distinguishes-resilient-clusters">The Pattern Extracted: What Distinguishes Resilient Clusters</h2>
+<p>Across all six cases, and in comparison with the Italian textile clusters, a consistent set of factors separates the systems that endure from those that stagnate or collapse:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Tsubame-Sanjo</th>
+<th>Como</th>
+<th>Hollywood</th>
+<th>Jepara</th>
+<th>Sheffield</th>
+<th>Suame</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deep craft specialization</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Geographic proximity</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Broker / coordination function</td>
+<td>✅ (diffuse)</td>
+<td>✅</td>
+<td>✅ (studio)</td>
+<td>✅ (traders)</td>
+<td>✅ (historical)</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Collective institutions</td>
+<td>✅✅</td>
+<td>✅</td>
+<td>⚠️</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Direct market access for artisans</td>
+<td>⚠️ (partial)</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>⚠️ (local only)</td>
+</tr>
+<tr>
+<td>Adaptive response to stress</td>
+<td>✅</td>
+<td>⚠️</td>
+<td>⚠️</td>
+<td>❌</td>
+<td>❌</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>The entries with deep specialization and geographic proximity but lacking the last three factors are exactly the clusters where the coordination gap is largest — and where external coordination infrastructure could have the most impact.</p>
+<p><strong>A pattern also holds on the failure side:</strong> the clusters that collapsed (Sheffield) or remain trapped (Suame Magazine, Jepara) are not lacking in craft. They are lacking in <em>institutional counterweights to broker capture</em> and <em>mechanisms for collective upgrading</em>.</p>
+<hr />
+<h2 id="the-implication-for-ai-mediated-coordination">The Implication for AI-Mediated Coordination</h2>
+<p>The Italian textile case was useful as a structural proof-of-concept: flexible specialization at world-class levels is achievable through fragmented micro-enterprise ecosystems, given the right coordination infrastructure.</p>
+<p>The broader survey makes a stronger point: <strong>this structure wants to exist everywhere craft and specialization accumulate, but it is regularly blocked or captured by coordination failures</strong>.</p>
+<p>The Jepara furniture maker cannot reach a buyer in Berlin at a fair price because she has no credible signal of quality and no established trust relationship. The Suame Magazine machinist cannot take a contract from a Ghanaian manufacturer in Accra because there is no mechanism for the manufacturer to discover him, verify his capability, or manage the transaction risk. The Oaxacan weaver — producing linens of genuine beauty on century-old looms — has no path to the boutique hotel in Mexico City that would value his work properly, except the accident of being encountered by a tourist.</p>
+<p>In each case, the gap is not craft. The gap is coordination: discovery, trust, verification, transaction management.</p>
+<p>This is precisely the function the Italian <em>impannatore</em> provides. And it is precisely the function that a well-designed AI-mediated brokering platform — operating transparently, with reputation accessible to all participants, without exclusive control of any single intermediary — is theoretically positioned to provide at far lower cost, with far wider reach.</p>
+<p>Whether MarketForge, as an early-stage concept, can deliver on that ambition is an open question. The track record of digital platforms in similar positions — aggregating fragmented supply, connecting it to organized demand — is genuinely mixed. Platform capture, algorithmic bias toward established participants, and fee structures that reproduce the <em>impannatore</em>&rsquo;s rent extraction in digital form are all documented failure modes.</p>
+<p>The design goal, however, is clear: build the coordination function that these clusters need, but build it in a way that preserves — rather than concentrates — the value that the specialized artisans actually create.</p>
+<p>The world is full of Jeparas waiting to become Comos. The distance between those two outcomes is, in structural terms, primarily a coordination problem. That is a tractable engineering challenge. It is not a small one.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
