@@ -11,6 +11,11 @@ summary: The Italian textile cluster model is not an anomaly — it appears acro
 estimated-read: 9 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/flexspec-not-italian-its-universal-hero.png" alt="Flexible specialization clusters lighting up across world continents" loading="lazy">
+  <figcaption>The same coordination pattern appears in every continent — from Jepara furniture to Hollywood film production to the Swiss Jura Arc.</figcaption>
+</figure>
+
 ## The Pattern Keeps Appearing
 
 The previous piece in this series examined the Italian textile districts — Como, Biella, Prato — as a case study in **flexible specialization**: the model of production in which a geographically concentrated cluster of highly specialized micro-enterprises, coordinated by a broker intermediary, consistently outcompetes vertically integrated manufacturers on quality and responsiveness.

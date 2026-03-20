@@ -11,6 +11,11 @@ summary: Magna International grew into one of the world's largest Tier-1 automot
 estimated-read: 7 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/flexspec-magna-small-plant-model-hero.png" alt="Network of small autonomous Magna plants across a landscape" loading="lazy">
+  <figcaption>Magna&#8217;s network of small, specialized, entrepreneurially autonomous plants &#8212; an industrial district built by corporate design.</figcaption>
+</figure>
+
 ## The Company That Built an Industrial District
 
 Magna International is, by most measures, one of Canada's great industrial success stories. Founded in Aurora, Ontario in 1957, it grew from a single small tool-and-die shop into a global Tier-1 automotive supplier with 342 manufacturing facilities, over 158,000 employees, and revenues exceeding $40 billion annually. It supplies virtually every major automotive OEM in the world: door systems, seating, body and chassis structures, powertrain components, vision systems, and full vehicle assembly.

@@ -11,6 +11,11 @@ summary: The Italian *impannatore* model, applied to Ontario's manufacturing bas
 estimated-read: 8 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/flexspec-ontario-manufacturing-hero.png" alt="Ontario's manufacturing landscape with specialist shops beginning to connect" loading="lazy">
+  <figcaption>Ontario&#8217;s manufacturing corridor &#8212; dozens of certified specialists within an hour of each other, waiting to be connected.</figcaption>
+</figure>
+
 ## What the Manufacturing Series Has Already Shown
 
 The four scenario articles in the manufacturing series describe four separate thin market failures in the Canadian SMB manufacturing context:

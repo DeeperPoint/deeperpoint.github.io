@@ -11,6 +11,11 @@ summary: How Italian textile clusters became the world's finest manufacturing ec
 estimated-read: 7 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/flexspec-italian-impannatore-hero.png" alt="Italian artisan workshops connected by the impannatore broker" loading="lazy">
+  <figcaption>Sunlit workshops in the Italian textile districts — each a specialist, all connected by the impannatore&#8217;s knowledge of the cluster.</figcaption>
+</figure>
+
 ## The Italian Textile Clusters: A Case Study in Flexible Specialization
 
 Decades ago, a question began puzzling business economists: why was Italy, a country of small firms and fragmented production, consistently beating large, vertically integrated industrial competitors in the global luxury goods market?
