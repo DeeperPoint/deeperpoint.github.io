@@ -1,6 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
+series: intro-series
+series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
+series-position: 3
 title: "The Skeleton Key — Why Thin Market Infrastructure Must Be Open Source"
 slug: intro-skeleton-key
 date: 2026-03-20

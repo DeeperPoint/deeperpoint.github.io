@@ -1,0 +1,313 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Scenario: The Welder Who Wrote Firewalls — DeeperPoint</title>
+  <meta name="description" content="A small manufacturer in Trois-Rivières needs someone who understands industrial cybersecurity — not full-time, just enough to pass an audit. Three hundred kilometres away, a machining shop in Sherbrooke has a production supervisor whose previous career was in IT security. The skill exists. The need exists. But no marketplace connects fractional industrial talent between SMBs.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Market Scenario: The Welder Who Wrote Firewalls">
+  <meta property="og:description" content="A small manufacturer in Trois-Rivières needs someone who understands industrial cybersecurity — not full-time, just enough to pass an audit. Three hundred kilometres away, a machining shop in Sherbrooke has a production supervisor whose previous career was in IT security. The skill exists. The need exists. But no marketplace connects fractional industrial talent between SMBs.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/fractional-skills-thin-market.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Market Scenario: The Welder Who Wrote Firewalls">
+  <meta name="twitter:description" content="A small manufacturer in Trois-Rivières needs someone who understands industrial cybersecurity — not full-time, just enough to pass an audit. Three hundred kilometres away, a machining shop in Sherbrooke has a production supervisor whose previous career was in IT security. The skill exists. The need exists. But no marketplace connects fractional industrial talent between SMBs.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+  <style>
+    /* ---- Series index card ---- */
+    .series-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-left: 4px solid #6366f1;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 1.25rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .series-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,.2); }
+    .series-card__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .series-card__title {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9);
+      margin-bottom: .35rem; line-height: 1.35;
+    }
+    .series-card__meta {
+      font-size: .78rem; color: var(--color-text-muted, #94a3b8); margin-bottom: .9rem;
+    }
+    .series-card__summary {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      margin-bottom: 1rem; line-height: 1.55;
+    }
+    .series-posts-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .series-posts-list__item { display: flex; align-items: flex-start; gap: .6rem; }
+    .series-posts-list__num {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(99,102,241,.2); border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; font-size: .65rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .series-posts-list__link {
+      font-size: .84rem; color: var(--color-text-secondary, #cbd5e1);
+      text-decoration: none; line-height: 1.45; transition: color .15s;
+    }
+    .series-posts-list__link:hover { color: #a5b4fc; }
+
+    /* ---- Series nav bar (in-post) ---- */
+    .series-nav {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem;
+    }
+    .series-nav__header {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .5rem;
+    }
+    .series-nav__title { font-size: .95rem; font-weight: 600; color: var(--color-text-primary, #f1f5f9); margin-bottom: .85rem; }
+    .series-nav__steps { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: .85rem; }
+    .series-nav__step {
+      display: flex; align-items: center; gap: 5px; padding: 3px 10px 3px 4px;
+      border-radius: 20px; text-decoration: none; font-size: .76rem; font-weight: 500;
+      border: 1px solid rgba(99,102,241,.28); color: var(--color-text-secondary, #cbd5e1);
+      background: transparent; transition: background .15s, color .15s;
+    }
+    .series-nav__step:hover { background: rgba(99,102,241,.15); color: #a5b4fc; }
+    .series-nav__step--current { background: rgba(99,102,241,.22); border-color: #6366f1; color: #c7d2fe; }
+    .series-nav__step-num {
+      width: 18px; height: 18px; border-radius: 50%; background: rgba(99,102,241,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 700; color: #a5b4fc; flex-shrink: 0;
+    }
+    .series-nav__step--current .series-nav__step-num { background: #6366f1; color: #fff; }
+    .series-nav__arrows { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .series-nav__arrow { font-size: .8rem; color: #818cf8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .series-nav__arrow:hover { color: #a5b4fc; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../search.html" class="nav__link">Search</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-03-19">March 19, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>15 min read</span>
+        </div>
+        <h1 class="blog-post__title">Market Scenario: The Welder Who Wrote Firewalls</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">manufacturing</span>
+        </div>
+      </div>
+      
+      <div class="series-nav">
+        <div class="series-nav__header">Part of a 4-post series</div>
+        <div class="series-nav__title">Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity</div>
+        <div class="series-nav__steps"><a href="used-machinery-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">1</span>The Machine Under the Tarp</a><a href="fractional-testing-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Tensile Test That Almost D…</a><a href="fractional-capacity-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">3</span>The Idle Shift</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">4</span>The Welder Who Wrote Firewalls</span></div>
+        <div class="series-nav__arrows"><a href="fractional-capacity-thin-market.html" class="series-nav__arrow">&larr; The Idle Shift</a></div>
+      </div>
+      <article class="blog-post">
+        <figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/fractional-skills-thin-market-hero.png" alt="A CNC machining shop where the network switch on the wall matters as much as the machines on the floor." loading="lazy">
+  <figcaption>A CNC machining shop where the network switch on the wall matters as much as the machines on the floor.</figcaption>
+</figure>
+
+<h2 id="henry-ford-never-needed-a-prompt-engineer">Henry Ford Never Needed a Prompt Engineer</h2>
+<p>In 1913, the Ford Motor Company employed approximately 14,000 workers at the Highland Park plant. The skill taxonomy was simple: machinists, assemblers, tool-and-die makers, electricians, pattern makers, and foremen. A plant manager could describe every role in the building. If a man on the line couldn&rsquo;t do the job, you trained him in a few days or you replaced him with someone who could. The complexity lived in the product — the Model T — not in the organizational infrastructure required to make it.</p>
+<p>A century later, a twelve-person fabrication shop in central Canada requires — in addition to its welders, machinists, and assemblers — at least intermittent access to expertise in: CNC programming and post-processor configuration. CAD/CAM software administration. ERP system management. Cybersecurity compliance. WHMIS and workplace safety documentation. Quality management system maintenance (ISO 9001 or equivalent). Environmental reporting. Export documentation and customs classification. Intellectual property protection. Robotics integration and PLC programming. Data analytics for production optimization.</p>
+<p>Henry Ford didn&rsquo;t need any of that. He didn&rsquo;t even need a website.</p>
+<p>This is the balkanization problem. Manufacturing as a discipline hasn&rsquo;t just gotten harder — the <em>perimeter</em> of what constitutes &ldquo;manufacturing&rdquo; has expanded into two dozen adjacent specialties that didn&rsquo;t exist a generation ago. Every new regulation, every software platform, every cybersecurity framework, every export compliance requirement adds another line item to the roster of skills a manufacturer must access. A large company absorbs this by hiring specialists into dedicated departments. A twelve-person shop absorbs it by asking whoever seems least busy.</p>
+<p>The choices, as any SMB owner will tell you, are all unsatisfying:</p>
+<p><strong>Train someone in-house.</strong> Send your IT person — you might call this person &ldquo;IT person&rdquo; but they&rsquo;re the machinist who is least terrified of computers — to a three-day cybersecurity course. They come back with a certificate and a partial understanding. They&rsquo;re now your cybersecurity analyst for purposes of the audit. They&rsquo;re also still your machinist. The knowledge depreciates within months because they have no opportunity to practice it at the depth the role requires.</p>
+<p><strong>Hire a consulting firm.</strong> Pay a firm $15,000–$40,000 to assess your systems, write a remediation plan, train your staff, and leave. The engagement is valuable but episodic — they leave and the knowledge leaves with them. When the next audit comes, you call them again. You are renting expertise at retail rates because you can&rsquo;t afford to own it.</p>
+<p><strong>Hire freelancers.</strong> Post on Upwork for an industrial cybersecurity specialist. You&rsquo;ll get fifty applicants, forty-seven of whom have never set foot in a manufacturing facility. The three who have will charge consulting rates because they know how thin the supply is. And you&rsquo;ll need to know enough about the subject to manage them — which, if you did, you wouldn&rsquo;t need to hire them in the first place.</p>
+<p><strong>Or — and this is the option that doesn&rsquo;t yet exist — find another SMB that happens to have a bit of surplus capacity in exactly that skill.</strong></p>
+<p>That last option is the one worth imagining. Because the talent exists. It&rsquo;s just locked inside other small companies, invisible, unpriced, and inaccessible. A machining shop in one city has a production supervisor who did cybersecurity in a previous career — she&rsquo;s already hardened their systems, completed their audit, and now the knowledge sits latent. A welding shop in another city has a quality manager who spent five years doing ISO documentation for an aerospace contractor before switching to a smaller firm. A packaging company has an operator who taught himself advanced PLC programming during a production expansion and has had nothing that complex to do since.</p>
+<p>These people exist. They have the skills. Their employers have already benefited from those skills and now have what amounts to surplus capacity in a specialized domain. But there is no mechanism — zero infrastructure — for one SMB to discover that another SMB has a person with forty hours of uncommitted expertise in the exact discipline they need.</p>
+<p>This is a thin market. And to show what a platform could do about it, let me tell you a story. The people you&rsquo;re about to meet are fictional — but the skill gaps, the market forces, and the platform architecture are real. This is a scenario, not a case study: a detailed illustration of what fractional skills matching could look like if the infrastructure existed.</p>
+<hr />
+<h2 id="1-nadines-audit">1. Nadine&rsquo;s Audit</h2>
+<p>Nadine Bergeron runs a twenty-two-person manufacturer of custom hydraulic cylinders and manifold blocks in Trois-Rivières, Québec. The company — Hydraulique Bergeron — makes components for forestry equipment, snow groomers, and marine deck machinery. It&rsquo;s a family business, founded by her father in 1986. Revenue is steady, margins are tight, and the customer base is loyal.</p>
+<p>Last month, a procurement officer at one of her largest customers — a Scandinavian forestry equipment OEM that buys custom hydraulic manifolds — sent a new supplier questionnaire. The questionnaire is twenty-three pages long and includes a section Nadine has never seen before: <strong>Industrial Cybersecurity Compliance Self-Assessment</strong>.</p>
+<p>The section asks whether Hydraulique Bergeron has: a documented cybersecurity policy; a network segmentation plan separating IT systems from operational technology (OT) systems; multifactor authentication on all administrative accounts; an incident response plan; regular vulnerability scanning; an employee cybersecurity training program; and compliance with either IEC 62443 (industrial automation security) or NIST SP 800-82 (guide to industrial control system security).</p>
+<p>Nadine&rsquo;s operation has none of this. The shop runs three CNC lathes and two CNC mills, all with Fanuc controllers networked to a single CAM workstation running Mastercam. The network also connects to the office — the ERP system, email, accounting. The entire IT infrastructure is managed by her nephew Étienne, who is officially the production scheduler but is the unofficial &ldquo;computer person&rdquo; because he built gaming PCs in high school.</p>
+<p>Nadine calls the Scandinavian procurement officer. The conversation is friendly but firm: the OEM&rsquo;s parent company has adopted a supply chain cybersecurity standard. All Tier 2 and Tier 3 suppliers must demonstrate at least &ldquo;basic hygiene&rdquo; compliance within six months or face supplier status review. The procurement officer is sympathetic — she knows Nadine&rsquo;s manifold blocks are excellent — but the policy is corporate, not personal.</p>
+<p>Nadine now has a problem that is both urgent and completely outside her domain. She calls two cybersecurity consulting firms in Montréal. Both are happy to help. Both quote engagements starting at $25,000 — a gap assessment, a remediation plan, employee training, and documentation. One can start in eight weeks; the other in twelve. Neither has specific experience with manufacturing OT environments — they do offices, clinics, and law firms. The Fanuc controllers, the Mastercam workstation, the air-gapped CNC versus networked CNC question — that&rsquo;s not their world.</p>
+<p>Nadine needs someone who understands both cybersecurity <em>and</em> manufacturing shop floors. She needs perhaps forty to sixty hours of that person&rsquo;s time, spread over four to six weeks. She does not need a full-time cybersecurity analyst, and she cannot afford one. She needs a fractional expert — and not a generic one, but one who knows what a Fanuc controller is, who has seen a CAM workstation connected to a production network, who understands that &ldquo;segment the OT network&rdquo; in a twenty-two-person shop means something different than it does at Bombardier.</p>
+<hr />
+<h2 id="2-maximes-surplus">2. Maxime&rsquo;s Surplus</h2>
+<p>Three hundred kilometres east, in Sherbrooke, Québec, Maxime Ouellet is the production supervisor at Usinage Précision Estrie — a fourteen-person precision machining shop that makes aerospace components and medical device parts. Maxime has an unusual résumé.</p>
+<p>Before joining Usinage Précision four years ago, Maxime spent eight years as a network security analyst at a defence contractor in Mirabel. He holds a CompTIA Security+ certification (maintained) and completed a SANS Institute course in industrial control system security — GICSP (Global Industrial Cyber Security Professional). He left the defence industry because he wanted to work closer to the machines, not the screens. He became a machinist, then a CNC programmer, then a production supervisor.</p>
+<p>When Maxime arrived at Usinage Précision, he took one look at the shop&rsquo;s network — five Haas CNC machining centres daisy-chained to an unsegmented Ethernet network shared with the office computers — and quietly spent three weekends fixing it. He segmented the OT network. He configured the router&rsquo;s firewall rules. He set up a separate VLAN for the CNC controllers with restricted gateway access. He enabled multifactor authentication on the Jobboss ERP system. He wrote a ten-page cybersecurity policy document, a four-page incident response plan, and a one-page employee training handout. He presented it to his boss, Marc-André, who said: &ldquo;This is good. Can you also look at the coolant pump on the Haas VF-4? It&rsquo;s making a noise.&rdquo;</p>
+<p>Maxime now carries both roles — production supervisor and de facto cybersecurity administrator — but the cybersecurity work is done. The systems are hardened. The documentation is written. The annual review takes him about four hours. He has forty-plus hours of specialized, manufacturing-specific cybersecurity expertise with nothing to apply it to — surplus capacity in a skill that other manufacturers desperately need.</p>
+<p>He doesn&rsquo;t know Nadine exists. She doesn&rsquo;t know he exists. And no marketplace, directory, industry association listing, or freelance platform connects SMB-to-SMB fractional skill sharing.</p>
+<hr />
+<h2 id="3-what-the-platform-changes">3. What the Platform Changes</h2>
+<p>Now imagine that <strong>CME — Canadian Manufacturers &amp; Exporters</strong> — has deployed a fractional skills marketplace on MarketForge infrastructure, designed specifically for SMB manufacturers who need to buy, sell, or swap specialized expertise in fractional quantities.</p>
+<p>The concept is straightforward: manufacturers register their <em>available</em> expertise (surplus capacity in specialized skills their employees already have) and their <em>needed</em> expertise (gaps they need to fill, temporarily or recurrently). The platform&rsquo;s AI matches supply to demand — not by job title, but by demonstrated competence against specific, real-world requirements.</p>
+<hr />
+<h3 id="nadines-listing">Nadine&rsquo;s Listing</h3>
+<p>Nadine opens the platform and describes her need — in French, conversationally:</p>
+<blockquote>
+<p><em>&ldquo;Mon client scandinave me demande une auto-évaluation en cybersécurité industrielle. Je n&rsquo;ai aucune politique de cybersécurité, aucun plan de segmentation réseau, rien. J&rsquo;ai besoin de quelqu&rsquo;un qui comprend la sécurité informatique ET les ateliers de fabrication — quelqu&rsquo;un qui sait ce qu&rsquo;est un contrôleur Fanuc et pourquoi il ne devrait pas être sur le même réseau que mon courriel. Il me faut probablement 40 à 60 heures de travail, étalées sur un mois.&rdquo;</em></p>
+</blockquote>
+<p>The platform&rsquo;s AI extracts structured requirements:</p>
+<ul>
+<li><strong>Skill domain</strong>: Industrial cybersecurity (IEC 62443 / NIST SP 800-82)</li>
+<li><strong>Manufacturing context</strong>: CNC machining, Fanuc controllers, CAM workstation (Mastercam), small shop (22 employees)</li>
+<li><strong>Specific deliverables</strong>: Cybersecurity policy, network segmentation plan, MFA implementation, incident response plan, employee training, compliance self-assessment documentation</li>
+<li><strong>Scope</strong>: 40–60 hours, on-site or hybrid</li>
+<li><strong>Timeline</strong>: Results needed within 6 weeks</li>
+<li><strong>Language</strong>: French preferred</li>
+<li><strong>Budget ceiling</strong> (private): $8,000 maximum</li>
+</ul>
+<hr />
+<h3 id="maximes-profile">Maxime&rsquo;s Profile</h3>
+<p>Maxime registered on the platform two months ago when CME&rsquo;s regional representative visited the shop for a technology adoption assessment. The platform built his expertise profile through a structured interview and document uploads:</p>
+<ul>
+<li><strong>Primary role</strong>: Production supervisor, Usinage Précision Estrie</li>
+<li><strong>Available expertise</strong>: Industrial cybersecurity — ICS/OT network security, policy development, employee training</li>
+<li><strong>Certifications</strong>: CompTIA Security+, SANS GICSP</li>
+<li><strong>Manufacturing experience</strong>: CNC machining environments, Haas and Fanuc controllers, Jobboss ERP, Mastercam, shop networks</li>
+<li><strong>Demonstrated work</strong>: Segmented OT/IT networks at own facility, wrote cybersecurity policy and incident response plan, passed customer cybersecurity audit</li>
+<li><strong>Availability</strong>: Evenings and selected weekdays (with employer&rsquo;s agreement), approximately 8–12 hours per week</li>
+<li><strong>Language</strong>: French native, English fluent</li>
+<li><strong>Rate</strong> (private): $85/hour — substantially below consulting firm rates, reflecting that this is side capacity from a salaried employee, not a consulting business</li>
+</ul>
+<p>Maxime&rsquo;s employer, Marc-André, has also registered — as the &ldquo;releasing&rdquo; company. The platform requires employer acknowledgment for any skills-sharing engagement: the releasing company confirms the employee&rsquo;s availability, approves the scope of external work, and agrees that it does not conflict with the employee&rsquo;s primary duties or the releasing company&rsquo;s competitive interests. Marc-André agreed readily — Usinage Précision doesn&rsquo;t compete with Hydraulique Bergeron (different industries, different geographies), and he sees fractional revenue as a way to retain Maxime by making his full skill set economically productive.</p>
+<hr />
+<h3 id="4-the-match">4. The Match</h3>
+<p>The platform&rsquo;s semantic matching engine — Cosolvent — doesn&rsquo;t match by job title. &ldquo;Cybersecurity analyst&rdquo; would return hundreds of candidates, almost none of whom have manufacturing OT experience. Instead, it matches Nadine&rsquo;s <em>specific requirement profile</em> against Maxime&rsquo;s <em>demonstrated competence profile</em>.</p>
+<p>The match is structural:</p>
+<ul>
+<li><strong>IEC 62443 / NIST 800-82 competence</strong>: GICSP certification directly covers industrial control system security standards. ✓</li>
+<li><strong>CNC controller experience</strong>: Maxime has worked with both Haas and Fanuc controllers in networked environments. Nadine&rsquo;s shop uses Fanuc. ✓</li>
+<li><strong>CAM workstation security</strong>: Maxime secured a Mastercam workstation at his own facility. Nadine uses Mastercam. ✓</li>
+<li><strong>Small-shop context</strong>: Maxime&rsquo;s own shop is 14 people. He understands that &ldquo;network segmentation&rdquo; in a small shop means a managed switch and VLAN configuration, not an enterprise-grade firewall appliance. ✓</li>
+<li><strong>Deliverables</strong>: Maxime has already written the exact documents Nadine needs — policy, segmentation plan, incident response, training materials — for his own facility. He can adapt them, not invent them from scratch. ✓</li>
+<li><strong>Language</strong>: French. ✓</li>
+<li><strong>Budget alignment</strong>: 50 hours × $85/hour = $4,250 — well within Nadine&rsquo;s $8,000 ceiling. ✓</li>
+</ul>
+<p>The match confidence is high. Both parties receive notifications.</p>
+<p>Nadine sees:</p>
+<blockquote>
+<p><em>&ldquo;Nous avons identifié un superviseur de production dans un atelier d&rsquo;usinage de précision au Québec qui détient une certification GICSP en cybersécurité industrielle. Il a segmenté le réseau OT/IT dans son propre atelier (contrôleurs Haas et Fanuc, poste Mastercam), rédigé une politique de cybersécurité et un plan de réponse aux incidents, et a passé un audit cybersécurité client. La portée de travail correspond à vos besoins documentés. Tarif estimé : 4 000 à 5 500 $ pour 50 à 60 heures. Souhaitez-vous voir son profil de compétences détaillé?&rdquo;</em></p>
+</blockquote>
+<p>Maxime sees:</p>
+<blockquote>
+<p><em>&ldquo;Un fabricant de cylindres hydrauliques à Trois-Rivières a besoin d&rsquo;aide en cybersécurité industrielle — segmentation réseau OT, rédaction de politiques, formation des employés, documentation d&rsquo;auto-évaluation. L&rsquo;atelier utilise des contrôleurs Fanuc et Mastercam dans un environnement similaire à ce que vous avez sécurisé chez Usinage Précision. Portée estimée : 40 à 60 heures sur 4 à 6 semaines. Votre disponibilité et votre profil de compétences correspondent aux exigences. Souhaitez-vous examiner les détails?&rdquo;</em></p>
+</blockquote>
+<hr />
+<h3 id="5-what-the-platform-knows">5. What the Platform Knows</h3>
+<p>When CME configured the platform, they populated the <strong>Knowledge Slot</strong> with domain-specific reference material curated by cybersecurity and manufacturing experts:</p>
+<ul>
+<li><strong>IEC 62443 requirements mapped to shop sizes</strong>: a simplified matrix showing which security levels (SL-1 through SL-4) are expected for different manufacturing contexts — a 20-person job shop has different requirements than a 500-person Tier 1 automotive supplier</li>
+<li><strong>Common CNC controller network architectures</strong>: reference diagrams for Fanuc, Haas, Siemens, and Mazak controller networking, including which models support VLANs natively and which require external managed switches</li>
+<li><strong>NIST SP 800-82 templates</strong>: editable versions of cybersecurity policy documents, incident response plans, and self-assessment checklists adapted for small and medium manufacturers — in both English and French</li>
+<li><strong>Canadian Centre for Cyber Security (CCCS) guidelines</strong>: the government&rsquo;s recommended cybersecurity baseline for small organizations, cross-referenced to IEC 62443 requirements</li>
+<li><strong>Skills engagement contract templates</strong>: standard terms for fractional engagements between SMBs, covering IP protection, non-competition scope, liability allocation, and payment terms — vetted by CME&rsquo;s legal team</li>
+</ul>
+<p>The Knowledge Slot carries domain metadata tags — <code>cybersecurity</code>, <code>IEC_62443</code>, <code>CNC_controllers</code>, <code>OT_network</code>, <code>SMB_manufacturing</code> — that scope retrieval so that when Nadine asks &ldquo;What does network segmentation actually mean for my shop?&rdquo;, the platform surfaces CNC-specific guidance, not enterprise IT architecture documents.</p>
+<hr />
+<h3 id="6-the-engagement">6. The Engagement</h3>
+<p>Maxime drives to Trois-Rivières on a Saturday morning — a three-hour drive. He walks through Nadine&rsquo;s shop floor with her, looking at the network architecture. He identifies the problems in twenty minutes: the Fanuc controllers, the Mastercam workstation, the ERP terminal, and Étienne&rsquo;s gaming-turned-office computer are all on the same flat network. The shop&rsquo;s Wi-Fi router serves both the production floor and the office, with a default admin password that has never been changed.</p>
+<p>Maxime has seen this before. It&rsquo;s the same configuration his own shop had four years ago. He knows the fix because he&rsquo;s already done it.</p>
+<p>Over the next five weeks, Maxime works approximately twelve hours per week — some on-site in Trois-Rivières, some remotely from Sherbrooke. He:</p>
+<ul>
+<li>Segments the OT network: configures a managed switch to create separate VLANs for CNC controllers, the CAM workstation, and office IT</li>
+<li>Enables MFA on the ERP system and all administrative accounts</li>
+<li>Writes a cybersecurity policy document — adapted from the one he wrote for Usinage Précision, modified for Nadine&rsquo;s specific environment and Fanuc controllers</li>
+<li>Drafts an incident response plan and a business continuity procedure</li>
+<li>Conducts a two-hour training session for all twenty-two employees, in French, covering phishing recognition, password hygiene, and the specific risks of USB drives on CNC machines</li>
+<li>Completes the Scandinavian OEM&rsquo;s cybersecurity self-assessment questionnaire with Nadine, documenting every control they&rsquo;ve implemented</li>
+</ul>
+<p>Total billable hours: fifty-three. Total cost: $4,505. Time to completion: five weeks.</p>
+<p>For comparison: the Montréal consulting firms quoted $25,000+ and eight to twelve weeks — and neither had CNC shop floor experience.</p>
+<hr />
+<h2 id="7-what-makes-this-a-thin-market-story">7. What Makes This a Thin Market Story</h2>
+<p>Step back from the narrative and look at the structural forces:</p>
+<p><strong>Opacity</strong> — This is the dominant barrier. Maxime&rsquo;s cybersecurity competence is invisible to anyone outside Usinage Précision Estrie. It doesn&rsquo;t appear on LinkedIn (his profile says &ldquo;production supervisor&rdquo;). It doesn&rsquo;t appear in any industry directory. It doesn&rsquo;t appear on any freelance platform. The skill exists, it&rsquo;s proven, and it&rsquo;s available — but it is completely opaque to the market. Multiply this by every SMB employee in Canada who carries a specialist skill from a previous career, a side qualification, or a self-taught competence that their current employer has already consumed. The aggregate surplus is enormous and entirely invisible.</p>
+<p><strong>Discovery</strong> — Nadine in Trois-Rivières and Maxime in Sherbrooke had no mechanism to find each other. The consulting firms she called don&rsquo;t know Maxime exists. Upwork doesn&rsquo;t know he exists. CME&rsquo;s member directory doesn&rsquo;t list individual employees&rsquo; secondary competences. The traditional mechanisms for skills discovery — job boards, consulting directories, professional associations — are designed around full-time roles and dedicated practices, not fractional surplus capacity inside SMBs.</p>
+<p><strong>Information asymmetry</strong> — Even if Nadine could somehow discover Maxime, how would she evaluate whether his cybersecurity skills are genuine and relevant? A GICSP certification tells her something, but what she really needs to know is: <em>has this person actually secured a CNC shop floor?</em> The platform&rsquo;s match report answers that question structurally — matching demonstrated competence (what Maxime has actually done at his own facility) against specific requirements (what Nadine&rsquo;s shop needs), rather than relying on credential proxies alone.</p>
+<p><strong>Trust</strong> — Fractional skills sharing between SMBs introduces a trust architecture that doesn&rsquo;t exist in traditional consulting. Nadine is giving Maxime access to her network infrastructure. Marc-André is lending out his production supervisor. Both need institutional protections: IP agreements, non-compete boundaries, liability allocation. The platform&rsquo;s engagement framework — drawn from the Knowledge Slot&rsquo;s vetted contract templates — provides these protections without requiring either party to hire a lawyer.</p>
+<p><strong>The taxonomy problem</strong> — Manufacturing&rsquo;s expanding skill perimeter means that the skills SMBs need are increasingly exotic combinations: not &ldquo;cybersecurity&rdquo; (generic) but &ldquo;cybersecurity for CNC-networked manufacturing environments&rdquo; (specific). Not &ldquo;quality management&rdquo; (generic) but &ldquo;ISO 13485 documentation for contract medical device machining&rdquo; (specific). Keyword matching fails because the intersections are too narrow. Only semantic matching — understanding that GICSP certification plus Fanuc controller experience plus VLAN configuration experience equals &ldquo;manufacturing OT cybersecurity&rdquo; — can navigate these compound requirements.</p>
+<hr />
+<h2 id="8-the-ecosystem-that-grows">8. The Ecosystem That Grows</h2>
+<p>The story doesn&rsquo;t end with Nadine&rsquo;s audit. It extends in every direction.</p>
+<p>Nadine, having experienced the value of fractional expertise, registers her own surplus: Hydraulique Bergeron&rsquo;s quality manager, Jean-François, spent a decade doing hydraulic system certification to Bureau Veritas standards before joining the company. He&rsquo;s already certified their product line. That expertise — ASME pressure vessel documentation, hydraulic test protocols, bureau certification procedures — is now surplus capacity that another manufacturer might need.</p>
+<p>Maxime takes on a second engagement — a plastics injection moulder in Drummondville whose customer has sent the same Scandinavian cybersecurity questionnaire. This time, he adapts his templates in twelve hours instead of fifty. The platform remembers: Maxime&rsquo;s demonstrated competence profile now includes two completed engagements, both with documented outcomes. His match confidence score increases.</p>
+<p>CME&rsquo;s platform begins to reveal structural patterns: cybersecurity compliance is the most common skills gap across its SMB membership. ISO documentation is second. Export compliance and customs classification is third. PLC programming for robotics integration is fourth. These aren&rsquo;t the skills CME would have guessed — they&rsquo;re the skills the matching data reveals, demand-driven, from the ground up.</p>
+<p>The platform also reveals the supply-side geography: cybersecurity competence is concentrated in shops near Montréal, Ottawa, and Toronto — cities with defence and aerospace contractors whose employees cycle into SMB manufacturing. ISO documentation expertise is more evenly distributed. Export compliance is almost entirely absent from rural manufacturers — a dead zone that CME can now target with specific training programs, knowing exactly which skills to develop and where.</p>
+<hr />
+<p><em>The story of Nadine and Maxime is fictional — an imagined scenario, not a description of an existing platform or real participants. But the skill gaps, the consulting costs, and the market dynamics described are real. The expanding perimeter of manufacturing expertise is documented across every industry survey of SMB competitiveness. The surplus capacity locked inside employees with multidisciplinary backgrounds is enormous and almost entirely invisible. The platform architecture (Cosolvent matching, KnowledgeSlot domain knowledge, CME sponsorship) represents one possible engineering response to a structural problem that affects every manufacturing SMB in the country. The operational details — which skill domains to prioritize, how to structure employer release agreements, how to manage liability and IP — are rightly the work of a sponsor embedded in the specific industrial context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.</em></p>
+<p><em><a href="https://deeperpoint.com/thin-markets.html">What makes a thin market tick? →</a> · <a href="https://deeperpoint.com/marketforge.html">The MarketForge platform →</a> · <a href="https://deeperpoint.com/who-should-care.html">Who should build this? →</a></em></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

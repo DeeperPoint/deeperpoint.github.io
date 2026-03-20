@@ -6,6 +6,11 @@ Blog Build Script for DeeperPoint
 Reads Markdown posts from blog/posts/, converts them to HTML using the site's
 design system, and generates a blog index page and RSS feed.
 
+Supports optional series grouping via frontmatter fields:
+    series:          (str)  slug identifying the series, e.g. "manufacturing-fractional"
+    series-title:    (str)  human-readable name for the series
+    series-position: (int)  1-indexed position within the series
+
 Usage:
     python scripts/build_blog.py
 
@@ -32,6 +37,87 @@ FEED_TITLE = "DeeperPoint Blog"
 FEED_DESC = "Thin market science, engineering, and the DeeperPoint ecosystem."
 
 MD_EXTENSIONS = ["fenced_code", "tables", "toc", "smarty", "attr_list"]
+
+# ---------------------------------------------------------------------------
+# Series Component Styles (injected inline for pages that use them)
+# ---------------------------------------------------------------------------
+
+SERIES_STYLES = """  <style>
+    /* ---- Series index card ---- */
+    .series-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-left: 4px solid #6366f1;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 1.25rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .series-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,.2); }
+    .series-card__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .series-card__title {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9);
+      margin-bottom: .35rem; line-height: 1.35;
+    }
+    .series-card__meta {
+      font-size: .78rem; color: var(--color-text-muted, #94a3b8); margin-bottom: .9rem;
+    }
+    .series-card__summary {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      margin-bottom: 1rem; line-height: 1.55;
+    }
+    .series-posts-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .series-posts-list__item { display: flex; align-items: flex-start; gap: .6rem; }
+    .series-posts-list__num {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(99,102,241,.2); border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; font-size: .65rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .series-posts-list__link {
+      font-size: .84rem; color: var(--color-text-secondary, #cbd5e1);
+      text-decoration: none; line-height: 1.45; transition: color .15s;
+    }
+    .series-posts-list__link:hover { color: #a5b4fc; }
+
+    /* ---- Series nav bar (in-post) ---- */
+    .series-nav {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem;
+    }
+    .series-nav__header {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .5rem;
+    }
+    .series-nav__title { font-size: .95rem; font-weight: 600; color: var(--color-text-primary, #f1f5f9); margin-bottom: .85rem; }
+    .series-nav__steps { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: .85rem; }
+    .series-nav__step {
+      display: flex; align-items: center; gap: 5px; padding: 3px 10px 3px 4px;
+      border-radius: 20px; text-decoration: none; font-size: .76rem; font-weight: 500;
+      border: 1px solid rgba(99,102,241,.28); color: var(--color-text-secondary, #cbd5e1);
+      background: transparent; transition: background .15s, color .15s;
+    }
+    .series-nav__step:hover { background: rgba(99,102,241,.15); color: #a5b4fc; }
+    .series-nav__step--current { background: rgba(99,102,241,.22); border-color: #6366f1; color: #c7d2fe; }
+    .series-nav__step-num {
+      width: 18px; height: 18px; border-radius: 50%; background: rgba(99,102,241,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 700; color: #a5b4fc; flex-shrink: 0;
+    }
+    .series-nav__step--current .series-nav__step-num { background: #6366f1; color: #fff; }
+    .series-nav__arrows { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .series-nav__arrow { font-size: .8rem; color: #818cf8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .series-nav__arrow:hover { color: #a5b4fc; }
+  </style>
+"""
 
 # ---------------------------------------------------------------------------
 # Templates
@@ -66,7 +152,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     rel="stylesheet">
   <link rel="stylesheet" href="{css_path}">
   <link rel="alternate" type="application/rss+xml" title="{feed_title}" href="{feed_url}">
-</head>
+{extra_styles}</head>
 
 <body>
 
@@ -160,16 +246,172 @@ def parsePost(filepath):
 
 
 # ---------------------------------------------------------------------------
+# Series Support
+# ---------------------------------------------------------------------------
+
+
+def buildSeriesIndex(posts):
+    """
+    Group posts that share a 'series' slug into a series index.
+
+    Returns:
+        dict mapping series_slug -> {
+            "title":  human-readable series title,
+            "posts":  list of meta dicts sorted by series-position then date,
+            "date":   date of the most recent post (for index ordering),
+        }
+    """
+    series = {}
+    for meta in posts:
+        slug = meta.get("series")
+        if not slug:
+            continue
+        if slug not in series:
+            series[slug] = {
+                "title": meta.get("series-title", slug.replace("-", " ").title()),
+                "posts": [],
+            }
+        series[slug]["posts"].append(meta)
+
+    for slug, data in series.items():
+        data["posts"].sort(key=lambda p: (p.get("series-position", 999), p["date"]))
+        # Use the most recent post's date to position the series card in the index
+        data["date"] = max(p["date"] for p in data["posts"])
+
+    return series
+
+
+def buildSeriesNavHtml(current_meta, series_posts):
+    """
+    Build the in-post series navigation bar HTML.
+    Appears between the post header and the article body.
+    """
+    series_title = current_meta.get(
+        "series-title",
+        current_meta.get("series", "").replace("-", " ").title(),
+    )
+    current_slug = current_meta["slug"]
+    total = len(series_posts)
+
+    # Build step pills
+    steps_html = ""
+    prev_post = None
+    next_post = None
+    for i, post in enumerate(series_posts):
+        pos = post.get("series-position", i + 1)
+        is_current = post["slug"] == current_slug
+        if is_current:
+            if i > 0:
+                prev_post = series_posts[i - 1]
+            if i < total - 1:
+                next_post = series_posts[i + 1]
+            steps_html += (
+                f'<span class="series-nav__step series-nav__step--current" '
+                f'aria-current="true">'
+                f'<span class="series-nav__step-num">{pos}</span>'
+                f"{_shortTitle(post['title'])}"
+                f"</span>"
+            )
+        else:
+            steps_html += (
+                f'<a href="{post["slug"]}.html" class="series-nav__step">'
+                f'<span class="series-nav__step-num">{pos}</span>'
+                f"{_shortTitle(post['title'])}"
+                f"</a>"
+            )
+
+    # Prev / Next arrows
+    arrows_html = ""
+    if prev_post:
+        arrows_html += (
+            f'<a href="{prev_post["slug"]}.html" class="series-nav__arrow">'
+            f"&larr; {_shortTitle(prev_post['title'])}"
+            f"</a>"
+        )
+    if next_post:
+        arrows_html += (
+            f'<a href="{next_post["slug"]}.html" class="series-nav__arrow">'
+            f"{_shortTitle(next_post['title'])} &rarr;"
+            f"</a>"
+        )
+
+    return f"""
+      <div class="series-nav">
+        <div class="series-nav__header">Part of a {total}-post series</div>
+        <div class="series-nav__title">{series_title}</div>
+        <div class="series-nav__steps">{steps_html}</div>
+        {f'<div class="series-nav__arrows">{arrows_html}</div>' if arrows_html else ''}
+      </div>"""
+
+
+def buildSeriesCardHtml(series_slug, series_data):
+    """Build the series group card for the blog index page."""
+    posts = series_data["posts"]
+    total = len(posts)
+    series_title = series_data["title"]
+
+    # Use the first post's summary as the series teaser
+    teaser = posts[0].get("summary", "")
+
+    # Build numbered post list
+    items_html = ""
+    for post in posts:
+        pos = post.get("series-position", "·")
+        items_html += (
+            f'<li class="series-posts-list__item">'
+            f'<span class="series-posts-list__num">{pos}</span>'
+            f'<a href="{post["slug"]}.html" class="series-posts-list__link">{post["title"]}</a>'
+            f"</li>"
+        )
+
+    first_url = posts[0]["slug"] + ".html"
+    date_str = series_data["date"].strftime("%B %Y")
+
+    return f"""
+        <div class="series-card reveal" id="series-{series_slug}">
+          <div class="series-card__label">Series &middot; {total} parts &middot; {date_str}</div>
+          <div class="series-card__title">{series_title}</div>
+          <div class="series-card__summary">{teaser}</div>
+          <ul class="series-posts-list">
+            {items_html}
+          </ul>
+        </div>"""
+
+
+def _shortTitle(full_title):
+    """
+    Produce a short display label from a full post title.
+    Strips the 'Stream Label: ' prefix if present, then truncates to ~30 chars.
+    """
+    # Remove stream prefix (e.g. "Market Scenario: ", "Workshop Notes: ")
+    if ": " in full_title:
+        short = full_title.split(": ", 1)[1]
+    else:
+        short = full_title
+    # Truncate
+    if len(short) > 32:
+        short = short[:30].rstrip() + "…"
+    return short
+
+
+# ---------------------------------------------------------------------------
 # Page Generation
 # ---------------------------------------------------------------------------
 
 
-def buildPostPage(meta, body_html):
+def buildPostPage(meta, body_html, series_posts=None):
     """Generate a full HTML page for a single blog post."""
     date_str = meta["date"].strftime("%B %d, %Y")
     tags_html = "".join(
         f'<span class="blog-tag">{tag}</span>' for tag in meta["tags"]
     )
+
+    # Inject series nav between the post header and the article body
+    series_nav_html = ""
+    if series_posts:
+        series_nav_html = buildSeriesNavHtml(meta, series_posts)
+
+    extra_styles = SERIES_STYLES if series_posts else ""
 
     head = PAGE_HEAD.format(
         title=meta["title"],
@@ -181,6 +423,7 @@ def buildPostPage(meta, body_html):
         feed_url=f"{SITE_URL}/blog/feed.xml",
         root="../",
         blog_active=" nav__link--active",
+        extra_styles=extra_styles,
     )
 
     content = f"""
@@ -198,6 +441,7 @@ def buildPostPage(meta, body_html):
           {tags_html}
         </div>
       </div>
+      {series_nav_html}
       <article class="blog-post">
         {body_html}
       </article>
@@ -210,8 +454,33 @@ def buildPostPage(meta, body_html):
     return head + content + footer
 
 
-def buildIndexPage(posts):
-    """Generate the blog listing page."""
+def buildPostCardHtml(meta):
+    """Build a standalone post card for the blog index."""
+    date_str = meta["date"].strftime("%B %d, %Y")
+    tags_html = "".join(
+        f'<span class="blog-tag">{tag}</span>' for tag in meta["tags"]
+    )
+    return f"""
+        <a href="{meta['slug']}.html" class="blog-card card reveal">
+          <div class="blog-meta">
+            <time datetime="{meta['date'].isoformat()}">{date_str}</time>
+            <span class="blog-meta__sep">&middot;</span>
+            <span>{meta['reading_time']} min read</span>
+          </div>
+          <h3 class="blog-card__title">{meta['title']}</h3>
+          <p class="blog-card__summary">{meta['summary']}</p>
+          <div class="blog-meta">{tags_html}</div>
+        </a>"""
+
+
+def buildIndexPage(posts, series_index):
+    """
+    Generate the blog listing page.
+
+    Series posts are collapsed into a single series card that appears at the
+    chronological position of the series's most recent post. Standalone posts
+    appear as individual cards, as before.
+    """
     head = PAGE_HEAD.format(
         title="Blog",
         description="Thin market science, engineering, and the DeeperPoint ecosystem.",
@@ -222,26 +491,35 @@ def buildIndexPage(posts):
         feed_url=f"{SITE_URL}/blog/feed.xml",
         root="../",
         blog_active=" nav__link--active",
+        extra_styles=SERIES_STYLES if series_index else "",
     )
 
-    cards = []
+    # Collect the slugs of all posts that belong to a series
+    series_post_slugs = {
+        post["slug"]
+        for data in series_index.values()
+        for post in data["posts"]
+    }
+
+    # Build a unified list of (date, type, payload) items
+    items = []
     for meta in posts:
-        date_str = meta["date"].strftime("%B %d, %Y")
-        tags_html = "".join(
-            f'<span class="blog-tag">{tag}</span>' for tag in meta["tags"]
-        )
-        cards.append(f"""
-        <a href="{meta['slug']}.html" class="blog-card card reveal">
-          <div class="blog-meta">
-            <time datetime="{meta['date'].isoformat()}">{date_str}</time>
-            <span class="blog-meta__sep">&middot;</span>
-            <span>{meta['reading_time']} min read</span>
-          </div>
-          <h3 class="blog-card__title">{meta['title']}</h3>
-          <p class="blog-card__summary">{meta['summary']}</p>
-          <div class="blog-meta">{tags_html}</div>
-        </a>
-""")
+        if meta["slug"] not in series_post_slugs:
+            items.append((meta["date"], "post", meta))
+
+    for slug, data in series_index.items():
+        items.append((data["date"], "series", (slug, data)))
+
+    # Sort newest first
+    items.sort(key=lambda x: x[0], reverse=True)
+
+    cards_html = ""
+    for _, item_type, payload in items:
+        if item_type == "post":
+            cards_html += buildPostCardHtml(payload)
+        else:
+            slug, data = payload
+            cards_html += buildSeriesCardHtml(slug, data)
 
     content = f"""
   <section class="section" id="blog-index" style="padding-top: calc(var(--space-4xl) + 60px);">
@@ -254,7 +532,7 @@ def buildIndexPage(posts):
         </p>
       </div>
       <div class="blog-index">
-        {''.join(cards)}
+        {cards_html}
       </div>
     </div>
   </section>
@@ -318,7 +596,7 @@ def main():
         print("  No posts found. Done.")
         return
 
-    # Collect all posts
+    # Collect and parse all posts
     md_files = sorted(POSTS_DIR.glob("*.md"))
     if not md_files:
         print("  No .md files found in posts directory.")
@@ -336,17 +614,26 @@ def main():
     # Sort by date, newest first
     posts.sort(key=lambda p: p["date"], reverse=True)
 
+    # Build series index BEFORE the post loop (while _body_html still exists)
+    series_index = buildSeriesIndex(posts)
+    if series_index:
+        for slug, data in series_index.items():
+            print(f"  Series '{slug}': {len(data['posts'])} posts")
+
     # Generate individual post pages
     BLOG_OUT.mkdir(parents=True, exist_ok=True)
     for meta in posts:
         body_html = meta.pop("_body_html")
-        page = buildPostPage(meta, body_html)
+        series_posts = None
+        if meta.get("series"):
+            series_posts = series_index.get(meta["series"], {}).get("posts", [])
+        page = buildPostPage(meta, body_html, series_posts)
         out_path = BLOG_OUT / f"{meta['slug']}.html"
         out_path.write_text(page, encoding="utf-8")
         print(f"  Wrote: {out_path.name}")
 
     # Generate index
-    index_html = buildIndexPage(posts)
+    index_html = buildIndexPage(posts, series_index)
     index_path = BLOG_OUT / "index.html"
     index_path.write_text(index_html, encoding="utf-8")
     print(f"  Wrote: index.html ({len(posts)} posts)")

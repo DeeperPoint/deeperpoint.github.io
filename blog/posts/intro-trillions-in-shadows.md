@@ -1,6 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
+series: intro-series
+series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
+series-position: 2
 title: "Trillions in the Shadows — The True Cost of Missing Markets"
 slug: intro-trillions-in-shadows
 date: 2026-03-17

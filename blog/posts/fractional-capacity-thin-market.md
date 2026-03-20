@@ -1,6 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
+series: manufacturing-fractional
+series-title: "Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity"
+series-position: 3
 title: "Market Scenario: The Idle Shift"
 date: 2026-03-19
 stream: market-scenario

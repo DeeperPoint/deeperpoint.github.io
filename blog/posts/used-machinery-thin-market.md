@@ -1,6 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
+series: manufacturing-fractional
+series-title: "Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity"
+series-position: 1
 title: "Market Scenario: The Machine Under the Tarp"
 stream: market-scenario
 slug: used-machinery-thin-market

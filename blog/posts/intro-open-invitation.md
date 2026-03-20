@@ -1,6 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
+series: intro-series
+series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
+series-position: 4
 title: "An Open Invitation — Seeking Collaborators for Markets That Don't Exist Yet"
 slug: intro-open-invitation
 date: 2026-03-24

@@ -27,6 +27,81 @@
     rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
   <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+  <style>
+    /* ---- Series index card ---- */
+    .series-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-left: 4px solid #6366f1;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 1.25rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .series-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,.2); }
+    .series-card__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .series-card__title {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9);
+      margin-bottom: .35rem; line-height: 1.35;
+    }
+    .series-card__meta {
+      font-size: .78rem; color: var(--color-text-muted, #94a3b8); margin-bottom: .9rem;
+    }
+    .series-card__summary {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      margin-bottom: 1rem; line-height: 1.55;
+    }
+    .series-posts-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .series-posts-list__item { display: flex; align-items: flex-start; gap: .6rem; }
+    .series-posts-list__num {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(99,102,241,.2); border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; font-size: .65rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .series-posts-list__link {
+      font-size: .84rem; color: var(--color-text-secondary, #cbd5e1);
+      text-decoration: none; line-height: 1.45; transition: color .15s;
+    }
+    .series-posts-list__link:hover { color: #a5b4fc; }
+
+    /* ---- Series nav bar (in-post) ---- */
+    .series-nav {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem;
+    }
+    .series-nav__header {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .5rem;
+    }
+    .series-nav__title { font-size: .95rem; font-weight: 600; color: var(--color-text-primary, #f1f5f9); margin-bottom: .85rem; }
+    .series-nav__steps { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: .85rem; }
+    .series-nav__step {
+      display: flex; align-items: center; gap: 5px; padding: 3px 10px 3px 4px;
+      border-radius: 20px; text-decoration: none; font-size: .76rem; font-weight: 500;
+      border: 1px solid rgba(99,102,241,.28); color: var(--color-text-secondary, #cbd5e1);
+      background: transparent; transition: background .15s, color .15s;
+    }
+    .series-nav__step:hover { background: rgba(99,102,241,.15); color: #a5b4fc; }
+    .series-nav__step--current { background: rgba(99,102,241,.22); border-color: #6366f1; color: #c7d2fe; }
+    .series-nav__step-num {
+      width: 18px; height: 18px; border-radius: 50%; background: rgba(99,102,241,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 700; color: #a5b4fc; flex-shrink: 0;
+    }
+    .series-nav__step--current .series-nav__step-num { background: #6366f1; color: #fff; }
+    .series-nav__arrows { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .series-nav__arrow { font-size: .8rem; color: #818cf8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .series-nav__arrow:hover { color: #a5b4fc; }
+  </style>
 </head>
 
 <body>
@@ -68,6 +143,13 @@
         <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
           <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span>
         </div>
+      </div>
+      
+      <div class="series-nav">
+        <div class="series-nav__header">Part of a 4-post series</div>
+        <div class="series-nav__title">Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity</div>
+        <div class="series-nav__steps"><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">1</span>The Machine Under the Tarp</span><a href="fractional-testing-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Tensile Test That Almost D…</a><a href="fractional-capacity-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">3</span>The Idle Shift</a><a href="fractional-skills-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Welder Who Wrote Firewalls</a></div>
+        <div class="series-nav__arrows"><a href="fractional-testing-thin-market.html" class="series-nav__arrow">The Tensile Test That Almost D… &rarr;</a></div>
       </div>
       <article class="blog-post">
         <figure class="blog-hero">

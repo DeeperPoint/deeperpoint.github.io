@@ -1,6 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
+series: manufacturing-fractional
+series-title: "Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity"
+series-position: 2
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 slug: fractional-testing-thin-market
 date: 2026-03-18
