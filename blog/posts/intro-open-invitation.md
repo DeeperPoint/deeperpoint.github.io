@@ -4,7 +4,7 @@
 series: intro-series
 series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
 series-position: 4
-title: "An Open Invitation — Seeking Collaborators for Markets That Don't Exist Yet"
+title: "Workshop Notes: An Open Invitation"
 slug: intro-open-invitation
 date: 2026-03-24
 tags: [thin-markets, market-design, ai, cosolvent, marketforge, founders, investors, researchers]

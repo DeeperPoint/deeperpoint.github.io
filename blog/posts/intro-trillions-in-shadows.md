@@ -4,7 +4,7 @@
 series: intro-series
 series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
 series-position: 2
-title: "Trillions in the Shadows — The True Cost of Missing Markets"
+title: "Workshop Notes: Trillions in the Shadows"
 slug: intro-trillions-in-shadows
 date: 2026-03-17
 tags: [thin-markets, market-design, ai, explainer, trade, canada]

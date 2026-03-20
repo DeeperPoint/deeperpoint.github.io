@@ -4,7 +4,7 @@
 series: intro-series
 series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
 series-position: 1
-title: "The Veterinarian's X-Ray — Why I Can't Stop Seeing Thin Markets"
+title: "Workshop Notes: The Veterinarian's X-Ray"
 slug: intro-veterinarians-xray
 date: 2026-03-13
 tags: [thin-markets, market-design, ai, explainer]

@@ -4,7 +4,7 @@
 series: intro-series
 series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
 series-position: 3
-title: "The Skeleton Key — Why Thin Market Infrastructure Must Be Open Source"
+title: "Workshop Notes: The Skeleton Key"
 slug: intro-skeleton-key
 date: 2026-03-20
 tags: [thin-markets, market-design, cosolvent, marketforge, ai, explainer, roadmap]
