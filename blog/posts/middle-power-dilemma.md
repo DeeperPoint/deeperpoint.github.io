@@ -6,7 +6,7 @@ series-title: "The Middle Power Counter-Strategy"
 series-position: 2
 slug: middle-power-dilemma
 title: "Workshop Notes: The Middle Power Dilemma"
-date: 2026-03-21
+date: 2026-03-22
 stream: workshop-notes
 tags: [thin-markets, market-design, middle-powers, strategy, canada]
 summary: For decades, Hegemons provided convenient trading hubs that masked the underlying friction of global trade. But as the hubs become weaponized, Middle Powers find that striking out on their own means colliding immediately with thin markets.

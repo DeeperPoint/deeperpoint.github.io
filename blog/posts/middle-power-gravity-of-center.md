@@ -6,7 +6,7 @@ series-title: "The Middle Power Counter-Strategy"
 series-position: 1
 slug: middle-power-gravity-of-center
 title: "Workshop Notes: The Gravity of the Center"
-date: 2026-03-21
+date: 2026-03-22
 stream: workshop-notes
 tags: [thin-markets, market-design, middle-powers, strategy, trade]
 summary: Why did Hegemons build massive, centralized hubs like Wall Street and Shenzhen? Not just for power, but as brute-force engineering solutions to the universal problem of thin market friction.

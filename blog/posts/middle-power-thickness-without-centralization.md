@@ -6,7 +6,7 @@ series-title: "The Middle Power Counter-Strategy"
 series-position: 3
 slug: middle-power-thickness-without-centralization
 title: "Workshop Notes: Thickness Without Centralization"
-date: 2026-03-21
+date: 2026-03-22
 stream: workshop-notes
 tags: [thin-markets, market-design, middle-powers, ai, strategy]
 summary: For centuries, creating a "thick" and efficient market required geographic and financial centralization. AI market engineering breaks that absolute law of physics, allowing Middle Powers to achieve Hegemon-tier liquidity without the hub.
