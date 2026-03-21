@@ -4,6 +4,7 @@
 series: intro-series
 series-title: "Why I'm Building Tools for Markets That Don't Exist Yet"
 series-position: 1
+series-description: "Four articles that map the foundation of DeeperPoint: what thin markets are, why they cost the global economy trillions in unrealized value, why open infrastructure is the only durable solution, and an open invitation to help build it."
 title: "Workshop Notes: The Veterinarian's X-Ray"
 slug: intro-veterinarians-xray
 date: 2026-03-13

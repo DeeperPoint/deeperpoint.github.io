@@ -7,9 +7,10 @@ Reads Markdown posts from blog/posts/, converts them to HTML using the site's
 design system, and generates a blog index page and RSS feed.
 
 Supports optional series grouping via frontmatter fields:
-    series:          (str)  slug identifying the series, e.g. "manufacturing-fractional"
-    series-title:    (str)  human-readable name for the series
-    series-position: (int)  1-indexed position within the series
+    series:             (str)  slug identifying the series, e.g. "manufacturing-fractional"
+    series-title:       (str)  human-readable name for the series
+    series-position:    (int)  1-indexed position within the series
+    series-description: (str)  one-paragraph blurb for the series landing page
 
 Usage:
     python scripts/build_blog.py
@@ -116,6 +117,60 @@ SERIES_STYLES = """  <style>
     .series-nav__arrows { display: flex; gap: 1.25rem; flex-wrap: wrap; }
     .series-nav__arrow { font-size: .8rem; color: #818cf8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
     .series-nav__arrow:hover { color: #a5b4fc; }
+  </style>
+"""
+
+SERIES_PAGE_STYLES = """  <style>
+    /* ---- Series landing page ---- */
+    .series-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl); transition: color .15s;
+    }
+    .series-back:hover { color: #a5b4fc; }
+    .series-page__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .5rem;
+    }
+    .series-page__title {
+      font-size: 2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: 1rem;
+    }
+    .series-page__desc {
+      font-size: 1rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: var(--space-2xl);
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+    }
+    .series-page__entries { list-style: none; padding: 0; margin: 0; }
+    .series-entry {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.25rem 0; border-bottom: 1px solid rgba(99,102,241,.12);
+      text-decoration: none; color: inherit;
+      transition: background .15s;
+    }
+    .series-entry:last-child { border-bottom: none; }
+    .series-entry__num {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff; font-size: .78rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 3px;
+    }
+    .series-entry__body { flex: 1; }
+    .series-entry__title {
+      font-size: 1rem; font-weight: 600;
+      color: var(--color-text-primary, #f1f5f9);
+      margin-bottom: .3rem; line-height: 1.4; transition: color .15s;
+    }
+    .series-entry:hover .series-entry__title { color: #a5b4fc; }
+    .series-entry__summary {
+      font-size: .83rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: .4rem;
+    }
+    .series-entry__meta {
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
   </style>
 """
 
@@ -269,8 +324,12 @@ def buildSeriesIndex(posts):
         if slug not in series:
             series[slug] = {
                 "title": meta.get("series-title", slug.replace("-", " ").title()),
+                "description": meta.get("series-description", ""),
                 "posts": [],
             }
+        # Pick up series-description from any post that carries it
+        if not series[slug]["description"] and meta.get("series-description"):
+            series[slug]["description"] = meta["series-description"]
         series[slug]["posts"].append(meta)
 
     for slug, data in series.items():
@@ -350,8 +409,8 @@ def buildSeriesCardHtml(series_slug, series_data):
     total = len(posts)
     series_title = series_data["title"]
 
-    # Use the first post's summary as the series teaser
-    teaser = posts[0].get("summary", "")
+    # Use series-description if available, otherwise first post's summary
+    teaser = series_data.get("description") or posts[0].get("summary", "")
 
     # Build numbered post list
     items_html = ""
@@ -364,13 +423,13 @@ def buildSeriesCardHtml(series_slug, series_data):
             f"</li>"
         )
 
-    first_url = posts[0]["slug"] + ".html"
+    series_page_url = f"series/{series_slug}.html"
     date_str = series_data["date"].strftime("%B %Y")
 
     return f"""
         <div class="series-card reveal" id="series-{series_slug}">
           <div class="series-card__label">Series &middot; {total} parts &middot; {date_str}</div>
-          <div class="series-card__title">{series_title}</div>
+          <a href="{series_page_url}" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">{series_title} &rarr;</a>
           <div class="series-card__summary">{teaser}</div>
           <ul class="series-posts-list">
             {items_html}
@@ -392,6 +451,61 @@ def _shortTitle(full_title):
     if len(short) > 32:
         short = short[:30].rstrip() + "…"
     return short
+
+
+def buildSeriesPage(series_slug, series_data):
+    """Generate a standalone series landing page at blog/series/<slug>.html."""
+    posts = series_data["posts"]
+    series_title = series_data["title"]
+    description = series_data.get("description") or posts[0].get("summary", "")
+    total = len(posts)
+    date_str = series_data["date"].strftime("%B %Y")
+
+    entries_html = ""
+    for post in posts:
+        pos = post.get("series-position", "·")
+        post_date = post["date"].strftime("%B %d, %Y")
+        entries_html += f"""
+          <li>
+            <a href="../{post['slug']}.html" class="series-entry">
+              <div class="series-entry__num">{pos}</div>
+              <div class="series-entry__body">
+                <div class="series-entry__title">{post['title']}</div>
+                <div class="series-entry__summary">{post.get('summary', '')}</div>
+                <div class="series-entry__meta">{post_date} &middot; {post.get('reading_time', '?')} min read</div>
+              </div>
+            </a>
+          </li>"""
+
+    head = PAGE_HEAD.format(
+        title=series_title,
+        description=description,
+        og_type="website",
+        url=f"{SITE_URL}/blog/series/{series_slug}.html",
+        css_path="../../styles.css",
+        feed_title=FEED_TITLE,
+        feed_url=f"{SITE_URL}/blog/feed.xml",
+        root="../../",
+        blog_active=" nav__link--active",
+        extra_styles=SERIES_PAGE_STYLES,
+    )
+
+    content = f"""
+  <section class="section" id="series-page" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <a href="../index.html" class="series-back">&larr; All Posts</a>
+      <div class="series-page__label">Series &middot; {total} parts &middot; {date_str}</div>
+      <h1 class="series-page__title">{series_title}</h1>
+      <p class="series-page__desc">{description}</p>
+      <ul class="series-page__entries">
+        {entries_html}
+      </ul>
+    </div>
+  </section>
+"""
+
+    footer = PAGE_FOOTER.format(root="../../")
+    return head + content + footer
 
 
 # ---------------------------------------------------------------------------
@@ -637,6 +751,16 @@ def main():
     index_path = BLOG_OUT / "index.html"
     index_path.write_text(index_html, encoding="utf-8")
     print(f"  Wrote: index.html ({len(posts)} posts)")
+
+    # Generate series landing pages
+    if series_index:
+        series_dir = BLOG_OUT / "series"
+        series_dir.mkdir(parents=True, exist_ok=True)
+        for slug, data in series_index.items():
+            series_page = buildSeriesPage(slug, data)
+            series_path = series_dir / f"{slug}.html"
+            series_path.write_text(series_page, encoding="utf-8")
+            print(f"  Wrote: series/{slug}.html -> {SITE_URL}/blog/series/{slug}.html")
 
     # Generate RSS feed
     feed_xml = buildRssFeed(posts)

@@ -1,0 +1,192 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Flexible Specialization Playbook — DeeperPoint</title>
+  <meta name="description" content="From the artisan workshops of northern Italy to Magna's purposefully small automotive plants to Ontario's aerospace manufacturing corridor — this five-part series traces the history, logic, and future of flexible specialization: the model in which fragmented specialist firms, properly coordinated, consistently outcompete large vertically-integrated manufacturers on quality and responsiveness.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Flexible Specialization Playbook">
+  <meta property="og:description" content="From the artisan workshops of northern Italy to Magna's purposefully small automotive plants to Ontario's aerospace manufacturing corridor — this five-part series traces the history, logic, and future of flexible specialization: the model in which fragmented specialist firms, properly coordinated, consistently outcompete large vertically-integrated manufacturers on quality and responsiveness.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/series/flexible-specialization.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Flexible Specialization Playbook">
+  <meta name="twitter:description" content="From the artisan workshops of northern Italy to Magna's purposefully small automotive plants to Ontario's aerospace manufacturing corridor — this five-part series traces the history, logic, and future of flexible specialization: the model in which fragmented specialist firms, properly coordinated, consistently outcompete large vertically-integrated manufacturers on quality and responsiveness.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+  <style>
+    /* ---- Series landing page ---- */
+    .series-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl); transition: color .15s;
+    }
+    .series-back:hover { color: #a5b4fc; }
+    .series-page__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .5rem;
+    }
+    .series-page__title {
+      font-size: 2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: 1rem;
+    }
+    .series-page__desc {
+      font-size: 1rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: var(--space-2xl);
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+    }
+    .series-page__entries { list-style: none; padding: 0; margin: 0; }
+    .series-entry {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.25rem 0; border-bottom: 1px solid rgba(99,102,241,.12);
+      text-decoration: none; color: inherit;
+      transition: background .15s;
+    }
+    .series-entry:last-child { border-bottom: none; }
+    .series-entry__num {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff; font-size: .78rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 3px;
+    }
+    .series-entry__body { flex: 1; }
+    .series-entry__title {
+      font-size: 1rem; font-weight: 600;
+      color: var(--color-text-primary, #f1f5f9);
+      margin-bottom: .3rem; line-height: 1.4; transition: color .15s;
+    }
+    .series-entry:hover .series-entry__title { color: #a5b4fc; }
+    .series-entry__summary {
+      font-size: .83rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: .4rem;
+    }
+    .series-entry__meta {
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../../search.html" class="nav__link">Search</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="series-page" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <a href="../index.html" class="series-back">&larr; All Posts</a>
+      <div class="series-page__label">Series &middot; 5 parts &middot; March 2026</div>
+      <h1 class="series-page__title">The Flexible Specialization Playbook</h1>
+      <p class="series-page__desc">From the artisan workshops of northern Italy to Magna's purposefully small automotive plants to Ontario's aerospace manufacturing corridor — this five-part series traces the history, logic, and future of flexible specialization: the model in which fragmented specialist firms, properly coordinated, consistently outcompete large vertically-integrated manufacturers on quality and responsiveness.</p>
+      <ul class="series-page__entries">
+        
+          <li>
+            <a href="../flexspec-italian-impannatore.html" class="series-entry">
+              <div class="series-entry__num">1</div>
+              <div class="series-entry__body">
+                <div class="series-entry__title">Workshop Notes: The Italian Impannatore — What a Weaving Cluster Can Teach the World</div>
+                <div class="series-entry__summary">How Italian textile clusters became the world's finest manufacturing ecosystem — and what that model suggests about what could be built, with better tools, in other places.</div>
+                <div class="series-entry__meta">March 19, 2026 &middot; 8 min read</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="../flexspec-not-italian-its-universal.html" class="series-entry">
+              <div class="series-entry__num">2</div>
+              <div class="series-entry__body">
+                <div class="series-entry__title">Workshop Notes: Flexible Specialization Is Not Italian — It's Universal</div>
+                <div class="series-entry__summary">The Italian textile cluster model is not an anomaly — it appears across industries and continents. Examining six other cases reveals what makes these systems thrive, what makes them fail, and where AI-mediated coordination could matter most.</div>
+                <div class="series-entry__meta">March 19, 2026 &middot; 9 min read</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="../flexspec-magna-small-plant-model.html" class="series-entry">
+              <div class="series-entry__num">3</div>
+              <div class="series-entry__body">
+                <div class="series-entry__title">Workshop Notes: Magna's Small-Plant Model — An Industrial District Built on Purpose</div>
+                <div class="series-entry__summary">Magna International grew into one of the world's largest Tier-1 automotive suppliers by deliberately doing the opposite of what conventional industrial wisdom prescribed — keeping plants small, specialized, and entrepreneurially autonomous. The model is a Canadian proof-of-concept for the flexible specialization thesis.</div>
+                <div class="series-entry__meta">March 20, 2026 &middot; 7 min read</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="../flexspec-ontario-manufacturing.html" class="series-entry">
+              <div class="series-entry__num">4</div>
+              <div class="series-entry__body">
+                <div class="series-entry__title">Workshop Notes: Ontario Manufacturing and the Flexible Specialization Opportunity</div>
+                <div class="series-entry__summary">The Italian *impannatore* model, applied to Ontario's manufacturing base, points toward something more tractable than a national industrial policy — localized pockets of coordinated SMBs operating as a flexible specialization cluster, with MarketForge handling the broker function.</div>
+                <div class="series-entry__meta">March 19, 2026 &middot; 10 min read</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="../flexspec-ontario-pocket.html" class="series-entry">
+              <div class="series-entry__num">5</div>
+              <div class="series-entry__body">
+                <div class="series-entry__title">Market Scenario: The Pocket</div>
+                <div class="series-entry__summary">Four specialized manufacturers in Ontario's Golden Horseshoe — a turning shop in Hamilton, a five-axis mill in Cambridge, a precision anodizing house in Burlington, and an NDT lab in Oakville — all serve the same aerospace customers but have never worked together. A Montreal procurement officer needs a complex titanium assembly. What happens when the platform shows them they are already a supply chain.</div>
+                <div class="series-entry__meta">March 20, 2026 &middot; 17 min read</div>
+              </div>
+            </a>
+          </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../reveal.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

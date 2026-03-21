@@ -4,6 +4,7 @@
 series: manufacturing-fractional
 series-title: "Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity"
 series-position: 1
+series-description: "A four-part series examining Canada's underutilized manufacturing potential: used equipment that can't find buyers, testing capacity that can't find clients, idle five-axis machines concealed by strategic silence, and cybersecurity expertise trapped in the wrong city. Four thin market failures with the same structural cause."
 title: "Market Scenario: The Machine Under the Tarp"
 stream: market-scenario
 slug: used-machinery-thin-market
