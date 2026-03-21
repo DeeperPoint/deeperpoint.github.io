@@ -9,7 +9,7 @@ title: "Workshop Notes: The Cosolvent Cooperation Marketplace"
 date: 2026-03-21
 stream: workshop-notes
 tags: [thin-markets, market-design, cosolvent, case-study, marketforge, explainer]
-summary: Tying the history together: How an AI-facilitated "cooperation marketplace" replicates the performance of the Italian districts and the alignment of Magna Corp, without the historical failure points of human brokering.
+summary: "Tying the history together — how an AI-facilitated cooperation marketplace replicates the performance of the Italian districts and the alignment of Magna Corp, without the historical failure points of human brokering."
 estimated-read: 9 min read
 ---
 

@@ -9,7 +9,7 @@ title: "Workshop Notes: Orchestrating the Ecosystem"
 date: 2026-03-21
 stream: workshop-notes
 tags: [thin-markets, market-design, ontario, policy, strategy, marketforge]
-summary: The technology to weave 5,000 independent machine shops into a single hyper-efficient virtual factory exists. The final, critical question is governance: who gets to own the wire?
+summary: "The technology to weave 5,000 independent machine shops into a single hyper-efficient virtual factory exists. The final, critical question is governance — who gets to own the wire?"
 estimated-read: 7 min read
 ---
 
