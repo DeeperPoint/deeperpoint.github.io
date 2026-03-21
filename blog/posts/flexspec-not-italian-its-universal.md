@@ -1,8 +1,10 @@
+<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
+
 ---
-slug: flexspec-not-italian-its-universal
 series: flexible-specialization
 series-title: "The Flexible Specialization Playbook"
 series-position: 2
+slug: flexspec-not-italian-its-universal
 title: "Workshop Notes: Flexible Specialization Is Not Italian — It's Universal"
 date: 2026-03-19
 stream: workshop-notes
@@ -11,14 +13,9 @@ summary: The Italian textile cluster model is not an anomaly — it appears acro
 estimated-read: 9 min read
 ---
 
-<figure class="blog-hero">
-  <img class="blog-hero__img" src="../images/blog/flexspec-not-italian-its-universal-hero.png" alt="Flexible specialization clusters lighting up across world continents" loading="lazy">
-  <figcaption>The same coordination pattern appears in every continent — from Jepara furniture to Hollywood film production to the Swiss Jura Arc.</figcaption>
-</figure>
-
 ## The Pattern Keeps Appearing
 
-The previous piece in this series examined the Italian textile districts — Como, Biella, Prato — as a case study in **flexible specialization**: the model of production in which a geographically concentrated cluster of highly specialized micro-enterprises, coordinated by a broker intermediary, consistently outcompetes vertically integrated manufacturers on quality and responsiveness.
+In Part 1 of *The Flexible Specialization Playbook*, we examined the Italian textile districts — Como, Biella, Prato — as a case study in **flexible specialization**: the model of production in which a geographically concentrated cluster of highly specialized micro-enterprises, coordinated by a broker intermediary, consistently outcompetes vertically integrated manufacturers on quality and responsiveness.
 
 The Italian case is the most documented, but it is far from unique. The same structure — fragmented specialist capacity, coordinated through a central orchestrating function, embedded in social and geographic proximity — appears with remarkable regularity across industries and continents. Each instance is its own story, but the common structural logic is unmistakable.
 
@@ -139,4 +136,4 @@ Whether MarketForge, as an early-stage concept, can deliver on that ambition is 
 
 The design goal, however, is clear: build the coordination function that these clusters need, but build it in a way that preserves — rather than concentrates — the value that the specialized artisans actually create.
 
-The world is full of Jeparas waiting to become Comos. The distance between those two outcomes is, in structural terms, primarily a coordination problem. That is a tractable engineering challenge. It is not a small one.
+The world is full of Jeparas waiting to become Comos. The distance between those two outcomes is, in structural terms, primarily a coordination problem. As we will see in the rest of this Playbook series, while corporate umbrellas like Magna Corp found ways to solve this internally by acquiring the specialists, finding a scalable, market-based structural solution for independent firms is the great tractable engineering challenge for Middle Powers today.

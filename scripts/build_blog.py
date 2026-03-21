@@ -37,7 +37,7 @@ SITE_URL = "https://deeperpoint.com"
 FEED_TITLE = "DeeperPoint Blog"
 FEED_DESC = "Thin market science, engineering, and the DeeperPoint ecosystem."
 
-MD_EXTENSIONS = ["fenced_code", "tables", "toc", "smarty", "attr_list"]
+MD_EXTENSIONS = ["fenced_code", "tables", "toc", "smarty", "attr_list", "footnotes"]
 
 # ---------------------------------------------------------------------------
 # Series Component Styles (injected inline for pages that use them)
