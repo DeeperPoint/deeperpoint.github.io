@@ -39,7 +39,7 @@ The Hegemon's traditional hub operates on aggressive standardization. To process
 
 AI, specifically using Large Language Models and high-dimensional vector embeddings, does not require strict standardization to match buyers and sellers. An AI broker can read a complex, sprawling technical RFP written in French from a buyer in Toulouse, instantly map the precise semantic and engineering requirements, and match it with the latent capabilities of a five-axis machine shop in Ontario—even if the Ontario shop's capability statement is unstructured, idiosyncratic, and written in English. AI can compress a search process that would take a human broker weeks or months down to a matter of minutes, without forcing either party to surrender their unique localized context.
 
-Using techniques such as Zero-Knowledge proofs (an active area of cryptographic research being explored for industrial data contexts) combined with semantic capability matching, the Ontario manufacturer does not have to broadcast its proprietary engineering capabilities to the open internet.[^semantic-matching-procurement]
+Using anonymous semantic capability matching, the Ontario manufacturer does not have to broadcast its proprietary engineering capabilities to the open internet.[^semantic-matching-procurement]
 
 ### 2. Confidential Brokers Replace Institutional Gatekeepers
 

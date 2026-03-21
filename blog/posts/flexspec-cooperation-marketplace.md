@@ -50,7 +50,7 @@ The DeeperPoint project is actively prototyping an architecture they call **Coso
 
 *   **For Information Problems:** The AI's matching engine uses semantic embeddings to find high-dimensional capability matches without requiring standardized listings. The protocol for this matching layer is designed as an open standard, ensuring no single operator can lock capabilities data behind a proprietary wall.
 *   **For Speed and Coordination:** The multi-agent system handles asynchronous orchestration across time zones, with each participant's local agent managing their own scheduling and availability in real-time.[^mas-supply-chain]
-*   **For Trust and IP:** Using privacy-preserving cryptographic techniques, firms can signal precise capabilities to the network without revealing proprietary engineering data to competitors. The protocol also embeds transparent, immutable smart-contract payment rails that eliminate the incentive for brokers to extract rents.
+*   **For Trust and IP:** Using privacy-preserving techniques, firms can signal precise capabilities to the network without revealing proprietary engineering data to competitors. The protocol also embeds transparent, immutable smart-contract payment rails that eliminate the incentive for brokers to extract rents.
 
 ---
 

@@ -17,7 +17,7 @@ estimated-read: 5 min read
 
 In the previous three installments of this series, we traced the fundamental physics of global trade. We established that the massive, centralized hubs of the Hegemons—places like Shenzhen and Wall Street—were originally built as brute-force engineering solutions to the universal problem of thin market friction. We saw how Middle Powers were forced to use these hubs, paying a "Gatekeeper Tax" and surrendering the nuance of their domestic industries just to achieve transactional scale.
 
-Finally, in Part 3, we argued that Artificial Intelligence severs the historical link between centralization and liquidity. With semantic matching, zero-knowledge brokering, and asynchronous orchestration, we can now engineer a "thick" market without forcing participants into a physical or corporate hub.
+Finally, in Part 3, we argued that Artificial Intelligence severs the historical link between centralization and liquidity. With semantic matching, privacy-preserving brokering, and asynchronous orchestration, we can now engineer a "thick" market without forcing participants into a physical or corporate hub.
 
 This brings us to the ultimate question for policymakers, trade officials, and manufacturing executives in nations like Canada, Japan, the UK, and the EU.
 

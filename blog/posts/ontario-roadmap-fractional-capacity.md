@@ -51,7 +51,7 @@ Now consider the exact same scenario operating within an AI-facilitated "coopera
 
 Apex does not start making phone calls. Instead, their engineers simply upload the specific sub-operation requirements—the CAD contours, the material specification (Titanium Ti-6Al-4V), and the delivery timeline—to their local, secure AI agent.
 
-The AI agent does not broadcast Apex's proprietary blueprint to the open internet. Using Zero-Knowledge proofs and high-dimensional semantic matching, the agent simply queries the provincial network for a mathematical capability match.
+The AI agent does not broadcast Apex's proprietary blueprint to the open internet. Using privacy-preserving semantic matching, the agent simply queries the provincial network for a precise capability match.
 
 Forty kilometers away, in Cambridge, a completely independent firm—**Tri-City Precision**—owns the exact model of 5-axis trunnion mill required. More importantly, Tri-City's own local monitoring agent knows that an unexpected tooling delay on another project means the 5-axis machine will sit perfectly idle from 2:00 PM Thursday until 6:00 AM Friday.
 
