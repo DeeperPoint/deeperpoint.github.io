@@ -88,6 +88,19 @@ SERIES_STYLES = """  <style>
     }
     .series-posts-list__link:hover { color: #a5b4fc; }
 
+    /* ---- Pinned badge ---- */
+    .pinned-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b;
+      background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.3);
+      border-radius: 20px; padding: 2px 10px; margin-bottom: .6rem;
+    }
+    .series-card--pinned {
+      border-left-color: #f59e0b;
+      background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
+    }
+
     /* ---- Series nav bar (in-post) ---- */
     .series-nav {
       background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
@@ -330,6 +343,9 @@ def buildSeriesIndex(posts):
         # Pick up series-description from any post that carries it
         if not series[slug]["description"] and meta.get("series-description"):
             series[slug]["description"] = meta["series-description"]
+        # Pin the series if any post in it is pinned
+        if meta.get("pinned"):
+            series[slug]["pinned"] = True
         series[slug]["posts"].append(meta)
 
     for slug, data in series.items():
@@ -403,7 +419,7 @@ def buildSeriesNavHtml(current_meta, series_posts):
       </div>"""
 
 
-def buildSeriesCardHtml(series_slug, series_data):
+def buildSeriesCardHtml(series_slug, series_data, pinned=False):
     """Build the series group card for the blog index page."""
     posts = series_data["posts"]
     total = len(posts)
@@ -415,7 +431,7 @@ def buildSeriesCardHtml(series_slug, series_data):
     # Build numbered post list
     items_html = ""
     for post in posts:
-        pos = post.get("series-position", "·")
+        pos = post.get("series-position", "\u00b7")
         items_html += (
             f'<li class="series-posts-list__item">'
             f'<span class="series-posts-list__num">{pos}</span>'
@@ -425,9 +441,12 @@ def buildSeriesCardHtml(series_slug, series_data):
 
     series_page_url = f"series/{series_slug}.html"
     date_str = series_data["date"].strftime("%B %Y")
+    pinned_class = " series-card--pinned" if pinned else ""
+    pinned_badge = '<div class="pinned-badge">&#9733; Start Here</div>' if pinned else ""
 
     return f"""
-        <div class="series-card reveal" id="series-{series_slug}">
+        <div class="series-card{pinned_class} reveal" id="series-{series_slug}">
+          {pinned_badge}
           <div class="series-card__label">Series &middot; {total} parts &middot; {date_str}</div>
           <a href="{series_page_url}" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">{series_title} &rarr;</a>
           <div class="series-card__summary">{teaser}</div>
@@ -615,25 +634,34 @@ def buildIndexPage(posts, series_index):
         for post in data["posts"]
     }
 
-    # Build a unified list of (date, type, payload) items
-    items = []
+    # Build a unified list of (date, type, payload) items, separated into pinned and regular
+    pinned_items = []
+    regular_items = []
+
     for meta in posts:
         if meta["slug"] not in series_post_slugs:
-            items.append((meta["date"], "post", meta))
+            bucket = pinned_items if meta.get("pinned") else regular_items
+            bucket.append((meta["date"], "post", meta))
 
     for slug, data in series_index.items():
-        items.append((data["date"], "series", (slug, data)))
+        bucket = pinned_items if data.get("pinned") else regular_items
+        bucket.append((data["date"], "series", (slug, data)))
 
-    # Sort newest first
-    items.sort(key=lambda x: x[0], reverse=True)
+    # Sort each bucket newest first
+    pinned_items.sort(key=lambda x: x[0], reverse=True)
+    regular_items.sort(key=lambda x: x[0], reverse=True)
+
+    def _renderItem(item_type, payload, is_pinned=False):
+        if item_type == "post":
+            return buildPostCardHtml(payload)
+        slug, data = payload
+        return buildSeriesCardHtml(slug, data, pinned=is_pinned)
 
     cards_html = ""
-    for _, item_type, payload in items:
-        if item_type == "post":
-            cards_html += buildPostCardHtml(payload)
-        else:
-            slug, data = payload
-            cards_html += buildSeriesCardHtml(slug, data)
+    for _, item_type, payload in pinned_items:
+        cards_html += _renderItem(item_type, payload, is_pinned=True)
+    for _, item_type, payload in regular_items:
+        cards_html += _renderItem(item_type, payload, is_pinned=False)
 
     content = f"""
   <section class="section" id="blog-index" style="padding-top: calc(var(--space-4xl) + 60px);">

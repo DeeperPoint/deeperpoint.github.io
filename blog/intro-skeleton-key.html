@@ -72,6 +72,19 @@
     }
     .series-posts-list__link:hover { color: #a5b4fc; }
 
+    /* ---- Pinned badge ---- */
+    .pinned-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b;
+      background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.3);
+      border-radius: 20px; padding: 2px 10px; margin-bottom: .6rem;
+    }
+    .series-card--pinned {
+      border-left-color: #f59e0b;
+      background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
+    }
+
     /* ---- Series nav bar (in-post) ---- */
     .series-nav {
       background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);

@@ -72,6 +72,19 @@
     }
     .series-posts-list__link:hover { color: #a5b4fc; }
 
+    /* ---- Pinned badge ---- */
+    .pinned-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b;
+      background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.3);
+      border-radius: 20px; padding: 2px 10px; margin-bottom: .6rem;
+    }
+    .series-card--pinned {
+      border-left-color: #f59e0b;
+      background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
+    }
+
     /* ---- Series nav bar (in-post) ---- */
     .series-nav {
       background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
@@ -141,7 +154,8 @@
       </div>
       <div class="blog-index">
         
-        <div class="series-card reveal" id="series-intro-series">
+        <div class="series-card series-card--pinned reveal" id="series-intro-series">
+          <div class="pinned-badge">&#9733; Start Here</div>
           <div class="series-card__label">Series &middot; 4 parts &middot; March 2026</div>
           <a href="series/intro-series.html" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">Why I'm Building Tools for Markets That Don't Exist Yet &rarr;</a>
           <div class="series-card__summary">Four articles that map the foundation of DeeperPoint: what thin markets are, why they cost the global economy trillions in unrealized value, why open infrastructure is the only durable solution, and an open invitation to help build it.</div>
@@ -160,6 +174,7 @@
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">cultural-services</span></div>
         </a>
         <div class="series-card reveal" id="series-flexible-specialization">
+          
           <div class="series-card__label">Series &middot; 5 parts &middot; March 2026</div>
           <a href="series/flexible-specialization.html" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">The Flexible Specialization Playbook &rarr;</a>
           <div class="series-card__summary">From the artisan workshops of northern Italy to Magna's purposefully small automotive plants to Ontario's aerospace manufacturing corridor — this five-part series traces the history, logic, and future of flexible specialization: the model in which fragmented specialist firms, properly coordinated, consistently outcompete large vertically-integrated manufacturers on quality and responsiveness.</div>
@@ -168,6 +183,7 @@
           </ul>
         </div>
         <div class="series-card reveal" id="series-manufacturing-fractional">
+          
           <div class="series-card__label">Series &middot; 4 parts &middot; March 2026</div>
           <a href="series/manufacturing-fractional.html" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity &rarr;</a>
           <div class="series-card__summary">A four-part series examining Canada's underutilized manufacturing potential: used equipment that can't find buyers, testing capacity that can't find clients, idle five-axis machines concealed by strategic silence, and cybersecurity expertise trapped in the wrong city. Four thin market failures with the same structural cause.</div>
