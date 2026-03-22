@@ -1,0 +1,263 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Notes: The Software Stack That Surrounds a CSSS — DeeperPoint</title>
+  <meta name="description" content="A Cooperative Specialization Support System does not land in a vacuum. Every manufacturing firm it touches already runs CAD/CAM, ERP, PLM, and possibly TMS or WMS software. Here is a realistic, four-phase map of how a CSSS can enter that ecosystem without disrupting it — and without cutting off a future where the systems speak fluently with each other.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Workshop Notes: The Software Stack That Surrounds a CSSS">
+  <meta property="og:description" content="A Cooperative Specialization Support System does not land in a vacuum. Every manufacturing firm it touches already runs CAD/CAM, ERP, PLM, and possibly TMS or WMS software. Here is a realistic, four-phase map of how a CSSS can enter that ecosystem without disrupting it — and without cutting off a future where the systems speak fluently with each other.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/csss-software-ecosystem.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Workshop Notes: The Software Stack That Surrounds a CSSS">
+  <meta name="twitter:description" content="A Cooperative Specialization Support System does not land in a vacuum. Every manufacturing firm it touches already runs CAD/CAM, ERP, PLM, and possibly TMS or WMS software. Here is a realistic, four-phase map of how a CSSS can enter that ecosystem without disrupting it — and without cutting off a future where the systems speak fluently with each other.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+  <style>
+    /* ---- Series index card ---- */
+    .series-card {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-left: 4px solid #6366f1;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 1.25rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .series-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,.2); }
+    .series-card__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .series-card__title {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9);
+      margin-bottom: .35rem; line-height: 1.35;
+    }
+    .series-card__meta {
+      font-size: .78rem; color: var(--color-text-muted, #94a3b8); margin-bottom: .9rem;
+    }
+    .series-card__summary {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      margin-bottom: 1rem; line-height: 1.55;
+    }
+    .series-posts-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .series-posts-list__item { display: flex; align-items: flex-start; gap: .6rem; }
+    .series-posts-list__num {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(99,102,241,.2); border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; font-size: .65rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+    .series-posts-list__link {
+      font-size: .84rem; color: var(--color-text-secondary, #cbd5e1);
+      text-decoration: none; line-height: 1.45; transition: color .15s;
+    }
+    .series-posts-list__link:hover { color: #a5b4fc; }
+
+    /* ---- Pinned badge ---- */
+    .pinned-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b;
+      background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.3);
+      border-radius: 20px; padding: 2px 10px; margin-bottom: .6rem;
+    }
+    .series-card--pinned {
+      border-left-color: #f59e0b;
+      background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
+    }
+
+    /* ---- Series nav bar (in-post) ---- */
+    .series-nav {
+      background: linear-gradient(135deg, rgba(99,102,241,.09) 0%, rgba(139,92,246,.05) 100%);
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem;
+    }
+    .series-nav__header {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .5rem;
+    }
+    .series-nav__title { font-size: .95rem; font-weight: 600; color: var(--color-text-primary, #f1f5f9); margin-bottom: .85rem; }
+    .series-nav__steps { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: .85rem; }
+    .series-nav__step {
+      display: flex; align-items: center; gap: 5px; padding: 3px 10px 3px 4px;
+      border-radius: 20px; text-decoration: none; font-size: .76rem; font-weight: 500;
+      border: 1px solid rgba(99,102,241,.28); color: var(--color-text-secondary, #cbd5e1);
+      background: transparent; transition: background .15s, color .15s;
+    }
+    .series-nav__step:hover { background: rgba(99,102,241,.15); color: #a5b4fc; }
+    .series-nav__step--current { background: rgba(99,102,241,.22); border-color: #6366f1; color: #c7d2fe; }
+    .series-nav__step-num {
+      width: 18px; height: 18px; border-radius: 50%; background: rgba(99,102,241,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 700; color: #a5b4fc; flex-shrink: 0;
+    }
+    .series-nav__step--current .series-nav__step-num { background: #6366f1; color: #fff; }
+    .series-nav__arrows { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .series-nav__arrow { font-size: .8rem; color: #818cf8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .series-nav__arrow:hover { color: #a5b4fc; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../search.html" class="nav__link">Search</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-03-22">March 22, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>9 min read</span>
+        </div>
+        <h1 class="blog-post__title">Workshop Notes: The Software Stack That Surrounds a CSSS</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ontario</span><span class="blog-tag">manufacturing</span><span class="blog-tag">ai</span><span class="blog-tag">marketforge</span><span class="blog-tag">explainer</span><span class="blog-tag">roadmap</span>
+        </div>
+      </div>
+      
+      <div class="series-nav">
+        <div class="series-nav__header">Part of a 3-post series</div>
+        <div class="series-nav__title">New Frontier: AI Powered Cooperative Manufacturing</div>
+        <div class="series-nav__steps"><a href="coopspec-part1-inside-the-firm.html" class="series-nav__step"><span class="series-nav__step-num">1</span>Inside the Firm Boundary</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">6</span>The Software Stack That Surrou…</span><a href="coopspec-part7-cooperative-workshop.html" class="series-nav__step"><span class="series-nav__step-num">7</span>The Cooperative Workshop — A W…</a></div>
+        <div class="series-nav__arrows"><a href="coopspec-part1-inside-the-firm.html" class="series-nav__arrow">&larr; Inside the Firm Boundary</a><a href="coopspec-part7-cooperative-workshop.html" class="series-nav__arrow">The Cooperative Workshop — A W… &rarr;</a></div>
+      </div>
+      <article class="blog-post">
+        <h2 id="the-software-already-in-the-room">The Software Already in the Room</h2>
+<p>When we describe a Cooperative Specialization Support System (CSSS) — an AI-mediated cooperation marketplace that helps manufacturing SMEs discover and engage each other&rsquo;s idle capacity, skills, and equipment — it is tempting to describe it in isolation. A clean new system. A blank slate.</p>
+<p>To be precise about what we are describing: a CSSS is an operator application built on DeeperPoint&rsquo;s open <strong>Cosolvent</strong> protocol — the same semantic matching and trust infrastructure that governs firm-level cooperation in the Ontario Pocket scenarios. <strong>MarketForge</strong> is DeeperPoint&rsquo;s prototype implementation of that operator layer, the deployment vehicle a sponsor organization would configure to run a real regional manufacturing CSSS. It is this system — Cosolvent as the protocol engine, MarketForge as the configurable application on top — that will have to coexist with the software already running on every shop floor it touches.</p>
+<p>That is not the reality.</p>
+<p>Every manufacturing firm a regional CSSS would touch already runs software. Most of it is old, expensive to replace, deeply integrated into daily operations, and operated by people who are not eager to learn new systems. Specifically:</p>
+<ul>
+<li><strong>CAD/CAM software</strong> (SolidWorks, AutoCAD, Mastercam, Siemens NX, Fusion 360) — the tools that design parts and generate machine programs. These systems hold precise 3D geometry, tolerances, and process parameters. They are also, depending on the shop, the most sensitive intellectual property the firm possesses.</li>
+<li><strong>ERP systems</strong> (Epicor, JobBoss, Infor, SAP Business One, Syspro, even Excel) — enterprise resource planning, which tracks customer orders, inventory, purchase orders, machine scheduling, labour, and financial accounting. An ERP is effectively the operating model of the business, expressed in data.</li>
+<li><strong>PLM software</strong> (Windchill, Teamcenter, Arena) — product lifecycle management, tracking design revisions, engineering change orders, and document controlled processes across the life of a product. More common in aerospace and automotive Tier 1 than in typical job shops, but present wherever certification matters.</li>
+<li><strong>TMS and WMS</strong> (transportation management and warehouse management systems) — logistics software governing inbound materials, outbound shipments, and physical inventory movement. Less universal in job shops, but significant in any operation that manages a supply chain.</li>
+</ul>
+<p>A CSSS that ignores these systems will fail. Shop floor managers will not tolerate re-entering data across platforms they didn&rsquo;t ask for. ERP systems will not cheerfully surrender scheduling data to a new external marketplace without explicit integration. CAD files will not flow between companies through a cooperation marketplace if there is no governed mechanism for managing their confidentiality and version control.</p>
+<p>The question is not whether the CSSS needs to coexist with this software ecosystem. It does. The question is <em>how</em> — and at what pace.</p>
+<p>We propose a four-phase integration roadmap that begins grounded and pragmatic, and progresses incrementally toward deep, programmatic interoperability. No phase requires abandoning the previous one. Each phase delivers real value while keeping the door to the next phase open.</p>
+<hr />
+<h2 id="phase-1-awareness-without-integration">Phase 1 — Awareness Without Integration</h2>
+<p><strong>The CSSS exists. The other systems ignore it.</strong></p>
+<p>In Phase 1, the CSSS operates as an entirely stand-alone system. It maintains its own capability profiles — machine specs, certifications, scheduling availability, operator skills — entered by participants directly into the CSSS interface. It runs its own matching engine. It generates its own transaction records. It does not read from, write to, or authenticate against any external software in the participant&rsquo;s stack.</p>
+<p>The other systems — ERP, CAD/CAM, PLM — are simply aware that the CSSS exists, in the same way a shop is aware that a trade directory exists: as a resource they might consult, not a system they are connected to.</p>
+<p>In practice, this means:
+- A shop owner logs into the CSSS separately from their ERP
+- Capacity availability is manually entered (&ldquo;Machine 3 is available second shift Tuesday through Thursday for the next six weeks&rdquo;)
+- Order information from the ERP is not automatically reflected in the CSSS
+- Design files are not transmitted through the CSSS; they are shared through separate channels (email, FTP, USB) once a match is made and parties have agreed to disclosure</p>
+<p><strong>Why start here?</strong> Because it works, and because it is deployable without requiring any software vendor&rsquo;s cooperation. The CSSS can prove its value — revealing matches, enabling transactions, reducing friction — without touching the incumbent systems. Critically, no design decisions made in Phase 1 should <em>close off</em> Phases 2, 3, or 4. The CSSS&rsquo;s data schema, API surface, and authentication model must be built from day one as if integration will eventually come, even if it is not yet happening.</p>
+<p>Phase 1 is also the phase where the CSSS earns trust. Participants need to experience the system working, correctly and securely, before they are willing to grant it access to anything sensitive.</p>
+<hr />
+<h2 id="phase-2-file-exchange-and-supervised-api">Phase 2 — File Exchange and Supervised API</h2>
+<p><strong>The systems can talk. Humans decide when they do.</strong></p>
+<p>In Phase 2, the CSSS gains the ability to exchange structured data with its companion systems — but every exchange is initiated and supervised by a human. The machines do not automatically talk to each other; rather, the platform provides buttons and exports that humans press when they are ready.</p>
+<p>This takes two forms:</p>
+<p><strong>Standard file exchange.</strong> The most common enterprise data formats — STEP and IGES for 3D geometry, PDF for documents, CSV for scheduling data, XML or JSON for ERP exports — are universally supported by the major manufacturing software packages. The CSSS should be able to import and export in these formats natively. A participant who wants to share a part geometry with a potential capacity partner can export a STEP file from SolidWorks and upload it to the CSSS&rsquo;s secure match-scoped data room in three clicks. A participant who wants to update their CSSS availability to reflect their current ERP schedule can export a CSV from JobBoss and import it into the CSSS in two steps. These are not integrations; they are file exchanges. The human carries the data from one system to the other.</p>
+<p><strong>Supervised API connectors.</strong> The larger enterprise software vendors — SAP, Epicor, Infor, Siemens — publish APIs that allow authorized external applications to read (and in some cases write) data. In Phase 2, the CSSS offers pre-built API connectors to the most common platforms in the target market. These connectors are <em>opt-in</em> and <em>human-supervised</em>: a participant must explicitly authorize the connector, specify exactly which data fields the CSSS is allowed to read, and is presented with a clear preview of what the CSSS will import before any sync occurs. There are no background jobs that pull data automatically. The human initiates every synchronization.</p>
+<p>What does a Phase 2 API connector actually do? A useful example: the CSSS reads a participant&rsquo;s current machine schedule from their ERP (available with approval) and automatically updates the participant&rsquo;s capacity availability profile in the CSSS. Instead of manually entering &ldquo;Machine 3 is available second shift Tuesday through Thursday,&rdquo; the shop&rsquo;s production planner clicks &ldquo;Sync from ERP&rdquo; and the CSSS updates itself from live scheduling data. The planner reviews the result, confirms it, and publishes. The CSSS never writes back to the ERP without explicit instruction.</p>
+<p><strong>The MCP dimension.</strong> As the Model Context Protocol (MCP) matures as a standard for LLM-to-application communication, Phase 2 can also introduce MCP-based connectors as an alternative to REST APIs for systems that support it. MCP allows an AI agent to query a connected application in structured natural language (&ldquo;What is Machine 3&rsquo;s schedule for next week?&rdquo;) and receive a structured response — a more flexible and semantically richer exchange than a fixed API endpoint. In Phase 2, MCP connectors, like API connectors, are human-supervised: the CSSS&rsquo;s AI agent can be instructed to query a connected ERP via MCP, but a human reviews and approves the result before it affects match output.</p>
+<p>The principle of Phase 2 is <strong>supervised interoperability</strong>. The systems can exchange data. The human remains in the loop for every exchange.</p>
+<hr />
+<h2 id="phase-3-programmatic-context-retrieval">Phase 3 — Programmatic Context Retrieval</h2>
+<p><strong>The CSSS can ask. The other systems answer. For specific, bounded purposes.</strong></p>
+<p>In Phase 3, the CSSS gains the ability to programmatically query its companion systems in real time — but only for information relevant to matching, and only within a strictly defined scope of access that the participant has pre-configured.</p>
+<p>The key distinction from Phase 2 is that Phase 3 queries are initiated by the CSSS, not by a human. When a potential match is forming — when the AI matching engine is evaluating whether a specific shop can fulfill a specific requirement — it can call out to the shop&rsquo;s connected ERP or scheduling system to retrieve current availability data, without waiting for a human to run a synchronization job.</p>
+<p>Concretely, this might look like:</p>
+<ul>
+<li><strong>Machine availability queries:</strong> The CSSS&rsquo;s AI matching engine issues a real-time query to a participant&rsquo;s connected ERP and retrieves the current schedule for a specific machine, confirming (or disconfirming) availability within the match timeline.</li>
+<li><strong>Certification status queries:</strong> For participants whose PLM system tracks document-controlled certifications (AS9100D, ISO 13485, IATF 16949), the CSSS can query the current certification status and expiry date directly from the PLM, rather than relying on a manually maintained profile field that may be out of date.</li>
+<li><strong>Material stock queries:</strong> For capacity-sharing transactions that require the receiving shop to have specific raw materials available, the CSSS can query a connected inventory or ERP system to verify stock levels before presenting a match.</li>
+</ul>
+<p>All queries in Phase 3 are bounded by a <strong>participant-defined consent model</strong> established during configuration. The participant specifies:
+- Which systems the CSSS is authorized to query
+- Which specific data fields or query types are permitted
+- Whether query results require human review before being used in a match calculation, or whether they can be used automatically</p>
+<p>Confidentiality is a first principle. The CSSS does not expose a participant&rsquo;s internal data to their match counterparties. An availability query confirms whether a machine is available for a proposed window — it does not expose the name of the other customer occupying that machine&rsquo;s schedule, the price of that contract, or any other commercially sensitive information from the ERP.</p>
+<p>Phase 3 is the phase where matching quality improves dramatically. Phase 1 and Phase 2 matches are based on manually curated capability profiles, which are inherently backward-looking (they reflect what a shop was doing when someone last updated their profile). Phase 3 matches are based on live system state. The difference between &ldquo;we nominally have two Makino five-axis machines&rdquo; and &ldquo;right now, today, Machine 2 has fourteen hours of open schedule time next week at second shift&rdquo; is the difference between a match that might work and a match that will work.</p>
+<hr />
+<h2 id="phase-4-full-integration">Phase 4 — Full Integration</h2>
+<p><strong>The systems collaborate. The CSSS is woven into the fabric.</strong></p>
+<p>Phase 4 is the horizon we can see but cannot fully specify today. It is the state where the CSSS is not a parallel system that has learned to query its companions, but a peer member of the firm&rsquo;s software ecosystem — reading and writing across the stack in real time, with appropriate authorization, to orchestrate productive engagements from beginning to end.</p>
+<p>In a Phase 4 world, a confirmed capacity-sharing engagement between two firms might automatically:
+- Insert a work order into the receiving firm&rsquo;s ERP
+- Update the supplying firm&rsquo;s machine schedule with the reserved block
+- Trigger a design file transfer through a governed, version-controlled data room tied to the PLM system
+- Generate a logistics routing request to the firms&rsquo; TMS or freight broker</p>
+<p>Phase 4 implies a level of industry-wide software standardization and interoperability that does not yet exist. ERP systems from different vendors do not share a common data model. CAD files from different software packages require translation. PLM systems are notoriously siloed. Achieving Phase 4 integration broadly will require either a sustained effort by software vendors to adopt open data standards for manufacturing interoperability, or a CSSS large enough to justify custom integration with each major platform individually, or — most likely — both.</p>
+<p><strong>The critical design constraint for Phases 1 through 3:</strong> Do not build anything that makes Phase 4 harder. The CSSS&rsquo;s API design, data schema, authentication model, and consent framework must be designed as if Phase 4 will eventually arrive, even if the current implementation is only Phase 1. Proprietary data locks, platform-specific encodings, and architectural shortcuts that make current integration cheaper but future integration impossible are the enemy. The open-standard principle — data portability, vendor independence, auditable schemas — that governs the Cosolvent cooperation marketplace at the firm level applies equally to the CSSS&rsquo;s own software integration architecture.</p>
+<hr />
+<h2 id="where-this-puts-us-today">Where This Puts Us Today</h2>
+<p>For current planning purposes, any CSSS deployment should be designed and launched as a Phase 1 system — stand-alone, self-consistent, and fully functional without external software integration. The matching engine, the capability registry, the trust and confidentiality architecture, the transaction protocols — all of these must work completely in Phase 1, without a single API call to an ERP or CAD system.</p>
+<p>Phase 1 is not a limitation. It is a deliberate and defensible starting point. It lets the cooperation marketplace prove its value on real transactions. It lets participants build trust in the system before granting it access to sensitive internal data. And it lets the CSSS team learn which integrations are actually needed — by watching what data participants manually carry between systems — rather than speculating in advance about which API connectors to build.</p>
+<p>The phases that follow are not a product roadmap; they are a structural promise. The design decisions made in Phase 1 determine whether the path to deep integration remains open. Make them carefully.</p>
+<hr />
+<p><em><a href="https://deeperpoint.com/thin-markets.html">The DeeperPoint thin market framework →</a> · <a href="https://deeperpoint.com/marketforge.html">The MarketForge platform →</a> · <a href="https://github.com/DeeperPoint/Cosolvent">The Cosolvent open protocol →</a></em></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
