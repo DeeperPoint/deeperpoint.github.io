@@ -1,14 +1,14 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-series: manufacturing-fractional
-series-title: "Fractional Manufacturing: Unlocking Canada's Hidden Industrial Capacity"
+series: manufacturing-scenarios
+series-title: "Manufacturing Scenarios"
 series-position: 1
-series-description: "A four-part series examining Canada's underutilized manufacturing potential: used equipment that can't find buyers, testing capacity that can't find clients, idle five-axis machines concealed by strategic silence, and cybersecurity expertise trapped in the wrong city. Four thin market failures with the same structural cause."
+series-description: "Four fictional but technically grounded scenarios showing how AI-mediated platforms could unlock Canada's hidden industrial capacity — used equipment, testing labs, fractional skills, and confidential capacity exchange."
 title: "Market Scenario: The Machine Under the Tarp"
 stream: market-scenario
 slug: used-machinery-thin-market
-date: 2026-03-09
+date: 2026-03-22
 tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge]
 summary: A $140,000 CNC machining center sits under a tarp at the back of a factory in Ontario. A manufacturer in Querétaro needs exactly that machine. Neither knows the other exists — and even if they did, the 180-page technical manual makes compatibility nearly impossible to evaluate remotely. This is a thin market.
 estimated-read: 11 min read
@@ -31,13 +31,9 @@ You could list it on a used equipment marketplace. There are several — EquipNe
 
 So the machine stays under the tarp. And somewhere — Querétaro, Stuttgart, Pune, Changzhou — a manufacturer who needs exactly that machine is either paying full price for a new one, or making do with equipment that doesn't quite fit, because the secondary market is too opaque to navigate.
 
-This is not a failure of willpower. It's a thin market problem — and it's one of the most economically wasteful ones I've encountered.
+This is not a failure of willpower. It's a [thin market problem](https://deeperpoint.com/thin-markets.html) — and it's one of the most economically wasteful ones I've encountered.
 
-The problem isn't that supply and demand don't exist. They do. The problem is that the information required to match them is locked inside technical manuals, buried in spec sheets that describe capabilities in terms no general search engine can interpret, and distributed across a geography that has no common directory.
-
-What if a platform could read the manual? What if it could extract the machine's actual capabilities — not just brand and model, but spindle speeds, axis travel, tool changer capacity, control system version, tolerance ranges — and match them against the specific production requirements of a buyer, computationally, without either party having to do the translation?
-
-That's the thin market engineering problem. And to show what a platform like MarketForge could make possible, let me tell you a story. The people you're about to meet are fictional — but the machines, the market forces, and the platform architecture are real. This is a scenario, not a case study: a detailed illustration of what thin market automation could look like if the infrastructure existed.
+To illustrate what an AI-mediated matching platform could do about it, here is a scenario. *The people are fictional, but the machines, the market forces, and the platform architecture are real.*
 
 ## 1. Frank's Problem
 
@@ -152,6 +148,6 @@ And Frank's factory floor has a conspicuous openness where the tarp used to be. 
 
 ---
 
-*The story of Frank and Sofía is fictional — an imagined scenario, not a description of an existing platform or real participants. But the machines, the manufacturing processes, and the market dynamics described are real, the thin market forces are documented, and the harness architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a sponsor organization like AMT or a regional manufacturing extension partnership could build using those tools. The operational details — which machine categories to include, how to structure inspection protocols, how to handle cross-border logistics and customs — are rightly the work of a sponsor embedded in the specific industrial context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Frank and Sofía is fictional, but the machines, market dynamics, and platform architecture are real. A sponsor organization like AMT could build this kind of application using the [DeeperPoint toolkit](https://deeperpoint.com/thin-markets.html).*
 
-*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*
+*[The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*
