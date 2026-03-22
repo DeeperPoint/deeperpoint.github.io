@@ -19,6 +19,8 @@ estimated-read: 11 min read
   <figcaption>Before and after — a CNC machining center under a tarp in Stratford, then clean and operational on a factory floor in Windsor.</figcaption>
 </figure>
 
+*This is the fourth and final series in a progression that began with macroeconomic theory and narrows, post by post, onto the shop floor. The [Middle Power Counter-Strategy](../middle-power-gravity-of-center.html) established the geopolitical case. [The Flexible Specialization Playbook](../flexspec-italian-impannatore.html) traced the historical DNA. [The Ontario Roadmap](../ontario-roadmap-fractional-capacity.html) described the platform architecture. Here, we tell the stories — four standalone scenarios, each set in Ontario, each following a single manufacturing problem through the thin market that strands it and the AI coordination that resolves it.*
+
 ## The Machine Under the Tarp
 
 If you've ever managed a manufacturing plant, you know the machine. It's the one at the back of the floor, pushed against the wall after the last retooling, covered with a blue polytarp that's been gathering dust for fourteen months. It works. There's nothing wrong with it. It just doesn't fit the new process.

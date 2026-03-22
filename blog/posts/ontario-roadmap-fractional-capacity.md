@@ -17,7 +17,7 @@ estimated-read: 6 min read
 
 In our previous series, we established that Artificial Intelligence allows Middle Powers to build decentralized manufacturing networks capable of outperforming the vertically integrated mega-factories of global Hegemons. We explored how software protocols (like the Cosolvent "cooperation marketplace") replace the extractive, bottlenecked human brokers of the past with frictionless, un-bribeable digital coordination.
 
-But geopolitical theory and software architecture do not bend metal. To understand how this strategy actually functions, we have to look closely at the atomic unit of manufacturing: the shop floor.
+But geopolitical theory and software architecture do not bend metal. The previous two series established the economics and the architecture. From here on, we are exclusively in the world of manufacturing — CNC machines, weld procedures, testing labs, and the specific coordination failures that strand Ontario's industrial base. To understand how this strategy actually functions, we have to look closely at the atomic unit of manufacturing: the shop floor.
 
 We turn to Southern Ontario, Canada. It is a classic Middle Power industrial base: it possesses an extraordinarily deep heritage in automotive, aerospace, and tooling craft. Yet, its capacity is highly fragmented across thousands of independent Small and Medium Enterprises (SMEs). Individually, these shops are world-class. Structurally, they are isolated inside a *thin market*.
 

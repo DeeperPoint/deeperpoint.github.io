@@ -85,4 +85,4 @@ We must invest in the open protocols and the cooperative marketplaces that allow
 
 If we get the software architecture right, we convert our fragmentation into our greatest structural advantage. The Ontario Pocket is not a thought experiment. It is a blueprint.
 
-*(This concludes Series 3: The Ontario Roadmap. In our upcoming final series, we will explore what happens when AI-orchestrated flexible specialization is applied to the profound coordination failures of Developing Economies.)*
+*(This concludes Series 3: The Ontario Roadmap. In the next series—**Manufacturing Scenarios**—we go deeper still. Four standalone stories, each set in Ontario, each following a single real-world manufacturing problem — used machinery, tensile testing, fractional expertise, idle capacity — through the thin market friction that strands it and the AI coordination that resolves it.)*
