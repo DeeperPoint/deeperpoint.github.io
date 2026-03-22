@@ -1,9 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-position: 3
+series: ai-cooperative-manufacturing
+series-title: "New Frontier: AI Powered Cooperative Manufacturing"
+series-position: 4
 slug: manufacturing-scenarios-skills
 title: "Market Scenario: The Welder Who Wrote Firewalls"
 date: 2026-03-18

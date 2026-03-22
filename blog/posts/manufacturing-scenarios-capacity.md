@@ -1,9 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-position: 4
+series: ai-cooperative-manufacturing
+series-title: "New Frontier: AI Powered Cooperative Manufacturing"
+series-position: 5
 slug: manufacturing-scenarios-capacity
 title: "Market Scenario: The Idle Shift"
 date: 2026-03-18

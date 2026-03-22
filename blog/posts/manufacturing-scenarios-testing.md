@@ -1,9 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-position: 2
+series: ai-cooperative-manufacturing
+series-title: "New Frontier: AI Powered Cooperative Manufacturing"
+series-position: 3
 slug: manufacturing-scenarios-testing
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 date: 2026-03-18

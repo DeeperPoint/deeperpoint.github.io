@@ -1,9 +1,9 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-position: 1
+series: ai-cooperative-manufacturing
+series-title: "New Frontier: AI Powered Cooperative Manufacturing"
+series-position: 2
 series-description: "Four fictional but technically grounded scenarios showing how AI-mediated platforms could unlock Canada's hidden industrial capacity — used equipment, testing labs, fractional skills, and confidential capacity exchange."
 title: "Market Scenario: The Machine Under the Tarp"
 stream: market-scenario
