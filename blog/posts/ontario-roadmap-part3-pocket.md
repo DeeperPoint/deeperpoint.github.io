@@ -1,4 +1,4 @@
-﻿---
+---
 series: ai-flex-spec-manufacturing
 series-title: "AI Powered Flexible Specialization for Ontario?"
 slug: ontario-roadmap-part3-pocket
@@ -7,7 +7,7 @@ title: "Market Scenario: The Ontario Pocket"
 date: 2026-03-21
 stream: market-scenario
 tags: [thin-markets, market-design, ontario, manufacturing, ai, case-study, marketforge]
-summary: When a massive global clean-energy contract lands on the table, no single Ontario SME is big enough to bid. Using an AI broker, a dynamic consortium forms instantly, rivaling a Hegemon tier-1 factory.
+summary: "When a massive global clean-energy contract lands on the table, no single Ontario SME is big enough to bid. Using an AI broker, a dynamic consortium forms instantly, rivaling a Hegemon tier-1 factory."
 estimated-read: 7 min read
 ---
 

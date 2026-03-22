@@ -1,4 +1,4 @@
-﻿---
+---
 series: ai-flex-spec-manufacturing
 series-title: "AI Powered Flexible Specialization for Ontario?"
 slug: ontario-roadmap-part5-cooperative-specialization
@@ -7,7 +7,7 @@ title: "Workshop Notes: Beyond the Firm — Introducing Cooperative Specializati
 date: 2026-03-22
 stream: workshop-notes
 tags: [thin-markets, market-design, ontario, manufacturing, ai, marketforge, explainer]
-summary: The Ontario Roadmap demonstrates that AI-brokered cooperation can assemble independent firms into a virtual mega-factory. But the unit of assembly is always the whole firm. A deeper, more powerful form of coordination becomes possible when the tools reach below the firm boundary — into departments, onto individual machines, and between specific people. This is Cooperative Specialization.
+summary: "The Ontario Roadmap demonstrates that AI-brokered cooperation can assemble independent firms into a virtual mega-factory. But the unit of assembly is always the whole firm. A deeper, more powerful form of coordination becomes possible when the tools reach below the firm boundary — into departments, onto individual machines, and between specific people. This is Cooperative Specialization."
 estimated-read: 6 min read
 ---
 

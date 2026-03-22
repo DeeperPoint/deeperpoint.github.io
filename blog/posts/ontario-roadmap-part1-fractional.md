@@ -1,4 +1,4 @@
-﻿---
+---
 series: ai-flex-spec-manufacturing
 series-title: "AI Powered Flexible Specialization for Ontario?"
 slug: ontario-roadmap-part1-fractional
@@ -7,7 +7,7 @@ title: "Market Scenario: The Fractional Capacity Foundation"
 date: 2026-03-21
 stream: market-scenario
 tags: [thin-markets, market-design, ontario, manufacturing, ai, case-study]
-summary: In a thin market, independent shops cannot afford to buy massive machines for occasional use, nor can they risk sharing intellectual property to secure idle capacity. Semantic AI coordination solves this instantly.
+summary: "In a thin market, independent shops cannot afford to buy massive machines for occasional use, nor can they risk sharing intellectual property to secure idle capacity. Semantic AI coordination solves this instantly."
 estimated-read: 6 min read
 ---
 

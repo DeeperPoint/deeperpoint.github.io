@@ -1,4 +1,4 @@
-﻿---
+---
 series: ai-cooperative-manufacturing
 series-title: "New Frontier: AI Powered Cooperative Manufacturing"
 slug: coopspec-part1-inside-the-firm
@@ -7,7 +7,7 @@ title: "Workshop Notes: Inside the Firm Boundary"
 date: 2026-03-22
 stream: workshop-notes
 tags: [thin-markets, market-design, ontario, manufacturing, ai, explainer, marketforge]
-summary: The Ontario Roadmap showed that independent firms can cooperate as a virtual mega-factory. But the unit of assembly was always the whole firm. Cooperative Specialization goes deeper — extending the same AI-brokered coordination tools to departments, machines, and individual specialists inside manufacturing companies. The structural waste it is designed to correct is enormous, and it begins with a simple physical fact: most productive capabilities come in lumps.
+summary: "The Ontario Roadmap showed that independent firms can cooperate as a virtual mega-factory. But the unit of assembly was always the whole firm. Cooperative Specialization goes deeper — extending the same AI-brokered coordination tools to departments, machines, and individual specialists inside manufacturing companies. The structural waste it is designed to correct is enormous, and it begins with a simple physical fact: most productive capabilities come in lumps."
 estimated-read: 8 min read
 ---
 

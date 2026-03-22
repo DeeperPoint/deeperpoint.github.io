@@ -1,4 +1,4 @@
-﻿---
+---
 series: ai-cooperative-manufacturing
 series-title: "New Frontier: AI Powered Cooperative Manufacturing"
 slug: csss-software-ecosystem
@@ -7,7 +7,7 @@ title: "Workshop Notes: The Software Stack That Surrounds a CSSS"
 date: 2026-03-22
 stream: workshop-notes
 tags: [thin-markets, market-design, ontario, manufacturing, ai, marketforge, explainer, roadmap]
-summary: A Cooperative Specialization Support System does not land in a vacuum. Every manufacturing firm it touches already runs CAD/CAM, ERP, PLM, and possibly TMS or WMS software. Here is a realistic, four-phase map of how a CSSS can enter that ecosystem without disrupting it — and without cutting off a future where the systems speak fluently with each other.
+summary: "A Cooperative Specialization Support System does not land in a vacuum. Every manufacturing firm it touches already runs CAD/CAM, ERP, PLM, and possibly TMS or WMS software. Here is a realistic, four-phase map of how a CSSS can enter that ecosystem without disrupting it — and without cutting off a future where the systems speak fluently with each other."
 estimated-read: 9 min read
 ---
 

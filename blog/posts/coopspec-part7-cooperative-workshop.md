@@ -1,4 +1,4 @@
-﻿---
+---
 series: ai-cooperative-manufacturing
 series-title: "New Frontier: AI Powered Cooperative Manufacturing"
 slug: coopspec-part7-cooperative-workshop
@@ -7,7 +7,7 @@ title: "Workshop Notes: The Cooperative Workshop — A Word Picture"
 date: 2026-03-22
 stream: workshop-notes
 tags: [thin-markets, market-design, ontario, manufacturing, ai, marketforge, explainer, scenario]
-summary: What does Ontario's manufacturing base look like when Cooperative Specialization is fully operational? This is a word picture of a near-future industrial ecosystem where departments and individual specialists trade capability across firm boundaries on terms their employers have approved — and where the structural waste of lumpy assets has become a resource rather than a cost.
+summary: "What does Ontario's manufacturing base look like when Cooperative Specialization is fully operational? This is a word picture of a near-future industrial ecosystem where departments and individual specialists trade capability across firm boundaries on terms their employers have approved — and where the structural waste of lumpy assets has become a resource rather than a cost."
 estimated-read: 8 min read
 ---
 
