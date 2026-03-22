@@ -6,7 +6,7 @@ series-title: "The Siren Song of Flexible Specialization"
 series-position: 4
 slug: flexspec-failure-points
 title: "Workshop Notes: Why Traditional Flexible Specialization Fails Under Pressure"
-date: 2026-03-21
+date: 2026-03-23
 stream: workshop-notes
 tags: [thin-markets, market-design, case-study, marketforge, explainer]
 summary: The historical attempts at independent flexible specialization networks successfully mastered craft, but failed at scale. Analyzing the friction of human coordination reveals exactly what breaks under global competition.

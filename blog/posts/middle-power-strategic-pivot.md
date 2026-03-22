@@ -6,7 +6,7 @@ series-title: "B2B in a Middle Power World"
 series-position: 4
 slug: middle-power-strategic-pivot
 title: "Workshop Notes: The Strategic Pivot"
-date: 2026-03-22
+date: 2026-03-25
 stream: workshop-notes
 tags: [thin-markets, market-design, middle-powers, ai, strategy, policy]
 summary: AI-facilitated Flexible Specialization is not just a commercial efficiency—it is a macroeconomic defense mechanism. By decentralizing liquidity, Middle Powers can permanently neutralize the coercive gravity of the Hegemon's hubs.

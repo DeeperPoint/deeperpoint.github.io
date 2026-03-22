@@ -5,7 +5,7 @@ series-title: "The Siren Song of Flexible Specialization"
 series-position: 1
 series-description: "From the artisan workshops of northern Italy to Magna's purposefully small automotive plants to Ontario's aerospace manufacturing corridor — this five-part series traces the history, logic, and future of flexible specialization: the model in which fragmented specialist firms, properly coordinated, consistently outcompete large vertically-integrated manufacturers on quality and responsiveness."
 title: "Workshop Notes: The Italian Impannatore — What a Weaving Cluster Can Teach the World"
-date: 2026-03-19
+date: 2026-03-23
 stream: workshop-notes
 tags: [thin-markets, market-design, case-study, marketforge]
 summary: How Italian textile clusters became the world's finest manufacturing ecosystem — and what that model suggests about what could be built, with better tools, in other places.

@@ -6,7 +6,7 @@ series-title: "The Siren Song of Flexible Specialization"
 series-position: 3
 slug: flexspec-magna-small-plant-model
 title: "Workshop Notes: Magna's Small-Plant Model — An Industrial District Built on Purpose"
-date: 2026-03-20
+date: 2026-03-23
 stream: workshop-notes
 tags: [thin-markets, market-design, canada, manufacturing, case-study, explainer]
 summary: Magna International grew into one of the world's largest Tier-1 automotive suppliers by deliberately doing the opposite of what conventional industrial wisdom prescribed — keeping plants small, specialized, and entrepreneurially autonomous. The model is a Canadian proof-of-concept for the flexible specialization thesis.
