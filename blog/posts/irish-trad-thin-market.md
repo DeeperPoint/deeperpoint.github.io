@@ -1,6 +1,6 @@
 ---
 title: "Market Scenario - Happy St. Paddy's Day"
-date: 2026-03-20
+date: 2026-03-17
 slug: irish-trad-thin-market
 stream: market-scenario
 tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, cultural-services]
