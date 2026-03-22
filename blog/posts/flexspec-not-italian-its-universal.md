@@ -6,7 +6,7 @@ series-title: "The Siren Song of Flexible Specialization"
 series-position: 2
 slug: flexspec-not-italian-its-universal
 title: "Workshop Notes: Flexible Specialization Is Not Italian — It's Universal"
-date: 2026-03-23
+date: 2026-03-24
 stream: workshop-notes
 tags: [thin-markets, market-design, case-study, marketforge, explainer]
 summary: The Italian textile cluster model is not an anomaly — it appears across industries and continents. Examining six other cases reveals what makes these systems thrive, what makes them fail, and where AI-mediated coordination could matter most.

@@ -4,7 +4,7 @@ series-title: "AI Powered Flexible Specialization for Ontario?"
 slug: ontario-roadmap-part2-ecosystem
 series-position: 2
 title: "Workshop Notes: The Ecosystem Extensions"
-date: 2026-03-24
+date: 2026-03-23
 stream: workshop-notes
 tags: [thin-markets, market-design, ontario, manufacturing, ai, explainer]
 summary: "A functioning industrial network is more than simply sharing machine time. To rival a vertically integrated mega-factory, an AI cooperation marketplace must seamlessly absorb the friction of testing labs, specialized talent, and idle equipment."

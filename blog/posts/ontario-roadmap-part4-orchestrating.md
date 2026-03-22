@@ -4,7 +4,7 @@ series-title: "AI Powered Flexible Specialization for Ontario?"
 slug: ontario-roadmap-part4-orchestrating
 series-position: 4
 title: "Workshop Notes: Orchestrating the Ecosystem"
-date: 2026-03-24
+date: 2026-03-23
 stream: workshop-notes
 tags: [thin-markets, market-design, ontario, policy, strategy, marketforge]
 summary: "The technology to weave 5,000 independent machine shops into a single hyper-efficient virtual factory exists. The final, critical question is governance: who gets to own the wire?"
