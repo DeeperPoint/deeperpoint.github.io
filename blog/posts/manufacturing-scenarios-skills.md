@@ -6,7 +6,7 @@ series-title: "Manufacturing Scenarios"
 series-position: 3
 slug: manufacturing-scenarios-skills
 title: "Market Scenario: The Welder Who Wrote Firewalls"
-date: 2026-03-22
+date: 2026-03-18
 stream: market-scenario
 tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, manufacturing]
 summary: A small manufacturer in Trois-Rivières needs someone who understands industrial cybersecurity — not full-time, just enough to pass an audit. Three hundred kilometres away, a machining shop in Sherbrooke has a production supervisor whose previous career was in IT security. The skill exists. The need exists. But no marketplace connects fractional industrial talent between SMBs.

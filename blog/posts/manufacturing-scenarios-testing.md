@@ -6,7 +6,7 @@ series-title: "Manufacturing Scenarios"
 series-position: 2
 slug: manufacturing-scenarios-testing
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
-date: 2026-03-22
+date: 2026-03-18
 stream: market-scenario
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, manufacturing, welding, testing]
 summary: A fabrication shop in northern Ontario needs a weld procedure qualified to CWB standards. The nearest commercial testing lab is a full day's drive south in Toronto. A college metallurgy lab 300 km away in Sudbury has certified equipment sitting idle — but neither side knows the other exists.
