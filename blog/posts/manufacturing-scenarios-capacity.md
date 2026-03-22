@@ -173,9 +173,9 @@ Over time, as Priya and Jonas exchange capacity across multiple projects, the re
 
 This is the fourth and final scenario in this series, and it's worth pausing to see what they share and where they differ.
 
-The **used machinery** story (a CNC under a tarp in Stratford, a buyer in Querétaro) was about matching *equipment* across geography through document intelligence. The market failure was passive opacity: neither side knew the other existed.
+The **used machinery** story (a CNC under a tarp in Stratford, a buyer in Windsor) was about matching *equipment* across geography through document intelligence. The market failure was passive opacity: neither side knew the other existed.
 
-The **fractional testing** story (a tensile testing machine in Kamloops, a welding shop in Prince George) was about matching *facility capacity* — underutilized laboratory equipment to sporadic industrial need. The market failure was fractured discovery: the supply existed in institutions that didn't market it.
+The **fractional testing** story (a tensile testing machine in Sudbury, a welding shop in Timmins) was about matching *facility capacity* — underutilized laboratory equipment to sporadic industrial need. The market failure was fractured discovery: the supply existed in institutions that didn't market it.
 
 The **fractional skills** story (a production supervisor with GICSP certification in Sherbrooke, a manufacturer needing cybersecurity in Trois-Rivières) was about matching *human expertise* locked inside SMBs. The market failure was skill invisibility: the talent existed but wasn't listed anywhere.
 
