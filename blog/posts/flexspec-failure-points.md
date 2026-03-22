@@ -2,7 +2,7 @@
 
 ---
 series: flexible-specialization
-series-title: "The Flexible Specialization Playbook"
+series-title: "The Siren Song of Flexible Specialization"
 series-position: 4
 slug: flexspec-failure-points
 title: "Workshop Notes: Why Traditional Flexible Specialization Fails Under Pressure"

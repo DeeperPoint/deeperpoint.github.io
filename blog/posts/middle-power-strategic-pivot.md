@@ -2,7 +2,7 @@
 
 ---
 series: middle-power-strategy
-series-title: "The Middle Power Counter-Strategy"
+series-title: "B2B in a Middle Power World"
 series-position: 4
 slug: middle-power-strategic-pivot
 title: "Workshop Notes: The Strategic Pivot"

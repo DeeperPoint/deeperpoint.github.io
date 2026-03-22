@@ -2,7 +2,7 @@
 
 ---
 series: middle-power-strategy
-series-title: "The Middle Power Counter-Strategy"
+series-title: "B2B in a Middle Power World"
 series-position: 2
 slug: middle-power-dilemma
 title: "Workshop Notes: The Middle Power Dilemma"

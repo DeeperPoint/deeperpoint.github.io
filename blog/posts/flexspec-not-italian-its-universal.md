@@ -2,7 +2,7 @@
 
 ---
 series: flexible-specialization
-series-title: "The Flexible Specialization Playbook"
+series-title: "The Siren Song of Flexible Specialization"
 series-position: 2
 slug: flexspec-not-italian-its-universal
 title: "Workshop Notes: Flexible Specialization Is Not Italian — It's Universal"

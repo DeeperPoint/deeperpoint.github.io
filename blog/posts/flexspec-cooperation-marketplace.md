@@ -2,7 +2,7 @@
 
 ---
 series: flexible-specialization
-series-title: "The Flexible Specialization Playbook"
+series-title: "The Siren Song of Flexible Specialization"
 series-position: 5
 slug: flexspec-cooperation-marketplace
 title: "Workshop Notes: The Cosolvent Cooperation Marketplace"

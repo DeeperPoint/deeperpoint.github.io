@@ -2,7 +2,7 @@
 
 ---
 series: middle-power-strategy
-series-title: "The Middle Power Counter-Strategy"
+series-title: "B2B in a Middle Power World"
 series-position: 1
 slug: middle-power-gravity-of-center
 title: "Workshop Notes: The Gravity of the Center"

@@ -2,7 +2,7 @@
 
 ---
 series: flexible-specialization
-series-title: "The Flexible Specialization Playbook"
+series-title: "The Siren Song of Flexible Specialization"
 series-position: 3
 slug: flexspec-magna-small-plant-model
 title: "Workshop Notes: Magna's Small-Plant Model — An Industrial District Built on Purpose"
