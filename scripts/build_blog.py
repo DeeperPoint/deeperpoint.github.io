@@ -243,7 +243,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <li><a href="{root}who-should-care.html" class="nav__link">Who's It For</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
         <li><a href="{root}search.html" class="nav__link">Search</a></li>
-        <li><a href="{root}about.html" class="nav__link">About</a></li>
+        <li><a href="{root}history.html" class="nav__link">About</a></li>
       </ul>
     </div>
   </nav>
