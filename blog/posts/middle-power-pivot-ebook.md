@@ -10,6 +10,11 @@ estimated-read: 4 min read
 
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/middle-power-pivot-ebook-hero.png" alt="Conceptual illustration of AI-coordinated regional manufacturing networks" loading="lazy">
+  <figcaption>AI-driven coordination connects independent SMEs into a unified virtual mega-factory.</figcaption>
+</figure>
+
 Canada's manufacturing sector employs approximately 750,000 people in Ontario alone. Along the Highway 401 corridor, thousands of independent Small and Medium Enterprises (SMEs) possess world-class technical capabilities—precision machining, aerospace tolerances, and deep institutional knowledge. Collectively, they have every capability of a vertically integrated mega-factory, and often at higher quality. 
 
 But they have a structural problem: **they are isolated inside thin markets.**
