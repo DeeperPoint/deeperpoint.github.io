@@ -43,7 +43,7 @@ This is what [DeeperPoint's toolkit](../marketforge.html) is designed to be. It 
 
 **ClientSynth** generates realistic synthetic populations of marketplace participants — buyers, sellers, intermediaries — so that a market sponsor can stress-test matching quality and deal flow *before* recruiting a single real user. These synthetic profiles are [used only for testing and demonstration](../mf-clientsynth.html) — never mixed with real users.
 
-**MarketForge** is the integration layer that combines all three upstream tools into a deployable, sponsor-ready marketplace platform for a specific vertical.
+**MarketForge** is the project workplan and configuration process that guides the assembly of all three upstream tools into a deployable, sponsor-ready coordination marketplace for a specific vertical.
 
 ## The open/proprietary boundary
 
@@ -67,7 +67,7 @@ There is also an **investor** angle. Some thin markets are large enough that a p
 
 I want to be transparent about readiness. The DeeperPoint stack is under active development — there is enough working code that the design direction is real and testable, but each component (Cosolvent, KnowledgeSlot, ClientSynth, MarketForge) has a published [roadmap](../marketforge.html) that I maintain and update. This is an honest R&D project, not a product launch.
 
-One concrete milestone on that roadmap: DeeperPoint is building **GPSim**, a MarketForge-inspired market simulator that models the Canadian specialty grain-to-Asia scenario end to end. GPSim is well into development but still some months from public release. When it's ready, it will be the first full demonstration of how the toolkit handles a real cross-border thin market — from semantic onboarding through matching through deal assembly — against realistic synthetic participants.
+One concrete milestone on that roadmap: DeeperPoint is building **GPSim**, a market simulator assembled via the MarketForge workplan that models the Canadian specialty grain-to-Asia scenario end to end. GPSim is well into development but still some months from public release. When it's ready, it will be the first full demonstration of how the toolkit handles a real cross-border thin market — from semantic onboarding through matching through deal assembly — against realistic synthetic participants.
 
 You can examine the open-source core of Cosolvent [right now](https://github.com/DeeperPoint/Cosolvent). But a harness without people who use it is just code. What it needs is the right collaborators.
 

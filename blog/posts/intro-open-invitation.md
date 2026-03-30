@@ -47,7 +47,7 @@ Concretely, I'm looking for five kinds of people:
 
 **Domain experts and vertical sponsors.** You run a trade association, a cooperative, an NGO, a provincial agency, or a municipal economic development office — and you know a specific matching market is broken. You have the community trust and the industry knowledge to stand up a marketplace. What you lack is the software infrastructure. That's what DeeperPoint provides.
 
-**Policy thinkers.** You're working on trade diversification, workforce development, or economic inclusion. You understand that Mark Carney's Middle Powers vision requires tactical infrastructure, not just diplomatic agreements. [MarketForge is the software realisation](../marketforge.html) of that strategic intent — the layer that makes thin trade corridors commercially navigable.
+**Policy thinkers.** You're working on trade diversification, workforce development, or economic inclusion. You understand that Mark Carney's Middle Powers vision requires tactical infrastructure, not just diplomatic agreements. [MarketForge is the procedural roadmap](../marketforge.html) of that strategic intent — the structured workplan that makes thin trade corridors commercially navigable.
 
 **Investors and venture builders.** You see the commercial potential in matching platforms for specific verticals — transaction fees, premium services, data products — and you want to build businesses on top of proven infrastructure rather than reinventing the plumbing. A venture firm managing a portfolio of thin-market startups could use the shared DeeperPoint framework to mine structural commonalities across its portfolio, making each venture more capital-efficient. The underlying market physics are the same; the revenue model differs by vertical.
 
