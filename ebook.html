@@ -41,7 +41,7 @@
         <li><a href="examples.html" class="nav__link">Examples</a></li>
         <li><a href="who-should-care.html" class="nav__link">Who's It For</a></li>
         <li><a href="blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="search.html" class="nav__link">Search</a></li>
+        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
         <li><a href="history.html" class="nav__link">About</a></li>
       </ul>
     </div>
@@ -85,21 +85,54 @@
         </p>
       </div>
 
-      <!-- Download Card -->
-      <div class="reveal" style="text-align: center; margin: var(--space-2xl) 0;">
-        <div class="card" style="display: inline-block; padding: var(--space-xl) var(--space-2xl); max-width: 500px;">
-          <div style="font-size: 3rem; margin-bottom: var(--space-md);">📖</div>
-          <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.5rem; margin: 0 0 var(--space-sm);">
-            Download the Ebook
+      <!-- Resource Cards -->
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-lg); margin: var(--space-2xl) 0;">
+
+        <!-- Ebook PDF -->
+        <div class="card" style="padding: var(--space-lg); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">📖</div>
+          <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0 0 var(--space-xs);">
+            Full Ebook
           </h2>
-          <p style="color: var(--dp-silver); font-size: 0.9375rem; margin-bottom: var(--space-lg);">
-            Free PDF · ~40,000 words · 20 chapters + appendices
+          <p style="color: var(--dp-silver); font-size: 0.875rem; margin-bottom: var(--space-md);">
+            Free PDF · ~40,000 words<br>20 chapters + appendices
           </p>
           <a href="assets/mysitedocs/TheMiddlePowerPivot.pdf" class="btn btn--primary" download
-            style="font-size: 1.125rem; padding: 0.875rem 2rem;">
-            ⬇ Download PDF (3.2 MB)
+            style="font-size: 1rem; padding: 0.75rem 1.5rem; width: 100%; box-sizing: border-box;">
+            ⬇ Download PDF (3.4 MB)
           </a>
         </div>
+
+        <!-- Précis -->
+        <div class="card" style="padding: var(--space-lg); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">📄</div>
+          <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0 0 var(--space-xs);">
+            Executive Précis
+          </h2>
+          <p style="color: var(--dp-silver); font-size: 0.875rem; margin-bottom: var(--space-md);">
+            A concise overview of<br>the full argument
+          </p>
+          <a href="precis.html" class="btn btn--outline"
+            style="font-size: 1rem; padding: 0.75rem 1.5rem; width: 100%; box-sizing: border-box;">
+            Read Précis →
+          </a>
+        </div>
+
+        <!-- Pitch Deck -->
+        <div class="card" style="padding: var(--space-lg); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">🎯</div>
+          <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0 0 var(--space-xs);">
+            Pitch Deck
+          </h2>
+          <p style="color: var(--dp-silver); font-size: 0.875rem; margin-bottom: var(--space-md);">
+            14-slide visual summary<br>of the proposal
+          </p>
+          <a href="pitch-deck.html" class="btn btn--outline"
+            style="font-size: 1rem; padding: 0.75rem 1.5rem; width: 100%; box-sizing: border-box;">
+            View Pitch Deck →
+          </a>
+        </div>
+
       </div>
 
       <!-- What's Inside -->
@@ -150,10 +183,10 @@
 
           <div class="card" style="padding: var(--space-md);">
             <h3 style="font-family: var(--font-display); color: var(--dp-blue); font-size: 1rem; margin: 0 0 0.5rem;">
-              Part V: From Theory to Practice</h3>
+              Part V: The Strategic Trajectory</h3>
             <p style="color: var(--dp-silver); font-size: 0.875rem; margin: 0;">
-              A concrete three-phase pilot proposal for Ontario, and the wider horizon —
-              including cross-border federation under CUSMA.
+              From a regional Ontario pilot to national replication and cross-border
+              Middle Power federation — a phased roadmap anchored in institutional evidence.
             </p>
           </div>
         </div>
@@ -194,6 +227,7 @@
       <div class="footer__inner">
         <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
         <ul class="footer__links">
+          <li><a href="search.html" class="footer__link">Search</a></li>
           <li><a href="history.html" class="footer__link">About</a></li>
           <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a>
           </li>

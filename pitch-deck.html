@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Middle Power Pivot — Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════
+     RESET & GLOBAL
+     ═══════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0e1a; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #e8eaf0; }
+
+  /* ═══════════════════════════════════════════
+     SLIDE SHELL
+     ═══════════════════════════════════════════ */
+  .deck { position: relative; width: 100%; height: 100%; }
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    opacity: 0; visibility: hidden; transition: opacity 0.7s ease, visibility 0s 0.7s;
+    padding: 60px 80px;
+    background: #0a0e1a;
+    overflow-y: auto;
+  }
+  .slide.active { opacity: 1; visibility: visible; transition: opacity 0.7s ease, visibility 0s 0s; }
+
+  /* ═══════════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════════ */
+  .slide-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700;
+    line-height: 1.15; margin-bottom: 0.4em;
+    background: linear-gradient(135deg, #e8eaf0, #7dd3fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .slide-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.5rem); font-weight: 300;
+    color: #94a3b8; margin-bottom: 1.4em; line-height: 1.5;
+    max-width: 700px; text-align: center;
+  }
+  .accent { color: #38bdf8; }
+  .accent-gold { color: #fbbf24; }
+  .accent-emerald { color: #34d399; }
+  .accent-rose { color: #fb7185; }
+  h3.section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
+    color: #38bdf8; margin-bottom: 1rem;
+  }
+  p.body-text, li.body-text {
+    font-size: clamp(0.85rem, 1.3vw, 1.1rem); line-height: 1.7;
+    color: #cbd5e1; max-width: 800px;
+  }
+  ul.body-list { list-style: none; padding: 0; max-width: 800px; }
+  ul.body-list li {
+    position: relative; padding-left: 1.6em; margin-bottom: 0.75em;
+    font-size: clamp(0.85rem, 1.3vw, 1.05rem); line-height: 1.6; color: #cbd5e1;
+  }
+  ul.body-list li::before {
+    content: ''; position: absolute; left: 0; top: 0.55em;
+    width: 8px; height: 8px; border-radius: 50%; background: #38bdf8;
+  }
+  strong { font-weight: 600; color: #e2e8f0; }
+
+  /* ═══════════════════════════════════════════
+     STAT CALLOUTS
+     ═══════════════════════════════════════════ */
+  .stats-row {
+    display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;
+    margin: 1.5em 0;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 28px 32px; min-width: 180px;
+    text-align: center; backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(56,189,248,0.12); }
+  .stat-number {
+    font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1;
+  }
+  .stat-number.gold {
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-number.emerald {
+    background: linear-gradient(135deg, #34d399, #06b6d4);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-number.rose {
+    background: linear-gradient(135deg, #fb7185, #e879f9);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-label {
+    font-size: 0.8rem; font-weight: 500; color: #94a3b8; margin-top: 8px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  /* ═══════════════════════════════════════════
+     CONTENT LAYOUTS
+     ═══════════════════════════════════════════ */
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    width: 100%; max-width: 1100px; align-items: center;
+  }
+  .three-col {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+    width: 100%; max-width: 1100px;
+  }
+  .content-block { max-width: 800px; width: 100%; }
+  .img-container {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .img-container img { width: 100%; height: auto; display: block; }
+
+  /* ═══════════════════════════════════════════
+     GLASS CARD
+     ═══════════════════════════════════════════ */
+  .glass-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 28px; backdrop-filter: blur(16px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .glass-card:hover { transform: translateY(-2px); border-color: rgba(56,189,248,0.25); }
+  .glass-card h4 {
+    font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5em;
+    color: #e2e8f0;
+  }
+  .glass-card p {
+    font-size: 0.9rem; color: #94a3b8; line-height: 1.6;
+  }
+  .card-icon {
+    font-size: 1.8rem; margin-bottom: 12px; display: block;
+  }
+
+  /* ═══════════════════════════════════════════
+     TIMELINE
+     ═══════════════════════════════════════════ */
+  .timeline {
+    display: flex; gap: 0; align-items: flex-start;
+    max-width: 1000px; width: 100%; margin: 1em 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: ''; position: absolute; top: 36px; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #34d399);
+    border-radius: 2px;
+  }
+  .tl-item {
+    flex: 1; text-align: center; position: relative; padding-top: 56px;
+  }
+  .tl-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #38bdf8; border: 3px solid #0a0e1a;
+    position: absolute; top: 28px; left: 50%; transform: translateX(-50%);
+    z-index: 2; box-shadow: 0 0 16px rgba(56,189,248,0.5);
+  }
+  .tl-item:nth-child(2) .tl-dot { background: #818cf8; box-shadow: 0 0 16px rgba(129,140,248,0.5); }
+  .tl-item:nth-child(3) .tl-dot { background: #34d399; box-shadow: 0 0 16px rgba(52,211,153,0.5); }
+  .tl-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.15em; color: #38bdf8; margin-bottom: 0.3em;
+  }
+  .tl-item:nth-child(2) .tl-label { color: #818cf8; }
+  .tl-item:nth-child(3) .tl-label { color: #34d399; }
+  .tl-title { font-size: 1rem; font-weight: 600; color: #e2e8f0; margin-bottom: 0.3em; }
+  .tl-desc { font-size: 0.82rem; color: #94a3b8; line-height: 1.5; padding: 0 8px; }
+
+  /* ═══════════════════════════════════════════
+     COMPARISON TABLE
+     ═══════════════════════════════════════════ */
+  .comp-table {
+    width: 100%; max-width: 900px;
+    border-collapse: separate; border-spacing: 0;
+    margin: 1em 0;
+  }
+  .comp-table th {
+    background: rgba(56,189,248,0.1); color: #7dd3fc;
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; padding: 14px 18px; text-align: left;
+    border-bottom: 2px solid rgba(56,189,248,0.2);
+  }
+  .comp-table td {
+    padding: 14px 18px; font-size: 0.88rem; color: #cbd5e1;
+    border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top;
+  }
+  .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ═══════════════════════════════════════════
+     SLIDE-SPECIFIC BACKGROUNDS
+     ═══════════════════════════════════════════ */
+  .slide.bg-image { background-size: cover; background-position: center; }
+  .slide.bg-image::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,14,26,0.7) 0%, rgba(10,14,26,0.92) 100%);
+    z-index: 0;
+  }
+  .slide.bg-image > * { position: relative; z-index: 1; }
+
+  .slide.bg-gradient-blue { background: linear-gradient(145deg, #0a0e1a 0%, #0f1f3d 50%, #0a0e1a 100%); }
+  .slide.bg-gradient-purple { background: linear-gradient(145deg, #0a0e1a 0%, #1a0f2e 50%, #0a0e1a 100%); }
+  .slide.bg-gradient-teal { background: linear-gradient(145deg, #0a0e1a 0%, #0f2a2e 50%, #0a0e1a 100%); }
+
+  /* ═══════════════════════════════════════════
+     BOTTOM NAV
+     ═══════════════════════════════════════════ */
+  .nav-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 32px; z-index: 100;
+    background: linear-gradient(180deg, transparent, rgba(10,14,26,0.9));
+  }
+  .nav-bar .slide-counter {
+    font-size: 0.75rem; font-weight: 500; color: #64748b;
+    letter-spacing: 0.1em;
+  }
+  .nav-dots { display: flex; gap: 8px; }
+  .nav-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .nav-dot.active { background: #38bdf8; transform: scale(1.4); }
+  .nav-dot:hover { background: rgba(56,189,248,0.5); }
+  .nav-arrows { display: flex; gap: 12px; }
+  .nav-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04);
+    color: #94a3b8; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 1.1rem;
+    transition: all 0.2s ease;
+  }
+  .nav-btn:hover { background: rgba(56,189,248,0.15); border-color: #38bdf8; color: #7dd3fc; }
+
+  /* ═══════════════════════════════════════════
+     PROGRESS BAR
+     ═══════════════════════════════════════════ */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    transition: width 0.5s ease;
+  }
+
+  /* ═══════════════════════════════════════════
+     ANIMATIONS
+     ═══════════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(56,189,248,0.2); }
+    50% { box-shadow: 0 0 40px rgba(56,189,248,0.4); }
+  }
+  .slide.active .anim-1 { animation: fadeUp 0.6s 0.1s ease both; }
+  .slide.active .anim-2 { animation: fadeUp 0.6s 0.25s ease both; }
+  .slide.active .anim-3 { animation: fadeUp 0.6s 0.4s ease both; }
+  .slide.active .anim-4 { animation: fadeUp 0.6s 0.55s ease both; }
+  .slide.active .anim-5 { animation: fadeUp 0.6s 0.7s ease both; }
+
+  /* ═══════════════════════════════════════════
+     DECORATIVE
+     ═══════════════════════════════════════════ */
+  .divider {
+    width: 60px; height: 3px; border-radius: 2px; margin: 1.2em 0;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+  }
+  .tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 600;
+    padding: 4px 12px; border-radius: 20px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .tag-blue { background: rgba(56,189,248,0.12); color: #7dd3fc; }
+  .tag-gold { background: rgba(251,191,36,0.12); color: #fbbf24; }
+  .tag-emerald { background: rgba(52,211,153,0.12); color: #34d399; }
+  .tag-rose { background: rgba(251,113,133,0.12); color: #fb7185; }
+
+  .quote-block {
+    border-left: 3px solid #38bdf8; padding: 16px 24px; margin: 1.2em 0;
+    background: rgba(56,189,248,0.04); border-radius: 0 12px 12px 0;
+    max-width: 800px;
+  }
+  .quote-block p {
+    font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight: 500;
+    color: #e2e8f0; line-height: 1.6; font-style: italic;
+  }
+
+  /* ═══════════════════════════════════════════
+     GOVERNANCE CARDS
+     ═══════════════════════════════════════════ */
+  .gov-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 24px; backdrop-filter: blur(16px);
+    position: relative; overflow: hidden;
+  }
+  .gov-card.danger { border-color: rgba(251,113,133,0.2); }
+  .gov-card.danger::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #fb7185, #e879f9);
+  }
+  .gov-card.warning { border-color: rgba(251,191,36,0.2); }
+  .gov-card.warning::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #fbbf24, #f97316);
+  }
+  .gov-card.success { border-color: rgba(52,211,153,0.2); }
+  .gov-card.success::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #34d399, #06b6d4);
+  }
+  .gov-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4em; }
+  .gov-card p { font-size: 0.85rem; color: #94a3b8; line-height: 1.55; }
+
+  /* ═══════════════════════════════════════════
+     BACKLINK
+     ═══════════════════════════════════════════ */
+  .site-backlink {
+    position: fixed; bottom: 14px; left: 32px; z-index: 100;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em;
+    color: #475569; text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .site-backlink:hover { color: #38bdf8; }
+  .site-backlink span { color: #64748b; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .slide { padding: 40px 28px; }
+    .two-col { grid-template-columns: 1fr; gap: 24px; }
+    .three-col { grid-template-columns: 1fr; }
+    .stats-row { flex-direction: column; align-items: center; }
+    .timeline { flex-direction: column; gap: 20px; }
+    .timeline::before { display: none; }
+    .tl-item { padding-top: 0; text-align: left; padding-left: 32px; }
+    .tl-dot { top: 2px; left: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="deck" id="deck">
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 1: TITLE
+       ═══════════════════════════════════════════ -->
+  <section class="slide active bg-image" style="background-image: url('pitch_assets/hero_corridor.png');">
+    <h3 class="section-label anim-1" style="margin-bottom:0.5em;">DeeperPoint Research Project</h3>
+    <h1 class="slide-title anim-2" style="font-size: clamp(2.5rem, 5.5vw, 4.5rem); text-align:center;">The Middle Power Pivot</h1>
+    <p class="slide-subtitle anim-3">How AI-Driven Cooperation Can Rebuild Regional Manufacturing</p>
+    <div class="divider anim-4" style="margin: 0 auto;"></div>
+    <p class="anim-5" style="font-size: 0.85rem; color: #64748b; margin-top: 1em;">Mustafa Uzumeri · March 2026</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 2: THE CRISIS — STATS
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-blue">
+    <h3 class="section-label anim-1">The Crisis</h3>
+    <h2 class="slide-title anim-2">Ontario's Manufacturing Lifeline Is Severed</h2>
+    <p class="slide-subtitle anim-3" style="max-width:750px;">
+      For half a century, Ontario's SMEs were embedded inside the US automotive supply chain. The OEM provided discovery, trust, coordination, and compliance. That arrangement is breaking.
+    </p>
+    <div class="stats-row anim-4">
+      <div class="stat-card">
+        <div class="stat-number rose">–50%</div>
+        <div class="stat-label">Steel exports to US<br>(year-over-year)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number rose">–9.5%</div>
+        <div class="stat-label">Auto parts employment</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number gold">75%</div>
+        <div class="stat-label">SMEs report strained<br>US relationships</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">18%</div>
+        <div class="stat-label">Considered permanent<br>closure</div>
+      </div>
+    </div>
+    <p class="body-text anim-5" style="text-align:center; max-width: 700px; margin-top: 0.5em;">
+      The problem is not a lack of talent or investment. It is the absence of <strong>coordination infrastructure</strong> for every market beyond the US supply chain.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 3: THE THIN MARKET PROBLEM
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-purple">
+    <h3 class="section-label anim-1">The Root Cause</h3>
+    <h2 class="slide-title anim-2">Twelve Frictions That Kill Thin Markets</h2>
+    <p class="body-text anim-3" style="text-align:center; margin-bottom: 1.2em;">
+      Every transaction that fails to happen in a thin market fails because of friction — barriers that prevent willing buyers and sellers from finding, trusting, and completing a deal.
+    </p>
+    <div class="three-col anim-4" style="max-width:1000px;">
+      <div class="glass-card"><span class="card-icon">🔒</span><h4>Trust & Risk</h4><p>No transaction history means no trust. No trust means no transactions — the thin market chicken-and-egg.</p></div>
+      <div class="glass-card"><span class="card-icon">🔍</span><h4>Opacity & Discovery</h4><p>Parties need information to evaluate fit but fear that revealing it creates vulnerability.</p></div>
+      <div class="glass-card"><span class="card-icon">⚙️</span><h4>Offering Complexity</h4><p>Heterogeneous, high-dimensional goods fragment markets into millions of unsearchable micro-niches.</p></div>
+      <div class="glass-card"><span class="card-icon">📋</span><h4>Regulatory Barriers</h4><p>Cross-jurisdictional licensing, data sovereignty, and product standards prevent market formation.</p></div>
+      <div class="glass-card"><span class="card-icon">🌐</span><h4>Geographic & Temporal</h4><p>Distance, async timing, and logistics costs create natural market boundaries.</p></div>
+      <div class="glass-card"><span class="card-icon">🥚</span><h4>Cold Start</h4><p>Need buyers to attract sellers and sellers to attract buyers — simultaneously.</p></div>
+    </div>
+    <p class="body-text anim-5" style="text-align:center; margin-top: 1em; font-size: 0.85rem; color: #64748b;">
+      Plus: cognitive bandwidth · fulfillment constraints · input friction · institutional memory
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 4: HISTORICAL PRECEDENT
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-image" style="background-image: url('pitch_assets/italian_textile.png');">
+    <h3 class="section-label anim-1">Historical Precedent</h3>
+    <h2 class="slide-title anim-2">The Broker Model Always Fails</h2>
+    <div class="two-col anim-3" style="max-width:1000px;">
+      <div>
+        <p class="body-text" style="margin-bottom:1em;">
+          The Italian textile districts proved that deep specialization can outperform any factory. The <strong class="accent">impannatore</strong> — the human broker — held the cluster together. When globalization arrived, the broker's information monopoly became leverage, and the system collapsed.
+        </p>
+        <p class="body-text" style="margin-bottom:1em;">
+          The pattern repeated in <strong>Sheffield</strong>, <strong>Tsubame-Sanjo</strong>, and <strong>Suame Magazine</strong>. Four failure points explain every collapse:
+        </p>
+        <ul class="body-list">
+          <li><strong class="accent-rose">Information Asymmetry</strong> — the broker guards data to protect position</li>
+          <li><strong class="accent-gold">Search Bandwidth</strong> — phone-based matching is fatally slow</li>
+          <li><strong class="accent">Trust Deficits</strong> — takes years, bounded by geography</li>
+          <li><strong class="accent-emerald">IP Paradox</strong> — sharing knowledge to cooperate creates vulnerability</li>
+        </ul>
+      </div>
+      <div>
+        <div class="quote-block">
+          <p>"The craft must be real, and the gap must be coordination — not capability."</p>
+        </div>
+        <div class="glass-card" style="margin-top:1em;">
+          <h4>Canada's Proof</h4>
+          <p><strong>Magna International</strong> proved decentralized specialization works at $40B global scale — but requires ownership. An independent SME cannot join without being acquired. The question: can coordination be provided as <em>infrastructure</em> instead?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 5: THE AI ALTERNATIVE
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-teal">
+    <h3 class="section-label anim-1">The Solution</h3>
+    <h2 class="slide-title anim-2">AI Dissolves All Four Failure Points</h2>
+    <table class="comp-table anim-3">
+      <thead>
+        <tr>
+          <th style="width:22%;">Failure Point</th>
+          <th style="width:39%;">Human Broker</th>
+          <th style="width:39%;">AI Broker</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong class="accent-rose">Information Asymmetry</strong></td>
+          <td>Guards data to protect position; under pressure, becomes extractive</td>
+          <td>Open protocol enforces transparent matching — <span class="accent">no data hoarding by design</span></td>
+        </tr>
+        <tr>
+          <td><strong class="accent-gold">Search Bandwidth</strong></td>
+          <td>Limited to personal network; defaults to comfortable contacts</td>
+          <td>Semantic matching across <span class="accent">thousands of vectors in milliseconds</span></td>
+        </tr>
+        <tr>
+          <td><strong>Trust Deficits</strong></td>
+          <td>Years to build; bounded by geography; broker assumes liability</td>
+          <td><span class="accent">Cryptographic verification</span>, smart contract escrow, portable reputation</td>
+        </tr>
+        <tr>
+          <td><strong class="accent-emerald">IP Paradox</strong></td>
+          <td>Must trust broker with proprietary data</td>
+          <td><span class="accent">Privacy-preserving matching</span> — AI evaluates fit without revealing data</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="divider anim-4" style="margin: 0.5em auto;"></div>
+    <p class="body-text anim-5" style="text-align:center; max-width:700px;">
+      AI is the first plausible technology to overcome all four simultaneously — <strong>fairly, transparently, and at scale</strong>.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 6: TWO ALTITUDES
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-image" style="background-image: url('pitch_assets/network_viz.png');">
+    <h3 class="section-label anim-1">Architecture</h3>
+    <h2 class="slide-title anim-2">Two Altitudes of Coordination</h2>
+    <div class="two-col anim-3" style="max-width:1000px;">
+      <div class="glass-card" style="border-color: rgba(56,189,248,0.25);">
+        <span class="tag tag-blue" style="margin-bottom:12px;">Part III</span>
+        <h4 style="font-size:1.2rem;">Flexible Specialization</h4>
+        <div class="divider" style="width:40px; margin: 0.5em 0;"></div>
+        <p style="color:#94a3b8; font-size:0.92rem; line-height:1.6;">
+          <strong>Firm-level consortium building.</strong> Independent SMEs form virtual mega-factories to pursue contracts no single shop could win alone. The AI broker discovers capabilities, evaluates fit, structures disclosure, and scaffolds trust.
+        </p>
+        <p style="color:#64748b; font-size:0.82rem; margin-top:0.8em;">
+          → 5-firm consortium bids on European fuel-cell housing
+        </p>
+      </div>
+      <div class="glass-card" style="border-color: rgba(52,211,153,0.25);">
+        <span class="tag tag-emerald" style="margin-bottom:12px;">Part IV</span>
+        <h4 style="font-size:1.2rem;">Cooperative Specialization</h4>
+        <div class="divider" style="width:40px; margin: 0.5em 0; background: linear-gradient(90deg, #34d399, #06b6d4);"></div>
+        <p style="color:#94a3b8; font-size:0.92rem; line-height:1.6;">
+          <strong>Operational-level problem solving.</strong> Coordination extends below the firm boundary to individual machines, people, and skills. Fractional capacity, expert consultation, equipment matching.
+        </p>
+        <p style="color:#64748b; font-size:0.82rem; margin-top:0.8em;">
+          → Idle 5-axis shift, fractional metrologist, PLC consultation
+        </p>
+      </div>
+    </div>
+    <p class="body-text anim-4" style="text-align:center; margin-top: 1.2em; max-width: 700px;">
+      <strong>Without firm-level coordination, the contract never materialises. Without operational cooperation, the consortium cannot deliver. Both levels are necessary.</strong>
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 7: DEEPERPOINT COMPONENTS
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-blue">
+    <h3 class="section-label anim-1">The Platform</h3>
+    <h2 class="slide-title anim-2">DeeperPoint: Four Integrated Components</h2>
+    <p class="slide-subtitle anim-3" style="max-width:650px;"><em>The harness defines structure. The vertical defines content.</em></p>
+    <div class="three-col anim-4" style="max-width:1100px; grid-template-columns: repeat(4, 1fr);">
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">⚡</span>
+        <h4 class="accent">Cosolvent</h4>
+        <p>Open-protocol coordination engine. Semantic matching, privacy-preserving brokerage, trust verification. <strong>MIT-licensed.</strong></p>
+      </div>
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">📚</span>
+        <h4 class="accent-gold">KnowledgeSlot</h4>
+        <p>Domain knowledge layer. Trade regulations, quality standards, contract templates. The vertical-specific content the engine needs.</p>
+      </div>
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">🔧</span>
+        <h4 class="accent-emerald">MarketForge</h4>
+        <p>Orchestration layer. Configures the engine, curates knowledge, provides the deployment environment for sponsors.</p>
+      </div>
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">🧬</span>
+        <h4 class="accent-rose">ClientSynth</h4>
+        <p>Synthetic data platform. Generates realistic participant populations for testing and demonstration. Solves cold-start.</p>
+      </div>
+    </div>
+    <p class="body-text anim-5" style="text-align:center; margin-top: 1em; font-size: 0.85rem; color: #64748b;">
+      Open-source on GitHub · Freely forkable and auditable · No single party controls the protocol
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 8: ICN SCENARIO
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-image" style="background-image: url('pitch_assets/precision_machining.png');">
+    <h3 class="section-label anim-1">In Practice</h3>
+    <h2 class="slide-title anim-2">The Virtual Tier-One</h2>
+    <p class="body-text anim-3" style="text-align:center; max-width:700px; margin-bottom:1.2em;">
+      A European OEM needs 10,000 hydrogen fuel-cell manifolds per month. No single Ontario shop can win the contract. A systems integrator assembles a <strong class="accent">multi-firm virtual consortium</strong> spanning Windsor to Mississauga — but the consortium needs more than machines:
+    </p>
+    <div class="stats-row anim-4" style="max-width: 1000px;">
+      <div class="stat-card" style="flex:1; min-width:120px;">
+        <div style="font-size:1.4rem; margin-bottom:6px;">🏭</div>
+        <div style="font-size:0.85rem; font-weight:600; color:#e2e8f0;">Manufacturing</div>
+        <div style="font-size:0.75rem; color:#94a3b8;">Heavy machining · 5-axis precision · Thermal coating · NDT</div>
+      </div>
+      <div class="stat-card" style="flex:1; min-width:120px;">
+        <div style="font-size:1.4rem; margin-bottom:6px;">📋</div>
+        <div style="font-size:0.85rem; font-weight:600; color:#e2e8f0;">Program Mgmt</div>
+        <div style="font-size:0.75rem; color:#94a3b8;">Quality orchestration · Schedule coordination · OEM reporting</div>
+      </div>
+      <div class="stat-card" style="flex:1; min-width:120px;">
+        <div style="font-size:1.4rem; margin-bottom:6px;">🌐</div>
+        <div style="font-size:0.85rem; font-weight:600; color:#e2e8f0;">Compliance</div>
+        <div style="font-size:0.75rem; color:#94a3b8;">CE marking · REACH · Customs classification</div>
+      </div>
+      <div class="stat-card" style="flex:1; min-width:120px;">
+        <div style="font-size:1.4rem; margin-bottom:6px;">💰</div>
+        <div style="font-size:0.85rem; font-weight:600; color:#e2e8f0;">Financial</div>
+        <div style="font-size:0.75rem; color:#94a3b8;">Performance bonding · Export credit · Insurance</div>
+      </div>
+    </div>
+    <div class="quote-block anim-5" style="margin-top: 0.8em;">
+      <p style="font-size:0.95rem;">Finding cross-domain partners — trade compliance consultants, program managers, bonding companies — is <strong>harder</strong> than manufacturing coordination alone. The marketplace must match across domains, not just within them.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 9: GOVERNANCE
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-purple">
+    <h3 class="section-label anim-1">Governance</h3>
+    <h2 class="slide-title anim-2">Who Owns the Network?</h2>
+    <p class="body-text anim-3" style="text-align:center; max-width:700px; margin-bottom:1.2em;">
+      If the network creates billions in value, control of it is absolute power. <strong>We must get the architecture right.</strong>
+    </p>
+    <div class="three-col anim-4" style="max-width:1000px;">
+      <div class="gov-card danger">
+        <span class="tag tag-rose" style="margin-bottom:10px;">Option A</span>
+        <h4 class="accent-rose">Private Aggregator</h4>
+        <p>Built fast. Well-funded. But creates an <strong>aggregator trap</strong>. Once 5,000 shops depend on the platform, the operator raises fees. Replicates every historical broker failure.</p>
+      </div>
+      <div class="gov-card warning">
+        <span class="tag tag-gold" style="margin-bottom:10px;">Option B</span>
+        <h4 class="accent-gold">Government Utility</h4>
+        <p>Eliminates rent extraction. But risks <strong>innovation stagnation</strong> and cross-border jurisdictional complications. Procurement speed cannot match market evolution.</p>
+      </div>
+      <div class="gov-card success">
+        <span class="tag tag-emerald" style="margin-bottom:10px;">Option C ✓</span>
+        <h4 class="accent-emerald">Cooperative Protocol</h4>
+        <p>Open protocol (like email's SMTP). Competitive operators build services on top. <strong>Data portability</strong> ensures zero switching friction. No single party controls the data.</p>
+      </div>
+    </div>
+    <p class="body-text anim-5" style="text-align:center; margin-top:1em; font-size:0.85rem; max-width:650px; color:#64748b;">
+      Cosolvent implements Option C — MIT-licensed, freely forkable, auditable. Any firm can exit and reconnect through a competing operator without losing data or reputation.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 10: THE PILOT
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-teal">
+    <h3 class="section-label anim-1">From Theory to Practice</h3>
+    <h2 class="slide-title anim-2">The Pilot: First Fifty Firms</h2>
+    <p class="body-text anim-3" style="text-align:center; max-width:680px; margin-bottom:1em;">
+      A funded, time-boxed, measurable deployment — not a study, not a white paper, not a task force.
+    </p>
+    <div class="timeline anim-4">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 0</div>
+        <div class="tl-title">Digital Twin</div>
+        <div class="tl-desc">3–6 months · Domain knowledge curation · Synthetic population · Low-risk decision gate before live deployment</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 1</div>
+        <div class="tl-title">Flexible Specialization</div>
+        <div class="tl-desc">12 months · 50 real firms · Live capability matching · Real transactions · Firm-level coordination</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 2</div>
+        <div class="tl-title">Cooperative Specialization</div>
+        <div class="tl-desc">Contingent on Phase 1 success · Sub-firm coordination · Fractional machines, experts, skills</div>
+      </div>
+    </div>
+    <div class="stats-row anim-5" style="margin-top:1em;">
+      <div class="stat-card">
+        <div class="stat-number">50</div>
+        <div class="stat-label">Manufacturing SMEs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number gold">18–24</div>
+        <div class="stat-label">Months total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number emerald">$2–5M</div>
+        <div class="stat-label">Funding range</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 11: METRICS
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-blue">
+    <h3 class="section-label anim-1">Measurable Outcomes</h3>
+    <h2 class="slide-title anim-2">What Gets Measured</h2>
+    <div class="two-col anim-3" style="max-width:1000px;">
+      <div>
+        <ul class="body-list" style="max-width:500px;">
+          <li><strong>Transaction volume</strong> — Dollar value of work that would not have been contracted without the coordination layer</li>
+          <li><strong>Capital utilisation</strong> — Aggregate improvement in machine-time monetisation across participating firms</li>
+          <li><strong>Time to match</strong> — AI broker vs. traditional phone-and-email process</li>
+          <li><strong>Contract retention</strong> — Contracts that would have been no-bid, successfully captured by the coordinated network</li>
+          <li><strong>Trust & IP comfort</strong> — Participant confidence in privacy-preserving protocols and willingness to return</li>
+        </ul>
+      </div>
+      <div>
+        <div class="glass-card" style="margin-bottom:16px;">
+          <h4>Institutional Infrastructure Exists</h4>
+          <p><strong>NGen</strong> — funds advanced manufacturing consortia<br>
+          <strong>CME</strong> — convenes the industry nationally<br>
+          <strong>EDC</strong> — supports cross-border trade facilitation<br>
+          <strong>Ontario MEDJCT</strong> — active SME competitiveness mandate</p>
+        </div>
+        <div class="quote-block">
+          <p style="font-size:0.95rem;">"The binding constraint is not technology but institutional commitment."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 12: WIDER HORIZON
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-image" style="background-image: url('pitch_assets/globe.png');">
+    <h3 class="section-label anim-1">The Strategic Trajectory</h3>
+    <h2 class="slide-title anim-2">Ontario → Canada → Federation</h2>
+    <p class="body-text anim-3" style="text-align:center; max-width:700px; margin-bottom:1em;">
+      The pilot is not the end state — it is a <strong class="accent">proof of concept for national manufacturing strategy</strong>. But the first priority is to secure Ontario's manufacturing base.
+    </p>
+    <div class="timeline anim-4">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Regional Pilot</div>
+        <div class="tl-title">Ontario SMEs</div>
+        <div class="tl-desc">50 firms · Hamilton–Cambridge–Mississauga corridor · Proof of matching, trust, and value creation</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">National Replication</div>
+        <div class="tl-title">Canadian Corridors</div>
+        <div class="tl-desc">Montréal aerospace · Edmonton energy fabrication · Winnipeg defence · Same protocol, different verticals</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Cross-Border Federation</div>
+        <div class="tl-title">Middle Power Network</div>
+        <div class="tl-desc">Independent national ecosystems become interoperable · Hamilton ↔ Querétaro in the same capability search · Emerging AI handles multilingual and regulatory translation</div>
+      </div>
+    </div>
+    <p class="body-text anim-5" style="text-align:center; max-width:700px; margin-top:0.8em;">
+      Each stage is independent. No decision at one level should close off future stages. The architecture must be <strong>capable</strong> of absorbing emerging capabilities — without requiring them today.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 13: CLOSING THESIS
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-purple">
+    <h3 class="section-label anim-1">The Thesis</h3>
+    <h2 class="slide-title anim-2" style="max-width:900px; text-align:center;">
+      The Middle Powers that build coordination infrastructure first will capture a structural advantage that no tariff wall, no subsidy, and no trade agreement can replicate.
+    </h2>
+    <div class="divider anim-3" style="margin: 0.3em auto;"></div>
+    <div class="three-col anim-4" style="max-width:900px; margin-top: 1em;">
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">🛡️</span>
+        <h4>Decentralised</h4>
+        <p>Resilient to supply chain disruption. No single point of failure.</p>
+      </div>
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">🎯</span>
+        <h4>Specialised</h4>
+        <p>Competitive at the quality frontier. Deep craft, not generalist scale.</p>
+      </div>
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">⚡</span>
+        <h4>Coordinated</h4>
+        <p>Assembles complex, multi-firm responses to global demand in real time.</p>
+      </div>
+    </div>
+    <p class="body-text anim-5" style="text-align:center; margin-top:1.5em; font-size: 0.95rem;">
+      The technology exists. The architecture is designed. The protocol is published.<br>
+      <strong style="color:#38bdf8;">The question is institutional will — and the window is real.</strong>
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SLIDE 14: CONTACT / CTA
+       ═══════════════════════════════════════════ -->
+  <section class="slide bg-gradient-teal">
+    <h3 class="section-label anim-1">Next Steps</h3>
+    <h2 class="slide-title anim-2" style="font-size:clamp(2rem, 4vw, 3rem);">Let's Build the Coordination Layer</h2>
+    <div class="divider anim-3" style="margin: 0 auto;"></div>
+    <div class="two-col anim-4" style="max-width:900px; margin-top:1em;">
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">📖</span>
+        <h4>Read the Full Manuscript</h4>
+        <p><em>The Middle Power Pivot</em> — ~40,000 words including detailed scenarios, technical appendices, and the friction-by-friction mapping framework.</p>
+      </div>
+      <div class="glass-card" style="text-align:center;">
+        <span class="card-icon">💻</span>
+        <h4>Explore the Code</h4>
+        <p>Cosolvent, MarketForge, KnowledgeSlot, and ClientSynth are open-source on GitHub under the MIT licence. Available today.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2em;" class="anim-5">
+      <p style="font-size:1.1rem; font-weight:600; color:#e2e8f0;">Mustafa Uzumeri</p>
+      <p style="font-size:0.9rem; color:#94a3b8;">
+        <a href="https://deeperpoint.com" style="color:#38bdf8; text-decoration:none;">deeperpoint.com</a>&nbsp; · &nbsp;
+        <a href="https://github.com/DeeperPoint" style="color:#38bdf8; text-decoration:none;">github.com/DeeperPoint</a>
+      </p>
+      <p style="font-size:0.75rem; color:#475569; margin-top:1em;">© 2026 Mustafa Uzumeri. All rights reserved.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION BAR
+     ═══════════════════════════════════════════ -->
+<a class="site-backlink" href="https://deeperpoint.com/ebook.html">← <span>deeperpoint.com</span></a>
+
+<div class="nav-bar">
+  <div class="nav-arrows">
+    <button class="nav-btn" id="prevBtn" aria-label="Previous slide">◀</button>
+    <button class="nav-btn" id="nextBtn" aria-label="Next slide">▶</button>
+  </div>
+  <div class="nav-dots" id="navDots"></div>
+  <div class="slide-counter" id="slideCounter">1 / 14</div>
+</div>
+
+<script>
+  /* ═══════════════════════════════════════════
+     DECK CONTROLLER
+     ═══════════════════════════════════════════ */
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('navDots');
+  const counter = document.getElementById('slideCounter');
+  const progressBar = document.getElementById('progressBar');
+  let current = 0;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(index) {
+    if (index < 0 || index >= slides.length || index === current) return;
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+    counter.textContent = `${current + 1} / ${slides.length}`;
+    progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault(); goTo(current + 1);
+    }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault(); goTo(current - 1);
+    }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1); }
+    if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 60) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  // Init progress
+  progressBar.style.width = `${(1 / slides.length) * 100}%`;
+</script>
+
+</body>
+</html>
