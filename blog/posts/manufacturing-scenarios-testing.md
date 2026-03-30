@@ -1,24 +1,28 @@
-<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
-
 ---
-series: ai-cooperative-manufacturing
-series-title: "New Frontier: AI Powered Cooperative Manufacturing"
-series-position: 3
+series: manufacturing-scenarios
+series-title: "Manufacturing Scenarios"
+series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
 slug: manufacturing-scenarios-testing
+series-position: 4
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 date: 2026-03-18
 stream: market-scenario
 tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, manufacturing, welding, testing]
-summary: A fabrication shop in northern Ontario needs a weld procedure qualified to CWB standards. The nearest commercial testing lab is a full day's drive south in Toronto. A college metallurgy lab 300 km away in Sudbury has certified equipment sitting idle — but neither side knows the other exists.
+summary: "A fabrication shop needs a weld procedure test. A college lab 300 km away has certified equipment sitting idle — but neither side knows the other exists."
 estimated-read: 12 min read
 ---
+<!-- markdownlint-disable MD033 MD001 -->
+
+<div class="scenario-story" markdown="1">
 
 <figure class="blog-hero">
   <img class="blog-hero__img" src="../images/blog/fractional-testing-thin-market-hero.png" alt="A tensile testing machine at a community college metallurgy lab — capable, certified, and idle most of the week" loading="lazy">
   <figcaption>A tensile testing machine at a community college metallurgy lab — capable, certified, and idle most of the week.</figcaption>
 </figure>
 
-## The Machine That Runs Three Hours a Day
+*Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of AI-brokered consortium assembly. The characters, companies, and events are invented. The market forces, the capability gaps, and the platform architecture are real.*
+
+---
 
 There is a tensile testing machine in the metallurgy lab at Cambrian College's trades campus in Sudbury, Ontario. It is a Tinius Olsen 300kN universal testing machine — hydraulic, floor-mounted, calibrated annually by an accredited metrology service to ISO 7500-1. It can pull a standard test coupon apart at a controlled rate and record the force-displacement curve with sub-Newton precision: yield strength, ultimate tensile strength, percent elongation, reduction of area. It can also run guided bend tests on weld coupons — face bends, root bends, side bends — the tests that determine whether a welding procedure produces a joint that will hold under load or crack open under stress.
 
@@ -30,7 +34,7 @@ This capacity — the testing machine, the preparation equipment, the calibrated
 
 ---
 
-## The Welder's Problem
+### The Welder's Problem
 
 Northern Cross Fabrication is a twelve-person structural steel and piping shop on the outskirts of Timmins, Ontario. They do mine site structural steel, forestry equipment repair, pressure piping for pulp mills, and the occasional custom fabrication job for the natural gas sector. The shop is run by Dave Olynyk, a CWB-certified welding inspector and third-generation ironworker whose grandfather helped build the gold mines that still define Timmins's industrial identity.
 
@@ -54,7 +58,7 @@ This is the opacity problem. The testing capacity exists. The need exists. But n
 
 ---
 
-## The Lab's Problem
+### The Lab's Problem
 
 Dr. Anil Chandra's budget is under pressure. Cambrian College's trades campus in Sudbury has invested significantly in laboratory infrastructure — the testing machine, the metallography station, the portable hardness tester, the chemical analysis equipment — because the welding and metallurgy programs produce graduates who must be competent with this equipment. The capital investment was justified by educational outcomes.
 
@@ -70,9 +74,9 @@ This is the trust problem layered onto the opacity problem. Even when the partie
 
 ---
 
-## What the Platform Changes
+### What the Platform Changes
 
-Now imagine that the **Ontario Manufacturing Coalition** — a consortium of the Ontario College of Trades, the Ontario chapter of the Canadian Welding Bureau, and the Council of Ontario Universities — has deployed a materials testing marketplace on [MarketForge infrastructure](https://deeperpoint.com/marketforge.html), populated with sponsor-curated domain knowledge and designed to solve exactly this class of coordination failure. *The specific characters and events are fictional, but the testing requirements, accreditation frameworks, and geographic realities of rural manufacturing in northern Ontario are real.*
+Now imagine that the **Ontario Manufacturing Coalition** — a consortium of the Ontario College of Trades, the Ontario chapter of the Canadian Welding Bureau, and the Council of Ontario Universities — has deployed a materials testing marketplace on MarketForge infrastructure, populated with sponsor-curated domain knowledge and designed to solve exactly this class of coordination failure. *The specific characters and events are fictional, but the testing requirements, accreditation frameworks, and geographic realities of rural manufacturing in northern Ontario are real.*
 
 ---
 
@@ -122,23 +126,11 @@ This is information that Anil didn't know. It changes his position: if Dave Olyn
 
 ### 3. The Match
 
-The platform's semantic matching engine evaluates Dave's testing requirements against the capability profiles of registered laboratories within his specified radius. It is not matching keywords — it is evaluating whether the Cambrian lab's equipment, calibration status, and personnel qualifications can satisfy the specific combination of tests that CSA W59 Clause 5 requires for Dave's joint configuration.
+The platform's semantic matching engine evaluates Dave's testing requirements against laboratory capability profiles within his specified radius. The match against Cambrian is structural: the UTM handles the tensile loads, the bend test fixtures accommodate Schedule 80 pipe, Anil's CSA W59 competence is documented, and the turnaround fits Dave's 14-day window.
 
-The match confidence is high on technical capability. The UTM can handle the tensile loads for A106 Grade B coupons. The bend test fixture dimensions accommodate Schedule 80 pipe specimens. Anil's competence in CSA W59 testing is documented. The turnaround — 3 to 5 business days — is within Dave's 14-day window, even accounting for a day's drive.
+The match is conditional on one requirement: because the lab is not ISO/IEC 17025 accredited, CWB requires that a certified welding inspector witness the tests. Dave *is* a CWB-certified inspector. Driving three hours to Sudbury to witness a day's testing is a fundamentally different proposition from shipping coupons to Toronto and waiting three weeks.
 
-The match confidence is conditional on the accreditation workaround: Dave must witness the testing in person.
-
-Both parties receive notifications.
-
-Dave sees:
-
-> *"A college metallurgy laboratory in Sudbury, Ontario, has certified testing equipment capable of performing your CSA W59 PQR test set — transverse tensile and guided bend tests. The lab is approximately 3 hours' drive from Timmins. The tensile machine is calibrated to ISO 7500-1 (certificate current). The lab supervisor has 18 years of welding metallurgy experience. Estimated turnaround: 3–5 business days from sample receipt. Estimated cost: $600–$900 for the full test set. Note: because the lab is not ISO/IEC 17025 accredited, CWB requires that a certified welding inspector witness the tests. As a CWB-certified inspector, you can fulfill this role by attending the testing session in person."*
-
-Anil sees:
-
-> *"A fabrication shop in Timmins, Ontario, needs a CSA W59 PQR test set — transverse tensile (2 specimens) and guided bend tests (4 specimens, face and root) on ASTM A106 Grade B carbon steel pipe coupons. E7018 SMAW, 6G position. The requester has coupons ready and is willing to drive to your facility. Timeline: results needed within 14 days. The requester is a CWB-certified welding inspector who can witness the testing, satisfying the alternative supervision requirement for non-17025 labs."*
-
-For Dave, the key number is $600–$900 — less than half what Toronto charges, and he can drive there and back in a day instead of waiting weeks. For Anil, it's billable equipment hours and professional time — revenue that justifies the college's investment and demonstrates the "industry engagement" his administration has been requesting.
+Both parties receive match notifications. Dave sees a lab three hours south with calibrated equipment, an experienced supervisor, and a cost estimate of $600–$900 — less than half what Toronto charges. Anil sees a fabrication shop in Timmins with coupons ready, a willing driver, and a CWB inspector who resolves his accreditation constraint. For Anil, it is billable equipment hours and professional time — the "industry engagement" his administration has been requesting.
 
 ---
 
@@ -146,59 +138,33 @@ For Dave, the key number is $600–$900 — less than half what Toronto charges,
 
 When the Ontario Manufacturing Coalition configured the platform, they populated the **Knowledge Slot** with domain-specific reference material curated by the CWB and the Ontario College of Trades:
 
-- **CSA W59-18 Clause 5 requirements**: the specific tests required for each joint category, base metal group, electrode classification, and welding position — including the often-overlooked requirements for specimen preparation (machining tolerances, surface finish, etch marking conventions) and the specimen orientation requirements for pipe joints (transverse vs. longitudinal, face vs. root designation relative to the pipe axis)
-- **CWB Bulletin W59-002**: the alternative supervision provisions for non-accredited laboratories — the specific conditions under which a CWB inspector can witness testing at a non-17025 lab, the documentation requirements (inspector's name, CWB number, signature on each test record), and the inspector's duty to verify calibration currency before testing begins
-- **ISO/IEC 17025 accreditation pathway**: for labs considering formal accreditation — the process, timeline, cost ($15,000–$25,000 for initial assessment plus ongoing surveillance), and what it enables (test results accepted without witness supervision; ability to issue formal test reports with accreditation mark)
-- **Specimen preparation standards**: ASTM E8/E8M for tensile specimens, ASTM E190 for guided bend specimens — including the critical detail that bend specimen thickness for pipe must be calculated from the nominal wall thickness *minus the weld reinforcement*, not the gross section — a detail that causes failed tests when specimens are prepared incorrectly
-- **Sample chain of custody**: how to label, package, and document test specimens so that the results are traceable from coupon to PQR — important when the testing is done at a facility that is not the manufacturer's own lab
-- **Liability and insurance guidance**: the Ontario Manufacturing Coalition's group professional liability insurance policy, which covers participant labs performing testing within the platform's documented scope and chain of custody — addressing the specific insurance gap that had previously prevented college and university labs from accepting external work
+- **CWB Bulletin W59-002**: the alternative supervision provisions for non-accredited laboratories — the conditions under which a CWB inspector can witness testing at a non-17025 lab, and the documentation requirements. This is the regulatory workaround that makes the entire match viable.
+- **Liability and insurance guidance**: the Coalition's group professional liability insurance policy, covering participant labs performing testing within the platform's documented scope — addressing the specific insurance gap that had previously prevented college and university labs from accepting external work.
 
-The Knowledge Slot surfaces the insurance detail proactively when Anil reviews the match. This solves his second problem — the institutional barrier that previously made him decline external testing requests. Under the Coalition's umbrella policy, his lab is covered for testing performed within the platform's documented procedure. The college's risk management office has approved the arrangement.
+The insurance detail solves Anil's second problem. Under the Coalition's umbrella policy, his lab is covered for testing performed within the platform's documented procedure. The college's risk management office has approved the arrangement.
 
 ---
 
 ### 5. The Testing Day
 
-Dave loads six test coupons — two tensile blanks and four bend specimens, machined and etched at his shop per ASTM specifications — into a padded shipping crate and drives south on Highway 144. He leaves Timmins at 6:00 AM, stops for coffee in Cartier, and arrives at the Cambrian College trades campus in Sudbury by 9:00 AM.
+Dave drives south from Timmins with six test coupons — two tensile blanks and four bend specimens. Three hours later, he is in Anil's lab at the Cambrian College trades campus. As the witnessing CWB inspector, he verifies calibration currency before testing begins.
 
-Anil has the lab ready. The test fixture is installed in the UTM, the calibration certificate is posted on the wall, and a pair of safety glasses is waiting on the bench.
+The tensile tests pass cleanly — both specimens fail in the base metal, outside the weld, at 497 and 503 MPa. The face bends pass. The root bends: the first passes cleanly, but the second shows a tiny 1.5mm surface indication. Anil reaches for the metallographic preparation station.
 
-Dave inspects the UTM before testing begins — it is his duty as the witnessing CWB inspector. He photographs the calibration certificate, makes a note of the machine serial number and the calibration expiry date, and verifies that the load cell range is appropriate for the expected failure loads of A106 Grade B specimens.
-
-They run the tensile tests first. Both specimens fail in the base metal, outside the weld — exactly what you want. Ultimate tensile strength: 497 MPa and 503 MPa, both well above the 415 MPa minimum for A106 Grade B. The stress-strain curves show clean yield points and well-defined necking.
-
-Then the bend tests. Anil positions each specimen in the guided bend die while Dave watches. Face bends: both pass — no open discontinuities exceeding 3mm on the convex surface. Root bends: the first passes cleanly. The second shows a tiny 1.5mm surface indication at the root. Anil reaches for the metallographic preparation station.
-
-"Let me section this one," he says. "I want to see what's happening at the root."
-
-Twenty minutes later, they are looking at a polished and etched cross-section under the microscope. The indication is a shallow gas pocket — porosity from a momentary arc interruption during the root pass. It is well within the acceptance criteria. But the micrograph also reveals something else: the heat-affected zone grain structure adjacent to the root pass shows a slightly coarser microstructure than ideal, suggesting the interpass temperature was running high.
+Twenty minutes later, they are looking at a polished and etched cross-section under the microscope. The indication is a shallow gas pocket — well within acceptance criteria. But the micrograph reveals something else: the heat-affected zone grain structure suggests the interpass temperature was running high.
 
 "Your procedure says interpass temperature max 250°C," Anil observes. "This microstructure looks like your welder was running closer to 300. It passed this time — but in cold weather service, you might want to tighten that up."
 
-This is the value that no commercial lab in Toronto provides. Element Materials Technology would have reported "Pass" and moved on. They process thousands of specimens per month. They do not have the bandwidth, the incentive, or the relationship to offer interpretive insight about interpass temperature control. Anil does — because this is one test set, not a thousand, and because he is a metallurgist who teaches welding students, not a technician running a production testing line.
+This is the value that no commercial lab in Toronto provides. Element Materials Technology would have reported "Pass" and moved on. Anil offers interpretive insight because this is one test set, not a thousand, and because he is a metallurgist who teaches welding students, not a technician running a production line.
 
-By 2:00 PM, Dave has his completed test reports — signed by Anil as the testing supervisor and countersigned by Dave as the witnessing CWB inspector. He has a USB drive with the digital stress-strain curves, the bend test photographs, and the metallographic images. He drives back to Timmins with the PQR documentation that will secure the Domtar contract.
-
-Total cost: $750 for the testing, $80 in fuel, and a day of his time. Total elapsed time from need to documentation: six days — including the three days he spent waiting for a Tuesday testing slot.
-
-He would not have the documentation for another three weeks if he had used Toronto.
+By 2:00 PM, Dave has his completed test reports and drives back to Timmins with the PQR documentation that secures the Domtar contract. Total cost: $750 for the testing, $80 in fuel, and a day of his time. He would not have the documentation for another three weeks if he had used Toronto.
 
 ---
 
 ### 6. What Makes This a Thin Market Story
 
-Step back from the narrative and look at the structural forces:
+**Opacity** — No directory of available testing capacity at Ontario colleges and universities exists; these institutions have no sales infrastructure, no pricing model, and no way to manage the liability. **Geographic distance** — The market isn't thin because testing capacity doesn't exist regionally; it's thin because neither side can see what's within economical range. Sudbury is three hours from Timmins; Toronto is seven. **Trust** — The Knowledge Slot surfaced a regulatory workaround — CWB inspector witnessing — that preserved the validity of results without a $25,000 accreditation process. **Temporal distance** — Testing needs arise unpredictably; lab capacity fluctuates with academic schedules. The platform accounts for this mismatch, surfacing available capacity when demand appears.
 
-**Opacity** — Dave's testing capacity was 300 kilometres away and completely invisible to him. Anil's lab was available and capable but had no mechanism to advertise its availability to industrial clients. No directory of available testing capacity at Ontario colleges and universities exists. These institutions do not market their lab capabilities to external clients — not because they don't want to, but because they have no sales infrastructure, no standard pricing model, and no way to manage the liability. The platform's semantic matching — evaluating whether specific equipment, calibration status, and personnel qualifications satisfy specific testing requirements — makes discovery possible.
+</div>
 
-**Geographic distance** — Rural manufacturers and testing facilities are scattered across vast distances in northern Ontario. Dave's shop is in Timmins; the nearest commercial lab is in Toronto. But Anil's lab is in Sudbury — less than half the distance, and reachable for a same-day round trip. The market isn't thin because testing capacity doesn't exist regionally. It's thin because neither side can see what's within economical range.
-
-**Trust** — The accreditation gap between a university lab and a commercial ISO 17025-accredited lab is a genuine trust barrier. But the Knowledge Slot surfaced a practical workaround — CWB inspector witnessing — that preserved the regulatory validity of the test results without requiring Anil's lab to undergo a $25,000 accreditation process. The platform didn't eliminate the trust requirement; it found a pathway through it that both parties could verify.
-
-**Temporal distance** — Testing needs arise unpredictably. Dave didn't know he needed this PQR until the Domtar contract materialized. Lab capacity fluctuates with academic schedules — Anil's lab is busiest during exam periods and emptiest during breaks, the opposite of when industrial demand peaks. The platform's matching engine accounts for this temporal mismatch, surfacing available capacity when demand appears and letting Anil define his availability windows around the academic calendar.
-
----
-
-*The story of Dave and Anil is fictional, but the testing requirements, accreditation frameworks, and geographic realities of rural manufacturing in northern Ontario are real. A manufacturing coalition or welding industry association could build this kind of application using the [DeeperPoint toolkit](https://deeperpoint.com/thin-markets.html).*
-
-*[The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*
+*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [The Cosolvent open protocol →](https://github.com/DeeperPoint/Cosolvent)*
