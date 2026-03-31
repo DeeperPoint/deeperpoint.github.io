@@ -757,8 +757,11 @@ def main():
     # Sort by date, newest first
     posts.sort(key=lambda p: p["date"], reverse=True)
 
+    # Separate public posts from unlisted posts
+    public_posts = [p for p in posts if not p.get("unlisted", False)]
+
     # Build series index BEFORE the post loop (while _body_html still exists)
-    series_index = buildSeriesIndex(posts)
+    series_index = buildSeriesIndex(public_posts)
     if series_index:
         for slug, data in series_index.items():
             print(f"  Series '{slug}': {len(data['posts'])} posts")
@@ -776,10 +779,10 @@ def main():
         print(f"  Wrote: {out_path.name}")
 
     # Generate index
-    index_html = buildIndexPage(posts, series_index)
+    index_html = buildIndexPage(public_posts, series_index)
     index_path = BLOG_OUT / "index.html"
     index_path.write_text(index_html, encoding="utf-8")
-    print(f"  Wrote: index.html ({len(posts)} posts)")
+    print(f"  Wrote: index.html ({len(public_posts)} public posts)")
 
     # Generate series landing pages
     if series_index:
@@ -792,12 +795,12 @@ def main():
             print(f"  Wrote: series/{slug}.html -> {SITE_URL}/blog/series/{slug}.html")
 
     # Generate RSS feed
-    feed_xml = buildRssFeed(posts)
+    feed_xml = buildRssFeed(public_posts)
     feed_path = BLOG_OUT / "feed.xml"
     feed_path.write_text(feed_xml, encoding="utf-8")
     print("  Wrote: feed.xml")
 
-    print(f"Blog build complete. {len(posts)} posts published.")
+    print(f"Blog build complete. {len(public_posts)} public posts published, {len(posts) - len(public_posts)} unlisted.")
 
 
 if __name__ == "__main__":
