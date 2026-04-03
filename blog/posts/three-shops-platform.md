@@ -33,7 +33,7 @@ The platform that connects these specialists to each other — and then connects
 
 ### The Three
 
-They met, as these things usually happen, at a conference. An NGen panel on AI adoption for small manufacturers, held at a hotel conference room in Mississauga in late 2025. Three company founders who'd been circling the same problem space for years without realizing how neatly their capabilities interlocked.
+They didn't all meet at the same moment. It started with separate conversations at the N3 Summit — Canada's national advanced manufacturing conference — in the spring of 2025. Vic Uzumeri, the researcher behind DeeperPoint's open-source Cosolvent architecture, walked the exhibition floor and stopped at three booths. At each one, he described the same idea: a semantic matching engine for manufacturing communities, open-source, designed to connect participants with complementary needs through AI-mediated introductions and structured trust-building. At each booth, the founder listened, asked sharp questions, and said some version of the same thing: "That's interesting. Tell me more."
 
 **Brock Rowlands** ran a seven-person AI integration firm out of London, Ontario. His company deployed sovereign, open-source AI infrastructure for small manufacturers — private AI assistants built on Open WebUI, workflow automation with n8n, CRM systems that clients owned outright. No vendor lock-in. No per-seat fees. The value proposition was simple: your data stays on Canadian servers, and everything we build belongs to you. Sixty-day experiments to prove the value before scaling. He'd done forty-plus engagements across southwestern Ontario — CNC shops, food processors, greenhouse operations, packaging lines.
 
@@ -41,9 +41,9 @@ They met, as these things usually happen, at a conference. An NGen panel on AI a
 
 **Adam McCormick** ran a forty-person industrial automation house based in Hamilton, Ontario. His company designed and installed complete automation systems — robotic cells, conveyor lines, SCADA and MES implementations, custom control panels, electrical and mechanical installations. Five hundred projects completed, two hundred systems integrated, a licensed electrical contractor with a 20,000-square-foot facility. When a manufacturer needed physical infrastructure modernized — not just AI configured, not just parts sourced, but actual machines designed, built, wired, and commissioned — Adam's team did the work.
 
-At the NGen panel, the three of them sat in the same row and listened to a presentation about DeeperPoint's Cosolvent architecture — an open-source semantic matching engine for thin market communities. The concept was straightforward: AI-mediated matching of participants with complementary needs, progressive trust stages, structured deal assembly, community sponsorship.
+Brock and Dustin found each other at the conference and had a long conversation — two founders solving adjacent problems who recognized, almost immediately, that their capabilities were complementary rather than competitive. When Vic mentioned EVM Group to both of them separately, their ears perked up. They knew of the Hamilton automation house by reputation. The three-way connection hadn't been made yet, but the ingredients were on the table.
 
-Over drinks afterward, Brock said what all three were thinking: "That's the plumbing we're missing."
+What happened next — in this scenario, at least — is that Vic made the introduction, and the three founders discovered what thin market theory would have predicted: their capabilities interlocked almost perfectly, with virtually zero overlap.
 
 ### The Collaboration
 
