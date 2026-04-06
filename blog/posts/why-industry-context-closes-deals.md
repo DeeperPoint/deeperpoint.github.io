@@ -80,15 +80,29 @@ This signal is not a generic error report. It is a specific, actionable signal: 
 
 This converts the reference library from a static document store into a **demand-responsive curation system**. The knowledge that gets added is the knowledge that is actively blocking deals — which means the library grows in the direction of maximum transaction enablement.
 
-## The Broker Analogy
+## The Broker Problem — All Three of Them
 
 The whitepaper spends considerable space on the role of human brokers in traditional thin markets — and for good reason. A good broker is not just a matchmaker. They carry years of domain knowledge: which contracts apply where, which buyers are reliable payers, which standards are in practice versus in theory, which regulatory requirements are enforced and which are pro forma.
 
-That knowledge is what makes them valuable. And that knowledge is precisely what is lost when the broker retires.
+That knowledge is what makes them valuable. And it creates three distinct structural problems that the industry tends to undercount.
 
-The KnowledgeSlot architecture is, in structural terms, a scalable, persistent version of broker memory. The domain knowledge that a seasoned grain trader carries in their head — accumulated over decades, impossible to transfer efficiently, gone when they leave the industry — can be progressively captured, structured, and made available to every participant on the platform.
+The first is **scarcity**: in many thin markets, the broker does not exist at all, or exists in insufficient numbers to serve the full participant population. The market remains thin not because parties lack desire to transact, but because there is no one with the domain fluency to guide them through the complexity.
 
-The broker's expertise becomes the marketplace's infrastructure.
+The second is **fragility**: when brokers retire, change firms, or simply move on, decades of market memory go with them. The knowledge is personal, uncodified, and non-transferable. Rebuilding it takes years and requires re-living the same painful transactions that produced the knowledge in the first place.
+
+The third problem is the one industry participants are most reluctant to name directly: **predation under stress**.
+
+A broker's value is inseparable from their indispensability. They know things the parties do not. They control relationships the parties cannot easily replicate. In stable times, this gives them leverage to extract a commission — typically 3 to 20 percent of transaction value, as the whitepaper notes — in exchange for genuine service. That is a reasonable bargain when the alternative is no transaction at all.
+
+But when an industry comes under financial stress, the calculus shifts. A broker who controls access to buyers in a tightening market is in a structurally stronger position precisely when the producers they serve are most vulnerable. The historical pattern is consistent: when markets thin further under economic pressure, brokers who were once indispensable partners have a persistent temptation to renegotiate that arrangement in their own favor. Fees climb. Exclusive arrangements tighten. Information gets rationed more aggressively. The broker's interests and the market's interests — which were aligned enough in good times — diverge under stress.
+
+The whitepaper identifies this dynamic explicitly in the context of smallholder farmers and predatory middlemen: "middlemen whose market power depends on the isolation and information asymmetry of the producers they serve." It is not a problem unique to developing markets. It is a structural feature of any arrangement where domain knowledge is controlled by a party that profits from transactions — because that party has an inherent incentive to keep the knowledge scarce.
+
+An AI industry context has none of these failure modes. It does not retire. It does not have exclusive client relationships to protect. And critically, it does not have a rake to maximize.
+
+The KnowledgeSlot architecture makes domain knowledge a **shared infrastructure** — available to every participant on the platform, not a proprietary asset controlled by a gatekeeper. The knowledge that a seasoned broker accumulated over decades becomes, in this model, the marketplace's foundation rather than one party's competitive advantage. And because the system has no financial interest in withholding it, there is no mechanism for that knowledge to become a tool of extraction.
+
+The broker's expertise becomes the marketplace's infrastructure. And the marketplace's infrastructure does not get greedy when times get hard.
 
 ## Matching Is the Beginning
 
