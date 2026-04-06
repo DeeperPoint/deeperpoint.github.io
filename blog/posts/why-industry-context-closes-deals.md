@@ -10,6 +10,11 @@ summary: Semantic matching tells you two parties could do business. Industry con
 estimated-read: 7 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/why-industry-context-closes-deals-hero.png" alt="Two cargo ships moored on opposite sides of a waterway at dusk, with glowing documents drifting in the gap between them" loading="lazy">
+  <figcaption>The match is visible. The bridge is not yet built.</figcaption>
+</figure>
+
 There is a moment in every thin market that feels like the hard part is over.
 
 The buyer and the seller have found each other. Their profiles align — the right product, the right geography, the right scale. An AI matching engine has surfaced the pairing, the numbers look compatible, and both sides are willing to engage. From the outside, it looks like a deal waiting to happen.
