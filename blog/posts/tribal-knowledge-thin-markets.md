@@ -46,7 +46,11 @@ You cannot standardize your way out of it. Standardization sacrifices the very s
 
 The question is whether you can make the relevant domain knowledge available to parties who do not already have it — at the moment they need it, in a form they can use, without requiring either party to first become an expert in the other's operating context.
 
-That is the problem. The engineering that addresses it is a separate conversation.
+AI technology is the most plausible candidate for taking on this role at scale. A system trained on the authoritative reference material of a specific domain — the contracts, regulations, standards, and procedural knowledge that constitute the tribal knowledge of that vertical — could in principle serve every participant on a marketplace as a shared resource. It would not retire. It would carry no client relationships that create conflicting loyalties. It would have no financial incentive to ration the information it holds.
+
+Whether that actually works in practice is a different matter. The theoretical case is reasonable. The engineering is feasible. But translating the nuanced, contextual judgment of a seasoned human broker into a system that reliably serves unfamiliar parties across diverse corridors and edge cases is not a solved problem. It is a hypothesis. A plausible one — but a hypothesis.
+
+DeeperPoint is building the scaffolding that allows sponsors of specific thin market platforms to test it. Not a demonstration, not a proof of concept — a working set of tools that a sponsor can deploy in a real market vertical, with real participants, and find out whether the hypothesis holds where it matters: in the field.
 
 ---
 
