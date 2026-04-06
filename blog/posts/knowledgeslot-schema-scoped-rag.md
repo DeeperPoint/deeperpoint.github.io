@@ -10,6 +10,11 @@ summary: A reference library without a metadata schema returns semantically simi
 estimated-read: 8 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/knowledgeslot-schema-scoped-rag-hero.png" alt="A vast archive chamber with a single shaft of light illuminating one precisely tagged section of shelves" loading="lazy">
+  <figcaption>The entire library exists. Only one slice is relevant.</figcaption>
+</figure>
+
 Retrieval-Augmented Generation — RAG — is the mechanism that lets an AI system answer questions from a curated document library rather than from its training weights alone. It is the engine behind KnowledgeSlot's domain Q&A capability: ingest authoritative reference documents, chunk and embed them, and when a participant asks a question, retrieve the relevant chunks and let the model synthesize an answer.
 
 The problem is that "relevant" is doing a lot of work in that sentence.
