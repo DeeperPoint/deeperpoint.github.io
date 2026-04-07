@@ -10,6 +10,11 @@ summary: In thin markets, the goods are complex and the counterparties are stran
 estimated-read: 6 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/tribal-knowledge-thin-markets-hero.png" alt="A seasoned broker stands at the center of a trading floor, the only connection between buyers and sellers on either side" loading="lazy">
+  <figcaption>The knowledge that closes deals lives in one person's memory. That is both the strength and the problem.</figcaption>
+</figure>
+
 There is a standard explanation for why markets fail to form. The textbook version involves transaction costs, information asymmetry, and trust deficits. These are real, but they miss something more fundamental.
 
 In a thin market, the thing being exchanged resists description.
