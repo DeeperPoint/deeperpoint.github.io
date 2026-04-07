@@ -1,19 +1,12 @@
-<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
-
 ---
-title: "Market Scenario: One Container of Barley"
-stream: market-scenario
+title: "Market Scenario: One Container of Barley — How a Saskatchewan Farmer and a Filipino Brewmaster Found Each Other Across 12,000 Kilometres"
 date: 2026-03-10
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, grain, craft-beer]
+slug: malting-barley-thin-market
+stream: market-scenario
+tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, grain, craft-beer]
 summary: A grain farmer in Saskatchewan grows premium two-row malting barley that the big trading companies blend into commodity shipments. A craft brewery purchasing manager in Cebu wants one container of something special for a seasonal lager. They need each other — but neither knows the other exists.
 estimated-read: 12 min read
-slug: malting-barley-thin-market
 ---
-
-<figure class="blog-hero">
-  <img class="blog-hero__img" src="../../images/blog/malting-barley-thin-market-hero.png" alt="Split view — a Philippine craft brewery on the left, golden Canadian prairie barley fields on the right" loading="lazy">
-  <figcaption>Golden malting barley ready for harvest on the Canadian prairies — destined for a brewery 12,000 kilometres away.</figcaption>
-</figure>
 
 ## The Grain in the Bin
 
@@ -90,6 +83,18 @@ Maribel sees:
 > *"A third-generation grain farmer in Rosetown, Saskatchewan, grows CDC Copeland malting barley that grades Select with 11.8% protein, 95.4% germination energy, and 91% plumpness. The grain is identity-preserved — single variety, single field, with a current Canadian Grain Commission certificate. The farmer has rail access to the Pacific coast container terminals. Would you like to review the producer profile and quality documentation?"*
 
 For Darren, the key phrase is "willing to pay a premium for single-farm provenance." For Maribel, it's "identity-preserved" and the precise quality numbers she can verify against the CGC certificate.
+
+But receiving a match notification and starting a conversation are two different things. Darren has never arranged an international container shipment. Maribel has never bought directly from a Canadian farm. Both know enough to know there is a lot they do not know — which is exactly the kind of friction that keeps structurally sound deals from opening.
+
+The platform addresses this with a Generative Match Story: a brief, deal-specific narrative generated from the combined inputs of Darren's and Maribel's profiles and the Knowledge Slot's regulatory and logistics content. Neither party requests it; it arrives with the match notification as a shared reference.
+
+The scenario describes, in plain language, how this specific transaction could unfold: Darren's 24-tonne lot of CDC Copeland, identity-preserved and bagged at his local seed plant, loaded into a 20-foot container at a prairie transload facility, shipped FOB Vancouver under a container-specific grain contract (not GAFTA 27, which excludes Pacific ports), with a compliant phytosanitary certificate issued by CFIA and the BPI Prior Notice filed before the vessel departs. Maribel receives payment terms — cash against documents, her bank releasing funds on receipt of the matched bill of lading, inspection certificate, and phytosanitary certificate. The scenario names the compliance dependencies in sequence and flags the one step that most first-time exporters miss: the SPSIC import permit must be filed in Manila *before* the grain is loaded in Vancouver, not after.
+
+Neither Darren nor Maribel wrote this. Neither had to know it in advance. They read it together — and now both have something concrete to discuss rather than a mutual situation of not knowing where to start.
+
+Darren's first message to Maribel: *"I've looked at the scenario the platform generated. I can cover the CFIA phytosanitary certificate from this end. Can you confirm who files the SPSIC import permit on your side, and what the lead time is from your bureau?"*
+
+Maribel knows the answer — or can find it through her Guild — and the conversation is already specific.
 
 ---
 

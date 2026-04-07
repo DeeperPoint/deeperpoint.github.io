@@ -1,17 +1,12 @@
-<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 ---
-title: "Market Scenario: The Last Timber Framers"
-stream: market-scenario
+title: "Market Scenario: The Last Timber Framers — Heritage Craft and the Market That's Disappearing With Its Masters"
 date: 2026-03-07
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge]
+slug: heritage-craft-thin-market
+stream: market-scenario
+tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge]
 summary: A master timber framer in rural Vermont can't find commissions. A homeowner in Virginia can't find a timber framer. The market between them works by word of mouth — which means it barely works at all. This is a thin market, and the craft is aging out.
 estimated-read: 11 min read
-slug: heritage-craft-thin-market
 ---
-<figure class="blog-hero">
-    <img class="blog-hero__img" src="../images/blog/heritage-craft-thin-market-hero.png" alt="A timber-frame barn joint — mortise and tenon, joined with wooden pegs, held together by centuries of knowledge" loading="lazy">
-    <figcaption>A timber-frame barn joint — mortise and tenon, joined with wooden pegs, held together by centuries of knowledge.</figcaption>
-</figure>
 
 ## The Name on the Napkin
 
@@ -79,6 +74,16 @@ Catherine sees:
 
 For eleven months, Catherine searched for "timber framer" and found carpentry companies. The platform searched for the *structural match* between her barn's needs and a craftsperson's abilities — and found Silas.
 
+Both parties say yes. And then comes a moment that would not exist in a word-of-mouth market: the platform generates a Generative Match Story — a plain-language description of how this specific commission could unfold, assembled from Silas's capability profile, Catherine's requirements profile, and the Knowledge Slot's content on Virginia preservation easements and heritage commission conventions.
+
+The scenario describes the project arc: a site visit by Silas to assess the barn's structural condition before any scope is agreed; Virginia Department of Historic Resources approval required before work begins (the easement's terms make this non-optional); species-matched white oak to be sourced from a reclaimed lumber supplier in the Shenandoah Valley; the restoration sequenced as stabilisation first, then structural repair, then finish work; payment structured in three milestone instalments tied to DHR approval, framing completion, and final inspection. The scenario also notes the documentation requirement that most clients overlook: the Virginia easement requires written documentation of all materials used and all work performed, submitted to DHR within sixty days of project completion.
+
+Silas's daughter reads it to him over the phone. He listens without interrupting — which, for Silas, is a sign of concentration rather than agreement. When she finishes, he says: "The sequencing is right. I'd do the foundation assessment before the site visit, not after. And I know a better source for the chestnut."
+
+That is three specific corrections and one supplier referral — in thirty seconds, before a single photo has been exchanged. The scenario gave him something concrete to react to rather than a blank introduction.
+
+Catherine reads the same scenario on her phone and immediately understands what she had not previously known: that the Virginia DHR approval is a hard dependency, not a formality, and that it must happen *before* the framing work begins. This is the detail that would have surprised her mid-project. Now she knows to ask about it in her first message.
+
 ## 4. What the Platform Knows
 
 When the Preservation Trades Network and the regional heritage council configured the platform, they populated the **Knowledge Slot** — the sponsor-curated reference library — with domain-specific information:
@@ -141,4 +146,4 @@ This is what market engineering means in practice for heritage trades: not just 
 
 *The story of Silas and Catherine is fictional — an imagined scenario, not a description of an existing platform or real participants. But the craft traditions, the conservation standards, and the market dynamics described are real, the thin market forces are documented, and the harness architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a sponsor organization like the Preservation Trades Network or a regional heritage council could build using those tools. The operational details — which craft traditions to include, which conservation standards to enforce, how to verify practitioner credentials, how to structure easement-compliant commissions — are rightly the work of a sponsor embedded in the specific heritage context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
-*[What makes a thin market tick? →](../thin-markets.html) · [The MarketForge platform →](../marketforge.html) · [Who should build this? →](../who-should-care.html)*
+*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*

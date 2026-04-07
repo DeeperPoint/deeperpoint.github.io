@@ -1,19 +1,12 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
-slug: used-machinery-thin-market
-series-position: 3
 title: "Market Scenario: The Machine Under the Tarp"
 date: 2026-03-18
+slug: used-machinery-thin-market
 stream: market-scenario
 tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge]
-summary: "A $140,000 CNC machining center sits under a tarp at the back of a factory in Stratford. A manufacturer in Windsor needs exactly that machine. Neither knows the other exists."
-estimated-read: 11 min read
+summary: A $140,000 CNC machining center sits under a tarp at the back of a factory in Stratford. A manufacturer in Windsor needs exactly that machine. Neither knows the other exists.
+estimated-read: 10 min read
 ---
-<!-- markdownlint-disable MD033 MD001 -->
-
-<div class="scenario-story" markdown="1">
 
 <figure class="blog-hero">
   <img class="blog-hero__img" src="../images/blog/used-machinery-thin-market-hero.png" alt="A CNC machining center under a tarp in Stratford, then clean and operational on a factory floor in Windsor" loading="lazy">
@@ -96,6 +89,8 @@ This is the inversion that makes a well-documented used equipment marketplace st
 
 This principle applies to virtually any category of used industrial equipment. A documented used machine is a "tried and tested" machine with "known and well-documented performance." That cannot be underestimated as a new category of market value — and it can only be realized if the marketplace's AI can ingest, interpret, and match on the full depth of technical documentation that constitutes the proof.
 
+The platform also generates a brief transaction summary alongside the capability match report — an outline of the inspection sequence, rigging and freight logistics, pricing benchmark relative to new, and warranty transfer options — giving both Frank and Sofía a shared picture of what the next two to three weeks would look like before either composes their first message.
+
 ---
 
 ### 4. What the Platform Knows
@@ -118,9 +113,9 @@ When both parties are ready, the platform assembles the full transaction structu
 
 ### 6. What Makes This a Thin Market Story
 
-**Information asymmetry** — The platform doesn't just close the information gap — it *inverts* it. A documented used machine with CMM data, maintenance records, and production evidence is more transparent than a new machine that arrives with only a specification sheet. 
-**Discovery** — Frank in Stratford and Sofía in Windsor, 300 kilometres apart, had no mechanism to find each other; listing platforms match by category, not by production capability. 
-**Trust** — Independent inspection and a documented communication trail build verifiable trust without requiring either party to take the other's word. 
+**Information asymmetry** — The platform doesn't just close the information gap — it *inverts* it. A documented used machine with CMM data, maintenance records, and production evidence is more transparent than a new machine that arrives with only a specification sheet.
+**Discovery** — Frank in Stratford and Sofía in Windsor, 300 kilometres apart, had no mechanism to find each other; listing platforms match by category, not by production capability.
+**Trust** — Independent inspection and a documented communication trail build verifiable trust without requiring either party to take the other's word.
 **Deal complexity** — Rigging, freight, inspection, and service transfer require coordination neither party can provide alone; the platform assembles the full transaction from its facilitator pool.
 
 ---
@@ -133,6 +128,6 @@ The platform remembers the transaction. The matching engine now has data on what
 
 And Frank's factory floor has a conspicuous openness where the tarp used to be. He's already thinking about the coordinate measuring machine in the quality lab that he hasn't used since the product consolidation. He opens the app.
 
-</div>
+---
 
 *[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [The Cosolvent open protocol →](https://github.com/DeeperPoint/Cosolvent)*

@@ -1,17 +1,12 @@
-<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 ---
-title: "Market Scenario: The House You Can't Visit"
-stream: market-scenario
+title: "Market Scenario: The House You Can't Visit — Diaspora Property Management and the Trust Gap That Eats Your Savings"
 date: 2026-03-09
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, diaspora]
+slug: diaspora-property-thin-market
+stream: market-scenario
+tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, diaspora]
 summary: An Ethiopian-Canadian professional in Toronto owns a rental property in Addis Ababa that needs $10,000 in upgrades. She can't fly over to manage the work. Her cousins can help, but they can't evaluate a contractor's electrical work or negotiate material prices. This is a thin market — and the trust gap costs more than the renovation.
 estimated-read: 12 min read
-slug: diaspora-property-thin-market
 ---
-<figure class="blog-hero">
-    <img class="blog-hero__img" src="../images/blog/diaspora-property-thin-market-hero.png" alt="A kitchen renovation before and after — demolished walls and exposed wiring on the left, modern finished kitchen on the right" loading="lazy">
-    <figcaption>Split worlds — a diaspora professional in Toronto and the property she manages 10,000 kilometres away in Addis Ababa.</figcaption>
-</figure>
 
 ## The Call at 3 AM
 
@@ -79,6 +74,8 @@ Bekele sees:
 
 For Bekele, the key words are "escrow-backed" and "milestone-based release." This means guaranteed payment upon verified completion — no chasing, no renegotiation.
 
+Before either party responds, the platform generates a project summary describing the renovation scope in sequence — plumbing, then tiling, then electrical upgrade — with the EBC 9 compliance checkpoints mapped to each milestone and the escrow release conditions attached to each one. Almaz sees, in plain Amharic, exactly what she would be authorizing before she commits her first deposit. She is not asked to trust a process she cannot see.
+
 ## 5. What the Platform Knows
 
 When the Ethiopian Diaspora Business Association and its Canadian partner configured the platform, they populated the **Knowledge Slot** with domain-specific reference material:
@@ -141,4 +138,4 @@ She doesn't need to buy a plane ticket. She is, in the only sense that matters f
 
 *The story of Almaz and Bekele is fictional — an imagined scenario, not a description of an existing platform or real participants. But the diaspora dynamics, the economic trade-offs, and the regulatory environment described are real, the thin market forces are documented, and the harness architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a diaspora business association or a bilateral trade organization could build using those tools. The operational details — which contractor verification standards to enforce, how to structure escrow in the Ethiopian banking system, how to integrate E-POA and Fayda for identity verification — are rightly the work of a sponsor embedded in the specific diaspora context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
-*[What makes a thin market tick? →](../thin-markets.html) · [The MarketForge platform →](../marketforge.html) · [Who should build this? →](../who-should-care.html)*
+*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*

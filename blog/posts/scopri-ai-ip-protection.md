@@ -9,11 +9,6 @@ summary: How a Cosolvent-derived architecture could help European deep tech entr
 estimated-read: 7 min read
 ---
 
-<figure class="blog-hero">
-  <img class="blog-hero__img" src="../images/blog/scopri-ai-protection-hero.png" alt="Secure IP matching concept illustration" loading="lazy">
-  <figcaption></figcaption>
-</figure>
-
 ## The Innovation Paradox
 
 For deep tech entrepreneurs and R&D engineers, intellectual property is not just an asset—it is the entire foundation of their company. Whether they are developing novel metamaterials, advanced genomic therapies, or solid-state batteries, the core value of their work lies in the secrets they hold.
@@ -65,6 +60,12 @@ The platform did not reveal Elara's identity to Jens, nor Jens's identity to Ela
 This was the critical moment. In a traditional market, one party would have to take a leap of faith and share sensitive information first. The Cosolvent architecture replaced this leap of faith with a structured, step-by-step disclosure protocol.
 
 Both Elara and Jens clicked "Proceed." The platform generated an automated, mutual Non-Disclosure Agreement, customized based on the overlapping parameters of their confidential profiles. Neither had to pay legal fees to draft it; the KnowledgeSlot layer ensured it was compliant with both EU and national IP frameworks.
+
+Before the NDA was signed — while both parties were still fully pseudonymous — the platform generated a Generative Match Story. This scenario was careful: it described the structural shape of the collaboration, not its content. No polymer formulas. No process parameters. Only the logical framework of how a partnership between a materials breakthrough and a manufacturing process capability typically works at this stage of deep tech development.
+
+The scenario described a joint testing agreement in which each party retains sole ownership of their respective IP; any resulting patents on the *combination* are jointly filed; a three-month validation program tests whether the process can handle the material at scale; results are shared exclusively between the two parties under the NDA. The scenario also named the specific legal instrument — a bilateral R&D collaboration agreement under German-Swedish cross-border IP law — and identified the EIT community's standard boilerplate for exactly this structure.
+
+Neither Elara nor Jens had to ask "what does a collaboration like this even look like?" The platform had already answered that question, in structural terms, before a single proprietary detail was disclosed. When they clicked "Proceed" and the NDA was generated, they were signing a document whose framework they had already reviewed — not committing to an unknown process.
 
 Once the NDA was digitally signed by both pseudonymous parties, they entered a secure Cosolvent deal-room. Only now were their identities, institutional affiliations, and platform-generated, non-confidential summaries revealed to one another—just enough information to verify the platform's match.
 
