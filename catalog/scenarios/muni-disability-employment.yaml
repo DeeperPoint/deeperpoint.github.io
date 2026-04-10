@@ -1,0 +1,101 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: muni-disability-employment
+title: "Disability Employment and Municipal Workplace Accommodation Matching"
+sector: municipal-government
+sub_sector: Human Resources
+forge_tier: 2
+status: published
+tags: [disability, employment, municipalities, aoda, human-rights, inclusion, canada]
+
+market_example:
+  summary: "Municipal HR systems match applicants with disabilities to job classifications using generic criteria, missing the specific technology environment, workspace, and task-structure attributes that determine whether a required accommodation is actually available in a specific role."
+  problem: "Municipalities face persistent difficulty matching job seekers with disabilities to municipal roles where the specific accommodation required is available and where the person's skills match actual task requirements. The municipal HR system encodes jobs by generic classification; accommodation requirements (screen reader compatibility with specific software, specific transit access, particular ergonomic configurations) are never systematically matched against position characteristics before offers are made. High failure rates of accommodated placements result in disability discrimination complaints, legal costs, and ongoing vacancy."
+  dominant_forces:
+    - "Information asymmetry — applicants with disabilities know their accommodation requirements; HR knows the actual working conditions of positions; the two are matched at offer stage (too late) rather than at application stage"
+    - "Opacity — the details of which roles are genuinely accommodation-compatible are not encoded in job postings"
+    - "Cognitive overload — HR generalists responsible for 50+ job classifications cannot maintain working knowledge of which roles are best suited to which accommodation profiles"
+    - "Trust deficit — applicants with disabilities reasonably fear disclosing accommodation needs early in the recruitment process due to documented discrimination; this produces mismatches that neither party can prevent without earlier honest exchange"
+    - "Regulatory fragmentation — Ontario Human Rights Code duty-to-accommodate requirements, AODA employment accessibility standards, WSIB return-to-work obligations, and federal accessibility legislation create overlapping compliance requirements"
+  deeperpoint_fit: "Semantic matching aligns applicant profiles (skills, accommodation requirements disclosed at the matching stage, career goals) with position profiles (actual task requirements, technology environment, physical access characteristics, team structure) — with the trusted intermediary protocol protecting disclosure until the candidate chooses to engage. KnowledgeSlot curates AODA employment standards, Ontario Human Rights Commission accommodation policy guidelines, WSIB return-to-work responsibilities, and best-practice accommodation inventories by disability type. The Generative Match Story helps HR officers articulate to hiring managers why a specific candidate-position pairing is a strong match, including how the required accommodation is already available."
+  economic_upside: "More effective disability employment matching reduces legal risk, improves workforce diversity, taps a pool of skilled workers municipalities are systematically underutilizing, and demonstrates civic leadership that strengthens the municipality's standing as a social employer."
+
+sponsor_opportunities:
+  - title: "Municipal Position Accessibility Profile Database"
+    type: saas
+    revenue_model: "Annual subscription per HR department ($1,500–$3,000/year based on job classification count); consortium pricing for regional municipal HR networks"
+    strategic_logic: "No structured database of actual position-level accessibility characteristics (software environment, ergonomic configuration, transit access, task independence level) exists in Canadian municipal HR systems. Building it converts AODA position accessibility requirements from a compliance obligation into a recruitment asset."
+    recurring: true
+
+  - title: "Confidential Accommodation Profile Matching Service"
+    type: saas
+    revenue_model: "Per-match candidate processing fee $75–$150; annual unlimited matching subscription for HR department ($3,500–$6,000/year)"
+    strategic_logic: "The disclosure problem is the central barrier. A matching service that allows candidates to share accommodation requirements under a protected protocol — visible in aggregate match scoring but not disclosed to hiring managers without candidate consent — resolves the trust barrier that prevents early, productive disclosure."
+    recurring: true
+
+  - title: "AODA Employment Compliance Navigator"
+    type: saas
+    revenue_model: "Annual licence per HR department ($899–$1,499/year); HR partner network consortium pricing"
+    strategic_logic: "HR generalists cannot maintain current knowledge of AODA employment standards, Ontario Human Rights Commission guidelines, WSIB RTW obligations, and federal accessibility legislation simultaneously. A curated, jurisdiction-specific compliance navigator is a sticky subscription product for every municipal HR department."
+    recurring: true
+
+  - title: "Accommodation Worksite Assessment Coordination"
+    type: managed-service
+    revenue_model: "Per-referral coordination fee $75; occupational therapist assessment referral commission (10–15% of assessment fee)"
+    strategic_logic: "Accommodation implementation often requires an occupational therapist worksite assessment. The platform that placed the candidate is positioned to coordinate the assessment referral — creating a recurring referral stream with every successful placement."
+    recurring: false
+
+story:
+  title: "The Job That Fit"
+  status: published
+  summary: "A data analyst with low vision applies to a municipal GIS analyst position. The posted job looks promising, but she has no way to know whether the specific software environment uses screen-reader-compatible tools before disclosing her accommodation needs. The municipal HR officer doesn't know either — until they look it up, together, too late in the process."
+  characters:
+    - "Nadia — data analyst with low vision, job seeker, Ontario"
+    - "Kevin — HR generalist, municipal human resources department, Ontario"
+  body: |
+    ## Act A — The Disclosure Dilemma
+
+    Applicants with disabilities face a specific, structural dilemma in the job market.
+
+    They need to know whether the job's actual working environment can accommodate their needs before they commit to disclosing those needs. But the only way to find out is to ask — which requires disclosing. And disclosing before they have an offer carries documented risk, because disability discrimination in hiring is real, underreported, and difficult to prove.
+
+    HR officers face a parallel problem. They want to accommodate. They have legal obligations to accommodate. But they don't know, in advance of a candidate disclosing, which of their fifty-plus job classifications have working environments compatible with which accommodation profiles. The GIS analyst position: does the GIS software the team uses have a screen reader interface? Kevin in HR doesn't know. He's responsible for fifty-three job classifications. He cannot maintain working knowledge of the technology environment of each one.
+
+    The result is a matching process that is systematically late: accommodation needs are disclosed after offer, when the position is already specified, the team is already selected, and modifying the arrangement requires renegotiation that feels like burden rather than inclusion.
+
+    The following is a fictional account of how MarketForge structures this matching — before the disclosure, before the application, before the mismatch.
+
+    ---
+
+    ## Act B — The Story
+
+    **Nadia** is a data analyst with low vision. She uses JAWS screen reader software and ZoomText magnification. She has a master's degree in geographic information science and five years of experience in spatial analysis. She has applied to four GIS positions in the past year. Two offered her positions but could not accommodate her screen reader software (their GIS platforms didn't have JAWS-compatible interfaces). One withdrew the offer after she disclosed her accommodation needs — she cannot prove it was causal.
+
+    She registers on the MarketForge municipal employment platform. Her profile encodes her skills and an accommodation specification under a protected protocol: screen reader software (JAWS), specific GIS software compatibility required (ESRI ArcGIS Pro with accessibility mode, or equivalent), monitor height adjustment, remote work flexibility preferred.
+
+    The profile is visible to matching algorithms but not to individual employers until she specifically authorizes disclosure.
+
+    ---
+
+    **Kevin** is an HR generalist for a mid-sized Ontario municipality. His department has an open GIS analyst position — the incumbent has retired. He has updated the position profile on the MarketForge platform as part of the municipality's participation in a regional HR accessibility pilot program. The position profile encodes Technology Environment: ESRI ArcGIS Pro 3.2 (JAWS-compatible accessibility mode confirmed by IT department), hardware: 32-inch monitor with height-adjustable mount, work location: primarily in-office with two remote days per week available.
+
+    The platform matches Nadia's accommodation profile against the GIS analyst position. JAWS compatibility: confirmed for ArcGIS Pro 3.2. Monitor configuration: height-adjustable confirmed. Remote flexibility: two days per week available. Skills match: strong (GIS specialization, spatial analysis experience).
+
+    Nadia receives a match notification. The notification tells her, in plain language, that the specific software environment of this position is confirmed compatible with her screen reader — without disclosing her specific accommodation profile to the employer.
+
+    ---
+
+    She authorizes disclosure and applies. Kevin receives her application with her accommodation specification and the platform's position compatibility confirmation. The **Generative Match Story** explains to Kevin — and to the hiring manager — why this specific candidate's accommodation is already structurally available in this specific role: the software is compatible, the hardware configuration is already in place, the work schedule flexibility is within existing team norms. No modification to the position is required. The accommodation is built into the environment.
+
+    Kevin's hiring manager reads the scenario. His concern — "won't accommodating this person require significant changes?" — is directly addressed. The accommodation requires no changes. He hires Nadia.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The disability employment market in the public sector is not broken because municipalities don't want to hire people with disabilities. It's broken because the information architecture of job matching was built for a world in which accommodation is not a first-class variable in the hiring decision.
+
+    Rehabilitation counsellors, disability employment coaches, and individual advocates try to bridge this gap one candidate at a time. It is expensive, slow, and dependent on relationship networks. It does not scale to the size of the problem.
+
+    What [thin market infrastructure](../../thin-markets.html) does is make accommodation compatibility a searchable, matchable, and documentable variable in the hiring process — structured in a way that protects the candidate's disclosure until she chooses to authorize it, and provides the employer with a clear, factual basis for decision-making.
+
+    *Nadia and Kevin are fictional. The accessibility standards, software tools, and legal frameworks described — AODA employment standards, Ontario Human Rights Code duty to accommodate, JAWS screen reader, ArcGIS Pro — are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

@@ -1,0 +1,103 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: muni-transitional-housing
+title: "Transitional Housing and Supportive Services Placement"
+sector: municipal-government
+sub_sector: Social Services
+forge_tier: 2
+status: published
+tags: [housing, social-services, municipalities, homelessness, disability, mental-health]
+
+market_example:
+  summary: "Municipalities matching individuals with complex needs to transitional housing units rely on caseworker personal knowledge rather than systematic matching, producing placement delays, poor fit, and preventable returns to street homelessness."
+  problem: "Municipalities operating transitional housing programs struggle to match individuals with complex needs — mental health, addiction, physical disability, domestic violence history, immigration status — to specific units and service packages. Housing inventory is heterogeneous: some units accommodate wheelchairs, some have on-site mental health support, some accept pets, some have age restrictions. Matching an individual to the right placement is a high-stakes, multi-attribute problem that caseworkers solve through personal knowledge networks and manual spreadsheet tracking, producing delays, mismatches, and returns to street homelessness."
+  dominant_forces:
+    - "Participant scarcity — the right unit for an individual with a specific combination of needs may be one of a handful in the city, turning over infrequently"
+    - "Information asymmetry — housing providers know their unit capabilities; intake workers know individual needs; no shared system encodes both in compatible terms"
+    - "Temporal distance — placement delays create cascading harm; units sit empty while eligible individuals remain unsheltered"
+    - "Cognitive overload — a caseworker managing 30+ active files cannot maintain current awareness of unit availability and eligibility criteria across dozens of housing programs"
+    - "Strategic information withholding — individuals may not disclose needs that could disqualify them; providers may obscure real vacancy rates"
+  deeperpoint_fit: "Semantic matching aligns individual need profiles (disclosed and AI-inferred from intake data) with unit capabilities across the full inventory without requiring a caseworker to manually search each provider. Multi-channel input (WhatsApp, SMS, voice) allows individuals to provide intake information through channels accessible to people without smartphones or stable internet access. KnowledgeSlot curates eligibility criteria for each housing program, service bundles available by unit type, and funding source requirements. The Generative Match Story translates a match recommendation into a caseworker-readable explanation, enabling faster placement decisions. ConsentEvent logging ensures sensitive personal data is handled with explicit, auditable consent."
+  economic_upside: "Research consistently shows that every dollar invested in permanent supportive housing saves approximately three dollars in emergency shelter, hospital, and correctional system costs. Better matching reduces placement delays, reduces returns to homelessness through better fit, and allows case managers to serve more individuals with the same staffing."
+
+sponsor_opportunities:
+  - title: "Housing Inventory Real-Time Availability API"
+    type: saas
+    revenue_model: "Annual subscription per housing provider ($599–$999/year); municipal system integration licence ($2,500–$5,000/year)"
+    strategic_logic: "No real-time, interoperable housing inventory system exists for Canadian municipalities. The platform that creates it becomes infrastructure for caseworker operations across every housing provider in the city."
+    recurring: true
+
+  - title: "Multi-Channel Intake Platform (SMS/WhatsApp/IVR)"
+    type: saas
+    revenue_model: "Per-active-user monthly fee ($8–$15/month); annual municipal licence for unlimited intake volume ($8,000–$15,000)"
+    strategic_logic: "People experiencing homelessness do not consistently have smartphones or data plans. A multi-channel intake platform that works via SMS and basic phone is a civic necessity that no current municipal system provides."
+    recurring: true
+
+  - title: "Housing Program Eligibility Navigator"
+    type: saas
+    revenue_model: "Annual licence per caseworker ($299–$499/year); caseworker team subscription ($1,500/year for up to 10)"
+    strategic_logic: "Caseworkers navigating overlapping federal, provincial, and municipal housing program eligibility requirements need a curated, current navigator. The platform is the only entity with all program rules integrated in one place."
+    recurring: true
+
+  - title: "Supportive Housing Outcomes Reporting Service"
+    type: managed-service
+    revenue_model: "Per-municipality annual reporting service ($3,000–$6,000); funder-facing aggregate reporting package ($1,500/year)"
+    strategic_logic: "Federal and provincial housing funders increasingly require outcome reporting. The platform, which generates the placement data, is the natural producer of the outcome reports — creating a recurring reporting service with no incremental data collection burden."
+    recurring: true
+
+story:
+  title: "The Unit That Was Available"
+  status: published
+  summary: "A shelter caseworker has a client — a woman fleeing domestic violence with a mobility aid and a seven-year-old — whose specific placement needs intersect in a way that only two units in the city can accommodate. One of those units has been vacant for three weeks. The caseworker doesn't know it exists."
+  characters:
+    - "Renata — shelter intake caseworker, women's shelter, Hamilton, Ontario"
+    - "Diane — housing program coordinator, supportive housing provider, Hamilton, Ontario"
+  body: |
+    ## Act A — The Vacancy Nobody Could Find
+
+    Transitional housing in Canadian cities is not scarce in aggregate. It is scarce for specific people with specific needs.
+
+    A woman fleeing domestic violence who uses a rollator walker and has a child under ten needs a unit that is: wheelchair-accessible, in a building that the abusive partner doesn't know about, near a school with an available register, in a program that accepts children, with no male residents on the same floor, and close enough to transit that she can get to supervised access appointments without a car.
+
+    There are units in Hamilton that meet all of those criteria. On any given week, one or two of them are vacant. The caseworker who has this client does not know which ones. She calls the housing providers she knows personally. She doesn't know all of them. Three days of phone calls and one placement referral refused later, the client is still in the shelter.
+
+    The unit at the supportive housing program on the east side has been vacant for twenty-two days. The program coordinator updated her spreadsheet twice. Nobody called.
+
+    The following is a fictional account of how MarketForge closes this gap without compromising the safety or privacy of the people it serves.
+
+    ---
+
+    ## Act B — The Story
+
+    **Renata** is an intake caseworker at a Hamilton women's shelter. She has a client — Maria, name changed — who arrived three days ago with her seven-year-old daughter. Maria uses a rollator walker due to a hip injury. She is fleeing a domestic violence situation and the abusive partner knows the addresses of three other shelters in the city. The placement criteria are specific: ground-floor accessible unit, no male residents on the floor, program does not share address with the public, close to a school, accepts children.
+
+    Renata registers Maria's need profile on the MarketForge housing platform with explicit, documented consent — including what data is shared, with whom, and for what purpose. The consent is recorded in the ConsentEvent log. Maria's name is not in the matching profile. The profile contains disability accommodation requirements, safety criteria, household composition, school-age child yes/no, and location constraints.
+
+    ---
+
+    **Diane** coordinates a twelve-unit supportive housing program in Hamilton's east end. The program has three accessible ground-floor units. Unit 4 has been vacant for twenty-two days — the previous tenant moved to permanent housing last month. The unit meets the criteria: ground-floor accessible, women-only floor, program address not publicly listed, one block from a primary school.
+
+    Diane's program registered on the platform six weeks ago at the suggestion of the Hamilton Community Legal Clinic. Their unit profile encodes physical accessibility, gender composition, address disclosure policy, pet policy, children policy, and availability.
+
+    The platform matches Maria's anonymized need profile to Unit 4. The match is flagged as high-priority given the domestic violence safety criteria. Renata receives a structured match notification describing the unit's fit with each of Maria's requirements — no identifying information about the unit's address is included in the initial notification, consistent with the safety protocol.
+
+    ---
+
+    The **Generative Match Story** generated for Renata describes how the placement would work: the referral process for Diane's program, the documentation required (shelter intake form, child's school registration, Ontario Works file number), the typical timeline from referral to move-in (three to five days), and the support services bundled with the unit (weekly case management, community group access, children's programming). It flags that the unit has a pet restriction — Renata's notes don't mention a pet, so this is noted as a clarifying question for the intake conversation.
+
+    Renata reads the scenario. Unit 4 is a strong match. She contacts Diane through the platform's secure messaging channel. The referral is initiated that afternoon.
+
+    Maria moves in four days later.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The housing system in Canadian cities has units, caseworkers, and clients. What it lacks is a shared information layer that connects unit capabilities and individual needs in real time, without requiring caseworkers to maintain personal networks across every provider in the city.
+
+    The matching knowledge that Renata needs — which units are accessible, which programs accept children, which providers don't share their address publicly — lives in twenty different spreadsheets maintained by twenty different housing providers. None of it is searchable. None of it updates in real time.
+
+    The consequence is not just inefficiency. It is harm: preventable returns to street homelessness, preventable shelter crowding, preventable trauma from placement into the wrong program. The units are there. The system cannot find them.
+
+    What [thin market infrastructure](../../thin-markets.html) does is create the shared information layer — with the consent architecture, the privacy safeguards, and the multi-channel access that a social services context requires.
+
+    *Characters and cases are fictional. The housing programs, eligibility frameworks, and consent requirements described reflect real Canadian municipal housing system operations. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

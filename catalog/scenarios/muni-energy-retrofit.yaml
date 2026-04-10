@@ -1,0 +1,116 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: muni-energy-retrofit
+title: "Community Energy Retrofit Program Contractor Matching"
+sector: municipal-government
+sub_sector: Housing and Climate
+forge_tier: 2
+status: published
+tags: [energy, retrofit, climate, housing, municipalities, canada, heat-pump, contractors]
+
+market_example:
+  summary: "Municipal and regional energy retrofit programs for low-to-moderate income homeowners are chronically underspent because eligible homeowners cannot find program-qualified contractors, and qualified contractors cannot efficiently identify eligible homeowners in their service area."
+  problem: "Municipalities and regional housing authorities running residential energy retrofit programs face a dual thin market: homeowners eligible for subsidized retrofits cannot easily find contractors qualified under program rules, and qualified contractors cannot efficiently identify and reach eligible homeowners in their service area. Program administrators receive applications from homeowners whose preferred contractors are ineligible, and applications from eligible contractors whose service areas don't match applicant locations — producing lengthy delays, program underspend, and frustrated participants."
+  dominant_forces:
+    - "Search friction — no mechanism connects eligible homeowners with program-qualified contractors in specific geographic service areas"
+    - "Regulatory fragmentation — retrofit incentive programs (Canada Greener Homes, provincial programs, utility-funded efficiency programs) have different technical requirements, contractor registration conditions, and payment processes"
+    - "Cognitive overload — a homeowner deciding whether to replace their furnace cannot navigate the combination of federal grants, provincial rebates, utility incentives, zero-interest loans, and municipal matching programs to determine which combination applies to their situation"
+    - "Offering complexity — each retrofit project involves a unique combination of baseline energy performance, priority measures, available incentives, financing options, and technical specifications that change with each program funding cycle"
+    - "Temporal distance — program funding is annual and time-limited; homeowners and contractors must connect during a narrow eligibility window, and delays result in missed fiscal-year deadlines"
+  deeperpoint_fit: "Semantic matching aligns homeowner profiles (house type, current heating system, postal code, income bracket, program eligibility) with contractor profiles (certified measures, service area, program registration status, current capacity) across all applicable programs simultaneously. KnowledgeSlot curates program eligibility rules, technical specifications (NRCan EnerGuide requirements, heat pump specifications, insulation R-value thresholds), contractor registration requirements, and incentive stacking rules by jurisdiction and program year. The Generative Match Story explains to a homeowner exactly which programs they qualify for and why a specific contractor is the right fit. Anticipatory matching proactively notifies eligible homeowners when a qualified contractor is available in their postal code."
+  economic_upside: "Energy retrofit programs are among the highest-leverage municipal climate tools: they reduce emissions, lower energy costs for low-income families, create skilled trades jobs, and improve housing stock. Program underspend caused by matching failure is endemic. Better matching converts announced program budgets into actual retrofitted homes, contractor billings, and measurable emissions reductions."
+
+sponsor_opportunities:
+  - title: "Multi-Program Retrofit Incentive Eligibility Calculator"
+    type: saas
+    revenue_model: "Per-homeowner eligibility assessment $15–$25; municipal program portal integration licence ($3,000–$6,000/year)"
+    strategic_logic: "No tool exists that calculates a homeowner's combined eligibility across federal, provincial, utility, and municipal retrofit programs simultaneously. Building it eliminates the cognitive overload that is the single biggest barrier to retrofit program uptake."
+    recurring: true
+
+  - title: "Retrofit Contractor Program Registration Management"
+    type: managed-service
+    revenue_model: "Per-program contractor registration management $200–$400; annual multi-program registration maintenance ($350–$600/year)"
+    strategic_logic: "Retrofit contractors must maintain separate registrations for each funding program they participate in, each with different requirements and renewal cycles. A managed registration service converts a time-consuming compliance burden into a subscription service."
+    recurring: true
+
+  - title: "EnerGuide Energy Audit Coordination Service"
+    type: managed-service
+    revenue_model: "Per-audit coordination referral fee $75–$125; certified energy advisor network subscription ($299/year per advisor)"
+    strategic_logic: "Most federal and provincial retrofit programs require a pre- and post-retrofit EnerGuide audit. Coordinating audits with the retrofit project timeline is a logistics problem the platform is positioned to solve — creating a recurring referral stream for every matched homeowner project."
+    recurring: true
+
+  - title: "Retrofit Program Outcomes Reporting Service"
+    type: managed-service
+    revenue_model: "Annual outcomes report per program administrator ($1,200–$2,500); funder-facing aggregate emissions reduction report ($800/year)"
+    strategic_logic: "Federal and provincial retrofit funders require documented emissions reduction outcomes. The platform has the project data — house type, measure installed, EnerGuide pre/post ratings — to generate the outcomes report automatically. A recurring reporting product with no incremental data collection burden."
+    recurring: true
+
+story:
+  title: "The Heat Pump She Almost Didn't Get"
+  status: published
+  summary: "A low-income homeowner in Kingston qualifies for $14,000 in combined federal, provincial, and utility incentives for a heat pump conversion. She doesn't know. The heat pump contractor who serves her neighbourhood and is registered for all three programs doesn't know she exists. Her house leaks heat at 30% above code baseline and will, without intervention, cost her $1,800 more this winter than it could."
+  characters:
+    - "Margaret — homeowner, Kingston, Ontario. OAS/GIS income. 1962 bungalow. Oil furnace."
+    - "Jerome — owner, HVAC contractor, Kingston area. Certified heat pump installer. Registered for Canada Greener Homes, Enbridge Home Efficiency Rebate, and OntarioSaves."
+  body: |
+    ## Act A — The Program Nobody Could Navigate
+
+    Canada has committed billions of dollars to residential energy retrofit programs. The money exists. The eligible homeowners exist. The qualified contractors exist.
+
+    What doesn't exist is a mechanism that connects the three.
+
+    A low-income homeowner in Kingston, Ontario, sitting in a 1962 oil-heated bungalow in February, qualifies — in principle — for:
+
+    - The Canada Greener Homes Grant: up to $5,000 for a heat pump installation, contingent on a pre-retrofit EnerGuide audit and installation by a NRCan-listed contractor
+    - The Enbridge Home Efficiency Rebate: $1,800 for a cold-climate heat pump, if the contractor is Enbridge-registered and the equipment meets the HSPF2 minimum threshold
+    - OntarioSaves (Ontario Energy Board): up to $5,000 for fuel switching from oil to electric heat, for households below a specified income threshold
+    - Kingston Community Energy: $1,500 local municipal retrofit matching grant for heritage-era housing stock
+
+    Total incentive: $14,300. Net cost to homeowner for a $18,000 heat pump installation: $3,700.
+
+    Margaret does not know any of this. She has heard of the Canada Greener Homes Grant because her neighbour mentioned it. She called the 1-800 number. The automated system explained the program requirements in eleven steps and asked her to create an online account. She doesn't have reliable internet. She called back. The next available appointment with an energy advisor was nine weeks away.
+
+    She still has oil heat.
+
+    ---
+
+    ## Act B — The Story
+
+    **Margaret** is seventy-one years old. She owns her home — paid off thirty years ago. Her income is Old Age Security and the Guaranteed Income Supplement, approximately $21,000 per year. Her oil heating bill last winter was $3,200. Her house has an estimated EnerGuide rating of 47, well below the provincial average of 68.
+
+    The marktForge platform's municipal community energy program partnership has identified Margaret's address as a high-priority retrofit candidate through a postal code-based eligibility screening exercise (with her consent, obtained through a community health centre partner who works with seniors in her neighborhood). Her need profile encodes house type, current heating fuel, estimated income bracket, postal code, and program eligibility flags.
+
+    ---
+
+    **Jerome** runs a four-person HVAC company in the Kingston area. He is a certified heat pump installer (Certified Heat Pump Installer program, TSSA-registered), registered for the Canada Greener Homes contractor list, the Enbridge Home Efficiency Rebate program, and OntarioSaves. He has available booking in the next six weeks. His service area covers Kingston and surrounding postal codes.
+
+    He is registered on the platform and his contractor profile encodes certification status, program registrations, service area (by FSA), current booking capacity, and heat pump equipment lines (all meeting HSPF2 ≥ 10 threshold).
+
+    The platform matches Jerome's profile against Margaret's address. Service area: confirmed. Program registrations: all three applicable programs confirmed. HSPF2 threshold: confirmed. Booking capacity: available.
+
+    Margaret receives a text message through the platform's SMS channel: "You may qualify for up to $14,000 in home heating upgrades. Reply YES to learn more." She replies YES.
+
+    ---
+
+    The **Generative Match Story** is generated as a plain-language summary delivered by phone call (via IVR with a live agent option): Margaret's estimated combined incentive amount, the specific programs, the required pre-retrofit EnerGuide audit (which the platform coordinates), and Jerome's availability for the installation. The summary is also mailed to Margaret in large print (she requests this option).
+
+    Margaret says yes to the EnerGuide audit coordination. Jerome is notified of the engagement. The audit happens in ten days. Margaret's EnerGuide pre-retrofit rating is confirmed at 46. All three program applications are initiated with the audit data.
+
+    Jerome installs the heat pump six weeks later. The installation qualifies under all three programs. Margaret's combined incentive cheques total $13,800.
+
+    Her first full winter with the heat pump costs $480 in electricity.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Margaret was always eligible. Jerome was always qualified. The match was always possible.
+
+    What was missing was the mechanism that: identified Margaret as a high-priority retrofit candidate from her postal code and housing type; navigated her multi-program eligibility without requiring her to open an online account or spend nine weeks waiting for a phone appointment; connected her to the specific contractor who was registered for all three programs; and coordinated the EnerGuide audit that all three programs required.
+
+    Each of those steps, individually, is not complex. Together, they constitute a coordination problem that a low-income senior with no reliable internet cannot solve on her own, and that a busy HVAC contractor cannot justify investing marketing resources to solve for one potential customer.
+
+    Program underspend is the measurable consequence. Millions of dollars of federal and provincial retrofit money goes unspent every year not because eligible homeowners don't want warmer homes or lower heating bills, but because they cannot navigate the coordination required to access a program designed to help them.
+
+    What [thin market infrastructure](../../thin-markets.html) does is solve the coordination problem as a service — taking on the eligibility navigation, the contractor matching, the audit coordination, and the multi-channel communication that ensures Margaret can participate regardless of internet access.
+
+    *Margaret and Jerome are fictional. The programs described — Canada Greener Homes Grant, Enbridge Home Efficiency Rebate, OntarioSaves, EnerGuide audit — are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
