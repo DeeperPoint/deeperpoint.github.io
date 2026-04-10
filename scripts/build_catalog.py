@@ -35,17 +35,12 @@ SCENARIOS_DIR = SITE_ROOT / "catalog" / "scenarios"
 CATALOG_OUT = SITE_ROOT / "catalog"
 SITE_URL = "https://deeperpoint.com"
 
-FORGE_TIER_LABELS = {1: "Tier 1 — Simple", 2: "Tier 2 — Moderate", 3: "Tier 3 — Complex"}
 FORGE_TIER_COLORS = {1: "#22c55e", 2: "#f59e0b", 3: "#ec4899"}
 
-STORY_STATUS_LABELS = {
-    "published": "Published",
-    "draft": "Draft",
-    "none": "Not yet written",
-}
-
 # ---------------------------------------------------------------------------
-# Shared page chrome (matches build_blog.py style)
+# Shared page chrome
+# Placeholders use __TOKEN__ syntax to avoid conflicts with CSS curly braces.
+# Call renderHead() / renderFooter() to substitute them.
 # ---------------------------------------------------------------------------
 
 PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
@@ -56,16 +51,15 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>{title} — DeeperPoint Lab</title>
-  <meta name="description" content="{description}">
+  <title>__TITLE__ \u2014 DeeperPoint Lab</title>
+  <meta name="description" content="__DESCRIPTION__">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="{css_path}">
+  <link rel="stylesheet" href="__CSS_PATH__">
   <style>
-    /* ---- Catalog-specific styles ---- */
     .cat-header {
       padding-top: calc(var(--space-4xl, 4rem) + 60px);
       padding-bottom: var(--space-2xl, 2rem);
@@ -83,8 +77,6 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
       max-width: 600px; margin: 0 auto 2rem; line-height: 1.65;
     }
-
-    /* ---- Filters ---- */
     .cat-filters {
       display: flex; flex-wrap: wrap; gap: .5rem;
       justify-content: center; margin-bottom: 2.5rem;
@@ -95,41 +87,31 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       font-size: .78rem; font-weight: 500; cursor: pointer;
       transition: background .15s, color .15s, border-color .15s;
     }
-    .cat-filter-btn:hover,
-    .cat-filter-btn.active {
+    .cat-filter-btn:hover, .cat-filter-btn.active {
       background: rgba(99,102,241,.2); border-color: #6366f1; color: #c7d2fe;
     }
     .cat-filter-btn--tier { border-color: rgba(245,158,11,.35); color: #fcd34d; }
-    .cat-filter-btn--tier:hover,
-    .cat-filter-btn--tier.active { background: rgba(245,158,11,.15); border-color: #f59e0b; }
-
-    /* ---- Grid ---- */
+    .cat-filter-btn--tier:hover, .cat-filter-btn--tier.active {
+      background: rgba(245,158,11,.15); border-color: #f59e0b;
+    }
     .cat-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 4rem;
+      gap: 1.25rem; margin-bottom: 4rem;
     }
-
-    /* ---- Scenario card ---- */
     .scenario-card {
-      background: rgba(15,23,42,.6);
-      border: 1px solid rgba(99,102,241,.2);
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
       border-radius: 16px; padding: 1.4rem 1.5rem;
-      text-decoration: none; color: inherit;
-      display: block;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
-      cursor: pointer;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
     }
     .scenario-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
       border-color: rgba(99,102,241,.45);
     }
     .scenario-card__top {
       display: flex; align-items: flex-start;
-      justify-content: space-between; gap: .5rem;
-      margin-bottom: .75rem;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
     }
     .scenario-card__sector {
       font-size: .65rem; font-weight: 700; letter-spacing: .1em;
@@ -137,42 +119,28 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     }
     .scenario-card__tier {
       font-size: .65rem; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase; padding: 2px 8px; border-radius: 10px;
-      white-space: nowrap;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
     }
     .scenario-card__title {
-      font-size: 1.05rem; font-weight: 700;
-      color: var(--color-text-primary, #f1f5f9);
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
       line-height: 1.35; margin-bottom: .5rem;
     }
     .scenario-card__summary {
       font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
       line-height: 1.55; margin-bottom: 1rem;
     }
-    .scenario-card__tags {
-      display: flex; flex-wrap: wrap; gap: .3rem;
-      margin-bottom: .75rem;
-    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
     .scenario-card__tag {
-      font-size: .65rem; font-weight: 600; letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 2px 7px; border-radius: 8px;
-      background: rgba(99,102,241,.12);
-      border: 1px solid rgba(99,102,241,.2);
-      color: #a5b4fc;
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
     }
     .scenario-card__footer {
       display: flex; align-items: center; gap: .75rem;
       font-size: .75rem; color: var(--color-text-muted, #94a3b8);
     }
-    .scenario-card__story-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-    }
-
-    /* ---- Hidden class for filtering ---- */
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .scenario-card--hidden { display: none; }
-
-    /* ---- Detail page ---- */
     .detail-back {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: .82rem; color: #818cf8; text-decoration: none;
@@ -184,16 +152,10 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
     }
     .detail-title {
-      font-size: 2rem; font-weight: 700;
-      color: var(--color-text-primary, #f1f5f9);
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
       line-height: 1.25; margin-bottom: .75rem;
     }
-    .detail-meta {
-      display: flex; flex-wrap: wrap; gap: .5rem;
-      align-items: center; margin-bottom: 2rem;
-    }
-
-    /* ---- Tab navigation ---- */
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
     .tab-nav {
       display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
       margin-bottom: 2rem; overflow-x: auto;
@@ -202,30 +164,22 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
       background: transparent; border: none; border-bottom: 2px solid transparent;
       color: var(--color-text-muted, #94a3b8); cursor: pointer;
-      transition: color .15s, border-color .15s; white-space: nowrap;
-      margin-bottom: -1px;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
     }
     .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
-    .tab-btn.active {
-      color: #a5b4fc; border-bottom-color: #6366f1;
-    }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
-
-    /* ---- Panel content ---- */
     .panel-section {
-      background: rgba(15,23,42,.5);
-      border: 1px solid rgba(99,102,241,.15);
-      border-radius: 12px; padding: 1.5rem 1.75rem;
-      margin-bottom: 1.25rem;
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
     }
     .panel-section__label {
       font-size: .68rem; font-weight: 700; letter-spacing: .12em;
       text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
     }
     .panel-section__title {
-      font-size: 1.05rem; font-weight: 700;
-      color: var(--color-text-primary, #f1f5f9);
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
       margin-bottom: .75rem;
     }
     .panel-section p {
@@ -233,62 +187,36 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       line-height: 1.65; margin-bottom: .75rem;
     }
     .panel-section p:last-child { margin-bottom: 0; }
-
-    .force-list {
-      list-style: none; padding: 0; margin: 0;
-      display: flex; flex-direction: column; gap: .4rem;
-    }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
     .force-list li {
       font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
       display: flex; align-items: flex-start; gap: .5rem;
     }
-    .force-list li::before {
-      content: "\26A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0;
-    }
-
+    .force-list li::before { content: "\26A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0; }
     .opp-card {
-      border: 1px solid rgba(99,102,241,.2);
-      border-radius: 10px; padding: 1.1rem 1.25rem;
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
       margin-bottom: .85rem; background: rgba(99,102,241,.05);
     }
     .opp-card__title {
-      font-size: .92rem; font-weight: 700;
-      color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
     }
     .opp-card__type {
       font-size: .65rem; font-weight: 700; letter-spacing: .1em;
       text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
     }
-    .opp-card p {
-      font-size: .83rem; color: var(--color-text-secondary, #cbd5e1);
-      line-height: 1.55; margin-bottom: .4rem;
-    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
     .opp-card p:last-child { margin-bottom: 0; }
-    .opp-card__revenue {
-      font-size: .8rem; font-weight: 600;
-      color: #4ade80; margin-top: .5rem;
-    }
-
-    .story-placeholder {
-      text-align: center; padding: 3rem 1.5rem;
-      color: var(--color-text-muted, #94a3b8);
-    }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+    .story-placeholder { text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8); }
     .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
     .story-cta {
       display: inline-flex; align-items: center; gap: .5rem;
-      margin-top: 1.25rem; padding: .5rem 1.25rem;
-      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
-      color: #818cf8; text-decoration: none; font-size: .85rem;
-      font-weight: 600; transition: background .15s;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
     }
     .story-cta:hover { background: rgba(99,102,241,.15); }
-
-    /* ---- Count badge ---- */
-    .cat-count {
-      text-align: center; font-size: .82rem;
-      color: var(--color-text-muted, #94a3b8);
-      margin-bottom: 1.5rem;
-    }
+    .cat-count { text-align: center; font-size: .82rem; color: var(--color-text-muted, #94a3b8); margin-bottom: 1.5rem; }
     #visible-count { font-weight: 700; color: #a5b4fc; }
   </style>
 </head>
@@ -305,13 +233,13 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
   <!-- Minimal nav (no catalog link exposed) -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="{root}index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <a href="__ROOT__index.html" class="nav__logo">Deeper<span>Point</span></a>
       <ul class="nav__links">
-        <li><a href="{root}index.html" class="nav__link">Home</a></li>
-        <li><a href="{root}thin-markets.html" class="nav__link">The Problem</a></li>
-        <li><a href="{root}marketforge.html" class="nav__link">The Project</a></li>
-        <li><a href="{root}examples.html" class="nav__link">Examples</a></li>
-        <li><a href="{root}blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="__ROOT__index.html" class="nav__link">Home</a></li>
+        <li><a href="__ROOT__thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="__ROOT__marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="__ROOT__examples.html" class="nav__link">Examples</a></li>
+        <li><a href="__ROOT__blog/index.html" class="nav__link">Blog</a></li>
       </ul>
     </div>
   </nav>
@@ -329,10 +257,27 @@ PAGE_FOOTER = """
     </div>
   </footer>
 
-  <script src="{root}reveal.js"></script>
+  <script src="__ROOT__reveal.js"></script>
 </body>
 </html>
 """
+
+
+def renderHead(title, description, css_path, root):
+    """Render PAGE_HEAD substituting the four token placeholders without touching CSS braces."""
+    return (
+        PAGE_HEAD
+        .replace("__TITLE__", title)
+        .replace("__DESCRIPTION__", description)
+        .replace("__CSS_PATH__", css_path)
+        .replace("__ROOT__", root)
+    )
+
+
+def renderFooter(root):
+    """Render PAGE_FOOTER substituting the root token."""
+    return PAGE_FOOTER.replace("__ROOT__", root)
+
 
 # ---------------------------------------------------------------------------
 # YAML Loading
@@ -366,6 +311,7 @@ def loadScenarios():
 
 
 def tierBadge(tier):
+    """Generate a colored tier badge span."""
     color = FORGE_TIER_COLORS.get(tier, "#94a3b8")
     label = {1: "Tier 1", 2: "Tier 2", 3: "Tier 3"}.get(tier, f"Tier {tier}")
     return (
@@ -376,20 +322,20 @@ def tierBadge(tier):
 
 
 def storyDot(story):
-    """Return a colored dot indicating story status."""
+    """Return a colored dot + label indicating story status."""
     status = story.get("status", "none") if story else "none"
     colors = {"published": "#4ade80", "draft": "#f59e0b", "none": "#475569"}
     labels = {"published": "Story published", "draft": "Story in draft", "none": "No story yet"}
     color = colors.get(status, "#475569")
     label = labels.get(status, "Unknown")
     return (
-        f'<span class="scenario-card__story-dot" '
-        f'style="background:{color};" title="{html.escape(label)}"></span>'
-        f'<span>{label}</span>'
+        f'<span class="scenario-card__story-dot" style="background:{color};" title="{html.escape(label)}"></span>'
+        f"<span>{label}</span>"
     )
 
 
 def escHtml(text):
+    """HTML-escape a value, returning empty string for None."""
     return html.escape(str(text)) if text else ""
 
 
@@ -399,7 +345,7 @@ def escHtml(text):
 
 
 def buildIndexPage(scenarios):
-    """Generate the catalog index page with JS filtering."""
+    """Generate the filterable catalog index page."""
     sectors = sorted({s.get("sector", "other") for s in scenarios})
 
     sector_btns = '<button class="cat-filter-btn active" data-filter="sector" data-value="all">All Sectors</button>\n'
@@ -428,17 +374,13 @@ def buildIndexPage(scenarios):
         tags = s.get("tags", [])
         story = s.get("story", {})
         sponsor_count = len(s.get("sponsor_opportunities", []))
-
-        tags_html = "".join(
-            f'<span class="scenario-card__tag">{escHtml(t)}</span>' for t in tags
-        )
+        tags_html = "".join(f'<span class="scenario-card__tag">{escHtml(t)}</span>' for t in tags)
         story_html = storyDot(story)
+        s_count_label = f"{sponsor_count} sponsor opp" + ("s" if sponsor_count != 1 else "")
 
         cards_html += f"""
         <a href="{sid}.html" class="scenario-card reveal"
-           data-sector="{escHtml(sector)}"
-           data-tier="{tier}"
-           data-tags="{escHtml(' '.join(tags))}">
+           data-sector="{escHtml(sector)}" data-tier="{tier}" data-tags="{escHtml(' '.join(tags))}">
           <div class="scenario-card__top">
             <div class="scenario-card__sector">{escHtml(sector_label)}</div>
             {tierBadge(tier)}
@@ -448,55 +390,51 @@ def buildIndexPage(scenarios):
           <div class="scenario-card__tags">{tags_html}</div>
           <div class="scenario-card__footer">
             {story_html}
-            <span style="margin-left:auto">{sponsor_count} sponsor opp{"s" if sponsor_count != 1 else ""}</span>
+            <span style="margin-left:auto">{s_count_label}</span>
           </div>
         </a>"""
 
     filter_script = """
   <script>
     (function () {
-      const cards = Array.from(document.querySelectorAll('.scenario-card'));
-      const countEl = document.getElementById('visible-count');
-      const totalEl = document.getElementById('total-count');
+      var cards = Array.from(document.querySelectorAll('.scenario-card'));
+      var countEl = document.getElementById('visible-count');
+      var totalEl = document.getElementById('total-count');
       if (totalEl) totalEl.textContent = cards.length;
-
-      let activeSector = 'all';
-      let activeTier = 'all';
-
+      var activeSector = 'all';
+      var activeTier = 'all';
       function applyFilters() {
-        let visible = 0;
-        cards.forEach(card => {
-          const secMatch = activeSector === 'all' || card.dataset.sector === activeSector;
-          const tierMatch = activeTier === 'all' || card.dataset.tier === activeTier;
-          if (secMatch && tierMatch) { card.classList.remove('scenario-card--hidden'); visible++; }
+        var visible = 0;
+        cards.forEach(function(card) {
+          var secOk = activeSector === 'all' || card.dataset.sector === activeSector;
+          var tierOk = activeTier === 'all' || card.dataset.tier === activeTier;
+          if (secOk && tierOk) { card.classList.remove('scenario-card--hidden'); visible++; }
           else { card.classList.add('scenario-card--hidden'); }
         });
         if (countEl) countEl.textContent = visible;
       }
-
-      document.querySelectorAll('[data-filter]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const filter = btn.dataset.filter;
-          const value = btn.dataset.value;
+      document.querySelectorAll('[data-filter]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = btn.dataset.filter;
+          var value = btn.dataset.value;
           if (filter === 'sector') {
             activeSector = value;
-            document.querySelectorAll('[data-filter="sector"]').forEach(b => b.classList.remove('active'));
-          } else if (filter === 'tier') {
+            document.querySelectorAll('[data-filter="sector"]').forEach(function(b) { b.classList.remove('active'); });
+          } else {
             activeTier = value;
-            document.querySelectorAll('[data-filter="tier"]').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('[data-filter="tier"]').forEach(function(b) { b.classList.remove('active'); });
           }
           btn.classList.add('active');
           applyFilters();
         });
       });
-
       applyFilters();
     })();
   </script>"""
 
     total = len(scenarios)
-    head = PAGE_HEAD.format(
-        title="Market Catalog — Lab",
+    head = renderHead(
+        title="Market Catalog \u2014 Lab",
         description="DeeperPoint thin market scenario catalog. Internal use.",
         css_path="../styles.css",
         root="../",
@@ -511,7 +449,6 @@ def buildIndexPage(scenarios):
         Thin market opportunities analyzed through the DeeperPoint framework.
         Each entry includes a market analysis, sponsor revenue opportunities, and a story.
       </p>
-
       <div class="cat-filters">
         <div style="width:100%; text-align:center; font-size:.7rem; color:#64748b; margin-bottom:.3rem; letter-spacing:.08em; text-transform:uppercase;">Filter by Sector</div>
         {sector_btns}
@@ -520,11 +457,9 @@ def buildIndexPage(scenarios):
         <div style="width:100%; text-align:center; font-size:.7rem; color:#64748b; margin-bottom:.3rem; letter-spacing:.08em; text-transform:uppercase;">Filter by Forge Tier</div>
         {tier_btns}
       </div>
-
       <div class="cat-count">
         Showing <span id="visible-count">{total}</span> of <span id="total-count">{total}</span> scenarios
       </div>
-
       <div class="cat-grid">
         {cards_html}
       </div>
@@ -532,7 +467,7 @@ def buildIndexPage(scenarios):
   </section>
 {filter_script}
 """
-    footer = PAGE_FOOTER.format(root="../")
+    footer = renderFooter(root="../")
     return head + content + footer
 
 
@@ -542,7 +477,7 @@ def buildIndexPage(scenarios):
 
 
 def buildDetailPage(s):
-    """Generate the detail page for a single scenario."""
+    """Generate the three-tab detail page for a single scenario."""
     sid = s.get("id", "unknown")
     title = escHtml(s.get("title", "Untitled"))
     sector = s.get("sector", "other").replace("-", " ").title()
@@ -555,6 +490,7 @@ def buildDetailPage(s):
 
     tags_html = "".join(f'<span class="blog-tag">{escHtml(t)}</span>' for t in tags)
 
+    # Tab 1: Market Example
     forces = me.get("dominant_forces", [])
     forces_html = "".join(f"<li>{escHtml(f)}</li>" for f in forces)
     tab1 = f"""
@@ -575,6 +511,7 @@ def buildDetailPage(s):
         <p>{escHtml(me.get('economic_upside', ''))}</p>
       </div>"""
 
+    # Tab 2: Sponsor Opportunities
     if opps:
         opps_html = ""
         for opp in opps:
@@ -590,7 +527,11 @@ def buildDetailPage(s):
     else:
         tab2 = '<div class="panel-section"><p>No sponsor opportunities documented yet.</p></div>'
 
+    # Tab 3: Story
     story_status = story.get("status", "none") if story else "none"
+    chars = story.get("characters", []) if story else []
+    chars_html = f"<p><strong>Characters:</strong> {escHtml(', '.join(chars))}</p>" if chars else ""
+
     if story_status == "published" and story.get("blog_slug"):
         blog_url = f"../../blog/{story['blog_slug']}.html"
         tab3 = f"""
@@ -598,7 +539,7 @@ def buildDetailPage(s):
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">{escHtml(story.get('title', ''))}</div>
         <p>{escHtml(story.get('summary', ''))}</p>
-        {'<p><strong>Characters:</strong> ' + escHtml(', '.join(story.get('characters', []))) + '</p>' if story.get('characters') else ''}
+        {chars_html}
         <a href="{blog_url}" class="story-cta">Read on the blog &rarr;</a>
       </div>"""
     elif story_status == "draft":
@@ -607,19 +548,19 @@ def buildDetailPage(s):
         <div class="panel-section__label">Story \u2014 Draft</div>
         <div class="panel-section__title">{escHtml(story.get('title', 'Draft in progress'))}</div>
         <p>{escHtml(story.get('summary', ''))}</p>
-        {'<p><strong>Characters:</strong> ' + escHtml(', '.join(story.get('characters', []))) + '</p>' if story.get('characters') else ''}
-        <p style="color:#f59e0b; font-size:.82rem;">&#9998; This story is in draft. Publish it via the /story-post workflow.</p>
+        {chars_html}
+        <p style="color:#f59e0b; font-size:.82rem;">&#9998; Draft in progress. Publish via /story-post workflow.</p>
       </div>"""
     else:
-        tab3 = f"""
+        tab3 = """
       <div class="story-placeholder">
         <div class="story-placeholder__icon">&#128221;</div>
         <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Use the <code>/story-post</code> workflow to generate a narrative for this market.</p>
+        <p style="font-size:.8rem;">Use the <code>/story-post</code> workflow to generate a narrative.</p>
         <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
       </div>"""
 
-    head = PAGE_HEAD.format(
+    head = renderHead(
         title=title,
         description=escHtml(me.get("summary", "")),
         css_path="../../styles.css",
@@ -636,13 +577,11 @@ def buildDetailPage(s):
         {tierBadge(tier)}
         {tags_html}
       </div>
-
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
       </nav>
-
       <div id="tab-market" class="tab-panel active">{tab1}</div>
       <div id="tab-sponsor" class="tab-panel">{tab2}</div>
       <div id="tab-story" class="tab-panel">{tab3}</div>
@@ -651,12 +590,12 @@ def buildDetailPage(s):
 
   <script>
     (function () {{
-      const btns = document.querySelectorAll('.tab-btn');
-      const panels = document.querySelectorAll('.tab-panel');
-      btns.forEach(btn => {{
-        btn.addEventListener('click', () => {{
-          btns.forEach(b => b.classList.remove('active'));
-          panels.forEach(p => p.classList.remove('active'));
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function(btn) {{
+        btn.addEventListener('click', function() {{
+          btns.forEach(function(b) {{ b.classList.remove('active'); }});
+          panels.forEach(function(p) {{ p.classList.remove('active'); }});
           btn.classList.add('active');
           document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
         }});
@@ -664,7 +603,7 @@ def buildDetailPage(s):
     }})();
   </script>
 """
-    footer = PAGE_FOOTER.format(root="../../")
+    footer = renderFooter(root="../../")
     return head + content + footer
 
 
