@@ -39,6 +39,7 @@ CATALOG_OUT = SITE_ROOT / "catalog"
 SITE_URL = "https://deeperpoint.com"
 
 FORGE_TIER_COLORS = {1: "#22c55e", 2: "#f59e0b", 3: "#ec4899"}
+FORGE_TIER_LABELS = {1: "Easy", 2: "Moderate", 3: "Complex"}
 
 # ---------------------------------------------------------------------------
 # Shared page chrome
@@ -470,9 +471,9 @@ def markdownToHtml(text):
 
 
 def tierBadge(tier):
-    """Render a coloured Tier badge span."""
+    """Render a coloured build-complexity badge span."""
     color = FORGE_TIER_COLORS.get(tier, "#94a3b8")
-    label = {1: "Tier 1", 2: "Tier 2", 3: "Tier 3"}.get(tier, f"Tier {tier}")
+    label = FORGE_TIER_LABELS.get(tier, f"Tier {tier}")
     return (
         f'<span class="scenario-card__tier" '
         f'style="background:rgba(0,0,0,.25);color:{color};border:1px solid {color}44;">'
@@ -614,7 +615,8 @@ def buildIndexPage(scenarios):
       Object.keys(activeTags).forEach(function (v) {
         chips.push({ type: 'tag', value: v, label: v });
       });
-      if (activeTier !== 'all') chips.push({ type: 'tier', value: activeTier, label: 'Tier ' + activeTier });
+      var tierLabels = {'1':'Easy','2':'Moderate','3':'Complex'};
+      if (activeTier !== 'all') chips.push({ type: 'tier', value: activeTier, label: (tierLabels[activeTier] || ('Tier ' + activeTier)) });
       chipsEl.innerHTML = chips.map(function (c) {
         return '<span class="filter-chip" data-type="' + c.type + '" data-value="' + c.value + '">' +
           c.label + '<button class="filter-chip__x" title="Remove">&times;</button></span>';
@@ -795,12 +797,12 @@ def buildIndexPage(scenarios):
           </div>
         </div>
 
-        <!-- Tier buttons -->
-        <div class="tier-btns" role="group" aria-label="Filter by tier">
+        <!-- Build Complexity buttons -->
+        <div class="tier-btns" role="group" aria-label="Filter by build complexity">
           <button class="tier-btn active" data-value="all">All</button>
-          <button class="tier-btn" data-value="1">Tier 1</button>
-          <button class="tier-btn" data-value="2">Tier 2</button>
-          <button class="tier-btn" data-value="3">Tier 3</button>
+          <button class="tier-btn" data-value="1" title="Build complexity: Easy (~30–60 hrs to prototype)">Easy</button>
+          <button class="tier-btn" data-value="2" title="Build complexity: Moderate (~72–144 hrs to prototype)">Moderate</button>
+          <button class="tier-btn" data-value="3" title="Build complexity: Complex (~156–356 hrs to prototype)">Complex</button>
         </div>
 
         <!-- Clear all -->
