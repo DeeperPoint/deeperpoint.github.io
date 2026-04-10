@@ -51,8 +51,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>__TITLE__ \u2014 DeeperPoint Lab</title>
+  <title>__TITLE__ \u2014 DeeperPoint</title>
   <meta name="description" content="__DESCRIPTION__">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -388,7 +387,8 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <li><a href="__ROOT__index.html" class="nav__link">Home</a></li>
         <li><a href="__ROOT__thin-markets.html" class="nav__link">The Problem</a></li>
         <li><a href="__ROOT__marketforge.html" class="nav__link">The Project</a></li>
-        <li><a href="__ROOT__examples.html" class="nav__link">Examples</a></li>
+        <li><a href="__ROOT__examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="__ROOT__who-should-care.html" class="nav__link">Who's It For</a></li>
         <li><a href="__ROOT__blog/index.html" class="nav__link">Blog</a></li>
       </ul>
     </div>
@@ -735,8 +735,8 @@ def buildIndexPage(scenarios):
   </script>"""
 
     head = renderHead(
-        title="Market Catalog \u2014 Lab",
-        description="DeeperPoint thin market scenario catalog. Internal use.",
+        title="Examples \u2014 Thin Market Scenarios",
+        description="Real-world thin market opportunities analyzed through the DeeperPoint framework. Each entry includes a market analysis, sponsor revenue model, and a narrative story.",
         css_path="../styles.css",
         root="../",
     )
@@ -744,8 +744,8 @@ def buildIndexPage(scenarios):
     content = f"""
   <section class="section cat-header" id="catalog-index">
     <div class="container">
-      <div class="cat-label">&#128300; Lab \u2014 Internal Catalog</div>
-      <h1 class="cat-title">Market Scenario Catalog</h1>
+      <div class="cat-label">&#128200; DeeperPoint \u2014 Thin Market Examples</div>
+      <h1 class="cat-title">Examples</h1>
       <p class="cat-desc">
         Thin market opportunities analyzed through the DeeperPoint framework.
         Each entry includes a market analysis, sponsor revenue model, and a narrative story.
