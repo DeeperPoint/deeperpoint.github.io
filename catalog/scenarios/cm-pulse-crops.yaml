@@ -1,0 +1,111 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cm-pulse-crops
+title: "Pulse Crop Sourcing: Saskatchewan to Mexico"
+sector: canada-mexico-trade
+sub_sector: Agricultural Commodities
+forge_tier: 2
+status: published
+tags: [agriculture, trade, canada, pulses, food-manufacturing, cusma, cofepris]
+
+market_example:
+  summary: "Canadian pulse producers cannot reach Mexican food processors directly; Mexican buyers route through US brokers at significant premium and with no production specification control."
+  problem: "Canada is among the world's largest producers of lentils, chickpeas, and dry peas. Mexico's health food sector and legume-based food industry represents a large, proximate consumer of high-protein pulses. But direct relationships between Canadian producers and Mexican food manufacturers are nearly non-existent. Mexican buyers source through US commodity brokers, paying distribution margins and losing the ability to specify quality attributes. Canadian producers have no mechanism to identify or reach Mexican food processors."
+  dominant_forces:
+    - "Opacity — Canadian pulse producers are invisible to Mexican food manufacturers; no shared discovery channel exists"
+    - "Regulatory fragmentation — CUSMA tariff treatment is favourable but COFEPRIS import registration and CGC certificate-of-origin documentation are unfamiliar to both sides"
+    - "Geographic distance — Saskatchewan to Guadalajara requires customs brokerage at Laredo or Nogales and logistics that small producers have never arranged"
+    - "Trust deficit — first-time international trade without an established broker carries performance risk neither party is willing to absorb alone"
+    - "Offering complexity — pulse quality attributes (protein content, bleachability, admixture, calibre) differ significantly between Canadian export grades and Mexican processor requirements"
+  deeperpoint_fit: "Semantic matching encodes pulse lots by variety, quality attributes, origin region, and certification status against Mexican processor specifications. KnowledgeSlot curates CGC grading standards, COFEPRIS import permit requirements, CUSMA certificate-of-origin procedures, and Laredo/Nogales customs broker networks. Deal assembly aggregates smaller Saskatchewan producers to present combined volumes that justify a Mexican processor's onboarding cost."
+  economic_upside: "Mexico imports over USD $1.5 billion in pulses annually, primarily routed through the US. Even partial direct sourcing from Canadian producers would reduce distribution margins, give Mexican processors production-specification control, and create new bilateral trade relationships in both countries."
+
+sponsor_opportunities:
+  - title: "CUSMA Certificate of Origin & COFEPRIS Filing Service"
+    type: managed-service
+    revenue_model: "Per-shipment filing fee $300–$600 CAD; annual compliance subscription for producers shipping quarterly ($800–$1,500/year)"
+    strategic_logic: "The single biggest barrier to direct Canada-Mexico pulse trade is that neither side knows how to complete the paperwork. A sponsor who curates and files it eliminates the barrier for both parties."
+    recurring: true
+
+  - title: "Pulse Quality Specification Translation Service"
+    type: managed-service
+    revenue_model: "Per-lot specification conversion report $150–$300; subscription for exporters shipping multiple lots per season ($499/year)"
+    strategic_logic: "Canadian export grades (CGC) do not map directly to Mexican processor requirements. A sponsor who translates between the two systems is the essential intermediary for every transaction."
+    recurring: true
+
+  - title: "Cross-Border Logistics Coordination (Laredo/Nogales)"
+    type: managed-service
+    revenue_model: "Per-shipment coordination fee $400–$800; percentage of freight value (2–4%)"
+    strategic_logic: "Neither Saskatchewan producers nor Guadalajara processors have established freight relationships at the Canada-Mexico border. The platform has the relationships; the coordination fee is the margin."
+    recurring: false
+
+  - title: "Small Producer Volume Aggregation Service"
+    type: saas
+    revenue_model: "Annual cooperative membership fee ($299–$599/year per producer); platform takes 0.5–1% of aggregated transaction value"
+    strategic_logic: "Individual Saskatchewan producers have volumes too small to justify a Mexican processor's onboarding cost. Aggregating three to five producers into a combined lot solves the problem. The platform is the aggregator."
+    recurring: true
+
+story:
+  title: "The Lentils That Never Left the Province"
+  status: published
+  summary: "A Saskatchewan pulse co-operative with three consecutive record harvests cannot find a direct buyer in Mexico. A Guadalajara food processor paying US broker premiums for lentils has no idea Canadian producers exist as a direct counterparty. MarketForge closes a gap that both parties would have filled years earlier if they'd known where to look."
+  characters:
+    - "Darren — general manager, pulse producer co-operative, Moose Jaw, Saskatchewan"
+    - "Sofía — procurement director, legume food processing company, Guadalajara, Jalisco"
+  body: |
+    ## Act A — The Margin in the Middle
+
+    Saskatchewan grows more lentils than almost anywhere on earth.
+
+    The province exports roughly 90 percent of what it produces. Most of it moves through commodity brokers to South Asian and Middle Eastern buyers. A small but growing portion goes to US food manufacturers. Almost none goes directly to Mexico, despite Mexico's enormous and growing legume-based food industry — canned beans, instant soups, health-bar protein fillings, and traditional salsas that have used lentils and chickpeas for generations.
+
+    The reason is simple: the connection doesn't exist.
+
+    Canadian pulse producers sell into commodity channels because that's the infrastructure they have. Mexican food processors buy through US brokers because that's the only channel they know. The US broker earns the margin, sets the specification, and owns the relationship. Both the Canadian producer and the Mexican processor are price-takers in a transaction that could, in principle, be direct.
+
+    The following is a fictional account of how a MarketForge-powered bilateral trade platform changes that equation for one co-operative and one processor.
+
+    ---
+
+    ## Act B — The Story
+
+    **Darren** manages a pulse producer co-operative outside Moose Jaw with eleven member farms. Three consecutive strong harvests have left the co-op with more red lentils than their existing broker channels can move at price. Darren has heard that Mexican demand for lentils is growing — he read it in a Pulse Canada market brief — but has no idea how to reach a Mexican buyer directly. He doesn't know what COFEPRIS is. He doesn't know whether CUSMA makes the tariff workable. He registers the co-op on the MarketForge bilateral trade platform after it's mentioned in a Saskatchewan Pulse Growers webinar.
+
+    The onboarding process asks about variety, CGC grade, protein content, moisture, harvest year, available volume, and whether the co-op has an existing customs broker. Darren answers what he can, leaves the customs broker field blank, and notes that the co-op has ISO 22000 food safety certification.
+
+    ---
+
+    **Sofía** is the procurement director at a mid-sized food processing company in Guadalajara that produces canned legume products for Mexican grocery chains and a growing natural-food export line. She buys red lentils through a US commodity broker in Dallas at prices that have been climbing for eighteen months. She pays a brokerage margin she finds increasingly difficult to justify to her CFO, and she has no ability to specify the protein content tier she actually needs — the broker ships what it ships.
+
+    Her company registered on the platform at the suggestion of a CANACINTRA trade association contact.
+
+    The platform's matching algorithm surfaces Darren's co-op against Sofía's demand profile. The protein content range, moisture specification, and CGC grade align with her requirements. The volume is workable for a trial shipment. The platform generates a match notification for both.
+
+    ---
+
+    Along with the notification, the platform generates a **Generative Match Story** — a structured description of how this specific trade could be arranged, drawn from both parties' profiles and KnowledgeSlot's curated knowledge of the CUSMA pulse trade corridor.
+
+    The scenario describes the CUSMA certificate-of-origin documentation Darren's co-op will need to generate to qualify for Mexican zero-tariff treatment. It explains the COFEPRIS import notification process Sofía's company will need to initiate — a relatively simple process for food-grade pulses, but one her procurement team has never completed. It identifies two established customs brokers with offices at Laredo who handle Saskatchewan-origin agricultural product regularly. It describes the logistics sequence: Saskatchewan elevator to rail to Laredo, customs clearance, Mexican trucking to Guadalajara.
+
+    Sofía's first reaction is surprise. She didn't know the tariff was zero. She assumed Canadian lentils would be subject to import duties that made them uncompetitive with US-sourced product. They aren't.
+
+    Darren's first reaction is that the customs broker list is the most useful information he's received in three years of considering direct export. He calls the first broker on the list that afternoon.
+
+    ---
+
+    They execute a trial shipment agreement for one container — 22 tonnes of red lentils, CGC No. 1 Small, protein 26.5% minimum — eight weeks later. Sofía specifies the protein floor. Darren's co-op meets it. The trial shipment arrives in Guadalajara within spec.
+
+    Sofía's CFO approves a standing annual supply agreement for the following season.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The structural barrier in this scenario is not price, distance, or quality. It is the absence of any shared discovery channel between Canadian pulse producers and Mexican food processors.
+
+    Both parties want the outcome. Both are commercially ready to execute. The gap is a specific set of obstacles — CUSMA documentation, COFEPRIS process, customs broker identity — that neither party can resolve efficiently without someone who knows both sides of the corridor.
+
+    US brokers fill this gap today. They fill it expensively, and they fill it in a way that gives neither party a direct relationship with the other. The broker is the infrastructure, and the broker charges accordingly.
+
+    What [thin market infrastructure](../../thin-markets.html) does here is replace the broker's information advantage with a shared platform that both parties can access. The CUSMA knowledge, the COFEPRIS process, the logistics network — all of it made available to the parties directly, at the moment they need it, without the margin extraction that a traditional intermediary requires.
+
+    *The characters and companies in this story are fictional. Trade data and regulatory frameworks described — CGC grading standards, COFEPRIS import procedures, CUSMA certificate-of-origin requirements — are real. [DeeperPoint](../../marketforge.html) is a real project building the infrastructure this story describes.*

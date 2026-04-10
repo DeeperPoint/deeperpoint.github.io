@@ -1,0 +1,105 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cm-greenhouse-tech
+title: "Canadian Greenhouse Technology to Mexican Growers"
+sector: canada-mexico-trade
+sub_sector: AgTech Export
+forge_tier: 2
+status: published
+tags: [agtech, greenhouse, trade, canada, mexico, agriculture, controlled-environment, cusma]
+
+market_example:
+  summary: "Canadian greenhouse technology suppliers have equipment better adapted to northern Mexico's climate conditions than US alternatives, but are invisible to Mexican growers who source exclusively through US distributors."
+  problem: "Canada has a globally recognized greenhouse technology cluster — climate control systems, LED grow lights, hydroponic systems, automated irrigation, and integrated pest management — primarily in Ontario, BC, and Quebec. Mexico's agricultural sector is experiencing rapid growth in export-oriented tomato, pepper, and berry production in Sinaloa, Sonora, and Baja California, with growers adopting controlled environment agriculture. Canadian greenhouse technology is technically superior for northern Mexico's specific climate conditions (high UV, temperature variance) but Canadian suppliers have poor visibility into the Mexican market and Mexican growers source primarily through US distributors who mark up significantly and sometimes supply products not optimized for Mexican agronomic conditions."
+  dominant_forces:
+    - "Opacity — Canadian greenhouse technology suppliers attend Canadian trade shows but not Mexican agricultural expos; Mexican growers source from regional US distributors without knowledge of Canadian alternatives"
+    - "Offering complexity — greenhouse technology selection requires matching the product to the specific crop, climate zone, existing infrastructure, local power grid, and grower technical capacity"
+    - "Cognitive overload — a Mexican tomato grower evaluating LED grow lights faces dozens of suppliers with overlapping technical claims and no independent evaluation framework"
+    - "Regulatory fragmentation — NOM electrical standards differ from CSA standards; COFEPRIS-adjacent agricultural input regulations create importation uncertainty; CUSMA rules of origin apply differently for technology-embedded inputs"
+    - "Trust deficit — Mexican growers who have purchased through US distributors cannot hold Canadian manufacturers accountable for post-sale support without direct relationships"
+  deeperpoint_fit: "Semantic matching aligns grower profiles (crop type, location, existing infrastructure, production scale, specific technical problem) with Canadian supplier profiles (product type, applicable crop and climate conditions, Spanish-language support capacity, Mexican distributor network). KnowledgeSlot curates NOM electrical compatibility standards, COFEPRIS import documentation for agricultural inputs, CUSMA technology product tariff treatment, and agroclimatic zone data for Mexico's main greenhouse regions. The Generative Match Story explains to a Mexican grower why a specific Canadian system is better adapted to their Sinaloa UV profile than the US alternative they've been considering."
+  economic_upside: "Mexico's controlled environment agriculture sector is one of the continent's fastest-growing, driven by nearshoring and water scarcity. Canadian technology firms that establish direct relationships with Mexican growers gain a foothold in a market US competitors currently dominate through distribution intermediaries. Mexican growers gain access to better-adapted technology with stronger accountability pathways."
+
+sponsor_opportunities:
+  - title: "Agroclimatic Suitability Report (Canada-Mexico Technology Matching)"
+    type: managed-service
+    revenue_model: "Per-grower technical suitability report $400–$800 CAD; supplier bulk report package for 10+ grower leads ($2,500–$4,000)"
+    strategic_logic: "Mexican growers cannot evaluate Canadian technology claims for their specific climate zone without independent analysis. A suitability report converts the trust barrier into a documented recommendation both parties can rely on."
+    recurring: false
+
+  - title: "NOM/CSA Electrical Compatibility Certification Service"
+    type: managed-service
+    revenue_model: "Per-product category NOM compliance assessment $600–$1,500; import documentation package $300–$600"
+    strategic_logic: "CSA-certified Canadian equipment does not automatically satisfy Mexican NOM electrical requirements. A compliance bridge service is non-discretionary for every export transaction and is valued by both supplier and buyer."
+    recurring: false
+
+  - title: "SAGARPA-Registered Installation Contractor Network"
+    type: managed-service
+    revenue_model: "Referral fee from installation contractors (10–15% of installation contract value); contractor directory subscription ($299/year)"
+    strategic_logic: "Canadian manufacturers cannot provide at-site installation and service in Mexico independently. A curated network of SAGARPA-registered installation contractors with Canadian equipment experience solves the post-sale accountability problem."
+    recurring: true
+
+  - title: "Grower Intelligence Service — Mexico Controlled Environment Agriculture"
+    type: saas
+    revenue_model: "Annual subscription for Canadian suppliers ($999–$1,999/year); per-market entry report ($500–$1,200)"
+    strategic_logic: "Canada's greenhouse technology sector has almost no structured market intelligence for Mexico's controlled environment agriculture regions. A curated intelligence subscription converts platform data into a high-value product for suppliers planning market entry."
+    recurring: true
+
+story:
+  title: "The Light Nobody Could Explain"
+  status: published
+  summary: "A Sinaloa greenhouse tomato operation has been losing yield in supplemental lighting trials. A BC LED grow light manufacturer builds systems specifically designed for high-UV, high-altitude growing conditions — exactly Sinaloa's profile. The US distributor between them has never understood the technical distinction."
+  characters:
+    - "Ernesto — operations director, greenhouse tomato operation, Culiacán, Sinaloa"
+    - "Priscilla — export sales director, LED grow light manufacturer, Delta, British Columbia"
+  body: |
+    ## Act A — The UV Problem Nobody Named
+
+    Sinaloa grows a significant fraction of North America's winter tomatoes. The greenhouse operations there are large, sophisticated, and export-oriented — shipping product to US and Canadian grocery chains year-round.
+
+    As growers have adopted supplemental lighting — LED systems to extend the photoperiod and increase yield through Mexico's short winter days — they've encountered a problem that their US distributors cannot explain: the grow lights that perform well in California and Arizona greenhouse conditions underperform in Sinaloa.
+
+    The reason is the UV profile. Sinaloa's elevation and latitude combine to produce high ambient UV intensity that alters the spectral balance a supplemental system needs to provide. Canadian LED manufacturers who serve BC and Alberta greenhouses — which have similar high-UV, high-altitude conditions — have engineered their systems specifically for this profile. The US market systems, optimized for lower-UV, lower-latitude growing regions, do not deliver the same yield in Sinaloa conditions.
+
+    Sinaloa growers don't know this distinction exists. Their US distributors don't mention it. Canadian manufacturers have never reached a Sinaloa grower.
+
+    The following is a fictional account of how MarketForge changes that.
+
+    ---
+
+    ## Act B — The Story
+
+    **Ernesto** manages operations at a greenhouse tomato facility outside Culiacán. The operation runs 18 hectares under controlled environment. Two seasons ago they invested in supplemental LED lighting across four trial bays. Yield improvement in the trial bays was 12 percent below manufacturer projections. Ernesto suspects the equipment isn't well-suited to their conditions but has no independent technical basis for the diagnosis.
+
+    He registers on the MarketForge platform after a Horticultura de México trade association representative mentions it. The onboarding asks about crop type, location, existing infrastructure, the specific technical problem, and what outcome they're trying to achieve. Ernesto describes the lighting underperformance problem in detail.
+
+    ---
+
+    **Priscilla** is the export sales director for a delta-based LED grow light manufacturer that supplies commercial greenhouse operators across BC, Alberta, and Washington State. The company's systems are engineered specifically for high-altitude, high-UV growing conditions. Priscilla has been looking at Mexico as an export market for two years but has no relationships with Mexican growers and no distributor in the country.
+
+    Their company registered on the platform after a BC Greenhouse Growers' Association event.
+
+    The platform matches Ernesto's facility profile against Priscilla's product specifications. Crop type: commercial tomato. Location: Sinaloa, elevation 60m, UV Index data from the KnowledgeSlot agroclimatic database: high-UV profile confirmed as compatible with the manufacturer's system design parameters.
+
+    Both receive a match notification.
+
+    ---
+
+    The **Generative Match Story** walks through the technical distinction for Ernesto in plain Spanish: his current systems are calibrated for coastal California UV profiles; the Canadian manufacturer's design specification was built for conditions that more closely match Culiacán's UV intensity profile. It describes the NOM electrical compatibility step the company will need to complete before shipment — a one-time assessment for the product category — and identifies a SAGARPA-registered installation contractor in Culiacán who has installed Canadian greenhouse equipment at two prior operations.
+
+    Ernesto reads the scenario. The UV explanation is the first technically coherent diagnosis of his lighting problem he's received. He sends Priscilla a message asking for the full technical specification document and the NOM compliance assessment timeline.
+
+    Priscilla reads the scenario. She didn't know the installation contractor in Culiacán existed. She contacts them immediately. Within a week she has a service partnership agreement in place.
+
+    A trial installation of four replacement bays is completed in the following growing season. Yield improvement: 24 percent above prior season baseline.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The Canadian manufacturer built the right product for Sinaloa's conditions before they knew Sinaloa existed as a market. The Sinaloa grower had a problem that only the Canadian product was designed to solve, but the grower's US distributor didn't know the distinction and didn't gain anything by surfacing it.
+
+    This is what opacity looks like in practice. Not a shortage of solutions. Not a shortage of buyers. A specific mismatch between what exists and who knows it exists.
+
+    What [thin market infrastructure](../../thin-markets.html) does here is add the technical context — the UV profile analysis, the NOM compliance pathway, the at-site service network — that converts a match from a contact into a viable commercial relationship.
+
+    *Characters are fictional. The regulatory frameworks — NOM electrical standards, CSA certification, SAGARPA contractor registration, CUSMA agricultural technology tariff treatment — are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
