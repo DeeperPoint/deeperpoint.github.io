@@ -1,0 +1,106 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: svz-disability-employment
+title: "Accessible Employment Matching for People with Disabilities"
+sector: social-enterprise
+sub_sector: Disability Employment
+forge_tier: 2
+status: published
+tags: [disability, employment, toronto, social-enterprise, svz, inclusion, aoda]
+
+market_example:
+  summary: "People with cognitive disabilities, autism spectrum conditions, and acquired brain injuries often have specific, genuine capabilities that match real employer needs — but the match never happens because employers can't describe what they need in terms that surface these workers, and workers can't describe their capabilities in terms that surface them to employers."
+  problem: "A person with a cognitive disability, autism spectrum condition, or acquired brain injury may have a very specific and genuine capability — attention to repetitive process, spatial memory, hyper-focused detail work — that matches a real employer need. The match does not happen because employers don't know how to describe what they need in a way that surfaces these workers, workers don't know how to describe their capabilities in a way that surfaces them to employers, and intermediaries (sheltered workshops, employment support agencies) operate in fragmented regional silos with no cross-agency matching."
+  dominant_forces:
+    - "Participant scarcity — the pool of employers genuinely committed to inclusive hiring and the pool of work-ready candidates with specific support needs are both thin and hard to discover"
+    - "Opacity — employers don't know who is looking; workers and their supporters don't know which employers are truly ready for inclusive hiring"
+    - "Strategic information withholding — employers are reluctant to advertise inclusive hiring publicly for fear of appearing performative; workers are reluctant to disclose disability prematurely for fear of discrimination"
+    - "Cognitive overload — the system of disability benefit programs, supported employment agencies, and employer incentive programs is nearly impossible to navigate without a dedicated case manager"
+    - "Trust deficit — employers need confidence that the support infrastructure is real; workers need confidence that the job is genuinely accessible and won't jeopardize their benefits"
+  deeperpoint_fit: "The three-layer architecture and trusted intermediary protocol are the essential features. The worker's capability profile captures specific skills, support needs, and accommodation requirements — held confidentially, used only for matching. The gallery profile shows only what the worker consents to share. The employer sees only that a match exists and what the employment relationship would look like operationally. KnowledgeSlot curates supported employment standards, employer tax incentives (Opportunities Fund, ODSP employer supports), and accommodation cost benchmarks. A facilitator role slot accommodates the employment support worker who provides coaching."
+  economic_upside: "Over one million working-age Canadians with disabilities are unemployed or underemployed despite readiness, willingness, and capability. Each successful matched placement generates $25,000–$40,000/year in wages, reduces disability benefit costs, and creates employer-facing evidence that inclusive hiring works operationally."
+
+sponsor_opportunities:
+  - title: "Employment Support Agency SaaS Matching Platform"
+    type: saas
+    revenue_model: "Annual subscription per employment support agency ($1,500–$3,000/year based on active client roster); government-funded agency licensing through provincial employment services contracts"
+    strategic_logic: "Employment support agencies are already trusted by workers and already funded by provincial government employment services contracts. They are the natural distribution channel — the platform works with them, not around them. Agency subscriptions create recurring revenue from an already-funded ecosystem."
+    recurring: true
+
+  - title: "Employer Inclusive Hiring Subscription"
+    type: saas
+    revenue_model: "Annual employer subscription ($999–$2,499/year based on employee count); per-successful-placement fee ($300–$500)"
+    strategic_logic: "Employers with genuine inclusive hiring commitments currently have no systematic way to find work-ready candidates with the specific capability profiles they need. A subscription that delivers pre-matched, agency-supported candidates is valuable enough to pay for independently of government subsidy."
+    recurring: true
+
+  - title: "Government Incentive Navigation Service"
+    type: managed-service
+    revenue_model: "Per-employer incentive package assessment $200–$400; annual incentive management subscription for multi-location employers ($1,200/year)"
+    strategic_logic: "The Opportunities Fund, ODSP employer support, the Canada Job Grant, and the Enabling Accessibility Fund all provide financial incentives for inclusive hiring. Most employers don't know they exist. A managed service that identifies and applies for applicable incentives reduces the net cost of inclusive hiring while generating platform revenue."
+    recurring: true
+
+  - title: "Workplace Accommodation Assessment Coordination"
+    type: managed-service
+    revenue_model: "Per-assessment coordination referral $75; occupational therapist network subscription ($299/year per OT)"
+    strategic_logic: "Inclusive placements often require an occupational therapist worksite assessment. The platform that matched the worker is positioned to coordinate the assessment — creating a referral stream for OT practices specializing in workplace accommodation."
+    recurring: false
+
+story:
+  title: "Demarco's Eye"
+  status: published
+  summary: "Demarco is 24, lives with autism spectrum condition, and has an extraordinary ability to detect visual pattern anomalies — a skill worth tens of thousands of dollars a year in pharmaceutical packaging inspection. He's been in the sheltered workshop system for three years. A pharma packaging startup 40 minutes away has needed someone exactly like him for eight months."
+  characters:
+    - "Demarco — 24, autism spectrum condition, visual anomaly detection capability, Scarborough"
+    - "Priya — operations manager, pharmaceutical packaging startup, Mississauga"
+    - "Jerome — employment support worker, Good Foot partner agency, Toronto"
+  body: |
+    ## Act A — The Capability That Has No Job Title
+
+    There is no job posting that says: "Sought: person with extraordinary vigilance for visual pattern anomalies in printed materials, high tolerance for repetitive shift work, low need for social interaction during task performance, exceptional accuracy under standardized conditions."
+
+    That job exists. It's called pharmaceutical packaging inspection. The regulatory standard — 21 CFR Part 211 in the US, NAPRA in Canada — requires that every label, every blister pack, every insert be visually checked for defects, misprints, incomplete sealing, and dose errors. The people who are best at this work often have the specific cognitive profile that the sheltered workshop system categorizes as a barrier to employment.
+
+    Demarco has been doing collating and light assembly in a sheltered workshop in Scarborough for three years. He is paid $7/hour under a Special Minimum Wage permit. His employment support worker, Jerome, has been trying to transition him to competitive employment for two years. The barriers are not Demarco's capability. They are the matching problem: Jerome doesn't know Priya's company exists, and Priya doesn't know Demarco or anyone like him exists.
+
+    The following is a fictional account of how a MarketForge-powered disability employment platform closes this gap.
+
+    ---
+
+    ## Act B — The Story
+
+    **Jerome** is an employment support worker at a Toronto agency. He has twelve active clients in job readiness or job matching. Demarco is one of the most capable people he works with — but also the hardest to place, because Demarco's specific skill set (sustained visual attention, pattern recognition, low distractibility) doesn't map to any standard job category that most employers think to post.
+
+    Jerome enters Demarco's capability profile on the platform. The profile is built on a functional capability framework — not a diagnostic label, not a job title: sustained visual attention above 95th percentile (assessed), pattern variance detection (assessed), shift work tolerance (assessed), social interaction during task performance (low need — flagged as preference, not deficit), preferred environment (structured, low-noise, task-defined), support needs (minimal once task is established; check-in at shift start and end).
+
+    The profile is confidential. It is visible to the matching algorithm but not to employers directly. Employers see only that a candidate has been pre-matched and what an employment relationship would functionally look like.
+
+    ---
+
+    **Priya** is the operations manager at a pharmaceutical packaging startup in Mississauga. They run three packaging lines and are required by their NAPRA compliance program to have 100% visual inspection on their blister pack lines. They have tried to staff this with general assembly workers. Turnover is high — the repetitive vigilance work bores most workers within three months. Priya has been looking for a solution for eight months.
+
+    She registers the position on the platform's employer side. The position profile encodes: visual inspection task (standardized, structured), 8-hour shift, low ambient noise, minimal social interaction during task, NAPRA compliance protocol training provided, supported employment arrangement acceptable.
+
+    The platform matches Demarco's capability profile against Priya's position. Sustained visual attention: strong match. Pattern variance detection: strong match. Shift structure: compatible. Social interaction requirement: compatible with Demarco's preference. Support arrangement: agency support available.
+
+    Both Jerome and Priya receive match notifications.
+
+    ---
+
+    The **Generative Match Story** explains the operational picture to Priya in employer-legible terms: what the first two weeks of onboarding would look like with Jerome's support, what the ODSP earnings exemption means for Demarco's income (so he can work without losing his benefit floor during the trial period), what the Opportunities Fund employer incentive covers ($10,000 toward wage subsidy and accommodation), and what the NAPRA visual inspection training protocol involves.
+
+    Priya reads the scenario. The ODSP earnings exemption is new to her — she'd worried that offering Demarco a full wage would harm his benefits and create an ethical complication. The scenario explains that the earnings exemption is designed exactly for this transition. She agrees to go forward.
+
+    Jerome accompanies Demarco for the first two weeks of the placement. By week three, Demarco is working independently on the blister pack inspection line. His detection rate in the first month is 99.3% — better than the line average under previous staffing. Priya offers a permanent position.
+
+    Demarco earns $22/hour. He is the best visual inspector Priya has ever employed.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Demarco and Priya's company were always a match. His capability profile is precise. Her operational need is precise. The match is not approximate — it is strong and specific.
+
+    What prevented it was the encoding problem: nobody had described Demarco's capability in terms that an employer's operational need could be matched against. Jerome knew Demarco's capability. Jerome did not know Priya's need existed. Employment support agencies operate within regional referral networks and established employer relationships. Outside those networks, the discovery mechanism is cold calling — which Jerome does occasionally, without a way to know in advance which employers would value what Demarco offers.
+
+    What [thin market infrastructure](../../thin-markets.html) does is encode both sides — capability profile and operational need — in compatible terms, and match them systematically rather than through the accident of a cold call that happens to reach the right person on the right day.
+
+    *Demarco, Priya, and Jerome are fictional. The regulatory frameworks, employment programs, and disability support structures described — NAPRA, ODSP, Opportunities Fund, Special Minimum Wage permits — are real. The Good Foot Delivery reference is to a real Toronto SVZ-alumni social enterprise. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
