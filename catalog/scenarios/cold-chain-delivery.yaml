@@ -1,0 +1,52 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cold-chain-delivery
+title: "Cold Chain Last-Mile Delivery"
+sector: canadian-food-last-stage
+sub_sector: Refrigerated Logistics
+forge_tier: 2
+status: published
+tags: [cold-chain, logistics, refrigerated, delivery, food-safety]
+
+market_example:
+  summary: "Specialty food producers needing refrigerated delivery to independent retailers cannot find independent cold-chain route operators; route operators with available capacity cannot find new specialty food producer clients."
+  problem: "Specialty food producers (fresh pasta, artisan cheese, charcuterie, artisan ice cream) need refrigerated delivery to independent specialty retailers and restaurants. Standard couriers don't offer reliable cold chain; broadline distributors won't take small pallet quantities. Independent refrigerated route operators have the capability but are not visible to producers. Both parties operate in the same city; neither can systematically find the other."
+  dominant_forces:
+    - "Opacity — independent refrigerated delivery operators are not aggregated in any searchable directory"
+    - "Offering complexity — delivery fit requires matching on temperature zone, delivery geography at postal code level, delivery window, minimum stop value, and food-grade liability"
+    - "Temporal distance — route schedules are fixed weekly; missing the planning window loses a week"
+    - "Fulfillment constraints — requires temperature logging, short-dated return handling, and compatible invoicing"
+    - "Geographic distance — urban cold chain markets are hyper-local; proximity is a hard first matching constraint"
+  deeperpoint_fit: "Semantic matching with geographic route matching as the primary hard constraint. The algorithm filters first for operators whose confirmed routes include the producer's production location and delivery destinations, then matches on temperature and operational fit. Temporal matching surfaces available route capacity at the weekly planning cycle. KnowledgeSlot curates CFIA temperature control requirements for food transport, standard food-grade carrier insurance requirements, and temperature logging standards referenced in SQF/BRCGS cold chain programs."
+  economic_upside: "Cold chain last-mile delivery is the operational bottleneck limiting specialty food producers to farmers' markets or direct delivery. Better matching creates new accounts for producers, fills route capacity for operators, and makes the urban specialty food economy meaningfully more interconnected."
+
+sponsor_opportunities:
+  - title: "Temperature Logging Device Leasing and Data Management"
+    type: saas
+    revenue_model: "Monthly device lease + data subscription $25–$45/device; annual plan discount; tier pricing for bundles"
+    strategic_logic: "Temperature logger devices travel with shipments and generate irrefutable cold chain compliance documentation. The platform's delivery operator community is the distribution channel for the devices; operators can offer temperature monitoring as a value-added service to producer clients."
+    recurring: true
+
+  - title: "Route Optimization Software for Independent Refrigerated Carriers"
+    type: saas
+    revenue_model: "Monthly subscription per vehicle $39–$79; fleet pricing $99–$149/month for 3+ vehicles"
+    strategic_logic: "Most independent operators manage routes via paper or basic spreadsheet. The platform's operator community is the target customer; the platform relationship makes CAC negligible relative to LTV."
+    recurring: true
+
+  - title: "Food-Grade Carrier Liability Insurance"
+    type: insurance
+    revenue_model: "Monthly premium $100–$250/vehicle; referral commission from underwriting partner"
+    strategic_logic: "Standard commercial auto policies do not adequately cover spoiled product liability, damage to client product in transit, or food-related delivery incidents. The platform knows the operator's delivery volume, product categories, and client list — the underwriting inputs needed to price this risk without a lengthy application."
+    recurring: true
+
+  - title: "Consolidated Delivery Manifest and Invoicing Platform"
+    type: saas
+    revenue_model: "Monthly subscription $29–$59 per operator; free tier with volume-based conversion incentive"
+    strategic_logic: "Most operators produce invoices manually in Word or Excel. A digital manifest and invoicing system that auto-generates per-producer invoices from delivery data is a high-value, low-friction SaaS product for this community."
+    recurring: true
+
+story:
+  title: ""
+  status: none
+  blog_slug: ""
+  characters: []
+  summary: "A Hamilton artisan cheesemaker discovers that an owner-operator refrigerated van runs past her creamery to four Westdale and Locke Street specialty food shops every Tuesday morning — and has one stop to spare."

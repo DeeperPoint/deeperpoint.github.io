@@ -35,6 +35,9 @@ jobs:
       - name: Build blog
         run: python scripts/build_blog.py
 
+      - name: Build catalog
+        run: python scripts/build_catalog.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

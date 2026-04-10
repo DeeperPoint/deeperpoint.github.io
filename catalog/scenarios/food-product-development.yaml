@@ -1,0 +1,52 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: food-product-development
+title: "Food Product Development Services"
+sector: canadian-food-last-stage
+sub_sector: Technical Consulting
+forge_tier: 1
+status: published
+tags: [food-technologist, product-development, shelf-life, cfia, regulatory, formulation]
+
+market_example:
+  summary: "Food entrepreneurs at the pre-commercial stage cannot find food technologists willing to take small-client early-stage engagements; qualified practitioners are invisible in discovery channels food entrepreneurs actually use."
+  problem: "Food entrepreneurs with a home kitchen recipe or farmers' market product need food technologists to solve shelf stability, pH validation, nutritional labelling, allergen declaration, CFIA compliance, and co-manufacturing specification problems before they can reach retail. Qualified food technologists with small-client early-stage experience exist but are not visible in entrepreneurship-facing channels. Discovery happens through incubator referrals, university food science networks, and peer connections that systematically favour well-connected founders."
+  dominant_forces:
+    - "Participant scarcity — food technologists willing to take small-client early-stage work are a subset of the broader food science community"
+    - "Opacity — food technology consulting practices are not aggregated by service type, food category, or minimum engagement scale"
+    - "Cognitive overload — an entrepreneur who doesn't know what they don't know cannot specify what type of food science help they need"
+    - "Offering complexity — scope varies enormously: water activity assessment (2 days) vs. full shelf life study (3 months) are both 'food science help'"
+    - "Trust deficit — early-stage entrepreneurs cannot absorb the cost of an engagement that doesn't solve their actual problem"
+  deeperpoint_fit: "Semantic matching aligns entrepreneur profiles (product category, intended market, specific problem, regulatory stage, budget, timeline) against food technologist profiles (specialization by category and technical discipline, small-client experience, engagement scope offered, geographic or remote service). KnowledgeSlot curates CFIA food labelling requirements, Health Canada nutritional labelling methodology, water activity and pH thresholds for shelf-stable classification, and standard sensory evaluation protocols. The Generative Match Story diagnoses the technical problem the entrepreneur cannot articulate — converting a vague 'I need help with my recipe' into a structured technical project brief."
+  economic_upside: "Product development failure is a primary cause of attrition among early-stage Canadian food entrepreneurs. A well-matched food technologist engagement at the beginning of product development prevents much more expensive failures discovered at retail listing or — worse — after product is in market."
+
+sponsor_opportunities:
+  - title: "Shelf Life Testing Laboratory Coordination"
+    type: managed-service
+    revenue_model: "Per-study coordination $150–$300 on top of lab cost; preferred lab pricing creates margin for the platform"
+    strategic_logic: "The platform knows the product category and the matched technologist's initial assessment — the inputs needed to prescribe the correct test protocol before any lab is engaged. Preferred lab pricing is negotiated in bulk."
+    recurring: false
+
+  - title: "Nutritional Label Calculation Service"
+    type: saas
+    revenue_model: "Per-SKU calculation $75–$150; 5-SKU package $299; rush premium; annual subscription $299/year"
+    strategic_logic: "Non-discretionary for any product approaching retail launch. The platform knows the timing (product development completion stage) and can offer this at precisely the right moment. High volume, low marginal cost after calculation engine is built."
+    recurring: false
+
+  - title: "Finished Product Specification Document Service"
+    type: managed-service
+    revenue_model: "Per-SKU specification $200–$350; 3-SKU launch package $499; annual update service $75/SKU/year"
+    strategic_logic: "Required for every co-manufacturing relationship; almost never prepared by early-stage brand owners. The platform is positioned at the intersection of food technologist (who develops the product) and co-packer (who needs the specification) — the natural document host."
+    recurring: true
+
+  - title: "CFIA Regulatory Submission Management"
+    type: managed-service
+    revenue_model: "Per-submission management $400–$900 depending on submission type; ongoing regulatory monitoring $100–$200/month"
+    strategic_logic: "Most early-stage food entrepreneurs are unaware that CFIA label pre-market review, novel food notifications, and food additive submissions exist — and discover them only after a label rejection or inspection finding. The platform's KnowledgeSlot already curates these requirements; the managed service converts passive knowledge into an active recurring revenue stream."
+    recurring: true
+
+story:
+  title: ""
+  status: none
+  blog_slug: ""
+  characters: []
+  summary: "A Saskatoon entrepreneur discovers her fermented hot sauce requires a pH validation study before it can legally be sold commercially — and that a food technologist in Regina with fermented product experience can complete it in six weeks for $1,200."

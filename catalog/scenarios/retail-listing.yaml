@@ -1,0 +1,52 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: retail-listing
+title: "Retail Listing Discovery"
+sector: canadian-food-last-stage
+sub_sector: Grocery Listing
+forge_tier: 2
+status: published
+tags: [retail, brand-owner, grocery, listing, gtin, cfia-labelling]
+
+market_example:
+  summary: "Emerging food brands cannot reach independent grocery category buyers; buyers cannot discover differentiated regional brands outside personal networks."
+  problem: "Independent grocery chains actively differentiate through distinctive regional brands, but their category buyers are unreachable without network access. Brand owners approach at the wrong time in the review cycle and are forgotten. Both sides want the same transaction; timing opacity and network dependency prevent it."
+  dominant_forces:
+    - "Opacity — category buyer contacts are not indexed by category and chain"
+    - "Timing asymmetry — category review cycles are invisible to brand owners"
+    - "Cognitive overload — buyers reviewing 40+ unsolicited submissions per month cannot compare systematically"
+    - "Offering complexity — fit depends on price architecture, category gap, format, and marketing support"
+    - "Trust deficit — buyers who list an unreliable brand receive direct consumer complaints"
+  deeperpoint_fit: "Semantic matching aligns brand profiles (category, price point, certifications, shelf life, volume, marketing support) against buyer profiles (category gaps, price architecture, certification requirements, delivery logistics). Timing integration notifies matched brands when a buyer's category review window opens. KnowledgeSlot curates CFIA labelling requirements, GS1 registration procedures, and standard independent retail trade terms."
+  economic_upside: "Independent grocery is where regional food brands establish commercial identity before achieving scale or acquisition. Reducing the 2–4 year network-access runway creates new shelf presence for regional products and a richer, more differentiated Canadian food retail landscape."
+
+sponsor_opportunities:
+  - title: "Retail-Ready Label Compliance Service"
+    type: managed-service
+    revenue_model: "Per-SKU label review $150–$350; launch package up to 5 SKUs at $499"
+    strategic_logic: "The platform knows exactly which brands are preparing for retail listing — the moment they need this service is the moment they register. Non-discretionary for any brand approaching listing."
+    recurring: false
+
+  - title: "UPC/Barcode Registration and GS1 Onboarding"
+    type: managed-service
+    revenue_model: "One-time service fee $150–$250 per brand; GS1 membership management $75/year"
+    strategic_logic: "Every brand on the retail-listing platform needs a GS1-registered GTIN. The timing is precise and the service is unavoidable. Near-zero CAC because the need is universal in the participant community."
+    recurring: true
+
+  - title: "Category Velocity Intelligence Reports"
+    type: data-product
+    revenue_model: "Quarterly subscription $199–$499; annual $599–$999 per brand"
+    strategic_logic: "The platform's aggregate transaction data across hundreds of brand-retailer interactions generates proprietary market intelligence unavailable anywhere else. No individual participant can see the pattern the platform can."
+    recurring: true
+
+  - title: "Retail Broker Network Services"
+    type: managed-service
+    revenue_model: "Referral fee from broker (5–8% of first year sales through listing); optional brand subscription $199/year"
+    strategic_logic: "The platform has already qualified the brand's readiness. This is the most valuable signal a retail broker receives when taking on a new brand — dramatically reducing broker due diligence cost."
+    recurring: false
+
+story:
+  title: ""
+  status: none
+  blog_slug: ""
+  characters: []
+  summary: "A regional hot sauce brand owner discovers that her product fits a documented category gap at a BC specialty grocery chain — and that the buyer's review window opens in three weeks."

@@ -1,0 +1,52 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: shared-kitchen
+title: "Shared Licensed Kitchen Access"
+sector: canadian-food-last-stage
+sub_sector: Production Space
+forge_tier: 1
+status: published
+tags: [kitchen, incubator, commissary, licensing, food-entrepreneur]
+
+market_example:
+  summary: "Food entrepreneurs cannot find licensed commercial kitchen time; kitchen operators manage unfilled booking calendars through phone and email with no systematic outreach."
+  problem: "Food entrepreneurs scaling from home production need licensed commercial kitchen access to legally sell their products. Licensed kitchens (culinary schools, commissary kitchens, restaurant kitchens with morning availability) manage booking calendars through phone, email, and paper sign-up sheets. Neither party has a systematic discovery and booking mechanism. Operators with unfilled blocks cannot efficiently advertise to the right entrepreneurs; entrepreneurs cannot compare kitchens on the specific attributes that matter (equipment, certifications, licensing scope, permitted product types)."
+  dominant_forces:
+    - "Opacity — licensed kitchens are not aggregated in any searchable directory"
+    - "Offering complexity — kitchen suitability depends on equipment, licensing scope, storage, and booking terms"
+    - "Temporal distance — production schedules and kitchen availability must align in advance"
+    - "Regulatory fragmentation — municipal, provincial, and CFIA licensing requirements are widely misunderstood"
+    - "Trust deficit — kitchen operators risk liability for products made in their space"
+  deeperpoint_fit: "Semantic matching aligns entrepreneur profiles (product type, equipment needed, licence type, weekly hours, preferred days) against kitchen profiles (equipment, licence scope, booking increment, available blocks, permitted product categories). Real-time availability integration enables matched entrepreneurs to be notified when blocks matching their schedule open. KnowledgeSlot curates provincial health unit licensing, CFIA establishment requirements for shared facilities, and standard kitchen rental agreement terms."
+  economic_upside: "Licensed kitchen access is the primary operational bottleneck for tens of thousands of emerging food entrepreneurs. The PHAC estimates over 30% of food businesses that could scale from home-based to commercial production fail to do so solely because they cannot find appropriate licensed kitchen space."
+
+sponsor_opportunities:
+  - title: "Health Unit Licensing Navigation Service"
+    type: managed-service
+    revenue_model: "Fixed fee per entrepreneur $250–$450; optional plan submission management $150–$300"
+    strategic_logic: "The platform knows the entrepreneur's product type, production volume, and geographic location — the three inputs required to determine their exact licensing pathway — before the engagement begins."
+    recurring: false
+
+  - title: "Small Batch Production Planning Software"
+    type: saas
+    revenue_model: "Monthly subscription $19–$49; free tier with conversion incentive"
+    strategic_logic: "Purpose-built production scheduling, recipe scaling, and FIFO ingredient tracking for shared kitchen users. The platform has the kitchen booking data and production schedule; planning tools are a natural adjacent need."
+    recurring: true
+
+  - title: "Commercial Kitchen Renter Liability Insurance"
+    type: insurance
+    revenue_model: "Monthly premium $35–$75; referral commission from insurance partner"
+    strategic_logic: "Most general business policies do not cover product liability for food produced in a rented kitchen, equipment damage liability, or food spoilage. Kitchen operators increasingly require renters to carry coverage. The platform knows the renter's product type, volume, and kitchen relationship — the key underwriting inputs."
+    recurring: true
+
+  - title: "Packaging and Labelling Supplies Co-operative"
+    type: data-product
+    revenue_model: "Supplier rebate on aggregate purchasing volume; optional premium tier membership $29/month"
+    strategic_logic: "Shared kitchen renters buy packaging and label materials in very small quantities at premium prices. The platform has an aggregated community of small food producers who share this common supply need — a textbook group purchasing model."
+    recurring: true
+
+story:
+  title: ""
+  status: none
+  blog_slug: ""
+  characters: []
+  summary: "A cottage baker who has outgrown her home oven finds a licensed commissary kitchen two neighbourhoods away with Monday morning availability — and discovers its convection oven matches her croissant production requirements exactly."

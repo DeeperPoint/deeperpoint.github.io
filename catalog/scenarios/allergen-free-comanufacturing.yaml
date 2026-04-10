@@ -1,0 +1,52 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: allergen-free-comanufacturing
+title: "Allergen-Free Co-Manufacturing"
+sector: canadian-food-last-stage
+sub_sector: Specialist Production
+forge_tier: 2
+status: published
+tags: [allergen-free, gluten-free, co-packing, food-safety, gfcp, cfia]
+
+market_example:
+  summary: "Brand owners developing certified allergen-free products cannot find the small number of Canadian co-packers with the physical design and certification to credibly co-manufacture their allergen-free claims."
+  problem: "Only a small number of Canadian food manufacturing facilities have the physical design (dedicated lines, separated ingredient flow, validated cleaning protocols, environmental monitoring) and third-party certification (GFCP, GFSI allergen scope) to credibly co-manufacture certified allergen-free products. These facilities are consistently oversubscribed. Brand owners who cannot find certified Canadian capacity delay launch indefinitely or source from US facilities (adding cross-border complexity). Certified facilities cannot efficiently signal their capacity to searching brand owners."
+  dominant_forces:
+    - "Participant scarcity — certified allergen-free co-manufacturing capacity in Canada is genuinely limited"
+    - "Offering complexity — fit requires matching on specific allergen exclusions, equipment compatibility, CFIA allergen control plans, and certification scope"
+    - "Trust deficit — allergen cross-contact at a co-manufacturer causes a recall with brand-destroying consequences"
+    - "Opacity — certified allergen-free co-manufacturers do not advertise in brand-owner-facing channels"
+    - "Regulatory fragmentation — CFIA 2021 sesame amendment, SFCA allergen control plans, and GFCP co-manufacturing provisions are poorly understood"
+  deeperpoint_fit: "Semantic matching aligns brand owner profiles (specific allergen exclusions, product format, volume, certification preference) against facility profiles (allergen exclusions physically supported, equipment, certification scope, available capacity). The verification pipeline validates facility certifications before encoding in matching profiles — providing pre-vetted matched results. KnowledgeSlot curates CFIA SFCA allergen control requirements, GFCP co-manufacturing provisions, and the 2021 sesame amendment implementation requirements."
+  economic_upside: "The Canadian free-from food market exceeds CAD $3 billion annually, growing over 10% per year. Co-manufacturing capacity is the primary bottleneck preventing Canadian allergen-free brand owners from scaling. Better matching creates new Canadian food manufacturing employment and retains production value in Canada."
+
+sponsor_opportunities:
+  - title: "Allergen Control Plan Development and Validation"
+    type: managed-service
+    revenue_model: "Per-engagement $800–$1,500; annual review $400/year"
+    strategic_logic: "Allergen control plans must be specific to the product, facility, and production relationship. The platform has all three inputs from the matching data. Generic templates are inadequate and carry liability."
+    recurring: true
+
+  - title: "Environmental Monitoring Program Design and Lab Coordination"
+    type: managed-service
+    revenue_model: "Program design $600–$1,200; ongoing lab coordination subscription $150–$300/month per facility"
+    strategic_logic: "Environmental monitoring programs require facility-specific knowledge the platform has from the facility profile. Coordination eliminates the facility manager's burden of managing lab relationships independently."
+    recurring: true
+
+  - title: "Allergen Recall Preparedness and Traceability System"
+    type: saas
+    revenue_model: "Annual subscription per brand $299–$599; per-production-run traceability fee $5–$10/run"
+    strategic_logic: "Most brand owners operating through co-manufacturers have no system linking raw material lots to production runs to distribution records. The platform already has the co-manufacturer identity and production relationship structure; traceability is a natural data model extension."
+    recurring: true
+
+  - title: "Consumer-Facing Allergen Claim Communication Kit"
+    type: managed-service
+    revenue_model: "One-time purchase $150–$250; custom regulatory review of specific claim language $200–$400 per SKU"
+    strategic_logic: "Most brand owners write their own allergen claim language and get it wrong. Incorrect allergen claims are a regulatory liability. Non-discretionary for any brand launching with an allergen-free identity."
+    recurring: false
+
+story:
+  title: ""
+  status: none
+  blog_slug: ""
+  characters: []
+  summary: "A peanut-tree nut-free snack brand owner discovers there are exactly eleven GFCP-certified co-manufacturers in Canada capable of running her product — and that one of them in Hamilton has a Q4 slot available."

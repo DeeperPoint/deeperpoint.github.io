@@ -1,0 +1,52 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: food-service-distribution
+title: "Food Service Distribution Matching"
+sector: canadian-food-last-stage
+sub_sector: Distribution
+forge_tier: 2
+status: published
+tags: [food-service, distribution, restaurant, local-food, haccp]
+
+market_example:
+  summary: "Specialty local producers cannot get onto distributor catalogues; regional specialty distributors cannot efficiently qualify local suppliers for onboarding."
+  problem: "Restaurant groups, hotel food service, and institutional catering kitchens with local sourcing mandates cannot source through Sysco or Gordon Food Service (minimum volumes, weekly supply, UPC-coded product required). Specialty food distributors and regional food hub operators are actively seeking specialty supplier relationships but have no efficient mechanism to identify producers who meet their food safety and supply consistency requirements."
+  dominant_forces:
+    - "Opacity — specialty food distributors are not indexed in any supplier-facing directory"
+    - "Offering complexity — distributor onboarding requirements vary in certification, volume, and formatting"
+    - "Trust deficit — distributor supply failures cause direct restaurant client complaints"
+    - "Fulfillment constraints — cold chain, delivery windows, and labelling formats create operational barriers"
+    - "Temporal distance — menu planning cycles require supply commitments weeks before the season"
+  deeperpoint_fit: "Semantic matching aligns producer profiles (product category, HACCP status, supply volume, cold chain capability, delivery geography) against distributor profiles (certifications required, delivery geography, client type, preferred supplier volume). User aggregation allows multiple small producers in the same region to consolidate into a combined catalogue. Temporal matching surfaces producers at season-start against distributor category needs."
+  economic_upside: "Food service distribution is where specialty producers achieve the consistent revenue base that makes their operations commercially viable between farmers' market seasons. Better matching expands local food supply visible to restaurant and institutional kitchens."
+
+sponsor_opportunities:
+  - title: "HACCP/PCP Documentation Package"
+    type: managed-service
+    revenue_model: "Per-producer package $400–$800; annual review subscription $200/year"
+    strategic_logic: "HACCP/PCP documentation to the matched distributor's specific standard is the primary administrative bottleneck for small producers. The platform knows which standard applies because it knows which distributor the producer is targeting."
+    recurring: true
+
+  - title: "Consolidated Invoicing and AR Management"
+    type: saas
+    revenue_model: "Monthly subscription per producer $49–$99; percentage of invoice value 1–2%"
+    strategic_logic: "Most small specialty producers cannot produce net-30 invoicing or manage credit terms across multiple distributor accounts. The platform already knows the producer's distributor relationships and can semi-automate invoice management."
+    recurring: true
+
+  - title: "Food Service Pack Format Conversion"
+    type: managed-service
+    revenue_model: "Per-SKU conversion fee $200–$350; revision fee $75–$150"
+    strategic_logic: "Products designed for retail must be converted to food service pack formats. The platform knows which distributor's clients the producer is targeting, enabling format advice specific to the channel."
+    recurring: false
+
+  - title: "Cold Chain Compliance Monitoring"
+    type: saas
+    revenue_model: "Monthly device lease + data subscription $29–$49/month per producer"
+    strategic_logic: "Cold chain compliance is increasingly required by food service distributor onboarding standards. Can be bundled with the matching service as a standard onboarding requirement."
+    recurring: true
+
+story:
+  title: ""
+  status: none
+  blog_slug: ""
+  characters: []
+  summary: "Three Niagara Peninsula vegetable producers discover they can present a combined catalogue to a Toronto restaurant group distributor — a volume none of them could reach alone."

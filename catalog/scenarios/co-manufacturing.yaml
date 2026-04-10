@@ -1,0 +1,52 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: co-manufacturing
+title: "Co-Manufacturing Capacity Matching"
+sector: canadian-food-last-stage
+sub_sector: Contract Production
+forge_tier: 2
+status: published
+tags: [co-packing, brand-owner, food-safety, haccp, sfca]
+
+market_example:
+  summary: "Brand owners with retail listings cannot find co-packers; co-packers with idle equipment lines cannot find new brand clients."
+  problem: "A food entrepreneur has a validated recipe, a retail listing, and a food safety plan — but no production facility. Co-packers with idle capacity on specific equipment lines (retort, IQF, form-fill-seal) have no efficient mechanism to signal availability, and brand owners have no systematic way to discover and qualify them. Discovery happens via word-of-mouth and personal networks, missing the vast majority of available matches."
+  dominant_forces:
+    - "Opacity — co-packer capabilities are not aggregated in any searchable format"
+    - "Offering complexity — equipment type, certifications, MOQ, and run scheduling must all align"
+    - "Trust deficit — brand owners share proprietary recipes with a third-party facility"
+    - "Cognitive overload — brand owners evaluating multiple co-packers cannot compare across dimensions"
+    - "Regulatory fragmentation — CFIA licence categories restrict what a co-packer can produce"
+  deeperpoint_fit: "Semantic matching aligns brand owner profiles (product format, certifications needed, volume, timeline stage) with co-packer profiles (equipment, CFIA licence category, SQF/BRCGS scope, run schedule availability, MOQ). The trusted intermediary protocol allows brands to share proprietary formulations under NDA-equivalent confidential review before a facility visit. KnowledgeSlot curates CFIA manufacturing licence categories, SQF co-manufacturing requirements, and standard co-manufacturing agreement terms."
+  economic_upside: "Co-manufacturing access is the most commonly cited operational bottleneck for Canadian food brand owners at growth stage. Better matching reduces the 6–18 month search period, increases co-packer utilization rates, and prevents viable food brands from stalling at the production bottleneck."
+
+sponsor_opportunities:
+  - title: "Co-Manufacturing Agreement Generator"
+    type: saas
+    revenue_model: "Per-document fee $150–$400 CAD, or co-packer subscription $99–$199/month"
+    strategic_logic: "Only a sponsor who has connected the parties can pre-populate the agreement from matched profile data. Lawyers who draft these ad hoc charge $2,000–$8,000."
+    recurring: true
+
+  - title: "CFIA Preventive Control Plan Builder"
+    type: saas
+    revenue_model: "Per-PCP fee $300–$600; annual subscription $499–$999/year per licensed facility"
+    strategic_logic: "The PCP must describe the specific product, facility, and allergen controls for the matched co-manufacturing relationship. Generic templates are inadequate. The platform has all three inputs."
+    recurring: true
+
+  - title: "Ingredient Consolidation Logistics Coordination"
+    type: managed-service
+    revenue_model: "Per-run coordination fee $150–$300, or 5–8% of consolidated freight value"
+    strategic_logic: "Many brand owners run first co-manufacturing runs with no system for coordinating ingredient inbound logistics, causing production delays and traceability failures. The platform has the ingredient list and run schedule."
+    recurring: false
+
+  - title: "Run Financing / Invoice Factoring"
+    type: financial
+    revenue_model: "Origination fee plus interest margin on funded receivables; referral fee from lending partner"
+    strategic_logic: "Co-packers often require upfront payment or deposit from new brand clients; brand owners are cash-constrained. The platform has the transaction details needed for efficient underwriting."
+    recurring: false
+
+story:
+  title: ""
+  status: none
+  blog_slug: ""
+  characters: []
+  summary: "A food entrepreneur with a retail listing but no production partner navigates a MarketForge-powered co-packer discovery and matching process for the first time."
