@@ -76,7 +76,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     }
     .cat-desc {
       font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
-      max-width: 600px; margin: 0 auto 2rem; line-height: 1.65;
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
     }
 
     /* --- Search bar --- */
