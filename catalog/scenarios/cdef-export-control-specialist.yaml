@@ -1,0 +1,81 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cdef-export-control-specialist
+title: "Canadian Defence Export Control Specialist Matching: Connecting SME Exporters to ITAR and CCCS Compliance Counsel for Specific Military Technology Export Permits"
+card_title: "Defence Export Permits — Finding the Right Counsel"
+sector: canadian-defence-sector
+sub_sector: Defence Trade Compliance — Export Permit Navigation
+forge_tier: 2
+status: published
+tags: [defence, export-control, ITAR, CCCS, export-permit, PSPC, Global-Affairs, compliance, SME, Canada, Five-Eyes, NATO]
+
+market_example:
+  summary: "A Halifax marine electronics firm has won a contract to supply sonar processing hardware to the Royal Australian Navy. The export requires a Canadian export permit under the Export and Import Permits Act and an ITAR Technology Control Plan because some components trace to US-origin technology. There are fewer than forty lawyers in Canada with actual Export Control List and ITAR dual-use transaction experience. The firm's IP lawyer has never filed an export permit."
+  problem: "Canada's Export and Import Permits Act (EIPA) and its relationship with US International Traffic in Arms Regulations (ITAR) create a compliance environment for military technology exports that is genuinely complex and served by an extremely thin pool of qualified practitioners. A Canadian defence SME that has developed a technology with export potential to allied militaries — Five Eyes partners, NATO allies, Global Affairs Canada-approved destinations — faces an export control compliance journey that requires expertise in Canadian Export Control List classification, US ITAR ''see-through'' rule application to Canadian-manufactured products with US-origin components, Controlled Goods Program registration, Australian DSGL or UK EAR equivalent requirements at the receiving end, and the specific Technology Control Plan documentation that the Canadian Commercial Corporation (CCC) requires for government-to-government export arrangements. This expertise is concentrated in a handful of Ottawa-based legal practices and one or two specialized compliance consultancies. Firms outside Ottawa — and most Canadian defence SMEs are outside Ottawa — have no efficient mechanism to find the right practitioner for their specific transaction, no way to distinguish a generalist export lawyer from one who has actually filed a Category 1 or Category 2 Group 2 ECL application, and no structured mechanism to scope what their transaction actually requires before committing to a legal retainer."
+  dominant_forces:
+    - "Practitioner scarcity — fewer than 40 Canadian lawyers have genuine EIPA/ITAR dual-use export transaction experience; most are in Ottawa; generalist trade lawyers who accept the file without this background create compliance liability, not compliance protection"
+    - "Transaction complexity variation — a direct commercial export under a Category 5 ECL permit is structurally different from a CCC government-to-government contract with US technology content; SMEs cannot assess which type of expertise their transaction requires without already having specialized knowledge"
+    - "US ITAR see-through risk — Canadian-manufactured products with US-origin components are subject to US ITAR re-export requirements even when exported under a Canadian permit; most Canadian SMEs do not know this until after a proposed transaction is rejected or flagged by their US component supplier"
+    - "Timing pressure — export permit processing timelines at Global Affairs Canada range from 6 weeks to 18 months depending on destination, technology class, and end-user certificate requirements; SMEs that begin compliance work after contract signature routinely miss delivery obligations"
+    - "Controlled Goods Program status — CGP registration (required for access to controlled goods and for most defence export transactions) takes 6–12 months; SMEs without CGP status cannot legally tender on or execute certain defence contracts regardless of capability"
+  deeperpoint_fit: "MarketForge lists defence export control practitioners by specific competence: ECL category experience (Groups 1–7), ITAR dual-use transaction experience, CCC export arrangement experience, CGP registration consulting, destination-country equivalent regulation (Australian DSGL, UK EAR, EU dual-use). SMEs post their transaction profile — technology description, destination country, end user type, US-content percentage — and the platform matches to practitioners with documented experience in that specific transaction category. Knowledge Slot provides current ECL category guidance, Global Affairs processing timelines by destination country, and ITAR see-through rule decision trees."
+  economic_upside: "Canada's defence exports exceed $3 billion annually, with significant growth anticipated under NATO 2% spending commitments by allies and the Five Eyes technology sharing agreements. A platform that captures 2% of SME defence export transactions as advisory matching clients, at an average transaction advisory value of $15,000 in specialist counsel time, generates $6M in annual matched advisory spend with a 5% platform fee producing $300,000 in revenue at modest penetration. The Canadian Association of Defence and Security Industries (CADSI) and the Canadian Commercial Corporation are natural sponsors with member service value."
+
+sponsor_opportunities:
+  - title: "Defence Export Compliance Practitioner Matching Platform"
+    type: association-platform
+    revenue_model: "Practitioner verified listing subscription; per-transaction matching fee (5% of advisory scope); SME transaction profile consultation (pre-matching scoping, fixed fee); Knowledge Slot annual license to CADSI member companies"
+    strategic_logic: "CADSI members chronically struggle with export compliance for small transactions that don't justify full-service law firm retainers; a platform that right-sizes practitioner matching to transaction complexity serves the SME membership that associations need to retain."
+    recurring: true
+  - title: "Canadian Commercial Corporation Export Support Integration"
+    type: government-partnership
+    revenue_model: "Annual license from CCC for integrated compliance navigation for SMEs entering CCC export arrangements; compliance readiness assessment product co-developed with Global Affairs Canada's Export Controls Division"
+    strategic_logic: "CCC's mandate includes developing Canadian export capacity; a platform that reduces SME compliance failure rates on CCC-supported transactions reduces CCC's transaction management burden and increases the SME base it can work with."
+    recurring: true
+
+story:
+  title: "The See-Through Rule"
+  status: published
+  blog_slug: ""
+  characters:
+    - "Reuben — CEO of a Halifax marine electronics firm; has won a contract to supply sonar processors to the Royal Australian Navy; his IP lawyer has just told him the export is 'straightforward'; it is not straightforward"
+    - "Patricia — Ottawa-based defence trade compliance counsel; has filed 23 ECL applications and 8 ITAR Technology Control Plans; knows the see-through rule better than most US practitioners; has no mechanism to find clients outside her existing network"
+    - "The see-through problem — Reuben's sonar processors contain a US-origin signal processor that subjects the Canadian product to ITAR re-export requirements even though the product is Canadian-manufactured and the export is Canadian-to-Australian"
+  summary: "Reuben's IP lawyer says the Australian export is straightforward. Patricia knows about the US-origin component inside the sonar processor that makes it anything but. They are not in the same network. The permit deadline is twelve weeks away."
+  body: |
+    ## Act One: The Straightforward Export
+
+    The IP lawyer had been confident. He had done export work before — software licensing agreements, a patent assignment to a UK firm, a technology transfer arrangement with a European university. He understood that military technology required export permits and had looked up the Export Control List entry for sonar processing equipment. Category 6.A.6. A permit was required for Australia. He would file it. He estimated six to eight weeks.
+
+    Reuben had signed the Australian contract based partly on this estimate. The delivery obligation was eighteen weeks from contract signature. He had ten weeks left.
+
+    What the IP lawyer had not known was that the signal processor at the core of Reuben's sonar unit was a US-origin DSP chip — not ITAR-controlled in itself, but the firmware Reuben's engineers had written for it incorporated US-origin signal processing methods documented in a company technical exchange agreement with a Massachusetts defence lab from three years ago. This created an ITAR technology content trace that applied ITAR re-export restrictions to the Canadian-manufactured product under the ITAR ''see-through'' rule.
+
+    The eight-week permit had just become an ITAR Technology Control Plan, a US State Department re-export authorization, and a Canada-Australia bilateral arrangement review — none of which the IP lawyer had filed before.
+
+    ---
+
+    ## Act Two: Patricia's Practice
+
+    Patricia had built her practice over twelve years on exactly this type of situation — ITAR technology traces embedded in Canadian-manufactured defence products, discovered late in the transaction cycle, requiring both Global Affairs Canada and US State Department coordination. She had files in her cabinet for six firms in this exact position, each of whom had come to her after an initial lawyer had missed the see-through issue.
+
+    She had no marketing. Her clients came through CADSI contacts, a few referrals from CCC program officers, and two academic conference presentations. Outside Ottawa, she was essentially invisible.
+
+    She listed on the platform the previous month, documenting her ECL category experience (Groups 1–7 with specific transaction records) and her ITAR Technology Control Plan filings. The platform's Knowledge Slot asked her to contribute to the ITAR see-through rule decision tree, which she spent two hours drafting — the clearest documentation of the rule she had ever produced.
+
+    ---
+
+    ## Act Three: The Ten Weeks
+
+    The platform matched Reuben's transaction profile to Patricia's competence listing the Tuesday after he posted it: ECL Category 6 (sensors/lasers), ITAR dual-use content, Five Eyes destination (Australia), CCC-adjacent transaction. High-confidence match.
+
+    Patricia reviewed the transaction profile and identified the Massachusetts technical exchange agreement as the probable ITAR trace within forty minutes of reading Reuben's submission.
+
+    Her initial scope call with Reuben lasted twenty-two minutes. She told him what he actually needed: a ITAR classification determination request to US State, a Technology Control Plan, a Canadian General Export Permit 12 application for the Australian destination, and a letter to the Australian CASG (Capability Acquisition and Sustainment Group) explaining the timeline.
+
+    The delivery obligation was eight months from State's authorization date. She negotiated a contract amendment with the Australian end-user on Reuben's behalf. The revised timeline was agreed in four days.
+
+    The export permit package was filed eleven weeks later. State responded in six months. The sonar processors shipped on time under the amended schedule.
+
+    Reuben's IP lawyer sent a thank-you note for the referral.
+
+    *Characters are fictional. EIPA Export Control List Category 6, ITAR see-through rule, Canadian Commercial Corporation export arrangements, and Global Affairs Canada export permit processing timelines are real. [DeeperPoint](../../marketforge.html) is building the matching infrastructure this market requires.*

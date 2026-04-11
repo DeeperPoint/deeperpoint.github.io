@@ -1,0 +1,75 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cdef-drdc-industry-technology-transfer
+title: "DRDC to Industry Technology Transfer: Matching Defence Research and Development Canada Innovations to Canadian Companies That Can Commercialize Them"
+card_title: "Defence Research Ready for Industry — If Industry Can Find It"
+sector: canadian-defence-sector
+sub_sector: Defence Innovation — Research Commercialization and Technology Transfer
+forge_tier: 2
+status: published
+tags: [DRDC, DND, research-commercialization, technology-transfer, defence-innovation, NRC, IDEaS, BCIP, canada, dual-use, spinout]
+
+market_example:
+  summary: "A DRDC Suffield researcher has developed a real-time atmospheric dispersion model for CBRN events that runs on commercial hardware. It has $40M in military R&D behind it. A Calgary environmental monitoring startup has the commercialization infrastructure and a civilian market in industrial incident response. DRDC has no mechanism to find that startup, and the startup doesn't know the model exists."
+  problem: "Defence Research and Development Canada (DRDC) — Canada's national defence science and technology organization — operates six research centres across Canada with an annual budget exceeding $500M. The research produces technologies in areas including autonomous systems, directed energy, survivability, CBRN defence, communications, and human performance that have substantial dual-use commercial potential. The path from DRDC laboratory to commercial application is systematically underdeveloped. DRDC has mechanisms for industry engagement — the IDEaS program, the Build in Canada Innovation Program, the Canadian Safety and Security Program — but these are primarily mechanisms for industry to bring problems to DRDC, not mechanisms for DRDC innovations to find commercial partners. A DRDC Halifax researcher who has developed a novel underwater acoustic classification algorithm that would be valuable to offshore seismic survey companies has no operational pathway to connect with those companies. A DRDC Valcartier team that has developed composite armour materials with weight and cost profiles competitive with commercial ballistic protection applications has two industry relationships established through personal academic contacts, not through a structured commercialization matching process. The dual-use technology transfer gap between Canadian defence research and Canadian industry is structural: DRDC's mandate is defence science, not commercialization; NRC's mandate is commercialization, not defence; the gap between them is where promising dual-use technologies sit unexploited."
+  dominant_forces:
+    - "Classification barrier — many DRDC technologies carry classification levels that restrict disclosure to industry even at the capability description level; commercialization potential cannot be assessed by industry partners who cannot access the technical description"
+    - "Mandate boundary — DRDC's institutional mandate does not include commercialization or industry development; researchers whose work has commercial potential have no internal career incentive or operational support to pursue industry engagement"
+    - "Vocabulary mismatch — DRDC research is described in defence science and military requirements language; potential commercial adopters from civilian industries cannot identify the match without translation to commercial application vocabulary"
+    - "IP ownership complexity — technologies developed under DND funding may have joint Crown-researcher IP ownership, ITAR-controlled elements from allied research collaboration, or contractor-developed components that create complex licensing arrangements commercial partners cannot easily navigate"
+    - "Industry discovery failure — Canadian SMEs and startups that would be natural commercialization partners for DRDC dual-use technologies have no awareness of what DRDC has developed that is declassified and available for licensing; DRDC's published research library is not a commercial technology catalogue"
+  deeperpoint_fit: "MarketForge lists DRDC and affiliated defence research technologies available for commercialization licensing — described in dual-use commercial vocabulary by a translation layer that maps military capability terms to civilian application domains. Canadian companies post technology needs or commercialization interest by domain. The matching engine identifies research-to-industry fit based on application domain, technology readiness level (TRL), IP licensing structure, and industry sector. Knowledge Slot provides DRDC technology transfer policy, Crown IP licensing frameworks, ITAR-inherited restrictions on specific technologies, and IDEaS/BCIP grant programs available to industry commercialization partners."
+  economic_upside: "DRDC's cumulative defence R&D investment represents billions in taxpayer-funded innovation, a portion of which has commercial application that is currently unrealized due to structural discovery failure. Even 10 successful dual-use technology transfers per year at an average commercial licensing value of $2M produces $20M in Canadian industrial (and tax) value — transforming sunk defence R&D cost into civilian economic return. A platform that facilitates these matches at a 3% facilitation fee on licensing agreement value generates $600,000 per year at this modest scale. NRC's National Research Council Industrial Research Assistance Program (IRAP) and DND's S&T Program are natural co-funding sources for a platform that directly advances Canada's defence innovation mandate."
+
+sponsor_opportunities:
+  - title: "DRDC Dual-Use Technology Commercialization Matching Platform"
+    type: government-partnership
+    revenue_model: "Annual platform license from DND S&T Program; per-match facilitation fee (3% of licensing agreement value); technology description translation service to DRDC researchers (fixed fee per technology); IDEaS integration — challenge winners matched to industry commercialization partners through platform"
+    strategic_logic: "DND's SampT Strategy explicitly identifies commercialization of dual-use technologies as a national defence value multiplier; a platform that operationalizes this policy objective with measurable match outcomes provides DND with a mechanism to report concrete innovation ROI on its research investment."
+    recurring: true
+  - title: "NRC-IRAP Dual-Use Commercialization Gateway"
+    type: government-partnership
+    revenue_model: "Annual platform license from NRC-IRAP for integration into the IRAP client intake process; per-referral fee for IRAP-funded companies matched to DRDC technology licensing opportunities; joint IRAP-DND grant program co-administration fee"
+    strategic_logic: "NRC-IRAP clients include exactly the Canadian SMEs and startups best positioned to commercialize DRDC dual-use technologies; an integrated platform that connects IRAP's industry network to DRDC's technology pipeline creates a closed-loop national innovation system that neither organization can build alone."
+    recurring: true
+
+story:
+  title: "The Dispersion Model That Didn't Know It Had a Customer"
+  status: published
+  blog_slug: ""
+  characters:
+    - "Dr. Okafor — DRDC Suffield environmental scientist; lead developer of RealPuff, a real-time atmospheric CBRN dispersion model that runs on commercial hardware and has been validated in 14 field trials; his mandate is defence research and he has no commercialization pathway"
+    - "Nadia — co-founder of a Calgary environmental monitoring startup that sells industrial incident response tools to oil and gas operators; has been trying to license a validated atmospheric dispersion model for two years; has found only US products with export restrictions"
+    - "RealPuff — $40M in development investment, 14 validation trials, classified at PROTECTED B; the unclassified capability description is not published; Nadia doesn't know it exists"
+  summary: "Dr. Okafor has a validated atmospheric dispersion model that Nadia has been trying to find for two years. RealPuff is described in classified documents. The unclassified capability summary exists. Nadia has never seen it because DRDC does not publish technology catalogues for civilian industry."
+  body: |
+    ## Act One: The US Product That Wouldn't License
+
+    Nadia had spent eighteen months trying to license HYSPLIT from NOAA for commercial use. The technical performance was adequate. The licensing terms for commercial applications in Canada referenced an ITAR-adjacent restricted use provision that her lawyer said was unenforceable in Canada but that no Canadian downstream customer in the oil and gas sector would accept on their liability insurance. She had tried three other US atmospheric dispersion models with similar results.
+
+    The Canadian industrial incident response market needed a validated model she could integrate into her platform, provide real-time outputs to emergency response teams, and license commercially without a US government restriction chain attached to it.
+
+    She had asked NRC. She had asked Environment and Climate Change Canada. She had posted in an environmental modelling forum. Nobody had mentioned DRDC.
+
+    ---
+
+    ## Act Two: The Capability Description
+
+    Dr. Okafor had written the unclassified capability description of RealPuff at the request of a DND communications officer who wanted a public-facing technology brief for an IDEaS publication. He had submitted it eight months ago. He had not heard back about whether it had been published. His primary work was continuing validation testing for Phase 4 of the defence procurement program that had funded RealPuff's development.
+
+    The unclassified description was accurate: real-time atmospheric CBRN dispersion modelling, validated to NATO ATP-45 standard, operational on commercial computing hardware, applicable to industrial hazardous material release scenarios as well as military CBRN event response.
+
+    The description had been uploaded to the DRDC public research portal in a sub-directory for unclassified capability summaries that generated approximately 200 page views per month, almost all from defence researchers and contractors who already knew what they were looking at.
+
+    ---
+
+    ## Act Three: The Match
+
+    The platform's matching engine had catalogued the DRDC capability description when it was published — scanning the DRDC unclassified portal through its knowledge aggregation pipeline and tagging the RealPuff description with domain keywords: atmospheric dispersion, industrial hazmat, CBRN, real-time modelling, commercial hardware, validated model.
+
+    Nadia's technology search profile — validated atmospheric dispersion model, commercial licensing available, industrial application, Canadian-origin preferred — generated a match notification the following spring.
+
+    Her first call with the DRDC technology transfer office was awkward — DRDC's licensing process required a Crown IP assessment and a PSPC contracting structure she had never encountered. The platform's Knowledge Slot gave her the DRDC licensing framework documents and the name of a Canadian IP firm with Crown IP experience that had successfully structured two previous DRDC technology licenses.
+
+    The licensing agreement was signed eleven months later. The IP complexity was real. But it was solvable, and it would not have been attempted if Nadia had not known that RealPuff existed.
+
+    *Characters are fictional. DRDC Suffield's CBRN research program, the HYSPLIT atmospheric dispersion model, NRC-IRAP, and DRDC's Crown IP licensing framework are real. [DeeperPoint](../../marketforge.html) is building the matching infrastructure this market requires.*
