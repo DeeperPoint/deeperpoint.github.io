@@ -1,0 +1,91 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: chc-adaptive-equipment-exchange
+title: "Adaptive Equipment Exchange: Structured Marketplace for Used Mobility and Home Care Equipment Across Canada"
+sector: canadian-healthcare-support
+sub_sector: Adaptive Equipment Markets — Home Care and Disability
+forge_tier: 1
+status: published
+tags: [adaptive-equipment, wheelchair, home-care, disability, assistive-technology, canada, healthcare, equipment-exchange, MOATC]
+
+market_example:
+  summary: "Power wheelchairs, adjustable hospital beds, Hoyer lifts, stair lifts, and other adaptive equipment cost between $3,000 and $60,000 new. Provincial assistive technology programs (Ontario's MOATC, BC's HIDBC, Alberta's AADL) cover a portion of new equipment costs but have eligibility restrictions and often multi-month waiting lists. When adaptive equipment is no longer needed — because the user has moved to long-term care, recovered, or passed away — it typically sits unused in a family home or goes to landfill. The thin market: connecting families with excess equipment to patients who need it, at verified condition and appropriate clinical specification, without the safety risks of unstructured online marketplaces and without waiting for provincial program approval."
+  problem: "The used adaptive equipment market in Canada exists but operates as a true thin market: isolated Facebook groups, community bulletin boards, occasional Kijiji listings, and charity warehouse programs that are regionally limited and often poorly organized. The matching problems are significant. A family in Oakville who needs to move a hospital bed out of a deceased parent's home faces the reverse problem from a family in Burlington who has been waiting three months for the provincial MOATC program to approve funding for the same item. The two families almost certainly never connect. When they do connect through informal channels, the transaction has no quality verification, no clinical appropriateness check, and no documentation for insurance purposes. When equipment is donated rather than sold, the recipient may receive a device that is incompatible with their needs — a power wheelchair set up for a different body size, or a hospital bed without the appropriate mattress for pressure injury prevention. The market failure is structural: there is no trusted aggregator with clinical oversight to match supply and demand efficiently."
+  dominant_forces:
+    - "Perishable availability — adaptive equipment becomes available unpredictably when a user dies, moves to LTC, or recovers; the supply side events are not foreseeable by families in waiting"
+    - "Clinical specification complexity — adaptive equipment suitability is not obvious from general descriptions; a power wheelchair requires weight capacity, seat width, control configuration, and terrain suitability matching that lay sellers and buyers cannot reliably verify"
+    - "Provincial program delays — MOATC, AADL, and similar programs have processing times of weeks to months; families in urgent need cannot wait and often go without"
+    - "Trust deficit — unstructured online marketplaces offer no quality verification, no documentation, and no recourse if equipment is misrepresented; buyers are cautious about purchasing safety-critical items from private parties"
+    - "Geographic mismatch — supply and demand are geographically co-located at provincial scale but often misaligned at city scale; a platform aggregating listings across an entire province dramatically improves match probability"
+  deeperpoint_fit: "MarketForge operates an adaptive equipment exchange with condition-verified listings created by sellers or donating families, reviewed by a registered occupational therapist before publication. Buyers filter by equipment category, provincial location, clinical specification (weight capacity, seat width, stair lift rail length, etc.), and price. Occupational therapist reviewers — listed as professional platform members — provide condition verification for a flat fee, generating a brief written report attached to the listing. The matching problem is pure information: who has what, where, and whether it is clinically appropriate for a given need. No health records are involved."
+  economic_upside: "The Canadian adaptive equipment market is approximately $500 million per year for new equipment, with provincial programs covering a portion. A structured resale market that captures 5–10% of replacement throughput represents $25–50 million in annual transaction volume. The platform earns transaction facilitation fees, OT verification fees shared with participating therapists, and provincial program administrative partnerships for approved second-hand equipment pathways (which several provinces are actively developing). Families with excess equipment recover value; families in waiting obtain equipment faster; provincial programs offset their costs by approving certified second-hand equipment as eligible for subsidy top-up."
+
+sponsor_opportunities:
+  - title: "Provincial MOATC/AADL Second-Hand Equipment Certification Partnership"
+    type: government-partnership
+    revenue_model: "Per-listing OT certification fee (split platform/therapist); provincial program licensing fee for certified used equipment subsidy pathway integration; annual platform license from provincial assistive technology program"
+    strategic_logic: "Provinces that approve certified second-hand equipment for subsidy top-up reduce their program costs while improving patient access times; the platform provides the certification infrastructure they currently lack."
+    recurring: true
+  - title: "Occupational Therapist Equipment Reviewer Listing"
+    type: professional-membership
+    revenue_model: "Monthly OT member subscription; per-verification report fee visible to sellers; premium listing for OTs with specific equipment category expertise (power mobility, complex seating, bariatric equipment)"
+    strategic_logic: "OTs who offer equipment verification services gain access to a market that does not currently exist for them; the verification role is within their scope of practice and commands a real fee with low time investment."
+    recurring: true
+
+story:
+  title: "The Wheelchair in the Garage"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "The Okafor family — Scarborough family managing the estate of Margaret Okafor, 84; her power wheelchair has been in their garage for seven months; they have no idea what to do with it"
+    - "Tomás — 41-year-old man in Mississauga with progressive MS; approved for MOATC funding but the power wheelchair he's been matched to new is a six-month wait; his current manual chair is no longer adequate"
+    - "Janet — registered OT in Hamilton; listed on the platform as equipment reviewer for power mobility devices; reviews for condition, clinical specification, and safety"
+  summary: "The Okafor family has a power wheelchair in their garage for seven months with no mechanism to find it a home. Tomás has been approved for a power wheelchair but is waiting six months for new delivery. Janet verifies the chair's condition and specification match in forty minutes. The chair moves from garage to Tomás's home two weeks later, with MOATC subsidy top-up approved on the certified second-hand pathway."
+  body: |
+    ## Act One: The Garage Inventory
+
+    Eight months after Margaret's funeral, her son David was doing the last room. The power wheelchair had been
+    a $14,000 purchase four years ago and it was in excellent condition — Margaret had used it for eleven months
+    before moving to the nursing home where manual mobility was sufficient and the chair sat. David had called
+    three charities. One said they didn't accept power chairs. One had a six-month pickup list. One hadn't called
+    back.
+
+    He listed it on Kijiji for $2,800. Three responses in two weeks — all asked questions he couldn't answer. What's
+    the weight capacity? Is the joystick configuration changeable? How wide is the seat? He had no idea. The chair
+    sat in the garage.
+
+    ---
+
+    ## Act Two: The Platform Listing
+
+    He found the platform through a social worker at the nursing home who had mentioned it twice in the past month.
+
+    The listing process asked him to describe the chair model (the sticker on the seat post gave him the manufacturer
+    and model number), the approximate date of purchase, and visible condition. It flagged the model as a mid-range
+    indoor/outdoor power chair and requested an OT verification before publication.
+
+    Janet Kowalski's verification appointment was three days later by video. She walked David through a structured
+    condition check — battery health indicator, joystick response test, wheel bearing check, seat cushion condition —
+    and pulled up the manufacturer's specification sheet. Weight capacity: 300 lbs. Seat width: 19 inches. Joystick:
+    standard right-hand, reconfigurable. She wrote the report in thirty minutes after the call.
+
+    The listing went live with Janet's verification attached.
+
+    ---
+
+    ## Act Three: Tomás's Two Weeks
+
+    Tomás had been using the platform's search for three weeks. His MOATC approval specified a mid-range indoor/outdoor
+    power chair, 300 lb capacity minimum, seat width 18–21 inches. The new chair from his designated vendor was a
+    six-month delivery queue.
+
+    The Okafor listing matched his specifications. The OT report confirmed clinical suitability. The asking price was
+    $2,800; his MOATC subsidy top-up for certified second-hand equipment covered $2,100 of it.
+
+    David brought the chair to Tomás's building in his father's van on a Saturday morning. Tomás was outside waiting.
+
+    The garage had been empty for eleven months. The driveway in Mississauga had a new wheelchair ramp, built the
+    previous week in anticipation.
+
+    *Characters are fictional. Ontario's MOATC program, AADL in Alberta, the adaptive equipment resale market, and
+    OT scope of practice for equipment verification are real. [DeeperPoint](../../marketforge.html) is building the
+    matching infrastructure this market requires.*
