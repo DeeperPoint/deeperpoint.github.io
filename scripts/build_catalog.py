@@ -948,12 +948,12 @@ def buildDetailPage(s):
       </div>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
-        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
       </nav>
       <div id="tab-market" class="tab-panel active">{tab1}</div>
-      <div id="tab-sponsor" class="tab-panel">{tab2}</div>
       <div id="tab-story" class="tab-panel">{tab3}</div>
+      <div id="tab-sponsor" class="tab-panel">{tab2}</div>
     </div>
   </section>
   <script>
