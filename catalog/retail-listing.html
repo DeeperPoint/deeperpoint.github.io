@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Grocery Listing</div>
       <h1 class="detail-title">Retail Listing Discovery</h1>
       <div class="detail-meta">
@@ -386,11 +386,45 @@
         <p>Independent grocery is where regional food brands establish commercial identity before achieving scale or acquisition. Reducing the 2–4 year network-access runway creates new shelf presence for regional products and a richer, more differentiated Canadian food retail landscape.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Three-Week Window</div>
+        <p><strong>Characters:</strong> Sophie — founder, regional hot sauce brand, Kelowna, BC, Daniel — category buyer, specialty grocery chain, Victoria, BC (three stores)</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Review Window Problem</h2>
+<p>Independent grocery stores review their specialty condiment categories on defined cycles. A buyer does not take listing calls in February if the category review happens in October. The listing calendar — when categories open for new supplier presentations, when decisions get made, when product must be on shelf — governs the entire rhythm of new brand discovery.</p>
+<p>Brand owners almost never know these calendars. They approach buyers through whatever channel they can find — a cold email, a LinkedIn message, a friend of a friend who once met someone who works at the buying office — and they approach at random times in the year, with no knowledge of whether the category they are targeting is open, closed, or two months from a review.</p>
+<p>The buyer receives their outreach, notes the brand, and either responds generically or doesn't respond at all. By the time the category review opens, the brand has been forgotten or has given up.</p>
+<p>The information asymmetry runs the other direction too. A buyer who genuinely wants a new hot sauce brand for a category gap — something regional, something with a BC story, something in the $9–12 price architecture that the current set is missing — has no mechanism to surface brands that match that profile except waiting for cold inbound, attending food shows, or calling contacts who might know somebody.</p>
+<p>Both parties want the same transaction. Neither can reliably find the other at the right time.</p>
+<p>The following is a short fictional account of what changes when timing becomes part of the matching system.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Sophie</strong> started her hot sauce company in Kelowna four years ago. The product is a fermented Okanagan chile sauce — made with locally grown chiles, naturally fermented, no artificial preservatives. It has won regional attention. It sells well at the Kelowna Farmers' Market and through her direct-to-consumer website. She has been trying to get a BC specialty grocery listing for two years.</p>
+<p>She has emailed six buyers cold. Two didn't respond. Three asked her to submit through a supplier portal she filled out and never heard back from. One invited her to a trade show that cost $1,200 to attend and produced no follow-up.</p>
+<p>She registered on the MarketForge retail listing platform. The intake profiled her product: category (hot sauce / specialty condiment), price point ($10.99 retail), certifications (no certification, clean label, naturally fermented claim, GS1 registered), shelf life (twelve months refrigerated), volume capability (4,000 units per quarter), delivery logistics (self-delivery or courier, lower BC Mainland and Okanagan), CFIA-compliant label confirmed.</p>
+<p>Her profile was encoded against the platform's buyer-side database, which included the review cycle calendars for buyers who had registered their category schedules.</p>
+<hr />
+<p><strong>Daniel</strong> buys for a three-store specialty grocery chain in Victoria. His chain occupies a niche in the Victoria market: BC-provenance products, local and regional brands, a condiment section that is deliberately distinct from what a Thrifty Foods or Save-On carries. He is in the process of resetting his hot sauce category for the spring floor change — a category review that opens for presentations in three weeks.</p>
+<p>His buying profile on the platform specified: specialty condiment, BC-produced preferred, retail price $8–14, clean label, minimum 2,000 units per quarter, GS1-registered, self-delivery or regional courier acceptable.</p>
+<p>The platform identified a match: Sophie's fermented Okanagan hot sauce against Daniel's open review window. Price point: within range. Provenance: BC, confirmed. Clean label: confirmed. Volume: above threshold. Delivery: viable for Victoria via BC courier. GS1: registered. Review window: three weeks out.</p>
+<p>Sophie received a match notification that included Daniel's chain profile, the open review window dates, what to prepare for the category presentation, and what Daniel's chain typically requires for a supplier onboarding package.</p>
+<p>Daniel received Sophie's product profile with her CFIA label confirmation, velocity estimate from Farmers' Market and DTC sales, and a proposed first order volume.</p>
+<hr />
+<p>Sophie sent a presentation deck and four sample bottles by courier within the week. She followed up by email on the day of the review window opening.</p>
+<p>Daniel tasted the product with his team on the second day of the review window. His buyer notes said: "Exactly what the category is missing. BC provenance, price fits, clean label, fermented differentiation."</p>
+<p>A listing confirmation arrived in Sophie's email three weeks after the match notification.</p>
+<p>First delivery to all three Victoria stores: October, which aligned with the fermented product's marketing story for fall.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Sophie's product was exactly what Daniel was looking for. Daniel's review window was exactly the opportunity Sophie needed. The information that would have connected them— that a relevant buyer's category was open in three weeks — existed only in Daniel's internal calendar, invisible to every brand that didn't already have access to his professional network.</p>
+<p>Most regional food brands spend two to four years building the network access that would give them a reliable mechanism for knowing when buyers' categories open. Those years are spent at trade shows, at farmers' markets with business cards, at food industry association events, and in the referral networks of food brokers who charge a percentage of first-year sales for the access they have built over decades.</p>
+<p>The platform does not give Sophie permanent access to Daniel's network. It gives her a single, timely, relevant connection at the moment both she and Daniel can act on it. That is sufficient to close the transaction that two years of cold outreach had not.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> does not replace the relationship that develops after the listing is confirmed. It removes the timing-and-opacity barrier that prevents the relationship from beginning.</p>
+<p><em>Characters are fictional. BC specialty grocery category review dynamics, CFIA condiment labelling requirements, and GS1 registration requirements are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

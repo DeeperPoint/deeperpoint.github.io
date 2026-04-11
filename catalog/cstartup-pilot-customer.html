@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Startup Ecosystem &middot; Early Customer Validation</div>
       <h1 class="detail-title">Remote B2B Startup–Pilot Customer Matching: First Reference Discovery</h1>
       <div class="detail-meta">

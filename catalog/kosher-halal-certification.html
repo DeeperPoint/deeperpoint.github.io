@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Religious Dietary Certification</div>
       <h1 class="detail-title">Kosher and Halal Certification Matching</h1>
       <div class="detail-meta">
@@ -386,11 +386,43 @@
         <p>The Canadian kosher market exceeds CAD $1 billion annually; the halal food market exceeds $1.5 billion. Combined export market access enabled by certification adds several billion more in addressable market. The primary constraint on manufacturer participation is the complexity of navigating certification pathways.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">Three Cents Per Unit</div>
+        <p><strong>Characters:</strong> Amira — owner-operator, snack manufacturing company, Mississauga, David — certification coordinator, COR kosher certifying agency, Toronto</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Invisible Barrier</h2>
+<p>The Canadian kosher food market exceeds a billion dollars annually. Major retail chains — Costco, Metro, Loblaws — carry thousands of kosher-certified SKUs. Consumers who keep kosher are loyal, high-frequency purchasers who read labels carefully and return consistently to certified brands. For a food manufacturer, the kosher certification logo on the package is a market access credential.</p>
+<p>And yet most small and mid-sized Canadian food manufacturers don't have it. Some have tried and given up after a confusing process. Some have started an application and stalled when they couldn't figure out which certifying agency was right for their retail target. Many haven't started at all because they don't know what the certification actually requires of their operation.</p>
+<p>The gap is not lack of interest. It is lack of navigable information. The kosher certification landscape — a dozen active agencies in Canada, each with different standards rigour, different retail recognition profiles, and different ingredient databases — is genuinely complex. An application to the wrong agency produces a certificate that isn't recognized by the retailer the manufacturer is trying to reach.</p>
+<p>The following is a short fictional account of what happens when the complexity resolves into a single specific question, and the answer costs three cents a unit.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Amira</strong> produces a line of baked chickpea snacks in Mississauga. Her products are popular in the natural food category — high protein, clean label, no artificial ingredients. She has been stocked in three specialty retailers. She has been trying to get a Loblaws listing for eight months. The category buyer raised kosher certification in their last conversation as a signal: it wasn't a hard requirement, but it would help.</p>
+<p>Amira began researching kosher certification and quickly became confused. She found references to COR, MK, Star-K, OU, and Kof-K. She found a COR application form. She printed it and abandoned it after three pages.</p>
+<p>She registered on the MarketForge kosher certification matching platform. The intake asked: product category, target retail channel, current ingredient list, facility location, geographic certification preference, export market ambitions. She answered all of them.</p>
+<p>The platform's diagnostic layer cross-referenced her target retailer (Loblaws Ontario) against a COR-certified manufacturer registry, confirming that COR certification is the standard most commonly recognized in that channel for her product category. It then ran her ingredient list against the COR ingredient status database.</p>
+<p>The analysis came back with one flag: the soy lecithin emulsifier in her formulation — a commodity additive she had sourced strictly on price — was not on the COR approved ingredient list from her current supplier. The same functional emulsifier was available certified from a different supplier she already uses for her sunflower oil. The cost differential: approximately $0.031 per unit at her current production volume.</p>
+<p>The match notification explained this to Amira in a single paragraph with the specific ingredient, the specific supplier alternative, and the estimated unit cost impact.</p>
+<hr />
+<p><strong>David</strong> is a certification coordinator at COR. His agency processes applications from food manufacturers across Ontario. His standard onboarding process includes an ingredient review, a facility inspection, and an ongoing mashgiach supervision arrangement.</p>
+<p>His agency listed their certification scope, ingredient database, retail recognition profile, fee structure, and inspector availability on the platform. The matching function connected Amira's application file — including her ingredient substitution plan and facility details — directly to David's intake queue, with the pre-screened ingredient list flagging that one substitution had been confirmed on her end.</p>
+<p>David called Amira the following week. The ingredient question was already resolved before he picked up the phone.</p>
+<p>The facility inspection was scheduled for the following month. The certification issued twelve weeks after the intake call.</p>
+<hr />
+<p>Amira switched her emulsifier supplier in the next production run. The unit cost increase — $0.031 — was absorbed without a price change.</p>
+<p>Her Loblaws presentation in the next quarterly category review included the COR logo on her packaging mockup.</p>
+<p>The listing was confirmed.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Amira's certification path was straightforward once the blocking issue was identified. One ingredient. One supplier substitution. A cost differential smaller than a nickel per unit. The certification that had seemed complex enough to abandon was, in her specific case, a procurement decision.</p>
+<p>She didn't know that because the information that would have told her — a cross-reference between her ingredient list and the COR approved ingredient database — was not accessible to her. It exists, as all ingredient databases do, within the agency. But ingredient pre-screening is not a standard service that manufacturers can access without first engaging the agency, and engaging the agency without knowing whether your ingredient list qualifies is an uncertain investment.</p>
+<p>The platform's pre-screening function closes this gap: it converts the certification uncertainty from "will this work?" (unknowable without commitment) to "what specifically needs to change?" (answerable before any application begins). That change in information availability changes the economics of the decision for a significant class of manufacturers who are blocked not by their product but by their ignorance of a specific, solvable problem.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> does not simplify the certification process. It makes the specific barrier visible before the manufacturer has invested in an application that might fail for reasons they could inexpensively prevent.</p>
+<p><em>Characters are fictional. COR (Kashruth Council of Canada), kosher ingredient databases, and Loblaws Ontario category review cycles are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

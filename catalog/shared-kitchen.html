@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Production Space</div>
       <h1 class="detail-title">Shared Licensed Kitchen Access</h1>
       <div class="detail-meta">
@@ -386,11 +386,44 @@
         <p>Licensed kitchen access is the primary operational bottleneck for tens of thousands of emerging food entrepreneurs. The PHAC estimates over 30% of food businesses that could scale from home-based to commercial production fail to do so solely because they cannot find appropriate licensed kitchen space.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">Monday Morning</div>
+        <p><strong>Characters:</strong> Isabelle — cottage baker, Ottawa, croissant and laminated pastry specialist, Francine — kitchen manager, licensed commissary kitchen, Ottawa (Vanier)</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Licensing Gap</h2>
+<p>Food businesses that start at home reach a wall. The wall is not usually skill or demand — it is licensing. In Ontario, food produced in a home kitchen can be sold at farmers' markets under specific provincial exemptions, but retail sale, wholesale to restaurants, and commercial online sales require production in a licensed commercial facility. The license applies to the facility, not the product. A croissant made at home tastes the same as one made in a licensed kitchen. Only one of them can be sold through a commercial channel.</p>
+<p>Licensed commercial kitchen time exists. Culinary school kitchens have blocks between courses. Restaurant kitchens have morning availability before service. Commissary kitchens — purpose-built shared facilities — rent hourly or weekly blocks to food producers. The infrastructure to bridge the licensing gap is there.</p>
+<p>The problem is discoverability. Licensed kitchens are not listed in any searchable directory with their equipment specifications, licensing scope, available blocks, and permitted product categories. A baker who needs a deck oven or a convection oven with a steam injection function cannot search for one. She calls around, asks other bakers at the market if they know of anything, and tries the community centre kitchen that she heard might be available.</p>
+<p>Most of the time, that search takes weeks and ends in a mismatch — a kitchen with the wrong equipment, the wrong licensing scope for her product, or the wrong available hours.</p>
+<p>The following is a short fictional account of what changes when the search is a database query.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Isabelle</strong> makes croissants. She learned laminated dough technique at a pastry school in Montréal and spent three years working in a hotel pastry kitchen before returning to Ottawa. She has been making croissants at home for two years, selling at the Ottawa Farmers' Market on Sundays under the province's home processor exemption. Demand has outgrown her home oven.</p>
+<p>She needs a licensed commercial kitchen with a convection oven that can run at 175°C with controllable fan speed and hold humidity. Croissant lamination is sensitive to temperature fluctuation and humidity. A standard commercial convection oven will work; an oven without humidity control produces a harder, less flaky result. She needs a minimum of six hours per production session. She wants Monday or Tuesday morning blocks to have product ready for the weekend market.</p>
+<p>She registered on the MarketForge shared kitchen platform. The intake asked: product type, equipment requirements (oven type, mixing equipment, cooling racks, storage), production volume per session, preferred days and hours, health unit licensing jurisdiction (Ottawa Public Health), weekly budget, and whether she required refrigerated or dry ingredient storage between sessions.</p>
+<p>Her profile specified: laminated pastry production, convection oven with humidity control preferred, deck oven acceptable, six-hour block minimum, Monday or Tuesday morning, Ottawa, refrigerated storage for butter and egg required.</p>
+<hr />
+<p><strong>Francine</strong> manages a licensed commissary kitchen in Ottawa's Vanier neighbourhood that was established three years ago to support food entrepreneurs in the east end. The kitchen has two commercial convection ovens — one is a Rational combination oven with humidity control — plus a Hobart stand mixer, a spiral dough mixer, and refrigerated ingredient storage lockers. The kitchen holds a City of Ottawa food establishment licence valid for baked goods, prepared foods, and packaged products. It operates Monday through Saturday.</p>
+<p>Both convection ovens were available Monday mornings from 7 AM to 1 PM on a recurring basis. Francine had posted the availability on a community Facebook group six months earlier and received one inquiry that didn't convert. She had not posted anywhere since.</p>
+<p>She registered the kitchen on the MarketForge platform: equipment including the Rational with humidity control, license scope, permitted product categories, available blocks by day and time, booking terms, and rate ($22/hour, refrigerated locker included).</p>
+<p>The platform matched Isabelle's profile against Francine's kitchen. Oven type: convection with humidity control, confirmed (Rational CV). License scope: baked goods, confirmed. Available block: Monday 7 AM–1 PM, six hours minimum — confirmed. Refrigerated storage: included. Geographic: Vanier, 3.2 km from Isabelle's home address.</p>
+<p>Isabelle received a match notification with the kitchen's equipment list, the Rational model number, the available Monday blocks, the hourly rate, and a link to the health unit licensing record.</p>
+<hr />
+<p>Isabelle booked a trial session for the following Monday. She arrived at 7 AM with her poolish and her mise en place. The Rational oven ran at 176°C with the fan at medium and the humidity cycle she had dialled in at the hotel kitchen.</p>
+<p>The croissants were right on the first batch.</p>
+<p>She booked the Monday block on a recurring monthly basis. Her Farmers' Market volume increased by 40% within six weeks as she shifted from a home oven constraint to a six-hour commercial production cycle.</p>
+<p>Six months later, she added a Thursday morning block to supply two café accounts that found her through the market.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Francine's kitchen had the right oven. It was two neighbourhoods from Isabelle's house. It had a Monday morning block that had been available for six months. None of that was discoverable through any channel Isabelle was likely to find.</p>
+<p>The shared kitchen market fails because it is fragmented, local, and equipment-specific in ways that generic search cannot resolve. "Commissary kitchen Ottawa" returns a list of facilities. It does not return the specific piece of equipment — a Rational combination oven with humidity control — that distinguishes a match from a near-miss for a laminated pastry specialist.</p>
+<p>The health unit licensing complexity multiplies the search cost further. Isabelle's products fall under Ottawa Public Health's home processor and commercial baking licensing framework. A kitchen licensed in one municipality may not cover products Isabelle needs to produce. Knowing which kitchens have the right licensing scope before making calls requires regulatory knowledge most early-stage food entrepreneurs don't have.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> makes the search equipment-specific, license-verified, and temporally resolved — surfaces the right kitchen, with the right equipment, with an available block this Monday, before a week of phone calls produces a list of kitchens that almost fit.</p>
+<p><em>Characters are fictional. Ottawa Public Health commercial food establishment licensing, Rational combination oven specifications, and Ontario home processor exemption rules are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

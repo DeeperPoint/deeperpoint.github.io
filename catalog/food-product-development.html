@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Technical Consulting</div>
       <h1 class="detail-title">Food Product Development Services</h1>
       <div class="detail-meta">
@@ -386,11 +386,40 @@
         <p>Product development failure is a primary cause of attrition among early-stage Canadian food entrepreneurs. A well-matched food technologist engagement at the beginning of product development prevents much more expensive failures discovered at retail listing or — worse — after product is in market.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The pH Problem</div>
+        <p><strong>Characters:</strong> Maya — food entrepreneur, Saskatoon, fermented hot sauce brand, Dr. Park — food technologist, Regina, fermented products specialist</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — What You Don't Know Can Shut You Down</h2>
+<p>Most food entrepreneurs reach commercial market stage from the wrong direction. They develop a product that sells at farmers' markets or through a CSA. Demand grows. They decide to scale to retail. And then they discover, usually from a grocery buyer or a health unit inspector, that the things they didn't do — the studies, the validations, the certifications — are not optional.</p>
+<p>pH is one of the most misunderstood of these requirements. In Canada, a food product sold commercially that has a water activity above 0.85 and a pH above 4.6 is classified as a potentially hazardous food under the Safe Food for Canadians Regulations. Fermented products that derive their safety from low pH must demonstrate, through a validated study, that the pH is reliably achieved in manufacturing conditions — not just in a home kitchen on a good day.</p>
+<p>The entrepreneur who does not know this will either discover it from a health unit before launch or — worse — from a CFIA inspection after the product is in market.</p>
+<p>The following is a short fictional account of what changes when a food entrepreneur who doesn't know what she doesn't know is matched with the practitioner who can tell her — before she tries to list at retail.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Maya</strong> developed a fermented Calabrian pepper hot sauce over two years of weekend and evening production in her home kitchen. The product has a compelling flavour profile, low sugar, no artificial preservatives, and a story — a family recipe adapted from her grandmother's Calabrian village. She sells it at the Saskatoon Farmers' Market and through a small following on Instagram. She has been approached by two specialty grocery shops and one restaurant about wholesale supply.</p>
+<p>She registered on the MarketForge food product development platform when one of the grocery shops asked for a nutritional facts table and she discovered she didn't know how to produce one. During onboarding, the platform's guided intake asked her to describe her product's safety mechanism: heat treatment, pH, water activity, or other. She answered "fermented — it's naturally acidic."</p>
+<p>The platform's diagnostic layer identified a potential regulatory concern: fermented products sold commercially in Canada require a validated pH and water activity profile to confirm shelf-stable or refrigerated classification and applicable labelling requirements. It flagged the need for a food technologist with fermented product experience.</p>
+<p>Her matching profile specified: fermented vegetable product, early-stage commercial launch, CFIA compliance, Saskatchewan geography, budget under $2,000, timeline under eight weeks.</p>
+<hr />
+<p><strong>Dr. Park</strong> is a food technologist based in Regina with twelve years of experience and a particular focus on fermented and acidified food products. She has completed pH validation studies for kimchi producers, hot sauce startups, and a vinegar-based condiment brand. She takes small-client engagements that larger food science consulting firms do not.</p>
+<p>Her practitioner profile on the platform lists her specialization categories: fermented foods, acidified foods, shelf-life studies, pH validation, water activity measurement, nutritional label calculation. Her minimum engagement is $800; her typical fermented product validation study runs six to eight weeks and costs $1,100–$1,400 depending on sample complexity.</p>
+<p>The platform matches Dr. Park against Maya's profile. Specialization: fermented vegetable products, confirmed. Service offered: pH validation study, confirmed. Budget: within range. Timeline: six to eight weeks, within range. Remote engagement: confirmed for Saskatchewan.</p>
+<p>Maya receives a match notification describing what a pH validation study involves, what it costs, and why it is required before retail listing. The plain-language explanation converts a technical topic she had never heard of into a concrete, actionable two-step: engage Dr. Park, then launch.</p>
+<hr />
+<p>Dr. Park sends Maya a project outline the same week: pH measurement of production-run samples, water activity measurement at the same sampling points, an assessment against the SFCA potentially hazardous food threshold, and a brief report documenting the validated profile for health unit submission.</p>
+<p>Six weeks later, Maya has a validated pH and water activity profile, a confirmed refrigerated shelf-stable classification, and a nutritional facts table calculated from her validated formulation.</p>
+<p>The two specialty shops place their first orders a week after she delivers the documentation they requested.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Maya did not know what a pH validation study was before the platform flagged it. She would not have known to search for a food technologist with fermented product experience, because she did not know fermented product food science was a specialism. She would have Googled "food label calculator," produced a nutritional facts table with an online tool, and attempted to list at retail — at which point the health unit inspection process, or the grocery buyer's supplier questionnaire, would have surfaced the compliance gap.</p>
+<p>Dr. Park exists in Regina and takes small-client engagements at prices early-stage entrepreneurs can afford. The problem is not supply — it is discoverability. Most early-stage food entrepreneurs in Saskatchewan don't know she exists. The channels through which she would logically be found — incubator referral networks, food science department alumni networks, industry association word-of-mouth — favour founders who are already embedded in those networks.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> makes the specialist findable to the founder who doesn't yet know what specialist she needs — and explains the need in plain language before the search begins.</p>
+<p><em>Characters are fictional. The SFCA pH and water activity thresholds, CFIA potentially hazardous food classification, and nutritional label calculation requirements are real Canadian regulatory requirements. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

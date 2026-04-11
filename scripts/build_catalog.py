@@ -946,7 +946,7 @@ def buildDetailPage(s):
     content = f"""
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">{escHtml(sector)} &middot; {escHtml(sub_sector)}</div>
       <h1 class="detail-title">{title}</h1>
       <div class="detail-meta">

@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Refrigerated Logistics</div>
       <h1 class="detail-title">Cold Chain Last-Mile Delivery</h1>
       <div class="detail-meta">
@@ -386,11 +386,39 @@
         <p>Cold chain last-mile delivery is the operational bottleneck limiting specialty food producers to farmers&#x27; markets or direct delivery. Better matching creates new accounts for producers, fills route capacity for operators, and makes the urban specialty food economy meaningfully more interconnected.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">One Stop to Spare</div>
+        <p><strong>Characters:</strong> Celeste — artisan cheesemaker, Hamilton, Roberto — independent refrigerated delivery operator, Hamilton</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Missing Link</h2>
+<p>Specialty food producers scaling from farmers' markets to wholesale face a distribution problem that doesn't get solved by the usual logistics channels. Broadline distributors like Sysco won't touch three wheels of aged cheddar per week. Standard courier companies run ambient, not refrigerated. Canada Post does not deliver cheese.</p>
+<p>Independent refrigerated delivery operators fill this gap. They run owner-operated refrigerated vans on fixed urban routes, picking up from specialty producers and dropping off at restaurants, specialty retailers, and deli counters. Their routes are profitable on the margins of the specialty food economy that broadline distribution ignores.</p>
+<p>The problem is that these operators are invisible. They don't have websites. They don't advertise. They are found — when they are found at all — through a comment from another producer at a farmers' market, or a note on a food incubator bulletin board, or a lucky conversation with a retail buyer who happens to have their number.</p>
+<p>The following is a short fictional account of what changes when a cheesemaker and a delivery operator in the same city can find each other before either has burned a summer's worth of personal deliveries.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Celeste</strong> has been making raw-milk and pasteurized soft cheeses in Hamilton for three years. Her products move well at the Hamilton Farmers' Market and through a small weekly CSA drop. She has been trying for eighteen months to get her cheese onto the shelves of half a dozen specialty shops on Locke Street and in the Westdale Village neighbourhood. Several of the shops have expressed interest. The barrier is not the product — it is the logistics.</p>
+<p>She has no refrigerated vehicle. She cannot do weekly personal delivery across six stops and still make cheese. She needs a refrigerated carrier who can pick up from her creamery and make those deliveries on a regular weekly schedule.</p>
+<p>Her profile on the MarketForge cold-chain platform specifies: artisan cheese, pasteurized and raw milk varieties, refrigerated 2–4°C, weekly delivery required, pickup from Hamilton (eastside), delivery destinations in Westdale and Locke Street neighbourhoods, minimum temperature logging required, five to eight cases per week.</p>
+<hr />
+<p><strong>Roberto</strong> operates a refrigerated van on a Tuesday morning route. He picks up from five producers in Hamilton's east end and makes deliveries to a specialty grocer on James Street North, a deli on Concession Street, and three Westdale shops. His route has capacity for one additional stop on the outbound and two on the return. He listed his route's available capacity, confirmed delivery geography, temperature zone, and Tuesday timing on the platform three months ago, while he was building his client base in the Hamilton specialty food ecosystem.</p>
+<p>The platform matches Celeste's delivery requirements against Roberto's route. Temperature zone: refrigerated, confirmed. Geographic: his route passes within 1.4 km of her creamery and delivers to four of her six target retail locations. Day: Tuesday confirmed. Capacity: one outbound stop and two return stops available — within her volume.</p>
+<p>Both receive a match notification the same day Celeste completes her profile.</p>
+<hr />
+<p>Roberto calls Celeste that afternoon. He asks two questions: her total weekly case volume and her preferred pickup window. She answers both.</p>
+<p>They agree on a trial arrangement: four weeks, Tuesday pickups, temperature-logged delivery, $28 per stop.</p>
+<p>The first delivery runs the following Tuesday. The Westdale shops receive her product fresh, with temperature logs attached. Two of the three shops place standing weekly orders within the month.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Roberto's route has run past Celeste's creamery every Tuesday for two years. He has delivered to three of her target retail accounts weekly for longer than Celeste has been a commercial producer. The match that took them four weeks to find through the platform might have taken years through the informal channels that constitute discoverability in the urban specialty food economy.</p>
+<p>The cold-chain last-mile market is hyper-local and time-specific. A refrigerated van route that fits on Thursday is worthless to a producer who needs Tuesday delivery. A route that covers the east end doesn't help a producer dropping off in the west end. The matching constraints are hard: geography at the postal code level, specific delivery days, temperature zone, stop capacity.</p>
+<p>The market works well for producers who already know the operators. It does not work at all for producers who have not yet been introduced to anyone. The only mechanism for being introduced is luck.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> converts a geographic and temporal matching problem into a database query. Roberto's route, his territory, his available capacity, and his delivery days are encoded once. Every new producer who needs cold-chain delivery in Hamilton searches against that profile automatically — not through a bulletin board, not through a farmers' market contact, not through a buyer who happens to have his number.</p>
+<p><em>Characters are fictional. The specialty food distribution dynamics — broadline minimums, refrigerated last-mile constraints, CFIA cold chain requirements — reflect real conditions in urban Canadian food markets. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

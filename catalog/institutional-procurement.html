@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Public Food Service</div>
       <h1 class="detail-title">Institutional Food Procurement</h1>
       <div class="detail-meta">
@@ -386,11 +386,42 @@
         <p>Canadian institutional food service spends CAD $10+ billion annually on food, of which less than 10% is currently locally sourced despite widespread mandate. Closing even half the gap between current rates and institutional targets would represent hundreds of millions in new direct-from-producer revenue annually.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Fifteen Percent</div>
+        <p><strong>Characters:</strong> Carla — food service director, regional hospital network, southwestern Ontario, Tom — regional food hub coordinator, connecting three root vegetable producers in Elgin and Oxford counties</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Mandate Without a Mechanism</h2>
+<p>The Ontario Local Food Act requires that public institutions report on local food purchasing. Many hospitals, universities, and long-term care homes have gone further, adopting internal targets: ten percent, fifteen percent, twenty percent of total food spend sourced locally, as defined by the institution or by province. The targets are real. The commitments are public. The mandate is not in dispute.</p>
+<p>The mechanism is where things break down.</p>
+<p>Institutional procurement systems are built for broadline distribution. They are built for Sysco catalogues, standardized pack formats, UPC-coded SKUs, system-coded vendor accounts, net-30 invoicing, and delivery on a fixed weekly schedule regardless of season or weather. Small and regional food producers — the ones that actually constitute "local food" in practice — cannot navigate these systems. They don't have system-coded vendor accounts. They don't produce weekly supply on a net-30 invoice. They don't always have the insurance documentation that institutional vendor pre-qualification requires.</p>
+<p>The institutional food service professional who genuinely wants to meet a local food mandate frequently cannot, not because local produce doesn't exist, but because the path from field to institution runs through procurement infrastructure the field cannot access.</p>
+<p>The following is a short fictional account of what changes when that infrastructure exists.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Carla</strong> has been food service director at a regional hospital network in southwestern Ontario for seven years. Her network operates three sites. Her board approved a 15% Ontario local food target two years ago. She is currently at 6%.</p>
+<p>The challenge is structural. Her procurement runs through a group purchasing organization with a Sysco master agreement. Deviating from that agreement to add a local producer means creating a separate vendor account, managing a separate invoicing process, assuming supply chain risk that the GPO agreement eliminates when she buys through broadline distribution, and justifying the deviation to her finance department.</p>
+<p>She is willing to do all of that for the right supply relationship. The specific category that would move her target most efficiently is root vegetables — potatoes, carrots, turnips, beets. Her network uses approximately twelve hundred pounds of root vegetables per week from October through March. If she could source that locally and consistently, she would close most of her gap.</p>
+<p>She registered on the MarketForge institutional food procurement platform after attending a presentation at an Ontario Health conference. The platform intake asked: institution type, procurement governance, local food target current and goal, product categories of interest, delivery requirements, food safety documentation standards, and seasonal windows.</p>
+<hr />
+<p><strong>Tom</strong> coordinates a regional food hub that aggregates supply from several small producers in Elgin and Oxford counties. Three of his producers — a potato operation in Aylmer, a mixed root vegetable farm in Tillsonburg, and a carrot and parsnip grower near Woodstock — have conventional cold storage that enables fall-harvest supply through March. Combined, their available institutional-grade root vegetable supply over the October-to-March window is approximately fourteen hundred pounds per week, subject to weather.</p>
+<p>The food hub is registered on the platform as an aggregated supply entity. The hub's profile includes: combined product catalogue by week-of-year, each producer's food safety documentation status, the hub's cold storage and delivery logistics, and the geographic service range.</p>
+<p>The platform matched the hub's combined root vegetable supply profile against Carla's institutional need. Product categories: potatoes, carrots, turnips, beets — confirmed across three producers. Volume: fourteen hundred pounds per week confirmed against her twelve hundred pound requirement. Seasonal window: October to March, confirmed with cold storage. Food safety: HACCP documentation submitted for all three operations. Delivery capability: confirmed within southwestern Ontario.</p>
+<p>Carla received a match notification with the hub's combined producer summary, their seasonal availability calendar, their combined food safety documentation, and a proposed delivery arrangement that fit within her existing weekly receiving windows.</p>
+<hr />
+<p>Tom drove to Carla's main site for a facility walk-through three weeks after the match notification. Her finance department approved the vendor account using the hub as the consolidated invoicing entity — one invoice, one vendor number, three producers behind it.</p>
+<p>The first delivery arrived in the second week of October: 380 pounds of Aylmer potatoes, 290 pounds of Oxford carrots, 180 pounds of Tillsonburg beets and turnips.</p>
+<p>Carla's local food percentage for the quarter closed at 14.3%.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>The root vegetables existed. The producers existed. Tom's food hub existed. Carla's mandate, her budget, and her willingness to do the work existed.</p>
+<p>What did not exist was a mechanism for any of these parties to find each other with sufficient specificity to act. The mandate requires a vendor. The vendor needs to pass pre-qualification. Pre-qualification requires documentation. The documentation requires knowing which standard applies. Knowing which standard applies requires knowing which institution you are targeting. None of this can be accomplished in advance of a specific institutional relationship — and the specific institutional relationship cannot begin until the discovery happens.</p>
+<p>The platform's contribution is not logistical — it is informational. It holds the institutional profiles specific enough to make the match precise (this institution, this product category, this seasonal window, this volume, this documentation requirement) and the producer-side profiles specific enough to meet that precision.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> makes the mandate executable — not by changing what institutions or producers are, but by removing the discovery and specification costs that prevent the relationship from beginning.</p>
+<p><em>Characters are fictional. The Ontario Local Food Act reporting requirements, institutional procurement governance, and HACCP pre-qualification standards are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

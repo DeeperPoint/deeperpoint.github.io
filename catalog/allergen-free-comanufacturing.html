@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Specialist Production</div>
       <h1 class="detail-title">Allergen-Free Co-Manufacturing</h1>
       <div class="detail-meta">
@@ -386,11 +386,43 @@
         <p>The Canadian free-from food market exceeds CAD $3 billion annually, growing over 10% per year. Co-manufacturing capacity is the primary bottleneck preventing Canadian allergen-free brand owners from scaling. Better matching creates new Canadian food manufacturing employment and retains production value in Canada.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">Eleven Facilities</div>
+        <p><strong>Characters:</strong> Priya — founder of a peanut- and tree-nut-free snack brand, Mississauga, Neal — production manager, GFCP-certified allergen-free co-manufacturer, Hamilton</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Certification That Narrows the Field</h2>
+<p>Allergen-free food manufacturing is not simply a matter of choosing the right ingredients. It is a matter of choosing the right building. Dedicated lines, validated cleaning protocols, environmental swab programs, segregated ingredient storage, controlled traffic flow — these are the physical conditions that make an allergen-free claim defensible in court and, more importantly, safe for the consumers who depend on it.</p>
+<p>In Canada, a small number of co-manufacturing facilities have invested in the combination of physical design and third-party certification required to credibly co-manufacture certified allergen-free products. GFCP — the Gluten-Free Certification Program, which also covers peanut and tree nut exclusion in its allergen scope — certifies these facilities through audited standards that take months and significant capital to achieve.</p>
+<p>There are eleven of them in Canada that hold the specific allergen scope a brand owner developing a certified peanut- and tree-nut-free snack product actually needs.</p>
+<p>Most brand owners don't know that number. They start with a phone book approach — calling co-manufacturers, getting rejected, or discovering after weeks of back-and-forth that the facility doesn't hold the right certification or that their interpretation of "allergen-free" doesn't meet the standard the brand needs.</p>
+<p>The following is a short fictional account of what changes when the eleven are findable before the phone calls begin.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Priya</strong> founded a snack brand focused on the school-safe, allergen-conscious category. Her products are peanut-free and tree-nut-free by formulation, and she wants the GFCP certification to be on the label — not self-declared allergen-free, but third-party certified. Her Q4 launch window is firm; she has a retailer conditional listing that depends on it.</p>
+<p>She has spent ten weeks trying to find a co-manufacturer. Three of the co-packers she contacted are not GFCP-certified. Two are certified but do not include peanut and tree nut in their allergen exclusion scope. Two more have no capacity before the following year.</p>
+<p>Her profile on the MarketForge co-manufacturing platform encodes her requirements: allergen exclusion scope (peanut, tree nut), certification standard (GFCP or equivalent), product format (baked snack bar), minimum run volume, Q4 launch requirement, Ontario geography preferred.</p>
+<p>The platform queries its verified facility database — facilities whose certifications have been validated against the GFCP registry, not self-reported.</p>
+<p>Eleven facilities in Canada meet the allergen scope requirement. Of those, three hold Q4 capacity availability within her geographic range. The platform surfaces them ranked by fit — certification scope, equipment compatibility, minimum run size, prior experience with similar product formats.</p>
+<hr />
+<p><strong>Neal</strong> manages production at a Hamilton facility that has held GFCP certification for four years. The facility completed a line expansion in July and has a Q4 production slot available — twelve weeks, starting in October. Neal's facility registered its GFCP certificate, allergen exclusion scope, equipment specifications, minimum run requirements, and available capacity windows on the platform six months ago.</p>
+<p>The platform matches Priya's profile against Neal's facility. Allergen scope: confirmed. Certification: verified against the GFCP registry. Equipment compatibility for baked snack bar format: confirmed. Q4 availability: confirmed. Geographic: Hamilton to Mississauga, 70 km.</p>
+<p>Both parties receive a match notification with a brief — including the facility's available Q4 window, Priya's product format and volume, and a plain-language explanation of what additional documentation a formal allergen co-manufacturing relationship requires: a signed allergen control plan, an environmental monitoring schedule, and a finished product specification.</p>
+<p>Neal's facility confirms interest the same day.</p>
+<hr />
+<p>Priya books a facility tour for the following Thursday. The allergen control plan is drafted over the next two weeks, drawing on the facility's existing GFCP protocols and the product's specific formulation.</p>
+<p>Production begins the second week of October.</p>
+<p>The GFCP certification statement appears on the Q4 retail launch product.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>The eleven GFCP-certified facilities in Canada with the right allergen scope exist. The brand owners who need them exist. The bottleneck is not certification — it is discovery.</p>
+<p>Because certified allergen-free co-manufacturers do not advertise in channels brand owners use, and because the certification landscape is technically complex enough that most entrepreneurs cannot specify what they need before they begin searching, the matching process defaults to weeks of cold calls, failed referrals, and misunderstood capability claims.</p>
+<p>The specific risk in this market — an allergen cross-contact event causing a recall — means trust cannot be built on the fly. The match has to bring pre-verified certification, not self-reported capability. That is what the platform's verification pipeline provides: a facility database where certification status is confirmed before it appears in a match result.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> does not create more GFCP-certified facilities. It makes the ones that exist findable to the brand owners who need them — before ten weeks of phone calls filter out the options that were available on day one.</p>
+<p><em>Characters are fictional. The GFCP certification standard, Canadian allergen co-manufacturing landscape, and 2021 CFIA sesame amendment are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Contract Formulation</div>
       <h1 class="detail-title">Private Label Product Development</h1>
       <div class="detail-meta">
@@ -386,11 +386,44 @@
         <p>Canadian grocery private label penetration (~25%) is significantly below UK (40%+) and EU averages. The gap represents substantial opportunity for both retailers (margin, differentiation) and Canadian food processors (stable volume, longer-horizon contracts).</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Only Option in 200 Kilometres</div>
+        <p><strong>Characters:</strong> Karen — category manager, independent Ontario grocery chain (twelve stores), Stefan — co-owner, specialty condiment processing facility, Guelph, SQF-certified</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Private Label Gap</h2>
+<p>Canadian independent grocery chains differentiate through private label. A house brand that is genuinely good — well formulated, well packaged, competitive on price — builds the kind of store loyalty that national brands cannot, because it is exclusive. You can't get that product at the store down the street. It is one of the few sustained competitive advantages available to a grocery chain that cannot match a national retailer on assortment volume or price index.</p>
+<p>Developing a private label product requires a processor. Not just any processor — a processor with formulation experience in the relevant category, a food safety certification that meets the chain's vendor standard, the quality control infrastructure to produce consistent product across multiple production runs, and the business scale to take on a private label relationship without the retailer's volume representing existential single-customer concentration risk.</p>
+<p>Finding that processor is hard for the same reason the private label relationship is valuable: it is specific. A condiment category manager cannot call Guelph Food Technology Centre and ask for a referral to a certified organic condiment co-manufacturer with private label experience. That is not how the network works. The network works through referrals among people who have done prior deals together — and if you don't have those relationships, you start from a cold search with no reliable directory.</p>
+<p>The following is a short fictional account of what happens when the directory exists.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Karen</strong> manages the center-store category at a twelve-store Ontario independent grocery chain based in Stratford. The chain has a growing private label program — six SKUs currently, all in ambient grocery. Karen has been watching the plant-based condiment category. Vegan mayo, plant-based aioli, and chickpea-based spreads are moving well in her natural food section. She has a specific product brief: a plant-based roasted garlic aioli under the house brand, SQF-certified processor required, organic claim on the final label, launch in approximately nine months, volume of eight hundred to twelve hundred units per run.</p>
+<p>She registered on the MarketForge private label development platform. The intake asked: product category and format, target price point, certification requirements, minimum run volume, launch timeline, geographic preference. Her brief was submitted to the matching engine.</p>
+<p>The platform applied the trusted intermediary protocol: her category strategy — the house brand identity, the price architecture, the retail margin target — was held within the matching profile and not disclosed to processors until mutual expression of interest was established.</p>
+<p>The matching engine queried its processor database. SQF certification: required. Prior organic condiment or aioli experience: required. Production capacity for 800–1200 units per run: required. Ontario location within supply chain reach: required.</p>
+<p>Two processors met all criteria. One was at capacity for the next twelve months. The other was in Guelph.</p>
+<hr />
+<p><strong>Stefan</strong> co-owns a specialty food processing facility in Guelph that has held SQF Level 2 certification for six years. He has co-manufactured condiments and sauces for three Ontario house brands and has specific experience with plant-based emulsified products — a category that requires particular attention to oil temperature and emulsification sequencing. His facility is organic-handling certified and has processed under organic claims for two other clients.</p>
+<p>Stefan registered his facility's profile on the platform: certification status, category experience, capacity range, minimum run volume, preferred client profile, and current availability window. He noted his specific experience with plant-based emulsified products as a specialization tag.</p>
+<p>The platform identified his facility as the sole match against Karen's brief that combined the required SQF certification, plant-based aioli experience, organic handling certification, and available production capacity within the geographic range.</p>
+<p>Both parties received a match notification. Karen's notification included Stefan's facility certification summary and a list of comparable private label formats his facility had produced — without client names, under the confidentiality protocol. Stefan's notification included Karen's product brief — without her chain's financial details — and the proposed engagement structure: a formulation development phase, a production trial, and a standing contract.</p>
+<p>Stefan expressed interest within twenty-four hours.</p>
+<hr />
+<p>Karen and Stefan met at his Guelph facility two weeks later. The facility walk-through confirmed the equipment and sanitation infrastructure she required. The formulation discussion took most of the afternoon.</p>
+<p>A private label development agreement was signed six weeks later. The trial run produced four hundred units of the roasted garlic aioli. Karen brought six units back to Stratford for a panel tasting with her buying team.</p>
+<p>The product passed. Standing orders for the nine-month launch slot were confirmed.</p>
+<p>The label carried the chain's house brand. The Guelph address in the back-panel manufacturer statement was, for all practical purposes, invisible to the consumer.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Stefan's facility existed. His SQF certification existed. His plant-based condiment experience existed. Karen's category gap existed. Her budget and her timeline were real.</p>
+<p>What could not exist, without a structured discovery mechanism, was the knowledge that Karen's specific brief had exactly one qualified option within her geographic and operational constraints — and that the option had available capacity.</p>
+<p>Private label matching is systematically harder than most vertical matching markets because both parties have strong reasons to withhold information: the retailer doesn't want its category strategy visible to competitors or to processors who might supply competing chains; the processor doesn't want its client list or pricing structure disclosed. The trusted intermediary model resolves this: strategic information is held within the platform until mutual interest is established and confidentiality is structured into the initial match.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> does not change the economics of private label development. It removes the three-to-twelve-month network-access overhead that prevents qualified processors and motivated retailers from finding each other before either has compromised its information position.</p>
+<p><em>Characters are fictional. SQF (Safe Quality Food) certification, Ontario independent grocery private label dynamics, and organic handling certification requirements are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

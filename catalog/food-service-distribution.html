@@ -76,7 +76,7 @@
     .fdd--open .fdd__arrow { transform: rotate(180deg); }
     .fdd__panel {
       display: none; position: absolute; top: calc(100% + 6px); left: 0;
-      z-index: 200; min-width: 220px; max-width: 280px;
+      z-index: 200; min-width: 260px; max-width: 340px;
       background: #1e293b; border: 1px solid rgba(99,102,241,.35);
       border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(0,0,0,.4);
@@ -94,11 +94,11 @@
     .fdd__item {
       display: flex; align-items: center; gap: .6rem;
       padding: .45rem .85rem; cursor: pointer;
-      font-size: .8rem; color: #cbd5e1;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
       transition: background .1s;
     }
     .fdd__item:hover { background: rgba(99,102,241,.12); }
-    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
     .fdd__count {
       padding: .35rem .85rem .5rem;
       font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
@@ -356,7 +356,7 @@
 
   <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
     <div class="container container--narrow">
-      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
       <div class="detail-label">Canadian Food Last Stage &middot; Distribution</div>
       <h1 class="detail-title">Food Service Distribution Matching</h1>
       <div class="detail-meta">
@@ -386,11 +386,42 @@
         <p>Food service distribution is where specialty producers achieve the consistent revenue base that makes their operations commercially viable between farmers&#x27; market seasons. Better matching expands local food supply visible to restaurant and institutional kitchens.</p>
       </div></div>
       <div id="tab-story" class="tab-panel">
-      <div class="story-placeholder">
-        <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
-        <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
-        <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Catalogue That Didn&#x27;t Exist</div>
+        <p><strong>Characters:</strong> Elena — specialty vegetable producer, Vineland, Niagara Peninsula, Hassan — procurement coordinator, regional specialty food distributor, Toronto, Two unnamed Niagara producers — greenhouse herb grower (Grimsby) and heritage tomato operation (Lincoln)</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Volume Problem</h2>
+<p>The gap between specialty food producers and the food service distribution accounts that could give them a stable commercial base is not only about discovery. It is about minimum viable volume.</p>
+<p>Regional specialty food distributors — the ones that supply Toronto restaurant groups, hotel kitchens, and institutional catering with local and specialty product — need supply consistency. A restaurant ordering forty portions of heirloom tomato per week does not want to change supplier every time a single grower has a bad week. Distributors protect against this through minimum order quantities and multi-week supply commitments that most individual specialty producers cannot meet alone.</p>
+<p>The result is a structural exclusion: small producers with excellent product are too small for the accounts that would give them commercial stability. The accounts that would buy from them cannot build supply relationships with a dozen individual producers one at a time. Both parties want the same transaction. The volume requirement prevents it.</p>
+<p>The following is a short fictional account of what changes when producers in the same region can aggregate before they go to market.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Elena</strong> grows specialty vegetables on twelve acres in Vineland, in the Niagara Peninsula. She produces heirloom varieties, bitter greens, and edible flowers that have steady farmer's market demand but no consistent food service account. A Toronto restaurant group distributor approached her two years ago after a chef referral. The conversation ended when the distributor's buyer mentioned they needed forty cases per week of mixed specialty greens minimum — Elena's production could supply fifteen.</p>
+<p>She registered on the MarketForge food service distribution platform and, during onboarding, noted that she was within food service delivery range of two other specialty producers in the region she occasionally spoke to at growers' events: a greenhouse herb operation in Grimsby and a heritage tomato farm in Lincoln. She suggested them to the platform and they registered the following week.</p>
+<p>The platform's user aggregation function identified the three producers as co-registrants in the same geographic area with complementary product categories and overlapping distributor targets. It offered to compose a combined regional catalogue: Niagara Peninsula specialty produce, covering heirloom greens and edible flowers, specialty herbs, and heritage tomatoes. Aggregate weekly capacity across the three operations: forty-two to fifty-five cases of specialty produce, mixed.</p>
+<p>Combined, they met the minimum.</p>
+<hr />
+<p><strong>Hassan</strong> is a procurement coordinator at a regional specialty food distributor that supplies twenty restaurant group clients in Toronto. His clients have been asking for more Niagara Peninsula provenance on their menus. Hassan has tried to source directly from producers three times over the past two years. Each time the volume requirement ended the conversation.</p>
+<p>His organization registered on the platform as a distributor and specified their supplier onboarding requirements: HACCP documentation, cold chain delivery capability, minimum weekly supply volume, product consistency undertaking, and supply geography.</p>
+<p>The platform matched Hassan's requirements against the aggregated Niagara Peninsula catalogue. Volume: confirmed across three producers. Product categories: specialty greens, herbs, and tomatoes, confirmed. HACCP documentation: submitted by all three operations. Cold chain delivery: confirmed via a regional transport arrangement the platform identified through its cold-chain operator database. Geographic: Niagara to Toronto, delivery-viable.</p>
+<p>Hassan received a match notification with the combined catalogue and HACCP summaries from all three operations, and a proposed delivery arrangement.</p>
+<p>He scheduled an introductory call with Elena as the group's designated contact the following week.</p>
+<hr />
+<p>The first consolidated order shipped six weeks later. Fourteen cases of mixed heirloom greens and edible flowers from Elena's operation. Eighteen cases of specialty herbs from the Grimsby greenhouse. Eleven cases of heritage tomatoes from Lincoln.</p>
+<p>Three of Hassan's restaurant group clients featured the Niagara sourcing on their menus by the second delivery.</p>
+<p>Elena's food service revenue in the first season with the account exceeded three years of cumulative farmers' market wholesale.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Each of the three Niagara producers knew the other existed. They had spoken at growers' meetings. The aggregation idea was not novel to any of them. What was missing was a mechanism to act on it: a shared catalogue, a combined HACCP presentation, a proposed delivery arrangement, and a distributor account to match it against.</p>
+<p>Building that mechanism informally — agreeing on shared terms, combining food safety documentation, coordinating logistics, identifying a distributor with the right product focus and volume range — is not impossible. It is expensive in time and coordination overhead that none of three small operations can easily absorb.</p>
+<p>The platform does not invent the aggregation. It makes it operationally straightforward: it identifies co-registrants with complementary profiles, proposes the combined catalogue, handles the documentation compilation, and matches the aggregate against relevant distributor profiles before any of the producers have committed to a formal partnership.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> lowers the coordination cost of aggregation far enough that the option becomes real rather than theoretical.</p>
+<p><em>Characters are fictional. The food service distribution dynamics — broadline minimum volumes, HACCP onboarding requirements, Niagara Peninsula local sourcing demand from Toronto restaurant groups — reflect real conditions in the Canadian specialty food market. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">
