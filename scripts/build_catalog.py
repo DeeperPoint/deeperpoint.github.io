@@ -450,7 +450,11 @@ def renderFooter(root):
 
 
 def loadScenarios():
-    """Load and return all published, non-hidden scenario YAML files as a list of dicts."""
+    """Load and return all published, non-hidden scenario YAML files as a list of dicts.
+
+    The returned list is interleaved by sector using round-robin so that cards from
+    different sectors alternate across the grid rather than clustering alphabetically.
+    """
     if not SCENARIOS_DIR.exists():
         SCENARIOS_DIR.mkdir(parents=True, exist_ok=True)
         return []
@@ -467,7 +471,31 @@ def loadScenarios():
                 print(f"  Skipped (draft): {f.name}")
         except Exception as e:
             print(f"  ERROR loading {f.name}: {e}")
-    return scenarios
+    return roundRobinBySector(scenarios)
+
+
+def roundRobinBySector(scenarios):
+    """Interleave scenarios across sectors so no sector clusters in the grid.
+
+    Sectors are ordered by their first appearance in the alphabetical file list
+    (stable across builds). Within each sector, entries keep their original order.
+    Returns a flat list that alternates sectors: s0[0], s1[0], s2[0], ..., s0[1], ...
+    """
+    from collections import defaultdict, OrderedDict
+    buckets = OrderedDict()
+    for s in scenarios:
+        sec = s.get("sector", "other")
+        if sec not in buckets:
+            buckets[sec] = []
+        buckets[sec].append(s)
+    result = []
+    queues = list(buckets.values())
+    while any(q for q in queues):
+        for q in queues:
+            if q:
+                result.append(q.pop(0))
+    return result
+
 
 
 # ---------------------------------------------------------------------------
