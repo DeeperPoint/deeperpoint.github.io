@@ -747,8 +747,8 @@ def buildIndexPage(scenarios):
   </script>"""
 
     head = renderHead(
-        title="Examples \u2014 Thin Market Scenarios",
-        description="Real-world thin market opportunities analyzed through the DeeperPoint framework. Each entry includes a market analysis, sponsor revenue model, and a narrative story.",
+        title="Markets in Waiting \u2014 Scenarios for the MarketForge Opportunity Catalog",
+        description="One hundred speculative thin market scenarios analyzed through the DeeperPoint framework. Each describes a market that could exist if the right matching infrastructure were built \u2014 with a market analysis, sponsor revenue model, and a narrative story illustrating how a match would work.",
         css_path="../styles.css",
         root="../",
     )
@@ -756,11 +756,14 @@ def buildIndexPage(scenarios):
     content = f"""
   <section class="section cat-header" id="catalog-index">
     <div class="container">
-      <div class="cat-label">&#128200; DeeperPoint \u2014 Thin Market Examples</div>
-      <h1 class="cat-title">Examples</h1>
+      <div class="cat-label">&#128200; DeeperPoint &#8212; MarketForge Opportunity Catalog</div>
+      <h1 class="cat-title">Markets in Waiting</h1>
       <p class="cat-desc">
-        Thin market opportunities analyzed through the DeeperPoint framework.
-        Each entry includes a market analysis, sponsor revenue model, and a narrative story.
+        Scenarios for the MarketForge opportunity catalog. Each entry describes a real thin market
+        that could be transformed by the right matching infrastructure &#8212; but has not been yet.
+        These are speculative, not case studies: they map the problem, model the sponsor economics,
+        and tell a story of how a successful match would work. Browse by sector, tag, or build
+        complexity to find the markets that interest you.
       </p>
 
       <!-- Search -->
