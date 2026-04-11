@@ -1576,6 +1576,194 @@ img {
 }
 
 /* ============================================
+   Catalog Detail Page — Panel Sections
+   ============================================ */
+
+/* Section block inside a detail tab panel */
+.panel-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.panel-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Eyebrow label above each section */
+.panel-section__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dp-blue-light);
+  margin-bottom: var(--space-md);
+}
+
+/* Optional larger title below the label (used in story tab) */
+.panel-section__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dp-white);
+  margin-bottom: var(--space-md);
+  line-height: 1.35;
+}
+
+/* --- Dominant Forces list --- */
+.force-list {
+  list-style: none;     /* kill any browser default */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.force-list li {
+  position: relative;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--dp-silver);
+  line-height: 1.6;
+  border-left: 2px solid rgba(6, 182, 212, 0.3);
+  background: rgba(6, 182, 212, 0.03);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.force-list li::before {
+  content: '▸';
+  position: absolute;
+  left: -0.05rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.55rem;
+  color: var(--dp-cyan);
+  line-height: 1;
+}
+
+.force-list li:hover {
+  border-color: var(--dp-cyan);
+  background: rgba(6, 182, 212, 0.07);
+  color: var(--dp-cloud);
+}
+
+/* --- Sponsor Opportunity Card (detail tab 2) --- */
+.opp-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  transition: border-color var(--transition-fast);
+}
+
+.opp-card:last-child {
+  margin-bottom: 0;
+}
+
+.opp-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.opp-card__type {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dp-amber);
+  margin-bottom: var(--space-xs);
+}
+
+.opp-card__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--dp-white);
+  margin-bottom: var(--space-md);
+}
+
+.opp-card__revenue {
+  font-size: 0.875rem;
+  color: var(--dp-emerald);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--glass-border);
+}
+
+/* --- Story Body (renders markdown HTML inline) --- */
+.story-body {
+  line-height: 1.85;
+  font-size: 1rem;
+  color: var(--dp-cloud);
+}
+
+.story-body h2 {
+  font-size: 1.25rem;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--dp-white);
+}
+
+.story-body h3 {
+  font-size: 1.0625rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+  color: var(--dp-white);
+}
+
+.story-body p {
+  margin-bottom: var(--space-lg);
+}
+
+.story-body ul,
+.story-body ol {
+  padding-left: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.story-body li {
+  margin-bottom: var(--space-sm);
+}
+
+.story-body strong {
+  color: var(--dp-white);
+  font-weight: 600;
+}
+
+.story-body em {
+  color: var(--dp-blue-light);
+  font-style: italic;
+}
+
+.story-body hr {
+  border: none;
+  border-top: 1px solid var(--glass-border);
+  margin: var(--space-2xl) 0;
+}
+
+.story-body a {
+  color: var(--dp-blue-light);
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 165, 250, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--transition-fast);
+}
+
+.story-body a:hover {
+  text-decoration-color: var(--dp-blue-light);
+  color: var(--dp-white);
+}
+
+.story-body blockquote {
+  border-left: 3px solid var(--dp-blue);
+  padding: var(--space-md) var(--space-xl);
+  margin: var(--space-xl) 0;
+  background: var(--dp-blue-glow);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--dp-silver);
+}
+
+/* ============================================
    Blog Styles
    ============================================ */
 
