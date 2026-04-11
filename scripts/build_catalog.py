@@ -543,6 +543,7 @@ def buildIndexPage(scenarios):
     for s in scenarios:
         sid = escHtml(s.get("id", ""))
         title = escHtml(s.get("title", "Untitled"))
+        card_title = escHtml(s.get("card_title") or s.get("title", "Untitled"))
         sector = s.get("sector", "other")
         sector_label = sector.replace("-", " ").title()
         tier = s.get("forge_tier", 2)
@@ -565,7 +566,7 @@ def buildIndexPage(scenarios):
             <div class="scenario-card__sector">{escHtml(sector_label)}</div>
             {tierBadge(tier)}
           </div>
-          <div class="scenario-card__title">{title}</div>
+          <div class="scenario-card__title">{card_title}</div>
           <div class="scenario-card__summary">{summary}</div>
           <div class="scenario-card__tags">{tags_html}</div>
           <div class="scenario-card__footer">
