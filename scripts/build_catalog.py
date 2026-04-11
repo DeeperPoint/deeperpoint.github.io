@@ -12,8 +12,13 @@ Changes from v1:
 
 YAML schema for each scenario file:
     id, title, sector, sub_sector, forge_tier, status, tags
+    card_title: "Short scan-friendly title for the index card (≤60 chars, 1 line ideal)"
     hidden: true        <- optional; suppresses the scenario from the catalog without deleting the YAML
-    market_example: {summary, problem, dominant_forces, deeperpoint_fit, economic_upside}
+    market_example:
+      summary:          <- CARD ABSTRACT: ~40–60 words. One tight paragraph that names the thin market
+                           problem and the matching solution. NOT a full problem description.
+                           Treat it like a caption, not an intro — the full problem goes in 'problem'.
+      problem, dominant_forces, deeperpoint_fit, economic_upside
     sponsor_opportunities: [{title, type, revenue_model, strategic_logic, recurring}]
     story:
       title, status (none|draft|published), summary, characters
