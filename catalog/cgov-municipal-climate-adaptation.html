@@ -1,0 +1,468 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipal Climate Adaptation: Niche Engineering and Nature-Based Solution Specialist Network — DeeperPoint</title>
+  <meta name="description" content="Canadian municipalities developing climate adaptation plans and infrastructure — urban heat island mitigation, green stormwater infrastructure, urban tree canopy planning, coastal flood protection — cannot efficiently find practitioners with the combined ecological design and municipal engineering credentials their specific project type requires.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 600px; margin: 0 auto 2rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem; overflow-x: auto;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      display: flex; align-items: flex-start; gap: .5rem;
+    }
+    .force-list li::before { content: "A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0; }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Gov Expert Networks &middot; Climate Adaptation &amp;amp; Urban Resilience</div>
+      <h1 class="detail-title">Municipal Climate Adaptation: Niche Engineering and Nature-Based Solution Specialist Network</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">municipal-government</span><span class="blog-tag">climate-adaptation</span><span class="blog-tag">urban-resilience</span><span class="blog-tag">nature-based-solutions</span><span class="blog-tag">stormwater</span><span class="blog-tag">heat-island</span><span class="blog-tag">specialist-matching</span><span class="blog-tag">canada</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Federal and provincial climate adaptation funding programs have created significant municipal demand for climate resilience infrastructure. The projects funded — green stormwater infrastructure, urban forest canopy expansion, passive cooling design for vulnerable populations, coastal setback and nature-based flood protection — require practitioners who combine ecological design knowledge with municipal engineering context. A stormwater engineer who has not worked with bioretention cell design does not have the right profile. A landscape architect without urban hydrology credentials cannot lead a green infrastructure drainage project. A coastal ecologist without municipal permitting experience cannot navigate the approvals process for a shoreline restoration project. The interdisciplinary practitioner who combines these credentials is a small population that is systematically invisible in both engineering and landscape architecture directories — because their credential combination does not map cleanly to standard professional category classifications.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Participant scarcity — interdisciplinary practitioners combining ecological design and municipal infrastructure engineering credentials are genuinely rare</li><li>Offering complexity — project-practitioner fit requires matching on climate hazard type (heat, flood, drought, wind), infrastructure category (green stormwater, urban forest, coastal), municipal approval pathway experience, and federal/provincial funding program familiarity</li><li>Opacity — interdisciplinary credential combinations are not legible from single-profession directories; practitioners registered as engineers, landscape architects, or ecologists do not cross-appear in each other&#x27;s directories</li><li>Funding timeline pressure — federal climate adaptation funding programs have fixed application and delivery windows; municipalities that cannot assemble the right technical team lose funding or deliver inadequate projects</li><li>Political accountability — climate resilience infrastructure is highly visible; projects that fail to perform as designed — bioretention cells that flood, urban tree canopy that does not survive, coastal restoration that erodes — produce political costs that exceed the project budget</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes practitioner profiles (climate hazard specialization, infrastructure type expertise, municipal approval process experience, specific funding program familiarity, ecological credential and engineering credential combinations) against municipal demand signals (climate hazard type, infrastructure category, project scale, funding program constraints, required credential combination, municipal approval pathway). KnowledgeSlot curates the federal Climate Resilience and Green Infrastructure Fund program guidelines, provincial green infrastructure standards, and technical design references for bioretention, urban tree canopy, and coastal nature-based solutions.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The federal government has committed $1.625 billion to climate resilience infrastructure through DMAF and successor programs. A significant proportion of funded projects underperform against stated climate adaptation objectives because the technical design was developed by practitioners without the specific interdisciplinary competency required. Better specialist matching increases the proportion of climate investment that delivers measurable adaptation outcomes.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Bioretention Cell That Didn&#x27;t Drain</div>
+        <p><strong>Characters:</strong> Wei — interdisciplinary practitioner, urban hydrology and green infrastructure design, P.Eng., ASLA, Vancouver, Anita — infrastructure project manager, mid-sized Ontario municipality</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Credential Gap</h2>
+<p>Bioretention cells — engineered planting areas designed to capture, filter, and infiltrate stormwater — are among the most commonly specified green infrastructure interventions in Canadian municipal climate adaptation projects. They are also among the most frequently underperforming, when inadequately designed. The reasons are usually the same: the soil media specification was wrong for the local clay content; the underdrain sizing was inadequate for the design storm; the overflow structure was positioned incorrectly for the site's drainage gradient.</p>
+<p>These are hydrology failures. They occur when the design was produced by a landscape architect without urban hydrology training, or a civil engineer without bioretention-specific design experience, or a team that combined the credentials on paper without combining the relevant knowledge in practice.</p>
+<p>Federal infrastructure funding programs do not currently require credential verification adequate to distinguish between these cases. The municipality submits a technical design. The federal program reviews the scope and budget. If the construction proceeds, the performance monitoring reveals the failure two years later — after the funding is spent and the accountability reporting is overdue.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Anita</strong> was managing a $1.4 million green stormwater infrastructure project funded under the Disaster Mitigation and Adaptation Fund. The scope included three bioretention cells, a permeable pavement section, and a rain garden complex serving a low-lying neighbourhood with a documented overland flooding history.</p>
+<p>She tendered the design phase to a landscape architecture firm that described their expertise as "sustainable urban design." They were competent at the landscape design elements. Their bioretention cell specifications used standard Ontario Stormwater Manual parameters — correct in principle but not calibrated to the specific clay subsoil and water table conditions of the project site, which required a perched water table management system that the standard parameters did not address.</p>
+<p>Construction completed in September. The first significant fall rainfall event — 47 mm in six hours — produced overland flooding through two of the three bioretention cells. The cells filled to surface saturation and could not drain at the rate required to prevent overflow. The flooding reached four residential basements.</p>
+<p>The municipality's insurance exposure: significant. The federal reporting obligation: a performance failure in year one of a five-year monitoring program.</p>
+<hr />
+<p>Anita registered the remediation design project on the MarketForge climate adaptation specialist platform. Her demand profile: bioretention cell remediation, perched water table hydrology experience, Ontario clay soil conditions, DMAF federal reporting familiarity, P.Eng. credential required, available within eight weeks.</p>
+<p>The platform returned three profiles. Two were engineering firms whose bioretention experience was limited to greenfield site construction. The third was <strong>Wei</strong>.</p>
+<p><strong>Wei</strong> holds both a Professional Engineer designation and a membership in the American Society of Landscape Architects — a credential combination that is rare and that is not legible from either engineering or landscape architecture directories separately. His platform profile documented twelve completed bioretention projects in Ontario and British Columbia, including three perched water table remediation projects. He had written a technical note for the Credit Valley Conservation Authority on clay soil bioretention calibration.</p>
+<p>Anita sent an outreach request at 10:30 AM. Wei confirmed availability and interest by 2:15 PM.</p>
+<p>The remediation design addressed the underdrain sizing and the perched water table management system. The cells performed within specification on the next comparable precipitation event.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Wei's credential combination — P.Eng. plus landscape architecture credentials plus specific bioretention hydrology experience — is exactly what the original project required. His profile was not discoverable through the landscape architecture directory Anita used to procure the original designer, because he is not primarily a landscape architect. It was not discoverable through the engineering contractor registry, because his bioretention hydrology specialization is not captured in standard engineering category classifications.</p>
+<p>The credential gap that produced the bioretention failure was foreseeable. The project site's perched water table condition was documented in the geotechnical report. A practitioner search that matched against "bioretention cell, perched water table, Ontario clay" would have surfaced the distinction between Wei and the landscape architecture firm before the design was commissioned.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> makes interdisciplinary credential combinations searchable in the context of specific project requirements — converting the credential opacity that produces underperforming infrastructure investments into a legible match before the design is built.</p>
+<p><em>Characters are fictional. The DMAF federal program performance monitoring requirements, Ontario Stormwater Management Manual specifications, and bioretention perched water table design challenges are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Climate Adaptation Specialist Matching Platform (SaaS)</div>
+        <p>Every Canadian municipality with a climate adaptation plan has an ongoing need for specialized technical capacity. A platform that surfaces practitioners with the specific interdisciplinary credential combinations federal programs require reduces the proposal failure rate and project underperformance rate for municipalities operating under funding program timelines.</p>
+        <div class="opp-card__revenue">&#128181; Annual license to municipalities and regional planning authorities ($15,000–$35,000/year per municipality); practitioner profile maintenance ($249/year per practitioner)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Federal Funding Program Technical Compliance Navigator</div>
+        <p>Federal climate infrastructure funding programs specify technical design standards and monitoring requirements that most municipal engineering staff are not familiar with. A compliance navigator that reviews project technical submissions against program requirements before application reduces disqualification rates and post-award compliance failures.</p>
+        <div class="opp-card__revenue">&#128181; Per-application technical compliance review ($1,500–$4,000); annual municipal retainer ($10,000–$20,000/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Nature-Based Solution Performance Monitoring Service</div>
+        <p>Federal climate funding programs require post-project performance monitoring and reporting. A monitoring service that installs sensors, collects data, and generates the standardized performance reports required by federal agreements reduces the municipal administrative burden of federal accountability requirements — and provides the performance data that justifies future funding applications.</p>
+        <div class="opp-card__revenue">&#128181; Annual monitoring subscription per project ($3,000–$8,000); performance reporting compilation for federal reporting ($1,200–$2,500/report)</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
