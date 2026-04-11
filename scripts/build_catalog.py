@@ -807,9 +807,9 @@ def buildIndexPage(scenarios):
         <!-- Build Complexity buttons -->
         <div class="tier-btns" role="group" aria-label="Filter by build complexity">
           <button class="tier-btn active" data-value="all">All</button>
-          <button class="tier-btn" data-value="1" title="Build complexity: Easy (~30–60 hrs to prototype)">Easy</button>
-          <button class="tier-btn" data-value="2" title="Build complexity: Moderate (~72–144 hrs to prototype)">Moderate</button>
-          <button class="tier-btn" data-value="3" title="Build complexity: Complex (~156–356 hrs to prototype)">Complex</button>
+          <button class="tier-btn" data-value="1" title="Easy (~30–60 hrs to prototype)">Easy</button>
+          <button class="tier-btn" data-value="2" title="Moderate (~72–144 hrs to prototype)">Moderate</button>
+          <button class="tier-btn" data-value="3" title="Complex (~156–356 hrs to prototype)">Complex</button>
         </div>
 
         <!-- Clear all -->
