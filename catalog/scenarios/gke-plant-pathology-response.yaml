@@ -1,0 +1,90 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: gke-plant-pathology-response
+title: "Crop Disease Emergency: Remote Plant Pathology Consultation Network"
+sector: global-knowledge-equity
+sub_sector: Agricultural Science & Food Security
+forge_tier: 1
+status: published
+tags: [global-south, africa, plant-pathology, crop-disease, food-security, volunteer-expertise, agriculture, remote-diagnosis]
+
+market_example:
+  summary: "Agricultural extension services and farmer cooperatives in sub-Saharan Africa facing novel or emerging crop disease outbreaks cannot efficiently reach plant pathologists in developed countries with subspecialty expertise in the specific pathogen, crop, and regional variant involved."
+  problem: "Sub-Saharan Africa's smallholder agricultural systems are managed by farmers with deep practical knowledge of their soils, microclimates, and traditional varieties. When a novel disease pressure appears — a new race of wheat stem rust, a previously absent virus vector, a fungal pathogen that has jumped from a neighbouring crop system — the local extension agronomist can identify that something is wrong, document symptoms systematically, and collect samples with professional competence. What they often lack is subspecialty plant pathology knowledge for the specific pathogen: its host range, its management options, its likely movement pathway, and the resistance profiles of the varieties currently in the ground. This knowledge exists — in academic research groups at agricultural universities in the Netherlands, UK, Australia, Canada, and the US — among plant pathologists who have spent careers on specific pathogens and specific crop systems. These researchers often want to engage. They cannot efficiently find the extension officer with the active outbreak and the documented symptom record whose request they are best positioned to answer."
+  dominant_forces:
+    - "Participant scarcity — subspecialty plant pathology knowledge for specific pathogen-crop-region combinations is concentrated in small research groups at agricultural universities globally"
+    - "Urgency — crop disease outbreaks develop at the speed of the planting season; a response that arrives after harvest is irrelevant"
+    - "Opacity — extension services and cooperatives with active outbreaks cannot signal their specific technical need in a form that reaches the right plant pathologist"
+    - "Offering complexity — meaningful remote consultation requires alignment on the specific pathogen or pathogen class suspected, the crop and variety, the regional climate context, and the management options available to the farmer population"
+    - "Sample and documentation quality — the value of remote consultation depends on the quality of the symptom documentation and sample handling; an engagement framework that guides documentation quality improves consultation outcomes"
+  deeperpoint_fit: "Semantic matching encodes pathologist profiles (specific pathogen expertise by taxonomic group and crop system, regional geographic experience, resistance variety knowledge, management option expertise for resource-constrained contexts) against outbreak request profiles (crop, observed symptoms, suspected pathogen class, sample availability, farmer population and management options available). The documentation protocol guides the requesting extension officer through symptom capture in a form that maximizes remote consultation value. KnowledgeSlot curates CGIAR pathogen surveillance data, CIMMYT rust resistance variety registries, and the management option matrices specific to smallholder contexts."
+  economic_upside: "A single wheat stem rust outbreak insufficiently managed can destroy 40–70% of the crop across an affected region, with cascading food security and income consequences for thousands of smallholder households. Early identification of the specific pathogen race and the variety resistance profile that applies determines whether the affected farmer population can act in time with available management options. Better subspecialty consultation access compresses response time from weeks to days — the interval that determines whether a partial or complete harvest is possible."
+
+sponsor_opportunities:
+  - title: "Crop Disease Consultation Matching Platform (SaaS)"
+    type: saas
+    revenue_model: "Annual license to agricultural ministries, CGIAR centers, and extension programs ($5,000–$18,000/year); pathologist profile maintenance (funded by institutional subscribers, free for volunteers)"
+    strategic_logic: "CGIAR centers, bilateral agricultural development programs, and agricultural ministries all have active interests in rapid pathogen identification and response. An institutional subscription model positions the platform as part of the early warning and response infrastructure these organizations are already funding."
+    recurring: true
+
+  - title: "Outbreak Documentation Protocol and Training Service"
+    type: managed-service
+    revenue_model: "Per-extension-service training package ($600–$1,500); annual extension program subscription for standing documentation support ($400/year)"
+    strategic_logic: "The quality of remote pathology consultation is gated by the quality of the outbreak documentation. A training service that equips extension officers with structured symptom capture protocols, sample handling guidance, and photo documentation standards — calibrated to the smartphone and field conditions they actually operate in — directly improves consultation outcomes."
+    recurring: true
+
+  - title: "Pathogen Surveillance Intelligence Service"
+    type: data-service
+    revenue_model: "Annual subscription to agricultural ministries and CGIAR programs ($12,000–$30,000/year)"
+    strategic_logic: "Aggregated outbreak consultation data — pathogen identification outcomes, geographic distribution, variety resistance performance — builds a regional surveillance intelligence resource that benefits early warning systems and variety recommendation programs across the continent."
+    recurring: true
+
+story:
+  title: "Race Ug99"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Joseph — senior agricultural extension officer, Bale Zone, Oromia, Ethiopia; fifteen years of smallholder wheat systems experience"
+    - "Dr. Miriam — wheat rust pathologist, Wageningen University, specialization in East African Puccinia graminis races"
+  summary: "An Ethiopian wheat extension officer documents a rapid, atypical stem rust progression in a Bale Zone farmer cooperative's fields and needs subspecialty rust pathology guidance on race identification and variety resistance — guidance that arrives in time to inform management decisions for the remaining 40% of unharvested area."
+  body: |
+    ## Act A — The Race Question
+
+    Wheat stem rust is not a single disease. It is a family of pathogen races, each with a distinct virulence profile — a specific set of resistance genes in the host wheat variety that it can overcome. The Ug99 race group, identified in Uganda in 1999 and now distributed across East Africa and the Arabian Peninsula, is particularly virulent and can overcome many widely deployed resistance mechanisms. But Ug99 is itself not a single race — it has evolved variant strains, each with slightly different virulence profiles, each requiring a specific understanding to match to the resistance characteristics of the varieties in the ground.
+
+    Joseph has seen wheat rust before. He has managed conventional stem rust outbreaks in Bale Zone. What he is seeing this season is different — the progression speed on a variety that has historically shown moderate resistance, and the pustule morphology, suggest a race variant outside his direct experience. The management options available to his farmer cooperative — copper-based fungicide application, early harvest on the most affected fields, variety recommendation for next season — all depend on knowing which race is probable and which varieties in the seed system have relevant resistance.
+
+    His question is specific. His documentation is thorough. He needs access to a researcher who works on East African Puccinia graminis races.
+
+    ---
+
+    ## Act B — The Story
+
+    Joseph submitted an outbreak consultation request to the MarketForge crop disease platform. His documentation package: GPS-tagged field photographs with symptom progression at five-day intervals, estimated field-level incidence by variety (four varieties present), meteorological data from the nearest weather station, and his own assessment of the symptom profile with the race variant hypotheses he had already considered.
+
+    His request profile: wheat stem rust, Bale Zone Oromia, progression rate and morphology inconsistent with known zone race history, four varieties affected at different severities, management options available (Artea fungicide accessible, partial early harvest feasible, next-season variety recommendation needed).
+
+    **Dr. Miriam** has studied Puccinia graminis tritici races in East Africa for eleven years. Her laboratory at Wageningen maintains a reference collection of East African rust isolates and publishes annual updates on race distribution and virulence shifts. Her platform profile listed her specific expertise: East African rust race distribution, Ug99 lineage variant virulence profiles, resistance gene effectiveness by race group for varieties common in the Ethiopian seed system.
+
+    The platform identified Dr. Miriam as the closest match to Joseph's request. She accepted within six hours of the consultation request being submitted.
+
+    Their first video session lasted forty minutes. Dr. Miriam reviewed Joseph's field photographs and confirmed her assessment: the symptom profile was consistent with a Ug99 lineage variant, likely TTKSK or a closely related daughter race, based on the virulence pattern across Joseph's four variety groups. One variety — a widely deployed improved variety — was showing the most severe infection, consistent with that race's known virulence on the Sr31 resistance gene.
+
+    Dr. Miriam provided specific guidance: on the four varieties present, two had Sr38-mediated resistance effective against this race group and were the best candidates for early harvest deferral; the two most affected varieties should be prioritized for early harvest. On fungicide timing, the Artea application should prioritize the deferrable varieties where foliar protection would maximize the protected yield window.
+
+    Joseph transmitted the guidance to the cooperative that afternoon.
+
+    ---
+
+    The cooperative's management response — prioritized fungicide application and selective early harvest — protected approximately 60% of the remaining unharvested yield on the resistant-variety fields. Without the race-specific guidance, the cooperative's default response would have been uniform early harvest across all fields, sacrificing yield on the varieties where a protected extension of the maturation window was viable.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Dr. Miriam's expertise was specifically what Joseph needed. She publishes on East African rust races. Her knowledge was current — her laboratory had characterized the TTKSK lineage variants in the prior season. She was willing to engage; she regularly works with CGIAR-linked extension programs when she can reach them.
+
+    The match failed because there was no mechanism by which Joseph's well-documented outbreak consultation request reached Dr. Miriam's awareness. She does not monitor Ethiopian agricultural extension communications. Joseph does not know which Wageningen researcher works on East African rust races. The consultation that could have happened in week one of the outbreak happened in week four — still in time to affect the harvest management decision, but too late to influence the early-season variety management choices.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the urgency signal, the documentation quality, and the subspecialty alignment visible at the right moment — connecting two practitioners whose combined knowledge is greater than either holds alone.
+
+    *Characters are fictional. Ug99 wheat stem rust race distribution in East Africa, TTKSK virulence profiles, and Ethiopia's Bale Zone wheat farming systems are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

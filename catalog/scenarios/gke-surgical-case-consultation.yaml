@@ -1,0 +1,82 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: gke-surgical-case-consultation
+title: "Complex Surgical Case: Remote Second-Opinion and Technique Consultation Network"
+sector: global-knowledge-equity
+sub_sector: Medical Specialization & Clinical Exchange
+forge_tier: 2
+status: published
+tags: [global-south, africa, surgery, remote-consultation, clinical-exchange, specialist-matching, healthcare, peer-collaboration]
+
+market_example:
+  summary: "Surgeons at well-equipped referral hospitals in sub-Saharan Africa encountering complex, rare, or ambiguous cases cannot efficiently reach surgical specialists in developed countries for structured remote second opinions and technique consultation — while surgeons in developed countries who want to contribute their expertise cannot find the right clinical partners."
+  problem: "High-volume referral hospitals in sub-Saharan Africa produce surgical caseloads that generate significant clinical experience. Surgeons at these hospitals are skilled and experienced — they perform operations at volumes their developed-country peers rarely match. When they encounter a case that is rare, ambiguous, or at the edge of their experience — a complex hepatopancreatobiliary reconstruction, an unusual soft tissue tumour with uncertain resection margins, a pediatric cardiac defect outside the standard repair anatomy — they benefit from the same consultation resource that surgeons everywhere benefit from: a structured second opinion from a peer with specific subspecialty experience in that case category. That consultation is available to a surgeon at a Toronto or London teaching hospital through formal case conference systems, subspecialty networks, and informal collegial relationships built through training and conference attendance. For a surgeon at a referral hospital in Kampala or Addis Ababa, those networks are thinner, and the structured remote consultation mechanism does not exist at scale."
+  dominant_forces:
+    - "Opacity — a surgeon with a complex case cannot efficiently signal their specific consultation need to the subspecialist in a developed country whose experience is directly relevant"
+    - "Offering complexity — useful remote surgical consultation requires the consulting specialist to review relevant imaging, operative notes, and pathology reports; the consultation's value depends on information quality and transfer"
+    - "Clinical accountability — the consulting surgeon is providing advice, not primary clinical responsibility; engagement frameworks must be clear about the advisory nature of remote consultation and appropriate for both parties' professional regulatory contexts"
+    - "Trust and peer relationship — surgeons consult with colleagues they trust, not with unknown practitioners; a structured engagement framework that establishes professional credibility on both sides is a prerequisite for clinical usefulness"
+    - "Specialty specificity — surgical subspecialty is narrow; a general surgeon cannot provide meaningful consultation on a hepatopancreatobiliary reconstruction; the match must be subspecialty-specific"
+  deeperpoint_fit: "Semantic matching encodes consultant profiles (surgical subspecialty, case category experience, telemedicine consultation experience, advisory-basis engagement willingness, imaging review format compatibility) against case request profiles (case category, available clinical documentation, imaging format, urgency tier, specific clinical question). The clinical documentation exchange protocol enables structured image and report sharing within an appropriate confidentiality framework. The engagement framework is explicitly advisory — the consulting surgeon provides a structured written opinion, not a treatment directive."
+  economic_upside: "For surgical cases where the treatment plan question has a definitive answer — a specific reconstruction approach, a different resection margin strategy, a non-operative management option — a timely remote consultation can change the outcome of a single patient's care significantly. Across a network of high-volume referral hospitals, regular access to subspecialty consultation builds the local surgical knowledge base, reduces avoidable adverse outcomes in complex cases, and represents one of the highest-value clinical knowledge exchanges achievable through remote technology."
+
+sponsor_opportunities:
+  - title: "Surgical Consultation Matching Platform (SaaS)"
+    type: saas
+    revenue_model: "Annual institutional subscription per hospital ($2,000–$6,000/year, sliding scale); consultant profile maintenance (free for volunteer consultants)"
+    strategic_logic: "Global surgery programs at academic medical centres, health NGOs, and bilateral health aid programs have active interests in building surgical capacity in sub-Saharan Africa. An institutional subscription model positions the platform within existing global surgery program partnership relationships."
+    recurring: true
+
+  - title: "Clinical Documentation Exchange Protocol and Imaging Transfer Service"
+    type: managed-service
+    revenue_model: "Per-consultation documentation facilitation ($150–$300); annual hospital subscription for standing exchange support ($800/year)"
+    strategic_logic: "The quality of remote surgical consultation is gated by the quality and completeness of the clinical documentation received. A facilitation service that supports structured operative note preparation, DICOM imaging format standardization, and pathology report translation into the consultation request package improves consultation quality significantly."
+    recurring: true
+
+  - title: "Subspecialty Case Pattern Learning Database"
+    type: data-service
+    revenue_model: "Annual subscription to global surgery research programs and surgical training institutions ($10,000–$25,000/year)"
+    strategic_logic: "Anonymized case consultation records — case category, clinical question, consultant recommendation, outcome if available — build a pattern library of complex case management in sub-Saharan Africa's surgical context. This is valuable for surgical training programs, for global surgery research, and for building the evidence base for surgical decision-making in resource-constrained environments."
+    recurring: true
+
+story:
+  title: "The Third Option"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Amara — general surgeon, referral teaching hospital, Freetown, Sierra Leone; subspecialty interest in hepatobiliary surgery"
+    - "Dr. Chen — hepatopancreatobiliary surgeon, University Health Network, Toronto"
+  summary: "A Sierra Leonean surgeon encountering an atypical hilar cholangiocarcinoma presentation requests a remote second opinion from an HPB specialist in Toronto — who identifies a non-resectional palliative option that Dr. Amara had not considered and that changes the management plan significantly."
+  body: |
+    ## Act A — The Subspecialty Question
+
+    Hilar cholangiocarcinoma — bile duct cancer at the junction of the hepatic ducts — is one of the most technically demanding operations in hepatopancreatobiliary surgery. The resectability assessment requires understanding the tumour's relationship to the portal vein, the hepatic artery, and the biliary system in three dimensions, typically from cross-sectional imaging. The decision between resection, biliary drainage, and systemic management depends on factors that require subspecialty expertise to evaluate.
+
+    Dr. Amara is a capable general surgeon with genuine technical skill. He has managed a high volume of abdominal surgery, including hepatobiliary cases. He is not an HPB subspecialist. When he sees a case that exceeds the subspecialty boundary of his training, he knows it — and he knows that the patient's outcome depends on whether he can access the subspecialty knowledge that he does not hold.
+
+    In Freetown, that subspecialty knowledge is not available in-house. His question is whether it is available remotely, to a surgeon who can engage as a peer and provide a structured clinical opinion.
+
+    ---
+
+    ## Act B — The Story
+
+    Dr. Amara submitted a case consultation request to the MarketForge surgical consultation platform. His documentation package: CT scan images in DICOM format, operative exploration findings from an initial diagnostic laparoscopy, CA 19-9 serum levels, patient age and performance status, and his clinical question: assess Bismuth–Corlette classification and resectability; second opinion on management approach.
+
+    His request was matched to **Dr. Chen**, an HPB surgeon at the University Health Network in Toronto who had registered as a volunteer consultant on the platform three months earlier. Dr. Chen's subspecialty profile listed hepatobiliary surgery as his primary practice, with specific experience in hilar cholangiocarcinoma assessment and management.
+
+    Dr. Chen reviewed the DICOM images and the case documentation over the following 48 hours. His written consultation report addressed the Bismuth–Corlette classification (Type IIIa, based on the imaging), the resectability assessment (portal vein involvement making R0 resection uncertain at high risk), and — the point that changed Dr. Amara's management plan — a third option Dr. Amara had not fully considered: percutaneous transhepatic biliary drainage as a palliative approach, combined with gemcitabine-based chemotherapy, which current evidence supports as equivalent in survival outcomes to incomplete resection for this staging, without the surgical mortality risk in a patient whose performance status made major hepatic resection high-risk.
+
+    Dr. Amara's original plan had been weighing resection against simple biliary stenting. Dr. Chen's consultation introduced the current evidence base for the combined palliative approach, and pointed Dr. Amara toward the specific drainage technique most appropriate for a Type IIIa anatomy.
+
+    The management plan was revised.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Dr. Chen consults on cases like this in Toronto's Tumour Board every three weeks. His knowledge of the current evidence base, and his ability to translate that evidence into a management recommendation for the specific imaging findings, is the same whether the case is in Toronto or Freetown. The consultation he provided to Dr. Amara is not substantively different from the consultation he provides to a surgical resident who presents an HPB case at rounds.
+
+    The barrier was not capability — it was discoverability. Dr. Amara could not find Dr. Chen. Dr. Chen's willingness to consult on cases remotely was not signalled in any channel Dr. Amara could access. The structured engagement framework — the documentation protocol, the advisory-basis clarity, the DICOM transfer — resolved the logistics that make informal remote consultation too uncertain to rely on.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the subspecialty consultation need visible to the subspecialty practitioner who can serve it — providing access to the peer consultation that developed-world surgeons use as a matter of course, without requiring a personal relationship that has to be built before the case arrives.
+
+    *Characters are fictional. Hilar cholangiocarcinoma Bismuth–Corlette classification, percutaneous transhepatic biliary drainage, and current evidence on resection vs. palliative management are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

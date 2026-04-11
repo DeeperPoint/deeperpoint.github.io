@@ -1,0 +1,94 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: gke-research-equipment-surplus
+title: "Research Equipment Surplus Transfer: Lab-to-Lab Matching Network"
+sector: global-knowledge-equity
+sub_sector: Scientific Infrastructure & Research Capacity
+forge_tier: 2
+status: published
+tags: [global-south, africa, research-equipment, lab-surplus, university, scientific-capacity, equipment-matching, peer-collaboration]
+
+market_example:
+  summary: "Research universities and public health laboratories in sub-Saharan Africa seeking specific scientific instruments — PCR thermocyclers, spectrophotometers, centrifuges, flow cytometers — cannot efficiently find the labs in developed countries that have functional surplus equipment available for transfer; meanwhile those labs struggle to find appropriate recipients for equipment that exceeds their current disposal mechanisms."
+  problem: "Research universities and institutes in sub-Saharan Africa are active, innovative research enterprises. They are not asking for equipment to begin doing research — they are asking for specific instruments to expand capacity that already exists: to add a second PCR thermocycler to a molecular biology lab already running samples, to acquire the gel documentation system that would make their electrophoresis workflow independent of a shared facility three buildings away, to obtain the specific centrifuge whose RCF range matches the protocol they are trying to run. At the same time, research labs at universities in Canada, the UK, Australia, and the US regularly retire functional, well-maintained equipment that has been superseded by newer models or whose grant-funded purpose is complete. This equipment does not travel easily: the lab cannot donate it to a domestic charity easily, shipping it internationally is logistically complex, and the customs documentation specific to the destination country's research equipment import provisions is a barrier most lab administrators lack time to navigate. Both problems could be resolved by a matching and facilitation mechanism that does not currently exist at sufficient scale."
+  dominant_forces:
+    - "Opacity — labs with surplus equipment and labs seeking specific equipment cannot find each other; no searchable directory matches available surplus to specific research instrument needs by model, condition, and destination country"
+    - "Logistics complexity — international scientific equipment transfer requires export documentation, destination country customs classification, research equipment import duty exemption processes, and shipping logistics that are different for every equipment category and destination country"
+    - "Specificity — an African lab seeking a flow cytometer is not seeking any flow cytometer; they need a specific configuration (laser lines, detector channels) compatible with their research protocol and their existing reagent supply chain"
+    - "Condition verification — the receiving lab needs to know the equipment's service history, current calibration status, and whether the specific failure modes of the model at that age are manageable with their local technical capacity"
+    - "Regulatory classification — many scientific instruments include controlled components (lasers, radioactive sources) whose export classification must be verified under the host country's dual-use export control regime"
+  deeperpoint_fit: "Semantic matching encodes receiving lab profiles (specific instrument type and configuration needed, research application, local technical capacity for maintenance, destination country customs classification experience) against surplus lab profiles (specific equipment by manufacturer, model, configuration, service history, condition rating, export classification status). The logistics facilitation service maps the customs and shipping pathway for the specific equipment-country pair. KnowledgeSlot curates destination country research equipment import duty exemption provisions, export control classifications by equipment category, and service history documentation standards."
+  economic_upside: "A specific research instrument that a developed-country lab would scrap for $200 may represent a $15,000–$80,000 acquisition cost for a sub-Saharan African university through standard procurement channels — if the specific configuration is available through commercial supply at all. Better surplus matching expands African research capacity at a fraction of new equipment cost, while solving the developed-country lab's surplus disposal problem. The aggregate scientific productivity enabled across matched institutions over the transferred equipment's service life substantially exceeds any alternative use of the equipment's value."
+
+sponsor_opportunities:
+  - title: "Research Equipment Surplus Matching Platform (SaaS)"
+    type: saas
+    revenue_model: "Annual subscription to university research offices and research funding agencies ($3,000–$8,000/year); receiving institution access subsidized by donor and funder subscribers"
+    strategic_logic: "Research funding agencies — Gates Foundation, Wellcome Trust, bilateral research programs — have a direct interest in maximizing the scientific return on their grant portfolios. A surplus matching platform that extends the productive life of funded equipment and expands receiving institution capacity is a natural program investment for research funders."
+    recurring: true
+
+  - title: "Transfer Logistics and Documentation Facilitation Service"
+    type: managed-service
+    revenue_model: "Per-transfer logistics facilitation ($600–$2,000 depending on equipment complexity and destination); annual lab administrator subscription for standing transfer support ($500/year)"
+    strategic_logic: "The primary barrier to equipment transfer, after the match, is logistics administration. A facilitation service that manages export documentation, destination customs classification, shipping coordination, and insurance covers the operational barrier that prevents most willing surplus donors from completing the transfer."
+    recurring: false
+
+  - title: "Equipment Condition Assessment and Remote Commissioning Support"
+    type: managed-service
+    revenue_model: "Per-transfer assessment report ($300–$800); remote commissioning support session ($200–$400)"
+    strategic_logic: "A standardized condition assessment report — service history, calibration record, known failure mode flags, consumable requirements — gives the receiving lab the information they need to evaluate the equipment's fit for their research application. Remote commissioning support ensures the equipment reaches operational status after shipping and installation."
+    recurring: false
+
+story:
+  title: "The Second Thermocycler"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Adaeze — molecular biology laboratory director, University of Nigeria Nsukka; active malaria genomics research program"
+    - "Prof. Svensson — lab director, Karolinska Institute department; retiring a Bio-Rad CFX96 in favour of a newer model"
+  summary: "A Nigerian molecular biology lab director running a well-funded malaria genomics program is bottlenecked on a single PCR thermocycler. A Swedish lab has a functional Bio-Rad CFX96 being retired — the exact model Adaeze's lab is already calibrated to run."
+  body: |
+    ## Act A — The Bottleneck
+
+    Dr. Adaeze's laboratory has been operating for nine years. It has published forty-one peer-reviewed papers, trained twelve PhD students, and currently holds active grants from the Nigerian government's Tertiary Education Trust Fund and the European and Developing Countries Clinical Trials Partnership. The lab's malaria genomics program — sequencing Plasmodium falciparum isolates from a longitudinal cohort to track artemisinin resistance emergence — is producing data that contributes to national treatment policy.
+
+    The lab has one PCR thermocycler: a Bio-Rad CFX96 that Adaeze sourced through a university equipment grant in 2019. The CFX96 is functioning well. The problem is that the genomics program has expanded to the point where the thermocycler is the bottleneck in the processing pipeline — the team is running it in two shifts, which extends experiment timelines and limits the number of samples that can be processed per week.
+
+    What Adaeze needs is a second CFX96 — specifically that model, because her team's protocols are calibrated to its temperature ramp rate and uniformity profile, her reagent supply chain is compatible with its reaction format, and her students know how to maintain it. A different thermocycler model would require recalibration of protocols whose development took two years.
+
+    New Bio-Rad CFX96 units are priced at approximately $18,000 in the current market. The lab's current grant budget does not include a capital equipment line.
+
+    ---
+
+    ## Act B — The Story
+
+    Adaeze submitted a specific equipment request to the MarketForge research equipment surplus platform: Bio-Rad CFX96, 96-well format, real-time capable, any age from 2015 onward, current calibration acceptable, willing to accept with known minor faults if the fault type is within the lab's technical maintenance capacity.
+
+    Her request profile included a description of the research application, the lab's existing CFX96 service record (demonstrating maintenance competency), and an initial document on Nigeria's research equipment import customs classification, which she had compiled from prior equipment acquisitions.
+
+    **Prof. Svensson's** department at the Karolinska Institute had just received a new CFX Opus 384 under a recently funded genomics program. The department's existing CFX96 — a 2017 model in good working condition with complete service history — was being retired. Standard disposal through the institute's asset management office would result in the equipment being sold to a secondary equipment dealer for approximately $1,800.
+
+    His lab administrator had registered the equipment on the platform when prompted by a university circular about research equipment surplus programs.
+
+    The platform matched Dr. Adaeze's request to Prof. Svensson's CFX96. Model: identical. Configuration: 96-well real-time, compatible. Condition: good, full service record. Year: 2017. Export classification: Category EAR99 (no license required for research equipment to Nigeria). Destination customs classification: Nigeria Customs HS Code 9027.80 — research instruments, customs duty exemption process applicable.
+
+    ---
+
+    Prof. Svensson confirmed the donation within 48 hours of the match notification. The logistics facilitation service prepared the export documentation package and coordinated a freight forwarder experienced with research equipment shipments to West Africa. The equipment shipped four weeks after the match was confirmed.
+
+    It arrived in Nsukka eight weeks later, cleared customs under the research equipment exemption, and was commissioned remotely with a two-hour video session between Adaeze's lab technician and a Bio-Rad technical support volunteer connected through the platform.
+
+    The thermocycler is now running the second processing shift independently.
+
+    The lab's sample throughput doubled in the first month of operation.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Prof. Svensson's CFX96 was exactly what Adaeze needed. It was functional, well-maintained, the correct model, and being retired because of obsolescence in a well-resourced system, not because of any defect. It would have been sold to a secondary equipment dealer for $1,800 and resold to a commercial research services company whose value from the instrument would have been far smaller than Dr. Adaeze's malaria genomics program.
+
+    The match did not happen naturally because there is no mechanism by which a Nigerian lab director's specific equipment request reaches the awareness of a Swedish lab administrator retiring equivalent equipment. The secondary equipment market is not organized around research mission alignment. It is organized around price.
+
+    [Thin market infrastructure](../../thin-markets.html) makes research mission alignment visible alongside equipment specifications — matching the research application that justifies the transfer with the surplus equipment whose donor cares about that application, not just the resale price.
+
+    *Characters are fictional. Bio-Rad CFX96 thermocycler specifications, Nigeria customs research equipment exemption procedures, and the EDCTP grant program are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

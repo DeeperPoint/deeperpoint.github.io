@@ -1,0 +1,464 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traditional Agricultural Knowledge: Collaborative Scientific Validation Network — DeeperPoint</title>
+  <meta name="description" content="African agricultural communities and their research partners seeking to systematically document and scientifically validate traditional crop management, soil health, and pest management knowledge cannot efficiently find ethnobotanists, soil scientists, and agroecological researchers in developed countries willing to engage as scientific collaborators — on terms that respect community intellectual property and knowledge sovereignty.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 600px; margin: 0 auto 2rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem; overflow-x: auto;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      display: flex; align-items: flex-start; gap: .5rem;
+    }
+    .force-list li::before { content: "A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0; }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Global Knowledge Equity &middot; Ethnobotany &amp;amp; Agroecological Research</div>
+      <h1 class="detail-title">Traditional Agricultural Knowledge: Collaborative Scientific Validation Network</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
+        <span class="blog-tag">global-south</span><span class="blog-tag">africa</span><span class="blog-tag">traditional-knowledge</span><span class="blog-tag">ethnobotany</span><span class="blog-tag">agroecology</span><span class="blog-tag">research-collaboration</span><span class="blog-tag">food-sovereignty</span><span class="blog-tag">peer-collaboration</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>African smallholder farming communities have accumulated agricultural knowledge over generations — intercropping systems that provide nitrogen fixation, pest suppression, and yield stability without external inputs; soil management practices that maintain organic matter in tropical soil conditions that formal agronomy has struggled to replicate; plant variety selection practices that have maintained genetic diversity that formal breeding programs have lost. This knowledge is scientifically valuable, practically effective, and at genuine risk of being lost as farming communities face economic pressure and demographic shifts. African agricultural researchers and NGOs working with these communities want to document, validate, and extend this knowledge systematically — not to extract it for external benefit, but to produce the scientific record that makes it legible to policy, funding, and future generations. The scientific validation process benefits from collaboration with specialists in ethnobotany, soil biogeochemistry, and agroecological systems analysis who have the methodological expertise to design validation studies and conduct the laboratory analysis that field observations require. These collaborators must operate within a framework that preserves community IP rights, ensures community authorship of the resulting knowledge, and does not treat the collaboration as extraction.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Trust and historical context — African communities&#x27; historical experience of traditional knowledge extraction without compensation or credit creates a justified trust barrier to external researcher access that any collaboration framework must address directly</li><li>IP and sovereignty — traditional agricultural knowledge is collectively held; standard academic IP frameworks that assign intellectual property to individuals or institutions are incompatible with community knowledge governance frameworks</li><li>Methodological alignment — the research methods that will produce results useful to the community (farmer participatory research, local variety performance trials, soil testing protocols interpretable by community members) are different from pure academic research methods; the collaborating scientist must be willing to adapt</li><li>Offering complexity — match quality depends on alignment between the specific knowledge domain being validated (soil health, intercropping systems, pest management, variety selection), the required analytical methods, and the collaborator&#x27;s willingness to operate within community-defined IP and authorship frameworks</li><li>Geographic and language access — the communities with the most sophisticated traditional agricultural knowledge are frequently in remote areas with limited formal research infrastructure and conducting research in local languages</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes community and NGO researcher profiles (knowledge domain, geographic region, community governance structure, IP and authorship framework requirements, research stage, laboratory analysis needs) against scientist profiles (relevant disciplinary specialization, participatory research experience, developing-country field research experience, community IP framework acceptance, laboratory analysis capacity). The collaboration framework template includes community knowledge sovereignty provisions, collective authorship options, and community benefit-sharing requirements as standard terms.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Traditional agricultural knowledge that produces documented, peer-reviewed scientific validation can access funding streams for community-managed agroecological programs, influence variety recommendation systems, and contribute to national agricultural adaptation strategies. For the participating scientist, access to long-term observational systems that communities have maintained over generations provides research data impossible to replicate in a formal research context. The scientific value of the collaboration substantially benefits both parties.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Intercrop That Worked</div>
+        <p><strong>Characters:</strong> Mercy — agronomist and community researcher, smallholder farmer organization, Kilosa District, Morogoro Region, Tanzania, Dr. Sara — soil biogeochemist, Rothamsted Research, UK; research focus on nitrogen cycling in tropical agricultural systems</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The System That Works</h2>
+<p>The farmers of Kilosa District have been managing a specific sorghum-cowpea-Crotalaria intercrop system for at least four generations. Mercy has been working with the farmer organization for nine years, and she has watched the system perform consistently across drought years, pest pressure years, and consecutive growing seasons without the nitrogen application that formal extension advice prescribes. She has interviewed forty-three farmers about the system's history and management details. She has conducted yield trials at three sites. The yield stability and nitrogen performance data are compelling.</p>
+<p>What Mercy cannot produce alone is the soil nitrogen cycling analysis that would explain the mechanism: which nitrogen fixation pathway is dominant, what the Crotalaria's contribution to bioavailable nitrogen is across the season, how the root architecture of the three-species system affects soil water and nutrient dynamics. This analysis requires laboratory work — soil sampling at specific phenological stages, isotopic nitrogen tracing, root biomass analysis — and the methodological expertise of a soil scientist who has done this kind of study before.</p>
+<p>The farmer organization has decided to pursue the collaboration. Their terms: the community holds authorship of the traditional knowledge. The paper, if published, lists farmer knowledge holders as named contributors. The community retains the right to set access terms for the seed stock of the Crotalaria ecotype they have maintained. The scientist contributes the analytical methodology and co-authors the paper. The knowledge is documented — in English for scientific publication and in Swahili for community use — before anyone else has access to it.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p>Mercy submitted a collaboration request to the MarketForge traditional knowledge research collaboration platform. Her collaboration offer: documented intercropping system with four-generation practice history, nine years of yield data, forty-three farmer interviews, ongoing trial sites, community governance structure and IP framework already agreed by the farmer organization. Her request: soil nitrogen cycling analytical collaboration, field sampling protocol design, laboratory analysis capacity for isotopic tracing and root biomass analysis, willingness to operate within community IP and authorship framework.</p>
+<p><strong>Dr. Sara</strong> works on nitrogen cycling in tropical agricultural systems and has been looking for a research site where long-term intercropping with Crotalaria species could be studied under tradition practice conditions — a research context impossible to replicate in a formal experimental setup because the system's stability properties require decades of soil development that managed trials cannot provide.</p>
+<p>Her platform profile listed her research interest in traditional intercropping nitrogen dynamics specifically. She had prior developing-country research experience in Ghana. She had also noted on her profile that she had reviewed community IP frameworks before and was willing to work within them.</p>
+<p>The match was surfaced. Dr. Sara reviewed the collaboration request framework before responding — the community IP terms, authorship provisions, and Swahili documentation requirement. She accepted all terms.</p>
+<p>The collaboration unfolded over two field seasons. Dr. Sara visited Kilosa for two field sampling trips. Mercy coordinated community participation and ensured that the farmers whose knowledge was being studied understood and controlled the process at each stage. The isotopic nitrogen analysis confirmed that the Crotalaria in the specific ecotype the community used was fixing nitrogen at rates substantially higher than published values for commercial Crotalaria species — a result that suggested the community's multi-generation selection of that ecotype had produced a locally-adapted variety with superior fixation capacity.</p>
+<p>The paper was published in <em>Agriculture, Ecosystems and Environment</em>. The lead authors were Mercy and four named farmer knowledge holders. Dr. Sara was co-author. The Swahili community document was distributed through the farmer organization before the English paper was submitted.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Dr. Sara needed this research site. Mercy needed this analytical collaboration. The community governance framework was clear and entirely workable for a scientist willing to engage on its terms.</p>
+<p>The match did not happen for nine years — not because the scientist was unwilling, but because there was no mechanism by which Mercy's specific collaboration offer with specific terms reached a scientist whose research interests matched and who had signalled willingness to operate within community IP terms. Standard academic research databases list datasets and publications, not collaboration offers under community knowledge sovereignty frameworks.</p>
+<p>The equity asymmetry in traditional knowledge research is not inevitable — it is a consequence of the collaboration market being organized around academic convenience rather than community terms. <a href="../../thin-markets.html">Thin market infrastructure</a> makes community terms discoverable to scientists who accept them, while making the scientific value of community-held datasets visible to the right specialist.</p>
+<p><em>Characters are fictional. Crotalaria-based nitrogen fixation in traditional Tanzanian intercropping systems, Kilosa District farming communities, and isotopic nitrogen tracing methods are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Traditional Knowledge Research Collaboration Platform (SaaS)</div>
+        <p>Agroecological research funders — the Alliance of Bioversity International and CIAT, the McKnight Foundation, Fairtrade Foundation research programs — have direct interests in traditional knowledge documentation and validation. An institutional subscription model aligned with these funders&#x27; programs creates sustainable revenue while serving their program objectives.</p>
+        <div class="opp-card__revenue">&#128181; Annual subscription to agricultural research NGOs and African university programs ($1,000–$3,500/year); scientist profiles (free for volunteer collaborators)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Community Knowledge Sovereignty Framework and Legal Template Service</div>
+        <p>The single most important equity protection in traditional knowledge collaboration is the legal framework established before any knowledge exchange occurs. A service that provides community-designed, legally reviewed IP sovereignty templates — specifying collective ownership, community authorship rights, and benefit-sharing mechanisms — reduces the probability of knowledge exploitation and establishes a repeatable framework for ethical collaboration.</p>
+        <div class="opp-card__revenue">&#128181; Per-collaboration framework negotiation support ($600–$1,500); annual NGO subscription for standing framework access ($500/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Data Service</div>
+        <div class="opp-card__title">Traditional Variety and Practice Documentation Archive</div>
+        <p>Documented and scientifically validated traditional agricultural knowledge, archived under community-controlled access terms, is a resource for food sovereignty policy, climate adaptation strategy, and genetic resource conservation programs. A community-controlled archive that makes this knowledge available on community-defined terms creates value for multiple stakeholders while preserving community sovereignty over the resource.</p>
+        <div class="opp-card__revenue">&#128181; Annual subscription to seed banks, plant genetic resources programs, and agroecological policy institutes ($12,000–$30,000/year)</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
