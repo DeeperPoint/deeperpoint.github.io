@@ -45,8 +45,70 @@ sponsor_opportunities:
     recurring: true
 
 story:
-  title: ""
-  status: none
+  title: "Monday Morning"
+  status: draft
   blog_slug: ""
-  characters: []
+  characters:
+    - "Isabelle — cottage baker, Ottawa, croissant and laminated pastry specialist"
+    - "Francine — kitchen manager, licensed commissary kitchen, Ottawa (Vanier)"
   summary: "A cottage baker who has outgrown her home oven finds a licensed commissary kitchen two neighbourhoods away with Monday morning availability — and discovers its convection oven matches her croissant production requirements exactly."
+  body: |
+    ## Act A — The Licensing Gap
+
+    Food businesses that start at home reach a wall. The wall is not usually skill or demand — it is licensing. In Ontario, food produced in a home kitchen can be sold at farmers' markets under specific provincial exemptions, but retail sale, wholesale to restaurants, and commercial online sales require production in a licensed commercial facility. The license applies to the facility, not the product. A croissant made at home tastes the same as one made in a licensed kitchen. Only one of them can be sold through a commercial channel.
+
+    Licensed commercial kitchen time exists. Culinary school kitchens have blocks between courses. Restaurant kitchens have morning availability before service. Commissary kitchens — purpose-built shared facilities — rent hourly or weekly blocks to food producers. The infrastructure to bridge the licensing gap is there.
+
+    The problem is discoverability. Licensed kitchens are not listed in any searchable directory with their equipment specifications, licensing scope, available blocks, and permitted product categories. A baker who needs a deck oven or a convection oven with a steam injection function cannot search for one. She calls around, asks other bakers at the market if they know of anything, and tries the community centre kitchen that she heard might be available.
+
+    Most of the time, that search takes weeks and ends in a mismatch — a kitchen with the wrong equipment, the wrong licensing scope for her product, or the wrong available hours.
+
+    The following is a short fictional account of what changes when the search is a database query.
+
+    ---
+
+    ## Act B — The Story
+
+    **Isabelle** makes croissants. She learned laminated dough technique at a pastry school in Montréal and spent three years working in a hotel pastry kitchen before returning to Ottawa. She has been making croissants at home for two years, selling at the Ottawa Farmers' Market on Sundays under the province's home processor exemption. Demand has outgrown her home oven.
+
+    She needs a licensed commercial kitchen with a convection oven that can run at 175°C with controllable fan speed and hold humidity. Croissant lamination is sensitive to temperature fluctuation and humidity. A standard commercial convection oven will work; an oven without humidity control produces a harder, less flaky result. She needs a minimum of six hours per production session. She wants Monday or Tuesday morning blocks to have product ready for the weekend market.
+
+    She registered on the MarketForge shared kitchen platform. The intake asked: product type, equipment requirements (oven type, mixing equipment, cooling racks, storage), production volume per session, preferred days and hours, health unit licensing jurisdiction (Ottawa Public Health), weekly budget, and whether she required refrigerated or dry ingredient storage between sessions.
+
+    Her profile specified: laminated pastry production, convection oven with humidity control preferred, deck oven acceptable, six-hour block minimum, Monday or Tuesday morning, Ottawa, refrigerated storage for butter and egg required.
+
+    ---
+
+    **Francine** manages a licensed commissary kitchen in Ottawa's Vanier neighbourhood that was established three years ago to support food entrepreneurs in the east end. The kitchen has two commercial convection ovens — one is a Rational combination oven with humidity control — plus a Hobart stand mixer, a spiral dough mixer, and refrigerated ingredient storage lockers. The kitchen holds a City of Ottawa food establishment licence valid for baked goods, prepared foods, and packaged products. It operates Monday through Saturday.
+
+    Both convection ovens were available Monday mornings from 7 AM to 1 PM on a recurring basis. Francine had posted the availability on a community Facebook group six months earlier and received one inquiry that didn't convert. She had not posted anywhere since.
+
+    She registered the kitchen on the MarketForge platform: equipment including the Rational with humidity control, license scope, permitted product categories, available blocks by day and time, booking terms, and rate ($22/hour, refrigerated locker included).
+
+    The platform matched Isabelle's profile against Francine's kitchen. Oven type: convection with humidity control, confirmed (Rational CV). License scope: baked goods, confirmed. Available block: Monday 7 AM–1 PM, six hours minimum — confirmed. Refrigerated storage: included. Geographic: Vanier, 3.2 km from Isabelle's home address.
+
+    Isabelle received a match notification with the kitchen's equipment list, the Rational model number, the available Monday blocks, the hourly rate, and a link to the health unit licensing record.
+
+    ---
+
+    Isabelle booked a trial session for the following Monday. She arrived at 7 AM with her poolish and her mise en place. The Rational oven ran at 176°C with the fan at medium and the humidity cycle she had dialled in at the hotel kitchen.
+
+    The croissants were right on the first batch.
+
+    She booked the Monday block on a recurring monthly basis. Her Farmers' Market volume increased by 40% within six weeks as she shifted from a home oven constraint to a six-hour commercial production cycle.
+
+    Six months later, she added a Thursday morning block to supply two café accounts that found her through the market.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Francine's kitchen had the right oven. It was two neighbourhoods from Isabelle's house. It had a Monday morning block that had been available for six months. None of that was discoverable through any channel Isabelle was likely to find.
+
+    The shared kitchen market fails because it is fragmented, local, and equipment-specific in ways that generic search cannot resolve. "Commissary kitchen Ottawa" returns a list of facilities. It does not return the specific piece of equipment — a Rational combination oven with humidity control — that distinguishes a match from a near-miss for a laminated pastry specialist.
+
+    The health unit licensing complexity multiplies the search cost further. Isabelle's products fall under Ottawa Public Health's home processor and commercial baking licensing framework. A kitchen licensed in one municipality may not cover products Isabelle needs to produce. Knowing which kitchens have the right licensing scope before making calls requires regulatory knowledge most early-stage food entrepreneurs don't have.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the search equipment-specific, license-verified, and temporally resolved — surfaces the right kitchen, with the right equipment, with an available block this Monday, before a week of phone calls produces a list of kitchens that almost fit.
+
+    *Characters are fictional. Ottawa Public Health commercial food establishment licensing, Rational combination oven specifications, and Ontario home processor exemption rules are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

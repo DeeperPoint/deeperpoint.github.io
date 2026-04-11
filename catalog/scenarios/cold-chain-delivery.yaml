@@ -45,8 +45,60 @@ sponsor_opportunities:
     recurring: true
 
 story:
-  title: ""
-  status: none
+  title: "One Stop to Spare"
+  status: draft
   blog_slug: ""
-  characters: []
+  characters:
+    - "Celeste — artisan cheesemaker, Hamilton"
+    - "Roberto — independent refrigerated delivery operator, Hamilton"
   summary: "A Hamilton artisan cheesemaker discovers that an owner-operator refrigerated van runs past her creamery to four Westdale and Locke Street specialty food shops every Tuesday morning — and has one stop to spare."
+  body: |
+    ## Act A — The Missing Link
+
+    Specialty food producers scaling from farmers' markets to wholesale face a distribution problem that doesn't get solved by the usual logistics channels. Broadline distributors like Sysco won't touch three wheels of aged cheddar per week. Standard courier companies run ambient, not refrigerated. Canada Post does not deliver cheese.
+
+    Independent refrigerated delivery operators fill this gap. They run owner-operated refrigerated vans on fixed urban routes, picking up from specialty producers and dropping off at restaurants, specialty retailers, and deli counters. Their routes are profitable on the margins of the specialty food economy that broadline distribution ignores.
+
+    The problem is that these operators are invisible. They don't have websites. They don't advertise. They are found — when they are found at all — through a comment from another producer at a farmers' market, or a note on a food incubator bulletin board, or a lucky conversation with a retail buyer who happens to have their number.
+
+    The following is a short fictional account of what changes when a cheesemaker and a delivery operator in the same city can find each other before either has burned a summer's worth of personal deliveries.
+
+    ---
+
+    ## Act B — The Story
+
+    **Celeste** has been making raw-milk and pasteurized soft cheeses in Hamilton for three years. Her products move well at the Hamilton Farmers' Market and through a small weekly CSA drop. She has been trying for eighteen months to get her cheese onto the shelves of half a dozen specialty shops on Locke Street and in the Westdale Village neighbourhood. Several of the shops have expressed interest. The barrier is not the product — it is the logistics.
+
+    She has no refrigerated vehicle. She cannot do weekly personal delivery across six stops and still make cheese. She needs a refrigerated carrier who can pick up from her creamery and make those deliveries on a regular weekly schedule.
+
+    Her profile on the MarketForge cold-chain platform specifies: artisan cheese, pasteurized and raw milk varieties, refrigerated 2–4°C, weekly delivery required, pickup from Hamilton (eastside), delivery destinations in Westdale and Locke Street neighbourhoods, minimum temperature logging required, five to eight cases per week.
+
+    ---
+
+    **Roberto** operates a refrigerated van on a Tuesday morning route. He picks up from five producers in Hamilton's east end and makes deliveries to a specialty grocer on James Street North, a deli on Concession Street, and three Westdale shops. His route has capacity for one additional stop on the outbound and two on the return. He listed his route's available capacity, confirmed delivery geography, temperature zone, and Tuesday timing on the platform three months ago, while he was building his client base in the Hamilton specialty food ecosystem.
+
+    The platform matches Celeste's delivery requirements against Roberto's route. Temperature zone: refrigerated, confirmed. Geographic: his route passes within 1.4 km of her creamery and delivers to four of her six target retail locations. Day: Tuesday confirmed. Capacity: one outbound stop and two return stops available — within her volume.
+
+    Both receive a match notification the same day Celeste completes her profile.
+
+    ---
+
+    Roberto calls Celeste that afternoon. He asks two questions: her total weekly case volume and her preferred pickup window. She answers both.
+
+    They agree on a trial arrangement: four weeks, Tuesday pickups, temperature-logged delivery, $28 per stop.
+
+    The first delivery runs the following Tuesday. The Westdale shops receive her product fresh, with temperature logs attached. Two of the three shops place standing weekly orders within the month.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Roberto's route has run past Celeste's creamery every Tuesday for two years. He has delivered to three of her target retail accounts weekly for longer than Celeste has been a commercial producer. The match that took them four weeks to find through the platform might have taken years through the informal channels that constitute discoverability in the urban specialty food economy.
+
+    The cold-chain last-mile market is hyper-local and time-specific. A refrigerated van route that fits on Thursday is worthless to a producer who needs Tuesday delivery. A route that covers the east end doesn't help a producer dropping off in the west end. The matching constraints are hard: geography at the postal code level, specific delivery days, temperature zone, stop capacity.
+
+    The market works well for producers who already know the operators. It does not work at all for producers who have not yet been introduced to anyone. The only mechanism for being introduced is luck.
+
+    [Thin market infrastructure](../../thin-markets.html) converts a geographic and temporal matching problem into a database query. Roberto's route, his territory, his available capacity, and his delivery days are encoded once. Every new producer who needs cold-chain delivery in Hamilton searches against that profile automatically — not through a bulletin board, not through a farmers' market contact, not through a buyer who happens to have his number.
+
+    *Characters are fictional. The specialty food distribution dynamics — broadline minimums, refrigerated last-mile constraints, CFIA cold chain requirements — reflect real conditions in urban Canadian food markets. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
