@@ -12,6 +12,7 @@ Changes from v1:
 
 YAML schema for each scenario file:
     id, title, sector, sub_sector, forge_tier, status, tags
+    hidden: true        <- optional; suppresses the scenario from the catalog without deleting the YAML
     market_example: {summary, problem, dominant_forces, deeperpoint_fit, economic_upside}
     sponsor_opportunities: [{title, type, revenue_model, strategic_logic, recurring}]
     story:
@@ -442,7 +443,7 @@ def renderFooter(root):
 
 
 def loadScenarios():
-    """Load and return all published scenario YAML files as a list of dicts."""
+    """Load and return all published, non-hidden scenario YAML files as a list of dicts."""
     if not SCENARIOS_DIR.exists():
         SCENARIOS_DIR.mkdir(parents=True, exist_ok=True)
         return []
@@ -450,7 +451,9 @@ def loadScenarios():
     for f in sorted(SCENARIOS_DIR.glob("*.yaml")):
         try:
             data = yaml.safe_load(f.read_text(encoding="utf-8"))
-            if data.get("status") == "published":
+            if data.get("hidden") is True:
+                print(f"  Skipped (hidden): {f.name}")
+            elif data.get("status") == "published":
                 scenarios.append(data)
                 print(f"  Loaded: {f.name}")
             else:
