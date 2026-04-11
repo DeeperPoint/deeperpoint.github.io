@@ -761,11 +761,12 @@ def buildIndexPage(scenarios):
       <div class="cat-label">&#128200; DeeperPoint &#8212; MarketForge Opportunity Catalog</div>
       <h1 class="cat-title">Markets in Waiting</h1>
       <p class="cat-desc">
-        Scenarios for the MarketForge opportunity catalog. Each entry describes a real thin market
-        that could be transformed by the right matching infrastructure &#8212; but has not been yet.
-        These are speculative, not case studies: they map the problem, model the sponsor economics,
-        and tell a story of how a successful match would work. Browse by sector, tag, or build
-        complexity to find the markets that interest you.
+        Each entry describes a thin market that could be transformed by the right matching
+        infrastructure &#8212; but has not been yet. Individual scenarios are speculative and
+        details can always be argued. The point is not any single entry: it is the sheer
+        number of plausible opportunities across entirely different sectors, geographies, and
+        participant types. That pattern is harder to dismiss than any one example. Browse by
+        sector, tag, or build complexity, and see how many you find compelling.
       </p>
 
       <!-- Search -->
