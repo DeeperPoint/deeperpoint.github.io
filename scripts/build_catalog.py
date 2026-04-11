@@ -311,9 +311,11 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
     .force-list li {
       font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
-      display: flex; align-items: flex-start; gap: .5rem;
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
     }
-    .force-list li::before { content: "\26A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0; }
 
     /* --- Sponsor opportunity card --- */
     .opp-card {
