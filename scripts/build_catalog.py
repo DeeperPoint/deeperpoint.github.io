@@ -277,7 +277,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     /* --- Tabs --- */
     .tab-nav {
       display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
-      margin-bottom: 2rem; overflow-x: auto;
+      margin-bottom: 2rem;
     }
     .tab-btn {
       padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
