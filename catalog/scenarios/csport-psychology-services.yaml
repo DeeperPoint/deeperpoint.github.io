@@ -1,0 +1,96 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: csport-psychology-services
+title: "Sport Psychology Services: Athlete Mental Health Matching"
+sector: canadian-sport
+sub_sector: Professional Services
+forge_tier: 2
+status: published
+tags: [sport, mental-health, sport-psychology, athlete, canada, trust, regulatory-fragmentation, professional-services]
+
+market_example:
+  summary: "Athletes across the performance spectrum need sport-specific mental health support but cannot find appropriately certified practitioners, while qualified sport psychologists cannot efficiently find athletes or organizations that need team-level or program-level engagement."
+  problem: "Athletes from competitive youth to active professionals need sport-specific mental health support — sport psychology, clinical psychology with sport context, performance counselling. Registered practitioners with genuine sport psychology training and competitive sport experience are few and geographically concentrated in cities with university sport psychology programs. Athletes in smaller markets, rural areas, and underserved sports cannot discover appropriate practitioners. Meanwhile, qualified practitioners cannot efficiently find athletes or programs — particularly for team-level or program-level engagements rather than individual client referrals. The market is constrained by provincial licensing rules that prevent practitioners from serving athletes across provincial borders without dual registration."
+  dominant_forces:
+    - "Participant scarcity — registered psychologists with specialized sport training (AASP Certified Consultant or equivalent) are few relative to the full population of competitive athletes who need support"
+    - "Geographic distance — practitioners are concentrated in urban academic centres; athletes are dispersed nationally and may be in training environments that limit travel"
+    - "Trust deficit — the trust gradient stalls early due to mental health stigma; athletes browse for support but do not commit to contact without significant privacy assurance"
+    - "Regulatory fragmentation — psychology practice is regulated provincially; a registered psychologist in BC cannot provide services to an Ontario athlete without separate provincial registration"
+    - "Strategic information withholding — teams and NSOs do not publicize mental health gaps; practitioners do not publicly advertise capacity availability"
+  deeperpoint_fit: "The trusted intermediary protocol is the defining capability: AI can assess athlete need and practitioner fit without exposing athlete mental health details to unauthorized parties or flagging an organization's program gaps publicly. KnowledgeSlot curates provincial psychology licensing requirements, AASP certification standards, Canadian Centre for Mental Health in Sport (CCMHS) resources, and telehealth practice guidelines by province. Semantic matching encodes practitioner profile (sport context, performance level, telehealth availability, licensing jurisdiction, specialization) against athlete or organization need. The three-layer architecture allows practitioners to share general competency areas publicly while keeping client roster details in the protected matching profile."
+  economic_upside: "Mental health challenges are among the most high-impact performance factors in Canadian sport, yet appropriate support is severely thin outside elite national programs. Better matching would increase access for athletes across the performance spectrum — including in underserved sports, smaller markets, and youth programs — while enabling qualified practitioners to build sustainable sport psychology practices without depending on personal referral networks."
+
+sponsor_opportunities:
+  - title: "Athlete Mental Health Navigator (SaaS)"
+    type: saas
+    revenue_model: "Annual practitioner subscription ($299–$599/year); organizational program subscription for PSOs and professional clubs ($999–$2,500/year)"
+    strategic_logic: "Sport organizations with athlete welfare obligations — professional leagues, NSOs, university athletic departments — need defensible processes for connecting athletes to qualified support. A platform that verifies practitioner credentials and matches athletes based on sport context reduces organizational liability and provides evidence of due care."
+    recurring: true
+
+  - title: "Telehealth Sport Psychology Coordination Service"
+    type: managed-service
+    revenue_model: "Per-athlete telehealth intake facilitation ($79–$129); multi-athlete program coordination ($299–$599/month for clubs)"
+    strategic_logic: "Provincial licensing barriers prevent most practitioners from directly serving athletes in other provinces. A coordination service that manages the cross-provincial telehealth consent and regulatory compliance framework enables national coverage from a limited practitioner pool — solving the geographic market failure at the service delivery level."
+    recurring: true
+
+  - title: "Sport Organization Mental Health Program Assessment"
+    type: managed-service
+    revenue_model: "Per-organization program assessment ($1,500–$3,000); annual athlete welfare policy development advisory ($600/year)"
+    strategic_logic: "Sport Canada's Safe Sport framework creates obligations for organizations to demonstrate athlete mental health support. A diagnostic assessment that benchmarks current organizational support against Safe Sport standards and sport psychology best practices is directly fundable through Sport Canada capacity-building grants."
+    recurring: true
+
+story:
+  title: "The Call He Never Made"
+  status: draft
+  summary: "A competitive junior speed skater in Winnipeg is managing competitive anxiety that is measurably affecting his performance. A sport psychology practitioner in Saskatoon with speed skating experience and available telehealth slots has been looking for junior athlete referrals for months. Neither knows the other exists. His coach knows he needs support but doesn't know how to find it."
+  characters:
+    - "Finn — sixteen-year-old competitive speed skater, Winnipeg, Manitoba"
+    - "Dr. Chen — registered psychologist, certified sport psychology consultant, Saskatoon"
+    - "Coach Eva — speed skating coach, Winnipeg Speed Skating Club"
+  body: |
+    ## Act A — The Referral Problem
+
+    Canadian sport's mental health conversation has changed. Athletes speak publicly about anxiety, burnout, and performance pressure in ways that would have been career-limiting a decade ago. The national frameworks — the Canadian Centre for Mental Health in Sport, Sport Canada's Safe Sport framework, the AASP certification pathway — are more developed than they have ever been.
+
+    The referral system has not kept pace. A coach who recognizes that an athlete needs mental health support faces the same problem as a family doctor trying to refer to a specialist: who is available, what is their sport-specific experience, can they see the patient in a reasonable timeframe, and — critically — can they do so in a way that the athlete will actually engage with?
+
+    The following is a fictional account of what happens when that referral infrastructure exists.
+
+    ---
+
+    ## Act B — The Story
+
+    **Finn** is sixteen and trains at the Winnipeg Speed Skating Club five mornings a week. His performance times have plateaued for eight months. He does not sleep well before competitions. He has the physical capacity for the next level — his coach is certain of that — but something goes sideways in the final corners when results matter. He has not told his parents in detail. He has not asked for help.
+
+    **Coach Eva** has been coaching for fourteen years. She has seen competitive anxiety in athletes before. She knows Finn needs to speak to someone with sports psychology training. She does not know who that is in Winnipeg or whether anyone in Winnipeg has speed skating experience. She calls the provincial sport organization. They give her the name of a counsellor at a community mental health centre. She calls the centre. The counsellor has never worked with an athlete.
+
+    She registers the club on the MarketForge athlete support platform, which allows coaches to submit anonymous athlete need profiles for matching purposes. She describes: competitive youth athlete, 15–18 age range, speed skating, competitive anxiety indicators, male, Winnipeg, telehealth preferred for privacy, seeking practitioner with youth athlete experience.
+
+    ---
+
+    **Dr. Chen** is a registered psychologist in Saskatoon and a certified consultant through the Canadian Sport Psychology Association. She completed her doctoral research on competitive anxiety in youth speed skaters. She maintains a telehealth practice and currently has three open referral slots for youth athlete clients. She has been registered on the platform for two months with no referrals — her professional network is academic, not coaching.
+
+    Her practitioner profile specifies: sport psychology, youth athletes, speed skating and winter sport experience, Saskatchewan registration plus telehealth-eligible under the Saskatchewan-Manitoba reciprocal telehealth framework, competitive anxiety and performance under pressure specialization.
+
+    The platform matches Dr. Chen's profile against Coach Eva's anonymous athlete need submission. Sport experience: speed skating confirmed. Age range: youth athlete confirmed. Telehealth eligibility: Saskatchewan-Manitoba framework confirmed. Specialization: competitive anxiety confirmed.
+
+    ---
+
+    Coach Eva receives the match notification with Dr. Chen's professional profile — credentials, sport background, telehealth availability, and intake process — and the platform's privacy protocol description.
+
+    Eva shares the profile with Finn. She does not push. She leaves it with him.
+
+    He calls the intake line on a Tuesday afternoon while his parents are at work.
+
+    The first session happens seven days later, over video, from Finn's bedroom.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Dr. Chen had the expertise. The provincial telehealth framework made the session legally possible. Finn had the need. Coach Eva had the intent to find help.
+
+    The gap was referral. No mechanism connected a speed skating coach in Winnipeg to a speed skating sport psychologist in Saskatoon who had three open slots and was actively looking for exactly this kind of referral.
+
+    [Thin market infrastructure](../../thin-markets.html) makes that connection — and it does so in a way that respects the privacy concerns that are uniquely acute in mental health contexts. The athlete's name is never in the system until he initiates contact. The coach submits a profile, not a person.
+
+    *Characters are fictional. The regulatory frameworks — Saskatchewan-Manitoba telehealth reciprocity, Canadian Centre for Mental Health in Sport, AASP certification standards — are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

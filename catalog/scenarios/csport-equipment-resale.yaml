@@ -1,0 +1,91 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: csport-equipment-resale
+title: "Used High-Performance Sport Equipment: Verified Secondary Market"
+sector: canadian-sport
+sub_sector: Equipment Markets
+forge_tier: 2
+status: published
+tags: [sport, equipment, resale, secondary-market, high-performance, canada, trust, verification]
+
+market_example:
+  summary: "Athletes and organizations replacing elite sport equipment cannot efficiently find buyers capable of evaluating it, while developing programs that would benefit from near-professional-grade equipment at reduced cost cannot discover what is available."
+  problem: "Athletes, coaches, and organizations replacing elite sport equipment — cycling power meters, rowing ergometers and shells, weightlifting platforms, gymnastics apparatus, high-end radar and tracking systems, and competition-grade timing equipment — cannot efficiently find buyers capable of evaluating and correctly using the equipment. General resale platforms lack the domain knowledge for meaningful search. Meanwhile, developing programs, emerging athletes, and budget-constrained clubs that would benefit from access to near-professional-grade equipment at reduced cost cannot discover what is available. Equipment depreciates to scrap prices or sits idle rather than being transferred to the programs that would extend its useful life."
+  dominant_forces:
+    - "Offering complexity — each piece of high-performance equipment is characterized by sport-specific technical specifications, compatibility requirements, maintenance history, calibration status, software version, and remaining useful life"
+    - "Opacity — equipment condition claims are hard to verify without domain expertise; general-purpose platforms cannot convey the technical quality signals relevant to specialist buyers"
+    - "Trust deficit — buying a $15,000 rowing shell or $3,000 power meter on faith from an unknown seller carries significant risk; specialist buyers need condition documentation general platforms cannot accommodate"
+    - "Search friction — no aggregated, sport-specific platform spans the full range of Canadian performance equipment categories"
+    - "Geographic distance — large or heavy equipment (rowing shells, gymnastics apparatus) has significant fulfillment constraints; the economic shipping radius varies dramatically by item"
+  deeperpoint_fit: "Semantic matching handles the technical fit problem — encoding equipment by sport-specific specifications (compatible training systems, calibration requirements, weight class, dimension limits) rather than generic product categories. The verification pipeline enables AI-assisted condition assessment based on submitted documentation (service records, calibration certificates, usage logs). The Deal Brief captures the full transaction specification including transport requirements, calibration handoff, and any software or subscription transfer obligations. KnowledgeSlot curates sport federation equipment standards (World Rowing, UCI, World Athletics) and approved specifications, enabling buyers to verify regulatory compliance before purchase."
+  economic_upside: "Canada's high-performance sport system trains thousands of athletes on equipment budgets that are frequently a binding constraint. A functional secondary market for verified high-performance equipment would extend the useful life of valuable assets, reduce barriers for developing athletes and programs, and allow retiring athletes and programs to recover meaningful value rather than disposing of equipment at scrap prices."
+
+sponsor_opportunities:
+  - title: "High-Performance Equipment Exchange (SaaS)"
+    type: saas
+    revenue_model: "Transaction commission (4–6% of sale price); premium seller listing ($49–$99/listing for priority placement and verification badge)"
+    strategic_logic: "Transaction-commission models align platform revenue with transaction volume. High-performance equipment has high per-unit value ($500–$50,000 range), making even a 4% commission economically meaningful. The verification badge — backed by submitted documentation — commands premium pricing from buyers who need assurance."
+    recurring: false
+
+  - title: "Equipment Condition Verification Service"
+    type: managed-service
+    revenue_model: "Per-item remote verification report ($79–$149, based on documentation review); on-site inspection facilitation ($199–$399 plus inspector fee)"
+    strategic_logic: "Buyers will pay a meaningful premium for verified condition and calibration status on high-value items. Remote verification — structured documentation review producing a standardized condition report — is scalable. On-site inspection facilitation for high-value items (rowing shells, gymnastics apparatus) solves the trust problem that prevents high-ticket transactions."
+    recurring: false
+
+  - title: "Specialized Sport Equipment Logistics Coordination"
+    type: managed-service
+    revenue_model: "Per-shipment coordination fee ($149–$299); crating and transport insurance facilitation ($99 flat fee plus insurer premium)"
+    strategic_logic: "Rowing shells, gymnastics apparatus, and similar large-format equipment require specialized transport that most general freight companies cannot provide. A logistics coordination service that identifies and books appropriate carriers, arranges crating, and facilitates transit insurance removes the fulfillment barrier that currently prevents many high-value transactions."
+    recurring: false
+
+story:
+  title: "The Rowing Shell That Needed a New Club"
+  status: draft
+  summary: "A university rowing program replaces its fleet and cannot find a buyer for a competition-grade eight-person shell. A developing rowing club in a smaller city needs exactly that shell but has no way to discover it exists."
+  characters:
+    - "Coach Nadia — head rowing coach, Ontario university program"
+    - "Brendan — head coach and equipment manager, developing rowing club, Sudbury"
+  body: |
+    ## Act A — The Equipment Gap
+
+    High-performance sport equipment in Canada has two lives. The first life is in the hands of a well-resourced program that purchased it new — a university athletic department, a national team feeder program, a private performance club. When that program upgrades, the equipment's second life depends entirely on whether the right buyer can be found.
+
+    For standard equipment, general resale platforms work adequately. For a $45,000 competition coxed eight — with specific sweep oar specifications, a particular rigger configuration, and a fourteen-foot beam that requires specialized transport — a general resale platform is useless. The buyer needs to know what the boat is. The seller needs to know the buyer can handle the transaction. Neither finds the other through Kijiji.
+
+    The following is a fictional account of what happens when the right infrastructure exists.
+
+    ---
+
+    ## Act B — The Story
+
+    **Coach Nadia** oversees the fleet renewal for a competitive Ontario university rowing program. The program has received a facility grant that covers four new lightweight shells. The three-year-old coxed eight she is replacing — a Filippi-built competition hull, recently serviced, with full rigger documentation — would sell for $28,000–$34,000 to the right buyer. The boat is in excellent structural condition. She does not have time to manage the sale. The athletic department does not have a mechanism for equipment disposal beyond a stock asset register.
+
+    Nadia's program lists the shell on the MarketForge high-performance equipment exchange. The listing includes: hull type (coxed eight), manufacturer (Filippi), year, hull material, rigger configuration, oar set included (Concept2 smoothies), last service date, condition grades per component, transport requirements (flatbed capable, maximum 60 ft length), and geographic location (southwestern Ontario).
+
+    ---
+
+    **Brendan** coaches the Sudbury Rowing Club. The club programs 35 athletes — adults and high school. It owns two aging club fours and a pair. Last spring, three of Brendan's athletes qualified for Ontario championships but the club had to borrow a shell from a Toronto club to enter. Brendan has been looking for a used competition eight for two years. He has contacted two university programs directly. Neither had shells available. He has checked general sport resale boards monthly.
+
+    His club's equipment request profile on the platform specifies: coxed eight or coxless eight, maximum age 5 years, maximum price $38,000, Ontario or adjacent province, service documentation required, transport coordination accepted.
+
+    The platform matches Nadia's listing against Brendan's request profile. Hull type: confirmed. Age: within range. Price: within range. Service documentation: provided. Geographic: compatible. Transport: both parties confirm flatbed arrangement.
+
+    ---
+
+    Brendan receives the match notification with a condition summary and a Generative Match Story describing the transaction structure — including a recommended third-party water inspection at a midpoint rowing facility, a transport coordination option with a sport equipment carrier the platform has verified, and a payment escrow mechanism.
+
+    He arranges the water inspection. The shell checks out. The transaction completes in three weeks. A local freight company with rowing club equipment experience handles the transport with proper cradle support.
+
+    The Sudbury Rowing Club enters the Ontario championships the following spring in their own shell, under their own colours.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The shell existed. The need existed. Ontario is not a large jurisdiction. The buyer and seller were within 400 km of each other.
+
+    The gap between them was not logistics — it was discovery. A university program's equipment disposal process has no connection to a club in Sudbury that would buy the shell immediately if they knew it existed.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the supply visible at the moment it becomes available, and it makes the verification pathway clear enough that a buyer who cannot physically inspect before committing can still transact with confidence.
+
+    *Characters are fictional. The equipment economics — Filippi hull pricing, Ontario rowing program economics, transport logistics for competition shells — reflect real conditions in Canadian competitive rowing. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

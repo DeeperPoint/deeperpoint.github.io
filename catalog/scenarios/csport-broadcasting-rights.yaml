@@ -1,0 +1,93 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: csport-broadcasting-rights
+title: "Canadian Sport Broadcasting Rights: Non-Major League Streaming Matching"
+sector: canadian-sport
+sub_sector: Sport Media
+forge_tier: 3
+status: published
+tags: [sport, broadcasting, streaming, media, rights, canada, opacity, CRTC, digital-content]
+
+market_example:
+  summary: "Provincial sport leagues, national championships in non-major sports, and emerging Canadian sport properties cannot efficiently find digital platforms and regional broadcasters that would license their rights, while platforms seeking niche Canadian sport content have no systematic discovery mechanism."
+  problem: "Provincial sport leagues, national championships in non-major sports, and emerging Canadian sport properties — CPL soccer outside major markets, USports championships, Canadian Rugby League, masters competitions, and Indigenous games — produce broadcast-ready content but cannot efficiently find the digital platforms, regional broadcasters, or OTT services that would license their rights. Meanwhile, regional streaming platforms, sports-focused YouTube channels, and niche sport apps need Canadian content with loyal niche audiences but have no mechanism to discover available rights at price points appropriate to their scale. Most rights transactions happen through personal networks in the broadcast industry or not at all."
+  dominant_forces:
+    - "Opacity — no centralized Canadian sport rights marketplace exists; available rights are discovered primarily through personal networks within the broadcast industry"
+    - "Offering complexity — each rights package is unique in sport, competition level, territory, exclusivity, platform category, production format, term, and ancillary rights"
+    - "Risk — acquiring sport rights involves upfront or guaranteed fees; smaller platforms cannot absorb risk of paying for content that does not deliver audience"
+    - "Temporal distance — rights windows are offered on short notice before a season begins; platform acquisition cycles and budget approvals do not align with rights availability"
+    - "Information asymmetry — rights holders know their viewership data; platforms know their subscriber analytics; neither wants to disclose this before some form of mutual commitment"
+  deeperpoint_fit: "Semantic matching handles the multidimensional rights-to-platform fit: sport, audience demographic, territory, exclusivity needs, production format, and pricing tier — matched against platform audience profile, content strategy, budget, and existing rights portfolio. The trusted intermediary protocol lets rights holders share audience data confidentially while platforms share acquisition budget without premature disclosure. The Deal Brief captures rights package terms including exclusivity clauses, platform category, analytics reporting obligations, renewal options, and production delivery specifications. KnowledgeSlot curates CRTC Canadian content regulations, standard rights agreement templates, and viewership measurement methodologies applicable to digital sport content."
+  economic_upside: "The Canadian Broadcasting Act and CRTC mandate investment in Canadian sport content, yet infrastructure for matching non-major sport properties with appropriate broadcast partners is underdeveloped. Better matching enables a richer ecosystem of Canadian sport content, increases media revenue for organizations currently invisible to rights buyers, and gives regional digital platforms access to content that builds their distinctive positioning."
+
+sponsor_opportunities:
+  - title: "Canadian Sport Rights Exchange (SaaS)"
+    type: saas
+    revenue_model: "Rights holder annual listing subscription ($499–$999/year); platform acquisition agent annual subscription ($1,500–$3,500/year)"
+    strategic_logic: "CRTC Canadian content obligations create a compliance driver for platform acquisition of Canadian sport rights. A rights exchange that surfaces available Canadian sport content with verified viewership data reduces the compliance cost for platforms that currently struggle to identify qualifying content at affordable price points."
+    recurring: true
+
+  - title: "Rights Package Valuation Service"
+    type: managed-service
+    revenue_model: "Per-rights-package valuation report ($299–$599); annual rights portfolio review ($899)"
+    strategic_logic: "Rights holders with limited broadcast industry experience consistently underprice or misprice their packages. A valuation service that compares package parameters against comparable transactions provides the credible reference point that makes negotiation productive and prevents both parties from walking away due to pricing uncertainty."
+    recurring: false
+
+  - title: "Production Standards Compliance Audit"
+    type: managed-service
+    revenue_model: "Per-production technical audit ($399–$799); annual technical compliance retainer ($499/year)"
+    strategic_logic: "Digital platforms have technical delivery specifications (resolution, audio format, closed caption standards, subtitle requirements) that many sport rights holders cannot meet without guidance. A technical compliance audit that identifies production gaps before negotiation begins prevents deal failures at the delivery stage."
+    recurring: true
+
+story:
+  title: "The League That No One Streamed"
+  status: draft
+  summary: "A Canadian Premier League expansion club in Atlantic Canada has full broadcast-quality production for home matches. A national niche sport streaming service is looking for Canadian football content with loyal regional audiences. The service's content acquisition team has never heard of the club."
+  characters:
+    - "Cara — head of broadcast partnerships, CPL expansion club, Halifax"
+    - "James — content acquisition director, Canadian niche sport streaming service, Toronto"
+  body: |
+    ## Act A — The Content Discovery Problem
+
+    Canadian sport generates more broadcast-ready content than the existing distribution system can absorb. Professional and semi-professional leagues at the second and third tier — the Canadian Premier League, the CEBL, the National Lacrosse League, USports — produce camera-covered, commentary-equipped, broadcast-quality production every week. Yet most of this content reaches only a fraction of its potential audience because the rights acquisition mechanism for streaming platforms is underdeveloped.
+
+    Streaming platforms with loyal niche audiences need exactly this kind of content: differentiated, regional, sports-specific, with engaged communities who follow the team rather than the sport generally. The problem is not content quality or audience loyalty. The problem is that the platform's content acquisition team in Toronto has no systematic way to discover that a CPL club in Halifax has broadcast rights available and 8,000 social followers who live outside the reach of existing streaming agreements.
+
+    The following is a fictional account of what changes when that discovery mechanism exists.
+
+    ---
+
+    ## Act B — The Story
+
+    **Cara** manages broadcast partnerships for an Atlantic Canada CPL club. The club hired a local production crew for the current season — four cameras, broadcast-quality commentary, match replays packaged to CRTC delivery specifications within four hours of the final whistle. The club has uploaded matches to YouTube at no charge for two seasons. Average views: 3,800 per match. The club's social following includes approximately 6,400 loyal accounts from Atlantic Canada.
+
+    Cara has contacted two national streaming services. One replied that they were not acquiring non-tier-one football content. The other did not reply. She has reached out to CBC Gem through a broadcast industry contact who has not heard back.
+
+    Her organization registers on the MarketForge sport rights exchange. The profile specifies: Canadian Premier League, Atlantic Canada geography, home match rights available, broadcast-quality production confirmed, viewership data from two seasons provided under confidentiality, CRTC-compliant delivery format, per-match or season license options available.
+
+    ---
+
+    **James** acquires content for a niche sport streaming platform based in Toronto. The platform specializes in Canadian sport properties with devoted regional fanbases — rugby, lacrosse, alternative football. Its subscriber base is 41,000 nationally, concentrated in Quebec and British Columbia. The platform has been trying to expand Atlantic Canada subscriber density for six months. It needs content with Atlantic Canadian audiences to drive acquisition in that region.
+
+    His platform profile on the rights exchange specifies: football or alternative football preferred, regional loyal audience essential, Atlantic Canada geography preferred, viewership data required before negotiation, per-match or season license preferred, CRTC CanCon qualifying content required.
+
+    The platform matches Cara's rights profile against James's acquisition parameters. Sport: CPL football confirmed. Geography: Atlantic Canada confirmed. Viewership data: provided under confidentiality protocol. CRTC compliance: confirmed. License model: aligned.
+
+    ---
+
+    James receives the match notification with a Generative Match Story describing a per-match license structure — an initial six-match trial at a fixed per-match fee, with viewership data sharing and renewal option for full season rights.
+
+    He requests the viewership data package through the platform's confidential data-sharing module. Cara's team delivers it within twenty-four hours. The numbers support the case for Atlantic Canada subscriber acquisition.
+
+    James approves the trial license within two weeks. The first match streams to the platform's Atlantic Canada subscriber base the following Saturday.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The content existed. The platform need was real. The Atlantic Canada audience was there. The CRTC compliance was already met.
+
+    The only thing preventing the transaction was the absence of a discovery mechanism that would surface a CPL club in Halifax to a content acquisition director in Toronto who was actively looking for exactly this content profile.
+
+    Cold outreach — which requires knowing the right contact, having a relationship, and surviving an inbox filter — is not a market. [Thin market infrastructure](../../thin-markets.html) makes the rights package discoverable at the moment the acquisition budget is open, with enough verified data to move from discovery to term sheet in days rather than months.
+
+    *Characters are fictional. The broadcast market dynamics — CPL production standards, CRTC CanCon regulations, niche streaming platform acquisition economics — reflect real conditions in Canadian sport media. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

@@ -1,0 +1,91 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: csport-facility-sharing
+title: "Sport Facility Sharing: Cross-Organization Scheduling"
+sector: canadian-sport
+sub_sector: Facility Management
+forge_tier: 2
+status: published
+tags: [sport, facilities, scheduling, amateur, municipal, temporal-distance, canada, aggregation]
+
+market_example:
+  summary: "Amateur sport organizations compete against each other for facility time while municipal recreation departments have utilization gaps — because there is no cross-organization discovery mechanism for available sport facility time in a region."
+  problem: "Amateur sport organizations — community hockey associations, soccer clubs, gymnastics clubs, swimming clubs — compete for ice time, field time, and facility access while municipal recreation departments struggle with utilization gaps. A hockey association with excess prime-time ice in February may be unaware a speed skating club needs exactly that time. A gymnastics club needing eight hours of gym time on Saturday mornings cannot discover which community centres in their region have that availability. Scheduling is managed through manual processes, personal relationships, and fragmented municipal booking systems that have no cross-organization discovery mechanism."
+  dominant_forces:
+    - "Temporal distance — facility availability is highly time-specific; a match on the wrong night is worthless, and availability windows shift week to week"
+    - "Search friction — no aggregated view of available sport facility time exists across multiple organizations and municipalities in a region"
+    - "Offering complexity — each facility has specific characteristics: surface type, dimensions, lighting, equipment, accessibility, parking, and associated services"
+    - "Geographic distance — organizations operate within narrow geographic catchment areas; the viable search radius for facility access is often under 30 km"
+    - "Regulatory fragmentation — municipal booking policies, insurance requirements, and priority allocation rules vary across municipalities and facility types"
+  deeperpoint_fit: "Temporal distance modelling is the defining capability — matching must account for time-slot specificity, recurring vs. one-off needs, seasonal cycles, and tournament-window peaks. KnowledgeSlot curates municipal facility policies, insurance requirements by facility type and sport, and applicable accessibility standards. User aggregation allows small clubs to pool scheduling requests, achieving scale needed to negotiate multi-facility arrangements with municipalities. Semantic matching handles facility-to-need fit including surface type, dimensions, equipment, associated services, geographic proximity, and pricing."
+  economic_upside: "Municipal recreation facilities represent billions of dollars in Canadian public infrastructure. Poor utilization represents a direct loss to taxpayers and a barrier to participation for sport organizations that cannot access appropriate facilities. Better matching increases utilization rates, reduces time coaching staff spend on scheduling logistics, and enables participation by organizations currently excluded by informal allocation systems."
+
+sponsor_opportunities:
+  - title: "Regional Sport Facility Exchange (SaaS)"
+    type: saas
+    revenue_model: "Annual subscription for sport organizations ($199–$499/year); municipality facility listing portal ($799–$1,500/year per municipality)"
+    strategic_logic: "Municipalities pay substantial overhead to manage booking requests from sport organizations. A platform that handles cross-organization discovery and initial scheduling negotiation reduces municipal booking staff workload while increasing facility utilization — a dual value proposition that justifies direct institutional subscription."
+    recurring: true
+
+  - title: "Facility Utilization Reporting Service"
+    type: data-service
+    revenue_model: "Annual reporting package for municipal recreation departments ($599–$1,200/year); provincial sport federation utilization report ($299/year)"
+    strategic_logic: "Provincial sport ministries and municipal recreation departments need utilization data to justify infrastructure investment and demonstrate public value. A platform that generates utilization reports as a byproduct of its matching function sells data as a complementary service."
+    recurring: true
+
+  - title: "Tournament Facility Coordination Service"
+    type: managed-service
+    revenue_model: "Per-tournament facility coordination fee ($299–$599); multi-venue tournament package ($999)"
+    strategic_logic: "Tournaments require temporary multi-facility arrangements that exceed normal booking channels. A managed coordination service that assembles the right combination of venues, negotiates booking terms, and manages logistics is a high-value complement to the standing facility exchange."
+    recurring: false
+
+story:
+  title: "Ice Time in February"
+  status: draft
+  summary: "A community hockey association releases prime-time ice during a two-week provincial figure skating championship. A regional speed skating club has been trying to find that exact block for three months. They're in the same city."
+  characters:
+    - "Diane — scheduling coordinator, community hockey association, Saskatoon"
+    - "Marcus — head coach, Saskatoon speed skating club"
+  body: |
+    ## Act A — The Utilization Gap
+
+    In Canadian cities, amateur sport organizations live and die by facility access. Ice time is rationed. Field time is contested. Gym time is allocated through priority systems that favour established programs and incumbents.
+
+    What is less visible is the flip side: the regular, predictable gaps in utilization that occur when a program's schedule changes, a tournament disrupts normal bookings, or a seasonal shift leaves allocated time unheld. These gaps represent real capacity that other organizations desperately need — but no mechanism exists to surface them across organizational boundaries.
+
+    The following is a fictional account of what changes when an exchange infrastructure exists.
+
+    ---
+
+    ## Act B — The Story
+
+    **Diane** is the scheduling coordinator for a community hockey association in Saskatoon. The association holds a block of prime-time ice every weekday evening and Saturday morning from October through March. In February, the Saskatchewan provincial figure skating championship runs for two weeks in the association's home rink. The association's games are rescheduled to an alternate facility. Their contracted ice time — Monday through Friday, 6:30 to 8:30 pm, two Saturdays — sits unused.
+
+    Diane posts the availability to the MarketForge facility exchange platform: ice surface, 10 available ice segments over two weeks, prime evening and Saturday morning slots, Saskatoon.
+
+    ---
+
+    **Marcus** coaches the Saskatoon Speed Skating Club. The club trains on an outdoor oval in winter, but February temperatures frequently make outdoor training unsafe for young athletes. For the past three years, Marcus has been trying to find indoor ice time during February for technique work and interval training. He has called four community centres, two hockey associations, and the city recreation department. No one has had prime-time availability to offer. The most recent city response was a six-week waitlist.
+
+    His club registered on the platform after a fellow coach at a curling club mentioned it. His facility request specifies: ice surface, recurring availability, weekday evenings or Saturday mornings, central Saskatoon, two-week minimum block, insurance provided.
+
+    The platform matches Diane's posted availability against Marcus's standing request. Surface type: ice confirmed. Time slots: weekday evenings and Saturdays confirmed. Duration: two-week block confirmed. Geographic: same city, 4 km separation.
+
+    Marcus receives a match notification and confirms interest within the hour. Diane receives confirmation of interest and releases the first segment at the hockey association's standard per-session rate.
+
+    ---
+
+    The speed skating club uses the indoor ice for twelve consecutive sessions. Three junior skaters improve their technique work metrics enough to qualify for provincial selection camp in March.
+
+    Diane's association recovers 60% of the sunk cost on their unused ice allocation.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The ice existed. The need existed. Both parties were in the same city. The gap between them was purely informational — Diane did not know Marcus was looking, and Marcus did not know Diane had ice to release.
+
+    This is the defining pathology of facility-access thin markets in Canadian amateur sport: the supply exists, the demand exists, but the discovery mechanism does not. The result is wasted public infrastructure on one side and unmet participation needs on the other.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the availability visible at the moment it exists, rather than after weeks of phone calls to organizations that may or may not have knowledge of each other's schedules.
+
+    *Characters are fictional. The scheduling dynamics — facility allocation systems, provincial championships, February ice scarcity — reflect real conditions in Canadian amateur sport. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

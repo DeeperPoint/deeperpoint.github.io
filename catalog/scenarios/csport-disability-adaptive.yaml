@@ -1,0 +1,99 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: csport-disability-adaptive
+title: "Adaptive Sport Equipment Manufacturing: Custom Solutions Market"
+sector: canadian-sport
+sub_sector: Adaptive Sport
+forge_tier: 2
+status: published
+tags: [sport, adaptive, disability, equipment, manufacturing, canada, complexity, trust, social-impact]
+
+market_example:
+  summary: "Wheelchair sport athletes, sitting volleyball players, and blind/partially-sighted competitors needing custom adaptive equipment cannot efficiently find the specialized manufacturers and fabricators who can produce it, while niche adaptive equipment makers cannot discover the athletes and programs that need their specific capabilities."
+  problem: "Athletes competing in wheelchair basketball, rugby, racing, sitting volleyball, goalball, and other Paralympic disciplines frequently need custom adaptive equipment — modified sport wheelchairs, specialized bracing, custom prosthetic sport interfaces, and adaptive holding and stabilization devices. This equipment must meet sport federation technical specifications while accommodating the athlete's specific disability profile, body geometry, and performance requirements. The pool of Canadian manufacturers and fabricators capable of producing federation-compliant adaptive sport equipment to custom specifications is small and geographically dispersed. Athletes and programs cannot discover who can produce what; manufacturers cannot discover athletes with specifications within their production capability. Most custom adaptive equipment transactions happen through informal referral from physiotherapists, prosthetists, and Paralympic program staff — a slow, network-dependent process that systematically excludes athletes outside major centres."
+  dominant_forces:
+    - "Participant scarcity — manufacturers capable of producing federation-compliant adaptive sport equipment to custom specifications are few in Canada; the athlete population needing custom equipment is also small and dispersed"
+    - "Offering complexity — each equipment request involves sport-specific federation technical rules, athlete disability profile, body geometry measurements, performance requirements, and budget constraints; each manufacturer has distinct production capabilities across these dimensions"
+    - "Opacity — Canadian adaptive sport equipment manufacturers have minimal web presence; athletes and programs have no systematic discovery mechanism beyond the informal referral networks of healthcare and sport staff"
+    - "Trust deficit — athletes depend on custom-fit equipment for both performance and safety; they cannot engage with unknown fabricators without an intermediary verification of capability and prior adaptive sport work"
+    - "Geographic distance — athletes train across Canada; capable fabricators are concentrated in a handful of cities (Toronto, Vancouver, Calgary); fitting and adjustment appointments are difficult to manage across large distances"
+  deeperpoint_fit: "Semantic matching encodes athlete need by sport, federation technical specification, disability profile, body geometry requirements, and budget — matched against manufacturer capability profiles that specify sport categories, disability types served, materials and fabrication methods, compliance certifications, and fitting/delivery logistics. KnowledgeSlot curates Paralympic Sport federation equipment rules (Wheelchair Basketball Canada, Wheelchair Rugby Canada, Athletics Canada Classification), Sport Canada Paralympic funding programs, and applicable assistive device program (ADP) coverage criteria. The trusted intermediary protocol manages the sensitive exchange of disability profile information and manufacturer pricing flexibility. Facilitator role slots accommodate physiotherapists, physiatrists, and prosthetists who must be part of the fitting and approval chain."
+  economic_upside: "Canadian Paralympic athletes are among the world's most decorated. Their equipment is as specialized and performance-critical as any equipment in elite sport. Better matching between athletes and specialized fabricators would reduce equipment acquisition lead times, increase access for athletes outside major centres, reduce the cost of custom equipment through competition among capable manufacturers, and support Canada's Paralympic performance outcomes."
+
+sponsor_opportunities:
+  - title: "Adaptive Sport Equipment Matching Service (SaaS)"
+    type: saas
+    revenue_model: "Annual manufacturer listing ($199–$499/year, tiered by sports covered); athlete or program annual search subscription ($79/year); provincial sport federation institutional subscription ($599/year)"
+    strategic_logic: "Sport Canada's Paralympic High Performance program has direct equipment procurement support for national team athletes, but this support does not extend to the full competitive population or to the matching problem itself. A matching service that connects the full ecosystem — athletes, programs, and manufacturers — fills a gap in the national Paralympic development infrastructure."
+    recurring: true
+
+  - title: "Equipment Technical Compliance Verification Service"
+    type: managed-service
+    revenue_model: "Per-equipment item compliance verification report ($99–$199, based on sport federation rulebook review); annual federation-specific compliance advisory ($399/year)"
+    strategic_logic: "Adaptive sport equipment that does not comply with federation technical specifications cannot be used in competition. A verification service that cross-checks submitted equipment specifications against current federation rulebooks — which update annually — reduces the risk of non-compliant investment and is directly valuable to both athletes and manufacturers."
+    recurring: true
+
+  - title: "Remote Fitting Coordination Service"
+    type: managed-service
+    revenue_model: "Per-athlete remote fitting consultation coordination ($149–$249); multi-session fitting program for national team athletes ($499–$799)"
+    strategic_logic: "Custom fitting of adaptive sport equipment typically requires in-person measurement and trial sessions that are logistically demanding across large geographic distances. A coordination service that schedules and supports structured remote fitting sessions — using video, measurement protocols, and iterative adjustment shipping — reduces the geographic penalty for athletes in smaller markets."
+    recurring: false
+
+story:
+  title: "The Chair That Fit"
+  status: draft
+  summary: "A competitive wheelchair basketball player in Prince Edward Island needs a custom sport chair built to Wheelchair Basketball Canada specifications for her body geometry and playing position. The fabricator in Canada who can build it is in Vancouver. She doesn't know he exists. He doesn't know she needs it."
+  characters:
+    - "Amara — 22-year-old point guard, PEI wheelchair basketball program"
+    - "Daniel — adaptive equipment fabricator, sport wheelchair manufacturer, Vancouver"
+  body: |
+    ## Act A — The Fitting Problem
+
+    Wheelchair basketball is among Canada's most decorated Paralympic sports. The Canadian women's and men's national teams compete at the highest international level. Behind every athlete on those teams is a piece of custom equipment — a sport wheelchair built specifically for their disability classification, body geometry, playing position, and performance style.
+
+    That equipment is not purchased off a shelf. It is fabricated to specification by a small number of builders who understand both the physics of court sport and the biomechanics of disability-specific movement. In Canada, the number of fabricators capable of producing competition-grade custom sport wheelchairs to Wheelchair Basketball Canada specifications is fewer than ten.
+
+    Athletes outside the national team program — club-level competitive athletes, developing players who have not yet reached the national pipeline — have no systematic way to find those fabricators. A player in Prince Edward Island asking her physiotherapist for a recommendation is likely to receive a referral to a general rehabilitation equipment supplier who has never built a sport chair.
+
+    The following is a fictional account of what changes when a purpose-built discovery mechanism exists.
+
+    ---
+
+    ## Act B — The Story
+
+    **Amara** plays point guard for the PEI Tidal Force, the province's competitive wheelchair basketball program. She is 22 and has been playing for four years. She qualified for the national development program evaluation camp last fall and is building toward a national team trial. Her current sport chair is a second-hand frame that was custom-built for a player with a different disability profile and a different seat height. It fits imperfectly. It affects her push mechanics and her lateral cut speed.
+
+    Her program coordinator has contacted two national team equipment suppliers. The first has a twelve-month backlog and a minimum of $6,500 before any assessment. The second doesn't serve Atlantic Canada. Her physiotherapist has searched but does not know the Canadian adaptive sport fabricator network.
+
+    Amara's program coordinator registers her need on the MarketForge adaptive equipment platform. The intake asks for sport, WBC classification (2.0), playing position (point guard), primary disability profile (L4 paraplegic), current chair dimensions, identified fit problems, performance requirements, timeline, and budget range.
+
+    ---
+
+    **Daniel** runs a small adaptive sport equipment manufacturing operation in Vancouver. He has built competition-grade sport wheelchairs for twelve years — forty-three chairs for wheelchair basketball players at all levels, with three players on those chairs having reached the national team. He serves athletes across BC and Alberta primarily, with occasional national team commissions. He has been trying to expand his client base beyond personal referrals. He has no marketing budget. His website has not been updated in three years.
+
+    His manufacturer profile on the platform specifies: sport wheelchairs, wheelchair basketball and rugby, WBC-compliant construction, serving all WBC classification levels, Canada-wide delivery with remote fitting protocol available, fabrication timeline 10–14 weeks, price range $4,800–$7,200 depending on specifications.
+
+    The platform matches Amara's need profile against Daniel's capability profile. Sport: wheelchair basketball confirmed. WBC classification 2.0: within confirmed capability range. Atlantic Canada: Canada-wide delivery confirmed. Timeline: within available fabrication window. Budget: within range.
+
+    ---
+
+    Amara receives a match notification with Daniel's verified capability summary and a Generative Match Story describing a remote fitting protocol — initial video assessment and measurement session with her physiotherapist, followed by a trial frame shipment for on-chair evaluation, with adjustment specifications communicated digitally before final build.
+
+    Daniel's intake form arrives. He schedules the video assessment within ten days.
+
+    The chair is complete eleven weeks later. It arrives with a fitting adjustment kit and a second video session scheduled.
+
+    Amara pushes her first full practice in the new chair on a Tuesday in October. Her coach notices the difference in her lateral cut by the second half.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Daniel had the capability. Amara had the need. The remote fitting protocol — which Daniel has used successfully for BC athletes in small communities — was available. The budget was close enough to work.
+
+    The only thing missing was the mechanism that makes a Vancouver sport chair fabricator visible to a PEI basketball player who has been told by two national suppliers that they cannot help her.
+
+    Adaptive sport equipment markets are among the thinnest in Canadian sport. The participant population is small. The fabricator pool is small. The specifications are complex. The geography is large.
+
+    [Thin market infrastructure](../../thin-markets.html) does not change any of those fundamentals. It simply adds the one thing that is currently absent: a structured way for the person who needs the chair to find the person who can build it — before the athlete settles for a frame that doesn't fit.
+
+    *Characters are fictional. The equipment frameworks — Wheelchair Basketball Canada classification system, WBC technical equipment specifications, Sport Canada Paralympic equipment support programs — are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

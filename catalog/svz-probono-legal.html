@@ -1,0 +1,484 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Bono and Low Bono Legal Matching for Social Enterprises — DeeperPoint</title>
+  <meta name="description" content="Law firms, clinic lawyers, and solo practitioners willing to do pro bono or reduced-fee work for social enterprises and nonprofits exist — but bar association clearinghouses are local, technology-primitive, and match only on rough legal category, not the specific intersectional expertise a social venture actually needs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 600px; margin: 0 auto 2rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 220px; max-width: 280px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem; overflow-x: auto;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      display: flex; align-items: flex-start; gap: .5rem;
+    }
+    .force-list li::before { content: "A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0; }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Social Enterprise &middot; Legal Services</div>
+      <h1 class="detail-title">Pro Bono and Low Bono Legal Matching for Social Enterprises</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
+        <span class="blog-tag">legal</span><span class="blog-tag">pro-bono</span><span class="blog-tag">social-enterprise</span><span class="blog-tag">toronto</span><span class="blog-tag">svz</span><span class="blog-tag">nonprofit</span><span class="blog-tag">immigration</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Social enterprises operating with minimal cash have acute access-to-legal-services problems: incorporation, IP protection, employment contracts, commercial agreements, regulatory compliance. Qualified attorneys willing to do pro bono or low bono work for social enterprises exist — motivated by impact, bar association requirements, or career development. The organizations that need them exist. Neither side finds the other efficiently because matching friction is acute: bar association clearinghouses are local and primitive, matching only on rough legal category, not on the specific intersectional expertise a social venture actually needs.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Participant scarcity — the pool of attorneys with both the relevant expertise and willingness to commit pro bono capacity at any given time is small and fluctuating</li><li>Strategic information withholding — attorneys don&#x27;t advertise pro bono availability; organizations don&#x27;t disclose sensitive legal needs broadly before establishing trust</li><li>Cognitive overload — organizations needing help may not know what kind of legal help they need (e.g., an immigration nonprofit also needs cooperative corporate structure advice)</li><li>Trust deficit — the attorney needs to vet engagement legitimacy and scope manageability; the organization needs to assess actual competence, not just good intentions</li><li>Opacity — no platform aggregates available pro bono legal capacity by specialty across the Greater Toronto Area social sector</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes legal specialty, jurisdiction, organizational type, relevant legislation, language capability, and available capacity. The trusted intermediary protocol protects sensitive organizational details during the matching phase — the organization&#x27;s specific legal situation is not disclosed until the attorney has been matched and consented to receive details. KnowledgeSlot curates pro bono hour requirements, legal aid eligibility thresholds, Ontario Not-for-Profit Corporations Act, Registered Charity Act obligations, and law school clinical program availability. Facilitator roles accommodate student legal aid programs and clinical faculty supervisors.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The &#x27;justice gap&#x27; in the nonprofit and social enterprise sector is estimated at billions of dollars in unmet legal need annually in Canada. Social ventures that cannot obtain basic legal infrastructure — incorporation, IP, contracts — cannot scale, cannot access grants that require registered status, and cannot protect their models from appropriation. Each successful legal match can unlock organizational growth worth 10–100x the legal services value.</p>
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Pro Bono Capacity Management Platform for Law Firms</div>
+        <p>Law firms have pro bono hour requirements and commitments they struggle to fill with appropriate, manageable engagements. A platform that delivers pre-screened, scope-defined social enterprise legal needs is a pro bono management tool the firm pays for — it reduces the administrative cost of fulfilling their pro bono obligation.</p>
+        <div class="opp-card__revenue">&#128181; Annual subscription per law firm ($1,500–$4,000/year based on lawyer headcount); solo practitioner subscription ($199/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Social Enterprise Legal Intake and Triage Service</div>
+        <p>Social enterprises cannot always specify what legal help they need. A triage service that converts vague legal anxiety into a structured legal needs specification — and identifies which needs are urgent, which can wait, and which require which type of specialist — is the enabling layer for the matching service.</p>
+        <div class="opp-card__revenue">&#128181; Per-intake case triage $75–$150; social enterprise membership subscription ($199/year for unlimited intake prioritization)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Law School Clinical Program Partnership</div>
+        <p>Law schools with clinical programs need appropriate client placements for students. Social enterprises are natural clinical program clients — manageable, grateful, and educationally valuable. The platform coordinates the clinical placement pipeline, creating a recurring revenue stream from law school partnerships.</p>
+        <div class="opp-card__revenue">&#128181; Per-student-placement coordination fee ($50–$100); clinical faculty annual partnership subscription ($300/year per participating clinic)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Foundation and Bar Association Grant-Funded Access</div>
+        <p>Access to justice funding from the Law Foundation of Ontario, the Law Society of Ontario, and private legal foundations is available for platforms that demonstrably expand legal access. The platform&#x27;s social impact metrics — number of social enterprises served, legal matters resolved, volunteer hours mobilized — are a direct fit for access-to-justice grant criteria.</p>
+        <div class="opp-card__revenue">&#128181; Foundation grant for free social enterprise access ($50,000–$150,000/year); Law Society Equity, Diversity and Inclusion fund eligibility</div>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">Three Problems, Three Lawyers, One Intake</div>
+        <p><strong>Characters:</strong> Fadumo — co-founder, Somali women&#x27;s catering cooperative, Scarborough, Richard — partner, Bay Street law firm; corporate/cooperative law; 50 pro bono hours available, Amina — charity law specialist, community legal clinic, downtown Toronto, Neha — third-year law student, TMU law clinical program</p>
+        
+        <div class="story-body">
+          <h2>Act A — The Legal Infrastructure Bottleneck</h2>
+<p>Every social enterprise eventually hits the legal infrastructure wall.</p>
+<p>For Fadumo's cooperative — seven Somali women who have been running an informal catering operation out of a licensed community kitchen for two years — the wall arrived on the same week in three different forms.</p>
+<p>First: the hospital food service they'd been supplying on a handshake wanted a formal supply contract before renewing. The contract template the hospital's procurement team sent was 34 pages. Fadumo had never signed a commercial contract. She didn't know what "indemnification" meant or whether the liability clause was standard.</p>
+<p>Second: a community foundation offered them a $25,000 capacity-building grant — but only if the cooperative was a registered charity or Charitable Incorporated Organization within 60 days.</p>
+<p>Third: the cooperative's members had been operating informally but wanted employment contracts, profit-sharing agreements, and clarity on their individual liability exposure — which required incorporating as a worker cooperative under Ontario's Co-operative Corporations Act.</p>
+<p>Each of these three problems requires a different legal specialist:
+- Commercial contract review: a contracts lawyer with food service or procurement experience
+- Charity registration: a charity law specialist familiar with Ontario charity law and CRA registration
+- Worker cooperative incorporation: a corporate lawyer familiar with the Co-operative Corporations Act</p>
+<p>Fadumo called the legal aid clinic. The waitlist was eleven weeks. She called a law firm she found through a Google search. The retainer estimate for all three tasks was $8,500. The cooperative's total operating capital was $6,200.</p>
+<p>The following is a fictional account of how a MarketForge-powered pro bono legal matching platform assembles the right team in a single intake.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Fadumo</strong> submits a structured legal intake through the platform after a referral from the SVZ's legal navigation workshop. The intake process asks: What is the organizational form of your enterprise today? What legal actions do you need to take in the next 90 days? What are the deadlines or consequences if you don't? What is your organization's operating language?</p>
+<p>The intake produces a structured legal needs specification:
+- Priority 1 (deadline: 21 days): commercial contract review — hospital supply agreement
+- Priority 2 (deadline: 60 days): charity registration — Ontario CRA application
+- Priority 3 (medium-term): worker cooperative incorporation — Co-operative Corporations Act
+- Language preference: Somali and English</p>
+<hr />
+<p><strong>Richard</strong> is a corporate partner at a Toronto law firm. His firm has a 50-hour pro bono commitment per partner per year. With 23 hours remaining in Q2, he registered his available specialty on the platform: commercial contracts, corporate governance, cooperative structures, food and beverage sector experience. He is available for a 5–10 hour engagement.</p>
+<p><strong>Amina</strong> runs a charity law practice at a community legal clinic. She has relationships with two law school clinical programs. She registered her availability for social enterprise matters — specifically charity registration and CRA dealings — on the platform three months ago.</p>
+<p><strong>Neha</strong> is a third-year law student in TMU's Law Practice Program. Her clinical placement requirement includes 80 hours of supervised legal work. She is registered on the platform as available for supervised contract review under a called lawyer's supervision.</p>
+<p>The platform matches Fadumo's three legal needs against the three registered practitioners:
+- Contract review: Richard — commercial contracts, food and beverage experience, 10-hour availability — strong match
+- Charity registration: Amina — charity law specialist, CRA registration experience — strong match
+- Cooperative incorporation: flagged to Richard as a secondary matter (he has cooperative structure experience) with Neha assigned for document preparation under supervision</p>
+<hr />
+<p>The <strong>Generative Match Story</strong> presents the three-part match to Fadumo in plain language: what each lawyer will do, in what order, on what timeline, with what approximate time commitment from her. It generates a document checklist for each legal matter — the CRA charity registration requires the cooperative's founding documents, objects clause, and board member list. It notes that Neha can handle the initial document preparation for the cooperative incorporation while Amina processes the charity registration in parallel — saving approximately 4 weeks.</p>
+<p>Fadumo reviews the plan. It is the first time anyone has organized her three legal problems into a sequence she can follow.</p>
+<p>All three matters are resolved within 67 days. The hospital contract is signed. The charity registration is approved. The cooperative is incorporated.</p>
+<p>The $25,000 foundation grant is received.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Pro bono legal services in the nonprofit and social enterprise sector are not scarce. Toronto has thousands of lawyers with pro bono commitments, law school clinical programs, and community legal clinics. The problem is matching: the organizations that need legal help cannot specify what they need in terms that enable discovery, and the lawyers who have capacity cannot discover the organizations that need their specific expertise.</p>
+<p>Bar association pro bono clearinghouses list organizations by broad need category — "family law," "housing," "immigration." They do not encode organizational type, specific legislation relevant to the matter, language capability, or deadline urgency. They do not coordinate multi-specialist needs across a single client in a single intake.</p>
+<p>What <a href="../../thin-markets.html">thin market infrastructure</a> does is replace the clearinghouse with a structured intake that produces a matchable specification — and then matches that specification systematically against registered specialist capacity, across the full range of expertise a social enterprise like Fadumo's actually needs.</p>
+<p><em>Fadumo, Richard, Amina, and Neha are fictional. The legal frameworks, programs, and institutions described — Ontario Co-operative Corporations Act, CRA charity registration, Law Practice Program, Law Foundation of Ontario — are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

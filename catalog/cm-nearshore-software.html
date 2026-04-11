@@ -1,0 +1,471 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nearshore Software Development: Mexican Teams to Canadian Scale-Ups — DeeperPoint</title>
+  <meta name="description" content="Canadian technology scale-ups need mid-level engineers with specific stack and compliance profiles; Mexican development teams with exactly those profiles are invisible to Canadian companies still using US intermediary platforms that take significant margin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 600px; margin: 0 auto 2rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 220px; max-width: 280px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem; overflow-x: auto;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      display: flex; align-items: flex-start; gap: .5rem;
+    }
+    .force-list li::before { content: "A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0; }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canada Mexico Trade &middot; Technology Services</div>
+      <h1 class="detail-title">Nearshore Software Development: Mexican Teams to Canadian Scale-Ups</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">software</span><span class="blog-tag">nearshore</span><span class="blog-tag">tech-services</span><span class="blog-tag">canada</span><span class="blog-tag">mexico</span><span class="blog-tag">devops</span><span class="blog-tag">cusma</span><span class="blog-tag">fintech</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Canada&#x27;s technology sector has a persistent shortage of mid-level software developers, QA engineers, DevOps specialists, and data engineers. Mexico has a rapidly growing, technically strong software development ecosystem in Guadalajara, Monterrey, Mexico City, and Querétaro, with engineers at compensation levels significantly below Canadian market rates, working in compatible time zones. But matching Canadian scale-ups with specific Mexican development team capabilities requires far more precision than a staffing agency provides: technology stack compatibility, security compliance posture, communication protocols, IP clauses, and cultural fit in remote-first teams are all critical and poorly encoded in existing discovery channels.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Offering complexity — a React/Node.js team with AWS deployment experience and SOC 2 awareness is not substitutable by a Python/Django team with Azure infrastructure; &#x27;software developer&#x27; is not a useful commodity category</li><li>Trust deficit — Canadian scale-ups have experienced quality failures with offshore development; the decision to bring on a remote Mexican team requires credible evidence of technical proficiency and IP protection that referrals and portfolio reviews alone cannot provide</li><li>Cognitive overload — a CTO evaluating five Mexican development firms simultaneously cannot maintain coherent comparison across stack, team size, rate structure, compliance posture, and communication style without structured support</li><li>Opacity — strong Mexican development teams are invisible to Canadian companies that have not worked in the Latin American market; discovery happens through personal networks or US platforms that take significant margin</li><li>Regulatory fragmentation — Canadian companies face questions about employment classification, income tax obligations under CUSMA professional services provisions, IP assignment across jurisdictions, and PIPEDA/data sovereignty requirements</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching aligns team profiles (tech stack, team size, security certifications, prior Canadian client experience, time zone overlap, communication style, rate range) with company profiles (stage, tech stack, team culture, role type, security requirements, IP sensitivity). The trusted intermediary protocol allows Mexican teams to share client references and code samples privately with matched Canadian companies without exposing confidential prior work. KnowledgeSlot curates CUSMA independent contractor rules, PIPEDA cross-border data processing requirements, standard IP assignment clause templates, and Mexico&#x27;s Ley Federal de Protección de Datos Personales requirements.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Nearshoring from Mexico to Canada is economically compelling — 30–50% cost differential at comparable technical quality, same time zone, CUSMA professional services framework — but is currently captured by US intermediary platforms. Building a Canada-specific channel creates direct bilateral relationships, reduces platform intermediary costs, and establishes human capital connections that support longer-term bilateral innovation collaboration.</p>
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Canada-Mexico Contractor Agreement and IP Assignment Package</div>
+        <p>IP assignment and employment classification are the primary legal anxieties for Canadian companies working with Mexican contractors. A jurisdiction-compliant contract package resolves both without a $3,000 lawyer engagement.</p>
+        <div class="opp-card__revenue">&#128181; Per-engagement contract package $400–$800 CAD; annual subscription for companies managing multiple ongoing contractor relationships ($999–$1,799/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">PIPEDA / Ley Federal Cross-Border Data Compliance Assessment</div>
+        <p>Data sovereignty is a deal-breaker for Canadian fintech and healthtech companies working with Mexican contractors. A documented compliance assessment converts a vague risk into a managed one.</p>
+        <div class="opp-card__revenue">&#128181; Per-engagement data compliance report $600–$1,200; annual monitoring subscription for companies with ongoing cross-border data flows ($999/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Mexican Tech Team Certification Registry</div>
+        <p>Canadian CTOs need a credible, curated source of verified Mexican development team credentials — not a marketplace where anyone can list. A curated registry with verified technical assessments and reference checks commands premium credibility.</p>
+        <div class="opp-card__revenue">&#128181; Annual registration fee for Mexican development teams ($299–$599/year); Canadian company access subscription ($199/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Insurance</div>
+        <div class="opp-card__title">Nearshore Engagement Risk Insurance</div>
+        <p>The primary barrier to first-time Mexico nearshore engagement for Canadian companies is the risk of a failed engagement — invested time, delayed product, potential IP exposure. An engagement risk insurance product removes the tail risk that prevents first-time buyers from committing.</p>
+        <div class="opp-card__revenue">&#128181; Monthly premium per active engagement (1–2% of monthly contract value); referral commission from underwriting partner</div>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Stack That Matched</div>
+        <p><strong>Characters:</strong> Yasmine — CTO, payment infrastructure scale-up, Toronto, Ontario, Series B, Alejandro — business development director, software development studio, Guadalajara, Jalisco</p>
+        
+        <div class="story-body">
+          <h2>Act A — The Platform Tax</h2>
+<p>Canadian technology companies that need nearshore software development help have essentially two options: the large US intermediary platforms — Toptal, Nearshore Americas, Andela — which provide curated access to Latin American development talent at a significant platform margin; or personal networks, which are slow and geographically constrained.</p>
+<p>Both options are expensive in different ways. The US platforms are structurally built around the US technology market and optimize for US company requirements — SOC 2 Type 2, US employment classification, US IP assignment law. Canadian companies using them are paying for a service calibrated to someone else's regulatory environment.</p>
+<p>Meanwhile, Guadalajara, Monterrey, and Mexico City have development studios that have worked with Canadian companies before, understand CUSMA professional services provisions, and operate in the same time zone as Toronto. They are invisible on the US platforms and invisible to Canadian company CTOs who've never been told to look there.</p>
+<p>The following is a fictional account of how MarketForge makes a specific match that the US platforms miss.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Yasmine</strong> is the CTO of a Toronto fintech company that has just closed a Series B. She needs a six-month augmentation team for a specific feature build: a React/Node.js frontend with an AWS Lambda backend, integrated into the company's existing payment processor API. The team needs to operate within her company's SOC 2 security protocol. She has a $240K CAD budget for the engagement.</p>
+<p>She's been on two US nearshore platforms for three weeks. The matches she's received are Django teams, one Java team, and two React teams with Azure infrastructure experience. None match her stack. Both platforms are charging 20–25% platform margin on top of the team rate.</p>
+<p>She registers on MarketForge. The onboarding asks for tech stack specification at component level, security compliance requirements, communication protocol preferences, IP sensitivity, and whether she requires a PIPEDA-compliant data processing agreement.</p>
+<hr />
+<p><strong>Alejandro</strong> runs business development for a Guadalajara development studio of eighteen engineers. The studio's core stack is React/Node.js with AWS infrastructure. They have SOC 2 awareness — two prior Canadian fintech clients, one of whom was a payment processor. They have capacity for a six-month augmentation engagement starting in four weeks.</p>
+<p>His studio registered on the platform after a CANIETI (National Chamber of the Electronics, Telecommunications and Information Technology Industry) presentation.</p>
+<p>The platform matches Alejandro's team profile against Yasmine's requirements. React/Node.js: confirmed. AWS: confirmed. SOC 2 awareness, prior Canadian fintech client: confirmed. Rate range: within Yasmine's budget. Time zone: CST, one hour behind EST — workable.</p>
+<p>Both receive a match notification.</p>
+<hr />
+<p>The <strong>Generative Match Story</strong> describes the legal and compliance structure for the engagement. On IP assignment: a CUSMA-compliant contractor agreement with Canadian law governing clause and explicit IP assignment upon payment is the standard form; KnowledgeSlot provides a template. On PIPEDA compliance: the engagement will involve access to non-PII payment infrastructure data; a data processing agreement limiting data residency to Canadian AWS regions is the standard mitigation. On employment classification: CUSMA Chapter 16 professional services provisions allow the engagement structure without triggering Canadian deemed-employee rules if the studio operates as an independent legal entity — which it does.</p>
+<p>Yasmine reads the scenario. The PIPEDA section resolves the question her legal team had been unable to answer clearly for two weeks. The IP assignment template looks standard and her legal team can review it in an afternoon rather than drafting from scratch.</p>
+<p>Alejandro reads the scenario. The CUSMA Chapter 16 provision is something he's used in prior Canadian engagements. He contacts Yasmine with the studio's full portfolio, two Canadian reference contacts, and their SOC 2 compliance documentation.</p>
+<p>The engagement contract is executed in ten days.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>The stack match between Yasmine's requirements and Alejandro's team is not rare. There are dozens of Mexican development studios in Guadalajara and Monterrey with React/AWS profiles that match the needs of Toronto fintech companies. The US nearshore platforms don't surface them efficiently because they're optimized for US company requirements and don't curate Canadian regulatory compliance.</p>
+<p>What's missing is a discovery channel calibrated to the Canada-Mexico axis: one that understands CUSMA professional services provisions, PIPEDA cross-border data requirements, and Canadian IP assignment law as first-class issues rather than edge cases.</p>
+<p>What <a href="../../thin-markets.html">thin market infrastructure</a> does here is make the match structurally possible — not by replacing the relationship between Yasmine and Alejandro, but by eliminating the discovery friction and the compliance uncertainty that would otherwise add weeks to the front end of every engagement.</p>
+<p><em>Characters are fictional. The regulatory frameworks — CUSMA Chapter 16 professional services, PIPEDA cross-border data processing, SOC 2, Canadian IP assignment law — are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

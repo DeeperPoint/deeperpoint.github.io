@@ -1,0 +1,91 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: csport-science-consulting
+title: "Sport Science Consulting: High-Performance Expertise Matching"
+sector: canadian-sport
+sub_sector: Professional Services
+forge_tier: 2
+status: published
+tags: [sport, sport-science, consulting, high-performance, canada, professional-services, credentials, opacity]
+
+market_example:
+  summary: "Independent sport science professionals cannot find provincial and national sport organizations that need their expertise, while PSOs and smaller professional programs cannot identify practitioners with current credentials relevant to their specific sport and competitive level."
+  problem: "Independent sport science professionals — biomechanists, strength and conditioning specialists, sport psychology consultants, nutrition practitioners, video analysis experts — cannot easily find clubs, provincial sport organizations (PSOs), or national sport organizations (NSOs) that need their services. Meanwhile, PSOs and smaller professional programs in the CFL, Canadian Premier League, and regional hockey need specialized expertise but do not know who is available, what credentials are current, or whether a consultant's experience is relevant to their specific sport and competitive level. Most placement happens through informal referral networks that concentrate opportunity among practitioners embedded in major centres."
+  dominant_forces:
+    - "Participant scarcity — sport science practitioners certified at the high-performance level are few; organizations that can pay for their services are also limited"
+    - "Opacity — no searchable national registry of sport science consultants with current credentials, specializations, and availability exists"
+    - "Offering complexity — each consultant's profile spans certifications (CSCS, BASES, RD, CPsychol), sport-specific experience, competitive level worked, geographic availability, engagement model, and pricing"
+    - "Trust deficit — sport organizations need confidence in credentials and athlete safety before granting facility access; consultants need assurance their professional recommendations will be respected"
+    - "Strategic information withholding — NSOs do not publicly advertise performance deficits; consultants do not publicize pricing floors for fear of commoditization"
+  deeperpoint_fit: "KnowledgeSlot curates CSEP, CSCA, Sport Canada, and Own the Podium credential frameworks, enabling AI-verified competency matching rather than self-reported expertise. Semantic matching encodes the multidimensional practitioner profile against organizational need, competitive level, sport context, and engagement model. The trusted intermediary protocol protects confidential performance assessment data — neither the organization's performance gaps nor the consultant's minimum pricing need be disclosed prematurely. The Deal Brief captures service scope, deliverables, testing protocols, data ownership, confidentiality obligations, and performance metrics."
+  economic_upside: "Canada's high-performance sport infrastructure depends on the effective deployment of qualified sport science professionals. Better matching reduces reliance on informal networks that concentrate opportunity in major centres, increases PSO access to specialized expertise without permanent hiring, and contributes to medal outcomes at the Olympic level."
+
+sponsor_opportunities:
+  - title: "Sport Science Practitioner Registry (SaaS)"
+    type: saas
+    revenue_model: "Annual practitioner listing and credential verification ($149–$299/year); organizational recruiting subscription ($599–$1,400/year)"
+    strategic_logic: "Sport Canada and Canadian Sport Institutes maintain credential standards but have no unified discovery infrastructure for the practitioners who hold them. A registry that verifies against existing credentialing bodies and makes practitioners searchable solves a known infrastructure gap."
+    recurring: true
+
+  - title: "Credential Verification and Continuing Education Tracker"
+    type: saas
+    revenue_model: "Per-practitioner credential verification report ($49–$79); annual renewal monitoring subscription ($99/year per practitioner)"
+    strategic_logic: "Sport organizations face liability exposure when they engage practitioners with lapsed credentials. A service that verifies credentials against issuing bodies at engagement time and tracks renewal dates manages that risk continuously — a sticky, low-cost ancillary to the matching service."
+    recurring: true
+
+  - title: "High-Performance Program Needs Assessment Service"
+    type: managed-service
+    revenue_model: "Per-organization needs assessment ($1,200–$2,500); annual review retainer ($600/year)"
+    strategic_logic: "PSOs and professional programs often don't know precisely what sport science support they need or how to specify it. A diagnostic service that audits current program capabilities and identifies gaps creates a structured specification that improves matching precision and creates consulting pipeline."
+    recurring: true
+
+story:
+  title: "The Certification Nobody Could Find"
+  status: draft
+  summary: "A Canadian Premier League club needs a certified strength and conditioning specialist with football-specific experience. A CSCA-certified consultant in Calgary has the exact profile they want. Neither knows the other exists."
+  characters:
+    - "Rodrigo — performance director, Canadian Premier League club, Halifax"
+    - "Leanne — certified strength and conditioning consultant, Calgary, CSCA-certified, 8 years football-specific experience"
+  body: |
+    ## Act A — The Credential Problem
+
+    Canadian sport science credentialing is serious. The Canadian Sport and Exercise Physiology (CSEP) framework, the Canadian Strength and Conditioning Association (CSCA), and the Coaching Association of Canada maintain disciplined certification standards. High-performance practitioners spend years earning and maintaining these credentials.
+
+    The problem is that once earned, those credentials are nearly invisible to the organizations that need them most. There is no national, searchable, verified directory of Canadian sport science practitioners. Organizations recruiting for performance roles rely on personal networks, word-of-mouth through coaching associations, and occasional job boards that list roles but have no mechanism to surface credentialed candidates.
+
+    The following is a fictional account of what happens when that infrastructure exists.
+
+    ---
+
+    ## Act B — The Story
+
+    **Rodrigo** is the performance director of a Canadian Premier League club. The club has grown quickly and its physical preparation program is a bottleneck. Rodrigo needs a strength and conditioning consultant — someone with football-specific experience, CSCA certification, and the ability to work within a CFL-compatible periodization framework. He has posted the role on two sport industry job boards. The responses have been mostly unqualified. He has emailed three personal contacts. None of them have a suitable referral.
+
+    His club registers on the MarketForge sport science platform. The intake form asks about sport, competitive level, certification requirements, engagement model, geographic constraints, and budget range. Rodrigo specifies: team sport, professional level, CSCA certification required, football-specific experience essential, contract engagement, Halifax or remote.
+
+    ---
+
+    **Leanne** has been a certified strength and conditioning consultant in Calgary for eight years. She has worked with four CFL-affiliated programs and two university football teams. She is CSCA-certified with a current CPR/AED certification. She has been looking for her next major contract engagement for three months. She has contacted two CFL teams directly. Neither had open roles at the time.
+
+    Her business profile on the MarketForge platform includes her certification details, verified against the CSCA registry. Her matching profile specifies: team sport, professional and semi-professional level, football-specific, contract engagement, remote capable.
+
+    The platform matches her profile against Rodrigo's intake. Certification: confirmed verified. Football-specific experience: confirmed. Engagement model: aligned. Remote capability: confirmed.
+
+    Both receive a match notification with a Generative Match Story describing the engagement structure — a phased consulting arrangement covering pre-season testing, in-season monitoring, and quarterly performance reviews, with a data ownership clause and confidentiality requirements standard to professional sport.
+
+    ---
+
+    Rodrigo schedules a video call for the following morning. By the end of the week, a consulting agreement framework is circulating between their respective legal advisors.
+
+    Leanne starts the pre-season engagement six weeks later.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Canadian sport science talent is real. The credential frameworks are serious. The organizations that need qualified practitioners are actively spending on performance infrastructure.
+
+    The gap is simply that the credential is invisible. A CSCA certification sitting in Calgary doesn't travel to a performance director in Halifax through any systematic mechanism. It travels only through the personal networks of the people who happen to know both parties.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the credential findable and makes it verifiable at the moment of discovery — not after weeks of back-and-forth. That gap between credential and application is where sport science capacity in Canada is currently lost.
+
+    *Characters are fictional. The credential frameworks — CSCA, CSEP, Coaching Association of Canada — are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

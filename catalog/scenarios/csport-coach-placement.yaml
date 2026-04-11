@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: csport-coach-placement
+title: "Coach Placement: Canadian High-Performance Coaching Market"
+sector: canadian-sport
+sub_sector: Coaching Labour Market
+forge_tier: 2
+status: published
+tags: [sport, coaching, high-performance, NCCP, canada, opacity, labour-market, scarcity]
+
+market_example:
+  summary: "Provincial and national sport organizations cannot efficiently identify qualified coaches with the specific certification level, sport specialization, and geographic availability they need, while NCCP-certified coaches available for new positions cannot surface themselves to programs that need them."
+  problem: "Provincial sport organizations, national sport organizations, and high-performance clubs struggle to identify qualified coaches with the specific certification level, sport specialization, athlete development philosophy, and geographic availability they need. Meanwhile, coaches at the NCCP Advanced Coaching Diploma and High Performance levels who are available for new positions cannot efficiently surface themselves to the programs that need them. Canada's coaching labour market is fragmented: most placements occur through word-of-mouth within sport-specific communities, leaving cross-sport transferable coaches undiscoverable and creating persistent vacancies in underserved regions and sports."
+  dominant_forces:
+    - "Opacity — no national searchable registry of coaches with current NCCP certifications, sport-specific experience, coaching philosophy indicators, and active availability status exists"
+    - "Participant scarcity — coaches at the High Performance level in specific sports and geographic regions are few; the pool of programs that can support a professional coaching position is equally constrained"
+    - "Offering complexity — each coach profile spans NCCP certification level and context, sport-specific experience, athlete development philosophy, administrative capacity, geographic mobility, engagement model, and compensation range"
+    - "Geographic distance — high-performance coaching vacancies concentrate in provincial sport institutes and national training centres; qualified coaches outside those centres are effectively invisible"
+    - "Strategic information withholding — programs do not publicly advertise detailed coaching philosophy requirements; coaches are reluctant to disclose current employment status or minimum compensation requirements"
+  deeperpoint_fit: "KnowledgeSlot curates NCCP certification frameworks across all sport contexts, Coaching Association of Canada competency standards, Own the Podium coaching development criteria, and applicable employment law. Semantic matching encodes coach profile (certification level, sport, competitive level, development philosophy indicators, geographic mobility) against program need (sport, competitive level, certification requirement, vacancy type, location). The trusted intermediary protocol allows programs to share coaching philosophy priorities and coaches to share minimum compensation without premature disclosure. Anticipatory matching is particularly valuable: when a coaching certification is renewed or upgraded, the system resurfaces the coach to programs that previously fell short of the certification requirement."
+  economic_upside: "Coaching quality is the single most significant determinant of athlete development outcomes at every level of Canadian sport. The inability to efficiently match qualified coaches to programs creates vacancy gaps that limit athlete development and waste public investment in coaching certification. Better matching increases coaching deployment rates, reduces geographic concentration of coaching talent, and supports Sport Canada's Long-Term Athlete Development framework."
+
+sponsor_opportunities:
+  - title: "NCCP Coach Registry and Placement Service (SaaS)"
+    type: saas
+    revenue_model: "Annual coach profile subscription ($99–$199/year); sport organization recruiting subscription ($499–$999/year, tiered by number of active searches)"
+    strategic_logic: "The Coaching Association of Canada maintains certification records but has no placement infrastructure. A registry that verifies NCCP certifications in real time, makes coaches searchable by sport and certification level, and surfaces them to programs with matching vacancies fills a gap in the national coaching development system that the CAC itself has acknowledged."
+    recurring: true
+
+  - title: "Coaching Vacancy Management Service"
+    type: managed-service
+    revenue_model: "Per-search managed placement service ($1,500–$3,000); annual talent pipeline advisory retainer ($800/year)"
+    strategic_logic: "PSOs and professional programs that need to fill senior coaching vacancies quickly — because a head coach has left mid-season or a key program development hire is urgent — need managed support, not just a database. A managed placement service that conducts the matching, manages the shortlisting, and coordinates interviews compresses the vacancy timeline from months to weeks."
+    recurring: false
+
+  - title: "Cross-Sport Coaching Transferability Assessment"
+    type: managed-service
+    revenue_model: "Per-coach transferability profile ($149–$299); sport federation cross-sport mobility analysis ($599)"
+    strategic_logic: "Many coaches certified in one sport have directly transferable competencies (periodization, youth development, competition preparation) in adjacent sports. A transferability assessment that documents which competencies cross sport boundaries and maps coaches to adjacent vacancies expands the effective supply pool for programs with limited certification-specific candidates."
+    recurring: false
+
+story:
+  title: "The Certification That Didn't Travel"
+  status: draft
+  summary: "An NSO has been filling an assistant coaching position through an acting appointment for nine months. A coach in the next province has exactly the NCCP certification level and sport-specific experience the position requires, and has been looking for a national program role for over a year. The program doesn't know she exists."
+  characters:
+    - "Sylvie — high-performance director, national swimming organization, Ottawa"
+    - "Marco — NCCP High Performance 2 certified swimming coach, Edmonton, seeking national program position"
+  body: |
+    ## Act A — The Vacancy Problem
+
+    Canada invests substantially in coaching certification. The NCCP pathway — from Community Sport through Competitive to High Performance levels — is rigorous, internationally respected, and maintained by the Coaching Association of Canada with consistent standards across sports and provinces.
+
+    The return on that investment depends on whether certified coaches can find the programs that need their certification level, and whether programs can find the certified coaches who are available and interested. At the High Performance level — the level that matters most for Canada's international competitive outcomes — that connection is made almost exclusively through personal networks cultivated over careers.
+
+    A coach who has built their network in Alberta does not automatically become visible to a national sport organization that has a vacancy in Ottawa. The certification is portable. The visibility is not.
+
+    The following is a fictional account of what changes when a discovery mechanism exists.
+
+    ---
+
+    ## Act B — The Story
+
+    **Sylvie** has been managing an acting appointment in her NSO's national program assistant coaching position for nine months. The previous assistant coach accepted a head coaching role with a provincial program. The NSO's posting — NCCP High Performance 2 required, competitive swimming experience at the national level preferred, national program athlete development philosophy alignment essential — generated eleven applications. Three met the NCCP requirement. Two of the three withdrew after learning the position was based in Ottawa. One did not have national-level competitive experience.
+
+    The NSO registers on the MarketForge coaching placement platform. The position profile specifies: swimming, assistant coaching, NCCP High Performance 2 required, national level athlete experience preferred, Ottawa-based or relocation open, full-time salaried, coaching philosophy — periodization-first, athlete-centred development.
+
+    ---
+
+    **Marco** has been coaching competitive swimming in Edmonton for eleven years. He holds NCCP High Performance 2 certification in swimming, renewed eighteen months ago. He has developed three Alberta provincial champions and one national championship finalist. He has been looking for a national program role for fourteen months. He has submitted two unsolicited applications to NSO programs. Neither had vacancies at the time. He attended one coaching conference and did not connect with the right people.
+
+    His coach profile on the platform specifies: swimming, NCCP High Performance 2, national competitive experience, available for relocation, full-time or senior contract, athlete development philosophy — periodization-first, athlete wellbeing integration.
+
+    The platform matches Marco's profile against Sylvie's position. Certification: NCCP High Performance 2, verified against CAC registry. Sport: swimming confirmed. National competitive experience: confirmed. Relocation: confirmed open. Philosophy alignment: periodization-first confirmed on both profiles.
+
+    ---
+
+    Sylvie receives the match notification with Marco's verified certification record, a summary of his coaching history, and a link to his position profile. She forwards it to the high-performance committee.
+
+    Marco receives a notification that his profile has been surfaced to a national program. He confirms interest through the platform.
+
+    A video interview is scheduled within the week. A site visit follows two weeks later.
+
+    Marco accepts an offer within the month. The acting appointment ends. The national program has its full coaching complement for the spring training cycle.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Marco had the certification. Sylvie had the vacancy. The philosophy alignment was real. The relocation willingness was confirmed. Edmonton and Ottawa are not on different planets.
+
+    The only thing separating them for fourteen months was the absence of a mechanism that makes a certified coach in Edmonton visible to a national sport organization in Ottawa that is actively recruiting for exactly his certification and sport background.
+
+    Personal networks in high-performance sport are deep but narrow. They are concentrated in the programs where you have already worked, the conferences you have attended, and the colleagues who remember you at the right moment. A coach who has not yet worked at the national level has almost no pathway into national program awareness through those networks.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the certified coach findable at the moment the role is posted — with certification verification built in, so the first conversation is about philosophy and fit, not about documentation.
+
+    *Characters are fictional. The credential frameworks — NCCP High Performance 2 certification, Coaching Association of Canada registry, Sport Canada's Long-Term Athlete Development framework — are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

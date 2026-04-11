@@ -1,0 +1,103 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cstartup-research-commercialization
+title: "University Research Commercialization: Small-Campus TTO Matching"
+sector: canadian-startup-ecosystem
+sub_sector: Technology Transfer
+forge_tier: 3
+status: published
+tags: [startup, research, university, commercialization, tech-transfer, remote, canada, opacity, small-campus]
+
+market_example:
+  summary: "Researchers at smaller Canadian universities produce commercially relevant research close to the industries that would benefit most, but lack the TTO capacity to surface it to industry, while companies in adjacent sectors cannot discover research outputs that would accelerate their R&D."
+  problem: "Researchers at smaller Canadian universities — UNBC, Trent, Cape Breton University, Brandon University, Laurentian, UPEI, Royal Roads — produce commercially relevant research across natural resources, marine biology, mining, sustainable agriculture, and northern community services. Their research is produced in communities close to the industries that would benefit most from it. But technology transfer offices at smaller universities have limited industry connection capacity, and industry companies that would benefit from these research outputs cannot discover them through normal channels. Most Canadian technology transfer deal flow concentrates at U of T, UBC, Waterloo, and McGill — by network advantage, not by research quality."
+  dominant_forces:
+    - "Opacity — research outputs at smaller universities are not effectively indexed in discoverable commercial formats; industry can't find what it doesn't know exists"
+    - "Participant scarcity — smaller university TTO offices have limited staff and outreach capacity; potential industry partners in adjacent sectors have limited bandwidth to scan academic databases for relevant IP"
+    - "Geographic distance — research is often done close to the industry it could serve but discovery routes run through major-hub brokerage channels"
+    - "Trust deficit — industry partners are cautious about university IP licensing terms; institutions are cautious about industry commitments to research applicability; both need trusted structuring"
+    - "Regulatory complexity — IP licensing from universities involves institutional ownership structures, revenue sharing agreements, and commercialization milestone frameworks that vary significantly by institution"
+  deeperpoint_fit: "Semantic matching encodes research output profile (application domain, technology readiness level, IP ownership structure, licensing model, commercialization stage requirements) against industry partner profile (technical challenge, R&D budget, regulatory environment, partnership model preference). KnowledgeSlot curates Canadian university IP ownership policies, NRC-IRAP co-innovation programs, federal Innovative Solutions Canada procurement programs, and provincial research commercialization grants. The trusted intermediary protocol manages confidential disclosure of unpublished research and licensor commercial terms before formal LOI. The Deal Brief captures licensing agreement structure: IP scope, exclusivity window, royalty framework, milestone obligations, and research continuation commitments."
+  economic_upside: "Canada underperforms on university research commercialization relative to its research investment. Better matching between commercially relevant research and industry partners — especially in natural resource and community services sectors served primarily by smaller regional universities — would accelerate technology transfer, increase regional economic activity, and reduce the network concentration that channels most Canadian tech transfer through a few major institutions."
+
+sponsor_opportunities:
+  - title: "Regional Research Commercialization Exchange (SaaS)"
+    type: saas
+    revenue_model: "Annual institutional subscription for universities ($1,200–$3,000/year, tiered by research output volume); industry partner annual subscription ($499–$999/year)"
+    strategic_logic: "The federal government funds smaller Canadian universities substantially through NSERC, SSHRC, and CIHR. A platform that increases the commercialization return on that investment is directly aligned with federal research investment objectives and is eligible for federal R&D impact program support."
+    recurring: true
+
+  - title: "Research Commercial Potential Assessment"
+    type: managed-service
+    revenue_model: "Per-research-project commercial potential assessment ($599–$1,200); annual TTO portfolio scanning service ($2,400/year for small institutions)"
+    strategic_logic: "Small university TTOs often don't have the bandwidth to assess commercial potential for all research outputs — they focus on the most obvious IP. A scanning service that reviews the full research portfolio and identifies commercially relevant outputs that have not been filed or promoted expands the effective TTO capacity at institutions with limited staff."
+    recurring: true
+
+  - title: "License Negotiation Facilitation Service"
+    type: managed-service
+    revenue_model: "Per-deal facilitation fee ($1,500–$3,000 for deals under $100K licensing value); annual facilitator retainer for active TTOs ($2,400/year)"
+    strategic_logic: "Most license negotiation failures between small universities and industry occur not because of fundamental incompatibility but because neither party has experience with the other's norms. A facilitation service that normalizes terms, manages the negotiation process, and produces a market-standard license agreement dramatically increases deal closure rates."
+    recurring: false
+
+story:
+  title: "The Mine That Needed the Bioreactor"
+  status: draft
+  summary: "A UNBC environmental engineering researcher has developed a bioreactor design for acid mine drainage treatment that reduces operating costs by 40% compared to standard chemical treatment. A mid-size BC mining company has been running the standard treatment system at $1.8M per year and actively looking for alternatives. The TTO office at UNBC has two staff members. The mining company has never looked at UNBC research."
+  characters:
+    - "Dr. Laila — environmental engineering researcher, University of Northern British Columbia, Prince George"
+    - "Marcus — VP Environment and Sustainability, mid-size BC mining company"
+  body: |
+    ## Act A — The Visibility Problem
+
+    The University of Northern British Columbia sits in Prince George, in the heart of a region whose economy is defined by forestry, mining, and natural resources. UNBC researchers study acid mine drainage, forest carbon, Northern community water systems, and Indigenous land management. Their research is more geographically relevant to British Columbia's natural resource industry than most of what is produced at UBC or SFU.
+
+    UNBC's technology transfer office has two staff. They focus on the highest-potential IP — the research that shows up on their internal scan as most likely to be patentable and licensable. Everything else sits in journals that BC mining companies do not systematically read.
+
+    A BC mining company's VP of Environment reads the journals in her specialization. She does not read broadly enough to catch every UNBC paper published in adjacent engineering sub-disciplines. Neither does anyone else at her company.
+
+    The following is a fictional account of what changes when both parties are discoverable to each other.
+
+    ---
+
+    ## Act B — The Story
+
+    **Dr. Laila** has spent six years developing a passive bioreactor system for acid mine drainage treatment. Her design uses an engineered sulfate-reducing bacterial community in a sequential reactor configuration that converts acidic, metal-laden mine drainage into near-neutral effluent at a fraction of the chemical reagent cost of standard lime treatment. In her pilot tests at a decommissioned mine site in central BC, operating costs ran at $1.1M annually versus the $1.8M baseline for conventional treatment at comparable volume.
+
+    The UNBC TTO filed a provisional patent. The TTO's two-person team has not had bandwidth to do broad industry outreach. One license inquiry has come in from a larger company — they are in preliminary discussions that have been stalled for four months.
+
+    Laila registers her research output on the DeeperPoint research commercialization platform. The profile specifies: acid mine drainage treatment, bioreactor technology, Technology Readiness Level 5, BC-tested, licensing or spin-out open, pilot partnership available, UNBC IP ownership, royalty-based license preferred.
+
+    ---
+
+    **Marcus** is VP Environment and Sustainability at a mid-size BC mining company operating two open-pit copper mines. His acid mine drainage treatment cost has been $1.8M annually per site. He has a board-level directive to reduce environmental operating costs by 25% over three years. He has reviewed two vendor proposals for upgraded lime treatment systems. Neither gets him below $1.4M. He has searched once for "passive acid mine drainage treatment Canada" and found a consultancy that proposed a constructed wetland system not suitable for his site chemistry.
+
+    His company subscribes to the platform. The search profile specifies: acid mine drainage, passive or biological treatment, BC site chemistry compatible, pilot partnership considered, licensing preferred over outright purchase, cost-reduction focus.
+
+    The platform matches Laila's research profile against Marcus's industry need. Technology domain: acid mine drainage confirmed. Treatment approach: bioreactor/biological confirmed. Geographic: BC pilot-tested confirmed. Partnership model: pilot available and licensing available. TRL: 5, appropriate for industry pilot engagement.
+
+    ---
+
+    Marcus receives the match notification with a summary of Laila's research output and its commercial potential assessment. He has not encountered UNBC research in his prior searches.
+
+    He requests access to the research summary package through the platform's trusted disclosure protocol. Laila's TTO receives the request and releases the technical summary and pilot cost data.
+
+    Marcus forwards the summary to his environmental engineering team. Their response: schedule a call with the researcher.
+
+    The call happens the following week. A site visit to one of Marcus's mine operations is scheduled for the month after.
+
+    The companies sign a pilot partnership agreement eight weeks later — a one-year pilot deployment with co-development funding from Marcus's company and an option to negotiate a full commercial license at pilot completion.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Laila's research was published. The provisional patent was filed. The pilot data was real and compelling.
+
+    Marcus was actively spending $1.8M annually on a problem that Laila's research materially solves.
+
+    They are both in British Columbia. The research was tested in British Columbia.
+
+    The discovery failure was not geographic. It was structural: the mechanism that would connect a UNBC bioreactor researcher to a BC mining company VP does not exist in the standard channels through which industry and academia interact.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the research findable at the moment the industry partner is looking for alternatives — not after years of hoping the right conference paper lands on the right desk.
+
+    *Characters are fictional. The research context — acid mine drainage bioreactor treatment, UNBC's environmental engineering research program, BC mining industry environmental operating costs — reflects real conditions in Canadian natural resource research and industry. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

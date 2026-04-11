@@ -1,0 +1,480 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Energy Retrofit Program Contractor Matching — DeeperPoint</title>
+  <meta name="description" content="Municipal and regional energy retrofit programs for low-to-moderate income homeowners are chronically underspent because eligible homeowners cannot find program-qualified contractors, and qualified contractors cannot efficiently identify eligible homeowners in their service area.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 600px; margin: 0 auto 2rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 220px; max-width: 280px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem; overflow-x: auto;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      display: flex; align-items: flex-start; gap: .5rem;
+    }
+    .force-list li::before { content: "A1"; font-size: .7rem; margin-top: 3px; flex-shrink: 0; }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="../index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Municipal Government &middot; Housing and Climate</div>
+      <h1 class="detail-title">Community Energy Retrofit Program Contractor Matching</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">energy</span><span class="blog-tag">retrofit</span><span class="blog-tag">climate</span><span class="blog-tag">housing</span><span class="blog-tag">municipalities</span><span class="blog-tag">canada</span><span class="blog-tag">heat-pump</span><span class="blog-tag">contractors</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Municipalities and regional housing authorities running residential energy retrofit programs face a dual thin market: homeowners eligible for subsidized retrofits cannot easily find contractors qualified under program rules, and qualified contractors cannot efficiently identify and reach eligible homeowners in their service area. Program administrators receive applications from homeowners whose preferred contractors are ineligible, and applications from eligible contractors whose service areas don&#x27;t match applicant locations — producing lengthy delays, program underspend, and frustrated participants.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Search friction — no mechanism connects eligible homeowners with program-qualified contractors in specific geographic service areas</li><li>Regulatory fragmentation — retrofit incentive programs (Canada Greener Homes, provincial programs, utility-funded efficiency programs) have different technical requirements, contractor registration conditions, and payment processes</li><li>Cognitive overload — a homeowner deciding whether to replace their furnace cannot navigate the combination of federal grants, provincial rebates, utility incentives, zero-interest loans, and municipal matching programs to determine which combination applies to their situation</li><li>Offering complexity — each retrofit project involves a unique combination of baseline energy performance, priority measures, available incentives, financing options, and technical specifications that change with each program funding cycle</li><li>Temporal distance — program funding is annual and time-limited; homeowners and contractors must connect during a narrow eligibility window, and delays result in missed fiscal-year deadlines</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching aligns homeowner profiles (house type, current heating system, postal code, income bracket, program eligibility) with contractor profiles (certified measures, service area, program registration status, current capacity) across all applicable programs simultaneously. KnowledgeSlot curates program eligibility rules, technical specifications (NRCan EnerGuide requirements, heat pump specifications, insulation R-value thresholds), contractor registration requirements, and incentive stacking rules by jurisdiction and program year. The Generative Match Story explains to a homeowner exactly which programs they qualify for and why a specific contractor is the right fit. Anticipatory matching proactively notifies eligible homeowners when a qualified contractor is available in their postal code.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Energy retrofit programs are among the highest-leverage municipal climate tools: they reduce emissions, lower energy costs for low-income families, create skilled trades jobs, and improve housing stock. Program underspend caused by matching failure is endemic. Better matching converts announced program budgets into actual retrofitted homes, contractor billings, and measurable emissions reductions.</p>
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Multi-Program Retrofit Incentive Eligibility Calculator</div>
+        <p>No tool exists that calculates a homeowner&#x27;s combined eligibility across federal, provincial, utility, and municipal retrofit programs simultaneously. Building it eliminates the cognitive overload that is the single biggest barrier to retrofit program uptake.</p>
+        <div class="opp-card__revenue">&#128181; Per-homeowner eligibility assessment $15–$25; municipal program portal integration licence ($3,000–$6,000/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Retrofit Contractor Program Registration Management</div>
+        <p>Retrofit contractors must maintain separate registrations for each funding program they participate in, each with different requirements and renewal cycles. A managed registration service converts a time-consuming compliance burden into a subscription service.</p>
+        <div class="opp-card__revenue">&#128181; Per-program contractor registration management $200–$400; annual multi-program registration maintenance ($350–$600/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">EnerGuide Energy Audit Coordination Service</div>
+        <p>Most federal and provincial retrofit programs require a pre- and post-retrofit EnerGuide audit. Coordinating audits with the retrofit project timeline is a logistics problem the platform is positioned to solve — creating a recurring referral stream for every matched homeowner project.</p>
+        <div class="opp-card__revenue">&#128181; Per-audit coordination referral fee $75–$125; certified energy advisor network subscription ($299/year per advisor)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Retrofit Program Outcomes Reporting Service</div>
+        <p>Federal and provincial retrofit funders require documented emissions reduction outcomes. The platform has the project data — house type, measure installed, EnerGuide pre/post ratings — to generate the outcomes report automatically. A recurring reporting product with no incremental data collection burden.</p>
+        <div class="opp-card__revenue">&#128181; Annual outcomes report per program administrator ($1,200–$2,500); funder-facing aggregate emissions reduction report ($800/year)</div>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Heat Pump She Almost Didn&#x27;t Get</div>
+        <p><strong>Characters:</strong> Margaret — homeowner, Kingston, Ontario. OAS/GIS income. 1962 bungalow. Oil furnace., Jerome — owner, HVAC contractor, Kingston area. Certified heat pump installer. Registered for Canada Greener Homes, Enbridge Home Efficiency Rebate, and OntarioSaves.</p>
+        
+        <div class="story-body">
+          <h2>Act A — The Program Nobody Could Navigate</h2>
+<p>Canada has committed billions of dollars to residential energy retrofit programs. The money exists. The eligible homeowners exist. The qualified contractors exist.</p>
+<p>What doesn't exist is a mechanism that connects the three.</p>
+<p>A low-income homeowner in Kingston, Ontario, sitting in a 1962 oil-heated bungalow in February, qualifies — in principle — for:</p>
+<ul>
+<li>The Canada Greener Homes Grant: up to $5,000 for a heat pump installation, contingent on a pre-retrofit EnerGuide audit and installation by a NRCan-listed contractor</li>
+<li>The Enbridge Home Efficiency Rebate: $1,800 for a cold-climate heat pump, if the contractor is Enbridge-registered and the equipment meets the HSPF2 minimum threshold</li>
+<li>OntarioSaves (Ontario Energy Board): up to $5,000 for fuel switching from oil to electric heat, for households below a specified income threshold</li>
+<li>Kingston Community Energy: $1,500 local municipal retrofit matching grant for heritage-era housing stock</li>
+</ul>
+<p>Total incentive: $14,300. Net cost to homeowner for a $18,000 heat pump installation: $3,700.</p>
+<p>Margaret does not know any of this. She has heard of the Canada Greener Homes Grant because her neighbour mentioned it. She called the 1-800 number. The automated system explained the program requirements in eleven steps and asked her to create an online account. She doesn't have reliable internet. She called back. The next available appointment with an energy advisor was nine weeks away.</p>
+<p>She still has oil heat.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Margaret</strong> is seventy-one years old. She owns her home — paid off thirty years ago. Her income is Old Age Security and the Guaranteed Income Supplement, approximately $21,000 per year. Her oil heating bill last winter was $3,200. Her house has an estimated EnerGuide rating of 47, well below the provincial average of 68.</p>
+<p>The marktForge platform's municipal community energy program partnership has identified Margaret's address as a high-priority retrofit candidate through a postal code-based eligibility screening exercise (with her consent, obtained through a community health centre partner who works with seniors in her neighborhood). Her need profile encodes house type, current heating fuel, estimated income bracket, postal code, and program eligibility flags.</p>
+<hr />
+<p><strong>Jerome</strong> runs a four-person HVAC company in the Kingston area. He is a certified heat pump installer (Certified Heat Pump Installer program, TSSA-registered), registered for the Canada Greener Homes contractor list, the Enbridge Home Efficiency Rebate program, and OntarioSaves. He has available booking in the next six weeks. His service area covers Kingston and surrounding postal codes.</p>
+<p>He is registered on the platform and his contractor profile encodes certification status, program registrations, service area (by FSA), current booking capacity, and heat pump equipment lines (all meeting HSPF2 ≥ 10 threshold).</p>
+<p>The platform matches Jerome's profile against Margaret's address. Service area: confirmed. Program registrations: all three applicable programs confirmed. HSPF2 threshold: confirmed. Booking capacity: available.</p>
+<p>Margaret receives a text message through the platform's SMS channel: "You may qualify for up to $14,000 in home heating upgrades. Reply YES to learn more." She replies YES.</p>
+<hr />
+<p>The <strong>Generative Match Story</strong> is generated as a plain-language summary delivered by phone call (via IVR with a live agent option): Margaret's estimated combined incentive amount, the specific programs, the required pre-retrofit EnerGuide audit (which the platform coordinates), and Jerome's availability for the installation. The summary is also mailed to Margaret in large print (she requests this option).</p>
+<p>Margaret says yes to the EnerGuide audit coordination. Jerome is notified of the engagement. The audit happens in ten days. Margaret's EnerGuide pre-retrofit rating is confirmed at 46. All three program applications are initiated with the audit data.</p>
+<p>Jerome installs the heat pump six weeks later. The installation qualifies under all three programs. Margaret's combined incentive cheques total $13,800.</p>
+<p>Her first full winter with the heat pump costs $480 in electricity.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Margaret was always eligible. Jerome was always qualified. The match was always possible.</p>
+<p>What was missing was the mechanism that: identified Margaret as a high-priority retrofit candidate from her postal code and housing type; navigated her multi-program eligibility without requiring her to open an online account or spend nine weeks waiting for a phone appointment; connected her to the specific contractor who was registered for all three programs; and coordinated the EnerGuide audit that all three programs required.</p>
+<p>Each of those steps, individually, is not complex. Together, they constitute a coordination problem that a low-income senior with no reliable internet cannot solve on her own, and that a busy HVAC contractor cannot justify investing marketing resources to solve for one potential customer.</p>
+<p>Program underspend is the measurable consequence. Millions of dollars of federal and provincial retrofit money goes unspent every year not because eligible homeowners don't want warmer homes or lower heating bills, but because they cannot navigate the coordination required to access a program designed to help them.</p>
+<p>What <a href="../../thin-markets.html">thin market infrastructure</a> does is solve the coordination problem as a service — taking on the eligibility navigation, the contractor matching, the audit coordination, and the multi-channel communication that ensures Margaret can participate regardless of internet access.</p>
+<p><em>Margaret and Jerome are fictional. The programs described — Canada Greener Homes Grant, Enbridge Home Efficiency Rebate, OntarioSaves, EnerGuide audit — are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
