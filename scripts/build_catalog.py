@@ -19,7 +19,7 @@ YAML schema for each scenario file:
                            problem and the matching solution. NOT a full problem description.
                            Treat it like a caption, not an intro — the full problem goes in 'problem'.
       problem, dominant_forces, deeperpoint_fit, economic_upside
-    sponsor_opportunities: [{title, type, revenue_model, strategic_logic, recurring}]
+    sponsor_opportunities: [{title, type, revenue_model, strategic_logic, recurring}]  # sponsor or investor opportunities
     story:
       title, status (none|draft|published), summary, characters
       body: |          <- inline markdown story (all three acts)
@@ -588,7 +588,7 @@ def buildIndexPage(scenarios):
         # Search text: title + summary + tags (lowercased for client-side match)
         search_text = " ".join([s.get("title", ""), me.get("summary", ""), " ".join(tags)]).lower()
         tags_html = "".join(f'<span class="scenario-card__tag">{escHtml(t)}</span>' for t in tags)
-        s_label = f"{sponsor_count} sponsor opp" + ("s" if sponsor_count != 1 else "")
+        s_label = f"{sponsor_count} sponsor/investor opp" + ("s" if sponsor_count != 1 else "")
         cards_html += f"""
         <a href="{sid}.html" class="scenario-card reveal"
            data-sector="{escHtml(sector)}"
@@ -933,7 +933,7 @@ def buildDetailPage(s):
       </div>"""
         tab2 = opps_html
     else:
-        tab2 = '<div class="panel-section"><p>No sponsor opportunities documented yet.</p></div>'
+        tab2 = '<div class="panel-section"><p>No sponsor or investor opportunities documented yet.</p></div>'
 
     # --- Tab 3: Story (self-contained inline) ---
     story_status = story.get("status", "none") if story else "none"
@@ -999,7 +999,7 @@ def buildDetailPage(s):
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
-        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor Opportunities</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
       </nav>
       <div id="tab-market" class="tab-panel active">{tab1}</div>
       <div id="tab-story" class="tab-panel">{tab3}</div>
