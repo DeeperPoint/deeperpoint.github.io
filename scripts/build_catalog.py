@@ -369,6 +369,54 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
 
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* --- Story placeholder --- */
     .story-placeholder {
       text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
@@ -777,6 +825,28 @@ def buildIndexPage(scenarios):
       if (e.key === 'Escape') document.querySelectorAll('.fdd').forEach(function (f) { f.classList.remove('fdd--open'); });
     });
 
+    // -- Select collection (curated preset) --
+    window.selectCollection = function (sectors, tags, activeCardId) {
+      query = ''; activeSectors = {}; activeTags = {}; activeTier = 'all';
+      if (searchInput) searchInput.value = '';
+      document.querySelectorAll('.sector-cb, .tag-cb').forEach(function (cb) { cb.checked = false; });
+      updateTierBtns();
+      sectors.forEach(function (s) {
+        activeSectors[s] = true;
+        setCheckbox('.sector-cb', s, true);
+      });
+      tags.forEach(function (t) {
+        activeTags[t] = true;
+        setCheckbox('.tag-cb', t, true);
+      });
+      document.querySelectorAll('.col-card').forEach(function (c) { c.classList.remove('active'); });
+      var card = document.getElementById(activeCardId);
+      if (card) card.classList.add('active');
+      var countEl = document.querySelector('.cat-count');
+      if (countEl) countEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      applyFilters();
+    };
+
     applyFilters();
   })();
   </script>"""
@@ -801,6 +871,67 @@ def buildIndexPage(scenarios):
         participant types. That pattern is harder to dismiss than any one example. Browse by
         sector, tag, or build complexity, and see how many you find compelling.
       </p>
+
+      <!-- Curated Collections -->
+      <div class="collections-panel">
+        <div class="collections-panel__label">&#128204; Browse by collection</div>
+        <div class="collections-grid">
+          <button class="col-card" id="col-education"
+            onclick="selectCollection(['canadian-education'], [], 'col-education')"
+            title="Canadian Education">
+            <span class="col-card__icon">&#127891;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Canadian Education</span>
+              <span class="col-card__count">10 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-crossborder"
+            onclick="selectCollection(['canadian-education'], ['cross-border'], 'col-crossborder')"
+            title="Cross-Border Learning">
+            <span class="col-card__icon">&#127758;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Cross-Border Learning</span>
+              <span class="col-card__count">4 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-developing"
+            onclick="selectCollection(['developing-economy'], [], 'col-developing')"
+            title="Developing Economies">
+            <span class="col-card__icon">&#127807;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Developing Economies</span>
+              <span class="col-card__count">10 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-manufacturing"
+            onclick="selectCollection(['manufacturing'], [], 'col-manufacturing')"
+            title="Manufacturing &amp; Trades">
+            <span class="col-card__icon">&#9881;&#65039;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Manufacturing &amp; Trades</span>
+              <span class="col-card__count">12 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-social"
+            onclick="selectCollection(['social-enterprise'], [], 'col-social')"
+            title="Social Enterprise">
+            <span class="col-card__icon">&#129309;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Social Enterprise</span>
+              <span class="col-card__count">10 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-realestate"
+            onclick="selectCollection(['construction','real-estate-assembly'], [], 'col-realestate')"
+            title="Real Estate &amp; Construction">
+            <span class="col-card__icon">&#127959;&#65039;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Real Estate &amp; Build</span>
+              <span class="col-card__count">15 scenarios</span>
+            </span>
+          </button>
+        </div>
+      </div>
 
       <!-- Search -->
       <div class="cat-search-wrap">

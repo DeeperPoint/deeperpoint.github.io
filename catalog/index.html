@@ -306,6 +306,14 @@
       border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
       margin: 1rem 0; color: #94a3b8; font-style: italic;
     }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -354,14 +362,6 @@
     @media (max-width: 540px) {
       .collections-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    .story-blog-link {
-      display: inline-flex; align-items: center; gap: .5rem;
-      margin-top: 1.5rem; padding: .5rem 1.25rem;
-      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
-      color: #818cf8; text-decoration: none; font-size: .82rem;
-      font-weight: 600; transition: background .15s;
-    }
-    .story-blog-link:hover { background: rgba(99,102,241,.15); }
 
     /* --- Story placeholder --- */
     .story-placeholder {
@@ -4115,40 +4115,12 @@
       });
     });
 
-    // -- Select collection (curated preset) --
-    window.selectCollection = function (sectors, tags, activeCardId) {
-      // clear everything first
-      query = ''; activeSectors = {}; activeTags = {}; activeTier = 'all';
-      if (searchInput) searchInput.value = '';
-      document.querySelectorAll('.sector-cb, .tag-cb').forEach(function (cb) { cb.checked = false; });
-      updateTierBtns();
-      // apply sectors
-      sectors.forEach(function (s) {
-        activeSectors[s] = true;
-        setCheckbox('.sector-cb', s, true);
-      });
-      // apply tags
-      tags.forEach(function (t) {
-        activeTags[t] = true;
-        setCheckbox('.tag-cb', t, true);
-      });
-      // highlight active card
-      document.querySelectorAll('.col-card').forEach(function (c) { c.classList.remove('active'); });
-      var card = document.getElementById(activeCardId);
-      if (card) card.classList.add('active');
-      // scroll to results
-      var countEl = document.querySelector('.cat-count');
-      if (countEl) countEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      applyFilters();
-    };
-
     // -- Clear all --
     if (clearBtn) {
       clearBtn.addEventListener('click', function () {
         query = ''; activeSectors = {}; activeTags = {}; activeTier = 'all';
         if (searchInput) searchInput.value = '';
         document.querySelectorAll('.sector-cb, .tag-cb').forEach(function (cb) { cb.checked = false; });
-        document.querySelectorAll('.col-card').forEach(function (c) { c.classList.remove('active'); });
         updateTierBtns();
         applyFilters();
       });
@@ -4174,6 +4146,28 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') document.querySelectorAll('.fdd').forEach(function (f) { f.classList.remove('fdd--open'); });
     });
+
+    // -- Select collection (curated preset) --
+    window.selectCollection = function (sectors, tags, activeCardId) {
+      query = ''; activeSectors = {}; activeTags = {}; activeTier = 'all';
+      if (searchInput) searchInput.value = '';
+      document.querySelectorAll('.sector-cb, .tag-cb').forEach(function (cb) { cb.checked = false; });
+      updateTierBtns();
+      sectors.forEach(function (s) {
+        activeSectors[s] = true;
+        setCheckbox('.sector-cb', s, true);
+      });
+      tags.forEach(function (t) {
+        activeTags[t] = true;
+        setCheckbox('.tag-cb', t, true);
+      });
+      document.querySelectorAll('.col-card').forEach(function (c) { c.classList.remove('active'); });
+      var card = document.getElementById(activeCardId);
+      if (card) card.classList.add('active');
+      var countEl = document.querySelector('.cat-count');
+      if (countEl) countEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      applyFilters();
+    };
 
     applyFilters();
   })();
