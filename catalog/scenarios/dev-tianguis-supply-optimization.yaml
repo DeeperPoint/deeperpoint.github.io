@@ -1,0 +1,139 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: dev-tianguis-supply-optimization
+title: "Tianguis and Street Vendor Supply Chain Optimization — Mexico"
+card_title: "Tianguis Vendor Supply Matching"
+sector: developing-economy
+sub_sector: "Urban Informal Commerce & Last-Mile Distribution"
+forge_tier: 1
+status: published
+tags: [thin-markets, mexico, CEDA, tianguis, informal-commerce, urban, logistics, cosolvent, market-design]
+
+market_example:
+  summary: "Mexico City's 1,500+ tianguis vendors and 50,000+ street food operators source produce individually from CEDA each pre-dawn, creating fragmented, inefficient procurement trips. A collective buying and delivery platform can dramatically reduce their sourcing cost while improving product freshness — without disrupting the informal commercial system that feeds 22 million people."
+  problem: "Mexico City's tianguis (mobile street market) system is a remarkable pre-technology solution to last-mile food distribution — but its procurement model is deeply inefficient. Individual tianguis operators make individual pre-dawn trips to CEDA to buy their daily inventory, competing with thousands of other small buyers for the same produce at the same bodeguero stalls. They travel alone, buy in small quantities, pay individual prices, and return hours before their markets open — exhausted and with produce that has already been handled twice. A collective procurement platform — matching tianguis by product need, coordinating buying pools that qualify for wholesale pricing, and routing CEDA delivery to aggregation points — could cut sourcing cost by 15–30% while improving freshness and reducing the dangerous pre-dawn solo transit."
+  dominant_forces:
+    - "Scale fragmentation — Individual tianguis operators lack volume to negotiate wholesale pricing with CEDA bodegueros operating at 100+ tonne daily throughput"
+    - "Discovery failure — Tianguis operators in adjacent neighborhoods do not know each other's product needs and cannot spontaneously form buying pools"
+    - "Information asymmetry — Individual vendors cannot track CEDA price movements across multiple bodeguero stalls before committing to a purchase"
+    - "Temporal urgency — All procurement must happen in the same pre-dawn window (2–5 AM), compressing the opportunity for any coordination"
+    - "Trust deficit — Collective buying requires shared payment arrangements among vendors who have no established trust relationship beyond neighborhood acquaintance"
+  deeperpoint_fit: "CoSolvent matches tianguis operators by product need profile (crops, quantities, quality grade, pickup neighborhood) and coordinates buying pools — groups of 5–15 operators who pool their daily order for a single bodeguero delivery or aggregation-point pickup. KnowledgeSlot tracks real-time CEDA price movements by crop and bodeguero, surfacing the best price-quality combinations for each pool's product list. A Telegram or WhatsApp-based order aggregation interface requires no special app: vendors submit their daily list by message, the platform groups compatible orders, and confirms the pool composition and delivery logistics before the first vendor would need to leave for CEDA."
+  economic_upside: "Mexico City's 1,500+ active tianguis involve 50,000–80,000 vendors. Average daily procurement cost per vendor is estimated at 800–2,500 pesos. A 20% procurement cost reduction through collective buying represents $3–9M in annual vendor cost savings across the system. Platform revenue: per-pool coordination fee (50–100 pesos per pool delivery), CEDA bodeguero subscription for pre-organized bulk order access ($500–$2,000/month), and CDMX government urban food security program sponsorship."
+
+sponsor_opportunities:
+  - title: "Collective Buying Pool Coordination SaaS"
+    type: saas
+    revenue_model: "Per-pool coordination fee (50–100 MXN per pool per delivery). Vendor subscription option for daily pool access ($80–$250/month, unlimited pool membership)."
+    strategic_logic: "The tianguis system functions because of relationships and routines. A platform that respects those routines — submitting a daily order by WhatsApp, receiving confirmation before leaving home — creates adoption through convenience, not disruption. The proof of value is the first delivery: 20% cost reduction visible in cash."
+    recurring: true
+
+  - title: "CEDA Bodeguero Pre-Order SaaS"
+    type: saas
+    revenue_model: "Monthly subscription for CEDA bodegueros who receive pre-organized pool orders ($500–$2,000/month). Bodegueros gain predictable order volume and efficient loading; the platform captures the aggregation premium."
+    strategic_logic: "Bodegueros spend 30–40% of their pre-dawn operation managing the chaotic arrival of hundreds of individual small buyers. Pre-organized pool orders reduce their handling cost and allow better pre-positioning of high-demand produce. This is a direct operating cost improvement they will pay for."
+    recurring: true
+
+  - title: "Urban Food Security Government Contract"
+    type: managed-service
+    revenue_model: "Annual managed service contract with CDMX Secretaría de Desarrollo Económico for tianguis supply chain transparency program ($200,000–$500,000/year). Includes price monitoring, vendor income tracking, neighborhood food access reporting."
+    strategic_logic: "CDMX government actively monitors tianguis as a food security infrastructure. A platform that provides real-time data on vendor numbers, product availability, neighborhood coverage, and price trends is a tool the city government needs and will fund."
+    recurring: true
+
+  - title: "Producer-Tianguis Direct Connection Commerce"
+    type: commerce-extension
+    revenue_model: "Transaction fee on matched producer-to-tianguis direct sales (1–2% of transaction value). Applicable when organized small farm cooperatives outside the coyote chain can supply directly to collective tianguis buying pools."
+    strategic_logic: "Tianguis buying pools represent a new demand-side aggregation structure that regional cooperatives can reach directly — bypassing CEDA for high-freshness produce if the platform can coordinate pickup logistics. This is the CEDA disintermediation story the produce sector has been waiting for."
+    recurring: false
+
+story:
+  title: "The Pool That Beat the Dark"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Doña Carmen Ríos - tianguis fruit vendor, Coyoacán market rotation, Mexico City"
+    - "Pedro García - tianguis vegetable vendor, same rotation circuit"
+    - "Marcos Valdez - CEDA bodeguero, Pasillo 4 produce section"
+  summary: "Doña Carmen and Pedro have worked adjacent stalls in the Coyoacán tianguis circuit for eight years. They have never coordinated their CEDA trips — until the platform shows them that their daily product lists are almost perfectly complementary and their combined order qualifies for a direct delivery that neither could afford alone."
+  body: |
+    ## Act A - The Market Structure
+
+    The tianguis system that serves Mexico City's 22 million residents operates through 1,500+
+    rotating street markets that appear in specific neighborhoods on specific days of the week.
+    Each tianguis has regular vendors who follow the same circuit week after week, building
+    neighborhood relationships that are the foundation of the system's resilience.
+
+    But the supply side of this system is a daily chaos. Each vendor leaves for CEDA individually
+    in the dark — 2 AM, 3 AM — navigates the market alone, buys from whichever bodeguero they
+    know, and returns hours later to set up their stall. The process is physically exhausting,
+    personally risky (pre-dawn solo transit in a megacity), and commercially inefficient.
+
+    Adjacent vendors who need different produce buy separately at the same stalls, paying
+    individual prices when they could be pooling orders, qualifying for volume pricing, and
+    — if a delivery service were involved — not making the trip at all.
+
+    ---
+
+    ## Act B - The Story
+
+    **Doña Carmen** sells fruit. Her daily CEDA list: 30 kg mangoes, 25 kg mamey, 15 kg
+    guavas, 20 kg strawberries in season. She leaves at 2:30 AM three times a week.
+    She is 58 years old.
+
+    **Pedro** sells vegetables from the stall beside her: 40 kg tomatoes, 25 kg avocados,
+    15 kg nopal, 10 kg chiles, 20 kg zucchini. He makes the same trip.
+
+    They have worked beside each other since 2016. They have never coordinated a CEDA trip.
+    There was no mechanism to do it — no shared order system, no delivery option that served
+    the tianguis pickup locations, no way to know that their combined order of 200 kg would
+    qualify for **Marcos Valdez**'s minimum wholesale delivery of 180 kg to a neighborhood
+    aggregation point.
+
+    The platform changes this. A tianguis cooperative coordinator in the Coyoacán circuit
+    registers 14 vendors with the platform, collects their standard daily product lists, and
+    runs the pool matching algorithm.
+
+    The platform identifies that Carmen and Pedro's combined produce list — plus three other
+    vendors in their circuit who need tomatoes, mangoes, and avocados — totals 420 kg of
+    overlapping CEDA categories. It constructs a buying pool of five vendors, calculates the
+    combined order for Marcos's bodega in Pasillo 4, and presents the pool to all five vendors
+    via WhatsApp at 10 PM the night before.
+
+    **Marcos**, who has a standing subscription with the platform, receives the organized order
+    by 11 PM. His staff pre-pulls the order. At 3:30 AM, a platform-coordinated transport
+    service delivers the assembled order to a Coyoacán neighborhood aggregation point —
+    a security-controlled loading bay that the cooperative has arranged with a local business.
+
+    Carmen and Pedro arrive at 4:30 AM. The produce is there. Pre-weighed. Tagged with
+    each vendor's portion.
+
+    Carmen does not get into her car until 4:00 AM. She is home by 5:30 instead of 7:00.
+    Her produce has spent less time in transit. Her cost is 19% lower than her individual
+    CEDA price because the pool order qualified for Marcos's wholesale tier.
+
+    She is at her stall when the tianguis opens.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Carmen and Pedro are not strangers. They have worked two meters apart for eight years.
+    They have never coordinated their CEDA trips because no mechanism existed to do it:
+    no shared order platform, no pooled payment system, no delivery option matched to their
+    logistics reality.
+
+    The tianguis system feeds Mexico City because 50,000 small entrepreneurs absorb what a
+    corporate distribution system would reject as uncommercially small. The platform does not
+    replace that system. It makes it more efficient — reducing the procurement cost and physical
+    burden that is slowly forcing aging tianguis operators out of the market.
+
+    For Marcos in Pasillo 4, the pre-organized pool order means he knows his day's sales at
+    midnight instead of guessing at 3 AM. His margins improve because he pre-pulls the right
+    produce instead of scrambling to fill individual orders from bins that have been picked over
+    by a hundred prior customers.
+
+    The system continues. The participants are less exhausted and better paid. That is the
+    whole goal.
+
+    *Characters are fictional. Mexico City's tianguis system, CEDA operations, and bodeguero
+    pricing dynamics are real. [DeeperPoint](../../marketforge.html) is building the
+    infrastructure this story describes.*

@@ -1,0 +1,520 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diaspora-Funded Remote Healthcare Coordination — Ethiopia / Mexico — DeeperPoint</title>
+  <meta name="description" content="An Ethiopian-Canadian in Toronto wants to arrange verified nursing care for an aging parent in Addis Ababa. A Mexican-American in Houston needs to coordinate specialist care for a family member in Oaxaca. In both cases the buyer has money, the local provider exists, and only the trust infrastructure is missing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Developing Economy &middot; Healthcare Access &amp;amp; Diaspora Services</div>
+      <h1 class="detail-title">Diaspora-Funded Remote Healthcare Coordination — Ethiopia / Mexico</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">thin-markets</span><span class="blog-tag">healthcare</span><span class="blog-tag">diaspora</span><span class="blog-tag">ethiopia</span><span class="blog-tag">mexico</span><span class="blog-tag">trust</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">remote-oversight</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Diaspora communities in North America and Europe routinely support family healthcare in home countries. The unmet need is verified healthcare coordination — arranging, monitoring, and paying for nursing attendance, medication management, specialist referrals, and rehabilitation care for patients the diaspora family member cannot visit. The challenge is identical to the diaspora property management problem: the buyer cannot project presence across 8,000 kilometres; the local caregiver has no mechanism to signal verified competence; and the trust gap between these parties eats significant value — either through unverified care arrangements, costly family emergency trips, or simply deferred care. No verified healthcare coordination market exists for this segment in either country.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Trust deficit — Diaspora patient advocates cannot verify caregiver attendance, medication adherence, or care quality from abroad</li><li>Discovery failure — Qualified nurses and home health aides in Addis Ababa or Oaxaca have no mechanism to reach diaspora clients who can pay above-market rates</li><li>Information asymmetry — Diaspora clients do not know local healthcare system standards, caregiver licensing requirements, or medication pricing</li><li>Geographic dispersion — Patients in secondary cities and rural areas are further from qualified care, compounding the matching problem</li><li>Verification gap — No existing directory of home health providers is vetted for diaspora-grade accountability standards</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>CoSolvent builds caregiver profiles with verified competence signals — nursing license, care specialization (geriatric, post-surgical, chronic disease management), language, location, daily rate, and availability — matched against patient care profiles built by diaspora coordinators (medical condition, care hours required, medication schedule, reporting requirements). KnowledgeSlot carries local healthcare licensing standards, medication guides in local languages, Telebirr and Remitly payment integration protocols, and — critically — a Virtual Caregiver Monitoring module: geotagged attendance photos, AI-assisted medication adherence tracking using phone camera pill identification, and structured daily reporting templates the caregiver submits via WhatsApp or Telegram.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Ethiopia&#x27;s diaspora sends $5B+ per year in remittances; a significant fraction supports family health expenses with poor accountability. Mexico-US remittance healthcare payment is estimated at $2–4B annually. A verified coordination platform capturing 0.5% of this flow as service fees on verified, escrow-backed care contracts represents $35–50M in annual revenue. Network effect: verified caregivers build tracked records; diaspora families build usage history. Both sides accumulate platform-verifiable credentials that have value independent of any single transaction.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Second Call at 3 AM</div>
+        <p><strong>Characters:</strong> Almaz Teshome - Ethiopian-Canadian nurse practitioner, Toronto, Nurse Selam Kebede - licensed home health nurse, Addis Ababa, Dr. Mikael Haile - geriatric consultant, platform facilitator</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>Ethiopia's home healthcare sector is fragmented and largely informal. Qualified nurses work
+primarily in public hospitals. Home health as a professional category barely exists outside
+Addis Ababa's small private hospital sector. The families who need home care for post-surgical
+or chronically ill relatives in their homes manage through family rotation — exhausting,
+undocumented, and clinically inconsistent.</p>
+<p>For the diaspora segment — families where the adult children who would normally coordinate
+care are in Toronto, London, or Houston — the situation is structurally impossible. There is
+no directory of vetted home health providers. There is no payment mechanism that releases
+funds only when care is verified. There is no way to know whether the nurse arrived, whether
+the medication was given, or whether the patient's condition changed between visits.</p>
+<p>The result is a market where diaspora families either fly home (expensive, disruptive, and
+temporary) or wire money with no accountability and hope for the best. Both options are
+expressions of a trust gap that the infrastructure has never tried to close.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Almaz Teshome</strong> knows the system. She is a nurse practitioner, she understands what
+post-surgical care should look like, and she knows that what her mother received after
+a hip replacement at the private clinic in Bole was not adequate. A relative checked in
+twice a day. The medication schedule was not followed consistently. Nobody was monitoring
+her mother's wound site.</p>
+<p>Almaz used the platform six months ago to manage a property renovation. She opens it again
+at 6:30 AM Toronto time — Addis is eight hours ahead. Her mother was discharged two days
+ago. She needs a verified home health nurse, seven days a week, morning and evening, for
+six weeks. She can pay 4,500 birr per day — above the local private nurse market rate —
+for someone who will document everything.</p>
+<p>Her care requirement profile: post-surgical hip replacement, 74-year-old woman, Bole
+district, Addis Ababa. Wound care. Mobility assistance. Medication management (the
+platform's Knowledge Slot pulls up the discharge medication list and flags the anticoagulant
+as requiring daily monitoring). Daily photo documentation. WhatsApp reporting to Almaz.
+Seven mornings and seven evenings per week for six weeks.</p>
+<p><strong>Selam Kebede</strong> is a licensed nurse with eight years of hospital experience and two years
+of private home care work. She registered on the platform six months ago through the
+Ethiopian Diaspora Business Association's healthcare partnership. Her profile: geriatric
+care experience, wound care certification, Bole/Sarbet coverage area, Amharic and basic
+English, 3,200 birr daily for full-day availability.</p>
+<p>The match is structural. Selam's competence profile — wound care, geriatric, Bole, licensed —
+maps precisely against Almaz's care requirements. The platform generates a Generative Match
+Story: nurse profile, competence verification, care plan compatibility analysis, and
+proposed monitoring protocol (morning attendance photo, wound photo, medication photo at
+each administration, evening summary submitted through Telegram bot).</p>
+<p>Almaz reviews Selam's verified profile — three previous diaspora client reviews, wound care
+certification photo, nursing license registration number cross-referenced against the Ethiopian
+Health and Nutrition Research Institute database. She approves the match.</p>
+<p>The first morning, Selam sends a geotagged arrival photo from outside the house at 7:02 AM.
+The platform timestamps it. She sends a wound photo — the platform's image analysis flags
+no signs of infection. She sends a medication photo — two tablets, identified correctly by
+the AI against the discharge prescription. Almaz sees all of this on her dashboard at 11 PM
+Toronto time, while finishing a shift of her own.</p>
+<p>Six weeks. Forty-two morning visits. Forty-two evening visits. Every one documented.
+The wound heals without complication. Almaz's mother regains mobility on schedule.
+Almaz does not get on a plane.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>There are qualified nurses in Addis Ababa who can do exactly what Selam does.
+There are diaspora families who can pay for exactly what Almaz needs.
+The market between them does not exist — not because either party is missing, but because
+the trust infrastructure to connect them has never been built.</p>
+<p>The platform does not provide the nursing care. Selam does that. The platform provides
+the verifiable presence that transforms a trust problem into a working market.</p>
+<p>For Selam, the platform opened access to a client segment that pays 40% above her
+previous private care rate — and whose payment clears within 48 hours via verified
+escrow, rather than the delayed, contested payments she dealt with before.
+Four more diaspora clients followed from Almaz's referral within two months.</p>
+<p><em>Characters are fictional. The diaspora healthcare coordination market dynamics, Ethiopia's
+nursing licensing system, Telebirr payment infrastructure, and post-surgical care protocols
+are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Diaspora Healthcare Coordination SaaS</div>
+        <p>Diaspora families currently pay for peace of mind through flight tickets ($2,000–$8,000 per emergency visit). A $75/month verified coordination service is an extraordinary value substitution — and the client base is geographically concentrated in diaspora communities of Toronto, London, Houston, Frankfurt, where word of mouth is dense.</p>
+        <div class="opp-card__revenue">&#128181; Monthly subscription per active care case ($45–$120/month depending on monitoring intensity). Includes caregiver matching, attendance tracking, medication reporting, and escrow payment management.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Caregiver Credential Marketplace</div>
+        <p>Qualified home health workers in Ethiopia and Mexico have no mechanism to signal above-market competence to the diaspora client segment. The platform creates that signal — and caregivers who earn it gain access to a client segment paying 2–3x local market rates.</p>
+        <div class="opp-card__revenue">&#128181; Caregiver registration fee ($15–$40/year). Premium placement subscription for caregivers with verified language skills, specialty certifications, or client review scores ($80–$200/year).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Specialized Eldercare Coordination</div>
+        <p>As the diaspora generation ages, offshore eldercare coordination for parents who cannot emigrate becomes a growing, high-value need. The platform&#x27;s AI monitoring infrastructure is the foundation; the managed service layer converts it into a premium, recurring revenue stream.</p>
+        <div class="opp-card__revenue">&#128181; Premium managed case management for complex eldercare ($250–$500/month). Includes quarterly nurse practitioner review calls, medication reconciliation, and family reporting dashboard.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Healthcare Payment Escrow Commerce</div>
+        <p>The diaspora client&#x27;s core problem is payment without verification. Escrow tied to verified care events resolves the trust gap — and generates revenue from the payment flow the diaspora is already making, restructured around accountability milestones.</p>
+        <div class="opp-card__revenue">&#128181; 1–2% escrow fee on milestone-based healthcare payment disbursements (verified attendance, medication delivery confirmation, care report submission).</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

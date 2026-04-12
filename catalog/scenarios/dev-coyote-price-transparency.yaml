@@ -1,0 +1,134 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: dev-coyote-price-transparency
+title: "Coyote Chain Price Transparency — Mexico Smallholder Markets"
+card_title: "Smallholder Farm-Gate Price Discovery"
+sector: developing-economy
+sub_sector: "Agricultural Price Discovery & Market Access"
+forge_tier: 1
+status: published
+tags: [thin-markets, agriculture, price-discovery, mexico, smallholder, CEDA, information-asymmetry, knowledgeslot]
+
+market_example:
+  summary: "Mexican smallholders selling to coyote aggregators have no visibility into CEDA wholesale prices — a deliberate information asymmetry that drives farm-gate pricing. A mobile price transparency layer, combined with alternative buyer matching for qualified volumes, can shift the power balance at the farm gate without eliminating the coyote's genuine logistics function."
+  problem: "The coyote system that moves produce from Mexico's smallholder farms to CEDA and regional wholesale markets depends structurally on information asymmetry. Coyotes know current wholesale prices in Mexico City; farmers do not. This asymmetry is not a market imperfection — it is the coyote's core competitive asset. Farmers who cannot know the true market price for their chiles, tomatoes, or avocados this morning cannot negotiate. They take whatever price is offered or watch the crop rot. This is not true in every case: some experienced smallholders know the approximate seasonal range, and some cooperative arrangements partially compensate. But for the majority of the 3.5 million smallholder families in Mexico, price discovery at the moment of sale is structurally prevented."
+  dominant_forces:
+    - "Information asymmetry — CEDA and regional wholesale prices are known to coyotes and withheld from farmers"
+    - "Temporal urgency — Perishable crops must be sold within hours of harvest; the farmer cannot wait for a second price offer"
+    - "Dependency — The coyote's truck and cash are the only available buy-side for most smallholders in most corridors"
+    - "Geographic isolation — Farms in rural Oaxaca, Puebla, and Guerrero have intermittent internet and limited access to price information services"
+    - "Aggregation barrier — Individual smallholder volumes are too small to deal directly with CEDA bodegueros, making some form of aggregation intermediary structurally necessary"
+  deeperpoint_fit: "A lightweight price transparency layer — integrated into the KnowledgeSlot and accessible via voice call or basic SMS in Spanish — delivers real-time CEDA and regional wholesale prices for specific crops to farmers at the point of sale. Farmers who have an alternative aggregation option (cooperative, registered buyer cluster) receive a match alert when platform-registered buyers are purchasing in their corridor. The platform's price data improves farmer negotiating leverage without requiring the farmer to own transport or deal directly with CEDA. CoSolvent facilitates direct buyer-farmer connections only when alternative aggregation logistics are available — preserving the coyote's genuine logistics function where it is the only available option."
+  economic_upside: "Mexico's smallholder sector generates roughly $15B in annual farm-gate production. USDA and CONEVAL studies suggest the coyote information asymmetry costs smallholders 15–25% of potential farm-gate value — approximately $2.5–3.5B annually. A price transparency platform that reduces this asymmetry by 30–40% redirects $750M–$1.4B per year toward smallholder income. Platform revenue: SMS price alert subscription ($2–5/month per farmer), cooperative aggregation matching fee (0.5–1% of transaction value), data licensing to agricultural banks and crop insurance providers."
+
+sponsor_opportunities:
+  - title: "SMS/Voice Price Alert Subscription"
+    type: saas
+    revenue_model: "Monthly subscription per farmer ($2–$5/month). Crop-specific, corridor-specific CEDA and regional wholesale price alerts delivered at harvest time via SMS or IVR voice call."
+    strategic_logic: "This is the lowest-barrier, highest-impact intervention possible. A farmer who knows that CEDA closed yesterday at 28 pesos per kilogram for Roma tomatoes — and the coyote is offering 14 — has information she has never had before. The subscription cost is recovered in a single negotiation."
+    recurring: true
+
+  - title: "Cooperative Buyer Matching"
+    type: saas
+    revenue_model: "Transaction fee on matched coyote-bypass sales (0.75–1.5% of farm-gate value). Applicable only when platform-registered alternative buyers with transport are operating in the corridor."
+    strategic_logic: "For corridors where cooperative buying alternatives exist, the platform can match registered buyers with aggregated smallholder supply on a schedule — turning what was a speculative spot market into a predictable purchase arrangement."
+    recurring: true
+
+  - title: "Agricultural Finance Data Licensing"
+    type: commerce-extension
+    revenue_model: "Annual data license to agricultural banks, crop insurance providers, and SAGARPA for corridor-level price and volume data ($15,000–$60,000/year per data subscriber)."
+    strategic_logic: "Verified farm-gate transaction data — linked to crop type, corridor, season, and quality grade — is a dataset that agricultural lenders and insurers need for pricing and underwriting. The platform generates it as a byproduct of normal operations."
+    recurring: true
+
+  - title: "Coyote-to-Platform Transition Service"
+    type: managed-service
+    revenue_model: "Onboarding fee per coyote registered as a platform-affiliated transport operator ($200–$500). Revenue share on platform-dispatched loads (0.5–1% of load value)."
+    strategic_logic: "The platform's goal is not to eliminate coyotes — it is to discipline their pricing and improve system-wide efficiency. Coyotes who register on the platform as transport operators gain access to pre-matched loads (no speculative buying risk) in exchange for transparent pricing and verified delivery reporting."
+    recurring: false
+
+story:
+  title: "The Price She Didn't Know"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "María Xochitl - chile farmer, San Marcos Tlapazola, Oaxaca"
+    - "Don Aurelio - coyote aggregator, Tlacolula corridor"
+    - "Lucía Vásquez - cooperative coordinator, CEDICAR Oaxaca NGO"
+  summary: "María has grown chiles for twenty years and has never known the price at CEDA the morning a coyote arrives at her gate. One text message changes the negotiation — and reveals a cooperative alternative buyer operating in her corridor."
+  body: |
+    ## Act A - The Market Structure
+
+    The Tlacolula valley east of Oaxaca City is chile country. Hundreds of smallholder families
+    grow pasilla negro, ancho, and mulato varieties that are essential to Oaxacan black mole and
+    exported dried to the United States, Europe, and Japan. The valley produces a significant
+    fraction of Mexico's dried chile export supply.
+
+    The harvest sequence is predictable. Chiles ripen in waves. When the first wave peaks,
+    coyotes circulate the valley, buying from farm after farm, filling trucks with whatever
+    the farmer will accept that morning. The coyote knows the price in CEDA's Chile section.
+    The farmer does not.
+
+    This structure has operated for generations. It is not uniquely exploitative — the coyote
+    provides a genuine service: aggregation, transport, working capital advance. But the
+    information asymmetry embedded in the arrangement means the farm-gate price bears no visible
+    relationship to the price two hundred kilometres away in Mexico City.
+
+    ---
+
+    ## Act B - The Story
+
+    **María Xochitl** is 52 years old and has grown chiles since she was a girl. Her family
+    farms two hectares in the foothills above San Marcos Tlapazola. She produces approximately
+    three tonnes of dried pasilla negro per season — excellent quality, consistent size, the
+    regional variety that Mexico City's mole cooks prefer.
+
+    Last October, she registered with her community's cooperative program. The cooperative
+    issued her a phone number for the NGO's platform — a number she could call or text to
+    receive CEDA chile prices each morning during harvest week.
+
+    On the morning **Don Aurelio** arrived at her gate in his truck, María had already received
+    a text at 6:15 AM: *"CEDA Pasilla Negro: yesterday close 95 pesos/kg dried. Regional
+    secondary market Tlacolula: 78–82 pesos/kg. Cooperative buyer in your corridor today,
+    available to pick up 500+ kg at 76 pesos, cash on pickup."*
+
+    Don Aurelio offered 58 pesos.
+
+    María said: "I think you can do better than that." She did not cite the text. She did not
+    need to. She simply knew what she had not known before.
+
+    Don Aurelio, who has been working this valley for fourteen years and understands that the
+    farmers are getting smarter, revised his offer. They settled at 71 pesos.
+
+    María earned 13 additional pesos per kilogram on 1,100 kilograms — an additional 14,300 pesos
+    ($700 USD) in a single harvest, from a single text message.
+
+    The following season, **Lucía Vásquez** helped María register a larger volume commitment with
+    the cooperative buyer network. With 500 kg committed, María qualified for direct cooperative
+    matching — no coyote, slightly lower price than CEDA, but cash payment within 48 hours
+    and no transport risk. She chose to split her production: 500 kg through the cooperative,
+    the remainder to Don Aurelio at a price she now negotiated with full information.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Don Aurelio is not a villain. He drives a truck, absorbs fuel cost, road risk, and the
+    uncertainty of whether CEDA will be busy when he arrives. His margin compensates for real work.
+
+    But a portion of his margin has always compensated for María's ignorance — the premium
+    he captures because she cannot see the price she would receive if her chiles were standing
+    in his truck in Mexico City rather than in her field in Oaxaca. That premium is extraction,
+    not service, and it has persisted because no one built the information infrastructure to
+    remove it.
+
+    A text message costs almost nothing to send. Real-time CEDA price data is available.
+    The infrastructure to connect them to María's phone has simply never existed as a
+    systematic service rather than a one-off NGO pilot.
+
+    The platform does not eliminate the coyote. It disciplines the coyote's pricing by
+    making the underlying market visible. In a corrected system, Don Aurelio still drives
+    his truck, still absorbs the risk, and still earns a margin — but a margin that reflects
+    his genuine logistics contribution, not his informational monopoly.
+
+    *Characters are fictional. The Tlacolula chile valley, CEDA price dynamics, and coyote
+    aggregation patterns are real. [DeeperPoint](../../marketforge.html) is building the
+    infrastructure this story describes.*

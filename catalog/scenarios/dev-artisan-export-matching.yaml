@@ -1,0 +1,151 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: dev-artisan-export-matching
+title: "Artisan Craft Export Matching — Mexico / Ethiopia"
+card_title: "Artisan Export Discovery Platform"
+sector: developing-economy
+sub_sector: "Cultural Economy & Export"
+forge_tier: 2
+status: published
+tags: [thin-markets, artisans, craft, export, mexico, ethiopia, cosolvent, knowledgeslot, market-design]
+
+market_example:
+  summary: "Mexican majólica potters, Zapotec weavers, and Ethiopian basket and textile artisans produce work that commands premium prices in North American and European specialty retail — but remain invisible to those buyers. Aesthetic matching via AI embeddings can connect dispersed artisan producers to global demand they cannot otherwise reach."
+  problem: "Indigenous and traditional artisan communities in Mexico and Ethiopia produce high-quality, provenance-rich handcrafted goods — ceramics, textiles, basketry, jewelry, lacquerware — with strong international market potential. The buyers who would pay premium prices (gallery buyers, ethical home goods retailers, interior designers) cannot discover these producers because no matching mechanism exists. Artisans who sell through fair-trade distributors receive compressed margins and no provenance attribution. The market for authentic, documented artisan goods is thick at the demand side but cannot reach supply — a discovery failure, not a quality failure."
+  dominant_forces:
+    - "Discovery failure — International buyers cannot identify specific artisan producers whose aesthetic vocabulary matches their sourcing needs"
+    - "Knowledge asymmetry — Artisans do not know export pricing, certification requirements, or packaging/logistics standards"
+    - "Geographic dispersion — Production scattered across isolated craft villages with no aggregation mechanism"
+    - "Trust deficit — Buyers cannot verify provenance, authenticity, or production capacity without in-person visits they cannot afford"
+    - "Deal complexity — Cross-border artisan sales require customs classification, certification, export documentation, and specialized logistics"
+  deeperpoint_fit: "CoSolvent builds aesthetic matching profiles using image embeddings from portfolio photos — color palette, motif vocabulary, material class, scale, craft tradition — matching artisan supply against buyer demand profiles without requiring either party to describe what they want in explicit categories. KnowledgeSlot carries FONART certification standards, GlobalArtisans.org trade documentation guides, customs classification for handicrafts, and packaging standards for fragile cross-border shipments — in Spanish and Amharic. The Generative Match Story frames each collaboration as a composed aesthetic statement, with a provenance narrative the buyer can use in retail presentation."
+  economic_upside: "Mexico's artisan export market is estimated at $1.5B annually; Ethiopian handcraft exports are a growing government priority. Premium-positioned artisan collaborations (verified provenance, composed sets) command 3–5x the margin of undifferentiated fair-trade channel pricing. Platform revenue: transaction fee on matched export sales, certification facilitation, logistics coordination, provenance documentation licensing to retail buyers."
+
+sponsor_opportunities:
+  - title: "Aesthetic Matching SaaS for Craft Buyers"
+    type: saas
+    revenue_model: "Annual subscription for gallery buyers and ethical retailers ($2,400–$18,000/year based on sourcing volume). Unlimited match requests and deal channel access."
+    strategic_logic: "Buyers currently source through trade fairs and distributor catalogs that offer no aesthetic specificity. A platform that matches against visual portfolio embeddings is a fundamentally new tool — the first one that lets a buyer say 'find me makers whose work belongs next to this' rather than 'find me a Mexican ceramicist'."
+    recurring: true
+
+  - title: "Provenance Documentation Commerce"
+    type: commerce-extension
+    revenue_model: "Per-transaction provenance package fee ($150–$400). Includes craft tradition documentation, artisan profile, production process photos, certification summary — formatted for retail swing tags and e-commerce product pages."
+    strategic_logic: "Premium retailers need provenance documentation to justify prices and comply with ethical sourcing commitments. The platform generates this as a byproduct of normal operations — a sellable asset."
+    recurring: false
+
+  - title: "Government Export Development Managed Service"
+    type: managed-service
+    revenue_model: "Annual managed service contract with sponsor government agency (FONART, Ethiopian Export Promotion Agency) — $80,000–$250,000/year for platform operation, KnowledgeSlot curation, and artisan onboarding support."
+    strategic_logic: "Both Mexico and Ethiopia have active artisan export development programs with government funding. The platform operationalizes those programs' goals — giving agencies a measurable, running mechanism rather than one-off trade fair participation."
+    recurring: true
+
+  - title: "Collaborative Set Commerce"
+    type: commerce-extension
+    revenue_model: "Commission on multi-artisan collaborative sets sold to buyers (8–12% of transaction value). Set composition is the platform's unique contribution — impossible without aesthetic matching infrastructure."
+    strategic_logic: "As shown in the Vase and the Rebozo scenario, multi-media artisan sets command prices 2–4x higher than individual pieces. The platform is the only mechanism that can identify and facilitate these cross-regional, cross-media collaborations at scale."
+    recurring: false
+
+story:
+  title: "The Basket That Crossed Two Oceans"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Almaz Tesfaye - Harari basket weaver, Harar, Ethiopia"
+    - "Kenji Watanabe - home goods buyer, Tokyo, Japan"
+    - "Sara Mulugeta - NGO platform coordinator, Addis Ababa"
+  summary: "A Tokyo home goods buyer searches for verified Ethiopian handcraft with a specific aesthetic — and the platform finds Almaz's weavings in Harar, 500 kilometers from Addis, through image embedding comparison rather than any category search."
+  body: |
+    ## Act A - The Market Structure
+
+    Harar in eastern Ethiopia is one of Africa's oldest walled cities and one of the continent's
+    most concentrated craft traditions. Harari basket weaving — *hanbal* — uses dyed palm leaf
+    in geometric patterns that have evolved over centuries. The baskets are functional and
+    ceremonial, made by women in family workshops, passed from mother to daughter.
+
+    In Tokyo, the market for verified, provenance-documented handcraft from sub-Saharan Africa
+    is growing. Japanese consumers pay premium prices for objects with authentic origin stories
+    — not mass-produced imitations, but verifiable handmade work from documented traditions.
+
+    Between Harar and Tokyo, there is no market. There are NGO distributors who sell Harari
+    baskets in airport gift shops for $8. There are fair-trade catalogs that list "Ethiopian
+    handwoven basket" with no provenance information for $22. These are not the same market
+    that would pay $180 for a documented, authenticated piece from a named weaver in a
+    named city with a named tradition.
+
+    That market exists. It just cannot find Harar.
+
+    ---
+
+    ## Act B - The Story
+
+    **Almaz Tesfaye** learned hanbal from her mother. Her pieces use a distinctive
+    seven-color geometric system that her family has developed over three generations.
+    Each basket takes four to eight days. She produces six to eight per month. She sells
+    at the Harar market for 200–400 birr each — roughly $3.50–$7.00.
+
+    **Kenji Watanabe** buys for a boutique home goods concept in Tokyo's Daikanyama district.
+    His brand specializes in verified artisan sourcing — every piece has a provenance card.
+    He has been trying to source from East Africa for two years. The challenge: he cannot
+    tell, from a catalog photograph, whether a basket is genuinely hand-dyed or uses synthetic
+    pigments, whether it is a consistent production run or a one-off, or whether the maker
+    can supply twelve pieces per quarter reliably.
+
+    **Sara Mulugeta** runs the Ethiopian handicraft component of a development NGO that has
+    deployed the platform in four regions, including Harari. She onboards registered artisans
+    through a mobile interface — voice input in Amharic and Harari, photo uploads, production
+    capacity documentation. Almaz's profile is live: seven-color hanbal, natural-dyed palm
+    leaf, geometric motifs, 6–8 pieces/month, Harar.
+
+    Kenji's buyer profile specifies: East Africa region, natural-dye verified, geometric or
+    botanical pattern vocabulary, consistent production supply, 10–15 pieces/quarter minimum.
+
+    The platform's image embedding comparison identifies Almaz's documented color work and
+    geometric vocabulary as a high-confidence match against Kenji's aesthetic profile.
+    Not because "Ethiopian basket" matches "East Africa handcraft" — but because the visual
+    embedding of Almaz's specific geometric palette occupies a region in the embedding space
+    that corresponds to Kenji's curated preference signals.
+
+    The Generative Match Story presents Almaz to Kenji:
+
+    *"Almaz Tesfaye, Harar, Ethiopia. Harari hanbal weaver, third generation. Seven-color
+    geometric system using natural-dyed Hyphaene palm leaf. Production: 6–8 pieces/month,
+    consistent supply. Tradtion documentation: Harari Cultural Heritage Institute registry.
+    Natural dye verification: platform photo analysis confirms palm pigmentation consistent
+    with natural cochineal and indigo colorways. Wholesale price range: $28–$55 per piece.
+    Provenance package: included."*
+
+    Kenji orders twelve pieces for a trial run. The KnowledgeSlot handles his questions about
+    EU customs codes, phytosanitary documentation for natural fiber imports into Japan, and
+    packaging requirements for fragile woven goods in air freight.
+
+    The order ships. Kenji's provenance card reads: *"Hand-woven by Almaz Tesfaye in Harar,
+    Ethiopia, using a geometric pattern system developed by her family over three generations.
+    Natural-dyed Hyphaene palm leaf. Made in the walled city of Harar, a UNESCO World Heritage
+    Site and one of Africa's oldest Islamic cities."*
+
+    The twelve pieces sell in eleven days. Kenji places a standing quarterly order.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The problem is not that Kenji doesn't want Almaz's baskets. He would pay $180 for exactly
+    what she makes. The problem is that no mechanism existed to show him what she makes, verify
+    that it is what she says it is, and provide the documentation he needs to sell it at the price
+    it deserves.
+
+    Fair-trade distributors flatten provenance into a category. "Ethiopian basket" is a category.
+    Almaz Tesfaye's three-generation seven-color hanbal system is a specific thing — and specificity
+    is what premium buyers pay for.
+
+    The platform does not create demand. It resolves the discovery failure that kept a willing buyer
+    and a willing seller permanently apart.
+
+    Almaz now earns $280–$450 per month from the Tokyo order alone — roughly triple her previous
+    market income. She has hired her niece as a production assistant. The platform's transaction
+    record will support her microfinance application for a working capital loan to pre-purchase
+    palm leaf at the start of each season.
+
+    *Characters are fictional. Harari basket weaving, the hanbal tradition, and Ethiopia's handcraft
+    export market dynamics are real. [DeeperPoint](../../marketforge.html) is building the
+    infrastructure this story describes.*

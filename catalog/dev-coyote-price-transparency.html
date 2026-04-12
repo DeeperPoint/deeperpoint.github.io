@@ -1,0 +1,510 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coyote Chain Price Transparency — Mexico Smallholder Markets — DeeperPoint</title>
+  <meta name="description" content="Mexican smallholders selling to coyote aggregators have no visibility into CEDA wholesale prices — a deliberate information asymmetry that drives farm-gate pricing. A mobile price transparency layer, combined with alternative buyer matching for qualified volumes, can shift the power balance at the farm gate without eliminating the coyote&#x27;s genuine logistics function.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Developing Economy &middot; Agricultural Price Discovery &amp;amp; Market Access</div>
+      <h1 class="detail-title">Coyote Chain Price Transparency — Mexico Smallholder Markets</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
+        <span class="blog-tag">thin-markets</span><span class="blog-tag">agriculture</span><span class="blog-tag">price-discovery</span><span class="blog-tag">mexico</span><span class="blog-tag">smallholder</span><span class="blog-tag">CEDA</span><span class="blog-tag">information-asymmetry</span><span class="blog-tag">knowledgeslot</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>The coyote system that moves produce from Mexico&#x27;s smallholder farms to CEDA and regional wholesale markets depends structurally on information asymmetry. Coyotes know current wholesale prices in Mexico City; farmers do not. This asymmetry is not a market imperfection — it is the coyote&#x27;s core competitive asset. Farmers who cannot know the true market price for their chiles, tomatoes, or avocados this morning cannot negotiate. They take whatever price is offered or watch the crop rot. This is not true in every case: some experienced smallholders know the approximate seasonal range, and some cooperative arrangements partially compensate. But for the majority of the 3.5 million smallholder families in Mexico, price discovery at the moment of sale is structurally prevented.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Information asymmetry — CEDA and regional wholesale prices are known to coyotes and withheld from farmers</li><li>Temporal urgency — Perishable crops must be sold within hours of harvest; the farmer cannot wait for a second price offer</li><li>Dependency — The coyote&#x27;s truck and cash are the only available buy-side for most smallholders in most corridors</li><li>Geographic isolation — Farms in rural Oaxaca, Puebla, and Guerrero have intermittent internet and limited access to price information services</li><li>Aggregation barrier — Individual smallholder volumes are too small to deal directly with CEDA bodegueros, making some form of aggregation intermediary structurally necessary</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>A lightweight price transparency layer — integrated into the KnowledgeSlot and accessible via voice call or basic SMS in Spanish — delivers real-time CEDA and regional wholesale prices for specific crops to farmers at the point of sale. Farmers who have an alternative aggregation option (cooperative, registered buyer cluster) receive a match alert when platform-registered buyers are purchasing in their corridor. The platform&#x27;s price data improves farmer negotiating leverage without requiring the farmer to own transport or deal directly with CEDA. CoSolvent facilitates direct buyer-farmer connections only when alternative aggregation logistics are available — preserving the coyote&#x27;s genuine logistics function where it is the only available option.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Mexico&#x27;s smallholder sector generates roughly $15B in annual farm-gate production. USDA and CONEVAL studies suggest the coyote information asymmetry costs smallholders 15–25% of potential farm-gate value — approximately $2.5–3.5B annually. A price transparency platform that reduces this asymmetry by 30–40% redirects $750M–$1.4B per year toward smallholder income. Platform revenue: SMS price alert subscription ($2–5/month per farmer), cooperative aggregation matching fee (0.5–1% of transaction value), data licensing to agricultural banks and crop insurance providers.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Price She Didn&#x27;t Know</div>
+        <p><strong>Characters:</strong> María Xochitl - chile farmer, San Marcos Tlapazola, Oaxaca, Don Aurelio - coyote aggregator, Tlacolula corridor, Lucía Vásquez - cooperative coordinator, CEDICAR Oaxaca NGO</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>The Tlacolula valley east of Oaxaca City is chile country. Hundreds of smallholder families
+grow pasilla negro, ancho, and mulato varieties that are essential to Oaxacan black mole and
+exported dried to the United States, Europe, and Japan. The valley produces a significant
+fraction of Mexico's dried chile export supply.</p>
+<p>The harvest sequence is predictable. Chiles ripen in waves. When the first wave peaks,
+coyotes circulate the valley, buying from farm after farm, filling trucks with whatever
+the farmer will accept that morning. The coyote knows the price in CEDA's Chile section.
+The farmer does not.</p>
+<p>This structure has operated for generations. It is not uniquely exploitative — the coyote
+provides a genuine service: aggregation, transport, working capital advance. But the
+information asymmetry embedded in the arrangement means the farm-gate price bears no visible
+relationship to the price two hundred kilometres away in Mexico City.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>María Xochitl</strong> is 52 years old and has grown chiles since she was a girl. Her family
+farms two hectares in the foothills above San Marcos Tlapazola. She produces approximately
+three tonnes of dried pasilla negro per season — excellent quality, consistent size, the
+regional variety that Mexico City's mole cooks prefer.</p>
+<p>Last October, she registered with her community's cooperative program. The cooperative
+issued her a phone number for the NGO's platform — a number she could call or text to
+receive CEDA chile prices each morning during harvest week.</p>
+<p>On the morning <strong>Don Aurelio</strong> arrived at her gate in his truck, María had already received
+a text at 6:15 AM: <em>"CEDA Pasilla Negro: yesterday close 95 pesos/kg dried. Regional
+secondary market Tlacolula: 78–82 pesos/kg. Cooperative buyer in your corridor today,
+available to pick up 500+ kg at 76 pesos, cash on pickup."</em></p>
+<p>Don Aurelio offered 58 pesos.</p>
+<p>María said: "I think you can do better than that." She did not cite the text. She did not
+need to. She simply knew what she had not known before.</p>
+<p>Don Aurelio, who has been working this valley for fourteen years and understands that the
+farmers are getting smarter, revised his offer. They settled at 71 pesos.</p>
+<p>María earned 13 additional pesos per kilogram on 1,100 kilograms — an additional 14,300 pesos
+($700 USD) in a single harvest, from a single text message.</p>
+<p>The following season, <strong>Lucía Vásquez</strong> helped María register a larger volume commitment with
+the cooperative buyer network. With 500 kg committed, María qualified for direct cooperative
+matching — no coyote, slightly lower price than CEDA, but cash payment within 48 hours
+and no transport risk. She chose to split her production: 500 kg through the cooperative,
+the remainder to Don Aurelio at a price she now negotiated with full information.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Don Aurelio is not a villain. He drives a truck, absorbs fuel cost, road risk, and the
+uncertainty of whether CEDA will be busy when he arrives. His margin compensates for real work.</p>
+<p>But a portion of his margin has always compensated for María's ignorance — the premium
+he captures because she cannot see the price she would receive if her chiles were standing
+in his truck in Mexico City rather than in her field in Oaxaca. That premium is extraction,
+not service, and it has persisted because no one built the information infrastructure to
+remove it.</p>
+<p>A text message costs almost nothing to send. Real-time CEDA price data is available.
+The infrastructure to connect them to María's phone has simply never existed as a
+systematic service rather than a one-off NGO pilot.</p>
+<p>The platform does not eliminate the coyote. It disciplines the coyote's pricing by
+making the underlying market visible. In a corrected system, Don Aurelio still drives
+his truck, still absorbs the risk, and still earns a margin — but a margin that reflects
+his genuine logistics contribution, not his informational monopoly.</p>
+<p><em>Characters are fictional. The Tlacolula chile valley, CEDA price dynamics, and coyote
+aggregation patterns are real. <a href="../../marketforge.html">DeeperPoint</a> is building the
+infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">SMS/Voice Price Alert Subscription</div>
+        <p>This is the lowest-barrier, highest-impact intervention possible. A farmer who knows that CEDA closed yesterday at 28 pesos per kilogram for Roma tomatoes — and the coyote is offering 14 — has information she has never had before. The subscription cost is recovered in a single negotiation.</p>
+        <div class="opp-card__revenue">&#128181; Monthly subscription per farmer ($2–$5/month). Crop-specific, corridor-specific CEDA and regional wholesale price alerts delivered at harvest time via SMS or IVR voice call.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Cooperative Buyer Matching</div>
+        <p>For corridors where cooperative buying alternatives exist, the platform can match registered buyers with aggregated smallholder supply on a schedule — turning what was a speculative spot market into a predictable purchase arrangement.</p>
+        <div class="opp-card__revenue">&#128181; Transaction fee on matched coyote-bypass sales (0.75–1.5% of farm-gate value). Applicable only when platform-registered alternative buyers with transport are operating in the corridor.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Agricultural Finance Data Licensing</div>
+        <p>Verified farm-gate transaction data — linked to crop type, corridor, season, and quality grade — is a dataset that agricultural lenders and insurers need for pricing and underwriting. The platform generates it as a byproduct of normal operations.</p>
+        <div class="opp-card__revenue">&#128181; Annual data license to agricultural banks, crop insurance providers, and SAGARPA for corridor-level price and volume data ($15,000–$60,000/year per data subscriber).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Coyote-to-Platform Transition Service</div>
+        <p>The platform&#x27;s goal is not to eliminate coyotes — it is to discipline their pricing and improve system-wide efficiency. Coyotes who register on the platform as transport operators gain access to pre-matched loads (no speculative buying risk) in exchange for transparent pricing and verified delivery reporting.</p>
+        <div class="opp-card__revenue">&#128181; Onboarding fee per coyote registered as a platform-affiliated transport operator ($200–$500). Revenue share on platform-dispatched loads (0.5–1% of load value).</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
