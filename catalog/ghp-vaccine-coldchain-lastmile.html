@@ -1,0 +1,525 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaccine Last-Mile Delivery: Matching Cold Chain Logistics Specialists to Remote and Conflict-Affected Immunization Programs — DeeperPoint</title>
+  <meta name="description" content="WHO and UNICEF immunization programs in conflict-affected and remote settings need logistics specialists with experience operating vaccine cold chains in the specific environment — Sahel pastoralist populations, South Sudan wet season, PNG Highland terrain — but cold chain specialist rosters are not indexed by operational environment, and the specialist with prior experience is invisible to an emergency procurement officer under a three-week activation timeline.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Global Health Pharma &middot; Vaccine Logistics &amp;amp; Immunization Delivery</div>
+      <h1 class="detail-title">Vaccine Last-Mile Delivery: Matching Cold Chain Logistics Specialists to Remote and Conflict-Affected Immunization Programs</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
+        <span class="blog-tag">vaccines</span><span class="blog-tag">cold-chain</span><span class="blog-tag">last-mile</span><span class="blog-tag">immunization</span><span class="blog-tag">global-health</span><span class="blog-tag">who</span><span class="blog-tag">unicef</span><span class="blog-tag">conflict-settings</span><span class="blog-tag">participant-scarcity</span><span class="blog-tag">low-resource-logistics</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Immunization programs in humanitarian settings face a logistics matching problem that the global cold chain industry is not structured to solve. The global cold chain market offers sophisticated services for pharmaceutical distribution in organized markets — airport-to-hospital transfers, GDP-compliant temperature monitoring, regulated cold rooms. None of this infrastructure applies to a measles response campaign in a pastoralist community in the Sahel region, where the vaccine cold chain must be transported by motorcycle, stored in solid-state solar refrigerators with intermittent charging capability, and managed by a community health worker with two days of cold chain management training. The specialist who can design and oversee this specific operational environment has typically developed their expertise through several years of experience with an MSF, UNICEF Supply Division, or national immunization program deployment — and that expertise profile is not in any logistics company directory. When a national health ministry and UNICEF country office are planning a supplementary immunization activity (SIA) in a hard-to-reach district, the cold chain logistics design component is consistently the last-minute bottleneck that delays program implementation.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Participant scarcity — cold chain specialists with operational experience in specific humanitarian environments (conflict-affected areas, extreme climate zones, pastoralist mobility patterns, island chain geography) are a small professional population even within the humanitarian logistics community</li><li>Operational environment specificity — the cold chain design for a settled peri-urban immunization program is fundamentally different from a nomadic population campaign; the specialist&#x27;s experience must match the operational environment, not just the vaccine category</li><li>Trust and security clearance — many humanitarian immunization settings require logistics specialists with UN security clearance, NGO coordination experience, and community engagement protocols that commercial cold chain logistics companies do not typically maintain</li><li>Short activation timelines — supplementary immunization activities are planned four to twelve weeks before implementation; the cold chain logistics specialist must be identified, contracted, and deployed within that window</li><li>Equipment knowledge specificity — the full range of cold chain equipment used in humanitarian immunization (UNICEF-standard vaccine carriers, solar direct-drive refrigerators, passive cold boxes, temperature loggers) requires equipment-specific operational knowledge that generic cold chain professionals do not have</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes specialist profiles (operational environment experience by geographic and humanitarian setting type, specific equipment experience by UNICEF/WHO cold chain equipment model, UN security clearance level, language and community engagement capability, prior UNICEF/WHO/MSF deployment assignments, activation timeline availability) against program demand signals (operational environment, geographic region, vaccine type, program scale, infrastructure constraint, UN security level, activation timeline, language requirement). The Generative Match Story helps UNICEF country programs articulate operational environment requirements with precision.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Immunization program cold chain failure — vaccine wastage from temperature excursions, campaign delay from logistics plan failure, and program cancellation from insecurity mismanagement — represents one of the highest-cost failure modes in global health programming. UNICEF Vaccine Supply Division manages $800M+ in annual vaccine procurement; if 3% of that procurement is wasted due to preventable cold chain failure, the avoidable wastage exceeds $24M annually. At the campaign level, a measles SIA covering 2 million children with an average campaign cost of $2–$4 per child represents an $8M program for which cold chain logistics failure could invalidate the entire campaign, generating a loss many times larger than the cost of a specialist engagement.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Solar Gap</div>
+        <p><strong>Characters:</strong> Nadia — UNICEF immunization logistics officer, Bamako; planning measles SIA in three pastoral districts of northern Mali during dry season, Olivier — cold chain logistics specialist, 14 deployments across Sahel and arid pastoral settings; currently between assignments, Dakar</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Sahel Solar Problem</h2>
+<p>Measles supplementary immunization activities in pastoralist communities require a cold chain design that differs fundamentally from the fixed-site immunization cold chain that most EPI program planning documents assume. Mobile populations do not come to fixed vaccination sites. The vaccination team goes to them — tracking seasonal migration patterns, operating from temporary camps, and managing vaccine cold chain in temperatures that regularly exceed 40°C ambient.</p>
+<p>The solar direct-drive vaccine refrigerators that WHO and UNICEF have deployed across sub-Saharan Africa were designed for fixed health post installations with standard roof mounting and stable orientation. In a mobile pastoralist immunization campaign, these units are transported by vehicle, repositioned daily, and exposed to dust and vibration conditions that affect solar panel efficiency. The effective charging time in a mobile campaign setting may be 60–70% of the rated capacity. A cold chain plan built on the rated capacity without field operational correction factors will run out of cooling capacity before the campaign cycle completes.</p>
+<p>The specialist who has managed six prior Sahel mobile cold chains knows this correction factor. The logistics officer planning her first mobile cold chain does not.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Nadia</strong> had seventeen months of UNICEF immunization logistics experience in Mali. She had managed cold chain for two fixed-site EPI campaigns and one urban supplementary immunization activity. The northern Mali pastoral districts were her first mobile campaign.</p>
+<p>Her cold chain plan used the UNICEF solar refrigerator fleet's rated specifications — 8 hours of full cooling per day in high-ambient temperature environments. The plan calculated a 96-hour cold chain capacity for the most remote vaccination point, compatible with the campaign schedule.</p>
+<p>Three weeks before the campaign launch, a visiting WHO technical advisor who had worked in the Sahel for eleven years reviewed her plan. He flagged the solar charging correction factor: in a mobile setting with daily repositioning, the effective daily charging time was typically 4.5–5.5 hours, not 8. The 96-hour capacity was effectively a 60–70-hour capacity under field conditions.</p>
+<p>Her campaign schedule required 72-hour capacity at the most remote point.</p>
+<p>She needed a specialist to redesign the cold chain logistics and procure supplementary passive cold box capacity within three weeks.</p>
+<p>She found the platform through the WHO EPI logistics community of practice newsletter. Her search: Sahel cold chain, pastoralist mobile campaign, solar direct-drive operational experience, Mali or adjacent country experience, French, three-week activation.</p>
+<p><strong>Olivier</strong> had managed fourteen prior humanitarian cold chain deployments — six in Sahel and arid pastoral settings. His most recent Malian deployment had been a meningitis response in Mopti region eighteen months prior. He was between assignments and had current UN security clearance for Mali.</p>
+<p>His profile appeared in the first result. He was available in four days.</p>
+<hr />
+<p>Olivier revised the cold chain plan within the first week: supplementary passive cold box capacity using UNICEF-standard B25 cold boxes, adjusted daily resupply routing from the district cold room to the mobile campaign teams, and an ice volume calculation adjusted to the 41°C average temperature forecast for the campaign week.</p>
+<p>The campaign completed with zero vaccine temperature excursions across all three districts.</p>
+<p>The measles vaccination coverage in the three pastoral districts was 94% — the highest recorded for any SIA in the northern region.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Olivier's fourteen Sahel cold chain deployments were in UNICEF deployment records. His skills — solar direct-drive operational correction factors, mobile campaign ice volume calculation for 40°C+ ambient, Malian health system navigation — were documented in his deployment reports.</p>
+<p>None of it was searchable. UNICEF's humanitarian logistics specialist registry indexed by country of origin and broad logistics category. "Sahel mobile pastoral cold chain with solar direct-drive operational correction experience" was not a searchable attribute in any humanitarian registry Nadia had access to.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> encodes the operational environment specificity — Sahel, pastoralist, mobile, solar direct-drive operational experience — as searchable attributes that surface the right specialist at the moment the campaign plan reveals its design gap, three weeks before launch rather than three days before vaccine wastage.</p>
+<p><em>Characters are fictional. UNICEF solar direct-drive vaccine refrigerator specifications, WHO cold chain equipment performance in mobile humanitarian settings, and measles SIA operational constraints in Sahel pastoral communities are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Humanitarian Cold Chain Specialist Platform (SaaS)</div>
+        <p>UNICEF Supply Division, WHO Expanded Programme on Immunization (EPI), Gavi Alliance country programs, and the International Federation of the Red Cross all coordinate immunization logistics deployments with recurring specialist needs. A platform distributed through these organization program networks reaches the organized program community that funds specialist deployments.</p>
+        <div class="opp-card__revenue">&#128181; Annual subscription for UNICEF country offices, WHO immunization programs, national health ministries ($2,000–$6,000/year); specialist verified profile ($0 — humanitarian mission); per-deployment facilitation ($500–$1,200)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Cold Chain System Design and Monitoring Service</div>
+        <p>Many UNICEF country programs and national EPI programs have cold chain planning documents that have not been reviewed by a specialist in the specific operational environment. A remote pre-campaign cold chain system design review that stress-tests the plan against the operational environment constraints — generator reliability, motorcycle carrier load, solar charging availability — identifies design gaps before the campaign begins rather than discovering them during implementation.</p>
+        <div class="opp-card__revenue">&#128181; Remote cold chain system design review for planning documents ($800–$2,000 per program); temperature monitoring data analysis and excursion advisory service ($400–$900 per campaign)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">WHO Cold Chain Equipment Procurement Facilitation</div>
+        <p>Immunization programs in low-resource settings frequently discover mid-campaign that their cold chain equipment needs replacement or repair — and the procurement pathway for UNICEF-standard equipment is not accessible to national EPI programs without UN procurement system access. A facilitated procurement service that sources UNICEF-standard equipment through authorized channels, including refurbished equipment markets, creates a procurement commerce adjacency to the specialist matching relationship.</p>
+        <div class="opp-card__revenue">&#128181; UNICEF standard cold chain equipment sourcing and procurement support (solar direct-drive refrigerators, passive cold boxes, vaccine carriers; 5–8% procurement coordination margin); cold chain equipment repair and spare parts sourcing for deployed equipment; refurbished equipment resale coordination</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Cold Chain Training and Capacity Building Extension</div>
+        <p>The deployment specialist&#x27;s most significant limitation is that their expertise does not scale: one specialist can support one program at a time. A training and capacity building extension that converts specialist expertise into standardized training content — cold chain management modules calibrated to specific operational environments (Sahel, humid tropics, highland terrain) — multiplies the specialist&#x27;s impact beyond the single deployment and creates a recurring revenue stream from the national EPI programs that need workforce development.</p>
+        <div class="opp-card__revenue">&#128181; Community health worker cold chain training module subscription ($150–$350/year per program); vaccine cold chain management simulation exercise for national EPI programs ($3,000–$8,000 per exercise); cold chain management certification program for humanitarian logistics professionals ($400–$900 per candidate)</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: ghp-outbreak-epi-surge
+title: "Epidemic Response: Matching Field Epidemiologists to Outbreak Surge Capacity Needs in Low-Resource Settings"
+card_title: "Field Epidemiologist Surge Matching for Outbreak Response"
+sector: global-health-pharma
+sub_sector: Epidemic Intelligence & Field Investigation
+forge_tier: 3
+status: published
+tags: [epidemiology, outbreak-response, field-investigation, global-health, who, cdc, surge-capacity, participant-scarcity, low-resource-settings]
+
+market_example:
+  summary: "A novel pathogen outbreak in a low-income country triggers WHO emergency requests for field epidemiologists with specific outbreak investigation experience — cholera, Ebola, mpox — in the implicated geographic region. The human network that connects trained investigators to active outbreak response takes weeks to activate at the moment hours matter."
+  problem: "Outbreak field investigation requires epidemiologists who have physically worked in the implicated region, speak or have worked through the local languages, understand the healthcare system structure, and have prior experience with the specific pathogen or pathogen family. The GOARN (Global Outbreak Alert and Response Network) roster, FETP (Field Epidemiology Training Program) alumni networks, and national CDC emergency response rosters collectively contain the right people — distributed across academic institutions, public health agencies, and NGOs in dozens of countries, maintaining their availability status informally or not at all. When an outbreak request goes out, the coordinator makes phone calls through their personal contact list. The investigator who has exactly the right skill set — Lassa fever experience in West Africa, French-language capacity, community engagement protocol experience with pastoralist populations — is findable but not discoverable: their name does not surface in a mobilization call until someone who knows them personally thinks to suggest them. The response is delayed by the time it takes to traverse the human network rather than a structured availability system."
+  dominant_forces:
+    - "Participant scarcity — field epidemiologists with pathogen-specific and region-specific experience are a small population even within the global public health workforce; the intersection of Ebola experience and Central African health system familiarity may describe fewer than 100 active practitioners globally"
+    - "Availability opacity — outbreak response participation requires institutional release from primary employer; an investigator's availability is known only to themselves and their institution, and changes week by week"
+    - "Temporal urgency — outbreak investigation delay correlates directly with case counts; a week of delayed field deployment corresponds to measurable epidemic amplification in a high R0 outbreak"
+    - "Trust and credential verification — outbreak response organizations deploying to active outbreaks must verify field experience, vaccination status, and institutional affiliation before deployment; informal network referrals bypass this verification"
+    - "Offering complexity — the right investigator match requires alignment on pathogen experience, regional familiarity, language capacity, institutional availability for deployment duration, and specific outbreak investigation competency (case-control study design, contact tracing management, surveillance system setup)"
+  deeperpoint_fit: "Semantic matching encodes investigator profiles (pathogen experience by category and specific disease, regional field experience by country and health system tier, language capacity, current institutional affiliation and deployment availability, prior GOARN/FETP/CDC assignment history, specific competency areas, vaccination status) against response coordinator demand signals (pathogen, region, duration, skills required, clearance status, language requirement). Real-time availability status update enables rapid mobilization when the outbreak request goes live."
+  economic_upside: "The economic cost of a major epidemic — lost productivity, healthcare system burden, trade disruption — scales exponentially with the delay in effective field response. The 2014–2016 West Africa Ebola epidemic generated estimated GDP losses of $2.2B and $1.6B for Guinea and Sierra Leone respectively, with economic modelling suggesting rapid effective field response in the first six weeks could have reduced final case counts by 60–80%. The global GOARN deployment budget exceeds $50M annually; WHO Health Emergencies Programme operates at $300M+ per year. A platform that accelerates field investigator deployment by one to two weeks in a high-consequence outbreak generates health and economic value orders of magnitude larger than its operating cost."
+
+sponsor_opportunities:
+  - title: "Global Field Epidemiologist Surge Platform (SaaS)"
+    type: saas
+    revenue_model: "Annual institutional subscription (WHO, CDC, ECDC, national public health agencies; $8,000–$25,000/year based on deployment volume); investigator verified profile ($0 — public health mission); deployment facilitation service ($500–$1,500 per deployment)"
+    strategic_logic: "WHO, US CDC Global Health Security Agenda partners, and the Global Fund have existing budgets for outbreak response coordination infrastructure. A platform that reduces the human network search time from two weeks to forty-eight hours generates direct deployment efficiency value that justifies public health agency subscription at the same budget line as GOARN coordination overhead."
+    recurring: true
+
+  - title: "Field Deployment Logistics and Pre-Deployment Verification Package"
+    type: managed-service
+    revenue_model: "Pre-deployment verification package per investigator (vaccination status, institutional release confirmation, medical clearance, travel documentation; $200–$500 per deployment); logistics coordination for field entry (visa, accommodation, in-country transport; $300–$800 per deployment)"
+    strategic_logic: "Deployment preparation is the most time-consuming administrative bottleneck in outbreak response. A pre-deployment package that verifies and documents all administrative requirements — medical clearance, institutional release, vaccination status, visa-on-arrival documentation — before the outbreak request goes live converts the administrative process from a deployment bottleneck into a pre-cleared capacity."
+    recurring: false
+
+  - title: "Outbreak Investigation Data Management Service"
+    type: saas
+    revenue_model: "Field data collection and case registry tool subscription ($2,000–$6,000 per outbreak per deploying organization); outbreak investigation report standardization service ($1,000–$3,000 per investigation)"
+    strategic_logic: "Field investigators deployed through the platform need standardized data collection tools for case investigation, contact tracing, and epidemiological analysis. A platform-adjacent field data management tool that provides WHO-compatible data collection forms, real-time line list management, and automated outbreak investigation report generation embeds the platform into the investigation workflow — not just the deployment coordination."
+    recurring: true
+
+  - title: "Health Emergency Preparedness Capacity Building Extension"
+    type: commerce-extension
+    revenue_model: "Country-level FETP capacity assessment and training program facilitation ($15,000–$50,000 per country program); online field epidemiology module subscription ($200–$400/year per practitioner); simulation exercise design and facilitation ($8,000–$25,000 per exercise); platform earns training commerce revenue from the health security programs it informs"
+    strategic_logic: "Every outbreak response reveals preparedness gaps in both the deploying organization's investigator bench and the in-country health system's detection capacity. A capacity building service that translates outbreak response experience into structured FETP curriculum additions, simulation exercises, and country-level preparedness assessments creates a sustainable training revenue stream from the same health security agencies that use the deployment platform."
+    recurring: true
+
+story:
+  title: "The First Forty-Eight Hours"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Amara — WHO outbreak response coordinator, Geneva; managing a novel hemorrhagic fever cluster in a West African country"
+    - "Dr. Fatou — field epidemiologist, hemorrhagic fever investigation experience in Guinea and Mali, currently at Institut Pasteur Dakar"
+  summary: "A WHO outbreak coordinator managing an uncharacterized hemorrhagic fever cluster needs a field investigator with West African health system experience, French-language capacity, and hemorrhagic fever clinical case investigation experience — a search that normally takes ten days through GOARN's personal network."
+  body: |
+    ## Act A — The Mobilization Gap
+
+    Hemorrhagic fever outbreaks in West Africa follow a pattern that experienced response coordinators recognize: an unusual cluster of severe febrile illness with bleeding manifestations, reported through a district health office that has limited laboratory capacity, generates an alert to the national health ministry, which forwards to the WHO country office, which triggers a GOARN mobilization request. The request goes out within 24–48 hours of the initial alert.
+
+    The mobilization request asks for a field epidemiologist with hemorrhagic fever experience, familiarity with West African health systems, French-language capacity, and availability for a four-to-six-week deployment. The coordinator has twelve hours to generate a shortlist of candidates before the WHO regional director's meeting at which deployment commitments are expected.
+
+    The GOARN roster has 287 registered field epidemiologists. It is searchable by name and country of current affiliation. It is not searchable by pathogen experience, regional field experience, language capacity, or deployment availability.
+
+    The coordinator makes phone calls.
+
+    ---
+
+    ## Act B — The Story
+
+    **Dr. Amara** had managed eleven outbreak deployments in six years. Her personal network was extensive — she knew, by name and rough availability status, approximately forty field epidemiologists with hemorrhagic fever experience globally. She activated her network immediately: calls to the CDC Emergency Operations Center, the ECDC Rapid Response Team, the Institut Pasteur network, and three colleagues who had deep West Africa experience.
+
+    By hour eight, she had four names. One was already deployed to a cholera response in DRC. One had left field work for a WHO Geneva policy position. One had institutional availability but had never worked in the country where the outbreak was occurring and spoke no French. The fourth was potentially available — her colleague in Dakar thought he might be on sabbatical.
+
+    The GOARN platform had been live for four months. **Dr. Fatou's** profile was complete: hemorrhagic fever case investigation in Guinea (Nzerekore prefecture, 2021), Lassa fever contact tracing protocol development in Sierra Leone, French and Manding-kan language capacity, current Institut Pasteur Dakar affiliation, deployment availability for WHO assignments documented as "4–6 weeks available on 72-hour notice."
+
+    Dr. Amara's search — hemorrhagic fever, West Africa, French, available — returned Dr. Fatou's profile in the first three results.
+
+    ---
+
+    She called Dr. Fatou at hour nine. By hour twelve, Dr. Fatou's institutional release was confirmed, her pre-deployment package (vaccination records, medical clearance, visa documentation for the destination country) was retrieved from her verified profile, and her flight was booked for the following morning.
+
+    She was in-country by hour thirty-six.
+
+    The hemorrhagic fever cluster was characterized as Marburg virus — fourteen cases, seven deaths — within four days of her arrival. The contact tracing protocol she established, drawing on her prior Ebola contact network management experience in Guinea, was functional within seventy-two hours of her arrival.
+
+    The outbreak was contained at twenty-one cases.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Dr. Fatou's profile was complete, current, and exactly what the outbreak required. Her Institut Pasteur Dakar affiliation was publicly known. Her 2021 Guinea hemorrhagic fever investigation had been published in Eurosurveillance. Her French language capacity was obvious from her professional publications.
+
+    None of that was searchable through GOARN's mobilization mechanism. The GOARN roster indexed by name and geography. Amara's personal network was the mechanism that should have surfaced Dr. Fatou — but Dr. Fatou was one hop outside the network Amara had inherited from her predecessor.
+
+    [Thin market infrastructure](../../thin-markets.html) makes the pathogen experience, regional familiarity, language capacity, and deployment availability searchable at hour one — not recoverable at hour eight after the personal network has been exhausted.
+
+    *Characters are fictional. GOARN mobilization protocols, Marburg virus investigation requirements, West African health system structure, and Field Epidemiology Training Program (FETP) alumnus networks are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
