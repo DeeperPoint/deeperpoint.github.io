@@ -53,7 +53,7 @@ Concretely, I'm looking for five kinds of people:
 
 **Open-source developers.** You want to contribute to an MIT-licensed harness that solves real-world semantic matching problems at the intersection of AI and market design. The [Cosolvent codebase](https://github.com/DeeperPoint/Cosolvent) is on GitHub. Pull requests are welcome.
 
-**Curious generalists.** You don't fit the categories above, but you recognise thin markets in your own world — in your industry, your community, your country — and you want to understand the framework better before deciding how to engage. Start with the [whitepaper](../whitepaper.html), try the [market diagnostic](../market-diagnostic.html), read the [story posts](index.html) — and then get in touch.
+**Curious generalists.** You don't fit the categories above, but you recognise thin markets in your own world — in your industry, your community, your country — and you want to understand the framework better before deciding how to engage. Start with the [whitepaper](../whitepaper.html), browse the [catalog of examples](../catalog/index.html), read the [story posts](index.html) — and then get in touch.
 
 ## What I bring
 

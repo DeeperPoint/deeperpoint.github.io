@@ -59,7 +59,7 @@ The upper layers are proprietary not because I want to gatekeep — but because 
 
 The toolkit doesn't replace the domain expert. It empowers them. DeeperPoint's architecture assumes that every thin market has a natural **sponsor** — an entity with the authority, the trust, and the industry knowledge to stand up a functioning marketplace: a grain cooperative, a provincial legal aid society, a trade association, a diaspora community network, a municipal economic development office.
 
-The sponsor brings the vertical expertise and the community trust. The toolkit provides the [configurable software architecture](../market-diagnostic.html). Together, they can stand up a marketplace that neither could build alone.
+The sponsor brings the vertical expertise and the community trust. The toolkit provides the [configurable software architecture](../marketforge.html). Together, they can stand up a marketplace that neither could build alone.
 
 There is also an **investor** angle. Some thin markets are large enough that a profitable business can be built on top of a functioning matching platform — transaction fees, premium placement, data services, fulfilment brokerage. A venture firm managing a portfolio of thin-market startups could use the shared DeeperPoint framework to mine the structural commonalities across its portfolio, making each individual venture more capital-efficient. The five-forces diagnostic is the same; the commercial opportunity differs by vertical.
 
