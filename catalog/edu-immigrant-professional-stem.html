@@ -1,0 +1,516 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internationally Trained Professionals as STEM Guest Instructors — Canada — DeeperPoint</title>
+  <meta name="description" content="Canadian secondary schools and community colleges want practicing professionals to supplement STEM instruction with real-world context — engineers, chemists, software developers, biologists. The immigrant professional community in Canada&#x27;s cities contains extraordinary depth across every STEM domain, in people who are between professional engagements, in underemployed roles, or actively seeking ways to contribute. A matching platform resolves the discovery problem.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Education &middot; STEM Education &amp;amp; Industry Mentorship</div>
+      <h1 class="detail-title">Internationally Trained Professionals as STEM Guest Instructors — Canada</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
+        <span class="blog-tag">thin-markets</span><span class="blog-tag">education</span><span class="blog-tag">STEM</span><span class="blog-tag">immigration</span><span class="blog-tag">canada</span><span class="blog-tag">mentorship</span><span class="blog-tag">industry</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Secondary school and community college STEM programs are chronically underpowered in real-world application and industry context. Teachers are curriculum experts but not practicing engineers or scientists; students graduate with academic knowledge but limited understanding of how STEM fields actually work in industry. Schools and colleges want practicing professionals to contribute as guest instructors, mentors, and project sponsors — but their outreach is limited to whoever the teacher or guidance counsellor personally knows. Meanwhile, Canada&#x27;s immigrant professional community — engineers from India, chemists from Ukraine, biomedical researchers from Brazil, geotechnical specialists from Iran — includes thousands of practitioners whose professional networks and job searches have not yet connected to the industries that would employ them. They are available, motivated to contribute, and undiscoverable.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Discovery failure — Schools cannot find guest instructors with specific domain expertise through any systematic channel; immigrant professionals cannot signal their availability to educational institutions</li><li>Cultural and credential gap — Immigrant professionals are uncertain whether their industry experience is legible to Canadian educators; educators are uncertain how to evaluate non-Canadian credentials</li><li>Institutional inertia — Schools rely on personal referral networks for industry contacts; immigrant professionals who are new to Canada are not in those networks</li><li>Time mismatch — Guest instruction works best as a recurring, structured commitment rather than a one-time visit; schools need reliability that ad hoc referrals cannot guarantee</li><li>Diversity gap — Industry contacts via personal teacher networks systematically underrepresent the demographic diversity that would benefit students seeing themselves reflected in STEM practitioners</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>CoSolvent builds practitioner profiles from professional background, domain specialization, industry sector, communication style and language capacity, and availability (one session, monthly series, semester commitment). School and college profiles capture course and grade level, specific STEM topic gaps where industry context is most needed, and instructor preferences (presentation, project mentorship, panel participation, lab demonstration). KnowledgeSlot carries school board volunteer engagement protocols, Vulnerable Sector Check process guidance, liability framework templates for guest instructors, and domain-specific topic menus by curriculum unit that help schools request exactly what they need and practitioners prepare exactly what fits.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Canadian school boards and colleges spend $20–40M annually on industry engagement programs (workplace visits, guest speaker series, co-op coordination) that produce inconsistent results due to network limitations. A platform that systematizes industry-professional matching for guest instruction could serve 5,000+ schools and colleges nationally, delivering 50,000+ guest instruction sessions per year. Platform revenue: matching fee per confirmed engagement ($50–$150 per session), institutional subscription for unlimited match access ($500–$2,000/year), corporate STEM engagement package (employer-sponsored practitioner availability for specific school sectors).</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Equation She Actually Needed</div>
+        <p><strong>Characters:</strong> Kavitha Rajan - civil/structural engineer from Chennai, recently immigrated to Mississauga, Mr. David Park - Grade 12 physics teacher, Mississauga secondary school, Preet Sidhu - Grade 12 student, interested in structural engineering</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>Secondary school physics is taught from textbooks. The textbooks are correct. The problems
+are well-posed. The gap is application: what does a structural loading calculation look like
+when the structure is a real building in a real city, with real soil conditions, real wind
+loads, and real liability? What does an engineer actually do with the free body diagram that
+the textbook shows in isolation?</p>
+<p>David Park has been teaching Grade 12 physics for fourteen years. He is an excellent teacher.
+He has never worked as an engineer. He does his best with the application examples in the
+textbook. He has invited two engineers to speak to his class in fourteen years — both through
+personal contacts, both male, both white, both from structural firms where he happened to know
+someone who knew someone.</p>
+<p>The class has never seen anyone who looks like Preet.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Kavitha Rajan</strong> has a master's degree in structural engineering from IIT Madras and eight
+years of experience designing commercial and residential structures in Chennai. She is in
+Mississauga because her husband's tech role transferred. Her P.Eng. recognition application
+is with Engineers Canada. She is doing a contract role reviewing shop drawings for a
+low-rise residential developer — underemployed by any measure.</p>
+<p>She registered on the platform to stay professionally active and to feel like she was
+contributing while her career transition ran. Her profile: structural engineering, seismic
+and wind load design, reinforced concrete and steel frame, Grade 11–12 and first-year
+university appropriate, Tamil and English, available for guest sessions, panel participation,
+and mentorship.</p>
+<p><strong>David Park</strong> registered his unit on the platform: Grade 12 physics, chapter on static
+equilibrium and structural loading, needs a practicing structural engineer to provide
+real-world application context, one or two sessions preferred.</p>
+<p>The match is exact. Kavitha's profile covers Grade 11–12 appropriate structural engineering
+content. David's unit covers static equilibrium — Kavitha's daily working tool.</p>
+<p>The Generative Match Story confirms: <em>Kavitha Rajan, P.Eng. candidate, structural engineering,
+8 years commercial/residential structural design, Chennai. Experienced: seismic and wind load
+analysis, reinforced concrete design to IS and transferring knowledge to NBCC context. Tamil
+and English. Available for one or two sessions on structural load analysis and real-world
+engineering problem-solving.</em></p>
+<p>David invites her for two sessions. She declines a PowerPoint. She brings printed structural
+drawings — a three-storey mixed-use building she designed in Chennai.</p>
+<p>In the first session, she walks the class through the load path from roof to foundation.
+She uses the same notation from their textbook. The students see — for the first time — that
+the textbook notation refers to something real. Something that stands up in the world.</p>
+<p><strong>Preet Sidhu</strong> is in the front row. After the session, she stays to ask about the IIT Madras
+master's program, about structural versus civil, about what it means to stamp a drawing.
+Kavitha answers every question.</p>
+<p>After the second session, Preet asks the platform to connect her with Kavitha as a semester
+mentor. Kavitha agrees. They meet for forty-five minutes once a month for the rest of the
+school year.</p>
+<p>In May, Preet's university application list includes structural engineering programs at
+Waterloo and McMaster. Kavitha writes her a reference letter that describes, specifically,
+the engineering intuition she demonstrated in their conversations.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Kavitha wanted to contribute. David needed what she had. Preet needed to see what she could
+become. The infrastructure to connect all three was a matching platform — something that took
+David's curriculum need and Kavitha's specific expertise and put them in the same room.</p>
+<p>David's personal network does not include Tamil structural engineers from Chennai.
+That is not a criticism; it is a fact. Personal networks reflect the world we have already
+encountered. The platform reflects the world we are in.</p>
+<p>Canada is importing extraordinary professional depth. The question is whether we use it
+or leave it on the floor while we continue to tell students in our cities that the people
+who build the world they live in do not look like them.</p>
+<p><em>Characters are fictional. The P.Eng. recognition process for internationally trained
+engineers, the IIT Madras engineering faculty, and the demographic makeup of Canada's
+engineering profession are real. <a href="../../marketforge.html">DeeperPoint</a> is building
+the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">STEM Guest Instructor Matching SaaS</div>
+        <p>Schools with active industry engagement programs manage their contacts manually through spreadsheets and Rolodexes. A platform that gives them on-demand access to a pre-screened, self-described pool of immigrant professionals — with VSC guidance and engagement templates included — is a clear operational improvement.</p>
+        <div class="opp-card__revenue">&#128181; Per-confirmed-match fee ($50–$150/session). Annual subscription for schools and colleges with recurring engagement programs ($500–$2,000/year). Premium subscription includes reporting dashboard for grant-funded STEM engagement programs.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Corporate STEM Pipeline Sponsorship</div>
+        <p>Large Canadian employers with diverse workforces — engineering firms, tech companies, pharmaceutical manufacturers — want to invest in STEM pipeline development in communities where they recruit. Sponsoring their own employees as guest instructors is a dual benefit: community investment and professional development for the employee.</p>
+        <div class="opp-card__revenue">&#128181; Annual corporate sponsor package ($15,000–$60,000). Employer sponsors a pool of their immigrant-professional employees as guest instructors in targeted school sectors aligned to their hiring pipeline. Platform manages scheduling, preparation, and outcome reporting.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Student-Professional Mentorship Network</div>
+        <p>One guest lecture changes a student&#x27;s perception. A semester of monthly conversations with an immigrant professional in a STEM field changes their trajectory — and gives the professional a relationship with Canadian educational culture that helps their own integration.</p>
+        <div class="opp-card__revenue">&#128181; Per-matched-pair monthly fee ($15–$30/month, paid by school or sponsor). Structured semester-long mentorship pairings between immigrant STEM professionals and secondary students interested in related fields.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Credential Bridging Commerce</div>
+        <p>Immigrant professionals who build a documented guest instruction record on the platform have demonstrated communication competence, curriculum alignment capability, and Canadian institutional engagement — all of which count in professional recognition applications. The platform creates a virtuous cycle between teaching and certification.</p>
+        <div class="opp-card__revenue">&#128181; Referral fee from provincial professional engineering and science associations for platform-verified practitioners pursuing Canadian certification ($200–$400 per successful referral). Guest instruction performance records serve as professional development documentation in recognition applications.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

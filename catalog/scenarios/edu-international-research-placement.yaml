@@ -1,0 +1,148 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: edu-international-research-placement
+title: "International Research Experience Matching for Canadian University Students"
+card_title: "Cross-Border Student Research Placement"
+sector: canadian-education
+sub_sector: "Cross-Border & University Research Education"
+forge_tier: 2
+status: published
+tags: [thin-markets, education, research, cross-border, university, canada, global, cosolvent, knowledgeslot]
+
+market_example:
+  summary: "Canadian university students in science, engineering, social science, and humanities want short international research placements — 8–16 weeks in a lab, field site, or research institution abroad — that give them genuine exposure to how their discipline is practised in a different national context. International research institutions want qualified Canadian students, especially in fields where Canadian methodological traditions are distinct. A matching platform resolves the discovery problem on both sides."
+  problem: "International research placement programs — REUs, Mitacs Globalink, and bilateral exchange schemes — are oversubscribed and cover a narrow set of destination countries. A Canadian agricultural science student who wants to study soil microbiology in a Kenyan research institute cannot find that opportunity through Mitacs. A physics PhD student who wants a placement at DESY in Hamburg cannot find that through the standard Erasmus network. Research institutions in Brazil, South Korea, Finland, Israel, and South Africa want Canadian students with specific methodological backgrounds that are not broadcast through any matching service accessible to individual students. Both parties are present; no market-clearing mechanism exists."
+  dominant_forces:
+    - "Discovery failure — Research institutions abroad with open placement capacity cannot reach Canadian students with the right background through standard student recruitment channels"
+    - "Specificity mismatch — Placement programs offering international research operate at the country or institutional level; students need placement in a specific research area, methodology, and lab context"
+    - "Institutional gatekeeping — The most interesting placements (cutting-edge labs, field sites, national research institutes) are accessible only through personal faculty connections that many students — especially first-generation, non-networked students — do not have"
+    - "Trust deficit — International research hosts cannot assess student readiness without reviewing CV, transcript, and research experience in a format their institutional HR system may not accommodate for international students"
+    - "Funding gap — International research placements require travel, housing, and living support that is not covered by most scholarship programs for non-elite destinations"
+  deeperpoint_fit: "CoSolvent builds student profiles with research background, methodological training, language competence, field or lab experience, and specific research interest at the level of research question (not just 'biology' but 'novel CRISPR applications in drought-resistant crop development'). International host institution profiles capture lab focus, specific methodology space, available supervision, placement duration, language of instruction, and whether stipend or housing support is available. The matching engine finds correspondence at the research question level — not just field and country. KnowledgeSlot carries visa and research permit requirements by country, academic travel grant sources by field, and student supervision agreement templates adapted for international research contexts."
+  economic_upside: "Mitacs Globalink manages approximately 700 international inbound research placements per year with federal funding. The unmet demand among Canadian students for international research placements is estimated at 10–20x this number by academic program directors. If the platform connects 5,000 Canadian students per year to verified international research placements at an average matching fee of $150, that represents $750K in direct revenue plus $30–50M in stipend and travel support mobilized through partner grants. The research quality and diversity of Canadian graduate programs improves measurably."
+
+sponsor_opportunities:
+  - title: "Research Placement Matching SaaS"
+    type: saas
+    revenue_model: "Per-confirmed-match fee ($150–$350). Institutional subscription for university international offices with large outbound exchange programs ($3,000–$12,000/year)."
+    strategic_logic: "University international offices run outbound placement programs with limited reach into non-traditional destinations. A platform that matches at the research-question level — not just the country level — dramatically expands the viable destination set and the proportion of students who find genuinely meaningful placements."
+    recurring: true
+
+  - title: "Research Grant Facilitation Commerce"
+    type: commerce-extension
+    revenue_model: "Coordination fee for platform-facilitated travel grant applications ($200–$400 per successful grant). Connects placement-confirmed students to matching federal, provincial, and institutional grant sources appropriate for their destination and field."
+    strategic_logic: "The funding gap is the terminal barrier for most students once a placement is found. The platform's KnowledgeSlot, matched to the specific placement profile, identifies applicable grants faster than a student on their own — and the coordination service converts platform matches into funded travel."
+    recurring: false
+
+  - title: "International Host Institution Subscription"
+    type: saas
+    revenue_model: "Annual subscription for international research institutions to maintain active placement profiles and receive matched student referrals ($1,200–$6,000/year). Includes unlimited student profile reviews and interview facilitation support."
+    strategic_logic: "Research institutions in non-traditional destinations (Vietnam, Ghana, Brazil, Estonia) want Canadian student placements for methodological and network reasons their own recruitment cannot achieve. The platform is the first systematic channel to reach Canadian students at the right specificity level."
+    recurring: true
+
+  - title: "Field Experience Documentation Commerce"
+    type: commerce-extension
+    revenue_model: "Platform-hosted placement documentation service ($50–$100/placement). Structured placement portfolio document — research objectives, institutional host, supervisor assessment, outcomes — formatted for graduate school applications and scholarship dossiers."
+    strategic_logic: "International research experience is a significant graduate school application asset, but only when documented in a format admissions committees recognise. The platform generates the documentation format as a byproduct of the managed placement — increasing application value for the student and outcome visibility for the institutional sponsor."
+    recurring: false
+
+story:
+  title: "The Lab She Couldn't Google"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Zara Ali - third-year agricultural science student, University of Guelph"
+    - "Dr. Aster Woldemichael - soil microbiome researcher, International Livestock Research Institute (ILRI), Addis Ababa"
+    - "Prof. Mark Hendricks - Zara's academic supervisor, Guelph"
+  summary: "Zara wants to study how soil microbial communities respond to smallholder cropping systems in sub-Saharan Africa — the exact research Dr. Aster is conducting at ILRI. Mitacs doesn't cover Ethiopia. No Google search surfaces ILRI's placement capacity. The platform finds the match in a week."
+  body: |
+    ## Act A - The Market Structure
+
+    Agricultural science programs at Canadian universities produce graduates who understand
+    soil science, agronomy, and plant physiology in the context of Canadian and humid-temperate
+    agricultural systems. Many of those graduates go on to work in international development,
+    food security, or global agri-tech — but they have never studied agriculture in the
+    conditions they will work in.
+
+    Research institutions like ILRI in Addis Ababa, CIMMYT in Mexico, the Bangladesh Rice
+    Research Institute, and the West Africa Centre for Crop Improvement in Ghana produce
+    world-class research in the exact environments where Canadian-trained agricultural scientists
+    most need experiential exposure. These institutions have supervised placement capacity.
+    They want the methodological networks that come with placing Canadian students.
+
+    The market between them does not exist. Mitacs has bilateral agreements with 70 countries —
+    but ILRI's placement pipeline is not part of any program a third-year Guelph student
+    can access without Prof. Hendricks personally knowing someone in Addis Ababa.
+
+    Prof. Hendricks does not know anyone in Addis Ababa.
+
+    ---
+
+    ## Act B - The Story
+
+    **Zara Ali** grew up in Winnipeg, the daughter of Somali refugees who farmed in Manitoba.
+    She chose agricultural science because food security is not abstract to her family. Her
+    research interest: how soil microbial communities support or undermine plant productivity
+    under low-input smallholder farming conditions — the conditions her grandparents' land
+    faces in Somalia, and the conditions of hundreds of millions of farmers across eastern Africa.
+
+    She wanted a summer placement. She spent six weeks searching Mitacs, ePIC (NSERC's
+    exchange program), and fifty institutional websites. Nothing matched her specific question
+    at an appropriate level for a third-year undergraduate.
+
+    She registered on the platform: agricultural science, soil microbiology, smallholder
+    cropping systems, sub-Saharan Africa preference, 12-week placement, English primary,
+    stipend not required if housing provided, available May–August.
+
+    **Dr. Aster Woldemichael** runs the soil health laboratory at ILRI in Addis Ababa.
+    Her current project: microbial community dynamics under integrated soil fertility
+    management in mixed crop-livestock smallholder systems across three East African countries.
+    She needs an undergraduate field and lab assistant with soil science background for
+    the May–August sampling season. She registered ILRI's placement profile through the
+    platform's research institution partnership. Placement capacity: one or two undergraduate
+    students, housing provided on campus, no stipend, English, May–August.
+
+    The match is structurally precise. Zara's research interest — smallholder soil microbiology
+    — matches Dr. Aster's active project at a level of specificity that no country-level or
+    field-level matching system could have produced. The platform confirms the match within
+    one week of Zara's registration.
+
+    The Generative Match Story presents Dr. Aster's project context to Zara with enough
+    detail for her to assess fit: field sampling in three zones, PLFA and 16S rRNA amplicon
+    methods, soil fertility management system comparison. It presents Zara's profile to Dr. Aster:
+    soil science coursework, land-use-ecology field practicum, Guelph lab techniques, academic
+    supervisor confirmation pending.
+
+    **Prof. Hendricks** reviews the match. He reads Dr. Aster's ILRI profile. He emails her
+    directly. She responds the same day.
+
+    Zara spends twelve weeks at ILRI. She processes soil samples from 180 smallholder plots.
+    She learns PLFA lipid extraction from Dr. Aster's lab technician. She visits three field
+    sites in Oromia region.
+
+    On the flight home, she writes the research experience section of her graduate school
+    applications. She has four pages of material. She also has an invitation from Dr. Aster
+    to return as a graduate student if she pursues a thesis on her specific sampling dataset.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The placement existed. Zara's research interest was the perfect fit. Dr. Aster's project
+    was active, funded, and staffed for exactly the placement Zara needed.
+
+    Six weeks of searching produced nothing because the matching system that exists — Mitacs
+    and its bilateral agreements — was not built to reach research institutions in Ethiopia
+    at the level of a specific active project in a specific lab with a specific opening.
+
+    The platform matches at the right level of specificity. Not "Canada-Ethiopia student exchange"
+    — but "agricultural science undergraduate with soil microbiology training, May–August,
+    matching ILRI's active smallholder soil health project that needs exactly one field assistant."
+
+    Zara's career — and the research questions she will pursue for the next decades — is shaped
+    by twelve weeks in Addis Ababa. The infrastructure that made those twelve weeks possible
+    took one week to run.
+
+    *Characters are fictional. ILRI's soil health research program, integrated soil fertility
+    management research in East Africa, and the Mitacs Globalink program coverage limitations
+    are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this
+    story describes.*
