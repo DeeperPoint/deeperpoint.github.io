@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: psvc-fractional-cfo
+title: "SME Growth Finance: Fractional CFO Matching for Stage-Specific Strategic Needs"
+card_title: "Fractional CFO Matching for Growing SMEs"
+sector: professional-services
+sub_sector: Finance & Strategic Advisory
+forge_tier: 1
+status: published
+tags: [fractional-cfo, sme, finance, professional-services, canada, growth-stage, capital-raise, opacity]
+
+market_example:
+  summary: "Growing SMEs between $2M and $30M revenue need senior financial leadership for specific strategic events — a capital raise, an acquisition, an SR&ED program, a banking covenant renegotiation — but cannot cost-justify a full-time CFO. The fractional CFO market is fragmented, unverified, and opaque to the SME buyers who need it most."
+  problem: "The CFO function at a growing SME is not a continuous full-time job — it is a series of intensive project engagements: building a bank package for a growth credit facility, structuring a Series A data room, managing an SR&ED claim, conducting acquisition due diligence, or renegotiating terms after a covenant breach. Experienced CFOs who provide these services on a fractional basis exist in every major Canadian city. The problem is that 'fractional CFO' is an entirely self-designated title with no credentialing body, no standard service definition, and no mechanism for an SME owner to distinguish a former Big Four partner with fifteen M&A transactions from a bookkeeper who added 'CFO services' to their website. The SME owner hires through word of mouth — and the word of mouth network has the same depth limitation as every other thin market: the person who needs a fractional CFO with SR&ED manufacturing experience in a US cross-border context will get three names, not one of whom has that specific background."
+  dominant_forces:
+    - "Credential opacity — 'fractional CFO' is an unregulated title; the SME owner cannot distinguish depth of experience, sector focus, or transaction type specialization from a website or LinkedIn profile alone"
+    - "Offering complexity — the right fractional CFO match requires alignment on company stage, sector, specific transaction type, US cross-border familiarity, and availability for the relevant project window"
+    - "Participant scarcity — experienced CFOs with specific transaction type depth (SR&ED, M&A, cross-border banking, Series A structuring) are a small subset of the total 'fractional CFO' market"
+    - "Temporal specificity — the need is acute during a specific event window (banking renewal, fundraise, acquisition) and absent between events; the SME cannot maintain a standing relationship with the right person between projects"
+    - "Trust deficit — the CFO relationship requires access to the most sensitive financial information in the company; hiring on the word of a generalist accountant is the default because it reduces exposure risk"
+  deeperpoint_fit: "Semantic matching encodes practitioner profiles (prior CFO role depth by company stage and revenue range, transaction type specialization by category — SR&ED, M&A, Series A/B structuring, covenant renegotiation, cross-border banking — sector experience, CPA designation and firm pedigree, availability for project engagement) against SME demand signals (company stage, revenue range, transaction type, sector, project timeline, US cross-border dimension). The Generative Match Story helps the SME owner articulate what they need in terms the platform can match, not in terms they must already know."
+  economic_upside: "The Canadian fractional CFO market is estimated at $600M–$900M annually, predominantly served through unstructured word-of-mouth referrals. A platform-mediated match that delivers an SR&ED-specialized CFO to a $5M mid-market manufacturer in time for the claim filing window generates $50,000–$150,000 in recoverable SR&ED credits that would otherwise be left on the table. Capital raise engagements generate $300,000–$2M+ in new capital access. The transaction value per matched engagement justifies a platform commission or subscription fee tier well above the SaaS standard."
+
+sponsor_opportunities:
+  - title: "Fractional CFO Discovery and Verification Platform (SaaS)"
+    type: saas
+    revenue_model: "Annual SME subscription ($800–$2,500/year); practitioner verified profile subscription ($500–$1,200/year); engagement referral commission (3–5% of first-year engagement value)"
+    strategic_logic: "Business development banks, regional economic development agencies, and accounting firms with SME advisory practices all have a fractional CFO referral need across their client portfolios. A platform they can white-label or partner with extends their SME support infrastructure without requiring staff hires."
+    recurring: true
+
+  - title: "Project Engagement Scoping and Proposal Facilitation"
+    type: managed-service
+    revenue_model: "Per-project scoping facilitation ($600–$1,200); standardized fractional engagement agreement template library ($200–$400 per template)"
+    strategic_logic: "The biggest barrier for SME owners engaging a fractional CFO is not finding one — it is scoping the engagement clearly enough to get a fixed-fee proposal they can evaluate. A facilitated scoping session that produces a clear engagement brief reduces the friction between platform match and signed agreement."
+    recurring: false
+
+  - title: "SR&ED and Government Incentive Program Identification Service"
+    type: managed-service
+    revenue_model: "Government incentive eligibility screening per company ($400–$900); SR&ED preparation coordination retainer ($1,500–$4,000)"
+    strategic_logic: "SME owners most likely to engage a fractional CFO for the first time are those with a specific triggering event — and SR&ED claim eligibility is one of the most common. A service that screens a company's activities for SR&ED and other government incentive eligibility (IRAP, CME grants, regional development programs) creates the immediate, quantified case for fractional CFO engagement before the owner has to take it on faith."
+    recurring: false
+
+  - title: "SME Banking and Capital Access Tool Suite"
+    type: commerce-extension
+    revenue_model: "Bank package preparation template and guidance tool ($300–$600); financial model and pitch deck template library ($200–$500); ongoing financial dashboard subscription for SMEs ($150–$400/month); platform earns tool commerce revenue from every CFO engagement it facilitates"
+    strategic_logic: "Every fractional CFO engagement produces financial documents — bank packages, pitch decks, financial models — that the SME owner keeps and reuses. A platform-adjacent tool suite that provides templates, tools, and ongoing financial dashboards converts the one-time engagement into a recurring SME finance software relationship."
+    recurring: true
+
+story:
+  title: "The SR&ED Window"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Marcus — founder and CEO, precision machining company, Cambridge, Ontario; 22 employees, $4.8M revenue"
+    - "Diane — fractional CFO, SR&ED and manufacturing sector specialist, Waterloo"
+  summary: "A precision machining founder discovers his company has been leaving $80,000–$120,000 in annual SR&ED tax credits unclaimed for four years because no one in his financial team knew the manufacturing process improvements he made qualified as SR&ED-eligible scientific work."
+  body: |
+    ## Act A — The Invisible Money
+
+    Scientific Research and Experimental Development tax credits are among the most valuable government incentives available to Canadian manufacturers. SR&ED offsets up to 35% of qualifying expenditure on process and product development — including the kind of iterative machining tolerance work that a precision shop does every time it takes on a difficult new part family. The federal program alone is worth $4 billion annually to Canadian businesses.
+
+    The SME owners who miss it are not negligent. They are non-financial operators whose accountants file T2 returns but do not have SR&ED claim preparation experience, and whose in-house bookkeepers do not know that "we spent three months figuring out how to hold a new titanium alloy part to within 0.002 inches" is a reportable SR&ED activity rather than a shop floor anecdote.
+
+    ---
+
+    ## Act B — The Story
+
+    **Marcus** had been running his precision machining shop for eleven years. His accountant was competent, local, and inexpensive. His bank relationship was solid — a $1.2M operating line he had never breached.
+
+    When a neighbouring manufacturer mentioned SR&ED credits at a chamber breakfast and named a number that equalled six months of Marcus's net margin, Marcus went home and asked his accountant about it. The accountant said he didn't handle SR&ED claims — that was a specialist function.
+
+    Marcus searched "SR&ED consultant" and found fifteen results ranging from national advisory firms to individual operators with no verifiable credentials. He called two. One wanted a 25% contingency fee on the refund. One didn't return his call.
+
+    He registered his need on the MarketForge fractional CFO platform: manufacturing sector, SR&ED claim preparation, Ontario, $3M–$8M revenue range, available for current fiscal year filing window.
+
+    The platform returned three profiles. One of them was **Diane**.
+
+    ---
+
+    **Diane** had spent eight years as a controller and then CFO for a Tier 2 automotive parts manufacturer before moving to fractional practice. She had filed SR&ED claims in ten of those years, worked directly with CRA SR&ED reviewers on two contested claims, and specifically listed precision machining, forming, and tooling development as sectors she had SR&ED documentation experience in.
+
+    Marcus's engagement lasted six weeks. Diane reviewed four years of shop records, identified qualifying process development work in three separate part families, and prepared the technical justification narratives the CRA required. The first-year refund claim was $94,000.
+
+    The claim was filed. The refund cleared nine weeks later.
+
+    Marcus retained Diane for the following year's filing on a flat-fee basis.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Marcus's SR&ED money existed. The regulation creating his entitlement had been in place since 1985. The CRA's own website describes precision machining process development as qualifying SR&ED work.
+
+    What the market lacked was a mechanism that connected the fact of his entitlement with a practitioner qualified to monetize it — at the moment in the fiscal year when there was still time to file. "SR&ED consultant" is not a regulated designation. The platform's ability to encode Diane's specific combination — SR&ED claim preparation, manufacturing sector, precision machining experience, CRA technical review experience — is the information that no generalist directory captures.
+
+    [Thin market infrastructure](../../thin-markets.html) converts Marcus's problem from an annual missed entitlement into a fiscally-timed, subspecialty-matched engagement that his bookkeeper cannot replicate and his general accountant doesn't offer.
+
+    *Characters are fictional. SR&ED tax credit program mechanics, CRA claim review procedures, and qualifying expenditure categories for precision machining are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
