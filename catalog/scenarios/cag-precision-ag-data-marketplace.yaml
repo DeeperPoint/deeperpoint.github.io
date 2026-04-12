@@ -1,0 +1,101 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cag-precision-ag-data-marketplace
+title: "Precision Agriculture Data: Enabling Farmers to Monetize Yield and Soil Data with Agronomic Research"
+card_title: "Precision Ag Data Marketplace for Research and Input Optimization"
+sector: canadian-agriculture
+sub_sector: Agricultural Data & Digital Markets
+forge_tier: 3
+status: published
+tags: [precision-agriculture, agri-data, data-marketplace, yield-data, soil-data, agronomy, agtech, canada, data-sovereignty, research]
+
+market_example:
+  summary: "Canadian farmers with decades of precision agriculture data — yield maps, soil sampling, variable-rate application records — hold one of the most valuable agronomic datasets in the world, but have no governed marketplace to share it with researchers, input suppliers, and agtech startups, while data buyers lack the producer consent framework to access it ethically and legally."
+  problem: "Precision agriculture has been generating farm-level data in Canada since the mid-1990s. A prairie grain farmer with twenty years of yield mapping has a dataset that encodes the spatial productivity pattern of every field they farm, the response of specific varieties to specific weather and management combinations, and the year-over-year effect of their agronomic program on soil organic matter and crop nutrient uptake. This data has substantial value to agronomic researchers, crop insurance actuaries, plant breeders validating new variety release performance, input suppliers calibrating recommendation algorithms, and agtech companies training machine learning models for crop yield prediction. The farmer who owns this data receives no benefit from it today — it sits in proprietary format files on their operation management system, accessible only to the service provider who installed the software. Meanwhile, data buyers who want access to real-farm production data must either rely on academic trial station datasets that do not represent commercial production conditions, operate expensive on-farm research programs that generate small samples at high cost, or purchase data from farm management software companies who aggregate it without meaningful individual farmer consent or compensation. The farmer's data sovereignty is not respected, and the farmer receives no revenue."
+  dominant_forces:
+    - "Data sovereignty and consent — farmers are legally and ethically entitled to control who accesses their precision agriculture data; existing farm management software terms create data access rights that many farmers are not aware they have granted"
+    - "Data format fragmentation — precision agriculture data exists in dozens of proprietary formats (John Deere Operations Center, Climate FieldView, Trimble AG, AgLeader) with no universal exchange standard, creating a technical barrier to aggregation even when consent is obtained"
+    - "Valuation opacity — farmers have no mechanism to evaluate what their specific data is worth to a specific research or commercial buyer; they accept or reject generic access requests without knowing the data's value"
+    - "Privacy and competitor risk — a farmer sharing yield data is potentially disclosing their production advantage to input suppliers who serve their competitors; granular geographic data can reveal competitive agronomic insights"
+    - "Trust deficit — farmers' experience with farm management software data monetization is predominantly negative; restoring trust requires a governance framework with genuine farmer control and transparent compensation"
+  deeperpoint_fit: "Semantic matching encodes farmer data profiles (data type by category — yield map, soil sampling, VRT application, irrigation, drone imagery — years of record, crop types, geographic region, data format, access permission level) against researcher and data buyer demand signals (data type, geography, crop type, years of record required, resolution, sample size required, compensation offer, research purpose). KnowledgeSlot encodes the consent framework, data format conversion specifications, and privacy protection protocols. The Generative Match Story helps farmers understand what their data is worth before accepting an access request."
+  economic_upside: "Academic and commercial researchers spend $200M–$500M annually on agronomic data collection globally — a cost that would be substantially lower if real-farm production data were ethically accessible. A prairie grain farmer with 20 years of yield data on 3,000 acres could generate $500–$3,000 annually by licensing anonymized field-level yield and soil data to agronomic research programs — a new income stream from an asset they already own. Agtech companies training crop prediction models pay $10–$100 per field-year of high-quality yield data; a platform aggregating consented data from 1,000 farms with 20-year records represents a dataset worth $20M–$200M in research value at those rates."
+
+sponsor_opportunities:
+  - title: "Farm Data Consent and Marketplace Platform (SaaS)"
+    type: saas
+    revenue_model: "Annual farmer subscription (freemium base; premium consent management and revenue dashboard $200–$500/year); data buyer access subscription ($2,000–$10,000/year based on data volume); marketplace transaction commission (8–15% of data sale value)"
+    strategic_logic: "Farm credit and financial institutions (FCC, AFSC, Desjardins Agriculture) that hold existing farmer relationships are natural distribution partners — a data marketplace that generates new farm income is a financial service that complements their existing lending relationships. Canadian Agri-Food Research Network (CARN) and provincial agricultural research networks are natural data buyer anchor clients who validate the research use case."
+    recurring: true
+
+  - title: "Data Format Conversion and Normalization Service"
+    type: managed-service
+    revenue_model: "Per-farm data extraction and format normalization ($200–$600 for historical data migration); annual data update and format maintenance ($100–$250/year)"
+    strategic_logic: "The primary technical barrier to farm data participation is format fragmentation — 20 years of yield data may be distributed across three different farm management software systems in proprietary formats. A data normalization service that extracts, converts, and validates historical precision agriculture data creates the unified dataset that makes the farm's data marketable, establishing the farmer as a platform participant before the first data buyer inquiry."
+    recurring: true
+
+  - title: "Crop Insurance Actuarial Data Partnership"
+    type: managed-service
+    revenue_model: "Anonymized yield data partnership with crop insurance programs (AgriInsurance actuarial calibration; $0.50–$2.00 per field-year of consented data); crop insurance rate personalization service using consented farm-level yield history"
+    strategic_logic: "Canadian crop insurance programs (Agriculture Financial Services Corporation, Saskatchewan Crop Insurance Corporation) actuarially price coverage based on regional yield averages that do not account for individual farm management quality differences. A consented data partnership that allows actuaries to calibrate risk more precisely to individual farm management generates lower insurance premiums for high-performance farms — a direct financial benefit that incentivizes farmer data participation."
+    recurring: true
+
+  - title: "Input Optimization Service Extension"
+    type: commerce-extension
+    revenue_model: "Variable-rate fertilizer and seed recommendation service based on anonymized field-level yield pattern analysis ($300–$800/year per farm subscription); precision agronomic recommendation sales through platform-affiliated input retailers; agtech tool recommendation based on farm data profile; platform earns input commerce revenue from every data relationship it establishes"
+    strategic_logic: "The farm that shares its yield data is also a farm with specific agronomic optimization opportunities that the data reveals — underfertilized zones, variety selection opportunities, drainage investment priorities. A platform that provides the farmer with personalized input recommendations derived from their own data — and facilitates the purchase of those inputs through affiliated suppliers — converts the data marketplace into an input recommendation commerce business relationship with the farm."
+    recurring: true
+
+story:
+  title: "Twenty Years of Yield Maps"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dale — fourth-generation grain farmer, near Weyburn, Saskatchewan; 4,200 acres with 22 years of yield map records"
+    - "Dr. Yarra — crop science researcher, University of Saskatchewan; building a Saskatchewan wheat yield response model requiring multi-farm multi-decade production data"
+  summary: "A University of Saskatchewan crop scientist needing twenty years of commercial-farm wheat yield data for a provincial agronomic model discovers that the farmer whose operation is exactly what her study requires had the same data sitting in an obsolete file format on a hard drive in his farm office — and no idea it was worth $1,800 a year to someone."
+  body: |
+    ## Act A — The Data Poverty Paradox
+
+    Agronomic research in Canada faces a data poverty paradox. Canadian precision agriculture adoption is among the highest in the world — prairie grain farmers have been using yield monitors, GPS-guided variable-rate applicators, and soil sampling programs since the 1990s. Canada's commercial farm production data record is exceptionally long, geographically diverse, and agronomically sophisticated.
+
+    None of it is accessible to researchers without individual farmer consent and data retrieval arrangements that almost never happen.
+
+    The academic databases available to Canadian crop scientists are populated with agricultural research station trial data — controlled experiments on small plots, conducted under conditions specifically designed to exclude the weather variability, soil heterogeneity, and management variation of commercial production. The research station data is scientifically clean. It is not representative of what actually happens in commercial growing conditions at scale.
+
+    A researcher building a predictive model for commercial wheat production needs commercial farm data. She cannot get it.
+
+    ---
+
+    ## Act B — The Story
+
+    **Dr. Yarra's** research program was building a wheat yield response model for the Brown and Dark Brown soil zones of Saskatchewan — a model intended to improve crop insurance actuarial calibration by replacing regional average yields with field-specific management-adjusted predictions. Her data requirement was clear: minimum twenty years of yield data by field, with fertilizer application records, variety information, and basic soil test data, from commercial-scale farms in her target geography.
+
+    She had been collecting data for three years through voluntary participation agreements with fifteen farms — an exhausting process of individual outreach, consent negotiation, and format conversion that had consumed more of her research budget than the analysis itself. She needed forty more farms to achieve statistical validity.
+
+    She registered her data requirement on the platform: wheat yield maps, Prairie Brown/Dark Brown soil zone, minimum 20 years of record, Saskatchewan, 2,000+ acres, fertilizer application records if available.
+
+    **Dale** had yield map files going back to 2002 — the year he bought his first yield monitor. They were in three different formats: early Climate FieldView exports, a decade of John Deere Operations Center files, and the last four years in Trimble format. He had never thought about what they might be worth. He had kept them because he used them for agronomic planning, but he assumed they were only useful to him.
+
+    The platform's data normalization service extracted, converted, and unified Dale's 22-year yield record into a standardized research-grade format in three weeks. The data valuation tool showed his dataset — 4,200 acres, 22 years, wheat-canola-lentil rotation, fertilizer records partially available — was worth $1,400–$2,200 per year to qualified research programs, anonymized at the field level to prevent geographic identification.
+
+    Dale reviewed Dr. Yarra's research purpose and the compensation offer. He signed the consent agreement. The data was transferred.
+
+    ---
+
+    Dr. Yarra's model incorporated Dale's data alongside thirty-seven other farm datasets she had assembled through the platform in one season — compared to fifteen farms in three years through direct outreach.
+
+    The insurance actuarial model her research produced was adopted by SCIC for pilot testing in the Weyburn area.
+
+    Dale received $1,680 in data license income from the first year of the research agreement — more than the cost of his crop monitoring software subscription.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    The data Dale held had research value that he did not know existed. The research value that Dr. Yarra needed was held by farmers she had no mechanism to find at scale. The consent framework and format normalization problem that made the data transfer technically prohibitive was solvable — but it required infrastructure that neither party could build individually.
+
+    Farm management software companies have access to aggregated farm data. They do not share it with academic researchers. Academic researchers cannot access it. Farmers do not know they could be compensated for sharing it. The value is trapped between three parties who have no mechanism to transact it ethically.
+
+    [Thin market infrastructure](../../thin-markets.html) creates the consent framework, the format normalization, and the matching mechanism that converts a trapped asset into a functioning data market — where farmers receive income from data they already own, researchers access the commercial-production datasets their models require, and the data transfers under governance that respects the farmer's sovereignty over their own information.
+
+    *Characters are fictional. Canadian precision agriculture adoption rates, Saskatchewan wheat yield model development programs, Saskatchewan Crop Insurance Corporation actuarial methodology, and farm data format fragmentation across John Deere, Climate FieldView, and Trimble systems are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cag-custom-grain-processing
+title: "Custom Grain Processing: Matching Food-Grade and Specialty Grain Farmers to Identity-Preserving Processors"
+card_title: "Identity-Preserving Grain Processor Matching"
+sector: canadian-agriculture
+sub_sector: Grain Processing & Value-Added Agriculture
+forge_tier: 2
+status: published
+tags: [agriculture, grain-processing, identity-preservation, food-grade, milling, cleaning, canada, specialty-grains, participant-scarcity]
+
+market_example:
+  summary: "Farmers growing organic, food-grade, or specialty grain for premium markets cannot access identity-preserving cleaning, drying, and milling capacity without lengthy search and scheduling crises — while commercial processors with certified idle capacity have no efficient mechanism to reach the specialty grain producers who need short-run, documentation-rich processing runs."
+  problem: "Commodity grain handling is designed for volume throughput without identity preservation. The terminal elevator system commingles all grain of a given grade; identity disappears at the first handling point. Farmers producing specialty crops for food-grade or organic markets — heritage wheats requiring identity-preserved milling, organic oats requiring certified organic cleaning facilities with documented flush protocols, specialty pulses requiring allergen-control cleaning between runs — must find processing facilities that offer identity preservation as a service. These facilities exist: small commercial mills, custom cleaning operations, organic-certified elevators, and specialty dryer operators. The problem is mutual opacity. The specialty grain farmer who produces 30 tonnes of identity-preserved organic oats does not know which cleaning facility in their region has organic certification, which is willing to do a 30-tonne short run, which has documented flush protocols that satisfy food-grade buyer requirements, and which has scheduling availability in the post-harvest window. The processing facility operator who has certified identity-preserving capacity available does not know which farmers in their catchment radius are growing the specialty crops that would fill that capacity profitably."
+  dominant_forces:
+    - "Certification specificity — food-grade and organic identity preservation requires specific facility certifications (CFIA-registered, CFIA food-grade, Canada Organic Regime certified, allergen control protocols) that are held by a small subset of prairie processing facilities"
+    - "Volume fragmentation — specialty grain producers typically have short-run volumes (20–150 tonnes) that require short-run processing flexibility; commodity processing infrastructure is optimized for multi-thousand tonne continuous runs"
+    - "Scheduling window constraint — post-harvest grain processing must occur within a specific moisture and quality window; delayed processing access creates grain quality loss and premium degradation"
+    - "Documentation intensity — food-grade buyers require full chain-of-custody documentation (field identity, cleaning facility records, flush protocol documentation) that commodity processors do not routinely issue"
+    - "Geographic constraint — short-run identity-preserved grain handling requires proximity; long-distance hauling is cost-prohibitive for premium grain in specialty quantities"
+  deeperpoint_fit: "Semantic matching encodes processor profiles (certification status by type, minimum/maximum run size, crop capabilities by grain type, allergen control protocol, flush documentation system, geographic service radius, seasonal availability calendar) against farmer demand signals (crop type and variety, processing required by type, certification required, volume, timeline, documentation requirements, distance tolerance). Scheduling integration enables real-time capacity availability visibility."
+  economic_upside: "Food-grade grain premiums range from 30–200% over commodity prices, depending on the crop and specification. The premium is realized only if the farmer can access identity-preserving processing at a cost that preserves the margin. A prairie organic oat farmer who cannot access certified organic cleaning loses the organic premium on their entire crop — a loss of $0.10–$0.25/lb on 50 tonnes ($10,000–$25,000 per growing season) — not because their crop is not organic but because the processing bottleneck could not be resolved. The Canadian organic grain market exceeded $500M in farm gate value in 2024; organic and food-grade specialty grain processing capacity is growing but remains fragmented and opaque to the producers who need it."
+
+sponsor_opportunities:
+  - title: "Identity-Preserving Processor Discovery Platform (SaaS)"
+    type: saas
+    revenue_model: "Annual farmer subscription ($200–$500/year); processor verified profile and capacity listing ($400–$900/year); per-booking facilitation fee (1–2% of processing run value)"
+    strategic_logic: "Organic certification bodies (OCPP, COABC, QCO), specialty grain marketing organizations, and provincial organic producer associations have both producers and processors as members. A platform offered through certification body partner channels reaches the organized specialty grain market on both sides without requiring direct-to-farmer marketing."
+    recurring: true
+
+  - title: "Processing Documentation and Chain-of-Custody Service"
+    type: managed-service
+    revenue_model: "Per-processing-run documentation package ($150–$350); annual food-grade documentation audit and template update ($400–$800)"
+    strategic_logic: "The food-grade buyer's documentation requirement — field identity records, cleaning facility certification, flush protocol documentation, lot traceability — is the highest-friction element of the specialty grain supply chain. A documentation service that provides standardized chain-of-custody records from field through processing eliminates the documentation burden that currently prevents many specialty grain transactions from completing."
+    recurring: false
+
+  - title: "Short-Run Processing Scheduling and Capacity Optimization Service"
+    type: saas
+    revenue_model: "Processor scheduling and capacity management tool ($600–$1,500/year); multi-run scheduling coordination for aggregated short runs ($300–$600 per aggregated run)"
+    strategic_logic: "Identity-preserving processors lose revenue when short-run specialty grain volumes don't fill their available capacity efficiently. A scheduling optimization service that aggregates compatible specialty grain runs from multiple farmers into efficient processor scheduling blocks — same certification requirement, same geographic catchment, compatible grains without allergen conflicts — converts idle capacity into productive revenue while reducing the per-tonne processing cost for short-run farmers."
+    recurring: true
+
+  - title: "Specialty Grain Value-Added Processing Extension"
+    type: commerce-extension
+    revenue_model: "Custom milling service coordination (flour, flake, split processing; 8–15% margin on processing fee); specialty grain packaging and private-label facilitation; direct-to-consumer specialty grain flour sales enablement; platform earns processing commerce revenue from every match it facilitates that extends into value-added processing"
+    strategic_logic: "Many specialty grain farmers who want to produce identity-preserved whole grain for food manufacturers actually have the most value-added opportunity one step further: custom milled flour or processed grain products sold directly to artisan bakers and specialty food retailers. The platform that matched the farmer to the cleaning facility is the natural intermediate to a custom milling value-added extension that converts raw grain into a finished food ingredient at significantly higher margin."
+    recurring: true
+
+story:
+  title: "The Organic Oat Window"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Sylvia — certified organic grain farmer, near Rosthern, Saskatchewan; 180 acres of organic oats ready for harvest, no confirmed cleaning facility"
+    - "Brent — owner-operator, certified organic cleaning and processing facility, Osler, Saskatchewan; 35 minutes from Sylvia's farm"
+  summary: "A certified organic oat farmer watches her premium evaporate as she spends three weeks post-harvest searching for an organic-certified cleaning facility with available scheduling — while a qualified facility 35 minutes away had available capacity for exactly her run volume all along."
+  body: |
+    ## Act A — The Certification Chain
+
+    Organic grain certification does not end at the farm gate. For a bushel of organic oats to be sold as certified organic to a food manufacturer, every handling point from field to processor must maintain documented organic integrity. The cleaning facility must hold Canada Organic Regime certification. Its cleaning equipment must be flushed with a documented protocol between conventional and organic runs. The cleaning records must be traceable to the field-level lot identification the certification body issued at the farm.
+
+    This is not a complex protocol. Organic-certified cleaning facilities run these procedures routinely. The challenge is not that the protocol is difficult — it is that the farmer producing organic oats has no mechanism to know which of the dozen cleaning operations in their region holds organic certification, which has capacity in the post-harvest scheduling window, and which is willing to run a 180-acre oat volume that is too small for a commodity elevator's interest but too large for a farm-scale operation.
+
+    The cleaning window for high-moisture oats is approximately three weeks post-harvest. After that, grain quality degradation begins and with it, the premium.
+
+    ---
+
+    ## Act B — The Story
+
+    **Sylvia** finished harvesting her oat crop on September 12. Her oats were at 14.5% moisture — within the acceptable range for storage but at the upper boundary for long-term bin storage without conditioning. She needed a certified organic cleaning facility within a month.
+
+    She called the four cleaning facilities she knew of. One was conventional only. One had organic certification but was booked solid until mid-October. One had organic capacity but required a minimum 500-tonne run for their organic protocol — she had 85 tonnes. The fourth didn't return her call until the beginning of October.
+
+    By the time she found a facility — through a contact at her certification body who happened to mention a new operation that had just received organic certification — she was six weeks post-harvest. The delay had cost her one moisture-damaged bin section and pushed her delivery outside the window her organic buyer's purchasing schedule required.
+
+    She sold 60 tonnes as certified organic at the premium. The remaining 25 tonnes went into the commodity stream.
+
+    ---
+
+    **Brent's** facility had received Canada Organic Regime certification eight months before Sylvia's harvest. He had capacity available throughout September and October. He had placed his facility's organic certification information in his provincial agricultural business directory listing and on a farmers' market supplier board in Saskatoon.
+
+    His facility was 35 minutes from Sylvia's farm. She had never heard of him.
+
+    When Sylvia registered on the specialty grain processor platform the following season — before harvest, in July — Brent's profile appeared as the top result: organic-certified, oat-capable, 50–300 tonne run range, available September–November, Rosthern catchment area.
+
+    She booked her cleaning slot in July. Her entire 85-tonne organic oat crop was processed and delivered to her buyer by September 28.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Brent held the certification Sylvia needed. His facility was geographically ideal. His run capacity was exactly right. He had available scheduling during her entire post-harvest window.
+
+    The information that defined his qualification — organic certification, oat-cleaning capability, minimum run size, geographic radius — was in his provincial directory listing, on his business card, and in the Canada Organic Regime public database. It was distributed across three sources that Sylvia searched too late, after the harvest pressure had already begun.
+
+    [Thin market infrastructure](../../thin-markets.html) encodes the certification, the capability, and the scheduling availability into a searchable profile that a farmer can find in July — before the harvest that creates the urgency — and book in advance, before the window that determines whether the premium is realized or lost.
+
+    *Characters are fictional. Canada Organic Regime certification requirements for handling facilities, organic oat post-harvest moisture management windows, and Saskatchewan organic grain production volumes are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

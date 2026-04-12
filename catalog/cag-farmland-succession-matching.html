@@ -1,0 +1,524 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmland Succession: Matching Retiring Farm Operators to Next-Generation Farmers Without Family Successors — DeeperPoint</title>
+  <meta name="description" content="Canada faces a farmland succession crisis: 40% of farm operators are over 55 and half have no identified successor. Meanwhile, thousands of young farmers cannot access land. The succession match requires alignment on land type, equipment compatibility, financing structure, transition timeline, and the retiring farmer&#x27;s desire to see their land farmed well — a combination that personal networks consistently fail to assemble.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Agriculture &middot; Farmland Transition &amp;amp; Succession</div>
+      <h1 class="detail-title">Farmland Succession: Matching Retiring Farm Operators to Next-Generation Farmers Without Family Successors</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">agriculture</span><span class="blog-tag">farmland</span><span class="blog-tag">succession</span><span class="blog-tag">next-generation-farmers</span><span class="blog-tag">canada</span><span class="blog-tag">retiring-farmers</span><span class="blog-tag">land-access</span><span class="blog-tag">participant-scarcity</span><span class="blog-tag">opacity</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Canadian farmland succession is one of the most consequential thin markets in the rural economy. On the supply side: more than 40% of Canadian farm operators are over 55 years old, and survey data consistently shows that 40–50% of these operators have no identified family successor. These retiring farmers hold farmland with an average value of $1.5M–$4M per enterprise and face three options: sell to a corporate aggregator at a market-clearing price, keep the land in the family (renting to cash crop farmers), or find a next-generation farm operator they trust to continue the farming enterprise. The third option — which preserves active farming, maintains rural community viability, and is what the majority of retiring farmers prefer — requires a match that doesn&#x27;t happen. On the demand side: thousands of young Canadians want to farm but cannot access land at prices compatible with agricultural income, and cannot get into a succession arrangement with a retiring farmer they have never met. The match requires alignment on land type, existing equipment compatibility, transition timeline (gradual vs. immediate), vendor-take-back financing structure, geographic area, and the retiring farmer&#x27;s sense that the next operator shares their values. This combination cannot be sourced through real estate listings, farm financial advisors, or generational succession consultants working from their contact list.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Trust asymmetry — the retiring farmer is transferring the asset that defines their life&#x27;s work; the transaction requires a level of personal trust that cannot be established through a property listing or a financial intermediary introduction</li><li>Financing structure complexity — succession agreements frequently involve vendor-take-back mortgages, rent-to-own arrangements, or cooperative equity structures that conventional agricultural lenders are not structured to facilitate</li><li>Participant scarcity — beginning farmers with sufficient management experience, production knowledge, and partial capital to enter a succession arrangement are a small and geographically distributed population</li><li>Matching specificity — land type (grain, livestock, mixed, horticultural, organic-certified), existing infrastructure, and equipment all constrain which beginning farmers can successfully convert the operation without prohibitive capital reinvestment</li><li>Opacity — retiring farmers who want to find a successor do not advertise themselves; the preference for a trusted successor rather than a market-clearing sale is not legible from the MLS listing the farm will eventually generate if succession fails</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes retiring operator profiles (farm type, acreage, on-farm infrastructure, equipment available for transfer, transition timeline preference, vendor-take-back financing openness, organic or specialty certification status, geographic region) against beginning farmer profiles (production background by farm type, capital available, financing pre-qualification, transition structure preferred, geographic flexibility, production experience by commodity). The Generative Match Story helps both parties articulate their requirements in terms that protect the trust asymmetry — the platform surfaces alignment signals before personal introduction.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The Canadian farmland succession opportunity is estimated at $50B–$80B in farmland that will transition ownership in the next decade. Corporate aggregation of this farmland produces lower agricultural productivity per acre and accelerates rural depopulation — social costs that provincial governments are beginning to quantify. A succession match platform that redirects 5% of transitioning farmland to next-generation individual operators rather than corporate purchasers preserves $2.5B–$4B in owner-operated agricultural enterprise. Provincial governments in Saskatchewan, Manitoba, and Ontario have existing beginning farmer programs (First-Time Farmer Loan programs, AFSC succession grants) that provide direct financial incentive for the succession transactions a platform would facilitate.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Third Generation</div>
+        <p><strong>Characters:</strong> Harold — 68-year-old retiring grain farmer, near Melfort, Saskatchewan; 2,400 acres, no family successor, doesn&#x27;t want to sell to a corporate buyer, Kenji — 31-year-old aspiring grain farmer, grew up on a 400-acre family operation near Melfort; looking for a succession opportunity to grow into a larger farm enterprise</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Structural Succession Gap</h2>
+<p>Canadian farmland is concentrating. The average farm size has increased in every census since 1941. The mechanism of concentration is not primarily purchase — it is succession failure: when a retiring farmer cannot find a trusted individual successor, the path of least resistance is a cash sale to an existing large operator or a corporate aggregator who can pay a clean price without the complication of vendor-take-back financing or knowledge transfer requirements.</p>
+<p>The concentration consequence is not primarily economic for the retiring farmer — the cash price is fair. The consequence is rural economic vitality: fewer farm families in the municipality, reduced demand for local agricultural services, declining school enrollment, and the gradual erosion of the social fabric that holds rural communities together. Provincial agricultural economists have begun quantifying this as a rural economic externality that succession programs should be designed to prevent.</p>
+<p>The beginning farmer who would have continued the operation as a small-to-medium scale enterprise is not absent — they are invisible.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Harold</strong> had decided two years earlier that he would not sell his operation to either of the two large corporate operators who had already approached him. His conditions: the buyer must be an individual farmer who would live on the land, maintain the operation at its current scale, and consider a vendor-take-back arrangement that would allow him to accept a price below market while maintaining an income stream in retirement.</p>
+<p>His real estate agent had no mechanism to signal these conditions to beginning farmer candidates without publishing them in a listing that corporate buyers would see first. His financial advisor had referred him to a beginning farmer in Nipawin — 120 kilometres away and interested in hog production, not grain. FCC's succession desk had put him on a waiting list for a beginning farmer match program that had a six-month queue.</p>
+<p>He was two years into the process with no match.</p>
+<p><strong>Kenji</strong> had grown up farming his parents' 400 acres and had spent five years operating their grain system to full productivity before they decided to continue farming for another decade. He was ready to begin his own operation and willing to take on substantial debt service in a succession arrangement, but the operations he could afford to buy outright were too small to be economically viable, and the succession opportunities he heard about through his agricultural network were in different commodities or geographic regions that didn't fit his production experience.</p>
+<p>Harold's profile on the platform — 2,400 acres grain, vendor-take-back openness, Melfort-area Saskatchewan, retirement timeline 3–5 years — matched Kenji's profile on seven of eight specified criteria within the first twenty-four hours of the platform's matching algorithm running.</p>
+<p>The geographic distance between their operations: 37 kilometres.</p>
+<hr />
+<p>The first meeting was a field walk. Harold showed Kenji every drainage tile installation, every field's yield history, every quirk of the air seeder's hydraulic system. Kenji asked the right questions — which fields had summer fallow potential, which acres had the most consistent yield, what the rotation looked like in a dry year.</p>
+<p>Harold knew within two hours that Kenji would farm the land the right way.</p>
+<p>The succession agreement took six months to structure. Vendor-take-back at a price 18% below market value, with a 15-year amortization at agricultural rates. Equipment transfer schedule over three years. Harold signed a three-year consulting agreement at $12,000/year to be available for questions during the transition period.</p>
+<p>Harold's land is not on the corporate aggregator's portfolio. Kenji is the fourth generation to farm within the Melfort municipal district.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Harold and Kenji lived 37 kilometres apart and searched for each other through channels that had no mechanism to surface them to one another. Harold could not signal his succession preferences without compromising his negotiating position in a public listing. Kenji had no mechanism to signal his succession-specific qualifications — grain production experience, vendor-take-back financing pre-qualification, geographic preference — to a retiring farmer whose preferences were equally unlisted.</p>
+<p>The succession market's information problem is symmetric: both parties are looking for each other and neither can find the other through available channels.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> creates the private, preference-preserving match that the public real estate listing cannot — encoding the specific attributes that define a viable succession match, at the moment before the retiring farmer accepts the corporate offer that ends the search.</p>
+<p><em>Characters are fictional. Canadian farm operator age demographics, farmland succession failure rates, FCC beginning farmer programs, and Saskatchewan agricultural land board regulations are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Farmland Succession Discovery Platform (SaaS)</div>
+        <p>Provincial agricultural land banks (Saskatchewan Farmland Security Board, Manitoba Agricultural Services Corporation, FCC Beginning Farmer Program), Young Farmers organizations, and National Farmers Union chapters all serve populations on both sides of the succession gap. A platform offered through these organizations reaches the organized population of succession participants without requiring direct-to-farmer marketing.</p>
+        <div class="opp-card__revenue">&#128181; Annual subscription per beginning farmer ($200–$500/year); retiring operator listing ($150–$300/year); per-transaction facilitation fee (0.5–1.0% of transaction value, capped at $5,000)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Succession Transaction Structuring Service</div>
+        <p>The most complex challenge after finding the right match is structuring the financial transaction in a way that works for both parties — vendor-take-back rates, equity transfer timelines, equipment purchase schedules. A transaction structuring service that produces the agreement framework and refers the parties to agricultural lawyers and lenders who specialize in succession transactions converts the platform match into a completed succession rather than a stalled negotiation.</p>
+        <div class="opp-card__revenue">&#128181; Per-transaction succession structuring package ($1,500–$4,000); vendor-take-back mortgage drafting and facilitation ($800–$2,000); rent-to-own agreement template library ($300–$600)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Beginning Farmer Mentorship and Knowledge Transfer Program</div>
+        <p>The retiring farmer&#x27;s most urgent concern is not the transaction price — it is whether the beginning farmer will be able to maintain the operation they spent forty years building. A structured knowledge transfer program that formalizes the tacit operational knowledge (equipment quirks, drainage field maps, customized agronomic practices) that cannot be put in a real estate listing creates the confidence that enables the succession. The mentorship program is also the primary mechanism for the generational relationship that makes vendor-take-back financing viable.</p>
+        <div class="opp-card__revenue">&#128181; Structured knowledge transfer program between retiring and beginning farmer ($600–$1,500 for facilitation); annual mentorship continuation ($300/year); online beginning farmer training module subscription ($150–$350/year)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Agricultural Finance and Land Transaction Extension</div>
+        <p>Every completed succession transaction generates an immediate capital need: beginning farmers need production financing for their first full operating year, crop insurance setup, and input credit. The platform has the beginning farmer&#x27;s financial profile, the farm&#x27;s production history, and the succession transaction structure — the natural position to facilitate the financial services transition alongside the ownership transition.</p>
+        <div class="opp-card__revenue">&#128181; Agricultural lender referral program (FCC, BDC, AFSC beginning farmer programs; $300–$800 per funded application); crop input credit facilitation for beginning farmers&#x27; first production year; farm insurance placement coordination; platform earns finance commerce revenue from every succession transaction it enables</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
