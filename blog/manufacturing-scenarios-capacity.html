@@ -1,4 +1,4 @@
-﻿<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,6 +130,11 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
       <ul class="nav__links">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
@@ -158,13 +163,15 @@
       </div>
       
       <div class="series-nav">
-        <div class="series-nav__header">Part of a 6-post series</div>
+        <div class="series-nav__header">Part of a 5-post series</div>
         <div class="series-nav__title">Manufacturing Scenarios</div>
-        <div class="series-nav__steps"><a href="ontario-roadmap-part1-fractional.html" class="series-nav__step"><span class="series-nav__step-num">1</span>A Cosolvent-Powered Marketplace</a><a href="ontario-roadmap-part3-pocket.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Virtual Tier-One</a><a href="used-machinery-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">3</span>The Machine Under the Tarp</a><a href="manufacturing-scenarios-testing.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Tensile Test That Almost D…</a><a href="manufacturing-scenarios-skills.html" class="series-nav__step"><span class="series-nav__step-num">5</span>The Welder Who Wrote Firewalls</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">6</span>The Idle Shift</span></div>
+        <div class="series-nav__steps"><a href="ontario-roadmap-part1-fractional.html" class="series-nav__step"><span class="series-nav__step-num">1</span>A Cosolvent-Powered Marketplace</a><a href="ontario-roadmap-part3-pocket.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Virtual Tier-One</a><a href="manufacturing-scenarios-testing.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Tensile Test That Almost D…</a><a href="manufacturing-scenarios-skills.html" class="series-nav__step"><span class="series-nav__step-num">5</span>The Welder Who Wrote Firewalls</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">6</span>The Idle Shift</span></div>
         <div class="series-nav__arrows"><a href="manufacturing-scenarios-skills.html" class="series-nav__arrow">&larr; The Welder Who Wrote Firewalls</a></div>
       </div>
       <article class="blog-post">
-        <div class="scenario-story" markdown="1">
+        <!-- markdownlint-disable MD033 MD001 -->
+
+<div class="scenario-story" markdown="1">
 
 <figure class="blog-hero">
   <img class="blog-hero__img" src="../images/blog/fractional-capacity-thin-market-hero.png" alt="A five-axis machining centre at the end of the day shift — capable, maintained, and idle" loading="lazy">
@@ -322,6 +329,7 @@ The four scenarios in Part IV form a progression. The used machinery story was a
   </footer>
 
   <script src="../reveal.js"></script>
+  <script src="../nav-mobile.js"></script>
   <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>

@@ -1,4 +1,4 @@
-﻿<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,6 +94,11 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
       <ul class="nav__links">
         <li><a href="../../index.html" class="nav__link">Home</a></li>
         <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
@@ -109,7 +114,7 @@
   <section class="section" id="series-page" style="padding-top: calc(var(--space-4xl) + 60px);">
     <div class="container container--narrow">
       <a href="../index.html" class="series-back">&larr; All Posts</a>
-      <div class="series-page__label">Series &middot; 6 parts &middot; March 2026</div>
+      <div class="series-page__label">Series &middot; 5 parts &middot; March 2026</div>
       <h1 class="series-page__title">Manufacturing Scenarios</h1>
       <p class="series-page__desc">Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized.</p>
       <ul class="series-page__entries">
@@ -131,16 +136,6 @@
                 <div class="series-entry__title">Market Scenario: The Virtual Tier-One</div>
                 <div class="series-entry__summary">When a massive global clean-energy contract lands on the table, no single Ontario SME is big enough to bid. Using an AI broker, a dynamic consortium forms instantly, rivaling a Hegemon tier-1 factory.</div>
                 <div class="series-entry__meta">March 23, 2026 &middot; 6 min read</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="../used-machinery-thin-market.html" class="series-entry">
-              <div class="series-entry__num">3</div>
-              <div class="series-entry__body">
-                <div class="series-entry__title">Market Scenario: The Machine Under the Tarp</div>
-                <div class="series-entry__summary">A $140,000 CNC machining center sits under a tarp at the back of a factory in Stratford. A manufacturer in Windsor needs exactly that machine. Neither knows the other exists.</div>
-                <div class="series-entry__meta">March 18, 2026 &middot; 10 min read</div>
               </div>
             </a>
           </li>
@@ -195,6 +190,7 @@
   </footer>
 
   <script src="../../reveal.js"></script>
+  <script src="../../nav-mobile.js"></script>
   <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>

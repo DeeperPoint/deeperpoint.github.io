@@ -1,0 +1,188 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Scenario: The Vendor Review That Almost Didn't Happen — DeeperPoint</title>
+  <meta name="description" content="A fictional scenario illustrating how the Canadian Cybersecurity Network's 46,000 members could use a community matching engine to find peer-to-peer vendor intelligence — and why that's a better starting point than the high-stakes applications.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Market Scenario: The Vendor Review That Almost Didn't Happen">
+  <meta property="og:description" content="A fictional scenario illustrating how the Canadian Cybersecurity Network's 46,000 members could use a community matching engine to find peer-to-peer vendor intelligence — and why that's a better starting point than the high-stakes applications.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/ccn-vendor-review.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Market Scenario: The Vendor Review That Almost Didn't Happen">
+  <meta name="twitter:description" content="A fictional scenario illustrating how the Canadian Cybersecurity Network's 46,000 members could use a community matching engine to find peer-to-peer vendor intelligence — and why that's a better starting point than the high-stakes applications.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-04-02">April 02, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>9 min read</span>
+        </div>
+        <h1 class="blog-post__title">Market Scenario: The Vendor Review That Almost Didn't Happen</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">marketforge</span><span class="blog-tag">cybersecurity</span><span class="blog-tag">canada</span>
+        </div>
+      </div>
+      
+      <article class="blog-post">
+        <figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/ccn-vendor-review-hero.png" alt="The Canadian Cybersecurity Network as a thin market community" loading="lazy">
+  <figcaption>The Canadian Cybersecurity Network as a thin market community.</figcaption>
+</figure>
+
+<h2 id="where-cosolvent-actually-is">Where Cosolvent Actually Is</h2>
+<p>Before the story, some honest context.</p>
+<p><a href="../marketforge.html">Cosolvent</a> is an open-source semantic matching engine being developed by <a href="../whitepaper.html">DeeperPoint</a> for building AI-mediated marketplaces in <a href="../thin-markets.html">thin markets</a> — markets where willing buyers and sellers exist but can&rsquo;t efficiently find each other. It handles structured participant profiles, multi-attribute semantic matching, progressive trust stages, and deal assembly. The codebase is real, the architecture is documented, and the matching engine works in controlled tests.</p>
+<p>It is not ready for pilot deployment. A realistic timeline to a functioning community tool is three to six months at the earliest — and that assumes a cooperative development path, not a solo build.</p>
+<p>This matters because the scenario that follows imagines Cosolvent running inside a cybersecurity community. Cybersecurity professionals are, by training and temperament, the most privacy-conscious user population imaginable. They will have legitimate, pointed questions about data handling, trust boundaries, credential verification, and attack surfaces that a general-purpose matching platform has not yet been designed to answer.</p>
+<p>We know that. The purpose of this document is not to propose that someone deploy Cosolvent into the Canadian Cybersecurity Network tomorrow. It is to ask whether the <em>problem</em> described below is real enough, and the <em>approach</em> promising enough, that members of the community might want to help shape it.</p>
+<h2 id="the-spectrum-low-stakes-to-high-stakes">The Spectrum: Low Stakes to High Stakes</h2>
+<p>A community like the Canadian Cybersecurity Network (CCN) — 46,000 professionals, companies, universities, and government organizations — generates thin market problems across a wide range of sensitivity levels. Some examples:</p>
+<p><strong>High-stakes applications</strong> involve sensitive operational data or national security implications:
+- <strong>Zero-day supply chain response</strong> — a manufacturer needs an emergency cybersecurity consortium, and the matching process must verify clearances and protect proprietary architecture details
+- <strong>Threat intelligence sharing</strong> — credit unions comparing indicators of compromise without exposing their defensive postures to each other or the public
+- <strong>SCADA security talent</strong> — matching cleared specialists to critical infrastructure operators, where the search query itself reveals a vulnerability</p>
+<p>These are genuinely important problems, and a community matching platform could eventually help solve them. But they demand hardened credential verification, zero-knowledge proofs, compartmentalized access controls, and threat modelling that Cosolvent hasn&rsquo;t been through yet. Building for these use cases first would mean years of security engineering before anyone gets value.</p>
+<p><strong>Low-stakes applications</strong> involve professional networking and advisory interactions:
+- <strong>Peer-to-peer vendor evaluations</strong> — finding someone who actually uses a specific tool in a comparable environment
+- <strong>Mentorship matching</strong> — connecting a bootcamp graduate transitioning into cloud security with a senior who made that exact career pivot
+- <strong>Speaker sourcing</strong> — finding a CCN member who can talk about maritime logistics cybersecurity for a Halifax meetup
+- <strong>Study group assembly</strong> — three professionals across Canada studying for the same niche certification</p>
+<p>These are real thin market problems too — the CCN&rsquo;s existing directory and CCN Circle platform can&rsquo;t solve them well because they rely on keyword search against static profiles. But if the matching goes wrong, the consequence is an unhelpful conversation, not a security breach.</p>
+<p><strong>This story uses a low-stakes scenario deliberately.</strong> It illustrates the core matching mechanics — semantic profiles, progressive disclosure, sponsor mediation — without requiring any functionality that Cosolvent hasn&rsquo;t been designed for yet. If the community finds the approach compelling at this level, the high-stakes applications become a natural hardening roadmap driven by the people who understand the threat model best: the CCN&rsquo;s own members.</p>
+<hr />
+<p><em>(The following narrative is fictional. The characters, companies, and platform interactions are invented to illustrate how a community matching engine could work within a professional network like the CCN. The Canadian Cybersecurity Network is a real organization; this scenario is not affiliated with or endorsed by them.)</em></p>
+<hr />
+<h2 id="the-story-the-vendor-review-that-almost-didnt-happen">The Story: The Vendor Review That Almost Didn&rsquo;t Happen</h2>
+<h3 id="the-47000-question">The $47,000 Question</h3>
+<p>Nadia Okafor managed IT security for a 90-person retail chain headquartered in London, Ontario. Fourteen locations across southwestern Ontario, each with point-of-sale terminals, inventory management systems, and a cloud-based CRM that her predecessor had migrated to Azure two years ago without documenting much of anything.</p>
+<p>Her current problem was a $47,000 annual contract renewal for a Managed Detection and Response platform. The vendor&rsquo;s sales engineer had been charming and responsive during the initial deployment eighteen months ago. Since then, the integration with her POS system had been flaky, the alerting thresholds seemed miscalibrated for retail — too many false positives on legitimate overnight inventory transfers — and the &ldquo;24/7 SOC&rdquo; response time had quietly drifted from the promised fifteen minutes to something closer to an hour.</p>
+<p>Nadia had three weeks before the renewal deadline. She needed to decide: renegotiate, switch vendors, or accept the status quo because switching costs were high and her team was already stretched.</p>
+<p>What she really needed was a conversation with someone who ran the same MDR platform in a comparable retail environment. Not a vendor-supplied reference. Not a G2 review written by someone in a Fortune 500 SOC. An actual peer — someone who could tell her whether the integration problems were solvable, whether the response-time drift was normal, and whether the alternatives she was considering were genuinely better or just shinier.</p>
+<p>She&rsquo;d asked in the CCN Circle discussion forums. Her post — carefully vague, because she didn&rsquo;t want to name-and-shame the vendor publicly — got three responses. One was from a consultant who clearly wanted to sell her a migration assessment. The other two were from people in financial services and healthcare, environments so different from retail that their experiences weren&rsquo;t transferable.</p>
+<p>The thin market problem was textbook: the person she needed existed somewhere in the CCN&rsquo;s 46,000-member network, but neither of them could find the other. Nadia didn&rsquo;t know who to ask. The right peer didn&rsquo;t know Nadia was asking.</p>
+<h3 id="the-profile">The Profile</h3>
+<p>Six months earlier, the CCN had piloted an experimental matching service for a subset of its membership — a Cosolvent-powered tool that worked alongside the existing CCN Circle directory. Members who opted in built a structured profile that went beyond the standard directory listing.</p>
+<p>Nadia&rsquo;s profile didn&rsquo;t contain her company name or her specific vendor contracts. What it contained was a structured capability and context description:</p>
+<ul>
+<li><strong>Industry vertical:</strong> Retail — multi-location, brick-and-mortar, POS-intensive</li>
+<li><strong>Infrastructure:</strong> Hybrid cloud (Azure), distributed endpoints, legacy on-prem inventory systems</li>
+<li><strong>Security toolstack categories:</strong> MDR, endpoint protection, SIEM integration</li>
+<li><strong>Team size:</strong> Solo security lead, one part-time support</li>
+<li><strong>Current activity:</strong> Tool evaluation / procurement decision</li>
+</ul>
+<p>The profile was built through a guided intake conversation with the platform&rsquo;s AI. Nadia didn&rsquo;t fill out a form — she described her situation in plain language, and the system extracted structured attributes. She could see exactly what was stored and redact anything she wanted.</p>
+<h3 id="the-match">The Match</h3>
+<p>In Moncton, New Brunswick, Benoît Gagnon had been running IT for a 60-person retail franchise — sporting goods, eleven locations across the Maritimes — for seven years. He&rsquo;d deployed the same MDR platform Nadia was evaluating three years ago, fought through the same POS integration issues, and ultimately renegotiated his contract after documenting the response-time problems in a detailed incident log that gave him leverage the vendor couldn&rsquo;t dismiss.</p>
+<p>Benoît&rsquo;s Cosolvent profile described his environment in the same structured terms: retail, multi-location, Azure hybrid, MDR deployed and operational, POS integration experience. He&rsquo;d flagged himself as willing to do peer consultations on tool evaluation — not as a paid service, just the kind of professional reciprocity that made the CCN valuable to him.</p>
+<p>When Nadia posted a matching request — <em>&ldquo;seeking peer conversation: MDR platform evaluation, retail environment, POS integration experience&rdquo;</em> — the Cosolvent engine didn&rsquo;t search for keywords in a directory. It computed semantic similarity across the structured profiles of opted-in members.</p>
+<p>Benoît&rsquo;s profile scored highest. Not because he&rsquo;d used the word &ldquo;MDR&rdquo; — dozens of members had. Because the combination of retail vertical, multi-location architecture, POS system involvement, Azure deployment, and willingness to consult produced a multi-dimensional match that keyword search could never replicate.</p>
+<h3 id="the-introduction">The Introduction</h3>
+<p>The platform didn&rsquo;t connect them directly. It generated an anonymized match brief — Cosolvent&rsquo;s &ldquo;guided introduction&rdquo; step.</p>
+<p>Nadia saw: <em>&ldquo;A CCN member in Atlantic Canada manages security for a multi-location retail operation with MDR deployed for 3+ years. They have direct experience with POS integration and vendor contract negotiation in a comparable environment. They have indicated willingness for a peer consultation.&rdquo;</em></p>
+<p>Benoît saw: <em>&ldquo;A CCN member in Ontario manages security for a similar-sized retail chain and is evaluating their MDR contract renewal. They&rsquo;re seeking peer experience with integration challenges and vendor responsiveness.&rdquo;</em></p>
+<p>No company names. No vendor names. No network diagrams. Just enough context for each person to judge whether the conversation would be worthwhile.</p>
+<p>Both accepted.</p>
+<h3 id="the-conversation">The Conversation</h3>
+<p>They talked for forty minutes on a Thursday morning. Benoît walked Nadia through his integration experience: the POS event-forwarding problem was a known issue with the vendor&rsquo;s API connector, fixable by their engineering team if you escalated firmly enough. The response-time drift was real and documented — Benoît had his incident log with timestamps. The renegotiation had worked: he&rsquo;d secured a 22% price reduction and a contractual SLA with penalties.</p>
+<p>Nadia asked about the alternatives she&rsquo;d been evaluating. Benoît had trialled one of them during his own evaluation and gave her a direct, unfiltered assessment: better dashboard, worse retail-specific detection rules, slower onboarding.</p>
+<p>By the end of the call, Nadia had a plan: stay with the current vendor, escalate the POS connector issue with specific technical detail, and use Benoît&rsquo;s experience as leverage for an SLA renegotiation. Total cost of the decision: zero dollars and forty minutes. Estimated savings: $10,000 annually on the renegotiated contract, plus the avoided switching costs and disruption risk of a platform migration.</p>
+<p>Two weeks later, she sent Benoît a message through the platform: <em>&ldquo;Renegotiation worked. Got 18% off and a response-time SLA. Owe you a coffee if you&rsquo;re ever in London.&rdquo;</em></p>
+<hr />
+<p><em>(End of fictional scenario.)</em></p>
+<hr />
+<h2 id="what-the-story-demonstrates">What the Story Demonstrates</h2>
+<p>The transaction between Nadia and Benoît is low-stakes by cybersecurity standards. Nobody shared classified information, threat intelligence, or network architecture. The &ldquo;deal&rdquo; was a forty-minute phone call. If the match had been wrong — if Benoît had turned out to be in healthcare instead of retail — the downside was a mildly unhelpful conversation.</p>
+<p>But the thin market mechanics are identical to the high-stakes applications. The same forces that prevented Nadia from finding Benoît through the CCN Circle directory and discussion forums are the forces that prevent:</p>
+<ul>
+<li>A water utility from finding the right SCADA security specialist without publicly advertising its vulnerability</li>
+<li>Three credit unions from sharing indicators of compromise without exposing their defensive postures</li>
+<li>A masterclass instructor from verifying students&rsquo; clearances without becoming a document custodian</li>
+</ul>
+<p>The difference is not in the matching — it&rsquo;s in the trust and verification layers that surround the match. Low-stakes applications need accurate semantic matching and progressive disclosure. High-stakes applications need all of that, <em>plus</em> cryptographic credential verification, zero-knowledge proofs, compartmentalized access controls, and a threat model that&rsquo;s been reviewed by the people who break systems for a living.</p>
+<h2 id="what-it-would-take-and-who-would-build-it">What It Would Take — And Who Would Build It</h2>
+<p>Cosolvent today can do the matching. The semantic profile engine, the guided introduction protocol, the progressive visibility tiers — these exist in the codebase. What doesn&rsquo;t exist yet is the hardening, the integration with a community platform like CCN Circle, and the operational trust that a cybersecurity community would rightfully demand before adopting it.</p>
+<p>Two development paths could get there:</p>
+<p><strong>Path A — Community-driven hardening.</strong> The CCN (or a subset of interested members) treats Cosolvent as a community project. Security engineers contribute threat modelling. Privacy specialists audit the data architecture. The community itself defines what &ldquo;hard enough&rdquo; means for each tier of application — starting with low-stakes professional matching and progressively enabling higher-sensitivity use cases as the platform proves itself. This path is slower but produces a tool that the community genuinely owns and trusts.</p>
+<p><strong>Path B — Industry adoption.</strong> An established cybersecurity firm recognizes the thin market automation pattern as a service opportunity — not just for the CCN, but for professional communities in other regulated domains (legal, healthcare, defence). They adopt Cosolvent, harden it to their standards, and offer the CCN deployment as a reference implementation. This path is faster but depends on finding the right firm with the right incentives.</p>
+<p>Either path starts with the same question: <strong>is the problem real enough to pursue?</strong></p>
+<p>If a CCN member reads this and thinks &ldquo;I&rsquo;ve been in Nadia&rsquo;s situation&rdquo; — or &ldquo;I&rsquo;ve been in Benoît&rsquo;s situation and wish someone had found me&rdquo; — then the problem is real. The engineering is solvable. The question is whether the community wants to solve it.</p>
+<hr />
+<p><em>This document was prepared by DeeperPoint as a discussion starter for the Canadian Cybersecurity Network community. Cosolvent is open-source software under active development. DeeperPoint is not affiliated with the CCN. The scenario above is fictional. We welcome questions, scepticism, and collaboration — contact details are at <a href="https://deeperpoint.com">deeperpoint.com</a>.</em></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="../search.html" class="footer__link">Search</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script src="../nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

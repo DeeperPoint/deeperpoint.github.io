@@ -1,0 +1,150 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Notes: How KnowledgeSlot Keeps Its Answers Relevant — DeeperPoint</title>
+  <meta name="description" content="A reference library without a metadata schema returns semantically similar text. A reference library with one returns contextually appropriate answers. The difference is the schema — and how it grows.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Workshop Notes: How KnowledgeSlot Keeps Its Answers Relevant">
+  <meta property="og:description" content="A reference library without a metadata schema returns semantically similar text. A reference library with one returns contextually appropriate answers. The difference is the schema — and how it grows.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/knowledgeslot-schema-scoped-rag.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Workshop Notes: How KnowledgeSlot Keeps Its Answers Relevant">
+  <meta name="twitter:description" content="A reference library without a metadata schema returns semantically similar text. A reference library with one returns contextually appropriate answers. The difference is the schema — and how it grows.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-04-06">April 06, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>6 min read</span>
+        </div>
+        <h1 class="blog-post__title">Workshop Notes: How KnowledgeSlot Keeps Its Answers Relevant</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">clientsynth</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span><span class="blog-tag">explainer</span>
+        </div>
+      </div>
+      
+      <article class="blog-post">
+        <figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/knowledgeslot-schema-scoped-rag-hero.png" alt="A conceptual illustration of semantic matching and metadata filtering." loading="lazy">
+  <figcaption>A conceptual illustration of semantic matching and metadata filtering.</figcaption>
+</figure>
+
+<p>Retrieval-Augmented Generation — RAG — is the mechanism that lets an AI system answer questions from a curated document library rather than from its training weights alone. It is the engine behind KnowledgeSlot&rsquo;s domain Q&amp;A capability: ingest authoritative reference documents, chunk and embed them, and when a participant asks a question, retrieve the relevant chunks and let the model synthesize an answer.</p>
+<p>The problem is that &ldquo;relevant&rdquo; is doing a lot of work in that sentence.</p>
+<p>In a general-purpose RAG system, relevance is determined by vector similarity — the chunks whose embedding coordinates are closest to the query&rsquo;s embedding coordinates get retrieved. This works well when the document corpus is small and homogeneous. It works poorly when the library spans multiple trade corridors, regulatory jurisdictions, product categories, and document types, because &ldquo;semantically similar to the query&rdquo; and &ldquo;actually applicable to this party&rsquo;s situation&rdquo; are different things.</p>
+<p>A grain buyer in Japan asking about protein measurement methods will get chunks that are semantically similar to &ldquo;protein measurement&rdquo; — possibly including chunks from Canadian Grain Commission grading standards, USDA/FGIS standards, EU grain regulations, and GAFTA contract boilerplate all at once. Some of those chunks apply to their situation. Many do not. A model synthesizing from that mixed retrieval set will produce an answer that is, at best, hedged and generic. At worst, it will confidently describe the wrong standard for the wrong jurisdiction.</p>
+<p>KnowledgeSlot solves this with a metadata schema — a controlled vocabulary of attributes that describes each reference document in terms of <em>what it is about and who it applies to</em>. That schema is not fixed at deployment. It grows as new material is ingested. And it is used to narrow the retrieval scope before vector similarity is calculated.</p>
+<h2 id="what-the-schema-is">What the Schema Is</h2>
+<p>The metadata schema for a KnowledgeSlot deployment is vertical-specific. It is not a generic document tagging system. For a grain trading marketplace, the schema might include dimensions like <code>origin_region</code>, <code>destination_country</code>, <code>product_category</code>, <code>document_type</code>, <code>trade_corridor</code>, and <code>issuing_body</code>. For a remote mental health services marketplace, the dimensions would be entirely different: <code>jurisdiction</code>, <code>insurance_provider</code>, <code>clinical_area</code>, <code>license_type</code>, <code>regulatory_body</code>.</p>
+<p>Each dimension takes values from a controlled vocabulary — a defined set of terms that mean the same thing across all documents in the library. &ldquo;Canada&rdquo; means the same thing whether the document is a Canadian Grain Commission standard or a GAFTA contract clause referencing Canadian origin. &ldquo;FOB&rdquo; means the same thing across every contract template, because the schema forces consistency.</p>
+<p>This is not a trivial design decision. The reason most document libraries do not work this way is that building and maintaining a controlled vocabulary is overhead — it requires editorial judgment, not just ingestion. KnowledgeSlot&rsquo;s architecture makes this overhead visible and manageable by building the schema curation workflow into the ingestion process itself, rather than treating it as a separate, optional layer.</p>
+<h2 id="how-the-schema-grows">How the Schema Grows</h2>
+<p>When a new document is added to the reference library, it goes through a curation step before it is indexed. A combination of LLM-assisted metadata extraction and human editorial review produces a tag set for the document against the current schema.</p>
+<p>But the current schema is not always sufficient. A contract for FOB grain shipments from Ukraine introduces new values into <code>origin_region</code> and may introduce a new <code>trade_corridor</code> tag that did not exist when the library only contained Canadian corridor contracts. A regulatory update from a new destination country may require a new <code>regulatory_body</code> value. A reference document about a certification standard outside the existing <code>issuing_body</code> vocabulary requires a schema extension.</p>
+<p>The curation process handles this through what the KnowledgeSlot design calls schema analysis: when a newly ingested document cannot be fully described by the existing schema, the system — using an LLM-assisted analysis prompt — proposes extensions. These proposals are reviewed and, when approved, merged into the schema. The vocabulary grows deliberately, with each new document either confirming existing schema dimensions or revealing gaps that need filling.</p>
+<p>This progressive growth has an important consequence: the schema is always a description of what the library actually contains, not an aspirational taxonomy of what it might someday contain. Every tag dimension in the schema corresponds to actual documents in the library that carry that tag. This keeps the schema useful and the retrieval scoping accurate — there is no risk of filtering on a dimension that no documents satisfy.</p>
+<h2 id="how-the-schema-narrows-retrieval">How the Schema Narrows Retrieval</h2>
+<p>When a participant asks a question, the retrieval pipeline does not immediately run a similarity search across the entire reference library. It first applies a metadata filter — a set of conditions derived from the schema — to narrow the candidate set.</p>
+<p>The filter looks roughly like this:</p>
+<pre><code class="language-sql">SELECT chunk_text, source_document, metadata
+FROM reference_library
+WHERE destination_countries &amp;&amp; ARRAY[$user_country]
+  AND product_categories &amp;&amp; ARRAY[$user_interests]
+  AND document_type = ANY($relevant_types)
+ORDER BY embedding &lt;=&gt; $query_embedding
+LIMIT $k;
+</code></pre>
+<p>The vector similarity (<code>embedding &lt;=&gt; $query_embedding</code>) only runs on the rows that survive the metadata filter. The candidate set for similarity search is a slice of the library — the documents that are actually applicable to this party&rsquo;s corridor and product interests — not the entire library.</p>
+<p>This matters for retrieval quality in two ways.</p>
+<p>First, <strong>precision improves</strong>: the chunks that score highest for similarity are the most relevant chunks from an already-relevant set, not the most similar chunks from an irrelevant set. The Japanese grain buyer&rsquo;s question about protein measurement retrieves from chunks tagged with <code>destination_country: Japan</code> and <code>product_category: grain</code> — not from the full corpus including EU livestock feed regulations.</p>
+<p>Second, <strong>noise is suppressed</strong>: chunks that are semantically similar but contextually inapplicable never enter the retrieval set. A USDA grading standard and a Canadian Grain Commission standard might use nearly identical language to describe protein measurement — but if the query context is a sale to Japan under a CIF Canada corridor, only the latter is applicable. Metadata pre-filtering makes this distinction before vector similarity has a chance to confuse them.</p>
+<h2 id="automatic-user-context-scoping">Automatic User-Context Scoping</h2>
+<p>The filter parameters in the query above — <code>$user_country</code>, <code>$user_interests</code>, and so on — are not typed by the participant. They are injected automatically from the participant&rsquo;s registered profile.</p>
+<p>When a grain buyer from Japan logs in and asks &ldquo;what protein measurement method applies to this contract?&rdquo;, they do not say &ldquo;show me Japanese regulations.&rdquo; The system already knows they are a Japanese buyer operating in grain markets. It injects their country registration and their declared product interests as implicit filter parameters. The question is answered from the relevant slice of the library without the participant having to articulate their context in every query.</p>
+<p>This is the mechanism that makes domain Q&amp;A feel like talking to an expert rather than querying a database. An expert in grain trading does not ask &ldquo;what are your regulatory requirements, product categories, and destination jurisdiction?&rdquo; before answering a question. They already know who they are talking to. The automatic scoping gives the KnowledgeSlot AI system the same baseline awareness.</p>
+<h2 id="the-shared-vocabulary-guardrail">The Shared Vocabulary Guardrail</h2>
+<p>There is a third design dimension that the schema architecture enables, though it is not visible to participants: coherence between the Knowledge Slot and the Context Slot.</p>
+<p>The Context Slot holds participant-supplied documents — profiles, capability descriptions, deal histories. These are tagged using a participant metadata schema derived from the marketplace&rsquo;s <code>MarketDefinition</code> — the field vocabulary that defines what participants disclose about themselves. The Knowledge Slot&rsquo;s <code>reference_metadata_schema</code> covers different content but overlapping concepts: both use geographical terms, product category identifiers, and certification types.</p>
+<p>The architectural guardrail is that both schemas must draw from the same controlled vocabulary for these shared concepts. &ldquo;Canada&rdquo; in a participant&rsquo;s country-of-origin field and &ldquo;Canada&rdquo; in a reference document&rsquo;s <code>origin_region</code> tag are the same token. This shared vocabulary is what makes cross-slot retrieval possible in the future — queries that span participant profiles and the reference library in a single search, using the same embedding model and the same metadata dimensions.</p>
+<p>The shared vocabulary guardrail also applies to ClientSynth, DeeperPoint&rsquo;s synthetic agent simulator. When bootstrapping or testing a thin market platform, the schema defines the categorical space within which synthetic profiles are generated — their declared geographies, product categories, and capability types. This means ClientSynth-generated agents land in the same matchable positions as eventual real-world participants, and Cosolvent can route them consistently. Schema conformance doesn&rsquo;t replicate a participant&rsquo;s business judgement or negotiation history — but it does ensure the synthetic population inhabits the right corners of the market&rsquo;s structure.</p>
+<p>The schema is not just a filtering tool. It is the connective tissue of the entire platform: it makes the two-slot retrieval architecture coherent, grounds synthetic simulation in the real vocabulary of the market, and — as described in the companion piece — provides the structured foundation on which schema-aware participant matching and deal-specific scenario generation become possible.</p>
+<hr />
+<p><em>KnowledgeSlot is the domain knowledge component of DeeperPoint&rsquo;s marketplace toolkit. This article covers the schema architecture that makes domain-specific retrieval reliable. A companion piece covers how that same schema enables Cosolvent&rsquo;s matching engine and a generative tool that helps matched participants open their first conversation. The theoretical case for authoritative information as a market engineering intervention is in the <a href="../whitepaper.html">DeeperPoint whitepaper</a>.</em></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="../search.html" class="footer__link">Search</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script src="../nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

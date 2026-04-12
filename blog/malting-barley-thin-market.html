@@ -1,23 +1,23 @@
-﻿<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Market Scenario: One Container of Barley — DeeperPoint</title>
+  <title>Market Scenario: One Container of Barley — How a Saskatchewan Farmer and a Filipino Brewmaster Found Each Other Across 12,000 Kilometres — DeeperPoint</title>
   <meta name="description" content="A grain farmer in Saskatchewan grows premium two-row malting barley that the big trading companies blend into commodity shipments. A craft brewery purchasing manager in Cebu wants one container of something special for a seasonal lager. They need each other — but neither knows the other exists.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Market Scenario: One Container of Barley">
+  <meta property="og:title" content="Market Scenario: One Container of Barley — How a Saskatchewan Farmer and a Filipino Brewmaster Found Each Other Across 12,000 Kilometres">
   <meta property="og:description" content="A grain farmer in Saskatchewan grows premium two-row malting barley that the big trading companies blend into commodity shipments. A craft brewery purchasing manager in Cebu wants one container of something special for a seasonal lager. They need each other — but neither knows the other exists.">
   <meta property="og:url" content="https://deeperpoint.com/blog/malting-barley-thin-market.html">
   <meta property="og:site_name" content="DeeperPoint">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Market Scenario: One Container of Barley">
+  <meta name="twitter:title" content="Market Scenario: One Container of Barley — How a Saskatchewan Farmer and a Filipino Brewmaster Found Each Other Across 12,000 Kilometres">
   <meta name="twitter:description" content="A grain farmer in Saskatchewan grows premium two-row malting barley that the big trading companies blend into commodity shipments. A craft brewery purchasing manager in Cebu wants one container of something special for a seasonal lager. They need each other — but neither knows the other exists.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +42,11 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
       <ul class="nav__links">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
@@ -61,21 +66,16 @@
         <div class="blog-meta">
           <time datetime="2026-03-10">March 10, 2026</time>
           <span class="blog-meta__sep">&middot;</span>
-          <span>16 min read</span>
+          <span>18 min read</span>
         </div>
-        <h1 class="blog-post__title">Market Scenario: One Container of Barley</h1>
+        <h1 class="blog-post__title">Market Scenario: One Container of Barley — How a Saskatchewan Farmer and a Filipino Brewmaster Found Each Other Across 12,000 Kilometres</h1>
         <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
-          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">grain</span><span class="blog-tag">craft-beer</span>
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">grain</span><span class="blog-tag">craft-beer</span>
         </div>
       </div>
       
       <article class="blog-post">
-        <figure class="blog-hero">
-  <img class="blog-hero__img" src="../../images/blog/malting-barley-thin-market-hero.png" alt="Split view — a Philippine craft brewery on the left, golden Canadian prairie barley fields on the right" loading="lazy">
-  <figcaption>Golden malting barley ready for harvest on the Canadian prairies — destined for a brewery 12,000 kilometres away.</figcaption>
-</figure>
-
-<h2 id="the-grain-in-the-bin">The Grain in the Bin</h2>
+        <h2 id="the-grain-in-the-bin">The Grain in the Bin</h2>
 <p>Every grain farmer on the Canadian prairies knows the feeling. You grow something exceptional — a two-row malting barley with protein sitting perfectly at 11.8%, plump kernels grading Select, germination energy above 95% — and then you sell it to a grain elevator for the commodity price because there is no other option.</p>
 <p>The elevator blends your barley with twenty other farmers&rsquo; grain. A trading company loads it onto a bulk carrier in Vancouver alongside 6,000 tonnes of similar-enough barley and ships it to a maltster in Japan or China, who buys on grade specification, not provenance. Your barley — the one you selected the seed for, managed the nitrogen on, straight-cut to preserve the hull — disappears into a blending operation that values consistency over character. You get paid $7.50 per bushel. The brewer who eventually uses a malt derived from your barley pays a premium for &ldquo;imported Canadian two-row&rdquo; and has no idea your farm exists.</p>
 <p>This is the grain trade working as designed. Bulk commodity shipping is extraordinarily efficient: $2.50 per tonne per thousand miles, minimum 6,000-tonne lots, established infrastructure at the port terminals in Vancouver and Prince Rupert. If you are moving wheat or canola at scale, the system is unbeatable. Even the contract infrastructure is built for scale: GAFTA Contract No. 27 — the standard-form agreement used globally for Canadian and American grain cargoes — assumes bulk shipments on CIF terms, sets a minimum 95-tonne tender threshold below which the buyer absorbs extra sampling and analysis costs, and explicitly excludes Pacific coast ports from its scope. Fumigation is optional. Incoterms don&rsquo;t apply. The contract is governed by English law, with arbitration in London. It is a sophisticated, well-tested instrument — designed for trading houses moving shiploads between established counterparties.</p>
@@ -117,6 +117,12 @@
 <p><em>&ldquo;A third-generation grain farmer in Rosetown, Saskatchewan, grows CDC Copeland malting barley that grades Select with 11.8% protein, 95.4% germination energy, and 91% plumpness. The grain is identity-preserved — single variety, single field, with a current Canadian Grain Commission certificate. The farmer has rail access to the Pacific coast container terminals. Would you like to review the producer profile and quality documentation?&rdquo;</em></p>
 </blockquote>
 <p>For Darren, the key phrase is &ldquo;willing to pay a premium for single-farm provenance.&rdquo; For Maribel, it&rsquo;s &ldquo;identity-preserved&rdquo; and the precise quality numbers she can verify against the CGC certificate.</p>
+<p>But receiving a match notification and starting a conversation are two different things. Darren has never arranged an international container shipment. Maribel has never bought directly from a Canadian farm. Both know enough to know there is a lot they do not know — which is exactly the kind of friction that keeps structurally sound deals from opening.</p>
+<p>The platform addresses this with a Generative Match Story: a brief, deal-specific narrative generated from the combined inputs of Darren&rsquo;s and Maribel&rsquo;s profiles and the Knowledge Slot&rsquo;s regulatory and logistics content. Neither party requests it; it arrives with the match notification as a shared reference.</p>
+<p>The scenario describes, in plain language, how this specific transaction could unfold: Darren&rsquo;s 24-tonne lot of CDC Copeland, identity-preserved and bagged at his local seed plant, loaded into a 20-foot container at a prairie transload facility, shipped FOB Vancouver under a container-specific grain contract (not GAFTA 27, which excludes Pacific ports), with a compliant phytosanitary certificate issued by CFIA and the BPI Prior Notice filed before the vessel departs. Maribel receives payment terms — cash against documents, her bank releasing funds on receipt of the matched bill of lading, inspection certificate, and phytosanitary certificate. The scenario names the compliance dependencies in sequence and flags the one step that most first-time exporters miss: the SPSIC import permit must be filed in Manila <em>before</em> the grain is loaded in Vancouver, not after.</p>
+<p>Neither Darren nor Maribel wrote this. Neither had to know it in advance. They read it together — and now both have something concrete to discuss rather than a mutual situation of not knowing where to start.</p>
+<p>Darren&rsquo;s first message to Maribel: <em>&ldquo;I&rsquo;ve looked at the scenario the platform generated. I can cover the CFIA phytosanitary certificate from this end. Can you confirm who files the SPSIC import permit on your side, and what the lead time is from your bureau?&rdquo;</em></p>
+<p>Maribel knows the answer — or can find it through her Guild — and the conversation is already specific.</p>
 <hr />
 <h2 id="4-what-the-platform-knows">4. What the Platform Knows</h2>
 <p>When the Western Canadian Wheat Growers Association and the Philippine Craft Brewers Guild configured the platform, they populated the <strong>Knowledge Slot</strong> with domain-specific reference material:</p>
@@ -183,6 +189,7 @@
   </footer>
 
   <script src="../reveal.js"></script>
+  <script src="../nav-mobile.js"></script>
   <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>

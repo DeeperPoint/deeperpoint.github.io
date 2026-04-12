@@ -1,4 +1,4 @@
-﻿<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,6 +130,11 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
       <ul class="nav__links">
         <li><a href="../index.html" class="nav__link">Home</a></li>
         <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
@@ -158,13 +163,15 @@
       </div>
       
       <div class="series-nav">
-        <div class="series-nav__header">Part of a 6-post series</div>
+        <div class="series-nav__header">Part of a 5-post series</div>
         <div class="series-nav__title">Manufacturing Scenarios</div>
-        <div class="series-nav__steps"><a href="ontario-roadmap-part1-fractional.html" class="series-nav__step"><span class="series-nav__step-num">1</span>A Cosolvent-Powered Marketplace</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">2</span>The Virtual Tier-One</span><a href="used-machinery-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">3</span>The Machine Under the Tarp</a><a href="manufacturing-scenarios-testing.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Tensile Test That Almost D…</a><a href="manufacturing-scenarios-skills.html" class="series-nav__step"><span class="series-nav__step-num">5</span>The Welder Who Wrote Firewalls</a><a href="manufacturing-scenarios-capacity.html" class="series-nav__step"><span class="series-nav__step-num">6</span>The Idle Shift</a></div>
-        <div class="series-nav__arrows"><a href="ontario-roadmap-part1-fractional.html" class="series-nav__arrow">&larr; A Cosolvent-Powered Marketplace</a><a href="used-machinery-thin-market.html" class="series-nav__arrow">The Machine Under the Tarp &rarr;</a></div>
+        <div class="series-nav__steps"><a href="ontario-roadmap-part1-fractional.html" class="series-nav__step"><span class="series-nav__step-num">1</span>A Cosolvent-Powered Marketplace</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">2</span>The Virtual Tier-One</span><a href="manufacturing-scenarios-testing.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Tensile Test That Almost D…</a><a href="manufacturing-scenarios-skills.html" class="series-nav__step"><span class="series-nav__step-num">5</span>The Welder Who Wrote Firewalls</a><a href="manufacturing-scenarios-capacity.html" class="series-nav__step"><span class="series-nav__step-num">6</span>The Idle Shift</a></div>
+        <div class="series-nav__arrows"><a href="ontario-roadmap-part1-fractional.html" class="series-nav__arrow">&larr; A Cosolvent-Powered Marketplace</a><a href="manufacturing-scenarios-testing.html" class="series-nav__arrow">The Tensile Test That Almost D… &rarr;</a></div>
       </div>
       <article class="blog-post">
-        <div class="scenario-story" markdown="1">
+        <!-- markdownlint-disable MD033 MD001 -->
+
+<div class="scenario-story" markdown="1">
 
 *Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of AI-brokered consortium assembly. The characters, companies, and events are invented. The market forces, the capability gaps, and the platform architecture are real.*
 
@@ -257,6 +264,7 @@ A final note on Veridian Project Services. In this scenario, Veridian acts as th
   </footer>
 
   <script src="../reveal.js"></script>
+  <script src="../nav-mobile.js"></script>
   <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>

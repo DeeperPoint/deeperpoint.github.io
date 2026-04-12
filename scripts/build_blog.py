@@ -235,6 +235,11 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="{root}index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
       <ul class="nav__links">
         <li><a href="{root}index.html" class="nav__link">Home</a></li>
         <li><a href="{root}thin-markets.html" class="nav__link">The Problem</a></li>
@@ -266,6 +271,7 @@ PAGE_FOOTER = """
   </footer>
 
   <script src="{root}reveal.js"></script>
+  <script src="{root}nav-mobile.js"></script>
   <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>
