@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: mfg-used-equipment
+title: "Secondary Industrial Equipment Matching (Used CNC & Machine Tools)"
+card_title: "Used Industrial Equipment Matching"
+vertical: manufacturing
+sub_sector: Secondary Equipment Markets
+forge_tier: 1
+status: published
+tags: [manufacturing, cnc, equipment, ontario, thin-markets, market-design, ai, cosolvent]
+
+market_example:
+  summary: "A $140,000 CNC machining center sits under a tarp at the back of a factory in Stratford. A manufacturer in Windsor needs exactly that machine. Neither knows the other exists. Generic listing platforms cannot match on production capability — only on category and keyword."
+  problem: "The secondary market for industrial CNC equipment and machine tools is profoundly opaque. Sellers list by model number on platforms like Machinio or EquipNet; buyers need machines that fit a specific set of production parameters — spindle speed, work envelope, tool changer capacity, control system compatibility, demonstrated tolerance capability. No keyword search resolves this. Buyers cannot evaluate condition from a photo and a model number. Sellers cannot reach the buyers who actually need their specific capability. Machines sit idle for years, losing value, while buyers either pay full price for new equipment or make do with poor fits. The information needed to match — operational history, CMM inspection data, maintenance records, actual production evidence — exists but is locked inside the seller's quality management system, inaccessible to any listing platform."
+  dominant_forces:
+    - "Opacity — seller's operational history (CMM data, maintenance logs, production records) is locked in internal systems and invisible to buyers"
+    - "Search friction — buyers cannot determine whether a specific machine meets their production parameters from a model number and photo"
+    - "Information asymmetry — buyers distrust seller condition claims; sellers cannot demonstrate the machine's proven capability"
+    - "Deal complexity — rigging, inspection, freight, and service transfer require coordination neither party can easily provide"
+    - "Geographic distance — buyer and seller are rarely co-located; a match in the same region requires aggregating enough inventory"
+  deeperpoint_fit: "KnowledgeSlot ingests the machine's technical manual, maintenance history, CMM inspection reports, and SOPs — building a structured technical profile that captures not just designed capability but demonstrated, documented performance. Semantic matching aligns the extracted equipment profile against the buyer's production requirements (materials, tolerances, spindle speed, work envelope) — not keyword-to-keyword, but capability-to-requirement. The Generative Match Story delivers a capability match report: a side-by-side comparison with match/exceed/gap indicators for each production parameter. KnowledgeSlot also holds valuation benchmarks, inspection protocols, and logistics facilitator networks, enabling the platform to assemble a full transaction structure rather than just a lead."
+  economic_upside: "Canada has an estimated $4–6 billion in idle or underutilized secondary industrial equipment at any given time. A functioning secondary market would reallocate billions in capital equipment more efficiently across the manufacturing base, reduce new-machine capital expenditure for growing SMBs by 40–60%, and accelerate production line commissioning timelines from months to weeks. Association sponsors (AMT, CME, provincial MEPs) can recover the cost of platform operation through transaction fees on equipment sales that currently happen through inefficient broker networks at 15–25% commission."
+
+sponsor_opportunities:
+  - title: "Technical Equipment Profile and Matching SaaS"
+    type: saas
+    revenue_model: "Annual subscription per registered facility ($299–$599/year); per-successful-match transaction fee (1.5–2.5% of equipment sale price)"
+    strategic_logic: "Manufacturing associations (AMT, CME, regional MEPs) need a member retention tool with demonstrated economic value. A platform that converts idle equipment into a transaction pays for itself on the first successful match. Transaction fees on a $140,000 machine exchange = $2,100–$3,500 per deal."
+    recurring: true
+
+  - title: "Independent Machine Tool Inspection Coordination"
+    type: managed-service
+    revenue_model: "Per-inspection coordination fee ($200–$400); certified inspection provider network subscription (12–18% facilitation margin on inspection fees)"
+    strategic_logic: "Every secondary equipment transaction requires an independent condition assessment. The platform that made the match holds the technical profile, the seller's documentation, and the buyer's requirements — it is the natural coordinator for the inspection, not a third-party broker."
+    recurring: false
+
+  - title: "Equipment Logistics and Rigging Network Subscription"
+    type: logistics-extension
+    revenue_model: "Logistics coordination margin on rigging and freight (8–14%); preferred logistics provider network subscription for qualified heavy machinery movers; platform earns logistics revenue from every completed equipment transaction it facilitates"
+    strategic_logic: "Moving an 8,000 kg machine tool requires specialized rigging, air-ride transport, and re-installation services. The platform that made the match has the equipment weight, dimensions, floor plan requirements, and destination — it is the only party with the full picture needed to coordinate the move. Logistics coordination is a natural commerce extension that converts a one-time match fee into a full transaction margin."
+    recurring: true
+
+  - title: "Equipment Valuation Benchmarking Service"
+    type: saas
+    revenue_model: "Annual subscription per appraisal firm or lender ($1,500–$3,500/year); per-appraisal report generation ($75–$150)"
+    strategic_logic: "The matching platform accumulates the most granular data on secondary CNC equipment transactions in Canada — actual sale prices, condition profiles, spindle hours, and buyer qualification data. This dataset is commercially valuable to lenders financing equipment purchases, insurers, and appraisal firms. A benchmarking subscription monetizes the platform's proprietary transaction data."
+    recurring: true
+
+story:
+  title: "The Machine Under the Tarp"
+  status: published
+  blog_slug: "used-machinery-thin-market"
+  characters:
+    - "Frank Kowalski - plant manager, precision parts manufacturer, Stratford ON"
+    - "Sofia Herrera - production engineer, automotive parts manufacturer, Windsor ON"
+  summary: "A Mazak Variaxis i-700 worth $140,000 sits under a tarp in Stratford. Frank has tried Machinio for eight months and attracted only brokers. Sofia in Windsor needs exactly this machine for a new turbocharger housing contract. The AMT-sponsored MarketForge platform ingests 184 pages of technical documentation, CMM inspection data, and production records — and surfaces a match that no keyword search could make."
+  body: |
+    ## Act A - The Machine That Couldn't Be Sold
+
+    If you've ever managed a manufacturing plant, you know the machine. It's the one at the back of the floor, pushed against the wall after the last retooling, covered with a tarp that's been gathering dust for fourteen months. It works. There's nothing wrong with it. It just doesn't fit the new process.
+
+    Frank Kowalski's machine is a Mazak Variaxis i-700 — a five-axis CNC machining center worth $130,000–$150,000 on the secondary market. He listed it on Machinio eight months ago. Three inquiries — two brokers, one buyer in Turkey who disappeared after asking for the manual. Nobody who actually needed a five-axis machine for their production process.
+
+    The problem isn't demand. The problem is that the secondary market for CNC equipment matches on category and keyword. It cannot determine whether Frank's machine fits Sofia's requirement. For that, you'd need to read 184 pages of technical documentation, cross-reference it against a specific production process, and then trust the seller's condition claims. Nobody does that speculatively.
+
+    So the machine stays under the tarp.
+
+    ---
+
+    ## Act B - The Story
+
+    **Frank** agrees to try the AMT-sponsored platform. The onboarding asks him a question no listing has ever asked: *What has this machine actually made?* He uploads the technical manual, maintenance logs, CMM inspection reports from six years of production runs, and finished-part photos. The platform builds a profile that captures not just what the machine was designed to do, but what it has proven it can do: ±0.015 mm on complex aluminum aerospace parts, documented and traceable.
+
+    **Sofia** in Windsor has a new turbocharger housing contract — five-axis aluminum at ±0.02 mm. She needs a machine in three months. New is $300,000–$400,000 with a six-month lead time. She has a spreadsheet with fourteen used-machine listings she cannot evaluate from the information provided.
+
+    Her platform profile encodes her actual production requirements: spindle speed ≥ 20,000 RPM, work envelope ≥ 650mm, tool capacity ≥ 30, Mazatrol-compatible control, tolerance ±0.02 mm with documented service history.
+
+    The semantic matching engine compares Frank's extracted technical profile against Sofia's requirements profile. Every parameter meets or exceeds. Match confidence: high.
+
+    ---
+
+    Sofia receives a capability match report — not a listing, but a side-by-side comparison of the machine's documented capabilities against her production requirements, with match/exceed/gap indicators for each parameter. Frank's CMM data shows ±0.015 mm on comparable aluminum geometry — tighter than Sofia's ±0.02 mm requirement. A new machine arrives with promises. Frank's Variaxis arrives with proof.
+
+    Over five days: a ballbar circularity test (4.2 microns), coolant system verification, control software confirmation. The platform assembles the transaction structure — independent inspector in Stratford, rigging company, air-ride carrier, pricing guidance from the Knowledge Slot's valuation benchmarks ($120,000–$155,000 for a Variaxis at this condition).
+
+    Frank sells for $138,000 — $98,000 more than the broker offered. Sofia has the machine on her floor and producing turbocharger housings within two weeks of arrival, three months ahead of new-machine lead time at 60% of the cost.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The documentation that makes a used machine valuable — CMM data, maintenance records, production history — exists in every well-run manufacturing operation. The buyer who would pay a premium for certainty exists too. The bottleneck is not condition; it is structured information exchange.
+
+    Generic listing platforms match on category. They cannot ingest a 184-page technical manual and extract the parameters that determine whether a specific machine fits a specific production process. They cannot match on demonstrated tolerance capability. They cannot facilitate the inspection and logistics coordination that transforms a match into a completed transaction.
+
+    [Thin market infrastructure](../../thin-markets.html) doesn't create more used CNC machines. It makes the ones that exist findable — and it makes their documented operational history legible to buyers who would otherwise never know they existed.
+
+    *Characters are fictional. The machines, platforms referenced, and market dynamics are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

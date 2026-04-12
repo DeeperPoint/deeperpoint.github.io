@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: con-used-heavy-equipment
+title: "Secondary Construction Equipment Matching (Used Heavy Machinery)"
+card_title: "Used Heavy Construction Equipment Matching"
+vertical: construction
+sub_sector: Secondary Equipment Markets
+forge_tier: 1
+status: published
+tags: [construction, heavy-equipment, excavator, crane, ontario, thin-markets, ai, cosolvent, market-design]
+
+market_example:
+  summary: "A Northern Ontario civil contractor has a late-model Komatsu PC490 excavator sitting idle after a mine reclamation job completes early. A road construction contractor in the Maritimes has been trying to source the same model excavator for six weeks — new is $850,000 with a 5-month delivery window. Neither knows the other exists, and IronPlanet won't auction regionally scarce equipment at the values a direct sale would achieve."
+  problem: "The secondary market for heavy construction equipment shares the same structural failures as the CNC machine tools market but at larger scale and with additional complexity. Auction platforms (IronPlanet, Ritchie Bros.) clear large fleets but do not serve one-off transactions well — auction fees, reserve prices, and timeline constraints push sellers toward private sales. Private sales in heavy equipment rely almost entirely on dealer networks and word-of-mouth, which fail outside the seller's established trading region. Equipment specifications that determine fitness for purpose — undercarriage wear percentage, hydraulic hour meter, bucket size and configuration, cab option codes, telematics data — are dense technical data that no listing site can present in a form buyers can evaluate without extensive follow-up. A buyer in New Brunswick hunting a PC490 with a specific bucket configuration and undercarriage condition below 40% wear cannot determine this from a listing; they need a structured technical profile of the machine."
+  dominant_forces:
+    - "Opacity — technical condition data (undercarriage wear, hydraulic hours, telematics history) is locked in owner records and not surfaced by listing platforms"
+    - "Search friction — construction equipment fitness depends on a combination of specification, condition, and configuration that keyword search cannot resolve"
+    - "Geographic distance — Canada's construction markets are regionalized; direct seller-to-buyer transactions across regions require a matchmaker that personal networks don't provide"
+    - "Volatility — heavy equipment values swing rapidly with commodity cycles, infrastructure program spending, and import costs; buyers and sellers lack a trusted reference for current private-sale values"
+    - "Deal complexity — moving a 47-tonne excavator requires lowbed transport, import compliance (cross-provincial licensing, tax documentation), and sometimes financing bridge"
+  deeperpoint_fit: "KnowledgeSlot holds the technical specification taxonomy for major heavy equipment categories (excavators by weight class, crane configurations, graders, scrapers, paving equipment) — including OEM telematics data protocols, undercarriage wear measurement standards, and maintenance interval documentation requirements. Semantic matching aligns the buyer's requirement (operating weight, bucket capacity, undercarriage condition, cab options, transport feasibility) against the seller's documented technical profile — extracted from telematics data, dealer service records, and OEM maintenance logs. The Generative Match Story delivers a condition match report that explains, in accessible terms, why the specific machine's telematics data, undercarriage condition, and maintenance history match the buyer's operational requirements."
+  economic_upside: "Canada's heavy construction equipment fleet is valued at an estimated $35–45B, with 8–12% turning over annually through sales, trades, and retirements. Even a 5% improvement in private sale realization over auction clearing prices — driven by better buyer-seller matching — represents $140–$225M in annual seller value recovery. At a 2% facilitation fee, a platform capturing $5B in annual heavy equipment transactions would generate $100M in platform revenue."
+
+sponsor_opportunities:
+  - title: "Technical Equipment Profile and Matching SaaS (Sponsor: Ontario Road Builders, CESCA)"
+    type: saas
+    revenue_model: "Annual subscription per equipment unit registered ($199–$499/year); per-successful-match transaction fee (1.5–2.5% of sale price)"
+    strategic_logic: "Construction industry associations (Ontario Road Builders' Association, Civil and Structural Engineering Contractors of Ontario) have fleets worth hundreds of millions in equipment under management. A platform that increases private-sale realization over auction clearing prices by 15–25% pays for itself on the first successful transaction. Association sponsorship provides the trust and cold-start network that a standalone startup cannot achieve."
+    recurring: true
+
+  - title: "Telematics Data Integration and Technical Profile Generation"
+    type: managed-service
+    revenue_model: "Per-unit telematics integration and profile generation ($150–$400); annual telematics data maintenance subscription per registered unit ($99–$199/year)"
+    strategic_logic: "Komatsu KOMTRAX, Caterpillar Product Link, Volvo ActiveCare Direct, and John Deere JDLink all generate machine operating data — hours, location, fault codes, maintenance alerts — that provides an objective, tamper-resistant basis for equipment condition profiles. Integrating telematics data into equipment profiles is a high-value technical service that distinguishes a platform-generated profile from a seller-written listing."
+    recurring: true
+
+  - title: "Equipment Transport and Lowbed Logistics Coordination Extension"
+    type: logistics-extension
+    revenue_model: "Lowbed transport coordination margin (8–12% of transport cost); customs and provincial transfer documentation coordination fee ($200–$500); platform earns logistics revenue from every completed heavy equipment transaction it facilitates"
+    strategic_logic: "Moving a 47-tonne excavator requires a specialized lowbed carrier, permit coordination, and in some cases cross-provincial transfer documentation. The platform that made the equipment match has the machine's weight, dimensions, origin, destination, and transaction timeline — it is the natural coordinator for the transport logistics that must follow every successful equipment sale."
+    recurring: false
+
+  - title: "Equipment Appraisal and Condition Inspection Network"
+    type: managed-service
+    revenue_model: "Per-unit independent appraisal coordination ($400–$1,200); certified condition inspection network facilitation margin (12–18%); annual appraisal subscription for fleet managers needing regular valuations ($599–$1,499/year)"
+    strategic_logic: "Buyers of heavy equipment above $200,000 value require an independent condition inspection before commitment — undercarriage wear measurement, hydraulic system pressure tests, engine diagnostic review. The platform that holds the technical profile and the transaction relationship is the natural coordinator for the independent inspection, converting the information in its profile into a verified physical assessment that underpins buyer confidence."
+    recurring: false
+
+story:
+  title: "The Komatsu in the Yard"
+  status: published
+  blog_slug: ""
+  characters:
+    - "Lena Fournier - equipment manager, civil contracting company, Timmins ON"
+    - "Ahmed Malik - operations director, road construction company, Moncton NB"
+  summary: "Lena's Komatsu PC490 has sat in the yard for eight weeks since a mine reclamation job finished early. Her telematics show 3,200 hours, undercarriage at 32% wear, and three recent dealer service records. Ahmed has been trying to source a PC490-class excavator for a New Brunswick highway contract starting in seven weeks — new is $850,000 with a 5-month delivery. Neither knows the other exists. An ORBA-sponsored MarketForge platform matches on operating hour range, undercarriage condition threshold, and delivery timeline, delivering a telematics-backed condition brief to both parties."
+  body: |
+    ## Act A - The Machine Nobody Can Find
+
+    Ahmed Malik has been trying to source a PC490-class excavator since July. The New Brunswick contract requires 47-tonne machine class minimum; his existing fleet is committed through October. He's called three equipment dealers. New delivery from Komatsu: 5 months, $850,000. Used market: the IronPlanet auction coming up doesn't have a PC490. His dealer contacts have one PC360 and two older PC400s. Neither meets his minimum class requirement.
+
+    He needs to be on-site in seven weeks.
+
+    ---
+
+    ## Act B - The Story
+
+    **Lena Fournier** manages equipment for a Timmins civil contractor. A mine reclamation job finished eight weeks ahead of schedule and the PC490 has sat in the yard since then. Her KOMTRAX telematics data shows 3,200 operating hours, undercarriage track link wear at 32% (well within the 40% threshold at which replacement is typically required), and hydraulic system pressure within OEM specification from the last dealer service three months ago. She has the full dealer service record going back to purchase.
+
+    She hasn't listed the machine anywhere. Private sale is her preference — the last time she sold through IronPlanet, the machine cleared $200,000 below her appraisal. Her network in Northern Ontario doesn't include Maritimes contractors.
+
+    Lena registers the PC490 on an ORBA-sponsored platform. The registration ingests her KOMTRAX telematics data — hours, location history, fault codes, maintenance alerts — and her dealer service records, building a structured technical condition profile: 3,200 hours, undercarriage 32% wear, hydraulic system OEM-compliant, dealer service history complete.
+
+    **Ahmed** registers his need: PC490-class excavator (42–50 tonne operating weight), maximum 5,000 hours, undercarriage below 40% wear, dealer service history required for due diligence, available within six weeks, Maritime delivery feasible.
+
+    The semantic match: Lena's machine meets every parameter. 3,200 hours within the 5,000 limit. 32% undercarriage below the 40% threshold. Dealer service history complete. Available immediately. Maritime delivery: lowbed estimate from Timmins to Moncton is 5 days, well within Ahmed's window.
+
+    ---
+
+    The condition match report delivered to Ahmed is not a listing. It's a structured analysis: telematics data showing operating hours, usage patterns (no excessive idle, no harsh terrain indicators), undercarriage wear measurement versus OEM replacement threshold, dealer service record summary. The machine's KOMTRAX history provides an objective, tamper-resistant basis that Lena's word cannot — and that no auction catalog could replicate.
+
+    Ahmed requests the telematics data export and the dealer service records. Lena sends them from the platform's secure data room. An independent equipment appraisal is coordinated by the platform through a certified appraiser in Timmins.
+
+    The appraisal confirms $595,000 fair market value. Lena sells for $580,000 — $380,000 more than IronPlanet's comparable auction clearing. Ahmed gets the machine on-site in Moncton five days before his contract start.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Lena's machine exists. Its condition is documented. Its value is determinable. Ahmed's need is concrete and time-sensitive. The match is structurally perfect.
+
+    The bottleneck is that Canada's regional construction equipment markets are disconnected. Lena's network in Northern Ontario does not reach Moncton. Ahmed's dealer contacts in New Brunswick have no visibility into a PC490 sitting idle in a Timmins yard.
+
+    Without a platform that builds structured technical profiles from telematics data and dealer records — and matches them cross-regionally against buyer requirements in real time — Lena sells at auction for $200,000 below value and Ahmed buys a new machine he couldn't afford on a five-month lead time he couldn't accept.
+
+    [Thin market infrastructure](../../thin-markets.html) connects regional equipment markets that personal networks don't bridge — with technical profiles that telematics data makes more trustworthy than any seller listing.
+
+    *Characters are fictional. The Komatsu PC490, KOMTRAX telematics, and equipment valuation dynamics are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
