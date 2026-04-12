@@ -1,0 +1,101 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: mfg-fractional-capacity
+title: "Manufacturing Capacity Exchange (Fractional CNC Time Brokerage)"
+card_title: "Manufacturing Capacity Exchange"
+vertical: manufacturing
+sub_sector: Fractional Capacity Markets
+forge_tier: 1
+status: draft
+tags: [manufacturing, cnc, capacity, ontario, thin-markets, ai, cosolvent, market-design]
+
+market_example:
+  summary: "Canadian manufacturers routinely operate at 60–80% capacity utilization. Billions of dollars of five-axis machining, EDM, and precision grinding capability sits idle every night — but no one advertises surplus capacity, and no one admits they cannot fill their own order. The market failure is active strategic concealment, not passive opacity."
+  problem: "In Canadian manufacturing, admitting you have idle machines signals business distress — customers read it as revenue decline, banks read it as covenant risk, competitors read it as opportunity. Simultaneously, a manufacturer with a capability gap will never publicly announce they cannot fill their own order. Both sides are deliberately hiding. The result is that a five-axis machining center in Hamilton runs one shift while a robotics integrator in Kitchener books $400,000 of new machine capital for six weeks of work — because the confidential intermediary that would let them exchange capacity without disclosure does not exist. Unlike commodity spot markets, manufacturing capacity cannot be advertised openly without strategic cost. The platform must protect secrets, not merely reduce search friction."
+  dominant_forces:
+    - "Strategic concealment — both buyer and seller have strong reputational incentives to hide their surplus capacity and capability gaps"
+    - "Temporal perishability — an idle shift tonight is gone tomorrow; unlike equipment, capacity cannot be warehoused"
+    - "Opacity — no platform exists where capacity can be registered and matched confidentially"
+    - "Trust deficit — executing a capacity exchange requires disclosure of production schedules, customer commitments, and quality systems"
+    - "Deal complexity — capacity agreements require rate negotiation, quality protocols, IP protection, and reciprocity tracking"
+  deeperpoint_fit: "CoSolvent's confidential matching layer is the core capability: participants register capacity and requirements independently, the AI engine matches without either side disclosing identity, and structured anonymous disclosure follows mutual opt-in. KnowledgeSlot holds industry rate benchmarks (by machine type, material, and region), non-disclosure template provisions, and quality protocol standards — so neither party negotiates blind. The Trusted Intermediary Protocol enables Priya to disclose surplus capacity to the platform without it being visible to competitors, customers, or lenders. The platform's institutional memory tracks reciprocity signals — building progressive alliances between complementary shops over time."
+  economic_upside: "If Canadian manufacturers average 70% utilization and the manufacturing sector generates $750B in annual output, the idle 30% represents $320B of latent productive capacity annually. Even a fraction of this converted to billable capacity exchange would generate enormous economic value. A platform facilitating 5% of Ontario's idle five-axis capacity would intermediate $50–$100M in annual machining transactions at typical contract rates of $185–$280/machine hour."
+
+sponsor_opportunities:
+  - title: "Capacity Exchange Matching SaaS (Sponsor: CME, AMT, or Regional MEP)"
+    type: saas
+    revenue_model: "Annual membership subscription per facility ($499–$999/year); per-transaction facilitation fee (2–4% of contract value)"
+    strategic_logic: "Manufacturing associations — CME, AMT, Ontario MEPs — have strong incentives to sponsor a confidential capacity exchange. It increases member utilization, creates a differentiating member service, and generates transaction fee revenue. The association's existing trust relationship with member facilities is the critical cold-start asset: members will register confidential capacity with their industry association before they would with an unknown startup."
+    recurring: true
+
+  - title: "Capacity Rate Benchmarking and Contract Template Service"
+    type: managed-service
+    revenue_model: "Annual subscription per facility ($199–$399/year); per-contract template generation ($50–$150)"
+    strategic_logic: "The platform accumulates anonymized transaction data on capacity exchange rates across machine types, materials, and regions. This dataset — unavailable anywhere else — is commercially valuable to every participant negotiating rates. Contract templates for capacity subcontracting (IP protection, quality protocols, reciprocity provisions) are a high-value add-on that reduces the legal friction of capacity exchange."
+    recurring: true
+
+  - title: "Capacity Reciprocity Alliance Tracker"
+    type: saas
+    revenue_model: "Premium tier subscription per facility ($149–$299/month); alliance analytics dashboard per consortium ($500–$1,200/month)"
+    strategic_logic: "The most valuable outcome of repeated capacity exchange is a durable manufacturing alliance — two complementary shops that lean on each other's capabilities without merging. The platform's institutional memory of past exchanges, successful matches, and reciprocity signals is the foundation of this alliance. A premium subscription that visualizes and manages the alliance relationship is the platform's stickiest product."
+    recurring: true
+
+  - title: "Materials and Tooling Procurement Extension"
+    type: commerce-extension
+    revenue_model: "Group procurement coordination margin on raw material and consumable tooling orders aggregated across matched capacity exchange partners (8–14%); preferred supplier network subscription; platform earns procurement revenue from every active capacity exchange relationship it maintains"
+    strategic_logic: "A confidential capacity exchange where a shop provides CNC time to a partner requires that partner to supply raw material and often custom tooling. The platform that brokered the match knows the material spec, the quantity, the timeline, and often the supplier relationship. Extending into a coordinated group procurement service for the matched pair — and eventually for consortia of regularly matched shops — creates a durable commerce extension the platform earns on every production run."
+    recurring: true
+
+story:
+  title: "The Idle Shift"
+  status: published
+  blog_slug: "manufacturing-scenarios-capacity"
+  characters:
+    - "Priya Anand - operations director, Meridian Precision, Hamilton ON"
+    - "Jonas Tremblay - co-founder, AxionTech robotics integration, Kitchener ON"
+  summary: "Priya has two Makino a61nx five-axis machining centers running one shift instead of two — $522,000 in carrying costs over 18 months for idle capacity she cannot advertise. Jonas needs 40–50 hours of five-axis titanium machining to fill a $480,000 robotics contract, but cannot announce he lacks the capability. A CME-sponsored MarketForge platform enables confidential capacity registration and anonymous matching — neither party discloses identity until mutual opt-in and technical scope verification."
+  body: |
+    ## Act A - The Strategic Concealment Problem
+
+    In manufacturing, admitting you have idle machines is like admitting you're losing customers. The Kitchener integrator will never publicly announce that they can't fill their own order. Both sides are deliberately hiding.
+
+    This is not passive opacity — it is active strategic concealment, and the intervention must be confidential intermediation, not a listing platform.
+
+    Priya Anand runs Meridian Precision in Hamilton. Two Makino five-axis machining centers run one shift instead of two since she lost a helicopter component program to Mexico. The carrying cost: $14,500 per machine per month. She would gladly rent the second shift to another manufacturer — the way an airline leases gate space during off-peak hours. But she cannot post: "Meridian has surplus five-axis capacity available." Her bank, her customers, and her competitors would all read the wrong thing.
+
+    Jonas Tremblay just signed the biggest contract in AxionTech's history: a $480,000 robotic deburring cell requiring four titanium mandrels with five-axis contouring at ±0.025 mm. AxionTech does not own a five-axis machine. Buying one for six weeks of work is a $400,000 capital commitment. His options: word of mouth (three calls, no match), directories (seventeen cold calls), or offshore (twelve time zones of risk on his first major contract).
+
+    Priya has exactly what Jonas needs, sixty kilometres away. Jonas has exactly the kind of work Priya's idle Makinos were built for. Neither knows the other exists.
+
+    ---
+
+    ## Act B - The Story
+
+    **CME — Canadian Manufacturers & Exporters** has deployed a capacity exchange on MarketForge infrastructure. The design principle is the baseball trade desk, not the stock exchange. Participants confide in an intermediary; they do not list on an open marketplace.
+
+    Priya registers her surplus confidentially: machine specs, certifications (AS9100D, ISO 13485), materials experience (Ti-6Al-4V, Inconel, 7075-T6), demonstrated tolerance (±0.01 mm), operator availability (second shift, immediate). None of this is visible to any other participant, competitor, or CME staff. It enters a confidential matching layer accessible only to the AI.
+
+    Jonas registers his requirement: five-axis titanium machining, ±0.025 mm, 40–50 machine hours, Kitchener-Waterloo proximity, automotive Tier 1 quality system, two-week start window.
+
+    The match is structural. Priya's documented Ti-6Al-4V experience exceeds Jonas's tolerance requirement. Her location is 65 km. Her operator is available starting immediately.
+
+    The platform does not reveal identities. It sends both parties anonymous match notifications: Priya sees a robotics integrator needing 40–50 hours of five-axis titanium machining. Jonas sees a Hamilton facility with documented Ti-6Al-4V experience exceeding his requirements. Neither knows the other's name.
+
+    ---
+
+    Only after mutual opt-in and technical scope exchange — Jonas uploading 3D models into a secure data room, Priya's operator confirming machinability — does the platform reveal identities.
+
+    The deal: 45 hours of second-shift Makino time, Tomasz operating. AxionTech provides 3D models, GD&T drawings, and raw material. Total: $11,400. Priya's net overhead recovery: $7,200. For Jonas: titanium machining 65 km away at a fraction of new-machine capital.
+
+    The contract includes a future capacity reciprocity provision. Over time, the anonymous capacity exchange becomes a durable manufacturing alliance.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Generic listing platforms cannot solve the strategic concealment problem. The moment capacity appears publicly listed, the strategic cost of disclosure destroys the transaction. The platform must protect secrets as its primary function — not reduce search friction.
+
+    The confidentiality architecture is not a feature. It is the product.
+
+    [Thin market infrastructure](../../thin-markets.html) enables disclosure to a trusted intermediary without disclosure to competitors, customers, or lenders. That is a fundamentally different market design from anything a listing platform can provide.
+
+    *Characters are fictional. The manufacturing dynamics and market forces are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
