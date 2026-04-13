@@ -1,0 +1,68 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: rtr-remote-broadband-maintenance
+title: "Remote Broadband Infrastructure Maintenance"
+card_title: "Remote Telecom Engineering"
+sector: remote-town-renewal
+sub_sector: "Telecommunications"
+forge_tier: 2
+status: published
+tags: [telecom, internet, infrastructure, maintenance, satellite]
+market_example:
+  summary: "Matches remote ISP cooperatives and satellite downlink nodes with certified local 'smart hands' technicians and remote engineering support to ensure critical broadband uptime."
+  problem: "Northern broadband relies heavily on complex satellite ground stations and long-haul microwave repeaters. When a node goes down, entire regions lose internet, point-of-sale systems, and telehealth access. Dispatching a certified telecom engineer from the south takes days and costs thousands. Local community members are willing to help but lack the specialized clearance and technical guidance to safely swap components."
+  dominant_forces:
+    - "Downtime in the north results in total economic and civic paralysis."
+    - "Telecom skills are highly centralized in southern urban hubs."
+    - "Hardware is heavily proprietary, requiring strict procedural compliance to maintain warranties."
+  deeperpoint_fit: "CoSolvent matches a pre-vetted local 'smart hands' proxy with a remote telecom engineer. KnowledgeSlot securely streams the proprietary technical documentation and live AR video feed, allowing the remote engineer to guide the local proxy through the physical repair."
+  economic_upside: "Telecoms face massive SLA (Service Level Agreement) penalties for northern downtime. A platform that enables rapid local resolution captures value primarily through SLA penalty avoidance and drastic reductions in emergency travel costs."
+
+sponsor_opportunities:
+  - title: "Remote 'Smart Hands' Network"
+    type: managed-service
+    revenue_model: "$500 per matched emergency dispatch"
+    strategic_logic: "Major ISPs pay to access a verified, credentialed network of local individuals equipped to be remote avatars for southern engineers."
+    recurring: true
+  - title: "SLA Insurance Brokerage"
+    type: commerce-extension
+    revenue_model: "Percentage of underwritten premium"
+    strategic_logic: "By providing a provable faster-resolution mechanism, the platform can partner with insurers underwriting northern operational continuity."
+    recurring: true
+  - title: "Secure Telemetry SaaS"
+    type: saas
+    revenue_model: "Per-node subscription for secure AR streaming"
+    strategic_logic: "Telecoms pay for the PIPEDA-compliant, low-bandwidth video triage system built specifically for degraded network environments."
+    recurring: true
+
+story:
+  title: "The Microwave Relay"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Sam - Local Lodge Operator, Northern Yukon"
+    - "Elena - Tier 3 Network Engineer, Calgary"
+  summary: "A frozen microwave dish threatens to knock out internet for three towns, requiring a local to safely align it under remote guidance."
+  body: |
+    ## Act A - The Market Structure
+    
+    Maintaining critical telecom infrastructure in deep wilderness is an asymmetric problem: the intelligence sits in a high-rise in Calgary, while the physical fault sits on a frozen ridge 2,000 kilometers away. The traditional fix is to fly the intelligence to the fault, an enormously expensive and slow process that assumes good flying weather. 
+    
+    ---
+    
+    ## Act B - The Story
+    
+    A massive ice storm knocks a critical microwave relay dish out of alignment. Three towns lose connectivity. 
+    
+    **Elena**, the lead engineer in Calgary, can see the fault remotely but has no one to send; the nearest company technician is grounded by the storm. 
+    
+    **Sam**, who runs a hunting lodge near the relay tower, is capable and has the tools, but he legally cannot touch the carrier-grade equipment without voiding warranties and risking liability. 
+    
+    Using a degrading 3G connection, Elena accesses the matching platform. The system identifies Sam as a pre-vetted, insured local proxy who has passed basic site-safety modules. The platform generates an emergency smart-contract bridging liability for one hour. Through the platform's secure, low-bandwidth AR interface, Elena guides Sam's hands precisely to the correct alignment bolts. Connectivity is restored in two hours instead of three days.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without matching infrastructure, liability fears and credential silos prevent localized triage. DeeperPoint provides the legal shielding, diagnostic verification, and matching physics required to safely decouple physical labor from specialized engineering intelligence in remote environments.
+    
+    *Characters are fictional. Northern telecom outages are real. DeeperPoint is building the infrastructure this story describes.*

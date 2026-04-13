@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: rtr-telemedicine-specialist-rotation
+title: "Remote Telemedicine & Specialist Rotation"
+card_title: "Virtual & Fly-in Specialists"
+sector: remote-town-renewal
+sub_sector: "Healthcare Delivery"
+forge_tier: 3
+status: published
+tags: [healthcare, fly-in, remote-communities, telemedicine, locum]
+market_example:
+  summary: "Matches specialized medical consultants with remote northern health centers for virtual triage or short-term fly-in rotations. Commercial Note: Highly dependent on provincial/territorial health authority sponsorship."
+  problem: "Remote northern communities lack access to specialized healthcare (psychiatry, endocrinology, specialized pediatrics). Recruiting permanent specialists is impossible. Fly-in/fly-out (locum) models are highly inefficient, disorganized, and suffer from poor continuity of care. Meanwhile, specialists down south often have fractional capacity they would willingly donate or bill if the logistics and credentialing were frictionless."
+  dominant_forces:
+    - "Severe health outcome disparities in remote indigenous and northern communities."
+    - "Massive administrative friction in cross-jurisdictional medical credentialing."
+    - "Logistics of remote clinics (housing, precise scheduling, flight coordination) are brutal."
+  deeperpoint_fit: "CoSolvent manages the complex multi-party scheduling between available physicians, charter flights, and clinic space. KnowledgeSlot securely manages the credentialing verification and temporary privileges across territories."
+  economic_upside: "Reduces billion-dollar public outlays on medical transport (medevacs) by shifting to preventative local locum care. Market capture occurs through administrative fee reduction."
+
+sponsor_opportunities:
+  - title: "Credentialing Management"
+    type: managed-service
+    revenue_model: "$500 per placement credential verification"
+    strategic_logic: "Health authorities offload the painful verification of licenses and privileges to an automated clearinghouse."
+    recurring: true
+  - title: "Virtual Consult SaaS"
+    type: saas
+    revenue_model: "Per-clinic enterprise subscription"
+    strategic_logic: "The platform provides secure, PIPEDA-compliant video infrastructure directly linked to the matching engine, ensuring billing capture."
+    recurring: true
+  - title: "Travel & Housing Logistics"
+    type: logistics-extension
+    revenue_model: "10% margin on coordinated flight and local housing"
+    strategic_logic: "The platform ensures the physician actually has a bed and a flight when they arrive in the remote community."
+    recurring: true
+
+story:
+  title: "A Week in Nunavut"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Aris - Pediatric Endocrinologist, Toronto"
+    - "Martha - Clinic Coordinator, Rankin Inlet"
+  summary: "A Toronto specialist with a free week struggles to navigate the bureaucracy of serving a northern community."
+  body: |
+    ## Act A - The Market Structure
+    
+    A severe mismatch exists between the over-subscribed health systems of the South and the critically underserved North. The barrier isn’t a lack of willing doctors; it's the sheer bureaucracy of temporary credentialing, arranging specialized medical transport, and coordinating clinical space in remote nursing stations. The cost of friction explicitly deters supply.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Aris** has a passion for northern health and just had a week open up in his Toronto schedule. He wants to do a short rotation, but the last time he tried, the paperwork took four months.
+    
+    **Martha** manages the clinic in Rankin Inlet. She has twelve pediatric patients who urgently need endocrine consults, but her requests to the territorial health board keep getting delayed because no doctor can be scheduled.
+    
+    Using the platform, Dr. Aris uploads his credentials, which are instantly verified against the provincial college APIs. He sets his availability. Martha's clinic is actively broadcasting a need for his exact specialty. The matching engine aligns his week off with Martha’s open clinic rooms and books his commercial flight and local staff housing in one cohesive transaction. Dr. Aris arrives seamlessly, conducts his clinics, and bills smoothly.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without an integrated platform, matching involves endless faxes, emails, and phone tag between doctors, health boards, and travel coordinators. DeeperPoint treats this as a classic multi-sided market problem, unifying availability, verification, and logistics into a single "click-to-deploy" experience for willing specialists.
+    
+    *Characters are fictional. Remote healthcare crises are real. DeeperPoint is building the infrastructure this story describes.*

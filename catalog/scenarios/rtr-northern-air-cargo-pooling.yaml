@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: rtr-northern-air-cargo-pooling
+title: "Northern Air Cargo Pooling"
+card_title: "Remote Air Freight Aggregation"
+sector: remote-town-renewal
+sub_sector: "Logistics"
+forge_tier: 2
+status: published
+tags: [logistics, aviation, cargo, group-purchasing, remote-communities]
+market_example:
+  summary: "Matches multiple smaller remote businesses, clinics, and band councils to pool air freight charters ('backhaul' or shared payload) to dramatically reduce supply costs."
+  problem: "Air freight to remote communities without year-round road access is cripplingly expensive. A small grocery store ordering pallets of food often has to charter a plane and pay for the 'empty leg' returning south. Multiple buyers in the same region order independently, resulting in half-empty planes generating massive carbon footprints and inflated retail prices."
+  dominant_forces:
+    - "Extreme monopolies or duopolies in northern aviation routes."
+    - "Information silos prevent independent businesses from coordinating shipments."
+    - "High fixed costs for aviation mean partial payloads are financially punishing."
+  deeperpoint_fit: "CoSolvent acts as an aggregation engine, matching the disparate volume needs of multiple buyers to fill dedicated cargo charters, optimizing aircraft payload constraints in real time."
+  economic_upside: "A massive multi-million dollar logistics market. Unlocking a 30-40% reduction in freight costs dramatically alters the economic viability of remote living."
+
+sponsor_opportunities:
+  - title: "Capacity Bidding Platform"
+    type: saas
+    revenue_model: "Subscription access for regional airlines and cargo operators"
+    strategic_logic: "Airlines pay to see aggregated demand hotspots to efficiently route their fleet and bid on guaranteed full loads."
+    recurring: true
+  - title: "Freight Brokerage"
+    type: logistics-extension
+    revenue_model: "5% transaction fee on pooled cargo manifests"
+    strategic_logic: "The platform captures value strictly by organizing the logistics data in a way that eliminates empty-leg flying."
+    recurring: true
+  - title: "Cold-Chain Add-on"
+    type: managed-service
+    revenue_model: "Premium tier routing for pharmaceuticals/fresh food"
+    strategic_logic: "High-value matching specifically for ensuring temperature-controlled assets align right up to the final mile delivery."
+    recurring: true
+
+story:
+  title: "The Empty Leg"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Mary - Independent Grocer, Yellowknife Region"
+    - "Captain John - Regional Cargo Pilot"
+  summary: "An independent grocer and a local clinic combine their purchasing power to secure an affordable charter flight for critical supplies."
+  body: |
+    ## Act A - The Market Structure
+    
+    Northern air freight is plagued by the 'empty leg' problem. A charter flies full one way and empty the other, or flies half-empty in both directions. Because local grocers, hardware stores, and clinics use different procurement systems, they never know when a neighbor is also ordering supplies from the exact same southern logistics hub. 
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Mary** needs three pallets of fresh produce for her grocery store, but the quote for a dedicated charter flight makes the retail price of a cabbage $15. She can't afford the booking.
+    
+    **Captain John** is scheduled to fly an empty cargo prop-plane back to Mary’s region after doing a medevac drop-off down south. He is desperate to monetize the return leg.
+    
+    Mary uploads her required weight and volume to the platform’s aggregation pool. Simultaneously, a local clinic uploads a request for one pallet of medical supplies, and a construction crew requests building materials. The matching engine aggregates their payloads to exactly 95% of Captain John's aircraft capacity. The platform matches the pooled demand with John's empty leg, issuing a single optimized cargo manifest. They split the cost, dropping Mary’s freight bill by 70%.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without an aggregating marketmaker, coordination costs between independent actors are too high to overcome organically. By deploying a transparent pooling algorithm, DeeperPoint solves the collective action problem, creating a dense, highly efficient logistics network out of thin, scattered demand.
+    
+    *Characters are fictional. Northern freight monopolies are real. DeeperPoint is building the infrastructure this story describes.*

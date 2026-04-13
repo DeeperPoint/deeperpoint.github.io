@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: rtr-remote-heavy-repair-triage
+title: "Remote Heavy Equipment Repair Triage"
+card_title: "Fly-in Mechanics & AR Triage"
+sector: remote-town-renewal
+sub_sector: "Industrial Services"
+forge_tier: 2
+status: published
+tags: [mining, forestry, maintenance, heavy-equipment, fly-in]
+market_example:
+  summary: "Matches stranded heavy equipment operators in remote Northern sites with specialized mobile mechanics for expedited fly-in repair or AR-assisted remote triage."
+  problem: "When extremely specialized heavy equipment breaks down in remote logging camps, mines, or Northern municipalities, the cost of downtime is astronomical. Local general mechanics often cannot fix proprietary systems, and OEM technicians are booked months out. Identifying an independent specialist available to fly in immediately, or capable of guiding a local technician via AR, is a chaotic, word-of-mouth process."
+  dominant_forces:
+    - "Downtime costs can reach tens of thousands of dollars per day for specialized gear."
+    - "Extreme scarcity of independent, certified heavy-duty mechanics willing to do emergency fly-in."
+    - "Charter flight logistics and remote site safety clearance add immense friction."
+  deeperpoint_fit: "CoSolvent aggregates real-time availability of independent specialists across the country. KnowledgeSlot handles the exchange of specific diagnostic codes and AR feasibility, while ClientSynth models emergency routing and charter plane pairings."
+  economic_upside: "A $500M+ niche in Canada. A platform can charge transaction fees for emergency-response matching, capturing a fraction of the downtime savings."
+
+sponsor_opportunities:
+  - title: "Emergency Triage SaaS"
+    type: saas
+    revenue_model: "$5,000/yr retainer for remote operators"
+    strategic_logic: "Operators pay for guaranteed access to the triage network to minimize catastrophic downtime risks."
+    recurring: true
+  - title: "Parts & Tooling Expediting"
+    type: commerce-extension
+    revenue_model: "10-15% margin on expedited OEM parts delivery"
+    strategic_logic: "Once the fix is diagnosed, the platform brokers the immediate acquisition and air-freight of the exact part."
+    recurring: false
+  - title: "Charter Flight Coordination"
+    type: logistics-extension
+    revenue_model: "5% fee on charter bookings"
+    strategic_logic: "The platform integrates with regional bush plane/helicopter charter services to get the mechanic to the exact coordinates."
+    recurring: true
+
+story:
+  title: "The Broken Harvester"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dave - Camp Manager, Remote Logging Site"
+    - "Sarah - Independent Heavy-Duty Mechanic, Edmonton"
+  summary: "A specialized feller buncher breaks down 300km from the nearest town, threatening strict harvest quotas."
+  body: |
+    ## Act A - The Market Structure
+    
+    In remote forestry and mining operations, critical path equipment failures cascade into massive losses. The mismatch is informational and logistical: the operator needs a specific proprietary fix immediately, but the OEM has a three-week backlog. Somewhere, an independent mechanic with exactly the right expertise is between jobs, but has no way to signal their availability or arrange sudden air transport to a remote camp safely.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dave** watches his multi-million dollar feller buncher throw a complex hydraulic failure code just as the winter freeze sets in. He has strict quotas to hit before breakup. His local mechanic has zero experience with this specific European system.
+    
+    **Sarah**, a highly certified independent mechanic down in Edmonton, just had a major contract pushed back by a week. She’s available but not actively marketing herself for emergency spot-jobs.
+    
+    Through the platform, Dave submits the diagnostic outputs and machine specs. The system identifies Sarah’s specific certification and parses her immediate availability. It matches them, simultaneously pulling real-time availability from a regional charter flight company to quote Dave the all-in cost of air-dropping Sarah to the camp by morning. Sarah reviews the site safety protocols securely via the platform and accepts.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without this matching architecture, emergency remote repairs rely on frantic phone calls to personal networks, which rarely yield optimal matches. The DeeperPoint infrastructure integrates technical capability, immediate temporal availability, and complex logistics (air charters) into a single, executable transaction, turning a catastrophic delay into a 24-hour turnaround.
+    
+    *Characters are fictional. Forestry equipment failures are real. DeeperPoint is building the infrastructure this story describes.*

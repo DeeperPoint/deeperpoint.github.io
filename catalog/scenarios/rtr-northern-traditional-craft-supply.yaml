@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: rtr-northern-traditional-craft-supply
+title: "Traditional Craft Supply Aggregation"
+card_title: "Indigenous Artisan Supply"
+sector: remote-town-renewal
+sub_sector: "Retail"
+forge_tier: 1
+status: published
+tags: [retail, indigenous, art, wholesale, logistics]
+market_example:
+  summary: "Connecting remote Indigenous artisans with bulk specialized supplies (specific beads, textiles, carving tools) by aggregating demand across multiple isolated communities to bypass predatory retail markups."
+  problem: "Remote northern artisans creating traditional goods (mukluks, beadwork, carvings) face massive supply chain friction. They require highly specific materials (e.g., size 11/0 Czech seed beads, specific hides) that are completely unavailable locally. Buying individually online results in retail markup and shipping costs that entirely consume their profit margins."
+  dominant_forces:
+    - "Incredibly high postal and freight costs for individual consumer parcels."
+    - "Artisans lack access to wholesale accounts due to low individual volume."
+    - "Niche materials are not stocked by general northern retailers."
+  deeperpoint_fit: "CoSolvent aggregates the micro-purchases of hundreds of remote artisans into massive wholesale orders. ClientSynth optimizes the logistics, mapping out how bulk shipments can be broken down regionally, leveraging existing community networks for distribution."
+  economic_upside: "Transforms the unit economics of Indigenous art. By cutting supply costs by 50-70%, the platform creates sustainable micro-economies. Revenue is derived from a transparent, ethical wholesale margin."
+
+sponsor_opportunities:
+  - title: "Ethical Wholesale Aggregator"
+    type: commerce-extension
+    revenue_model: "15-20% ethical markup on wholesale goods"
+    strategic_logic: "The platform buys at deep wholesale discounts and resells at a transparent margin, vastly undercutting the alternatives for the artisans."
+    recurring: true
+  - title: "Logistics Pooling"
+    type: logistics-extension
+    revenue_model: "Shared freight cost optimization"
+    strategic_logic: "Consolidates individual orders into single massive pallets shipped to community hubs (e.g., Band Offices or local Co-ops) for local dispersal."
+    recurring: true
+  - title: "Finished Goods Brokerage (Upsell)"
+    type: managed-service
+    revenue_model: "10% commission on final art sales"
+    strategic_logic: "Once trusted with supply, the platform can reverse the flow, cataloging and marketing the finished artisan goods to global premium buyers."
+    recurring: true
+
+story:
+  title: "The Bead Consortium"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Anya - Master Beader, Northwest Territories"
+    - "Marcus - Wholesale Importer, Toronto"
+  summary: "Dozens of separated artisans pool their purchasing power to secure wholesale pricing on massive quantities of specialized materials."
+  body: |
+    ## Act A - The Market Structure
+    
+    For remote artisans, the cost of raw materials isn't driven by the material itself, but by the logistics of moving small, disparate boxes to the edge of the world. Because artisans operate independently, they are forced to buy at retail prices and pay retail shipping. The wholesale tier of the market is entirely inaccessible to them without a mechanism to aggregate their distinct, low-volume needs.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Anya** relies on selling her intricate traditional beadwork to support her family, but shipping a $20 bag of specialized Czech beads to her community costs $40. Her margins are collapsing.
+    
+    **Marcus** imports these exact beads by the ton into Toronto, but he only sells to large retail craft chains with minimum orders of $5,000.
+    
+    Anya logs into the artisan platform and inputs her exact material needs for the coming winter season. The platform holds her request, aggregating it with similar requests from 40 other distinct artisans scattered across the North. Within two weeks, the accumulated demand hits Marcus’s $5,000 wholesale threshold. The platform executes the bulk purchase, ships one heavily consolidated pallet to a central northern air hub, and efficiently disperses the local packages from there. Anya pays a fraction of her usual cost.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Coordinating dozens of independent actors to agree on a bulk purchase and manage complex fractional logistics is impossible via Facebook groups or email chains. DeeperPoint introduces the algorithmic trust to hold funds in escrow, optimize the purchasing volume, and execute complex logistical branching, directly empowering creator economies.
+    
+    *Characters are fictional. Supply chain exploitation of artisans is real. DeeperPoint is building the infrastructure this story describes.*
