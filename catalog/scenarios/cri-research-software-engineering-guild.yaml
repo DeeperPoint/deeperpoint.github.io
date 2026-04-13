@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cri-research-software-engineering-guild
+title: "Research Software Engineering Guild"
+card_title: "Fractional RSE Guild"
+sector: canadian-research-institutions
+sub_sector: "IT & Compute"
+forge_tier: 2
+status: published
+tags: [academia, software, reproducibility, code-quality, fractional-talent]
+market_example:
+  summary: "Addresses the replication crisis by matching discipline-specific PIs (who often write unstable simulation code) with fractional Research Software Engineers (RSEs) to refactor models prior to journal submission."
+  problem: "Modern science is overwhelmingly computational, but most biologists, physicists, and chemists are completely self-taught, untrained programmers. This leads to the 'replication crisis': highly impactful scientific papers rely on spaghetti code that crashes on other machines or contains hidden statistical logic errors. PIs cannot afford a full-time senior software engineer on an NSERC grant, but desperately need expert code review."
+  dominant_forces:
+    - "Major journals and federal grants increasingly mandate public, reproducible code repositories."
+    - "A massive gap between academic domain expertise and commercial software engineering best practices."
+    - "Academic career incentives completely ignore code quality."
+  deeperpoint_fit: "CoSolvent aggregates small, bursty code-refactoring jobs from hundreds of PIs and matches them with a distributed guild of fractional Research Software Engineers (RSEs). ClientSynth profiles the technical stack (e.g., Python vs. Fortran vs. R) to optimize the match."
+  economic_upside: "Saves thousands of hours of wasted peer-review time and prevents high-profile retractions. Platform revenue model acts as a highly specialized technical talent agency."
+
+sponsor_opportunities:
+  - title: "Fractional RSE Brokerage"
+    type: managed-service
+    revenue_model: "15% margin on hourly code-review rates"
+    strategic_logic: "PIs pay from their grant funding to hire an RSE for a 40-hour sprint to clean, containerize, and document their dataset and scripts just prior to submission."
+    recurring: true
+  - title: "Reproducibility Certification"
+    type: saas
+    revenue_model: "Per-manuscript fee charged to publishers/journals"
+    strategic_logic: "Journals pay the platform to run an automated and human-in-the-loop verification that submitted code actually executes and replicates figures before sending to peer review."
+    recurring: true
+  - title: "Technical Training Exchange"
+    type: commerce-extension
+    revenue_model: "Subscription for institutional access"
+    strategic_logic: "Instead of fixing the code post-facto, the RSEs offer hyper-specialized, discipline-specific micro-credentials (e.g., 'Git for Genomicists') to graduate students."
+    recurring: true
+
+story:
+  title: "The Spaghetti Simulation"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Lavoie - Climate Modeler, University of Victoria"
+    - "Sam - Senior Backend Engineer & Fractional RSE"
+  summary: "A climate scientist needs a messy Fortran codebase containerized so standard peer-reviewers can actually run his simulation."
+  body: |
+    ## Act A - The Market Structure
+    
+    Academic science generates some of the most complex algorithms on the planet, written by absolute amateurs in software engineering. The traditional model forces a PhD student to spend six months figuring out Docker and writing poorly verified unit tests instead of doing actual science. The market failure is the lack of a fractional mechanism to inject temporary, highly professional engineering rigor into academic environments.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Lavoie** has a breakthrough ice-shelf simulation model, but the reviewer at a major journal refuses to accept the paper until the code is proven to compile seamlessly on a standard Ubuntu build. Lavoie’s code currently only runs on his specific, heavily modified lab laptop. 
+    
+    **Sam** is a senior backend engineer in Vancouver who previously did a master's in computational physics. He enjoys science but works in fintech. He wants to pick up 10 hours of side work a week that actually matters.
+    
+    Dr. Lavoie posts his codebase on the academic platform. The matching engine aligns his Fortran/Python stack and climate domain with Sam’s profile. They are matched under a standard non-disclosure scope of work. Over two weekends, Sam refactors the codebase, writes comprehensive unit tests, drops it into a clean Docker container, and writes the README. The paper is accepted. 
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without an intermediary, Dr. Lavoie has no mechanism to find someone like Sam, and no administrative way to pay a fractional freelancer using highly restricted university grant funds. DeeperPoint provides the technical vetting and financial clearinghouse required to inject professional engineering standards into academic science.
+    
+    *Characters are fictional. The reproducibility crisis is real. DeeperPoint is building the infrastructure this story describes.*

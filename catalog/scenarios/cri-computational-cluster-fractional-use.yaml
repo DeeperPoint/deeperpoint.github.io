@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cri-computational-cluster-fractional-use
+title: "Computational Cluster Fractional Use"
+card_title: "Lab Compute Sharing"
+sector: canadian-research-institutions
+sub_sector: "IT & Compute"
+forge_tier: 2
+status: published
+tags: [academia, research, computing, hpc, data-science]
+market_example:
+  summary: "Matches labs that possess surplus local compute cluster capacity with researchers whose datasets exceed standard university allocations but don't warrant massive national supercomputer access."
+  problem: "Data science and AI applications in research cause intense but bursty computational demand. Compute Canada/Digital Research Alliance provides massive national resources, but wait times can be long. Conversely, many highly funded individual labs build expensive local GPU or CPU clusters that sit completely idle between their own training runs. There is no mechanism to rent or trade this local high-performance compute (HPC) capacity securely to neighboring researchers."
+  dominant_forces:
+    - "Surging demand for GPU availability across all scientific disciplines."
+    - "Millions in grant funding wasted on redundant, underutilized local server hardware."
+    - "Security and data-residency fears prevent blind sharing."
+  deeperpoint_fit: "CoSolvent aggregates idle GPU/CPU cycles across institutional labs. KnowledgeSlot guarantees adherence to data residency and ethics compliance restrictions. The platform manages the fractional job queueing and inter-lab micro-billing."
+  economic_upside: "Democratizes access to high-performance compute for underfunded labs while providing vital cost-recovery for labs carrying heavy localized hardware maintenance and cooling costs."
+
+sponsor_opportunities:
+  - title: "Inter-Lab Compute Brokerage"
+    type: saas
+    revenue_model: "Per-node software licensing for compute owners"
+    strategic_logic: "Compute owners use the platform software to securely partition their clusters, knowing the platform handles job queueing and billing automatically."
+    recurring: true
+  - title: "Grant Fund Auto-Routing"
+    type: managed-service
+    revenue_model: "5% transaction fee on compute cycles"
+    strategic_logic: "Executing seamless financial transfers directly between Tri-Agency grant accounts, removing university finance red tape from micro-transactions."
+    recurring: true
+  - title: "Algorithm Optimization Guild"
+    type: managed-service
+    revenue_model: "Fractional consulting fees"
+    strategic_logic: "Matches researchers submitting highly inefficient code with floating Research Software Engineers to optimize the jobs before they consume expensive cluster time."
+    recurring: true
+
+story:
+  title: "The Idle GPUs"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Martin - Computational Biologist"
+    - "Dr. Singh - Deep Learning Vision Lab Director"
+  summary: "A biologist secures overnight access to a dormant AI lab's GPU cluster to fold proteins, bypassing a three-week national waitlist."
+  body: |
+    ## Act A - The Market Structure
+    
+    Academic computing operates in massive extremes: either researchers rely on a national supercomputing grid with crushing administrative wait times, or they buy their own $100k GPU box using grant money, which then sits idle 80% of the time. The friction of allowing a researcher from the genetics department to safely run a docker container on the computer science department's machine is heavily bounded by security paranoia and lack of accounting.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Martin** has an urgent protein folding simulation required for a grant revision due in 72 hours. The national compute grid forms project a 3-week queue for GPU allocation.
+    
+    **Dr. Singh** directs an AI vision lab across campus. Her multi-node GPU cluster is heavily utilized during the day, but from 10 PM to 6 AM, the machines literally just generate heat in an empty room.
+    
+    Dr. Martin accesses the institutional compute-exchange network. The matching engine identifies Dr. Singh’s idle nodes. KnowledgeSlot verifies that Martin’s data is fully anonymized and compliant with intra-campus data policies. He submits his containerized job, reserving the 10 PM block. The platform spins up his job, executes the fold, cleans the environment, and automatically bills Martin’s department $150, transferring the funds to offset Singh’s server cooling costs.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without an integration layer handling containerized security isolating the host network, plus automated financial clearing, Dr. Singh has no incentive to take on the risk of opening her hardware, and Dr. Martin remains stuck in the slow lane. DeeperPoint unlocks dormant localized assets to supercharge university-wide compute throughput.
+    
+    *Characters are fictional. Academic compute bottlenecks are real. DeeperPoint is building the infrastructure this story describes.*

@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cri-vivarium-animal-surplus
+title: "Vivarium Animal Surplus Matching"
+card_title: "Research Animal Surplus"
+sector: canadian-research-institutions
+sub_sector: "Life Sciences"
+forge_tier: 3
+status: published
+tags: [academia, biology, ethics, animal-research, cost-recovery]
+market_example:
+  summary: "Matches surplus bred transgenic mice or research animals between institutional vivariums to rapidly reduce unnecessary breeding, institutional housing costs, and animal waste. Commercial Note: Highly dependent on institutional Animal Care Committee sponsorship."
+  problem: "Maintaining transgenic mouse lines is central to biomedical research, but breeding generates surplus animals (wrong sex, wrong genotype) that are simply euthanized because no other researcher knows they exist. Simultaneously, a researcher down the hall or at a neighboring university spends six months and thousands of dollars generating that exact same phenotype from scratch. This represents a massive ethical and financial failure."
+  dominant_forces:
+    - "High daily per-diem costs charged to researchers for every cage housed in the vivarium."
+    - "Strong federal/institutional mandates (the '3 Rs') to reduce animal usage."
+    - "Zero visibility of active breeding colony lines between distinct research groups."
+  deeperpoint_fit: "CoSolvent aggregates real-time genetic and phenotypic surplus data across secure institutional nodes. KnowledgeSlot enforces strict compliance with institutional Animal Care Committee (ACC) transfer protocols, ensuring no unauthorized movement."
+  economic_upside: "A powerful ethical application that directly saves millions in wasted grant funds. Monetization heavily relies on SaaS subscriptions paid by university regulatory departments."
+
+sponsor_opportunities:
+  - title: "Enterprise Vivarium SaaS"
+    type: saas
+    revenue_model: "$10k/year institutional subscription"
+    strategic_logic: "Animal facility managers subscribe to drastically reduce their operational overhead and demonstrate strong compliance with federal ethics mandates to reduce animal waste."
+    recurring: true
+  - title: "Inter-Institutional Transfer Brokerage"
+    type: managed-service
+    revenue_model: "Per-transfer legal clearance fee"
+    strategic_logic: "Automates the heavy paperwork of health status reports and MTA clearances required to move live specimens between universities."
+    recurring: true
+  - title: "Biocontainment Logistics"
+    type: logistics-extension
+    revenue_model: "Margin on specialized live-animal couriers"
+    strategic_logic: "Links approved transfers directly with certified pathogen-free couriers to handle the physical logistics of the exchange."
+    recurring: true
+
+story:
+  title: "The Surplus Colony"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Roy - Immunologist tracking a specific T-cell receptor"
+    - "Dr. Ali - Neuroscientist studying aging"
+  summary: "Two researchers working on entirely different diseases swap surplus transgenic mice, saving months of breeding time and thousands in cage per-diems."
+  body: |
+    ## Act A - The Market Structure
+    
+    Vivariums operate as tightly sealed silos for profound pathogen and ethical reasons. Consequently, a massive information asymmetry exists: Researcher A culls dozens of wild-type control mice to maintain their specific mutation line, while Researcher B purchases those exact wild-type mice from a commercial vendor at exorbitant markup. The market failure is the lack of a secure, compliant internal marketplace bridging the silos.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Roy** needs female mice of a specific genetic background for her immunology assay. Her colony has recently produced overwhelming numbers of males, which she must pay $1.50 per day to house until the ethics protocol mandates culling. 
+    
+    **Dr. Ali**, two floors down, needs males of that exact genetic background to start a behavioral trial. He is preparing to order them from a commercial breeder, which will take weeks.
+    
+    The institutional platform queries vivarium census data. A notification alerts the Facility Manager and both PIs that a perfect internal match exists. The platform verifies that both labs have active ethics protocols covering this genotype and generates a seamless transfer request. Dr. Roy avoids the housing costs and the ethical burden of culling, and Dr. Ali starts his trial the next day.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without structural compliance oversight, researchers are forbidden from simply handing cages to each other. DeeperPoint maps the strict regulatory hierarchy over a dynamic matching engine, achieving the elusive goal of accelerating biological research while enhancing ethical compliance.
+    
+    *Characters are fictional. Animal research inefficiencies are real. DeeperPoint is building the infrastructure this story describes.*

@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cri-field-research-logistics-pooling
+title: "Remote Field Research Logistics Pooling"
+card_title: "Field Logistics Pooling"
+sector: canadian-research-institutions
+sub_sector: "Field Operations"
+forge_tier: 2
+status: published
+tags: [academia, research, field-work, logistics, arctic]
+market_example:
+  summary: "Matches distinct university research groups heading to the Arctic or remote coasts to pool helicopter/vessel charters and camp infrastructure, splitting massive field costs."
+  problem: "Conducting field research in the Canadian Arctic or deep marine environments is astonishingly expensive. A biology team and a geology team from different universities might both charter separate helicopters to the same remote island in the same month, unaware of each other. The extreme cost of isolated logistics consumes massive portions of Tri-Agency field grants."
+  dominant_forces:
+    - "Chartering helicopters or ice-class vessels operates at extremely high daily rates."
+    - "Strict weather windows force heavily compressed seasonal demand."
+    - "Lack of inter-institutional coordination leads to completely redundant logistics spending."
+  deeperpoint_fit: "CoSolvent aggregates the spatiotemporal needs of diverse research groups. ClientSynth models payload matching—combining heavy gear and personnel across optimal flight or sailing routes. KnowledgeSlot verifies wilderness safety and first-aid compliance."
+  economic_upside: "Saves millions in Canadian field research grants by optimizing seat-miles and payload usage. Revenue generated via standard fractional brokerage fees on high-end charters."
+
+sponsor_opportunities:
+  - title: "Logistics Optimization Brokerage"
+    type: logistics-extension
+    revenue_model: "5% fee on pooled charter bookings"
+    strategic_logic: "Charter operators win by securing guaranteed maximum-payload bookings, while researchers effectively pay 50% less for the same access."
+    recurring: true
+  - title: "Wilderness Safety Compliance SaaS"
+    type: saas
+    revenue_model: "Per-expedition subscription for institutional risk managers"
+    strategic_logic: "Universities mandate platform usage to ensure every passenger in the pooled consortium has verified wilderness first aid and firearm safety training."
+    recurring: true
+  - title: "Gear Rental & Exchange"
+    type: commerce-extension
+    revenue_model: "15% margin on shared expedition gear"
+    strategic_logic: "Allows researchers to rent specialized cold-weather tents or telemetry gear from the community pool rather than purchasing redundant heavy assets."
+    recurring: true
+
+story:
+  title: "The Baffin Island Charter"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Hughes - Glaciologist, University of Calgary"
+    - "Dr. Pelletier - Botanist, Laval University"
+  summary: "Two unrelated research teams split a massive helicopter charter bill by pooling their payloads for a remote Arctic deployment."
+  body: |
+    ## Act A - The Market Structure
+    
+    Remote field research operates under brutally unforgiving logistics. The cost of fuel and aviation in the high Arctic means that physically arriving at the data collection site often consumes 80% of a scientist's grant. Because universities plan field seasons in isolated administrative silos, massive inefficiencies occur: single helicopters fly half-empty to locations where another team could have easily shared the payload.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Hughes** needs to deploy sensor rigs on a glacier in central Baffin Island. The required Twin Otter and subsequent helicopter charter will wipe out her entire operational budget, leaving almost nothing for the actual data analysis.
+    
+    **Dr. Pelletier** is studying tundra lichen on a plateau 40 kilometers from the glacier. He is paralyzed by logistics; he has the personnel but cannot afford the aviation charter.
+    
+    Dr. Hughes logs her flight path, timing window (July), and remaining payload capacity (600 lbs) into the platform. The matching engine identifies Dr. Pelletier's spatial and temporal intersection. The platform proposes a unified flight manifest and logistics sequence: dropping Pelletier’s team first, then ferrying Hughes to the ice. The smart contract automatically splits the $60,000 aviation bill proportionally across both their university grant accounts.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    In a deeply fragmented academic system, finding a payload-matching partner for the Arctic resembles finding a needle in a haystack. DeeperPoint maps the logistical demands across institutions, turning a fragmented, excessively expensive wilderness access problem into a smooth, heavily optimized communal transit system.
+    
+    *Characters are fictional. Arctic logistics friction is real. DeeperPoint is building the infrastructure this story describes.*

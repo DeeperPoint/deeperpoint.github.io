@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cri-bio-specimen-exchange
+title: "Academic Bio-Specimen & Reagent Exchange"
+card_title: "Bio-Specimen Exchange"
+sector: canadian-research-institutions
+sub_sector: "Life Sciences"
+forge_tier: 3
+status: published
+tags: [academia, biology, research, supply-chain, ethics]
+market_example:
+  summary: "Matches academic researchers needing specific, ethically-sourced pathological samples, transgenic lines, or expensive reagents with labs that possess surplus inventory, bypassing slow commercial brokers."
+  problem: "Life sciences research relies on highly specific biological inputs—like a cell line bearing a precise mutation. Often, Lab A throws out surplus aliquots of a reagent or euthanizes surplus transgenic mice while Lab B, just one region over, spends months waiting for commercial delivery or ethics approval to generate the exact same materials. The barrier is zero visibility into neighboring institutional deep-freezers."
+  dominant_forces:
+    - "Extreme cold-chain and material transfer agreement (MTA) legal requirements."
+    - "Short shelf-lives of sensitive reagents and ethical drive to minimize animal waste."
+    - "High cost and slow delivery times from primary commercial bioscience suppliers."
+  deeperpoint_fit: "CoSolvent matches the specific genotype or chemical requirement against academic surplus inventory. KnowledgeSlot securely manages the execution of Material Transfer Agreements (MTAs) and Research Ethics Board (REB) alignment before any physical shipping occurs."
+  economic_upside: "Massive reduction in wasted Canadian grant funding on redundant reagents and duplicated transgenic breeding. Platform monetizes through logistics and administrative efficiency."
+
+sponsor_opportunities:
+  - title: "MTA Automation SaaS"
+    type: saas
+    revenue_model: "$5,000/year for University Legal/Tech Transfer departments"
+    strategic_logic: "Universities subscribe to drastically cut the legal hours spent negotiating standard inter-academic Material Transfer Agreements, utilizing the platform's standardized smart-contract boilerplates."
+    recurring: true
+  - title: "Cold-Chain Logistics Integration"
+    type: logistics-extension
+    revenue_model: "Markup on specialized dry-ice/cryo courier booking"
+    strategic_logic: "Biologicals must be shipped at -80C. The platform integrates directly with specialized bio-couriers to ensure the custody chain is never broken."
+    recurring: true
+  - title: "Institutional Inventory Optimization"
+    type: managed-service
+    revenue_model: "Subscription for enterprise freezer-management"
+    strategic_logic: "Allows large research institutes to auto-catalog their deep freezers, matching internal surplus before new grants are tapped for purchases."
+    recurring: true
+
+story:
+  title: "The Frozen Aliquot"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Evans - Oncology Researcher, Dalhousie University"
+    - "Dr. Tremblay - Molecular Biologist, McGill University"
+  summary: "A critical piece of cancer research resumes when an expensive, backordered specialized reagent is dynamically sourced from a neighboring university's surplus."
+  body: |
+    ## Act A - The Market Structure
+    
+    A modern biological deep-freezer is a multi-million-dollar black box. Thousands of tubes of specialized antibodies, RNA extractions, and unique cell lines sit unused as researchers move on to new projects. Because there is no inter-university visibility, the default action is to order fresh supply from commercial vendors. When supply chains shock or items go on backorder, vital, time-sensitive research simply halts.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Evans** is conducting a critical study on leukemia, but a highly specific, $4,000 signaling antibody is globally backordered for six months. Her grant timeline doesn't have six months to spare.
+    
+    **Dr. Tremblay** at McGill concluded a similar study a year ago and has three unopened vials of that exact antibody sitting in a -80C freezer, deprecating toward expiry.
+    
+    Dr. Evans posts her need on the academic exchange platform. The system queries the aggregated metadata of participating university freezers and flags Dr. Tremblay's surplus. Crucially, the platform automatically generates a non-commercial Material Transfer Agreement (MTA) verifying that Dr. Evans's ethics approval covers her use of the reagent. Both PIs digitally sign. The platform dispatches a specialized dry-ice courier to McGill, and the antibody arrives in Halifax 24 hours later. 
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without algorithmic matching and integrated legal frameworks, sharing reagents relies on serendipitous conversations at conferences. DeeperPoint turns siloed academic freezers into a unified, resilient national supply chain, saving millions in wasted grant funding and accelerating scientific discovery.
+    
+    *Characters are fictional. Academic supply chain bottlenecks are real. DeeperPoint is building the infrastructure this story describes.*

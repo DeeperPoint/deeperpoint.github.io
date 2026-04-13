@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cri-research-data-annotation-coop
+title: "Research Data Annotation Co-op"
+card_title: "Data Annotation Co-op"
+sector: canadian-research-institutions
+sub_sector: "IT & Compute"
+forge_tier: 1
+status: published
+tags: [academia, data-science, ai, machine-learning, student-employment]
+market_example:
+  summary: "Matches PI data-labeling needs (for AI/ML training on specialized datasets like pathology slides) with vetted students requiring stipends or co-op blocks, rather than relying on low-quality generic crowdsourcing."
+  problem: "Academic AI research in medicine, engineering, and the humanities requires massive datasets annotated by domain experts (e.g., circling tumors on thousands of biopsies). Generic crowd-workers (like Amazon MTurk) produce useless, low-quality results. Meanwhile, thousands of Canadian graduate and undergraduate students need remote, flexible, specialized work to support their degrees."
+  dominant_forces:
+    - "GIGO (Garbage In, Garbage Out) principle in AI dictates absolute reliance on high-quality annotation."
+    - "Traditional grant funding is highly restrictive about hiring temporary unclassified labor."
+    - "Students have bursty availability unsuited to standard employment models."
+  deeperpoint_fit: "CoSolvent aggregates specific annotation micro-tasks across national research labs. ClientSynth models student domain expertise (e.g., matching a 3rd-year anatomy student to to an MRI labeling task). KnowledgeSlot tracks accuracy metrics and anonymizes patient data compliance."
+  economic_upside: "Reallocates millions in grant funding currently sent to offshore click-farms directly into the pockets of Canadian students, achieving vastly superior AI training outcomes. Monetization via standard platform transaction margins."
+
+sponsor_opportunities:
+  - title: "Specialized Annotation Platform"
+    type: managed-service
+    revenue_model: "15-20% margin on task payouts"
+    strategic_logic: "Researchers pre-load grant funds. The platform executes the micro-tasking, acting as the employer of record, and handles the massive distributed payroll to students."
+    recurring: true
+  - title: "Ethics & Anonymization Compliance"
+    type: saas
+    revenue_model: "Per-project compliance fee"
+    strategic_logic: "Universities mandate platform usage as it requires students to pass institutional privacy and ethics (TCPS 2) certifications before accessing datasets."
+    recurring: true
+  - title: "Industry AI Bridging"
+    type: commerce-extension
+    revenue_model: "Premium corporate subscription"
+    strategic_logic: "Canadian AI startups pay a premium to access this exact same verified pool of university students for their commercial annotation needs."
+    recurring: true
+
+story:
+  title: "The Tumor Dataset"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Zhao - AI Pathologist mapping oncology slides"
+    - "Ahmed - 3rd-year Pre-Med Student"
+  summary: "A researcher relies on a vetted network of pre-med students to accurately annotate highly complex medical data, generating perfect AI training material."
+  body: |
+    ## Act A - The Market Structure
+    
+    Building academic AI models requires 'ground truth'—datasets rigorously labeled by humans. When the data is highly complex (cell morphology, structural engineering faults), crowdsourcing platforms fail entirely because the crowd doesn't understand the nuance. Researchers are forced to either do it themselves (wasting hundreds of PI hours) or hire generic labor and suffer ruined datasets. The ideal labor pool exists in the university ecosystem itself, but there is no mechanism to deploy them.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Zhao** has a grant to train a neural net to detect micro-tumors. He needs 10,000 slides annotated manually. He tried outsourcing to an international click-farm, and the resulting data was mostly noise.
+    
+    **Ahmed**, a high-performing pre-med student across the country, needs flexible income that doesn't conflict with his intense lab schedule. He already knows how to spot tissue irregularities.
+    
+    Dr. Zhao uploads his dataset to the secure academic platform. The matching engine filters for students who have completed 300-level anatomy courses across Canadian universities. Ahmed is matched, completes his TCPS 2 privacy module, and begins picking up micro-tasks between classes. Dr. Zhao gets perfectly annotated academic-grade data; Ahmed earns a vital stipend utilizing his actual educational skills.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    The university environment is naturally fragmented. An engineering PI has zero visibility into the biology department's student pool at another school. DeeperPoint organizes the national student base into a dynamic, highly specialized task-force, accelerating AI development while directly financially supporting the student base.
+    
+    *Characters are fictional. The AI annotation bottleneck is real. DeeperPoint is building the infrastructure this story describes.*

@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cri-cfi-equipment-time-sharing
+title: "CFI Core Facility Time Sharing"
+card_title: "Lab Equipment Time Sharing"
+sector: canadian-research-institutions
+sub_sector: "Research Infrastructure"
+forge_tier: 2
+status: published
+tags: [academia, research, infrastructure, cost-recovery, hardware]
+market_example:
+  summary: "Matches researchers needing highly specialized equipment (e.g., electron microscopes) with underutilized Core Facilities at other universities to maximize grant ROI. Commercial Note: Dependent on federal CFI/Tri-Agency sponsorship."
+  problem: "The Canada Foundation for Innovation (CFI) funds million-dollar lab instruments, encouraging them to operate as 'Core Facilities' with cost-recovery models. However, discovering which university has an available, properly calibrated instrument—and managing the cross-institutional billing and liability—is a bureaucratic nightmare, leading to idle machines while nearby researchers wait months for access or buy redundant equipment."
+  dominant_forces:
+    - "CFI grant compliance strongly encourages multi-institutional time sharing."
+    - "High fixed maintenance costs for complex lab instruments whether they run or not."
+    - "Inter-university financial transfers and liability waivers are notoriously slow and opaque."
+  deeperpoint_fit: "CoSolvent aggregates equipment availability and researcher demand. KnowledgeSlot stores hardware calibration states and standard operating procedures (SOPs). The platform generates compliant smart-contracts to handle indemnification and inter-university cross-billing seamlessly."
+  economic_upside: "Optimizes a multi-billion dollar national research hardware portfolio. Capturing even 2% of the wasted depreciation via a transaction clearinghouse models into a highly sustainable platform."
+
+sponsor_opportunities:
+  - title: "Cost-Recovery Billing SaaS"
+    type: saas
+    revenue_model: "Volume-based software subscription for Core Facilities"
+    strategic_logic: "Universities pay for the platform to automatically handle the scheduling and administrative billing, offsetting thousands of hours of admin work and maximizing their CFI compliance."
+    recurring: true
+  - title: "Equipment Maintenance Escrow"
+    type: managed-service
+    revenue_model: "Percentage fee on maintenance escrow parsing"
+    strategic_logic: "A portion of every time-share fee is automatically routed into a verified escrow account specifically dedicated to funding the inevitable OEM maintenance contract."
+    recurring: true
+  - title: "Consumables Restocking Marketplace"
+    type: commerce-extension
+    revenue_model: "10-15% margin on lab consumables"
+    strategic_logic: "When an external researcher books instrument time, the platform automatically prompts for and supplies the exact required reagents or sample preps directly to the host lab."
+    recurring: true
+
+story:
+  title: "The Idle Microscope"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Dr. Aris - Materials Scientist, Queen's University"
+    - "Dr. Chen - Core Facility Manager, University of Ottawa"
+  summary: "A researcher secures immediate time on a neighboring university's idle electron microscope, bypassing months of administrative gridlock."
+  body: |
+    ## Act A - The Market Structure
+    
+    Academic research relies on multimillion-dollar machines that depreciate rapidly. Despite federal mandates for inter-university sharing, the transactional friction is brutally high. A researcher at University A lacks visibility into the live schedule of a machine at University B, and the administrative hurdle of transferring grant funds between institutions is so prohibitive that researchers often just include redundant hardware in their next grant application.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Dr. Aris** has a crucial batch of nanomaterials to image for a pending Nature publication. His university's only Transmission Electron Microscope (TEM) is down for repairs for three months.
+    
+    **Dr. Chen** manages a newly installed, identical TEM in Ottawa. Her facility has an open mandate to recoup maintenance costs and currently has an open week in the schedule.
+    
+    Dr. Aris searches the platform for the specific TEM resolution and calibration capability. The system flags Dr. Chen’s idle machine. When Aris selects a two-day block, the platform automatically generates a legally binding facility-use waiver and secures an inter-institutional transfer from his Tri-Agency grant account to Chen’s cost-recovery account. Aris drives to Ottawa, completes his imaging, and Dr. Chen's facility secures funds against their OEM maintenance contract. 
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without matching infrastructure, discovering an available, properly calibrated TEM and resolving the liability takes longer than the actual experiment. DeeperPoint algorithmically couples the technical requirements, the legal indemnification, and the financial clearance, transforming static university assets into a fluid national research grid.
+    
+    *Characters are fictional. Academic procurement friction is real. DeeperPoint is building the infrastructure this story describes.*
