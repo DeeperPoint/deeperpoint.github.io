@@ -1,0 +1,151 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cen-renewable-ppa-matching
+title: Renewable Energy Power Purchase Agreement Matching
+card_title: Renewable PPA Matching Platform
+sector: canadian-energy
+sub_sector: Renewable Energy Finance
+forge_tier: 2
+status: published
+tags: [energy, renewables, ppa, power-purchase-agreement, wind, solar, offtake, industrial, utilities]
+market_example:
+  summary: A structured matching platform connecting independent Canadian renewable energy
+    developers with large industrial electricity consumers and commercial real estate operators
+    seeking to execute direct bilateral Power Purchase Agreements—bypassing the utility spot
+    market and enabling corporate clean energy procurement without the regulatory complexity
+    of provincial utility programs.
+  problem: "Power Purchase Agreements—long-term bilateral contracts in which a renewable
+    energy generator directly supplies a commercial or industrial buyer at a negotiated fixed
+    price—are the dominant mechanism through which global corporations achieve their clean
+    electricity procurement targets. In Canada, their development is severely constrained by
+    provincial electricity market structures. Alberta's deregulated market permits bilateral
+    PPAs but the market for connecting independent generators with industrial off-takers is
+    fragmented and opaque. Ontario's regulated market allows behind-the-meter and net-metering
+    arrangements but the rules are complex and jurisdiction-specific. Saskatchewan, Manitoba,
+    and BC all have provincial utility structures that create different PPA access frameworks.
+    The result is a market that should work—large industrial electricity consumers (data centres,
+    manufacturers, large retailers, municipal governments) seeking 10–20 year clean electricity
+    price certainty can in principle contract directly with wind and solar developers—but the
+    matching infrastructure to connect them does not exist in structured form. A wind farm
+    developer in Alberta with a 48 MW project seeking an industrial off-taker does not have
+    a mechanism to discover the 23 companies in their grid region that have publicly committed
+    to 100% renewable electricity by 2030 and whose load profile matches the generator's seasonal
+    output. The deal that would serve both parties cannot happen because neither party knows the
+    other is in the market."
+  dominant_forces:
+    - "Corporate clean energy procurement targets (RE100, Science Based Targets Initiative)
+      are creating mandatory demand for bilateral PPAs among large industrial and commercial
+      electricity users—but the market structure for connecting them to Canadian renewable
+      developers is undeveloped and jurisdiction-fragmented."
+    - "Renewable energy developers need off-take certainty for project financing—lenders require
+      a signed PPA before committing capital—creating a matching urgency that the informal
+      broker market cannot satisfy at the required speed and specificity."
+    - "PPA terms are highly specific to load profile, grid zone, provincial regulatory framework,
+      transmission access, and price-indexation structure—generic energy brokers cannot match
+      at this level of technical specificity."
+    - "Provincial electricity market rules (deregulated vs. regulated, net-metering caps,
+      wheeling rules) create jurisdiction-specific deal structures that require specialized
+      knowledge to navigate correctly."
+  deeperpoint_fit: "KnowledgeSlot encodes the PPA deal structure library: province-by-province
+    regulatory frameworks, standard PPA term structures (fixed price, indexed, green certificate
+    bundling), load profile requirements for off-take qualification, and financing covenants
+    that renewable project lenders impose on PPA counterparties. CoSolvent matches generator
+    profiles—capacity MW, output seasonality, grid zone, commissioning date, asking price
+    range—against off-taker profiles built from energy consumption data, grid location,
+    renewable commitment timelines, and credit rating requirements."
+  economic_upside: "A 20-year PPA for a 50 MW wind project represents $150–300M in contracted
+    revenue, determining whether the project gets built at all. The Canadian renewable energy
+    sector targets 40,000+ MW of new capacity by 2035. Each 1% improvement in PPA matching
+    speed and success rate could unlock billions in project financing. Platform revenue via
+    subscription for developers and per-PPA execution success fees."
+sponsor_opportunities:
+  - title: PPA Deal Discovery SaaS
+    type: saas
+    revenue_model: Annual subscription for renewable developers and corporate sustainability procurement teams
+    strategic_logic: "Renewable developers pay for structured access to a registry of qualified
+      industrial and commercial off-takers organized by grid zone, consumption profile, credit
+      rating, and renewable procurement timeline—replacing months of cold outreach with a
+      targeted, specification-matched short list."
+    recurring: true
+  - title: PPA Term Sheet Generation Service
+    type: managed-service
+    revenue_model: Per-deal term sheet generation fee plus facilitated negotiation support
+    strategic_logic: "The platform generates a jurisdiction-specific PPA term sheet framework—
+      province-aligned regulatory structure, standard banker-acceptable covenants, green
+      certificate bundling specifications—giving both parties a shared reference frame that
+      accelerates negotiation from first contact to executed agreement."
+    recurring: false
+  - title: Renewable Procurement Intelligence Layer
+    type: commerce-extension
+    revenue_model: Annual data subscription for investment banks, project finance lenders, and ESG analysts
+    strategic_logic: "Aggregated PPA deal flow data—pricing ranges by province and technology,
+      average deal execution timelines, off-taker credit quality trends—becomes a premium
+      market intelligence product for the investment banks and project finance lenders who
+      underwrite Canadian renewable project debt."
+    recurring: true
+story:
+  title: The Off-Take Gap
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Natasha - Project Development Director, Alberta wind developer"
+    - "Bernard - VP Sustainability, national retail chain with 280 locations across Alberta"
+  summary: "An Alberta wind developer whose 48 MW project is stalled in project finance due
+    to missing offtake finds a national retailer committed to 100% renewable procurement through
+    a grid-zone-matched PPA platform, enabling financial close within 90 days."
+  body: |
+    ## Act A - The Market Structure
+
+    Every Canadian renewable energy project that requires project financing—which is most of
+    them above 10 MW—needs a signed Power Purchase Agreement before the lender will commit
+    term debt. The PPA is not optional; it is the cash flow certainty on which the entire
+    financial model sits.
+
+    The market for bilateral PPAs in Canada is theoretically functional. In Alberta's
+    deregulated power market, there is no regulatory barrier to a generator and an industrial
+    buyer contracting directly. The barrier is discovery: the generator does not know which
+    Alberta industrial buyers have committed to renewable procurement timelines that would
+    justify a 15-year bilateral contract, and the buyers do not know which projects are at
+    the stage in development where their offtake commitment would enable financial close.
+
+    ---
+
+    ## Act B - The Story
+
+    **Natasha** has spent three years developing a 48 MW wind project in southern Alberta.
+    Environmental assessment is complete. The interconnection agreement is executed. Her
+    project finance lender has provided a credit-approved term sheet conditional on a signed
+    PPA with a counterparty rated BB+ or better. She has approached four Alberta utilities.
+    Three are not buying merchant capacity. One offered a price 18% below the project
+    economics. She has 90 days before her interconnection queue position expires.
+
+    **Bernard** is presenting to his board's ESG committee in six weeks. His company committed
+    to 100% renewable electricity by 2028 under RE100. Their 280 locations in Alberta consume
+    190,000 MWh annually—a load that matches Natasha's expected output almost exactly. Bernard
+    has asked two energy brokers to source a renewable PPA. Both came back with utility green
+    tariff options, not bilateral contracts. The price premium is 22% above their current rate.
+    His budget for renewable procurement caps the premium at 12%.
+
+    Natasha uploads her generator profile to the platform: 48 MW, southern Alberta grid zone,
+    expected output seasonality, commissioning date Q2 2027, asking price range. Bernard's
+    sustainability team uploads the off-taker profile: consumption 190,000 MWh/year, Alberta
+    grid, renewable commitment deadline 2028, credit rating A-, maximum acceptable price premium.
+    The platform resolves the seasonal output match—Natasha's wind profile peaks in winter and
+    spring; Bernard's consumption peaks in summer with air conditioning load. The platform
+    surfaces a storage-smoothing structure using a 4-hour battery co-location that brings
+    the profiles into alignment. A PPA term sheet is generated incorporating banker-standard
+    Alberta market annexes. They execute a letter of intent within three weeks. Financial
+    close follows within 90 days.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Every renewable project that fails to find an offtake partner delays Canadian clean energy
+    capacity additions. Every industrial buyer that pays a green tariff premium they could have
+    avoided with a bilateral PPA misallocates clean energy budget. The discovery failure has
+    real climate consequences. DeeperPoint builds the specification-matched PPA marketplace
+    that turns bilateral clean energy procurement from an insider's game into an open market.
+
+    *Characters are fictional. The PPA discovery gap in Canadian renewable markets is
+    documented and recognized by the Clean Energy Buyers Association.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

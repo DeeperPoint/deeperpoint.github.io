@@ -1,0 +1,151 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cen-ccus-retrofit-engineering
+title: Carbon Capture Retrofit Engineering Specialist Matching
+card_title: CCUS Engineering Specialist Matching
+sector: canadian-energy
+sub_sector: Carbon Management
+forge_tier: 3
+status: published
+tags: [energy, carbon-capture, ccus, ccs, post-combustion, industrial, emissions, oil-sands, refining]
+market_example:
+  summary: A specialist matching platform connecting Canadian industrial emitters pursuing
+    Carbon Capture Utilization and Storage (CCUS) projects with the thin pool of process
+    engineers and engineering firms who have genuine post-combustion capture or oxy-fuel
+    project experience—expertise that is structurally scarce and almost exclusively
+    distributed through confidential corporate networks.
+  problem: "Canada's federal and provincial CCUS policy frameworks—the Clean Fuel Regulations,
+    the federal Investment Tax Credit for CCUS (50% credit on capture equipment), and Alberta's
+    Carbon Competitiveness Incentive Regulation—have created a wave of CCUS feasibility and
+    FEED studies across the oil sands, refining, petrochemical, cement, and steel sectors.
+    A 2023 survey by the Pembina Institute identified over 20 active large-scale CCUS project
+    studies in Canada involving combined capture capacity of 30+ million tonnes per year. The
+    bottleneck is human capital. Post-combustion carbon capture engineering—the design and
+    integration of amine solvent absorption systems, direct air capture processes, and
+    compression-transport interfaces with geological storage formations—is a discipline with
+    perhaps 200–400 genuinely expert practitioners globally. Most of them work inside the
+    same six to eight engineering firms (Shell's Quest project team, Fluor's Econamine FG+
+    group, CB&I's long history in gas treating). Canadian chemical and process engineering
+    firms with bona fide CCUS project experience—not just CCUS policy analysis experience,
+    but actual process design and commissioning experience—number in the single digits.
+    An oil sands operator preparing a CCUS FEED study cannot simply issue an RFP and
+    expect five qualified responses; they will receive one or two from firms with genuine
+    CCUS process design depth and a dozen from firms that are building the capability for
+    the first time using the FEED study as on-the-job training. The inability to distinguish
+    these is costing industry $50–100M per misdirected FEED study."
+  dominant_forces:
+    - "Canada's CCUS Investment Tax Credit and Clean Fuel Regulations have created a mandated
+      demand wave for CCUS engineering services that far exceeds the current supply of engineers
+      with genuine post-combustion capture or geological storage integration experience."
+    - "CCUS process design errors discovered during FEED or detailed engineering—in solvent
+      system sizing, regenerator heat duty, compression train design—compound quadratically
+      into capital cost overruns; retaining an underqualified engineering team for a
+      large-scale FEED study is a $50–200M risk."
+    - "The global CCUS engineer pool is concentrated in a small number of engineering disciplines
+      and project teams whose experience is almost entirely undocumented in conventional professional
+      profiles—resume screening cannot distinguish process-design depth from policy familiarity."
+  deeperpoint_fit: "KnowledgeSlot encodes the CCUS process design credential framework: the
+    specific disciplines required for each project phase (solvent chemistry, column design,
+    heat integration, geological storage geomechanics, compression engineering) and the
+    project-portfolio evidence that distinguishes genuine design experience from analysis
+    familiarity. CoSolvent matches industrial operator CCUS study specification packages—
+    emission source characteristics, capture rate target, solvent technology preference,
+    transport and storage pathway—against engineering firm profiles built from verified project
+    portfolios and named engineer credentials."
+  economic_upside: "Canada's CCUS Investment Tax Credit is expected to mobilize $15–30B in
+    CCUS capital investment by 2040. Each large-scale CCUS project involves $2–15M in engineering
+    study fees across FEED and detailed design. Matching the right engineering capability to
+    each project—reducing FEED cost overruns and timeline failures—represents hundreds of
+    millions in avoided misallocation annually across the sector's program portfolio."
+sponsor_opportunities:
+  - title: CCUS Engineering Capability Registry SaaS
+    type: saas
+    revenue_model: Annual subscription for industrial operators and their procurement teams
+    strategic_logic: "Oil sands operators, refiners, and industrial emitters pay for structured
+      access to a CCUS engineering capability registry organized by process technology (amine,
+      oxyfuel, DAC), project scale, and verified project portfolio—enabling specification-matched
+      engineering firm selection instead of resume-based RFP scoring."
+    recurring: true
+  - title: CCUS Project Specification Development Service
+    type: managed-service
+    revenue_model: Per-project specification development fee prior to engineering firm engagement
+    strategic_logic: "Before issuing an engineering RFP, an industrial operator pays for a
+      facilitated specification development session—using the platform's KnowledgeSlot domain
+      content to define the correct process technology scope, capture rate target, and
+      engineering deliverable specifications that a qualified CCUS firm can actually bid against."
+    recurring: false
+  - title: CCUS Program Portfolio Analytics
+    type: commerce-extension
+    revenue_model: Annual data subscription for NRCan, Alberta CCUS hub administrators, and energy investment funds
+    strategic_logic: "Federal and provincial CCUS program administrators—who are allocating
+      ITC claims and hub development funding—need aggregated visibility into the engineering
+      capacity bottleneck: how many FEED studies are in market simultaneously, which engineering
+      firms are qualified for which project types, and where the engineering capacity shortfall
+      will constrain the federal deployment timeline."
+    recurring: true
+story:
+  title: The FEED Mismatch
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Omar - VP Carbon Strategy, major oil sands upgrader, Fort McMurray"
+    - "Dr. Renata - VP Process Engineering, specialty gas capture engineering firm, Calgary"
+  summary: "An oil sands upgrader preparing a $6M CCUS FEED study identifies the only
+    Canadian engineering firm with genuine amine solvent post-combustion capture FEED
+    experience through a process-design credential matching platform—avoiding being served
+    by a policy-capable but design-inexperienced team."
+  body: |
+    ## Act A - The Market Structure
+
+    Carbon capture is simultaneously one of the most critical and most technically demanding
+    engineering disciplines in industrial decarbonization. The chemistry of amine-based
+    post-combustion capture—solvent selectivity, regeneration heat duty, degradation products,
+    heat integration with the host facility—took the global engineering profession decades
+    to understand at the project scale. The engineers who understand it are a small, identifiable
+    community whose experience lives in a handful of engineering firms and project teams.
+
+    Canada's CCUS tax credit has created strong demand for CCUS FEED studies that greatly
+    exceeds the supply of qualified process engineers to execute them. The engineering
+    procurement process—standard RFP scoring on technical approach, team credentials, and
+    price—cannot distinguish a team that has designed a 500-tonne-per-day absorber column
+    from a team that has written white papers about doing so. The distinction costs $50M
+    when it is discovered mid-FEED.
+
+    ---
+
+    ## Act B - The Story
+
+    **Omar** has board approval for a $6M CCUS FEED study targeting 2.2 million tonnes
+    per year of CO2 capture from his facility's coker and fluid catalytic cracker flue gas
+    streams. He issued an engineering services RFP to eight firms. Six responded. His evaluation
+    committee read the technical approaches. Three appeared technically credible. When his
+    internal process engineer reviewed the lead engineer CVs on each proposal, she identified
+    that only one firm had a named lead with a completed amine solvent FEED study in their
+    portfolio—the other two named leads had CCUS policy and techno-economic analysis backgrounds.
+    The one qualified firm submitted the highest price and the least polished proposal.
+
+    **Dr. Renata** leads a 40-person Calgary process engineering firm that has completed
+    two amine post-combustion capture FEED studies—one for a gas processing plant in BC,
+    one as an engineering subcontractor on a Gulf Coast refinery CCUS project. Her firm
+    does not have a strong BD&M function; they are engineers, not marketers. They saw Omar's
+    RFP but submitted a technically dense, not commercially polished, proposal. They came
+    third in the initial scoring.
+
+    Omar's team queries the platform after a trusted peer's recommendation: CCUS specialist
+    registry, amine post-combustion capture FEED, oil sands flue gas characteristics, 2+ Mtpa
+    capture capacity. Renata's firm surfaces with two verified amine FEED portfolio projects,
+    named engineer credentials, and specific oil sands flue gas chemistry experience. Omar's
+    evaluation committee rescores the proposals with verified project portfolio evidence weighting.
+    Renata's firm is awarded the FEED study. The study proceeds on schedule and within budget.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    CCUS engineering procurement cannot be solved by better RFP scoring when the critical
+    differentiator—genuine process design experience—is invisible to generic credential review.
+    DeeperPoint builds the verified project portfolio registry that puts process design depth
+    at the centre of engineering firm selection where it belongs.
+
+    *Characters are fictional. Canada's CCUS engineering capacity bottleneck is documented
+    by Natural Resources Canada and the Pembina Institute.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

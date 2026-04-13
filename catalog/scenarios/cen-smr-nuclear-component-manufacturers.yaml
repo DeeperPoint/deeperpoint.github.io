@@ -1,0 +1,150 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cen-smr-nuclear-component-manufacturers
+title: Small Modular Reactor Component Manufacturer Qualification
+card_title: SMR Component Manufacturer Matching
+sector: canadian-energy
+sub_sector: Nuclear Energy
+forge_tier: 3
+status: published
+tags: [energy, nuclear, smr, small-modular-reactor, asme, manufacturing, n-stamp, precision]
+market_example:
+  summary: A qualification and matching platform connecting Canadian Small Modular Reactor
+    developers with precision manufacturers capable of meeting nuclear-grade component
+    specifications—ASME N-stamp, CNSC Quality Assurance Program, nuclear-grade material
+    traceability—helping build the Canadian nuclear supply chain before first-of-kind SMR
+    deployments begin.
+  problem: "Canada has committed to Small Modular Reactor deployment as a cornerstone of its
+    clean energy transition, with five SMR developer agreements signed with provinces and a
+    federal regulatory framework that supports construction at multiple sites by the early 2030s.
+    The gap between regulatory approval and actual construction is the supply chain. SMR
+    components—reactor pressure vessels, steam generators, control rod drive mechanisms,
+    primary coolant pumps, and hundreds of specialty valve and instrument assemblies—must
+    be manufactured to nuclear-grade standards: ASME Nuclear Codes (N-stamp certification),
+    CNSC Quality Assurance programs, nuclear-grade material certification with documented
+    traceability back to heat number. Canada has a legacy nuclear manufacturing base from
+    the CANDU era—some of it still active, some of it dormant or converted to other industrial
+    uses. SMR developer procurement teams face a structural problem: they do not have a structured
+    registry of Canadian manufacturers currently holding or capable of obtaining N-stamp
+    certification for specific component categories. Individual manufacturers do not have
+    a mechanism to signal readiness or capability to multiple SMR developers simultaneously.
+    The qualification process—which involves facility audits, quality management system reviews,
+    and ASME program certification—takes 18–36 months and costs $500,000–$2M per manufacturer.
+    Coordinating this investment across multiple potential SMR developer customers, before any
+    single developer has committed purchasing volumes, is a collective action problem that no
+    individual company can solve."
+  dominant_forces:
+    - "SMR procurement timelines require supply chain qualification to begin 5–8 years before
+      first deliveries—but no individual SMR developer has the volume certainty to justify
+      funding a manufacturer's N-stamp qualification program alone."
+    - "Canada's legacy CANDU manufacturing base has partial but dormant nuclear-grade manufacturing
+      capability that could be reactivated for SMR components—but the current capability gap
+      is unknown to SMR developers because no structured registry exists."
+    - "Nuclear component manufacturing requires multi-year quality program investment before
+      any production orders can be placed—creating a qualification investment that is only
+      rational if multiple potential customers can be identified before the investment begins."
+  deeperpoint_fit: "KnowledgeSlot encodes the ASME nuclear code requirements by component
+    category (N-stamp, NP-stamp, NU-stamp), CNSC Quality Assurance program requirements,
+    and the qualification timeline and cost model for each certification level. CoSolvent
+    matches SMR developer component procurement lists—organized by component category, delivery
+    timeline, and volume requirements—against Canadian manufacturer profiles built from
+    current certification status, material processing capabilities, and quality program maturity.
+    The platform also identifies manufacturers whose existing industrial certificates (ASME
+    U-stamp, ISO 3834 welding) give them the shortest qualification path to nuclear grade."
+  economic_upside: "Canadian SMR procurement is estimated at $5–15B over the next 15 years
+    in domestic components alone. The federal SMR Action Plan targets 50% Canadian content.
+    Each percentage point of Canadian content captured from an offshore-default supply chain
+    represents $50–150M in domestic manufacturing revenue. The platform's value to government
+    sponsors—NRCan, EDC, provincial economic development agencies—is direct and quantifiable."
+sponsor_opportunities:
+  - title: Nuclear Supply Chain Registry SaaS
+    type: saas
+    revenue_model: Annual subscription for SMR developers and nuclear EPC contractors
+    strategic_logic: "SMR developer procurement teams pay for structured, searchable access
+      to the Canadian nuclear manufacturing capability registry—organized by ASME certification
+      level, component category, and qualification investment requirements—enabling early supply
+      chain development planning before formal RFQ processes begin."
+    recurring: true
+  - title: Qualification Investment Coordination Service
+    type: managed-service
+    revenue_model: Per-manufacturer qualification coordination fee funded jointly by multiple SMR developers
+    strategic_logic: "The platform coordinates the shared qualification investment: multiple SMR
+      developers co-fund a manufacturer's N-stamp certification program in exchange for preferred
+      supplier status and pre-agreed pricing commitments, transforming a collective action problem
+      into a structured multi-customer qualification agreement."
+    recurring: false
+  - title: Canadian Nuclear Content Tracking Dashboard
+    type: commerce-extension
+    revenue_model: Government policy subscription for NRCan, EDC, and provincial economic development agencies
+    strategic_logic: "The federal government's SMR Action Plan Canadian content target requires
+      measurement infrastructure. The platform's aggregated supply chain data—qualified suppliers,
+      capability gaps, investment requirements to close gaps—becomes the primary policy intelligence
+      tool for directing SMR supply chain development funding."
+    recurring: true
+story:
+  title: The N-Stamp Gap
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Sylvie - VP Supply Chain, Canadian SMR developer, Ottawa"
+    - "Howard - President, precision machining and pressure vessel manufacturer, Cambridge, Ontario"
+  summary: "A Canadian SMR developer discovers that a Cambridge precision manufacturer has
+    the material processing capability for a critical pressure boundary component but lacks
+    N-stamp certification—and assembles a multi-developer qualification cost-sharing agreement
+    through a nuclear supply chain registry platform."
+  body: |
+    ## Act A - The Market Structure
+
+    Building a Small Modular Reactor requires manufacturing thousands of components to
+    standards that almost no industrial supplier currently meets. The ASME nuclear codes—
+    the N-stamp certification framework—require a quality assurance program that most
+    industrial manufacturers have never needed. Getting certified takes 18–36 months and
+    costs up to $2M in audit fees, program development, and equipment upgrades.
+
+    No rational manufacturer will make that investment without a customer commitment.
+    No SMR developer will make a customer commitment before the manufacturer demonstrates
+    capability. The standard qualification deadlock—common to every new defense and nuclear
+    supply chain development—is structurally worse in the SMR context because multiple
+    developers are procuring simultaneously, each hoping that someone else will fund the
+    qualification investment they all need.
+
+    ---
+
+    ## Act B - The Story
+
+    **Sylvie** is building the procurement list for Canada's first SMR project. Her pressure
+    boundary components—the vessels, nozzles, and flanges that form the nuclear island's
+    primary pressure boundary—need manufacturers with ASME NP- or N-stamp certification
+    and CNSC-aligned quality programs. She has sent capability surveys to 40 Canadian
+    manufacturers. Three have active N-stamp programs. One of those is currently fully
+    committed to CANDU fuel channel work for two years. She is looking at 90% offshore
+    sourcing for components that Canadian manufacturers could theoretically produce.
+
+    **Howard** runs a 180-person precision machining and pressure vessel fabrication shop
+    in Cambridge that holds ASME U-stamp and PED certification. His team produced reactor
+    feed water heaters for conventional thermal plants for twelve years. The material
+    processing capability for Sylvie's pressure boundary castings exists on his floor.
+    What he lacks is the nuclear quality assurance program and ASME N-stamp—the 18-month
+    process he hasn't started because he's never had a nuclear customer approach him.
+
+    Sylvie queries the platform for pressure boundary fabrication capability: material
+    specification (low-alloy carbon steel, SA-508), pressure class, weld qualification
+    requirements, dimensional tolerancing. Howard's facility surfaces with a matching
+    material processing capability profile and a qualification gap assessment showing
+    the 18-month N-stamp pathway from his current U-stamp base. Two other SMR developers
+    also see Howard's profile. The platform structures a three-developer qualification
+    cost-sharing agreement: each contributes $400,000 toward Howard's N-stamp qualification
+    in exchange for preferred supplier pricing commitments on their respective programs.
+    Howard begins the qualification process with funding in hand and three customers waiting.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Canada has the manufacturing capability to supply its own SMR program. What it lacks is
+    the supply chain visibility infrastructure to connect developers with manufacturers before
+    the procurement calendar forces offshore defaults. DeeperPoint builds the qualification
+    registry that turns Canadian manufacturing potential into Canadian nuclear supply chain reality.
+
+    *Characters are fictional. The SMR supply chain qualification gap is documented in the
+    federal SMR Action Plan. [DeeperPoint](../../marketforge.html) is building the infrastructure
+    this story describes.*
