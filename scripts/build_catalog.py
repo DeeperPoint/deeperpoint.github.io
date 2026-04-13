@@ -852,7 +852,7 @@ def buildIndexPage(scenarios):
   </script>"""
 
     head = renderHead(
-        title="Markets in Waiting \u2014 Scenarios for the MarketForge Opportunity Catalog",
+        title="Startup-Ready Markets in Waiting \u2014 Scenarios for the MarketForge Opportunity Catalog",
         description="One hundred speculative thin market scenarios analyzed through the DeeperPoint framework. Each describes a market that could exist if the right matching infrastructure were built \u2014 with a market analysis, sponsor revenue model, and a narrative story illustrating how a match would work.",
         css_path="../styles.css",
         root="../",
@@ -861,7 +861,7 @@ def buildIndexPage(scenarios):
     content = f"""
   <section class="section cat-header" id="catalog-index">
     <div class="container">
-      <h1 class="cat-title">Markets in Waiting</h1>
+      <h1 class="cat-title">Startup-Ready Markets in Waiting</h1>
       <p class="cat-desc">
         Each entry describes a thin market that could be transformed by the right matching
         infrastructure &#8212; but has not been yet. Individual scenarios are speculative and
