@@ -1,0 +1,34 @@
+id: export-livestock-genetics
+title: "Premium Livestock Genetics Export"
+status: published
+category: trade
+tags: [trade, export, agriculture, genetics]
+market_example:
+  title: "Export Platform for Canadian Dairy and Beef Genetics"
+  summary: "A global marketplace connecting Canadian breeders of top-tier livestock genetics (embryos, semen, live technical stock) with international agricultural operations seeking to improve herd efficiency and resilience."
+  forces:
+    - "Global demand for higher-yielding, disease-resistant, and climate-adaptable livestock."
+    - "Canada maintains world-leading genetic registries and health protocols."
+    - "Complex international veterinary and import/export regulations throttle trade."
+  market_fit:
+    - "Matching requires deep pedigree data and Estimated Breeding Values (EBVs)."
+    - "High-trust requirement for health certifications and genetic authenticity."
+    - "Transactions must align with seasonal breeding cycles and freight logistics."
+  economic_prize:
+    - "Expands the global reach of specialized Canadian agricultural IP."
+    - "Boosts international food security while capturing premium margins."
+
+platform_design:
+  roles:
+    - role: "Genetic Breeders"
+      description: "Canadian dairy, beef, and swine breeding operations."
+    - role: "International Herd Operators"
+      description: "Large-scale foreign farms and domestic genetic improvement agencies."
+    - role: "Veterinary Regulators"
+      description: "Authorities providing export health certifications."
+  matching_engine:
+    - "Matches specific genetic traits (yield, calving ease, feed efficiency) to buyer goals."
+    - "Aligns export logistics and quarantine timelines."
+  trust_mechanisms:
+    - "Direct API integration with national breed registries for verifiable EBVs."
+    - "Immutable tracking of veterinary health certificates and genomic test results."

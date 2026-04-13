@@ -1,0 +1,34 @@
+id: export-agri-functional-ingredients
+title: "Functional Agrifood Ingredient Export"
+status: published
+category: trade
+tags: [trade, export, agriculture, agrifood]
+market_example:
+  title: "Export Platform for Canadian High-Value Plant Proteins and Nutraceuticals"
+  summary: "A specialized platform connecting Canadian producers of pulse proteins, oat beta-glucan, and specialty bio-ingredients with European and Asian food formulators and CPG companies."
+  forces:
+    - "Global shift towards plant-based and functional foods."
+    - "Canada is a leading producer of high-quality raw pulses but needs to export more value-added ingredients."
+    - "Food formulators have rigorous functional and nutritional spec requirements."
+  market_fit:
+    - "Requires matching complex bio-chemical specifications with product formulation needs."
+    - "High need for traceability, organic/kosher/halal certifications."
+    - "Sample-to-scale purchasing cycle is highly structured."
+  economic_prize:
+    - "Shifts export value from bulk commodities to premium ingredients."
+    - "Provides consistent, higher-margin international off-take for processors."
+
+platform_design:
+  roles:
+    - role: "Ingredient Processors"
+      description: "Canadian value-added agriculture processing facilities."
+    - role: "Global Food Brands"
+      description: "International CPGs and formulators seeking novel ingredients."
+    - role: "Quality Assurance Labs"
+      description: "Independent labs verifying protein content, purity, and functionality."
+  matching_engine:
+    - "Matches precise functional properties (e.g., solubility, foaming, taste profile) to buyer specs."
+    - "Aligns required volumes with production scale-up timelines."
+  trust_mechanisms:
+    - "Integrated sharing of independent lab Certificates of Analysis (COAs)."
+    - "Secure sample request and feedback workflow."
