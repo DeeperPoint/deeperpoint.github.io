@@ -1,55 +1,109 @@
 # Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-agri-functional-ingredients
 title: Functional Agrifood Ingredient Export
-card_title: Functional Agrifood Ingredient Export
+card_title: Agrifood Ingredient Export Matching
 sector: canadian-export
-sub_sector: International Trade
+sub_sector: Value-Added Agriculture
 forge_tier: 2
 status: published
-tags:
-- trade
-- export
-- agriculture
-- agrifood
+tags: [trade, export, agriculture, agrifood, plant-protein, nutraceuticals]
 market_example:
-  summary: A specialized platform connecting Canadian producers of pulse proteins,
-    oat beta-glucan, and specialty bio-ingredients with European and Asian food formulators
-    and CPG companies.
-  problem: Export Platform for Canadian High-Value Plant Proteins and Nutraceuticals
+  summary: A specialized B2B platform connecting Canadian processors of pulse proteins, oat
+    beta-glucan, and specialty bio-ingredients with European and Asian food formulators and CPG
+    companies seeking verified, functional, traceable ingredients for next-generation food products.
+  problem: "Canada grows roughly 35% of the world's lentils and peas, yet most of that harvest
+    leaves as bulk commodity at near-commodity pricing. The real money—and the real market gap—is
+    in value-added functional ingredients: pulse protein isolates, oat beta-glucan, hemp seed
+    fractions, and specialized nutraceutical extracts that European and Asian food brands desperately
+    need to reformulate their products for the plant-based and functional-food boom. The market failure
+    is acute: processors know how to make the ingredient but have no structured pathway to the
+    global formulator. International food brands know exactly what functional specification they
+    need (e.g., 'a pea protein isolate with >80% protein purity, neutral flavour, and foaming index
+    >3.5') but have no reliable way to find a verified Canadian supplier who can hit those specs at
+    commercial scale, provide Certificates of Analysis, offer sample quantities on a defined timeline,
+    and meet their kosher, halal, and organic traceability requirements simultaneously."
   dominant_forces:
-  - Global shift towards plant-based and functional foods.
-  - Canada is a leading producer of high-quality raw pulses but needs to export more
-    value-added ingredients.
-  - Food formulators have rigorous functional and nutritional spec requirements.
-  deeperpoint_fit: Requires matching complex bio-chemical specifications with product
-    formulation needs. High need for traceability, organic/kosher/halal certifications.
-    Sample-to-scale purchasing cycle is highly structured.
-  economic_upside: Shifts export value from bulk commodities to premium ingredients.
-    Provides consistent, higher-margin international off-take for processors.
+    - Global CPG brands are under intense pressure to reformulate products with plant-based proteins
+      and functional ingredients, creating urgent, specification-driven procurement demand.
+    - Canada is a leading producer of high-quality pulse crops but the value chain stops at bulk
+      export, leaving enormous processing-margin upside on the table.
+    - Buyers require multi-attribute qualification simultaneously (functional spec, purity certifications,
+      traceability, sample-to-scale pathway) that is impossible to verify through standard commodity
+      channels.
+    - Sample-to-commercial-scale purchasing cycles are long and highly structured, requiring
+      sophisticated project tracking that current broker relationships cannot support.
+  deeperpoint_fit: "KnowledgeSlot models the multi-dimensional matching problem: a buyer's
+    formulation spec (solubility, pH stability, flavour profile, protein percentage) is mapped
+    against a supplier's independently verified Certificate of Analysis data rather than marketing
+    claims. CoSolvent manages the sample request and feedback workflow, creating a structured
+    audit trail from first contact through qualification batch to commercial off-take agreement.
+    The platform enforces traceability requirements (lot-level provenance, organic chain-of-custody)
+    as first-class matching criteria, not afterthoughts."
+  economic_upside: "Shifting even 20% of Canadian pulse export from bulk to value-added ingredients
+    would represent billions in incremental processing margin. For formulators, the platform
+    radically reduces the cost and time of qualifying new functional ingredients, making Canada
+    the go-to source for trustworthy, spec-verified plant-based components."
 sponsor_opportunities:
-- title: B2B Trade Matchmaker
-  type: managed-service
-  revenue_model: Transaction fees on matched orders
-  strategic_logic: Bridges the gap for Functional Agrifood Ingredient Export between
-    Canadian suppliers and international buyers.
-  recurring: true
+  - title: Ingredient Discovery SaaS
+    type: saas
+    revenue_model: Annual subscription for international food brands and CPG procurement teams
+    strategic_logic: Large food companies pay for always-on access to the verified Canadian
+      ingredient registry—searchable by functional property, certification type, and production
+      scale—eliminating the need for expensive trade-show scouting trips.
+    recurring: true
+  - title: "Sample Logistics & Qualification Brokerage"
+    type: managed-service
+    revenue_model: Per-sample-request handling fee plus qualification milestone payments
+    strategic_logic: "The platform manages the structured sample-to-scale workflow: coordinating
+      sample shipment, routing independent lab verification, and managing the feedback loop
+      between buyer and supplier. This reduces attrition in the qualification pipeline dramatically."
+    recurring: true
+  - title: Traceability Data Vault
+    type: commerce-extension
+    revenue_model: Per-ingredient-lot certification data access subscription
+    strategic_logic: Once the platform holds verified lot-level provenance data for Canadian
+      ingredients, global retailers (e.g., Whole Foods, Carrefour, Coop) pay to access the
+      compliance record to satisfy their own supplier audits and ESG reporting requirements.
+    recurring: true
 story:
-  title: The Export Match
-  status: none
+  title: The Protein Specification
+  status: draft
   blog_slug: ''
   characters:
-  - Exporter
-  - International Buyer
-  summary: Bridging the global supply chain gap.
-  body: |
-    ## Act A - The Market Structure
-
-    The market lacks a specialized network for quality-verified exports.
-
-    ## Act B - The Story
-
-    A connection is made.
-
-    ## Act C - Why This Market Stays Broken Without Infrastructure
-
-    Trust mechanisms are difficult to establish.
+    - Hana - R&D Formulation Scientist, European plant-based food brand
+    - Derek - Commercial Director, Saskatchewan pulse protein processor
+  summary: A European food scientist discovers the exact pea protein isolate her reformulation
+    project requires through a specification-driven matching platform, bypassing months of
+    trade-show searches and unverified broker introductions.
+  body: "## Act A \u2014 The Market Structure\n\nThe functional ingredients market operates at
+    the intersection of food science and international trade, and it is broken in a remarkably
+    specific way. Buyers know precisely what they need\u2014a formulator can specify the exact
+    solubility curve and amino acid profile required\u2014but the discovery system is crude: trade
+    shows, broker cold calls, and Google searches returning marketing brochures rather than
+    verified analytical data. Sellers, meanwhile, have excellent labs and real Certificates of
+    Analysis but no structured pathway to put that data in front of the right R&D scientist at the
+    right moment.\n\n---\n\n## Act B \u2014 The Story\n\n**Hana** is nine months into a reformulation
+    project for a major European plant-based meat analogue. Her current pea protein supplier in the
+    Netherlands has a flavour problem she cannot engineer around at scale. She needs a pea protein
+    isolate with over 82% protein purity, a specific water-holding capacity for her texture targets,
+    and a verified neutral-flavour profile\u2014plus organic certification and EU-traceable
+    provenance. She has contacted four brokers in the last six months. Three introduced suppliers
+    who could not meet the spec. One never responded.\n\n**Derek\u2019s** plant near Saskatoon
+    produces exactly what Hana needs. He has independent lab CoAs showing 84% protein purity,
+    validated flavour panels, and a certified organic supply chain back to specific Saskatchewan
+    farms. He has been trying to break into the European formulator market for two years and has
+    spent $80,000 on trade shows with no commercial result.\n\nHana inputs her formulation
+    requirements directly into the platform\u2019s structured specification interface. The algorithm
+    cross-references verified CoA databases for Canadian processors. Derek\u2019s product matches
+    on all five criteria. The platform generates a structured sample request, routes a 500g trial
+    quantity through a bonded sample logistics provider, and creates a shared workspace where Hana
+    uploads her lab results and Derek responds with production parameters. Within 90 days of the
+    match, they are negotiating a 200-tonne annual off-take agreement.\n\n---\n\n## Act C \u2014
+    Why This Market Stays Broken Without Infrastructure\n\nThe broker model cannot handle
+    multi-attribute specification matching. A broker can introduce two parties; they cannot
+    algorithmically verify that a supplier\u2019s CoA matches a buyer\u2019s formulation spec
+    across six simultaneous parameters. That is a data problem, and it requires a data platform.
+    DeeperPoint builds the structured qualification pipeline that turns Canadian agricultural
+    expertise into accessible, verified, internationally competitive ingredients.\n\n*Characters
+    are fictional. The functional ingredients supply-chain gap is real. DeeperPoint is building
+    the infrastructure this story describes.*\n"

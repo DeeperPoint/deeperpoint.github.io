@@ -1,56 +1,122 @@
 # Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-mass-timber-components
 title: Engineered Mass Timber Export
-card_title: Engineered Mass Timber Export
+card_title: Mass Timber Export Matching
 sector: canadian-export
-sub_sector: International Trade
+sub_sector: "Forest Products & Construction"
 forge_tier: 2
 status: published
-tags:
-- trade
-- export
-- forestry
-- construction
+tags: [trade, export, forestry, mass-timber, clt, sustainable-construction, green-building]
 market_example:
-  summary: A platform matching Canadian manufacturers of engineered mass timber components
-    with large-scale sustainable commercial and residential developments in the US
-    and Europe.
-  problem: Exporting Canadian Cross-Laminated Timber (CLT) to Global Construction
-    Markets
+  summary: A platform matching Canadian manufacturers of engineered mass timber components—CLT
+    panels, glulam beams, NLT—with large-scale sustainable commercial and residential developments
+    in the US, UK, and Europe seeking certified, low-carbon structural timber with documented
+    chain-of-custody provenance.
+  problem: "Cross-Laminated Timber (CLT) and engineered mass timber are experiencing a global
+    construction boom driven by 'embodied carbon' accounting requirements, wood-first building
+    policies in Europe and Canada, and genuine enthusiasm from architects for mass timber's
+    biophilic character. Canadian sawmills and engineered wood plants—particularly in British
+    Columbia and Quebec—are uniquely positioned: Canada has vast sustainably managed forest
+    resources, world-class CLT production technology, and fibre supply chain that European
+    manufacturers cannot match in volume or species diversity. The bottleneck is not production;
+    it is commercial connectivity. A London developer planning a 12-story mass timber office
+    building needs CLT panels produced to Eurocode structural specifications with FSC chain-of-custody
+    certification, enough production capacity booked 18 months in advance, and a logistics partner
+    capable of sequenced just-in-time delivery to an urban construction site. A Canadian CLT plant
+    has the capability to supply exactly this, but has no structured mechanism to find and qualify
+    this buyer, manage the complex specification and structural engineering dialogue, or coordinate
+    the booking of production capacity against a construction timeline that won't be finalized for
+    another six months."
   dominant_forces:
-  - Global push for low-carbon construction materials.
-  - Canadian forestry is shifting to high-value engineered products.
-  - Logistics and structural certification are major barriers to trans-national timber
-    trade.
-  deeperpoint_fit: Matching requires deep integration with architectural plans and
-    structural specs. Projects have long lead times, requiring capacity booking far
-    in advance. Chain-of-custody sustainability certification is non-negotiable.
-  economic_upside: Enables reliable international scaling for Canadian mass timber
-    plants. De-risks supply chain for mega-projects seeking green building certifications.
+    - Global low-carbon construction mandates and 'embodied carbon' accounting requirements are
+      creating mandatory demand for certified structural mass timber in commercial and municipal
+      building codes.
+    - Canadian forestry is actively shifting from dimension lumber to high-value engineered products,
+      but export commercial infrastructure has not kept pace with manufacturing investment.
+    - Project-level lead times (18–36 months from design to delivery) require production booking
+      commitments that cannot be managed through spot-market or broker-based commercial relationships.
+    - Cross-border structural certification (Canadian standards vs. Eurocode vs. IBC) requires
+      expert technical alignment that neither party can manage without a structured workflow.
+  deeperpoint_fit: "KnowledgeSlot models the technical specification alignment: mapping architectural
+    and structural engineering requirements (span, load, fire rating, finish specification) against
+    plant capability profiles (species mix, panel dimensions, production certification scope).
+    CoSolvent manages the extended project timeline: matching buyer design-development milestones
+    with plant production scheduling windows months in advance. The platform integrates chain-of-custody
+    certification status as a first-class matching criterion—an FSC-certified buyer is automatically
+    matched only with FSC-certified producers."
+  economic_upside: "A single large commercial mass timber project can require $5–20M in CLT and
+    structural components. Canadian plants capable of serving these projects currently have no
+    international sales infrastructure. The platform captures a durable broker margin on high-value,
+    long-duration supply relationships while building a reputation for Canada as the world's most
+    reliable and certifiably sustainable mass timber source."
 sponsor_opportunities:
-- title: B2B Trade Matchmaker
-  type: managed-service
-  revenue_model: Transaction fees on matched orders
-  strategic_logic: Bridges the gap for Engineered Mass Timber Export between Canadian
-    suppliers and international buyers.
-  recurring: true
+  - title: Mass Timber Project Matching SaaS
+    type: saas
+    revenue_model: Annual subscription for architectural and structural engineering firms plus
+      per-project matching activation fee
+    strategic_logic: Architecture and engineering firms specifying mass timber for large projects
+      pay for access to a structured database of certified Canadian producers with verified capability
+      profiles, enabling spec-compliant supplier selection early in design development—before the
+      contractor is even appointed.
+    recurring: true
+  - title: Production Capacity Forward-Booking
+    type: managed-service
+    revenue_model: Success fee on matched production reservation agreements
+    strategic_logic: "The platform manages the complex forward-booking process: translating
+      a developer's construction timeline into a production reservation request, matching it
+      against plant availability calendars, and structuring a capacity reservation agreement
+      with appropriate penalty and flex provisions."
+    recurring: false
+  - title: "Carbon Data & Certification Aggregation"
+    type: commerce-extension
+    revenue_model: Environmental Product Declaration (EPD) subscription for developers needing
+      LEED/BREEAM documentation
+    strategic_logic: Every mass timber project pursuing a green building certification needs
+      Environmental Product Declarations for their structural components. The platform aggregates
+      verified EPDs from Canadian producers and delivers them as a structured document repository
+      for project certification consultants.
+    recurring: true
 story:
-  title: The Export Match
-  status: none
+  title: The Timber Tower
+  status: draft
   blog_slug: ''
   characters:
-  - Exporter
-  - International Buyer
-  summary: Bridging the global supply chain gap.
-  body: |
-    ## Act A - The Market Structure
-
-    The market lacks a specialized network for quality-verified exports.
-
-    ## Act B - The Story
-
-    A connection is made.
-
-    ## Act C - Why This Market Stays Broken Without Infrastructure
-
-    Trust mechanisms are difficult to establish.
+    - Marcus - Project Director, UK sustainable property developer
+    - Isabelle - Export Sales Manager, BC mass timber manufacturer
+  summary: A UK developer designing an 18-storey mass timber tower sources a certified Canadian
+    CLT supplier through a structured platform that manages specification alignment, production
+    booking, and chain-of-custody certification simultaneously.
+  body: "## Act A \u2014 The Market Structure\n\nMass timber construction is experiencing one
+    of the most sustained material booms in modern building history. Yet the commercial infrastructure
+    connecting international project developers with the world\u2019s best structural timber producers
+    is built for a 1990s lumber trade: spot prices, broker phone calls, and standard dimension
+    lumber containers. A developer seeking 3,000m³ of bespoke CLT panels to a specific Eurocode
+    grade, booked 18 months in advance against a construction schedule that will shift twice, needs
+    a fundamentally different commercial relationship than buying commodity lumber. The market has
+    not built this infrastructure, so transformative projects get delayed or fall back on
+    European suppliers simply because the Canadian connection was too hard to make.\n\n---\n\n##
+    Act B \u2014 The Story\n\n**Marcus** is the project director for a flagship sustainable office
+    tower in Bristol. His architect has specified mass timber for the entire primary structure -
+    18 floors, 22-metre spans, FSC certified, with EPDs for every major component to satisfy
+    the project\u2019s BREEAM Outstanding target. His UK timber broker cannot source the volume
+    required with the structural grade needed. A German producer quoted a 26-month delivery lead
+    time. His construction contractor needs production confirmed within 60 days to maintain
+    programme.\n\n**Isabelle** works for a BC manufacturer that has invested $45M in CLT production
+    since 2019. They carry FSC certification, produce panels to full European structural grades,
+    and have 1,200m³ of monthly capacity available precisely during Marcus\u2019s required
+    production window. They have never had a direct UK commercial relationship.\n\nMarcus\u2019s
+    structural engineer uses the platform to input the technical requirements: European CLT grade,
+    required panel dimensions, FSC certification, production window, and EPD documentation
+    requirement. Isabelle\u2019s plant profile matches on all criteria. The platform generates a
+    structured RFQ that includes the structural specification, the construction timeline, and the
+    EPD documentation request. Isabelle responds with a detailed production proposal. The platform\u2019s
+    logistics module connects them with a specialized Canadian-to-UK construction freight provider.
+    Marcus\u2019s EPD documentation is generated from verified plant data. The contract is signed
+    within 45 days of the first platform match.\n\n---\n\n## Act C \u2014 Why This Market Stays
+    Broken Without Infrastructure\n\nThe mass timber market is not a commodity market; it is a
+    project-specification, capacity-reservation, certification-verification market that requires
+    an entirely different commercial infrastructure than standard lumber trade provides. Canadian
+    producers have world-leading capability and fibre supply. DeeperPoint provides the commercial
+    scaffolding needed to make that capability internationally visible and commercially accessible.\n\n
+    *Characters are fictional. The mass timber export gap is real. DeeperPoint is building the
+    infrastructure this story describes.*\n"

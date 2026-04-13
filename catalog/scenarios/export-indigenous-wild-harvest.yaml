@@ -3,55 +3,114 @@ id: export-indigenous-wild-harvest
 title: Indigenous Wild Harvest Export
 card_title: Indigenous Wild Harvest Export
 sector: canadian-export
-sub_sector: International Trade
-forge_tier: 2
+sub_sector: Indigenous Trade & Sovereignty
+forge_tier: 3
 status: published
-tags:
-- trade
-- export
-- indigenous
-- agrifood
+tags: [trade, export, indigenous, wild-harvest, traditional-knowledge, food-sovereignty]
 market_example:
-  summary: A specialized, culturally secure marketplace connecting Indigenous-owned
-    wild harvest collectives in Canada with premium global gastronomy and natural
-    cosmetics brands.
-  problem: Export Platform for Premium Indigenous-Harvested Botanicals and Seafood
+  summary: A culturally secure, Indigenous-governed marketplace connecting First Nation and
+    Métis wild harvest collectives with premium global gastronomy, natural cosmetics, and
+    pharmaceutical ingredient buyers—protecting traditional ecological knowledge while
+    building sovereign economic infrastructure.
+  problem: "Global demand for ethically sourced, wild-harvested, ultra-traceable botanical
+    and sea ingredients—wild rice, ramps, fiddleheads, sea buckthorn, northern blueberries,
+    lichen species, specific shellfish and fish—has exploded among premium food brands,
+    luxury cosmetics manufacturers, and pharmaceutical ingredient buyers. Canadian Indigenous
+    communities hold custodial rights over vast pristine territories and centuries-deep traditional
+    harvesting knowledge that produces exactly these ingredients. The exploitation risk is also
+    immense: commercial middlemen routinely buy wild-harvested products at commodity prices,
+    strip the provenance narrative, rebrand them, and capture the entirety of the premium that
+    properly belongs to the originating community. The market failure has two faces. For buyers,
+    there is no trusted mechanism to verify authentic Indigenous provenance, access harvest
+    quotas, or ensure that their sourcing will withstand ethical scrutiny. For Indigenous
+    communities, there is no platform that enforces equitable pricing, protects Traditional
+    Ecological Knowledge (TEK) from bio-piracy, respects Indigenous data sovereignty principles,
+    and builds a long-term business relationship rather than a one-time extraction event."
   dominant_forces:
-  - Surging global demand for ethically sourced, traceable wild ingredients.
-  - Indigenous communities control vast pristine territories and traditional harvesting
-    knowledge.
-  - Exploitation by middlemen necessitates a platform that ensures equitable trade
-    and IP protection.
-  deeperpoint_fit: Focus on narrative, provenance, and sustainable harvest quotas
-    rather than mass volume. Requires profound trust to protect traditional ecological
-    knowledge (TEK) from biopiracy. Market design must respect Indigenous data sovereignty.
-  economic_upside: Creates sustainable, high-margin economic engines for remote Indigenous
-    communities. Delivers ultra-premium, authenticated ingredients to brands willing
-    to pay for genuine provenance.
+    - Premium food, cosmetics, and pharmaceutical brands face intense consumer pressure to
+      demonstrate authentic, ethical, traceable sourcing—a standard that only direct,
+      relationship-based Indigenous supplier connections can satisfy.
+    - Indigenous communities control irreplaceable territorial access and traditional harvesting
+      knowledge but are systematically undercut by middlemen who capture the premium without
+      sharing it.
+    - Bio-piracy risk is real and legally complex—any platform design must prioritize Indigenous
+      data sovereignty and traditional knowledge protection as first-class platform requirements.
+    - Harvest quotas are ecologically determined and seasonally variable, requiring a dynamic,
+      relationship-managed matching model rather than a static product catalog.
+  deeperpoint_fit: "The platform architecture is governed by Indigenous data sovereignty principles:
+    communities control their own profiles, TEK disclosures, and the terms of any buyer relationship.
+    KnowledgeSlot manages the complex, multi-attribute matching between a buyer's specification
+    (species, harvest season, processing level, certification requirements) and a collective's
+    documented sustainable harvest quota and traditional practices. The platform structures equitable
+    pricing floors—buyers see market-rate ranges anchored against premium positioning, not commodity
+    benchmarks. Provenance records are immutable and community-controlled."
+  economic_upside: "Properly structured, wild harvest exports can command 10–50x premium over
+    equivalent farmed or commodity alternatives. A single northern blueberry collective partnered
+    with a luxury European confectionery brand is worth far more in long-term revenue than decades
+    of commodity berry sales. The platform's goal is to ensure that the entire premium flows to
+    the community, not through an intermediary."
 sponsor_opportunities:
-- title: B2B Trade Matchmaker
-  type: managed-service
-  revenue_model: Transaction fees on matched orders
-  strategic_logic: Bridges the gap for Indigenous Wild Harvest Export between Canadian
-    suppliers and international buyers.
-  recurring: true
+  - title: Indigenous Trade Portal
+    type: managed-service
+    revenue_model: Platform governance fee split between community subscription and buyer access fee
+    strategic_logic: The platform is governed with Indigenous community boards as co-owners,
+      not just participants. Revenue sharing is structured so communities receive the majority
+      of platform fees, creating genuine economic partnership rather than extractive service provision.
+    recurring: true
+  - title: Provenance Authentication SaaS
+    type: saas
+    revenue_model: Per-product-line authentication subscription for premium brands
+    strategic_logic: Luxury food and cosmetics brands pay for certified, audit-ready provenance
+      documentation—species identification, harvest coordinates, community authorization, and
+      ecological sustainability report—that they can share with their own customers and
+      regulatory bodies.
+    recurring: true
+  - title: Equitable Price Benchmarking Service
+    type: commerce-extension
+    revenue_model: Annual subscription for Indigenous economic development organizations
+    strategic_logic: The platform aggregates anonymized transaction pricing data to publish
+      quarterly premium benchmarks for wild-harvested ingredients, giving communities negotiating
+      intelligence to push back against middlemen who offer commodity prices for premium products.
+    recurring: true
 story:
-  title: The Export Match
-  status: none
+  title: The Wild Rice Collective
+  status: draft
   blog_slug: ''
   characters:
-  - Exporter
-  - International Buyer
-  summary: Bridging the global supply chain gap.
-  body: |
-    ## Act A - The Market Structure
-
-    The market lacks a specialized network for quality-verified exports.
-
-    ## Act B - The Story
-
-    A connection is made.
-
-    ## Act C - Why This Market Stays Broken Without Infrastructure
-
-    Trust mechanisms are difficult to establish.
+    - Naomi - Economic Development Director, Anishinaabe First Nation in Northern Ontario
+    - Laurent - Head of Ingredient Sourcing, Paris-based luxury food brand
+  summary: A First Nation wild rice collective bypasses exploitative middlemen to establish
+    a direct, equity-preserving export relationship with a premium European food brand through
+    a culturally governed marketplace.
+  body: "## Act A \u2014 The Market Structure\n\nThe premium wild-ingredient market is a study
+    in value capture without value creation. A wild-rice collective harvests sustainably managed
+    Manoomin according to protocols refined over centuries. A middleman buys the rice at $3 per
+    kilogram, relabels it 'artisan lake rice from the Canadian north,' and sells it to a Parisian
+    épicerie at $40. The First Nation community that both produced and sustainably managed the
+    resource sees none of the premium. The brand that bought it has no verifiable provenance.
+    The entire premium evaporates into an intermediary who added only logistics and a label.\n\n
+    ---\n\n## Act B \u2014 The Story\n\n**Naomi** is trying to build a real economy for her
+    community. They have 800 hectares of sustainably managed wild rice lakes, a documented
+    traditional harvest protocol, and the capacity to process and package 40 tonnes per season.
+    Every year, the same two buyers show up and offer slightly above commodity price. Naomi knows
+    the rice ends up in luxury retail at ten times what they receive. She has tried attending food
+    trade shows but the process is exhausting and expensive and has not produced a relationship
+    that respects the community\u2019s terms.\n\n**Laurent** is trying to solve a sourcing crisis.
+    His brand has committed publicly to 100% authentic, directly sourced wild ingredients. His
+    current 'wild rice' supplier was revealed by a journalist to be a conventional paddy operation
+    in China. He needs authentic wild-harvest Manoomin from a verifiable Indigenous source, and he
+    needs the provenance documentation to survive a media investigation.\n\nNaomi\u2019s economic
+    development office connects to the platform through an Indigenous trade organization. The platform
+    is governed under OCAP\u00ae principles—First Nations ownership, control, access, and possession
+    of their data. Naomi sets her terms: minimum price floor, maximum annual volume, required acknowledgment
+    and attribution in all branding, and a royalty on any downstream product that uses the Manoomin
+    name. Laurent\u2019s specification matches perfectly. The platform structures a direct multi-year
+    supply agreement. Laurent\u2019s brand launches an 'Origin Rice' line with full community attribution.
+    The community earns 12x their previous per-kilogram rate.\n\n---\n\n## Act C \u2014 Why This Market
+    Stays Broken Without Infrastructure\n\nWithout a platform that enforces community data sovereignty,
+    structures equitable pricing, and provides buyers with audit-ready provenance records, the middleman
+    will always win. Indigenous communities cannot afford international trade missions. Premium brands
+    cannot verify provenance through cold calls. DeeperPoint builds the governed marketplace that makes
+    equitable direct trade structurally inevitable.\n\n*Characters are fictional. Middleman exploitation
+    of Indigenous wild-harvest value chains is real. DeeperPoint is building the infrastructure this
+    story describes.*\n"

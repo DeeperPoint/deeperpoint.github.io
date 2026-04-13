@@ -1,55 +1,108 @@
 # Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-aerospace-precision-parts
 title: Aerospace Precision Manufacturing Export
-card_title: Aerospace Precision Manufacturing Export
+card_title: Aerospace Parts Export Matching
 sector: canadian-export
-sub_sector: International Trade
+sub_sector: Advanced Manufacturing
 forge_tier: 2
 status: published
-tags:
-- trade
-- export
-- aerospace
-- manufacturing
+tags: [trade, export, aerospace, manufacturing, defence]
 market_example:
-  summary: A secure platform for matching the surplus capability of Canadian precision
-    aerospace machine shops with tier-one suppliers and OEMs in the global supply
-    chain.
-  problem: Connecting Canadian Precision Machining with Global Aerospace OEMs
+  summary: A secure platform matching the surplus capacity of AS9100-certified Canadian precision
+    machine shops with Tier-1 suppliers and OEMs in the global aerospace supply chain, bypassing
+    opaque broker networks and shortening qualification timelines.
+  problem: "The global aerospace supply chain is brutally asymmetric: Tier-1 primes like Airbus,
+    Boeing, and Pratt & Whitney desperately need certified machining capacity, while hundreds of
+    world-class Canadian shops—many clustered around Montreal, Toronto, and Winnipeg—sit partially
+    idle because they lack international sales pipelines. The problem is not quality; Canada's
+    aerospace-manufacturing ecosystem carries world-leading certifications (AS9100D, NADCAP). The
+    problem is discovery and trust. Primes rely on a few incumbent brokers whose supplier lists are
+    stale and who add 20% margin for little value. Meanwhile, a shop that just invested $4 million
+    in a five-axis mill and holds every relevant certification cannot get in front of a procurement
+    engineer in Toulouse. Controlled-goods (ITAR/CG) constraints make cold outreach legally fraught,
+    and the qualification paperwork needed to add a new vendor to a prime's approved supplier list can
+    take two years without a structured workflow."
   dominant_forces:
-  - Aerospace supply chains are recovering and experiencing severe bottlenecks.
-  - Canada has a deep bench of highly certified (e.g., AS9100) aerospace machine shops.
-  - OEMs need rapid discovery of highly capable, certified capacity to avoid downstream
-    delays.
-  deeperpoint_fit: Exacting certification and quality control requirements mandate
-    extreme trust. Dynamic matching of machine capabilities (e.g., 5-axis CNC) and
-    material handling. ITAR and controlled goods compliance are critical constraints.
-  economic_upside: Maximizes machine utilization across the Canadian aerospace cluster.
-    Provides global OEMs with a resilient, high-quality, allied-nation supply alternative.
+    - Aerospace supply chains are recovering post-COVID with severe bottlenecks in precision machined
+      structural and engine components.
+    - Canadian shops carry world-leading certifications (AS9100D, NADCAP) but lack international
+      sales channels to surface them to global primes.
+    - ITAR and Controlled Goods Regulations make unsupported cold outreach legally hazardous for
+      both buyer and seller.
+    - Qualification of a new supplier by a Tier-1 prime can take 18–24 months without a structured,
+      documented workflow accelerating the process.
+  deeperpoint_fit: "CoSolvent aggregates the verified capability and certification profiles of Canadian
+    shops (machine types, tolerances, material certifications, capacity calendars). KnowledgeSlot
+    models the exacting classification logic: a shop rated for titanium 5-axis work on thin-wall
+    compressor blades is a fundamentally different supplier than one rated for aluminum structural brackets,
+    even if both hold AS9100D. The platform enforces controlled-goods compliance flags at the match layer,
+    preventing inadvertent ITAR violations from the first contact. The resulting structured qualification
+    dossier—pre-populated from the supplier's verified profile—compresses a two-year qualification cycle
+    to weeks."
+  economic_upside: "Canadian aerospace manufacturing is a $30B sector heavily dependent on export contracts.
+    Matching even 5% more of idle 5-axis and turning capacity to international programs represents hundreds
+    of millions in incremental revenue. The platform's structured qualification workflow is the unique value:
+    each qualification event is a defensible recurring revenue event for the platform operator."
 sponsor_opportunities:
-- title: B2B Trade Matchmaker
-  type: managed-service
-  revenue_model: Transaction fees on matched orders
-  strategic_logic: Bridges the gap for Aerospace Precision Manufacturing Export between
-    Canadian suppliers and international buyers.
-  recurring: true
+  - title: Supplier Qualification SaaS
+    type: saas
+    revenue_model: Annual subscription for prime OEM procurement teams plus per-qualification event fee
+    strategic_logic: Primes pay for continuous visibility into pre-vetted Canadian capacity, drastically
+      cutting the cost and time of their Approved Supplier List expansion. The platform becomes the
+      industry-standard Canadian gateway.
+    recurring: true
+  - title: Controlled-Goods Compliance Layer
+    type: managed-service
+    revenue_model: Per-transaction compliance verification fee billed to the exporting shop
+    strategic_logic: Shops are willing to pay for a service that ensures their first international
+      contact is not a regulatory violation. The platform acts as the definitive ITAR/CG pre-clearance
+      broker, eliminating the need for each shop to retain their own export counsel for prospecting.
+    recurring: true
+  - title: Supply Chain Data Intelligence
+    type: commerce-extension
+    revenue_model: Annual report subscription for aerospace industry bodies and EDC
+    strategic_logic: The matching data generated—which capabilities are most in demand, which
+      certifications are bottlenecks, where geographic gaps exist—has immense value for Export
+      Development Canada and provincial aerospace clusters seeking to direct investment.
+    recurring: true
 story:
-  title: The Export Match
-  status: none
+  title: The Toulouse RFQ
+  status: draft
   blog_slug: ''
   characters:
-  - Exporter
-  - International Buyer
-  summary: Bridging the global supply chain gap.
-  body: |
-    ## Act A - The Market Structure
-
-    The market lacks a specialized network for quality-verified exports.
-
-    ## Act B - The Story
-
-    A connection is made.
-
-    ## Act C - Why This Market Stays Broken Without Infrastructure
-
-    Trust mechanisms are difficult to establish.
+    - Gilles - Procurement Engineer at a European Tier-1 Aerospace Supplier
+    - Francine - Owner, 22-person precision machine shop near Mirabel, Quebec
+  summary: A European aerospace prime discovers an ideal Canadian machining partner for a critical
+    turbine component contract through a structured qualification platform, compressing a two-year
+    process into six weeks.
+  body: "## Act A \u2014 The Market Structure\n\nThe paradox at the heart of aerospace supply
+    chain management is that the buyers and sellers are equally desperate to find each other and
+    equally unable to do so. Tier-1 primes operate global supplier lists locked in procurement
+    systems from the 1990s. Adding anyone new requires a mountainous qualification audit. The
+    broker networks that claim to bridge this gap are opaque, expensive, and slow\u2014running
+    essentially on golf-course relationships rather than verified data. Meanwhile, Canada's
+    world-class machine shops, many built on decades of investment and certification, remain
+    invisible beyond their province.\n\n---\n\n## Act B \u2014 The Story\n\n**Gilles** is staring
+    at a shortfall. His company\u2019s primary Canadian supplier for a complex titanium fan-blade
+    root machining program has just lost two of its key machinists, and their quoted lead time
+    has slipped by 14 weeks. His program manager is furious. Gilles needs a fully certified
+    backup supplier\u2014AS9100D, demonstrable 5-axis titanium experience, ideally within allied-nation
+    jurisdiction\u2014within the next month, or the contract penalties start accruing.\n\n**Francine**
+    has been waiting three years for this call. Her shop near Mirabel holds AS9100D, two NADCAP
+    accreditations, and a Controlled Goods clearance. She has three DMG Mori five-axis mills running
+    at 60% capacity. She is technically perfect for Gilles\u2019s problem. He will never find her
+    through conventional channels.\n\nGilles\u2019s purchasing director points him to the platform.
+    He inputs the specific requirements: titanium Gr-5, thin-wall turning, ±0.005mm tolerance,
+    allied-nation jurisdiction, AS9100D mandatory, NADCAP heat treatment preferred. The system
+    returns four pre-vetted Canadian shops. Francine\u2019s profile is at the top\u2014the platform
+    has already verified her certifications, capacity calendar, and controlled-goods standing. The
+    qualification dossier it generates pre-populates 80% of the forms his procurement system
+    requires. The two teams meet digitally. Six weeks later, Francine\u2019s shop is on an approved
+    supplier list in Toulouse.\n\n---\n\n## Act C \u2014 Why This Market Stays Broken Without
+    Infrastructure\n\nWithout a structured matching and qualification layer, the default is the
+    incumbent broker\u2014expensive, slow, and running on relationships rather than data. No individual
+    shop can invest in the international marketing needed to be discovered, and no prime wants to sift
+    through unverified cold calls. The platform creates a trusted, sovereign registry that resolves the
+    discovery problem on both sides simultaneously.\n\n*Characters are fictional. The capacity mismatch
+    and qualification bottleneck in Canadian aerospace are real. DeeperPoint is building the
+    infrastructure this story describes.*\n"
