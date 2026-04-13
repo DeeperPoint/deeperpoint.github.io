@@ -1,34 +1,54 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-water-wastewater-tech
-title: "Advanced Water Tech Export"
+title: Advanced Water Tech Export
+card_title: Advanced Water Tech Export
+sector: canadian-export
+sub_sector: International Trade
+forge_tier: 2
 status: published
-category: trade
-tags: [trade, export, cleantech, water]
+tags:
+- trade
+- export
+- cleantech
+- water
 market_example:
-  title: "Exporting Canadian Water Purification and Wastewater Innovations"
-  summary: "A matchmaking environment connecting Canadian water-tech firms with international municipalities, industrial parks, and agricultural operations facing acute water scarcity or regulatory pressure."
-  forces:
-    - "Increasing global water stress and stringent environmental regulations."
-    - "Canadian firms excel in UV, membrane, and AI-driven water management."
-    - "Sales cycles to international water utilities are notoriously slow and complex."
-  market_fit:
-    - "Solutions are highly tailored to specific contaminant profiles and flow rates."
-    - "Pilot-to-scale validation is a required workflow."
-    - "Local regulatory compliance must be matched with technical capabilities."
-  economic_prize:
-    - "Opens massive global municipal and industrial markets to specialized Canadian tech."
-    - "Shortens the procurement cycle through standardized technical validations."
+  summary: A matchmaking environment connecting Canadian water-tech firms with international
+    municipalities, industrial parks, and agricultural operations facing acute water
+    scarcity or regulatory pressure.
+  problem: Exporting Canadian Water Purification and Wastewater Innovations
+  dominant_forces:
+  - Increasing global water stress and stringent environmental regulations.
+  - Canadian firms excel in UV, membrane, and AI-driven water management.
+  - Sales cycles to international water utilities are notoriously slow and complex.
+  deeperpoint_fit: Solutions are highly tailored to specific contaminant profiles
+    and flow rates. Pilot-to-scale validation is a required workflow. Local regulatory
+    compliance must be matched with technical capabilities.
+  economic_upside: Opens massive global municipal and industrial markets to specialized
+    Canadian tech. Shortens the procurement cycle through standardized technical validations.
+sponsor_opportunities:
+- title: B2B Trade Matchmaker
+  type: managed-service
+  revenue_model: Transaction fees on matched orders
+  strategic_logic: Bridges the gap for Advanced Water Tech Export between Canadian
+    suppliers and international buyers.
+  recurring: true
+story:
+  title: The Export Match
+  status: none
+  blog_slug: ''
+  characters:
+  - Exporter
+  - International Buyer
+  summary: Bridging the global supply chain gap.
+  body: |
+    ## Act A - The Market Structure
 
-platform_design:
-  roles:
-    - role: "Water Tech Providers"
-      description: "Canadian firms offering purification, desalination, and monitoring tech."
-    - role: "International Water Utilities"
-      description: "Municipal and private water operators seeking efficiency or compliance."
-    - role: "Industrial Water Users"
-      description: "Mining, textile, and food & beverage plants requiring effluent treatment."
-  matching_engine:
-    - "Matches influent contaminant profiles to optimal treatment technologies."
-    - "Aligns CAPEX/OPEX limits with financing availability."
-  trust_mechanisms:
-    - "Standardized templates for pilot project results and scale-up projections."
-    - "Integration with global water quality regulatory frameworks."
+    The market lacks a specialized network for quality-verified exports.
+
+    ## Act B - The Story
+
+    A connection is made.
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Trust mechanisms are difficult to establish.

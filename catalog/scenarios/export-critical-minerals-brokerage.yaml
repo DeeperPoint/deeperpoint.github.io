@@ -1,37 +1,58 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-critical-minerals-brokerage
-title: "Critical Minerals Export Brokerage"
+title: Critical Minerals Export Brokerage
+card_title: Critical Minerals Export Brokerage
+sector: canadian-export
+sub_sector: International Trade
+forge_tier: 2
 status: published
-category: trade
-tags: [trade, export, mining, critical-minerals, international-trade]
+tags:
+- trade
+- export
+- mining
+- critical-minerals
+- international-trade
 market_example:
-  title: "Connecting Canadian Critical Mineral Producers with Allied Supply Chains"
-  summary: "A private marketplace for matching Canadian junior miners and processers of critical minerals with vetted international buyers from allied nations, securing battery and high-tech supply chains."
-  forces:
-    - "Heightened geopolitical focus on securing non-adversarial supply chains for battery metals."
-    - "Junior miners struggle to navigate complex international procurement requirements."
-    - "Significant regulatory compliance required for critical minerals tracing."
-  market_fit:
-    - "Requires rigorous qualification of both buyers (allied status/credit) and sellers (ESG/quality)."
-    - "Transactions are high-stakes but infrequent, suitable for non-continuous trading."
-    - "Trust and verifiable provenance are the primary barriers to transaction."
-  economic_prize:
-    - "Enables multi-million dollar long-term off-take agreements."
-    - "Captures higher margins by bypassing traditional opaque commodity broker networks."
-    - "Accelerates mine development capital through visible forward demand."
+  summary: A private marketplace for matching Canadian junior miners and processers
+    of critical minerals with vetted international buyers from allied nations, securing
+    battery and high-tech supply chains.
+  problem: Connecting Canadian Critical Mineral Producers with Allied Supply Chains
+  dominant_forces:
+  - Heightened geopolitical focus on securing non-adversarial supply chains for battery
+    metals.
+  - Junior miners struggle to navigate complex international procurement requirements.
+  - Significant regulatory compliance required for critical minerals tracing.
+  deeperpoint_fit: Requires rigorous qualification of both buyers (allied status/credit)
+    and sellers (ESG/quality). Transactions are high-stakes but infrequent, suitable
+    for non-continuous trading. Trust and verifiable provenance are the primary barriers
+    to transaction.
+  economic_upside: Enables multi-million dollar long-term off-take agreements. Captures
+    higher margins by bypassing traditional opaque commodity broker networks. Accelerates
+    mine development capital through visible forward demand.
+sponsor_opportunities:
+- title: B2B Trade Matchmaker
+  type: managed-service
+  revenue_model: Transaction fees on matched orders
+  strategic_logic: Bridges the gap for Critical Minerals Export Brokerage between
+    Canadian suppliers and international buyers.
+  recurring: true
+story:
+  title: The Export Match
+  status: none
+  blog_slug: ''
+  characters:
+  - Exporter
+  - International Buyer
+  summary: Bridging the global supply chain gap.
+  body: |
+    ## Act A - The Market Structure
 
-platform_design:
-  roles:
-    - role: "Junior Mining Companies"
-      description: "Canadian explorers and developers of critical minerals seeking off-take agreements or project investment."
-    - role: "International Manufacturers"
-      description: "OEMs and battery makers from allied nations seeking secure, ESG-compliant supply."
-    - role: "Trade Advisors"
-      description: "Export credit agencies, legal advisors, and trade commissioners facilitating deals."
-  matching_engine:
-    - "Matches mineral specifications (grade, volume, timeline) with buyer needs."
-    - "Prioritizes matches within allied nation trade frameworks."
-    - "Integrates ESG compliance scoring into matching criteria."
-  trust_mechanisms:
-    - "Strict Know-Your-Customer (KYC) and entity validation protocols."
-    - "Integration with sovereign trade risk insurance."
-    - "Secure, auditable data rooms for geological and metallurgical data."
+    The market lacks a specialized network for quality-verified exports.
+
+    ## Act B - The Story
+
+    A connection is made.
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Trust mechanisms are difficult to establish.

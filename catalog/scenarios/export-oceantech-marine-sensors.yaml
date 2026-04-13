@@ -1,34 +1,54 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-oceantech-marine-sensors
-title: "OceanTech Marine Sensor Export"
+title: OceanTech Marine Sensor Export
+card_title: OceanTech Marine Sensor Export
+sector: canadian-export
+sub_sector: International Trade
+forge_tier: 2
 status: published
-category: trade
-tags: [trade, export, oceantech, marine]
+tags:
+- trade
+- export
+- oceantech
+- marine
 market_example:
-  title: "Connecting Canadian OceanTech with Global Maritime Industries"
-  summary: "A global marketplace for Canadian-developed advanced marine sensors, autonomous underwater vehicles (AUVs), and ocean data analytics platforms targeting international shipping, offshore energy, and defense."
-  forces:
-    - "Explosive growth in blue economy investments worldwide."
-    - "Canada (particularly Atlantic Canada) has a dense cluster of OceanTech innovation."
-    - "Global buyers struggle to discover and evaluate niche sensor capabilities."
-  market_fit:
-    - "Highly technical products requiring detailed spec-matching and integration verification."
-    - "Long sales cycles suited for a structured matchmaking and evaluation workflow."
-    - "Specialized compliance and export controls often apply."
-  economic_prize:
-    - "Unlocks international procurement for high-value intellectual property."
-    - "Accelerates commercialization for marine startups."
+  summary: A global marketplace for Canadian-developed advanced marine sensors, autonomous
+    underwater vehicles (AUVs), and ocean data analytics platforms targeting international
+    shipping, offshore energy, and defense.
+  problem: Connecting Canadian OceanTech with Global Maritime Industries
+  dominant_forces:
+  - Explosive growth in blue economy investments worldwide.
+  - Canada (particularly Atlantic Canada) has a dense cluster of OceanTech innovation.
+  - Global buyers struggle to discover and evaluate niche sensor capabilities.
+  deeperpoint_fit: Highly technical products requiring detailed spec-matching and
+    integration verification. Long sales cycles suited for a structured matchmaking
+    and evaluation workflow. Specialized compliance and export controls often apply.
+  economic_upside: Unlocks international procurement for high-value intellectual property.
+    Accelerates commercialization for marine startups.
+sponsor_opportunities:
+- title: B2B Trade Matchmaker
+  type: managed-service
+  revenue_model: Transaction fees on matched orders
+  strategic_logic: Bridges the gap for OceanTech Marine Sensor Export between Canadian
+    suppliers and international buyers.
+  recurring: true
+story:
+  title: The Export Match
+  status: none
+  blog_slug: ''
+  characters:
+  - Exporter
+  - International Buyer
+  summary: Bridging the global supply chain gap.
+  body: |
+    ## Act A - The Market Structure
 
-platform_design:
-  roles:
-    - role: "OceanTech Innovators"
-      description: "Canadian designers and manufacturers of marine tech."
-    - role: "Global Maritime Integrators"
-      description: "Tier 1 defense, shipping, and offshore energy companies."
-    - role: "Academic Parters"
-      description: "Research institutions validating tech capabilities."
-  matching_engine:
-    - "Matches operating depth, data formats, and power profiles to integrator specs."
-    - "Filters for export clearance eligibility."
-  trust_mechanisms:
-    - "Verified testing certifications (e.g., pressure testing, acoustic signatures)."
-    - "Secure intellectual property disclosure framework."
+    The market lacks a specialized network for quality-verified exports.
+
+    ## Act B - The Story
+
+    A connection is made.
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Trust mechanisms are difficult to establish.

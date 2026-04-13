@@ -1,34 +1,56 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-mass-timber-components
-title: "Engineered Mass Timber Export"
+title: Engineered Mass Timber Export
+card_title: Engineered Mass Timber Export
+sector: canadian-export
+sub_sector: International Trade
+forge_tier: 2
 status: published
-category: trade
-tags: [trade, export, forestry, construction]
+tags:
+- trade
+- export
+- forestry
+- construction
 market_example:
-  title: "Exporting Canadian Cross-Laminated Timber (CLT) to Global Construction Markets"
-  summary: "A platform matching Canadian manufacturers of engineered mass timber components with large-scale sustainable commercial and residential developments in the US and Europe."
-  forces:
-    - "Global push for low-carbon construction materials."
-    - "Canadian forestry is shifting to high-value engineered products."
-    - "Logistics and structural certification are major barriers to trans-national timber trade."
-  market_fit:
-    - "Matching requires deep integration with architectural plans and structural specs."
-    - "Projects have long lead times, requiring capacity booking far in advance."
-    - "Chain-of-custody sustainability certification is non-negotiable."
-  economic_prize:
-    - "Enables reliable international scaling for Canadian mass timber plants."
-    - "De-risks supply chain for mega-projects seeking green building certifications."
+  summary: A platform matching Canadian manufacturers of engineered mass timber components
+    with large-scale sustainable commercial and residential developments in the US
+    and Europe.
+  problem: Exporting Canadian Cross-Laminated Timber (CLT) to Global Construction
+    Markets
+  dominant_forces:
+  - Global push for low-carbon construction materials.
+  - Canadian forestry is shifting to high-value engineered products.
+  - Logistics and structural certification are major barriers to trans-national timber
+    trade.
+  deeperpoint_fit: Matching requires deep integration with architectural plans and
+    structural specs. Projects have long lead times, requiring capacity booking far
+    in advance. Chain-of-custody sustainability certification is non-negotiable.
+  economic_upside: Enables reliable international scaling for Canadian mass timber
+    plants. De-risks supply chain for mega-projects seeking green building certifications.
+sponsor_opportunities:
+- title: B2B Trade Matchmaker
+  type: managed-service
+  revenue_model: Transaction fees on matched orders
+  strategic_logic: Bridges the gap for Engineered Mass Timber Export between Canadian
+    suppliers and international buyers.
+  recurring: true
+story:
+  title: The Export Match
+  status: none
+  blog_slug: ''
+  characters:
+  - Exporter
+  - International Buyer
+  summary: Bridging the global supply chain gap.
+  body: |
+    ## Act A - The Market Structure
 
-platform_design:
-  roles:
-    - role: "Mass Timber Manufacturers"
-      description: "Canadian producers of CLT, glulam, and structural timber."
-    - role: "International Developers"
-      description: "Real estate developers and general contractors."
-    - role: "Logistics Providers"
-      description: "Specialized freight forwarders handling oversized structural components."
-  matching_engine:
-    - "Matches structural performance specs with manufacturer capabilities."
-    - "Aligns production windows with project construction schedules."
-  trust_mechanisms:
-    - "Forest Stewardship Council (FSC) and similar sustainable forestry API integrations."
-    - "BIM (Building Information Modeling) file compatibility checks."
+    The market lacks a specialized network for quality-verified exports.
+
+    ## Act B - The Story
+
+    A connection is made.
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Trust mechanisms are difficult to establish.

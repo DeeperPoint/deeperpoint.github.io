@@ -1,34 +1,55 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-aerospace-precision-parts
-title: "Aerospace Precision Manufacturing Export"
+title: Aerospace Precision Manufacturing Export
+card_title: Aerospace Precision Manufacturing Export
+sector: canadian-export
+sub_sector: International Trade
+forge_tier: 2
 status: published
-category: trade
-tags: [trade, export, aerospace, manufacturing]
+tags:
+- trade
+- export
+- aerospace
+- manufacturing
 market_example:
-  title: "Connecting Canadian Precision Machining with Global Aerospace OEMs"
-  summary: "A secure platform for matching the surplus capability of Canadian precision aerospace machine shops with tier-one suppliers and OEMs in the global supply chain."
-  forces:
-    - "Aerospace supply chains are recovering and experiencing severe bottlenecks."
-    - "Canada has a deep bench of highly certified (e.g., AS9100) aerospace machine shops."
-    - "OEMs need rapid discovery of highly capable, certified capacity to avoid downstream delays."
-  market_fit:
-    - "Exacting certification and quality control requirements mandate extreme trust."
-    - "Dynamic matching of machine capabilities (e.g., 5-axis CNC) and material handling."
-    - "ITAR and controlled goods compliance are critical constraints."
-  economic_prize:
-    - "Maximizes machine utilization across the Canadian aerospace cluster."
-    - "Provides global OEMs with a resilient, high-quality, allied-nation supply alternative."
+  summary: A secure platform for matching the surplus capability of Canadian precision
+    aerospace machine shops with tier-one suppliers and OEMs in the global supply
+    chain.
+  problem: Connecting Canadian Precision Machining with Global Aerospace OEMs
+  dominant_forces:
+  - Aerospace supply chains are recovering and experiencing severe bottlenecks.
+  - Canada has a deep bench of highly certified (e.g., AS9100) aerospace machine shops.
+  - OEMs need rapid discovery of highly capable, certified capacity to avoid downstream
+    delays.
+  deeperpoint_fit: Exacting certification and quality control requirements mandate
+    extreme trust. Dynamic matching of machine capabilities (e.g., 5-axis CNC) and
+    material handling. ITAR and controlled goods compliance are critical constraints.
+  economic_upside: Maximizes machine utilization across the Canadian aerospace cluster.
+    Provides global OEMs with a resilient, high-quality, allied-nation supply alternative.
+sponsor_opportunities:
+- title: B2B Trade Matchmaker
+  type: managed-service
+  revenue_model: Transaction fees on matched orders
+  strategic_logic: Bridges the gap for Aerospace Precision Manufacturing Export between
+    Canadian suppliers and international buyers.
+  recurring: true
+story:
+  title: The Export Match
+  status: none
+  blog_slug: ''
+  characters:
+  - Exporter
+  - International Buyer
+  summary: Bridging the global supply chain gap.
+  body: |
+    ## Act A - The Market Structure
 
-platform_design:
-  roles:
-    - role: "Precision Machine Shops"
-      description: "Canadian tier-2/3 manufacturers with aerospace certifications."
-    - role: "Global Aerospace OEMs"
-      description: "Major aircraft and defense contractors seeking reliable part supply."
-    - role: "Quality Auditors"
-      description: "Firms validating shop floor certifications and processes."
-  matching_engine:
-    - "Matches specific CAD models and tolerances to verified machine capabilities."
-    - "Filters strictly for necessary quality and security clearance certifications."
-  trust_mechanisms:
-    - "Verified digital passports for facility certifications (AS9100, NADCAP)."
-    - "High-security data rooms for sharing proprietary technical data packages."
+    The market lacks a specialized network for quality-verified exports.
+
+    ## Act B - The Story
+
+    A connection is made.
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Trust mechanisms are difficult to establish.

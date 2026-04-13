@@ -1,34 +1,56 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-cold-climate-cleantech
-title: "Cold Climate Cleantech Export"
+title: Cold Climate Cleantech Export
+card_title: Cold Climate Cleantech Export
+sector: canadian-export
+sub_sector: International Trade
+forge_tier: 2
 status: published
-category: trade
-tags: [trade, export, cleantech, energy]
+tags:
+- trade
+- export
+- cleantech
+- energy
 market_example:
-  title: "Exporting Canadian Cold-Weather Energy Solutions to Nordic and Northern Markets"
-  summary: "A platform matching Canadian developers of extreme-climate energy and cleantech solutions with remote communities, mines, and municipalities in Northern Europe, Alaska, and Greenland."
-  forces:
-    - "Growing demand for off-grid and harsh-environment renewable energy solutions."
-    - "Canadian firms have unique expertise out of necessity but lack international sales channels."
-    - "Procurement is often driven by regional governments with complex bidding rules."
-  market_fit:
-    - "Market requires highly specific, project-based matching rather than catalog sales."
-    - "Trust in harsh-weather reliability is paramount."
-    - "Both sides benefit from structured, phased project discovery."
-  economic_prize:
-    - "High-margin project exports that validate tech for broader markets."
-    - "Significant reduction in customer acquisition costs for specialized manufacturers."
+  summary: A platform matching Canadian developers of extreme-climate energy and cleantech
+    solutions with remote communities, mines, and municipalities in Northern Europe,
+    Alaska, and Greenland.
+  problem: Exporting Canadian Cold-Weather Energy Solutions to Nordic and Northern
+    Markets
+  dominant_forces:
+  - Growing demand for off-grid and harsh-environment renewable energy solutions.
+  - Canadian firms have unique expertise out of necessity but lack international sales
+    channels.
+  - Procurement is often driven by regional governments with complex bidding rules.
+  deeperpoint_fit: Market requires highly specific, project-based matching rather
+    than catalog sales. Trust in harsh-weather reliability is paramount. Both sides
+    benefit from structured, phased project discovery.
+  economic_upside: High-margin project exports that validate tech for broader markets.
+    Significant reduction in customer acquisition costs for specialized manufacturers.
+sponsor_opportunities:
+- title: B2B Trade Matchmaker
+  type: managed-service
+  revenue_model: Transaction fees on matched orders
+  strategic_logic: Bridges the gap for Cold Climate Cleantech Export between Canadian
+    suppliers and international buyers.
+  recurring: true
+story:
+  title: The Export Match
+  status: none
+  blog_slug: ''
+  characters:
+  - Exporter
+  - International Buyer
+  summary: Bridging the global supply chain gap.
+  body: |
+    ## Act A - The Market Structure
 
-platform_design:
-  roles:
-    - role: "Canadian Cleantech Vendors"
-      description: "Suppliers of micro-grids, cold-climate heat pumps, and ruggedized renewables."
-    - role: "Northern Project Developers"
-      description: "Remote communities and industrial sites seeking energy transition tech."
-    - role: "Export Financing Partners"
-      description: "Entities providing project finance and risk underwriting."
-  matching_engine:
-    - "Matches climate profile and peak load requirements with validated tech performance."
-    - "Aligns vendor deployment capacity with project timelines."
-  trust_mechanisms:
-    - "Verified case studies of cold-weather deployment."
-    - "Standardized framework for performance guarantees and service level agreements."
+    The market lacks a specialized network for quality-verified exports.
+
+    ## Act B - The Story
+
+    A connection is made.
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Trust mechanisms are difficult to establish.

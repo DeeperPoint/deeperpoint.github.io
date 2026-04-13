@@ -1,34 +1,57 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: export-indigenous-wild-harvest
-title: "Indigenous Wild Harvest Export"
+title: Indigenous Wild Harvest Export
+card_title: Indigenous Wild Harvest Export
+sector: canadian-export
+sub_sector: International Trade
+forge_tier: 2
 status: published
-category: trade
-tags: [trade, export, indigenous, agrifood]
+tags:
+- trade
+- export
+- indigenous
+- agrifood
 market_example:
-  title: "Export Platform for Premium Indigenous-Harvested Botanicals and Seafood"
-  summary: "A specialized, culturally secure marketplace connecting Indigenous-owned wild harvest collectives in Canada with premium global gastronomy and natural cosmetics brands."
-  forces:
-    - "Surging global demand for ethically sourced, traceable wild ingredients."
-    - "Indigenous communities control vast pristine territories and traditional harvesting knowledge."
-    - "Exploitation by middlemen necessitates a platform that ensures equitable trade and IP protection."
-  market_fit:
-    - "Focus on narrative, provenance, and sustainable harvest quotas rather than mass volume."
-    - "Requires profound trust to protect traditional ecological knowledge (TEK) from biopiracy."
-    - "Market design must respect Indigenous data sovereignty."
-  economic_prize:
-    - "Creates sustainable, high-margin economic engines for remote Indigenous communities."
-    - "Delivers ultra-premium, authenticated ingredients to brands willing to pay for genuine provenance."
+  summary: A specialized, culturally secure marketplace connecting Indigenous-owned
+    wild harvest collectives in Canada with premium global gastronomy and natural
+    cosmetics brands.
+  problem: Export Platform for Premium Indigenous-Harvested Botanicals and Seafood
+  dominant_forces:
+  - Surging global demand for ethically sourced, traceable wild ingredients.
+  - Indigenous communities control vast pristine territories and traditional harvesting
+    knowledge.
+  - Exploitation by middlemen necessitates a platform that ensures equitable trade
+    and IP protection.
+  deeperpoint_fit: Focus on narrative, provenance, and sustainable harvest quotas
+    rather than mass volume. Requires profound trust to protect traditional ecological
+    knowledge (TEK) from biopiracy. Market design must respect Indigenous data sovereignty.
+  economic_upside: Creates sustainable, high-margin economic engines for remote Indigenous
+    communities. Delivers ultra-premium, authenticated ingredients to brands willing
+    to pay for genuine provenance.
+sponsor_opportunities:
+- title: B2B Trade Matchmaker
+  type: managed-service
+  revenue_model: Transaction fees on matched orders
+  strategic_logic: Bridges the gap for Indigenous Wild Harvest Export between Canadian
+    suppliers and international buyers.
+  recurring: true
+story:
+  title: The Export Match
+  status: none
+  blog_slug: ''
+  characters:
+  - Exporter
+  - International Buyer
+  summary: Bridging the global supply chain gap.
+  body: |
+    ## Act A - The Market Structure
 
-platform_design:
-  roles:
-    - role: "Indigenous Harvesters"
-      description: "Community-owned enterprises controlling wild harvests (e.g., wild rice, kelp, botanicals)."
-    - role: "Premium Brand Buyers"
-      description: "Michelin-starred restaurant groups and luxury natural cosmetic brands."
-    - role: "Cultural/Ecological Guardians"
-      description: "Community elders or environmental officers verifying harvest sustainability."
-  matching_engine:
-    - "Matches seasonal harvest yields with forward-contracts from premium buyers."
-    - "Ensures buyers meet strict ethical alignment and brand-presentation criteria."
-  trust_mechanisms:
-    - "Blockchain or secure ledger tracking of provenance and equitable revenue sharing."
-    - "Legal frameworks embedded in the platform to protect TEK and prevent unauthorized patenting."
+    The market lacks a specialized network for quality-verified exports.
+
+    ## Act B - The Story
+
+    A connection is made.
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Trust mechanisms are difficult to establish.
