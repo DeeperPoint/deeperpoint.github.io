@@ -19,6 +19,7 @@ Posts must have YAML frontmatter with: title, date, tags, summary, author, slug.
 """
 
 import re
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, tostring
@@ -186,6 +187,93 @@ SERIES_PAGE_STYLES = """  <style>
     }
   </style>
 """
+
+# ---------------------------------------------------------------------------
+# Stream metadata
+# ---------------------------------------------------------------------------
+
+STREAM_LABELS = {
+    "market-scenario": "Market Scenario",
+    "workshop-notes":  "Workshop Notes",
+    "engineers-log":   "Engineer\u2019s Log",
+}
+
+# (text-color, background, border)
+STREAM_COLORS = {
+    "market-scenario": ("#f59e0b", "rgba(245,158,11,.13)",  "rgba(245,158,11,.32)"),
+    "workshop-notes":  ("#818cf8", "rgba(99,102,241,.12)",   "rgba(99,102,241,.32)"),
+    "engineers-log":   ("#22d3ee", "rgba(6,182,212,.1)",     "rgba(6,182,212,.28)"),
+    "other":           ("#64748b", "rgba(100,116,139,.1)",   "rgba(100,116,139,.25)"),
+}
+
+BLOG_INDEX_STYLES = """  <style>
+    /* --- Stream filter tabs --- */
+    .blog-stream-tabs {
+      display: flex; gap: .4rem; margin-bottom: 1.75rem;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .blog-stream-tab {
+      padding: .42rem 1.1rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.3);
+      background: transparent; color: #94a3b8;
+      font-size: .8rem; font-weight: 600; cursor: pointer;
+      font-family: inherit;
+      transition: background .15s, color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .blog-stream-tab:hover {
+      background: rgba(99,102,241,.12); color: #c7d2fe;
+      border-color: rgba(99,102,241,.55);
+    }
+    .blog-stream-tab.active {
+      background: rgba(99,102,241,.22); color: #a5b4fc;
+      border-color: #6366f1;
+    }
+    .blog-stream-tab[data-stream="market-scenario"].active {
+      background: rgba(245,158,11,.17); color: #fcd34d; border-color: #f59e0b;
+    }
+    .blog-stream-tab[data-stream="engineers-log"].active {
+      background: rgba(6,182,212,.14); color: #67e8f9; border-color: #22d3ee;
+    }
+    /* --- Post count line --- */
+    .blog-index-count {
+      text-align: center; font-size: .82rem;
+      color: #64748b; margin-bottom: 1.75rem;
+    }
+    #blog-post-count { font-weight: 700; color: #a5b4fc; }
+    /* --- 2-column grid --- */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+    @media (max-width: 740px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+    /* --- Year divider (spans both columns) --- */
+    .blog-year-heading {
+      grid-column: 1 / -1;
+      font-size: .68rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: #475569;
+      border-bottom: 1px solid rgba(99,102,241,.12);
+      padding-bottom: .45rem; margin-top: 1rem;
+    }
+    .blog-year-heading:first-child { margin-top: 0; }
+    /* --- Featured card (full-width, most recent in All view) --- */
+    .blog-card--featured { grid-column: 1 / -1; }
+    .blog-card--featured .blog-card__title { font-size: 1.3rem; }
+    .series-card { grid-column: 1 / -1; }  /* series cards always full-width */
+    /* --- Stream badge --- */
+    .blog-stream-badge {
+      font-size: .62rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 2px 9px;
+      border-radius: 10px; display: inline-block;
+      margin-bottom: .6rem;
+    }
+    /* --- Hidden (JS-managed) --- */
+    .blog-index-item--hidden { display: none !important; }
+  </style>"""
 
 # ---------------------------------------------------------------------------
 # Templates
@@ -425,11 +513,12 @@ def buildSeriesNavHtml(current_meta, series_posts):
       </div>"""
 
 
-def buildSeriesCardHtml(series_slug, series_data, pinned=False):
+def buildSeriesCardHtml(series_slug, series_data, pinned=False, stream="other"):
     """Build the series group card for the blog index page."""
     posts = series_data["posts"]
     total = len(posts)
     series_title = series_data["title"]
+    year = str(series_data["date"].year)
 
     # Use series-description if available, otherwise first post's summary
     teaser = series_data.get("description") or posts[0].get("summary", "")
@@ -450,10 +539,21 @@ def buildSeriesCardHtml(series_slug, series_data, pinned=False):
     pinned_class = " series-card--pinned" if pinned else ""
     pinned_badge = '<div class="pinned-badge">&#9733; Start Here</div>' if pinned else ""
 
+    stream_label = STREAM_LABELS.get(stream, "")
+    if stream_label:
+        color, bg, border = STREAM_COLORS.get(stream, STREAM_COLORS["other"])
+        stream_badge = (
+            f'<div class="blog-stream-badge" '
+            f'style="color:{color};background:{bg};border:1px solid {border};">'
+            f'{stream_label}</div>\n          '
+        )
+    else:
+        stream_badge = ""
+
     return f"""
-        <div class="series-card{pinned_class} reveal" id="series-{series_slug}">
-          {pinned_badge}
-          <div class="series-card__label">Series &middot; {total} parts &middot; {date_str}</div>
+        <div class="series-card{pinned_class} reveal" id="series-{series_slug}"
+             data-stream="{stream}" data-year="{year}">
+          {pinned_badge}{stream_badge}<div class="series-card__label">Series &middot; {total} parts &middot; {date_str}</div>
           <a href="{series_page_url}" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">{series_title} &rarr;</a>
           <div class="series-card__summary">{teaser}</div>
           <ul class="series-posts-list">
@@ -593,15 +693,29 @@ def buildPostPage(meta, body_html, series_posts=None):
     return head + content + footer
 
 
-def buildPostCardHtml(meta):
+def buildPostCardHtml(meta, stream="other", is_featured=False):
     """Build a standalone post card for the blog index."""
     date_str = meta["date"].strftime("%B %d, %Y")
+    year = str(meta["date"].year)
     tags_html = "".join(
         f'<span class="blog-tag">{tag}</span>' for tag in meta["tags"]
     )
+    featured_class = " blog-card--featured" if is_featured else ""
+    stream_label = STREAM_LABELS.get(stream, "")
+    if stream_label:
+        color, bg, border = STREAM_COLORS.get(stream, STREAM_COLORS["other"])
+        badge_html = (
+            f'<div class="blog-stream-badge" '
+            f'style="color:{color};background:{bg};border:1px solid {border};">'
+            f'{stream_label}</div>\n          '
+        )
+    else:
+        badge_html = ""
     return f"""
-        <a href="{meta['slug']}.html" class="blog-card card reveal">
-          <div class="blog-meta">
+        <a href="{meta['slug']}.html"
+           class="blog-card card reveal{featured_class}"
+           data-stream="{stream}" data-year="{year}">
+          {badge_html}<div class="blog-meta">
             <time datetime="{meta['date'].isoformat()}">{date_str}</time>
             <span class="blog-meta__sep">&middot;</span>
             <span>{meta['reading_time']} min read</span>
@@ -612,14 +726,40 @@ def buildPostCardHtml(meta):
         </a>"""
 
 
+def detectStream(meta):
+    """Detect stream slug from frontmatter 'stream' field or title prefix."""
+    s = meta.get("stream", "")
+    if s in STREAM_LABELS:
+        return s
+    title = meta.get("title", "")
+    if title.startswith("Market Scenario:"):
+        return "market-scenario"
+    if title.startswith("Workshop Notes:"):
+        return "workshop-notes"
+    if title.startswith("Engineer\u2019s Log:") or title.startswith("Engineer's Log:"):
+        return "engineers-log"
+    return "other"
+
+
+def detectSeriesStream(series_data):
+    """Detect the dominant stream for a series from its posts."""
+    streams = [detectStream(p) for p in series_data["posts"]]
+    if not streams:
+        return "other"
+    return Counter(streams).most_common(1)[0][0]
+
+
 def buildIndexPage(posts, series_index):
     """
     Generate the blog listing page.
 
-    Series posts are collapsed into a single series card that appears at the
-    chronological position of the series's most recent post. Standalone posts
-    appear as individual cards, as before.
+    Features:
+    - Stream filter tabs: All / Market Scenario / Workshop Notes / Engineer's Log
+    - Year-divider headings spanning both grid columns
+    - 2-column responsive card grid
+    - Featured (full-width) card for the most recent post in "All" view
     """
+    extra_styles = (SERIES_STYLES if series_index else "") + BLOG_INDEX_STYLES
     head = PAGE_HEAD.format(
         title="Blog",
         description="Thin market science, engineering, and the DeeperPoint ecosystem.",
@@ -630,44 +770,130 @@ def buildIndexPage(posts, series_index):
         feed_url=f"{SITE_URL}/blog/feed.xml",
         root="../",
         blog_active=" nav__link--active",
-        extra_styles=SERIES_STYLES if series_index else "",
+        extra_styles=extra_styles,
     )
 
-    # Collect the slugs of all posts that belong to a series
+    # Slugs that belong to any series (suppressed as standalone cards)
     series_post_slugs = {
         post["slug"]
         for data in series_index.values()
         for post in data["posts"]
     }
 
-    # Build a unified list of (date, type, payload) items, separated into pinned and regular
-    pinned_items = []
-    regular_items = []
-
+    # Build unified item list: (date, stream, type, payload)
+    items = []
     for meta in posts:
         if meta["slug"] not in series_post_slugs:
-            bucket = pinned_items if meta.get("pinned") else regular_items
-            bucket.append((meta["date"], "post", meta))
-
+            stream = detectStream(meta)
+            items.append((meta["date"], stream, "post", meta))
     for slug, data in series_index.items():
-        bucket = pinned_items if data.get("pinned") else regular_items
-        bucket.append((data["date"], "series", (slug, data)))
+        stream = detectSeriesStream(data)
+        items.append((data["date"], stream, "series", (slug, data)))
 
-    # Sort each bucket newest first
-    pinned_items.sort(key=lambda x: x[0], reverse=True)
-    regular_items.sort(key=lambda x: x[0], reverse=True)
+    def _is_pinned(itype, payload):
+        if itype == "post":
+            return bool(payload.get("pinned"))
+        _, data = payload
+        return bool(data.get("pinned"))
 
-    def _renderItem(item_type, payload, is_pinned=False):
-        if item_type == "post":
-            return buildPostCardHtml(payload)
-        slug, data = payload
-        return buildSeriesCardHtml(slug, data, pinned=is_pinned)
+    # Pinned items first, then newest-first within each group
+    items.sort(key=lambda x: (0 if _is_pinned(x[2], x[3]) else 1, -x[0].toordinal()))
+    total = len(items)
 
-    cards_html = ""
-    for _, item_type, payload in pinned_items:
-        cards_html += _renderItem(item_type, payload, is_pinned=True)
-    for _, item_type, payload in regular_items:
-        cards_html += _renderItem(item_type, payload, is_pinned=False)
+    # Group by year, preserving sort order
+    year_groups: dict = {}
+    year_order: list = []
+    for item in items:
+        yr = str(item[0].year)
+        if yr not in year_groups:
+            year_groups[yr] = []
+            year_order.append(yr)
+        year_groups[yr].append(item)
+
+    # Render grid
+    grid_html = ""
+    is_first = True
+    for yr in year_order:
+        grid_html += f'\n        <div class="blog-year-heading" data-year="{yr}">{yr}</div>'
+        for date, stream, itype, payload in year_groups[yr]:
+            is_pinned = _is_pinned(itype, payload)
+            if itype == "post":
+                grid_html += buildPostCardHtml(payload, stream=stream, is_featured=is_first)
+            else:
+                slug, data = payload
+                grid_html += buildSeriesCardHtml(slug, data, pinned=is_pinned, stream=stream)
+            is_first = False
+
+    # Stream tab counts
+    stream_counts: dict = {}
+    for _, s, _, _ in items:
+        stream_counts[s] = stream_counts.get(s, 0) + 1
+
+    tab_defs = [
+        ("all",             "All"),
+        ("market-scenario", "Market Scenario"),
+        ("workshop-notes",  "Workshop Notes"),
+        ("engineers-log",   "Engineer\u2019s Log"),
+    ]
+    tabs_html = ""
+    for stream_key, label in tab_defs:
+        count = total if stream_key == "all" else stream_counts.get(stream_key, 0)
+        if stream_key != "all" and count == 0:
+            continue
+        tabs_html += (
+            f'<button class="blog-stream-tab" data-stream="{stream_key}">'
+            f'{label} <span style="opacity:.55;font-size:.78em;">({count})</span>'
+            f"</button>\n        "
+        )
+
+    filter_js = """
+  <script>
+  (function () {
+    var items     = Array.from(document.querySelectorAll('[data-stream]'));
+    var yearHeads = Array.from(document.querySelectorAll('.blog-year-heading'));
+    var countEl   = document.getElementById('blog-post-count');
+    var active    = 'all';
+
+    function applyFilter() {
+      var vis = 0;
+      items.forEach(function (el) {
+        var show = active === 'all' || el.dataset.stream === active;
+        el.classList.toggle('blog-index-item--hidden', !show);
+        if (show) vis++;
+      });
+
+      // Featured: first visible item gets full-width only in 'All' view
+      var first = items.find(function (el) {
+        return !el.classList.contains('blog-index-item--hidden');
+      });
+      items.forEach(function (el) { el.classList.remove('blog-card--featured'); });
+      if (active === 'all' && first) first.classList.add('blog-card--featured');
+
+      // Hide year headings that have no visible items
+      yearHeads.forEach(function (h) {
+        var yr  = h.dataset.year;
+        var has = items.some(function (el) {
+          return el.dataset.year === yr && !el.classList.contains('blog-index-item--hidden');
+        });
+        h.classList.toggle('blog-index-item--hidden', !has);
+      });
+
+      if (countEl) countEl.textContent = vis;
+      document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.stream === active);
+      });
+    }
+
+    document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        active = this.dataset.stream;
+        applyFilter();
+      });
+    });
+
+    applyFilter();
+  })();
+  </script>"""
 
     content = f"""
   <section class="section" id="blog-index" style="padding-top: calc(var(--space-4xl) + 60px);">
@@ -679,11 +905,18 @@ def buildIndexPage(posts, series_index):
           Science, engineering, and lessons learned building markets that work.
         </p>
       </div>
-      <div class="blog-index">
-        {cards_html}
+      <div class="blog-stream-tabs">
+        {tabs_html}
+      </div>
+      <div class="blog-index-count">
+        Showing <span id="blog-post-count">{total}</span> of {total} posts
+      </div>
+      <div class="blog-grid">
+        {grid_html}
       </div>
     </div>
   </section>
+{filter_js}
 """
 
     footer = PAGE_FOOTER.format(root="../")

@@ -115,7 +115,74 @@
     .series-nav__arrow { font-size: .8rem; color: #818cf8; text-decoration: none; display: flex; align-items: center; gap: 4px; }
     .series-nav__arrow:hover { color: #a5b4fc; }
   </style>
-</head>
+  <style>
+    /* --- Stream filter tabs --- */
+    .blog-stream-tabs {
+      display: flex; gap: .4rem; margin-bottom: 1.75rem;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .blog-stream-tab {
+      padding: .42rem 1.1rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.3);
+      background: transparent; color: #94a3b8;
+      font-size: .8rem; font-weight: 600; cursor: pointer;
+      font-family: inherit;
+      transition: background .15s, color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .blog-stream-tab:hover {
+      background: rgba(99,102,241,.12); color: #c7d2fe;
+      border-color: rgba(99,102,241,.55);
+    }
+    .blog-stream-tab.active {
+      background: rgba(99,102,241,.22); color: #a5b4fc;
+      border-color: #6366f1;
+    }
+    .blog-stream-tab[data-stream="market-scenario"].active {
+      background: rgba(245,158,11,.17); color: #fcd34d; border-color: #f59e0b;
+    }
+    .blog-stream-tab[data-stream="engineers-log"].active {
+      background: rgba(6,182,212,.14); color: #67e8f9; border-color: #22d3ee;
+    }
+    /* --- Post count line --- */
+    .blog-index-count {
+      text-align: center; font-size: .82rem;
+      color: #64748b; margin-bottom: 1.75rem;
+    }
+    #blog-post-count { font-weight: 700; color: #a5b4fc; }
+    /* --- 2-column grid --- */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+    @media (max-width: 740px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+    /* --- Year divider (spans both columns) --- */
+    .blog-year-heading {
+      grid-column: 1 / -1;
+      font-size: .68rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: #475569;
+      border-bottom: 1px solid rgba(99,102,241,.12);
+      padding-bottom: .45rem; margin-top: 1rem;
+    }
+    .blog-year-heading:first-child { margin-top: 0; }
+    /* --- Featured card (full-width, most recent in All view) --- */
+    .blog-card--featured { grid-column: 1 / -1; }
+    .blog-card--featured .blog-card__title { font-size: 1.3rem; }
+    .series-card { grid-column: 1 / -1; }  /* series cards always full-width */
+    /* --- Stream badge --- */
+    .blog-stream-badge {
+      font-size: .62rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 2px 9px;
+      border-radius: 10px; display: inline-block;
+      margin-bottom: .6rem;
+    }
+    /* --- Hidden (JS-managed) --- */
+    .blog-index-item--hidden { display: none !important; }
+  </style></head>
 
 <body>
 
@@ -156,10 +223,21 @@
           Science, engineering, and lessons learned building markets that work.
         </p>
       </div>
-      <div class="blog-index">
+      <div class="blog-stream-tabs">
+        <button class="blog-stream-tab" data-stream="all">All <span style="opacity:.55;font-size:.78em;">(36)</span></button>
+        <button class="blog-stream-tab" data-stream="market-scenario">Market Scenario <span style="opacity:.55;font-size:.78em;">(17)</span></button>
+        <button class="blog-stream-tab" data-stream="workshop-notes">Workshop Notes <span style="opacity:.55;font-size:.78em;">(8)</span></button>
         
-        <div class="series-card series-card--pinned reveal" id="series-intro-series">
-          <div class="pinned-badge">&#9733; Start Here</div>
+      </div>
+      <div class="blog-index-count">
+        Showing <span id="blog-post-count">36</span> of 36 posts
+      </div>
+      <div class="blog-grid">
+        
+        <div class="blog-year-heading" data-year="2026">2026</div>
+        <div class="series-card series-card--pinned reveal" id="series-intro-series"
+             data-stream="workshop-notes" data-year="2026">
+          <div class="pinned-badge">&#9733; Start Here</div><div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="series-card__label">Series &middot; 4 parts &middot; March 2026</div>
           <a href="series/intro-series.html" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">Why I'm Building Tools for Markets That Don't Exist Yet &rarr;</a>
           <div class="series-card__summary">Four articles that map the foundation of DeeperPoint: what thin markets are, why they cost the global economy trillions in unrealized value, why open infrastructure is the only durable solution, and an open invitation to help build it.</div>
@@ -167,7 +245,23 @@
             <li class="series-posts-list__item"><span class="series-posts-list__num">1</span><a href="intro-veterinarians-xray.html" class="series-posts-list__link">Workshop Notes: The Veterinarian's X-Ray</a></li><li class="series-posts-list__item"><span class="series-posts-list__num">2</span><a href="intro-trillions-in-shadows.html" class="series-posts-list__link">Workshop Notes: Trillions in the Shadows</a></li><li class="series-posts-list__item"><span class="series-posts-list__num">3</span><a href="intro-skeleton-key.html" class="series-posts-list__link">Workshop Notes: The Skeleton Key</a></li><li class="series-posts-list__item"><span class="series-posts-list__num">4</span><a href="intro-open-invitation.html" class="series-posts-list__link">Workshop Notes: An Open Invitation</a></li>
           </ul>
         </div>
-        <a href="greenstone-hub-before-the-road.html" class="blog-card card reveal">
+        <a href="catalog-200-thin-markets.html"
+           class="blog-card card reveal"
+           data-stream="workshop-notes" data-year="2026">
+          <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
+          <div class="blog-meta">
+            <time datetime="2026-04-13">April 13, 2026</time>
+            <span class="blog-meta__sep">&middot;</span>
+            <span>3 min read</span>
+          </div>
+          <h3 class="blog-card__title">Workshop Notes: Two Hundred Thin Markets</h3>
+          <p class="blog-card__summary">The DeeperPoint thin market opportunity catalog has passed 200 entries. Here is what the map looks like now, what patterns have emerged, and why the count keeps growing.</p>
+          <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">marketforge</span><span class="blog-tag">catalog</span><span class="blog-tag">explainer</span></div>
+        </a>
+        <a href="greenstone-hub-before-the-road.html"
+           class="blog-card card reveal"
+           data-stream="workshop-notes" data-year="2026">
+          <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-11">April 11, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -177,7 +271,10 @@
           <p class="blog-card__summary">Five distinct thin markets will emerge around the Ring of Fire's cluster of remote operations. Each one fails individually. Together, anchored in a hub town called Greenstone, they become something durable — and one of them isn't even about people.</p>
           <div class="blog-meta"><span class="blog-tag">ring-of-fire</span><span class="blog-tag">northern-ontario</span><span class="blog-tag">greenstone</span><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">hub-town</span><span class="blog-tag">mining</span><span class="blog-tag">remote-town</span><span class="blog-tag">fractional-services</span><span class="blog-tag">marketforge</span></div>
         </a>
-        <a href="two-lines-looking-for-each-other.html" class="blog-card card reveal">
+        <a href="two-lines-looking-for-each-other.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-10">April 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -187,7 +284,10 @@
           <p class="blog-card__summary">A Guelph food entrepreneur with a validated recipe and a retail listing cannot find a HACCP-certified co-packer. A Chilliwack facility with two idle IQF lines cannot find brand clients. Neither knows the other exists.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">co-packing</span><span class="blog-tag">food-safety</span></div>
         </a>
-        <a href="the-contaminated-lot.html" class="blog-card card reveal">
+        <a href="the-contaminated-lot.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-09">April 09, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -197,7 +297,10 @@
           <p class="blog-card__summary">A community land trust in Sudbury holds a former dry-cleaning site it cannot develop. A remediation firm specializing in chlorinated solvents has a certified QP who has never worked inside a municipal brownfield incentive program. Neither can assemble the transaction alone.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">municipalities</span></div>
         </a>
-        <a href="the-first-wall.html" class="blog-card card reveal">
+        <a href="the-first-wall.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-08">April 08, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -207,7 +310,10 @@
           <p class="blog-card__summary">A seaweed-based insulation startup in Rimouski has OBC certification and no completed installations. A heritage retrofit project in Hamilton has a moisture problem that standard insulation cannot solve. Neither knows the other exists.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span></div>
         </a>
-        <a href="the-invisible-specialist.html" class="blog-card card reveal">
+        <a href="the-invisible-specialist.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-08">April 08, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -217,7 +323,10 @@
           <p class="blog-card__summary">A young man with autism spectrum condition has an extraordinary ability the pharmaceutical packaging industry desperately needs — but neither side knows the other exists. A MarketForge-powered platform closes that gap.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span></div>
         </a>
-        <a href="the-ninety-day-map.html" class="blog-card card reveal">
+        <a href="the-ninety-day-map.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-08">April 08, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -227,7 +336,10 @@
           <p class="blog-card__summary">A woman released from federal incarceration faces a dozen agencies, each with separate eligibility rules, clashing timelines, and no shared intake. A MarketForge-powered platform generates the one thing nobody gave her — a map.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span></div>
         </a>
-        <a href="knowledgeslot-schema-scoped-rag.html" class="blog-card card reveal">
+        <a href="knowledgeslot-schema-scoped-rag.html"
+           class="blog-card card reveal"
+           data-stream="workshop-notes" data-year="2026">
+          <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-06">April 06, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -237,7 +349,10 @@
           <p class="blog-card__summary">A reference library without a metadata schema returns semantically similar text. A reference library with one returns contextually appropriate answers. The difference is the schema — and how it grows.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">clientsynth</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="why-industry-context-closes-deals.html" class="blog-card card reveal">
+        <a href="why-industry-context-closes-deals.html"
+           class="blog-card card reveal"
+           data-stream="workshop-notes" data-year="2026">
+          <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-06">April 06, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -247,7 +362,10 @@
           <p class="blog-card__summary">Semantic matching tells you two parties could do business. Industry context tells you whether they actually can — and shows them how. The schema that makes retrieval reliable is also what makes matching actionable.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">clientsynth</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span><span class="blog-tag">marketforge</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="tribal-knowledge-thin-markets.html" class="blog-card card reveal">
+        <a href="tribal-knowledge-thin-markets.html"
+           class="blog-card card reveal"
+           data-stream="workshop-notes" data-year="2026">
+          <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-05">April 05, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -257,7 +375,10 @@
           <p class="blog-card__summary">In thin markets, the goods are complex and the counterparties are strangers. Standardization doesn't help — it destroys the value. The only substitute is tribal knowledge. And tribal knowledge has a lifespan.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">explainer</span><span class="blog-tag">trade</span><span class="blog-tag">founders</span></div>
         </a>
-        <a href="middle-power-pivot-ebook.html" class="blog-card card reveal">
+        <a href="middle-power-pivot-ebook.html"
+           class="blog-card card reveal"
+           data-stream="workshop-notes" data-year="2026">
+          <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-03-30">March 30, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -267,8 +388,9 @@
           <p class="blog-card__summary">Announcing a new working manuscript exploring how AI-driven cooperation can rebuild regional manufacturing and solve the coordination failure trapping independent SMEs.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">roadmap</span><span class="blog-tag">explainer</span><span class="blog-tag">canada</span></div>
         </a>
-        <div class="series-card reveal" id="series-manufacturing-scenarios">
-          
+        <div class="series-card reveal" id="series-manufacturing-scenarios"
+             data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="series-card__label">Series &middot; 5 parts &middot; March 2026</div>
           <a href="series/manufacturing-scenarios.html" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">Manufacturing Scenarios &rarr;</a>
           <div class="series-card__summary">Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized.</div>
@@ -276,7 +398,10 @@
             <li class="series-posts-list__item"><span class="series-posts-list__num">1</span><a href="ontario-roadmap-part1-fractional.html" class="series-posts-list__link">Market Scenario: A Cosolvent-Powered Marketplace</a></li><li class="series-posts-list__item"><span class="series-posts-list__num">2</span><a href="ontario-roadmap-part3-pocket.html" class="series-posts-list__link">Market Scenario: The Virtual Tier-One</a></li><li class="series-posts-list__item"><span class="series-posts-list__num">4</span><a href="manufacturing-scenarios-testing.html" class="series-posts-list__link">Market Scenario: The Tensile Test That Almost Didn't Happen</a></li><li class="series-posts-list__item"><span class="series-posts-list__num">5</span><a href="manufacturing-scenarios-skills.html" class="series-posts-list__link">Market Scenario: The Welder Who Wrote Firewalls</a></li><li class="series-posts-list__item"><span class="series-posts-list__num">6</span><a href="manufacturing-scenarios-capacity.html" class="series-posts-list__link">Market Scenario: The Idle Shift</a></li>
           </ul>
         </div>
-        <a href="used-machinery-thin-market.html" class="blog-card card reveal">
+        <a href="used-machinery-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-18">March 18, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -286,7 +411,10 @@
           <p class="blog-card__summary">A $140,000 CNC machining center sits under a tarp at the back of a factory in Stratford. A manufacturer in Windsor needs exactly that machine. Neither knows the other exists.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span></div>
         </a>
-        <a href="irish-trad-thin-market.html" class="blog-card card reveal">
+        <a href="irish-trad-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-17">March 17, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -296,7 +424,10 @@
           <p class="blog-card__summary">A global community of Irish traditional musicians, instrument makers, and cultural organizations generates a fragmented market for cultural services with almost no matching infrastructure. A thin market platform could connect a concertina player in Clare with a cultural festival in Buenos Aires — if someone built the plumbing.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">cultural-services</span></div>
         </a>
-        <a href="ukraine-defense-procurement-thin-market.html" class="blog-card card reveal">
+        <a href="ukraine-defense-procurement-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-13">March 13, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -306,7 +437,10 @@
           <p class="blog-card__summary">How a specialized thin market platform could match fragmented dual-use technology suppliers with Ukraine's rapidly evolving battlefield requirements.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">defense</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">supply-chain</span></div>
         </a>
-        <a href="junior-mining-thin-market.html" class="blog-card card reveal">
+        <a href="junior-mining-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-12">March 12, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -316,7 +450,10 @@
           <p class="blog-card__summary">A junior exploration geologist in a bush camp near Kapuskasing has drill core that tells a compelling copper-gold story. A critical minerals investment fund in Stockholm has a mandate to deploy capital into exactly that kind of project. Neither knows the other exists — because the mining industry's discovery infrastructure runs on conference circuits and personal networks that systematically exclude the geologically excellent but promotionally invisible.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">mining</span><span class="blog-tag">exploration</span><span class="blog-tag">critical-minerals</span></div>
         </a>
-        <a href="virtual-guest-lectures.html" class="blog-card card reveal">
+        <a href="virtual-guest-lectures.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-12">March 12, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -326,7 +463,9 @@
           <p class="blog-card__summary">How a MarketForge-powered platform could connect willing industry experts with university instructors across geographical and temporal divides.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">education</span><span class="blog-tag">knowledge-sharing</span></div>
         </a>
-        <a href="boardy-proof-of-concept.html" class="blog-card card reveal">
+        <a href="boardy-proof-of-concept.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2026">
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -336,7 +475,10 @@
           <p class="blog-card__summary">Boardy.ai is an AI superconnector that matches founders to investors through voice conversations. Whether its team knows it or not, Boardy has built a working implementation of several core thin market engineering principles. If it can thicken the market for startup capital, the framework works everywhere.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">explainer</span><span class="blog-tag">marketforge</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span></div>
         </a>
-        <a href="ethiopia-produce-thin-market.html" class="blog-card card reveal">
+        <a href="ethiopia-produce-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -346,7 +488,10 @@
           <p class="blog-card__summary">A smallholder farmer in the Rift Valley and a hotel chef in Addis Ababa are 160 kilometres apart. Between them stand five intermediaries, no cold chain, and a system that wastes a third of everything it touches. This is a thin market.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span></div>
         </a>
-        <a href="malting-barley-thin-market.html" class="blog-card card reveal">
+        <a href="malting-barley-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -356,7 +501,10 @@
           <p class="blog-card__summary">A grain farmer in Saskatchewan grows premium two-row malting barley that the big trading companies blend into commodity shipments. A craft brewery purchasing manager in Cebu wants one container of something special for a seasonal lager. They need each other — but neither knows the other exists.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">grain</span><span class="blog-tag">craft-beer</span></div>
         </a>
-        <a href="rural-legal-thin-market.html" class="blog-card card reveal">
+        <a href="rural-legal-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -366,7 +514,9 @@
           <p class="blog-card__summary">In rural and northern Ontario, people face legal problems just as complex as anyone in Toronto — but the nearest specialist may be a six-hour drive away. A Law Society portal based on MarketForge could match rural clients to urban specialists and expand access to justice across the province.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">canada</span></div>
         </a>
-        <a href="thin-market-size.html" class="blog-card card reveal">
+        <a href="thin-market-size.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2026">
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -376,7 +526,10 @@
           <p class="blog-card__summary">We scanned the full economy — every NAICS sector, plus cross-border trade and labour markets — to estimate the value of commerce that doesn't happen because of thin market friction. The answer: $5.7–10.4 trillion globally. This isn't speculation; it's anchored in the academic transaction cost literature and validated sector by sector.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">explainer</span><span class="blog-tag">marketforge</span><span class="blog-tag">investors</span></div>
         </a>
-        <a href="artisanal-craft-collaboration.html" class="blog-card card reveal">
+        <a href="artisanal-craft-collaboration.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-09">March 09, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -386,7 +539,10 @@
           <p class="blog-card__summary">A personal story about a ceramic vase and a Turkish textile became the seed of a question — what if the right collaborators could find each other at scale? A thin market platform built on Cosolvent and KnowledgeSlot sketches the answer, told through the eyes of two Mexican artisans.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">artisans</span></div>
         </a>
-        <a href="diaspora-property-thin-market.html" class="blog-card card reveal">
+        <a href="diaspora-property-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-09">March 09, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -396,7 +552,9 @@
           <p class="blog-card__summary">An Ethiopian-Canadian professional in Toronto owns a rental property in Addis Ababa that needs $10,000 in upgrades. She can't fly over to manage the work. Her cousins can help, but they can't evaluate a contractor's electrical work or negotiate material prices. This is a thin market — and the trust gap costs more than the renovation.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span><span class="blog-tag">diaspora</span></div>
         </a>
-        <a href="cosolvent-toolkit.html" class="blog-card card reveal">
+        <a href="cosolvent-toolkit.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2026">
           <div class="blog-meta">
             <time datetime="2026-03-07">March 07, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -406,7 +564,10 @@
           <p class="blog-card__summary">Open-source Cosolvent handles the heavy lifting of semantic matching and AI-driven onboarding, while deferring domain-specific workflows and trust frameworks to the market sponsors who know their vertical best.</p>
           <div class="blog-meta"><span class="blog-tag">cosolvent</span><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="heritage-craft-thin-market.html" class="blog-card card reveal">
+        <a href="heritage-craft-thin-market.html"
+           class="blog-card card reveal"
+           data-stream="market-scenario" data-year="2026">
+          <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-07">March 07, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -416,7 +577,9 @@
           <p class="blog-card__summary">A master timber framer in rural Vermont can't find commissions. A homeowner in Virginia can't find a timber framer. The market between them works by word of mouth — which means it barely works at all. This is a thin market, and the craft is aging out.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">cosolvent</span><span class="blog-tag">knowledgeslot</span><span class="blog-tag">marketforge</span></div>
         </a>
-        <a href="why-thin-markets-fail.html" class="blog-card card reveal">
+        <a href="why-thin-markets-fail.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2026">
           <div class="blog-meta">
             <time datetime="2026-02-25">February 25, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -426,7 +589,10 @@
           <p class="blog-card__summary">Most markets work. Some don't. The difference isn't willpower or capital — it's market physics. Here's why that matters, and what we're building to fix it.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span></div>
         </a>
-        <a href="why-ai-wont-take-over-work.html" class="blog-card card reveal">
+        <div class="blog-year-heading" data-year="2025">2025</div>
+        <a href="why-ai-wont-take-over-work.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2025">
           <div class="blog-meta">
             <time datetime="2025-10-23">October 23, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -436,7 +602,10 @@
           <p class="blog-card__summary">Monolithic frontier LLMs face fundamental barriers to replacing human work: trade secrets, tacit knowledge, sensorimotor expertise, rapidly changing domain knowledge, and the social networks that hold organizations together. A case for distributed AI instead.</p>
           <div class="blog-meta"><span class="blog-tag">ai</span><span class="blog-tag">technology</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="market-that-feeds-22-million.html" class="blog-card card reveal">
+        <a href="market-that-feeds-22-million.html"
+           class="blog-card card reveal"
+           data-stream="workshop-notes" data-year="2025">
+          <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2025-09-29">September 29, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -446,7 +615,9 @@
           <p class="blog-card__summary">Mexico City's Central de Abasto — the largest wholesale market on Earth — feeds 80% of a 22-million-person metropolis through a radically different distribution model than the American supermarket chain. It's also the world's most impressive example of a pre-technology solution to thin market thickening.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="repetition-lean-thinking-thin-markets.html" class="blog-card card reveal">
+        <a href="repetition-lean-thinking-thin-markets.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2025">
           <div class="blog-meta">
             <time datetime="2025-08-29">August 29, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -456,7 +627,9 @@
           <p class="blog-card__summary">In manufacturing, repetition drives excellence. In thin markets, repetition is exactly what's missing. LLM+RAG systems can create a layer of 'digital repetition' — shared memory that enables continuous improvement even when individual participants rarely encounter the same deal twice.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="thick-thin-structure-grain-trade.html" class="blog-card card reveal">
+        <a href="thick-thin-structure-grain-trade.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2025">
           <div class="blog-meta">
             <time datetime="2025-07-24">July 24, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -466,7 +639,9 @@
           <p class="blog-card__summary">World grain trade is dominated by large trading companies who manage thick markets at both ends of the supply chain. The lost opportunity lies in smaller volumes of specialty premium grains — a market too thin to exist without help.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">trade</span><span class="blog-tag">canada</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="markets-premium-grain-western-canada.html" class="blog-card card reveal">
+        <a href="markets-premium-grain-western-canada.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2025">
           <div class="blog-meta">
             <time datetime="2025-07-23">July 23, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -476,7 +651,9 @@
           <p class="blog-card__summary">Western Canadian grain producers can capture 10–40% price premiums by targeting specialty markets through identity-preserved container shipping. A detailed survey of premium opportunities across wheat, barley, pulses, oats, and canola.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">trade</span><span class="blog-tag">canada</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="creating-trust-in-thin-markets.html" class="blog-card card reveal">
+        <a href="creating-trust-in-thin-markets.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2025">
           <div class="blog-meta">
             <time datetime="2025-07-20">July 20, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -486,7 +663,9 @@
           <p class="blog-card__summary">Trust is the hardest problem in thin markets. When participants rarely interact and operate across vast distances, how do you build enough confidence for beneficial trades to happen?</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">cosolvent</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="pre-technology-solutions-thin-markets.html" class="blog-card card reveal">
+        <a href="pre-technology-solutions-thin-markets.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2025">
           <div class="blog-meta">
             <time datetime="2025-07-18">July 18, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -496,7 +675,9 @@
           <p class="blog-card__summary">How physical clustering — from Istanbul's Gold Street to grain elevator towns — has historically thickened thin markets, and what AI platforms can learn from these ancient patterns.</p>
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">explainer</span></div>
         </a>
-        <a href="bulk-vs-containerized-shipment.html" class="blog-card card reveal">
+        <a href="bulk-vs-containerized-shipment.html"
+           class="blog-card card reveal"
+           data-stream="other" data-year="2025">
           <div class="blog-meta">
             <time datetime="2025-07-16">July 16, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -509,6 +690,54 @@
       </div>
     </div>
   </section>
+
+  <script>
+  (function () {
+    var items     = Array.from(document.querySelectorAll('[data-stream]'));
+    var yearHeads = Array.from(document.querySelectorAll('.blog-year-heading'));
+    var countEl   = document.getElementById('blog-post-count');
+    var active    = 'all';
+
+    function applyFilter() {
+      var vis = 0;
+      items.forEach(function (el) {
+        var show = active === 'all' || el.dataset.stream === active;
+        el.classList.toggle('blog-index-item--hidden', !show);
+        if (show) vis++;
+      });
+
+      // Featured: first visible item gets full-width only in 'All' view
+      var first = items.find(function (el) {
+        return !el.classList.contains('blog-index-item--hidden');
+      });
+      items.forEach(function (el) { el.classList.remove('blog-card--featured'); });
+      if (active === 'all' && first) first.classList.add('blog-card--featured');
+
+      // Hide year headings that have no visible items
+      yearHeads.forEach(function (h) {
+        var yr  = h.dataset.year;
+        var has = items.some(function (el) {
+          return el.dataset.year === yr && !el.classList.contains('blog-index-item--hidden');
+        });
+        h.classList.toggle('blog-index-item--hidden', !has);
+      });
+
+      if (countEl) countEl.textContent = vis;
+      document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.stream === active);
+      });
+    }
+
+    document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        active = this.dataset.stream;
+        applyFilter();
+      });
+    });
+
+    applyFilter();
+  })();
+  </script>
 
   <!-- Footer -->
   <footer class="footer">
