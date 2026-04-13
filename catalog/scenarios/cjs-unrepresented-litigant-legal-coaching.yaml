@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cjs-unrepresented-litigant-legal-coaching
+title: "Self-Represented Litigant Coaching"
+card_title: "Legal Coaching Matches"
+sector: canadian-justice-system
+sub_sector: "Access to Justice"
+forge_tier: 1
+status: published
+tags: [legal, family-law, unbundling, access-to-justice, coaching]
+market_example:
+  summary: "Matches self-represented litigants (who clog family courts) with fractional 'legal coaches'—junior lawyers who don't take the whole case, but review affidavits for structural soundness before filing."
+  problem: "Over 60% of people in Canadian family courts are entirely self-represented because they cannot afford a $10,000 lawyer retainer. They file handwritten, legally incoherent affidavits, forcing judges to spend hours deciphering them, collapsing the entire court schedule. These litigants are willing to pay $300 for help, but traditional law firms refuse to 'unbundle' services, fearing liability if they touch a case they don't fully control."
+  dominant_forces:
+    - "Catastrophic collapse of family court timelines due to systemic self-representation."
+    - "The 'all-or-nothing' retainer model of traditional legal practice."
+    - "Law Society rules that make 'unbundled' legal services legally precarious without strict scoping."
+  deeperpoint_fit: "CoSolvent aggregates self-represented litigants. It matches them with junior lawyers or paralegals willing to do fractional, asynchronous document review. KnowledgeSlot generates an ironclad Limited Scope Retainer, legally protecting the coach from being dragged into the full trial."
+  economic_upside: "Unlocks the massive, entirely unserved latent market of middle-class litigants who can afford to pay for fractional help but not full representation. Revenue derived from platform transaction fees."
+
+sponsor_opportunities:
+  - title: "Unbundled Legal Brokerage"
+    type: managed-service
+    revenue_model: "15% platform fee on fractional coaching tasks"
+    strategic_logic: "Litigants prepay $300 into escrow. The junior lawyer reviews and structures their divorce affidavit, returning a court-ready document, and claims the funds."
+    recurring: true
+  - title: "Limited Scope Retainer SaaS"
+    type: saas
+    revenue_model: "Subscription for early-career lawyers"
+    strategic_logic: "Lawyers pay to use the platform because it auto-generates the highly specific Law Society compliance documents that insulate them from full liability."
+    recurring: true
+  - title: "Judicial Routing Triage"
+    type: saas
+    revenue_model: "Enterprise license for Court Registries"
+    strategic_logic: "Courts actively refer self-represented litigants to the platform before accepting their filings, using it as a triage mechanism to drastically reduce their own administrative workload."
+    recurring: true
+
+story:
+  title: "The Illegible Affidavit"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Tom - A father fighting for custody"
+    - "Elena - Junior Family Lawyer opening a solo practice"
+  summary: "A father facing a terrifying family court appearance buys three hours of fractional coaching from a junior lawyer, perfectly structuring his argument for the judge."
+  body: |
+    ## Act A - The Market Structure
+    
+    The justice system assumes everyone has a lawyer, but economics dictate that almost no one does. Self-represented litigants flood the system with hundred-page documents dripping with emotion but devoid of legal argument. The market is desperate for 'unbundled' services—paying just for specific tasks rather than full representation. The failure is the lack of a secure framework to scope that limited task so the lawyer isn't accidentally held responsible for the entire trial. 
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Tom** is representing himself in a brutal custody battle. He has written a 40-page affidavit detailing every wrong his ex-wife committed over ten years. If he files it, the judge will throw it out for being largely irrelevant hearsay, and he will lose custody. He has $500, not the $5,000 a local firm demanded.
+    
+    **Elena** just passed the bar and opened a solo family practice. She has zero clients and needs cash flow immediately, but she is terrified of taking on a complex trial without senior mentorship.
+    
+    Tom logs into the portal and requests a 'Document Review & Structuring' sprint. The platform matches him with Elena. It automatically generates a Limited Scope Retainer, establishing Elena strictly as a background coach, not a lawyer of record. Elena strips Tom's 40 pages down to 5 pages of devastating, legally coherent facts. Tom files a perfect document, the judge understands exactly what is at stake, and Elena earns her first $400.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without the automated creation of strict legal boundaries (Limited Scope Retainers) and an escrow matching system, lawyers will not touch self-represented litigants. DeeperPoint provides the structural safety required to break the monopoly of the full-retainer model, injecting precision capability into the chaotic front lines of the justice system.
+    
+    *Characters are fictional. The crisis of self-represented litigants is the primary failure of Canadian family law. DeeperPoint is building the infrastructure this story describes.*

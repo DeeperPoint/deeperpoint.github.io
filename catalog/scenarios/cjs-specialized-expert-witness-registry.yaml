@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cjs-specialized-expert-witness-registry
+title: "Specialized Expert Witness Registry"
+card_title: "Expert Witness Matching"
+sector: canadian-justice-system
+sub_sector: "Trial Infrastructure"
+forge_tier: 2
+status: published
+tags: [legal, litigation, expert-witness, courts, evidence]
+market_example:
+  summary: "Matches litigators across the country with ultra-niche expert witnesses (e.g., forensic metallurgy, rare psychological conditions) required for complex trials, avoiding generic, unvetted directories."
+  problem: "Complex litigation in medical malpractice, engineering failures, or constitutional law hinges entirely on the testimony of expert witnesses. However, finding someone who is not only a world-leading expert in 'bridge strut metallurgy' but also possesses the temperament to withstand brutal cross-examination is incredibly difficult. Lawyers rely on word-of-mouth or expensive commercial brokers whose rosters are stale and unverified."
+  dominant_forces:
+    - "Judicial gatekeeping (the 'Mohan' criteria) requires experts to be unimpeachably qualified."
+    - "A massive disconnect between profound academic expertise and applied legal utility."
+    - "High financial stakes in civil litigation drive immense demand for the 'perfect' witness."
+  deeperpoint_fit: "CoSolvent aggregates litigator demand. KnowledgeSlot algorithmically parses academic publication records (DOIs) and prior court transcripts to objectively measure both the depth of the expert's knowledge and their historical performance under cross-examination."
+  economic_upside: "Expert witnesses command thousands of dollars a day. The platform creates a highly lucrative pipeline by establishing an unimpeachable, data-driven registry, monetized via traditional high-end brokerage fees."
+
+sponsor_opportunities:
+  - title: "Data-Driven Witness Brokerage"
+    type: managed-service
+    revenue_model: "15-20% margin on expert retainer fees"
+    strategic_logic: "Law firms pay massive premiums for certainty. The platform acts as the ultimate broker, guaranteeing the expert’s credentials and providing data on their past litigation history."
+    recurring: true
+  - title: "Prior Testimony SaaS"
+    type: saas
+    revenue_model: "Enterprise subscription for litigation firms"
+    strategic_logic: "Allows defense and plaintiff counsel to subscribe and search through an expert's past transcribed testimony to identify potential inconsistencies before trial."
+    recurring: true
+  - title: "Academic-Legal Translation"
+    type: commerce-extension
+    revenue_model: "Fractional consulting rates"
+    strategic_logic: "Many brilliant scientists make terrible witnesses. The platform matches new experts with retired judges or senior counsel for 'trial prep' coaching, ensuring they don't collapse on the stand."
+    recurring: true
+
+story:
+  title: "The Metallurgy Expert"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Julian - Partner at a major Civil Litigation Firm"
+    - "Dr. Aris - Materials Engineering Professor"
+  summary: "A high-stakes civil trial over a collapsed bridge is saved when a lawyer discovers a brilliant, previously untapped metallurgy expert via an algorithmic registry."
+  body: |
+    ## Act A - The Market Structure
+    
+    The expert witness market is an elite, opaque network operating largely on rumor. If an agricultural drone crashes into a commercial airliner, the lawyers need an expert in drone aviation physics. Because there is no central mechanism translating academic capability into legal utility, the same five 'professional experts' are used repeatedly, risking judicial fatigue, while the actual world-leading expert sits quietly in a university lab, entirely unknown to the legal community.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Julian** is litigating a $50 million lawsuit regarding a collapsed suspension bridge. He needs a structural metallurgist, but the only two experts in his firm's database have already been retained by the defense. 
+    
+    **Dr. Aris** is a professor researching exactly the type of microscopic steel fatigue that caused the collapse, but he has never testified in court and no lawyer knows he exists.
+    
+    Julian queries the platform for the specific fracture mechanics involved. The algorithm scours Canadian technical DOIs and surfaces Dr. Aris. Critically, the platform also provides Julian with an interface to execute a secure, conflict-free retainer agreement. Dr. Aris provides devastatingly precise testimony that the generic 'professional experts' cannot refute, securing a massive settlement for Julian's client.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Finding an expert is fundamentally an ontological matching problem: translating a legal question into a scientific taxonomy. DeeperPoint builds the bridge between the law and academia, turning isolated theoretical brilliance into high-impact applied legal evidence.
+    
+    *Characters are fictional. The difficulty of sourcing technical experts is real. DeeperPoint is building the infrastructure this story describes.*

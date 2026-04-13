@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cjs-restorative-justice-facilitator
+title: "Restorative Justice Facilitator Matching"
+card_title: "Restorative Justice Matching"
+sector: canadian-justice-system
+sub_sector: "Diversion & Equity"
+forge_tier: 1
+status: published
+tags: [legal, restorative-justice, equity, diversion, courts]
+market_example:
+  summary: "Matches overloaded courts and willing victims with culturally appropriate, certified restorative justice facilitators, diverting massive caseloads from the formal court system."
+  problem: "The Canadian court system is catastrophically backlogged. For non-violent or youth offenses, Crown prosecutors increasingly want to use 'Restorative Justice' (RJ) diversion programs, which are proven to reduce recidivism and heal communities. However, finding an RJ facilitator who is culturally appropriate for the victim and offender, has active capacity, and is certified by the province is an administrative nightmare, often resulting in the case languishing until the charges are stayed."
+  dominant_forces:
+    - "The 'Jordan ruling' dictates strict time limits on trials, putting immense pressure on courts to divert cases."
+    - "Victims require extreme care and specific, trauma-informed facilitator matching."
+    - "RJ facilitators are largely disorganized non-profits or independent contractors with no centralized dispatch."
+  deeperpoint_fit: "CoSolvent aggregates the regional capacity of RJ facilitators. It maps the specific cultural and trauma-informed requirements of the victim/offender against the facilitator's profile. KnowledgeSlot handles the intense privacy requirements of transferring police summaries for the diversion."
+  economic_upside: "A single criminal trial costs the state tens of thousands of dollars. Diverting even 2% of the docket via efficient RJ matching saves the system millions. Monetization via Ministry of Justice deployment SaaS."
+
+sponsor_opportunities:
+  - title: "Diversion Dispatch SaaS"
+    type: saas
+    revenue_model: "Enterprise licensing for Crown Prosecutor offices"
+    strategic_logic: "Crowns pay for instant visibility into local RJ capacity, allowing them to rapidly divert files from their crushing backlog knowing the file is safely in motion."
+    recurring: true
+  - title: "Compliance & Reporting Layer"
+    type: managed-service
+    revenue_model: "Per-file management fee"
+    strategic_logic: "For a diversion to legally resolve a charge, the court needs proof of completion. The platform automates the secure reporting loop back to the judge that the RJ circle was successfully concluded."
+    recurring: true
+  - title: "Facilitator Training Clearinghouse"
+    type: commerce-extension
+    revenue_model: "Subscription for training organizations"
+    strategic_logic: "As demand for RJ surges, the platform matches uncertified community members with verified training bodies, acting as the primary onboarding funnel for new facilitators."
+    recurring: true
+
+story:
+  title: "The Healing Circle"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Crown Attorney Singh - Overwhelmed prosecutor"
+    - "Miriam - Certified Restorative Justice Facilitator"
+  summary: "A prosecutor diverts a youth vandalism case out of the backlogged courts by instantly matching the file with an available, culturally appropriate local facilitator."
+  body: |
+    ## Act A - The Market Structure
+    
+    The formal justice system is a blunt instrument designed for intense adversarial combat. Applying it to minor community offenses is incredibly expensive and actively destructive. Restorative Justice offers a cheaper, highly effective alternative, but it suffers from a devastating lack of logistical infrastructure. Crowns have the power to refer cases, but lack the bandwidth to hunt down available facilitators, so cases simply pile up.
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Crown Singh** is reviewing a file where two youths vandalized a local community center. The victims want restitution and an apology, not jail time for the kids. Singh wants to divert the case, but his usual RJ contacts are booked for the next six months. If he delays, the charges will be automatically stayed due to unconstitutional delay.
+    
+    **Miriam** is an experienced RJ facilitator working independently in a neighboring municipality. She just concluded a major project and has wide-open availability.
+    
+    Singh inputs the diversion requirements into the platform. It instantly matches Miriam, flagging her extensive experience with youth diversion and her verified provincial standing. The system automatically structures the secure transfer of the police summary. Miriam successfully conducts the restorative circle; the kids repair the damage, the community heals, and Singh safely closes the file without using a single minute of court time.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Alternative justice cannot scale if it relies on ad-hoc phone calls and sticky notes on a prosecutor's desk. DeeperPoint provides the algorithmic backbone to make Restorative Justice a robust, high-volume parallel track, saving the formal court system from total collapse.
+    
+    *Characters are fictional. Court backlogs and the need for structural diversion are real. DeeperPoint is building the infrastructure this story describes.*

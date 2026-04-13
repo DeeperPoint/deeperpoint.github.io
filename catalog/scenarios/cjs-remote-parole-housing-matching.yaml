@@ -1,0 +1,66 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cjs-remote-parole-housing-matching
+title: "Parole & Transitional Housing Matching"
+card_title: "Parole Housing Matching"
+sector: canadian-justice-system
+sub_sector: "Rehabilitation & Parole"
+forge_tier: 3
+status: published
+tags: [legal, corrections, parole, housing, rehabilitation]
+market_example:
+  summary: "Matches inmates nearing parole eligibility with highly specific, verified halfway houses or transitional housing slots across the province, preventing parole denial due to 'no fixed address'."
+  problem: "Thousands of inmates in Canadian prisons are eligible for parole but are denied release entirely because they lack a verified, safe housing plan. Parole officers are overwhelmed and rely on manual phone calls to halfway houses that are usually full. Consequently, the state spends $120,000 a year keeping a rehabilitated individual in maximum security simply because a $1,000/month transitional bed couldn't be located."
+  dominant_forces:
+    - "Strict Parole Board mandates requiring verified, specific release plans."
+    - "A massive national housing crisis severely limiting transitional beds."
+    - "The devastating financial and human cost of over-incarceration."
+  deeperpoint_fit: "CoSolvent aggregates the real-time bed inventory of every halfway house and transitional shelter across the province. It matches the inmate's specific release conditions (e.g., proximity to addictions counseling, geographic restrictions) to the optimal vacancy. KnowledgeSlot securely manages the risk-assessment data."
+  economic_upside: "A 10% reduction in delayed parole due to housing issues saves Correctional Services Canada (CSC) tens of millions of dollars annually. Platform monetized via enterprise SaaS."
+
+sponsor_opportunities:
+  - title: "Bed-Tracker Dispatch SaaS"
+    type: saas
+    revenue_model: "Enterprise licensing for Correctional Services Canada (CSC)"
+    strategic_logic: "CSC pays for the platform to provide their parole officers with real-time, province-wide visibility into halfway house capacity, drastically accelerating safe release times."
+    recurring: true
+  - title: "Wrap-Around Service Brokerage"
+    type: logistics-extension
+    revenue_model: "Margin on adjacent service matching"
+    strategic_logic: "Housing is only step one. The platform automatically aligns the geographic housing match with required adjacent services: local parole check-ins, job training, and medical clinics."
+    recurring: true
+  - title: "Compliance Telemetry"
+    type: managed-service
+    revenue_model: "Per-user monitoring subscription"
+    strategic_logic: "Provides halfway houses with automated check-in and curfew reporting tools that integrate directly back to the parole officer's dashboard, ensuring absolute supervision compliance."
+    recurring: true
+
+story:
+  title: "The Missing Address"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Marcus - Inmate eligible for parole"
+    - "Officer Tremblay - Overworked Institutional Parole Officer"
+  summary: "A rehabilitated inmate finally secures his release when an algorithmic match finds a rare transitional bed that perfectly aligns with his strict parole conditions."
+  body: |
+    ## Act A - The Market Structure
+    
+    The corrections system creates an impossible bottleneck at the point of exit. The Parole Board demands a flawless integration plan, but provides the institutional parole officer with no modern tools to discover housing capacity. Because halfway houses are operated by a fragmented network of independent non-profits (like the John Howard Society or Salvation Army), finding an alignment of empty bed, geography, and specific security requirements is purely a matter of luck. 
+    
+    ---
+    
+    ## Act B - The Story
+    
+    **Marcus** has served 5 years of a 7-year sentence. He has completed all programming and the Parole Board is ready to release him, subject to one condition: he must reside in a supervised halfway house in a specific city, away from his old gang ties.
+    
+    **Officer Tremblay** wants to release Marcus, but she has called six halfway houses in the target city and all are full. Tomorrow is the final hearing. If she has no bed, release is denied.
+    
+    Tremblay logs into the provincial housing platform. She inputs the geographic and security constraints. The system identifies a newly opened bed in a partnered non-profit facility that just received a cancellation an hour ago. The platform instantly transmits Marcus's security profile. The halfway house director approves it digitally. Tremblay walks into the hearing with a verified barcode linking to the fully compliant housing plan. Marcus goes home.
+    
+    ---
+    
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+    
+    Without real-time inventory aggregation, the default state of the correctional system is inertia. DeeperPoint provides the crucial taxonomic mapping and real-time data sync required to safely move individuals out of incredibly expensive prison cells and back into the community.
+    
+    *Characters are fictional. The parole housing crisis is real. DeeperPoint is building the infrastructure this story describes.*
