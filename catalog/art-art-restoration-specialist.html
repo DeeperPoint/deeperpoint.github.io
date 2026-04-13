@@ -1,0 +1,526 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Conservation: Matching Specialty Conservators to Private, Institutional, and Indigenous Collection Restoration — DeeperPoint</title>
+  <meta name="description" content="A First Nations community repatriating ceremonial objects needs a conservator trained in Indigenous material culture, not a generic paintings conservator. A private collector with a damaged 17th-century Dutch panel painting needs a specialist in early Flemish panel support treatment. Neither finds the right specialist through professional directories that index conservators by broad material category rather than the specific technique and cultural competency that determines success.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Arts Cultural Markets &middot; Art Conservation &amp;amp; Collection Care</div>
+      <h1 class="detail-title">Art Conservation: Matching Specialty Conservators to Private, Institutional, and Indigenous Collection Restoration</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
+        <span class="blog-tag">arts</span><span class="blog-tag">conservation</span><span class="blog-tag">restoration</span><span class="blog-tag">museum</span><span class="blog-tag">indigenous</span><span class="blog-tag">cultural-property</span><span class="blog-tag">participant-scarcity</span><span class="blog-tag">canada</span><span class="blog-tag">heritage</span><span class="blog-tag">specialty-skills</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Art conservation is one of the most specialized professional services in the arts ecosystem. The Canadian Association for Conservation (CAC) has approximately 600 members, serving museum collections, private collectors, archives, and increasingly Indigenous communities seeking to care for repatriated cultural objects. The specialization within conservation is deep and consequential: a conservator who specializes in water-gilded frame restoration uses techniques that are entirely different from a painting conservator working on 20th-century synthetic-medium works; a textile conservator who has worked with pre-contact Indigenous fibre materials has skills, cultural competencies, and community relationship experience that a standard textile conservator does not have. The matching problem is acute in two specific contexts: First Nations communities, Inuit communities, and Métis organizations who are repatriating ceremonial and cultural objects from institutions need conservators who combine technical conservation skills with specific cultural protocol knowledge, community relationship experience, and ideally Indigenous identity — a combination found in a small number of practitioners; and private collectors and small museums with specialty objects — 17th-century prints, antique scientific instruments, ethnographic collections — who need conservators whose specialty precisely matches the object rather than the closest available generalist.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Specialization depth — conservation specialties are deep and narrow; the CAC directory lists conservators by broad material category (paper, textiles, objects, painted surfaces) without capturing the specific technique specialties and cultural competencies within each category that determine match quality</li><li>Cultural protocol requirement — Indigenous cultural object conservation requires conservators who understand the specific cultural protocols governing the handling, storage, and treatment of ceremonial objects — knowledge that is not in conservation training programs and is acquired through community relationship</li><li>Trust threshold — a collector or community entrusting a damaged irreplaceable object to a conservator is making a high-stakes judgment about competency and care; the referee-based trust mechanism that professional conservation uses is accessible only to clients already in the professional network</li><li>Geographic distribution — specialty conservators are concentrated in major centres; private collectors and Indigenous communities in rural and remote areas have minimal access to the specialty conservation market</li><li>Object-treatment matching — the treatment approach for a specific object depends not just on material category but on period, construction technique, damage type, and intended future use environment — a multi-attribute match that the CAC directory cannot perform</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes conservator profiles (material specialty by period and construction technique, cultural community experience and protocol knowledge for Indigenous collections, treatment modality and philosophy, prior object type by period and origin, community and institutional client experience, geographic base and travel capability) against collection demand signals (object type by material, period, construction technique, damage profile, cultural origin, intended use environment, cultural protocol requirements, budget, timeline). CoSolvent&#x27;s trust model enables structured referee-based validation for high-stakes object decisions.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The Canadian museum sector alone — 2,500+ registered museums and archives — represents a conservation services market estimated at $50M–$80M annually. The repatriation of Indigenous cultural objects from Canadian institutions is an active and rapidly growing market segment: the Truth and Reconciliation Commission&#x27;s calls to action on museum repatriation have generated dozens of active repatriation processes, each requiring conservation assessment. Private art collection conservation — driven by estate planning, insurance requirements, and collector engagement — represents a further $20M–$40M in annual services. Correct specialist matching in conservation, where an incorrect treatment approach can permanently damage an irreplaceable object, generates cultural and financial value measured in the permanent loss prevented.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Cedar Box</div>
+        <p><strong>Characters:</strong> Chief councillor Patricia — Wet&#x27;suwet&#x27;en Nation, Burns Lake; managing repatriation of ceremonial cedar objects from a BC museum collection, seeking conservation assessment before repatriation acceptance, Dr. Sarah — conservator specializing in Pacific Northwest Indigenous materials, 15 years of Indigenous community collection work, Victoria BC</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Repatriation Conservation Gap</h2>
+<p>The repatriation of Indigenous cultural objects from Canadian museum institutions is among the most significant cultural restoration processes in contemporary Canadian history. But repatriation is not simply a transfer of legal title — it is the return of objects that may have been separated from their communities for 100 or 150 years, which may have been stored under institutional conservation conditions for decades, and which will need to be cared for by communities whose capacity for object care has been disrupted by the same colonial processes that created the collections in the first place.</p>
+<p>Before a Nation formally accepts repatriated objects, a conservation assessment documents the current condition of each object — not to prepare it for institutional display, but to understand what the object needs in the hands of the community: what storage environment will prevent further deterioration, what handling protocols will protect the materials, what active treatments if any are recommended before transfer.</p>
+<p>This assessment requires a conservator who is simultaneously a specialist in the specific materials — Pacific Northwest cedar and bark, hide, pigment types specific to the region — and who has worked with Indigenous communities in ways that make them trustworthy to the Nation's elected and hereditary leadership. The CAC directory lists conservators by broad material category. It does not identify who has both the material specialty and the community relationship history.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Patricia</strong> had been part of the repatriation negotiation for three years. The museum's agreement to return the cedar objects was the most significant cultural milestone for the Nation in a generation. The formal acceptance required a condition assessment by a conservator approved by both the Nation and the museum — conducted at the museum before transfer.</p>
+<p>She searched the CAC directory: forty-two conservators in British Columbia listed under "objects," the category that included wood and Indigenous materials. She emailed twelve. Four responded. Two specialized in furniture and decorative arts. One specialized in ethnographic collections but had no Pacific Northwest experience. One had experience with Northwest Coast materials but was in Ontario and could not travel within the Nation's timeline.</p>
+<p>She called the Canadian Conservation Institute. They were helpful but couldn't provide a selection recommendation — only guidance on treatment approaches.</p>
+<p>She was about to accept a Vancouver conservator whose experience was in ethnographic objects broadly — Pacific Northwest experience minimal — when the Nation's cultural director mentioned the platform, which she had seen referenced in a First Peoples Cultural Council conservation resources document.</p>
+<p><strong>Dr. Sarah</strong> had spent fifteen years working with First Nations communities on the Northwest Coast — repatriation assessments, long-term care planning, community storage environment design. She had specific expertise in Pacific Northwest cedar, bark, and hide materials and had worked with Wet'suwet'en-adjacent communities on previous projects. She held relationships with elected councils and hereditary leadership of three BC Nations who could speak to her community engagement approach.</p>
+<p>Her platform profile encoded: Pacific Northwest Indigenous materials specialty, repatriation conservation experience, Wet'suwet'en adjacent community work, British Columbia location, cultural protocol training, community relationship references available.</p>
+<p>Patricia's search: Pacific Northwest cedar and ceremonial objects, repatriation context, BC location, Indigenous community experience.</p>
+<p>Dr. Sarah was the second result.</p>
+<hr />
+<p>The condition assessment was completed in two days at the museum. Dr. Sarah's report documented the condition of each object in both conservation terminology and in language accessible to the Nation's cultural committee — explaining what each object needed, in plain terms that the Elders could evaluate.</p>
+<p>Her storage environment recommendations included modifications to the Nation's community centre that cost $4,000 to implement — specifications that ensured the cedar objects would stabilize in Wet'suwet'en territory as well as they had been maintained in the institution.</p>
+<p>The objects were formally transferred at a ceremony six weeks after the assessment.</p>
+<p>Three Elders who had been children when the objects were removed were present when they were returned.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Dr. Sarah's community relationship history — the three BC Nations whose leadership could speak to her approach — was the credential that distinguished her from the forty-two CAC-listed BC conservators Patricia had considered. It was not in the CAC directory. It was not discoverable through the Canadian Conservation Institute's guidance. It existed in the referral networks of the First Peoples Cultural Council and the community relationships Dr. Sarah had built over fifteen years of field work.</p>
+<p>The Nation's cultural director had found the platform by accident. Without that conversation, Patricia would have accepted a competent but culturally mismatched conservator for one of the most significant cultural transactions in her Nation's recent history.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> encodes the community relationship history, the protocol experience, and the material specialty depth — not just the CAC material category — at the moment before a repatriation assessment requires both, together, in the same person.</p>
+<p><em>Characters are fictional. Wet'suwet'en Nation repatriation processes, the CAC conservation directory, the Canadian Conservation Institute, First Peoples Cultural Council conservation resources, and the Truth and Reconciliation Commission repatriation calls to action are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Conservation Specialist Discovery Platform (SaaS)</div>
+        <p>The Canadian Association for Conservation, the Canadian Conservation Institute (a federal agency), and the First Peoples Cultural Council all have organized constituencies and mandates that include improving conservation access for their member communities. A platform distributed through these organizations as an improved discovery tool reaches the organized conservation market on both the service and client sides.</p>
+        <div class="opp-card__revenue">&#128181; Annual conservator profile subscription ($200–$500/year); institutional and private collector subscription ($300–$700/year); per-consultation match facilitation ($100–$250 per match)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Object Condition Assessment and Treatment Planning Service</div>
+        <p>Before commissioning a conservation treatment, a collector or community needs help evaluating whether the proposed treatment approach is appropriate for the specific object and situation. A remote condition assessment service that reviews photographs and documentation and provides an expert opinion on treatment direction — and which conservator specialties are appropriate — removes the information asymmetry that prevents clients from evaluating conservation proposals with confidence.</p>
+        <div class="opp-card__revenue">&#128181; Remote condition assessment and conservator shortlisting ($300–$700 per object); treatment proposal review and second opinion service ($200–$450 per proposal); Indigenous object cultural protocol review ($400–$900 per assessment)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Repatriation Conservation Planning Service</div>
+        <p>First Nations, Inuit, and Métis communities accepting repatriated objects from institutions need conservation planning that addresses not just the immediate condition of the objects but the long-term storage, handling, and care environment the community can realistically provide. A repatriation conservation planning service — provided by conservators with specific Indigenous material culture competency — ensures that repatriated objects are returned to communities with the care environment they require, not just the care environment the institution had.</p>
+        <div class="opp-card__revenue">&#128181; Repatriation conservation assessment and long-term care planning ($800–$2,500 per collection); community storage and care environment guidance ($400–$800 per community); Indigenous conservator mentorship and capacity building ($600–$1,500 per program)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Collection Care Commerce and Insurance Extension</div>
+        <p>A collection owner who has engaged a conservation specialist through the platform has ongoing conservation supply needs — archival storage materials, environmental monitoring, periodic condition review. A collection care supply and insurance facilitation service that serves these ongoing needs converts the one-time conservation match into a recurring collection care relationship with annual revenue, while providing the collection owner with a comprehensive care service that improves their insurance position.</p>
+        <div class="opp-card__revenue">&#128181; Conservation supply sourcing for private and institutional collections (archival storage materials, environmental monitoring equipment; 8–12% sourcing margin); conservation insurance valuation facilitation ($300–$600 per object); collection management system integration for conservation documentation; platform earns collection care commerce revenue from every conservation relationship it establishes</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
