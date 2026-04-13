@@ -1,0 +1,149 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cfs-private-debt-mid-market
+title: Private Debt Origination for Mid-Market Canadian Borrowers
+card_title: Mid-Market Private Debt Matching
+sector: canadian-financial-services
+sub_sector: Private Credit
+forge_tier: 2
+status: published
+tags: [finance, private-debt, private-credit, mid-market, lending, borrowers, alternative-lenders, bdc]
+market_example:
+  summary: A structured origination platform matching Canadian mid-market companies—those
+    with annual revenues of $10–150M seeking $3–30M in structured debt—with the growing
+    pool of private credit managers, BDC-affiliated funds, and specialty lenders whose
+    mandates target exactly this borrower profile but who lack efficient deal origination
+    beyond their existing relationship networks.
+  problem: "Canada's mid-market financing gap is one of the most documented and least
+    solved problems in Canadian business finance. Companies with annual revenues between
+    $10M and $150M and financing needs between $3M and $30M fall into a structural dead zone.
+    The chartered banks serve this segment through their commercial lending programs, but
+    bank credit approval timelines (8–16 weeks for a structured facility), covenant rigidity,
+    and collateral requirements routinely fail companies in transition: a software company
+    acquiring a competitor with minimal hard asset collateral, a family business funding
+    a management buyout, a growing manufacturer bridge-financing a major customer contract.
+    At the same time, the private credit market—which has grown enormously in Canada since
+    2018—has largely deployed capital into deals above $30M, where the transaction economics
+    support the due diligence cost. The $3–30M private debt segment is served by BDC
+    subordinate financing, a small number of regional specialty lenders, and community
+    development finance institutions. None of these lenders have efficient origination
+    mechanisms below the major advisory firm coverage threshold. A company that needs $8M
+    in unitranche debt to fund an acquisition cannot access the private lender most suited
+    to their credit profile without either retaining a corporate finance advisor ($150,000+
+    fee) or already knowing the right lender from previous relationship history. The result
+    is that transactions that would be funded easily if the matching existed—because the
+    credit is sound, the lender has the mandate, and the terms would be acceptable to both
+    parties—simply do not happen on the required timelines."
+  dominant_forces:
+    - "Bank commercial lending programs serve the mid-market poorly: covenant rigidity,
+      collateral requirements, and 8–16 week approval timelines routinely fail companies
+      in rapid transition, acquisition mode, or with asset-light business models."
+    - "Private credit mandates targeting the $3–30M deal range are concentrated among
+      BDC subordinate finance, regional specialty lenders, and CDFIs whose combined origination
+      capacity far exceeds their deal flow from informal referral networks."
+    - "Corporate finance advisory fees ($100,000–$250,000+) for financing mandates below
+      $30M are often economically irrational for the borrower, creating a structural access
+      barrier to the advisory-intermediated private debt market."
+  deeperpoint_fit: "KnowledgeSlot encodes private debt term structures by deal type: unitranche,
+    mezzanine, subordinate financing, revenue-based financing, and asset-based lending—with
+    covenant and pricing benchmarks for each. CoSolvent matches borrower profiles—revenue size,
+    EBITDA, debt purpose (acquisition, growth, working capital), asset base, sector, and
+    desired timeline—against lender mandate profiles built from deal size range, sector
+    preferences, security requirements, and current deployment capacity."
+  economic_upside: "The Canadian mid-market private debt gap is estimated at $5–15B in unmet
+    credit demand annually. Platform revenue via a 0.5–1.5% origination fee on matched and
+    funded transactions captures significant value at a fraction of traditional advisory cost.
+    BDC, provincial economic development agencies, and credit unions are natural government-aligned
+    sponsors for a platform that demonstrably improves SME capital access."
+sponsor_opportunities:
+  - title: Private Lender Origination SaaS
+    type: saas
+    revenue_model: Annual subscription for private credit managers and specialty lenders
+    strategic_logic: "Private credit managers pay for structured access to a curated mid-market
+      borrower pipeline—organized by deal size, sector, deal type, and credit profile—replacing
+      relationship-dependent origination with systematic deal flow that fills deployment capacity
+      without requiring expansion of the lender's relationship team."
+    recurring: true
+  - title: Borrower Credit Profile Facilitation
+    type: managed-service
+    revenue_model: Per-transaction credit profile preparation fee charged to the borrower
+    strategic_logic: "Mid-market companies pay for a facilitated credit profile package aligned
+      to private lender due diligence requirements: financial model review, deal structure
+      recommendation, and a standardized information memorandum that presents the credit story
+      to multiple lenders simultaneously—at a fraction of traditional corporate finance advisory cost."
+    recurring: false
+  - title: Mid-Market Credit Market Intelligence
+    type: commerce-extension
+    revenue_model: Annual data subscription for BDC, EDC, provincial economic development agencies, and credit analysts
+    strategic_logic: "Government development finance institutions need current data on mid-market
+      credit access: which sectors are underserved, what deal structures are closing, where
+      pricing has moved relative to bank rates. The platform's aggregated origination data
+      becomes the primary market intelligence for Canadian SME financing policy."
+    recurring: true
+story:
+  title: The Funding Gap
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Miriam - CEO, Ontario B2B software company, Kitchener"
+    - "Sebastien - Managing Director, specialty private credit fund, Montreal"
+  summary: "A Kitchener B2B software company seeking $9M in unitranche debt to fund a
+    strategic acquisition connects with a Montreal private credit fund whose software sector
+    mandate and deal size range align precisely—through a mid-market private debt origination
+    platform."
+  body: |
+    ## Act A - The Market Structure
+
+    The middle of Canada's business lending market is a void that everyone acknowledges
+    and nobody has efficiently filled. Below $3M, community banks and credit unions serve
+    borrowers well. Above $30M, investment banks and major private credit managers compete
+    vigorously. Between $3M and $30M—the unitranche, the mezzanine, the subordinate growth
+    facility—companies are structurally underserved.
+
+    The solution exists in theory: dozens of Canadian private credit managers, regional
+    specialty lenders, and BDC subordinate financing programs are specifically mandated to
+    serve this range. The problem is origination. These lenders rely on referrals from
+    accountants, lawyers, and bank relationship managers. The referral network is slow,
+    relationship-dependent, and opaque. A company that shows up at the wrong lender's door—
+    because that lender was the one their accountant knew—gets declined not because their
+    credit is wrong but because the lender's mandate doesn't fit. The lender who would fund
+    them never knew they were looking.
+
+    ---
+
+    ## Act B - The Story
+
+    **Miriam** runs a 65-person B2B SaaS company generating $18M in ARR with 78% gross
+    margins and a competitive acquisition opportunity. An acquisition target—a smaller
+    competitor with $6M in ARR—is available at a price that works, but only if she can
+    close in 60 days. She needs $9M in acquisition debt. Her bank has offered $4M against
+    a personal guarantee secured against her home. Two private equity firms want control.
+    She needs debt, not equity. Her corporate lawyer referred her to one private lender.
+    That lender doesn't do SaaS—their collateral requirements assume hard assets.
+
+    **Sebastien** manages a $200M technology-focused private credit fund. His mandate is
+    $5–15M unitranche facilities to recurring-revenue technology companies. He is currently
+    70% deployed and actively originating. His last three deals came through one investment
+    bank relationship. He needs four more transactions this calendar year and has no
+    origination pipeline beyond his existing introductions.
+
+    Miriam uploads her company profile to the platform: sector (B2B SaaS), ARR, gross margin,
+    financing need ($9M unitranche), purpose (acquisition), required close timeline (60 days),
+    collateral (recurring revenue pledge, no hard assets). Sebastien's fund surfaces with
+    matching sector mandate, deal size range, and timeline capability. The platform generates
+    a deal profile aligned to unitranche market pricing for recurring-revenue SaaS. Miriam
+    sends her data room access within 24 hours. Sebastien issues a term sheet in two weeks.
+    The acquisition closes on day 55.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The mid-market private debt gap is not caused by a shortage of lenders or a shortage of
+    creditworthy borrowers. It is caused by an origination system that depends on relationship
+    referrals moving through slow, informal networks. DeeperPoint builds the deal origination
+    platform that connects creditworthy mid-market borrowers directly with the lenders whose
+    mandates they satisfy—at the speed that business situations require.
+
+    *Characters are fictional. The Canadian mid-market financing gap is documented extensively
+    by BDC research and the Canadian Federation of Independent Business.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

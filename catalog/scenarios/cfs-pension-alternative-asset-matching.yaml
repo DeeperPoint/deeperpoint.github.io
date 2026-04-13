@@ -1,0 +1,155 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cfs-pension-alternative-asset-matching
+title: Pension Fund Alternative Asset Manager Mandate Matching
+card_title: Pension Alternative Asset Matching
+sector: canadian-financial-services
+sub_sector: Institutional Asset Management
+forge_tier: 3
+status: published
+tags: [finance, pension, alternative-assets, private-equity, infrastructure, mandate, institutional, osfi]
+market_example:
+  summary: A structured mandate-matching platform connecting smaller Canadian pension funds
+    and public sector benefit plans—whose alternative asset allocations are too small for
+    direct coverage by the largest fund managers—with specialized private equity, infrastructure,
+    and private credit managers whose fund sizes and GP relationships align with sub-$500M
+    institutional mandates.
+  problem: "Canada's pension landscape is bifurcated. The large funds—CPPIB, OTPP, OMERS, CDPQ—
+    have the scale to access any alternative asset manager in the world, build direct co-investment
+    programs, and negotiate separately managed accounts with GPs. Below that tier sits several
+    hundred Canadian pension funds, public sector benefit plans, union pension trusts, and
+    municipal defined-benefit plans whose total assets range from $100M to $5B and whose
+    alternative asset allocations represent $10M to $500M mandates. These funds need the same
+    portfolio diversification—private equity, infrastructure, private credit, real assets—
+    that their larger peers access, but the fund managers who serve the large plans have
+    minimum mandate sizes, fund minimums, and LP governance requirements that exclude the
+    smaller plans. Simultaneously, a significant number of specialist alternative managers—
+    niche infrastructure funds, regional private equity firms, specialized private credit
+    managers in sectors like healthcare, senior housing, or cleantech—actively want access
+    to smaller pension plan capital but have no efficient mechanism to reach plan investment
+    committees. The pension consultant community serves as the traditional intermediary,
+    but consultants cover the established large-manager universe well; their coverage of
+    emerging and specialist managers is sparse. The smaller plan's investment committee
+    never sees the specialist infrastructure manager whose mandate policy aligns with the
+    plan's liability profile, simply because neither party has a discovery mechanism that
+    operates below the large-pension-consultant coverage threshold."
+  dominant_forces:
+    - "Smaller Canadian pension funds require alternative asset exposure for liability matching
+      and return adequacy, but minimum fund sizes and separately managed account thresholds
+      at major managers systematically exclude mandates below $50–100M."
+    - "Specialist alternative managers with niche infrastructure, healthcare real estate, or
+      cleantech private equity funds have LP target profiles that align with smaller pension
+      mandates but cannot efficiently reach investment committees without existing consultant
+      relationship coverage."
+    - "OSFI Guideline B-7 and provincial pension legislation impose governance documentation
+      requirements on alternative asset manager selection that smaller plans cannot satisfy
+      without structured due diligence processes—creating an additional compliance barrier
+      to emerging manager access."
+  deeperpoint_fit: "KnowledgeSlot encodes the alternative asset mandate framework: OSFI
+    Guideline B-7 due diligence requirements, fund structure types (closed-end, open-end,
+    separately managed account), LP governance documentation standards, and performance
+    benchmark structures by asset class. CoSolvent matches pension plan investment policy
+    statements—alternative allocation size, target return, risk budget, LP liquidity needs,
+    ESG investment policy—against manager profiles built from fund size, target LP profile,
+    track record, and current fundraising status."
+  economic_upside: "Canada's smaller pension funds manage an estimated $500B in aggregate assets,
+    with alternative allocation targets of 15–25% suggesting $75–125B in allocatable capital
+    systematically underserved by specialist managers. A platform matching even 5% of this
+    flow represents $3.75–6.25B in mandate placement annually. Revenue via annual subscription
+    for managers and per-mandate introduction fees."
+sponsor_opportunities:
+  - title: Alternative Manager Discovery SaaS
+    type: saas
+    revenue_model: Annual subscription for pension plan investment teams and their investment consultants
+    strategic_logic: "Pension plan CIOs and investment committees pay for structured access to a
+      curated registry of alternative managers organized by asset class, fund size, target LP
+      profile, track record clarity, and OSFI-compliant due diligence documentation status—
+      replacing informal consultant coverage with systematic discovery."
+    recurring: true
+  - title: OSFI-Aligned Due Diligence Package Assembly
+    type: managed-service
+    revenue_model: Per-mandate due diligence package preparation fee charged to the manager
+    strategic_logic: "Alternative managers pay for a facilitated due diligence documentation
+      assembly aligned to OSFI Guideline B-7 requirements—performance track record verification,
+      governance documentation, reference LP contacts—enabling them to present to pension plan
+      investment committees in the format required for regulatory compliance without retaining
+      a specialized pension consultant."
+    recurring: false
+  - title: Pension Alternative Asset Market Intelligence
+    type: commerce-extension
+    revenue_model: Annual data subscription for pension consulting firms and provincial pension regulators
+    strategic_logic: "Pension consulting firms and provincial pension superintendents need aggregate
+      data on emerging manager access and smaller plan alternative asset deployment rates—both
+      for benchmarking client portfolios and for regulatory monitoring of OSFI Guideline B-7
+      compliance trends across their supervised plan universe."
+    recurring: true
+story:
+  title: The Mandate Gap
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Anne - CIO, Ontario municipal pension fund with $800M in assets, Windsor"
+    - "Patrick - Managing Partner, specialist Canadian cleantech infrastructure fund, Toronto"
+  summary: "A Windsor municipal pension fund seeking cleantech infrastructure exposure finds
+    a specialist Canadian fund manager whose LP profile, fund size, and OSFI documentation
+    align with their $35M mandate—through a structured alternative asset matching platform."
+  body: |
+    ## Act A - The Market Structure
+
+    The Canadian pension system protects retirees through two very different experiences
+    of the investment world. Large plans—CPPIB, OTPP, OMERS—have the scale to hire former
+    McKinsey partners as investment directors, co-invest directly in airports, and negotiate
+    separately managed accounts with top-quartile fund managers. The 400 smaller plans
+    below them have the same obligation to their beneficiaries and access to a fraction
+    of the opportunity set.
+
+    The alternative asset deficit is not a matter of investment sophistication—most smaller
+    plan CIOs have the expertise to evaluate private equity and infrastructure opportunities.
+    It is a matter of discovery. The established pension consulting firms cover the
+    large-manager universe comprehensively; their coverage of specialist and emerging managers
+    who actively want smaller LP mandates is thin. The CIO who would allocate $35M to a
+    genuine cleantech infrastructure platform has no systematic mechanism to find the fund
+    manager whose target LP ticket is exactly $35M.
+
+    ---
+
+    ## Act B - The Story
+
+    **Anne** manages investments for Windsor's municipal pension plan. Her investment policy
+    targets 18% in alternatives—$144M at current plan size. Her current allocation is 9%,
+    all in large established infrastructure funds with $100M minimum LP commitments that
+    she accessed through her pension consultant. She has identified cleantech infrastructure
+    as an underallocated asset class aligned with her liability profile: long-duration,
+    inflation-linked returns from regulated or contracted revenue streams. She has asked
+    her consultant for options. The response was three mega-funds with $250M LP minimums.
+    None of them will take her $35M ticket.
+
+    **Patrick** is in final close on a $600M Canadian cleantech infrastructure fund focused
+    on battery storage, EV charging networks, and district energy systems in Ontario and
+    Quebec. His target LP profile is pension funds between $200M and $2B in total assets—
+    precisely the tier that the large managers ignore. His fund minimum is $25M. He has
+    filled 80% of his LP roster through direct relationships and placement agents who cover
+    the large-plan market. He has 15 LP slots remaining for smaller plans whose ticket size
+    fits his fund model. He has no efficient way to reach Anne.
+
+    Anne queries the platform: alternative asset class (cleantech infrastructure), mandate
+    size ($35M LP ticket), OSFI-compliant due diligence preference, Ontario/Quebec geographic
+    exposure priority, fund size range ($400–800M). Patrick's fund surfaces as one of two
+    matching profiles in Canada. The platform presents Patrick's OSFI Guideline B-7–aligned
+    due diligence package. Anne's investment committee reviews it at their next meeting.
+    Patrick presents in person four weeks later. Anne's $35M commitment is executed as
+    part of Patrick's final close.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The smaller pension plan's alternative allocation deficit is not a governance failure—
+    it is a discovery failure. The specialist managers who would serve these plans exist;
+    the plans' mandate sizes are appropriate; the regulatory framework supports the transaction.
+    What does not exist is the structured intermediary that operates below the large-consultant
+    coverage threshold. DeeperPoint builds the mandate-matching platform that extends the
+    reach of specialist managers to every pension fund whose investment policy they satisfy.
+
+    *Characters are fictional. The bifurcation of Canadian pension alternative asset access
+    between large and smaller plans is well-documented in pension industry research.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
