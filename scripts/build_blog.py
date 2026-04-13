@@ -271,6 +271,28 @@ BLOG_INDEX_STYLES = """  <style>
       border-radius: 10px; display: inline-block;
       margin-bottom: .6rem;
     }
+    /* --- Tag filter strip --- */
+    .blog-tag-strip {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; margin-bottom: 1.25rem;
+    }
+    .blog-tag-pill {
+      padding: 3px 11px; border-radius: 14px;
+      border: 1px solid rgba(99,102,241,.22);
+      background: transparent; color: #64748b;
+      font-size: .72rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; letter-spacing: .04em;
+      transition: background .12s, color .12s, border-color .12s;
+      white-space: nowrap;
+    }
+    .blog-tag-pill:hover {
+      background: rgba(99,102,241,.1); color: #a5b4fc;
+      border-color: rgba(99,102,241,.45);
+    }
+    .blog-tag-pill.active {
+      background: rgba(99,102,241,.2); color: #c7d2fe;
+      border-color: #6366f1;
+    }
     /* --- Hidden (JS-managed) --- */
     .blog-index-item--hidden { display: none !important; }
   </style>"""
@@ -550,9 +572,13 @@ def buildSeriesCardHtml(series_slug, series_data, pinned=False, stream="other"):
     else:
         stream_badge = ""
 
+    # Union of all tags across the series posts
+    series_tags = sorted({t for p in posts for t in p.get("tags", [])})
+    tags_attr = " ".join(series_tags)
+
     return f"""
         <div class="series-card{pinned_class} reveal" id="series-{series_slug}"
-             data-stream="{stream}" data-year="{year}">
+             data-stream="{stream}" data-year="{year}" data-tags="{tags_attr}">
           {pinned_badge}{stream_badge}<div class="series-card__label">Series &middot; {total} parts &middot; {date_str}</div>
           <a href="{series_page_url}" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">{series_title} &rarr;</a>
           <div class="series-card__summary">{teaser}</div>
@@ -711,10 +737,11 @@ def buildPostCardHtml(meta, stream="other", is_featured=False):
         )
     else:
         badge_html = ""
+    tags_attr = " ".join(meta.get("tags", []))
     return f"""
         <a href="{meta['slug']}.html"
            class="blog-card card reveal{featured_class}"
-           data-stream="{stream}" data-year="{year}">
+           data-stream="{stream}" data-year="{year}" data-tags="{tags_attr}">
           {badge_html}<div class="blog-meta">
             <time datetime="{meta['date'].isoformat()}">{date_str}</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -846,30 +873,54 @@ def buildIndexPage(posts, series_index):
             f"</button>\n        "
         )
 
+    # Collect all unique tags sorted alphabetically
+    all_tags = sorted({
+        t
+        for _, _, itype, payload in items
+        for t in (
+            payload.get("tags", []) if itype == "post"
+            else [tag for p in payload[1]["posts"] for tag in p.get("tags", [])]
+        )
+    })
+
+    tags_strip_html = "".join(
+        f'<button class="blog-tag-pill" data-tag="{t}">{t}</button>\n        '
+        for t in all_tags
+    )
+
     filter_js = """
   <script>
   (function () {
     var items     = Array.from(document.querySelectorAll('[data-stream]'));
     var yearHeads = Array.from(document.querySelectorAll('.blog-year-heading'));
     var countEl   = document.getElementById('blog-post-count');
-    var active    = 'all';
+    var clearBtn  = document.getElementById('blog-clear-btn');
+    var activeStream = 'all';
+    var activeTag    = '';
+
+    function cardTags(el) {
+      return el.dataset.tags ? el.dataset.tags.split(' ').filter(Boolean) : [];
+    }
 
     function applyFilter() {
       var vis = 0;
       items.forEach(function (el) {
-        var show = active === 'all' || el.dataset.stream === active;
+        var streamOk = activeStream === 'all' || el.dataset.stream === activeStream;
+        var tagOk    = !activeTag || cardTags(el).indexOf(activeTag) !== -1;
+        var show = streamOk && tagOk;
         el.classList.toggle('blog-index-item--hidden', !show);
         if (show) vis++;
       });
 
-      // Featured: first visible item gets full-width only in 'All' view
+      // Featured: first visible card gets full-width only in full 'All' view
       var first = items.find(function (el) {
         return !el.classList.contains('blog-index-item--hidden');
       });
       items.forEach(function (el) { el.classList.remove('blog-card--featured'); });
-      if (active === 'all' && first) first.classList.add('blog-card--featured');
+      if (activeStream === 'all' && !activeTag && first)
+        first.classList.add('blog-card--featured');
 
-      // Hide year headings that have no visible items
+      // Hide year headings with no visible items
       yearHeads.forEach(function (h) {
         var yr  = h.dataset.year;
         var has = items.some(function (el) {
@@ -879,24 +930,43 @@ def buildIndexPage(posts, series_index):
       });
 
       if (countEl) countEl.textContent = vis;
-      var clearBtn = document.getElementById('blog-clear-btn');
-      if (clearBtn) clearBtn.style.display = active === 'all' ? 'none' : 'inline-flex';
+
+      // Clear button: visible when any filter is active
+      var filtered = activeStream !== 'all' || activeTag !== '';
+      if (clearBtn) clearBtn.style.display = filtered ? 'inline-flex' : 'none';
+
+      // Update stream tab active states
       document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
-        btn.classList.toggle('active', btn.dataset.stream === active);
+        btn.classList.toggle('active', btn.dataset.stream === activeStream);
+      });
+
+      // Update tag pill active states
+      document.querySelectorAll('.blog-tag-pill').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.tag === activeTag);
       });
     }
 
+    // Stream tabs
     document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        active = this.dataset.stream;
+        activeStream = this.dataset.stream;
         applyFilter();
       });
     });
 
-    var clearBtn = document.getElementById('blog-clear-btn');
+    // Tag pills: click active tag to deselect; click new tag to select
+    document.querySelectorAll('.blog-tag-pill').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activeTag = activeTag === this.dataset.tag ? '' : this.dataset.tag;
+        applyFilter();
+      });
+    });
+
+    // Clear all
     if (clearBtn) {
       clearBtn.addEventListener('click', function () {
-        active = 'all';
+        activeStream = 'all';
+        activeTag    = '';
         applyFilter();
       });
     }
@@ -917,6 +987,9 @@ def buildIndexPage(posts, series_index):
       </div>
       <div class="blog-stream-tabs">
         {tabs_html}
+      </div>
+      <div class="blog-tag-strip">
+        {tags_strip_html}
       </div>
       <div class="blog-index-count">
         Showing <span id="blog-post-count">{total}</span> of {total} posts

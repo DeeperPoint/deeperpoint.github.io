@@ -180,6 +180,28 @@
       border-radius: 10px; display: inline-block;
       margin-bottom: .6rem;
     }
+    /* --- Tag filter strip --- */
+    .blog-tag-strip {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; margin-bottom: 1.25rem;
+    }
+    .blog-tag-pill {
+      padding: 3px 11px; border-radius: 14px;
+      border: 1px solid rgba(99,102,241,.22);
+      background: transparent; color: #64748b;
+      font-size: .72rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; letter-spacing: .04em;
+      transition: background .12s, color .12s, border-color .12s;
+      white-space: nowrap;
+    }
+    .blog-tag-pill:hover {
+      background: rgba(99,102,241,.1); color: #a5b4fc;
+      border-color: rgba(99,102,241,.45);
+    }
+    .blog-tag-pill.active {
+      background: rgba(99,102,241,.2); color: #c7d2fe;
+      border-color: #6366f1;
+    }
     /* --- Hidden (JS-managed) --- */
     .blog-index-item--hidden { display: none !important; }
   </style></head>
@@ -229,6 +251,52 @@
         <button class="blog-stream-tab" data-stream="workshop-notes">Workshop Notes <span style="opacity:.55;font-size:.78em;">(8)</span></button>
         
       </div>
+      <div class="blog-tag-strip">
+        <button class="blog-tag-pill" data-tag="ai">ai</button>
+        <button class="blog-tag-pill" data-tag="artisans">artisans</button>
+        <button class="blog-tag-pill" data-tag="canada">canada</button>
+        <button class="blog-tag-pill" data-tag="case-study">case-study</button>
+        <button class="blog-tag-pill" data-tag="catalog">catalog</button>
+        <button class="blog-tag-pill" data-tag="clientsynth">clientsynth</button>
+        <button class="blog-tag-pill" data-tag="co-packing">co-packing</button>
+        <button class="blog-tag-pill" data-tag="cosolvent">cosolvent</button>
+        <button class="blog-tag-pill" data-tag="craft-beer">craft-beer</button>
+        <button class="blog-tag-pill" data-tag="critical-minerals">critical-minerals</button>
+        <button class="blog-tag-pill" data-tag="cultural-services">cultural-services</button>
+        <button class="blog-tag-pill" data-tag="defense">defense</button>
+        <button class="blog-tag-pill" data-tag="diaspora">diaspora</button>
+        <button class="blog-tag-pill" data-tag="education">education</button>
+        <button class="blog-tag-pill" data-tag="explainer">explainer</button>
+        <button class="blog-tag-pill" data-tag="exploration">exploration</button>
+        <button class="blog-tag-pill" data-tag="food-safety">food-safety</button>
+        <button class="blog-tag-pill" data-tag="founders">founders</button>
+        <button class="blog-tag-pill" data-tag="fractional-services">fractional-services</button>
+        <button class="blog-tag-pill" data-tag="grain">grain</button>
+        <button class="blog-tag-pill" data-tag="greenstone">greenstone</button>
+        <button class="blog-tag-pill" data-tag="hub-town">hub-town</button>
+        <button class="blog-tag-pill" data-tag="investors">investors</button>
+        <button class="blog-tag-pill" data-tag="knowledge-sharing">knowledge-sharing</button>
+        <button class="blog-tag-pill" data-tag="knowledgeslot">knowledgeslot</button>
+        <button class="blog-tag-pill" data-tag="manufacturing">manufacturing</button>
+        <button class="blog-tag-pill" data-tag="market-design">market-design</button>
+        <button class="blog-tag-pill" data-tag="marketforge">marketforge</button>
+        <button class="blog-tag-pill" data-tag="mining">mining</button>
+        <button class="blog-tag-pill" data-tag="municipalities">municipalities</button>
+        <button class="blog-tag-pill" data-tag="northern-ontario">northern-ontario</button>
+        <button class="blog-tag-pill" data-tag="ontario">ontario</button>
+        <button class="blog-tag-pill" data-tag="remote-town">remote-town</button>
+        <button class="blog-tag-pill" data-tag="researchers">researchers</button>
+        <button class="blog-tag-pill" data-tag="ring-of-fire">ring-of-fire</button>
+        <button class="blog-tag-pill" data-tag="roadmap">roadmap</button>
+        <button class="blog-tag-pill" data-tag="scenario">scenario</button>
+        <button class="blog-tag-pill" data-tag="supply-chain">supply-chain</button>
+        <button class="blog-tag-pill" data-tag="technology">technology</button>
+        <button class="blog-tag-pill" data-tag="testing">testing</button>
+        <button class="blog-tag-pill" data-tag="thin-markets">thin-markets</button>
+        <button class="blog-tag-pill" data-tag="trade">trade</button>
+        <button class="blog-tag-pill" data-tag="welding">welding</button>
+        
+      </div>
       <div class="blog-index-count">
         Showing <span id="blog-post-count">36</span> of 36 posts
         <button id="blog-clear-btn"
@@ -244,7 +312,7 @@
         
         <div class="blog-year-heading" data-year="2026">2026</div>
         <div class="series-card series-card--pinned reveal" id="series-intro-series"
-             data-stream="workshop-notes" data-year="2026">
+             data-stream="workshop-notes" data-year="2026" data-tags="ai canada cosolvent explainer founders investors market-design marketforge researchers roadmap thin-markets trade">
           <div class="pinned-badge">&#9733; Start Here</div><div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="series-card__label">Series &middot; 4 parts &middot; March 2026</div>
           <a href="series/intro-series.html" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">Why I'm Building Tools for Markets That Don't Exist Yet &rarr;</a>
@@ -255,7 +323,7 @@
         </div>
         <a href="catalog-200-thin-markets.html"
            class="blog-card card reveal"
-           data-stream="workshop-notes" data-year="2026">
+           data-stream="workshop-notes" data-year="2026" data-tags="thin-markets market-design marketforge catalog explainer">
           <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-13">April 13, 2026</time>
@@ -268,7 +336,7 @@
         </a>
         <a href="greenstone-hub-before-the-road.html"
            class="blog-card card reveal"
-           data-stream="workshop-notes" data-year="2026">
+           data-stream="workshop-notes" data-year="2026" data-tags="ring-of-fire northern-ontario greenstone thin-markets market-design hub-town mining remote-town fractional-services marketforge">
           <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-11">April 11, 2026</time>
@@ -281,7 +349,7 @@
         </a>
         <a href="two-lines-looking-for-each-other.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets market-design ai case-study scenario cosolvent knowledgeslot marketforge co-packing food-safety">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-10">April 10, 2026</time>
@@ -294,7 +362,7 @@
         </a>
         <a href="the-contaminated-lot.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets market-design ai case-study scenario cosolvent knowledgeslot marketforge municipalities">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-09">April 09, 2026</time>
@@ -307,7 +375,7 @@
         </a>
         <a href="the-first-wall.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets market-design ai case-study scenario cosolvent knowledgeslot marketforge">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-08">April 08, 2026</time>
@@ -320,7 +388,7 @@
         </a>
         <a href="the-invisible-specialist.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets market-design ai case-study scenario cosolvent knowledgeslot marketforge">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-08">April 08, 2026</time>
@@ -333,7 +401,7 @@
         </a>
         <a href="the-ninety-day-map.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets market-design ai case-study scenario cosolvent knowledgeslot marketforge">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-04-08">April 08, 2026</time>
@@ -346,7 +414,7 @@
         </a>
         <a href="knowledgeslot-schema-scoped-rag.html"
            class="blog-card card reveal"
-           data-stream="workshop-notes" data-year="2026">
+           data-stream="workshop-notes" data-year="2026" data-tags="thin-markets market-design knowledgeslot clientsynth ai cosolvent explainer">
           <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-06">April 06, 2026</time>
@@ -359,7 +427,7 @@
         </a>
         <a href="why-industry-context-closes-deals.html"
            class="blog-card card reveal"
-           data-stream="workshop-notes" data-year="2026">
+           data-stream="workshop-notes" data-year="2026" data-tags="thin-markets market-design knowledgeslot clientsynth ai cosolvent marketforge explainer">
           <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-06">April 06, 2026</time>
@@ -372,7 +440,7 @@
         </a>
         <a href="tribal-knowledge-thin-markets.html"
            class="blog-card card reveal"
-           data-stream="workshop-notes" data-year="2026">
+           data-stream="workshop-notes" data-year="2026" data-tags="thin-markets market-design explainer trade founders">
           <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-04-05">April 05, 2026</time>
@@ -385,7 +453,7 @@
         </a>
         <a href="middle-power-pivot-ebook.html"
            class="blog-card card reveal"
-           data-stream="workshop-notes" data-year="2026">
+           data-stream="workshop-notes" data-year="2026" data-tags="thin-markets market-design roadmap explainer canada">
           <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2026-03-30">March 30, 2026</time>
@@ -397,7 +465,7 @@
           <div class="blog-meta"><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">roadmap</span><span class="blog-tag">explainer</span><span class="blog-tag">canada</span></div>
         </a>
         <div class="series-card reveal" id="series-manufacturing-scenarios"
-             data-stream="market-scenario" data-year="2026">
+             data-stream="market-scenario" data-year="2026" data-tags="ai case-study cosolvent knowledgeslot manufacturing market-design marketforge ontario scenario testing thin-markets welding">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="series-card__label">Series &middot; 5 parts &middot; March 2026</div>
           <a href="series/manufacturing-scenarios.html" class="series-card__title" style="text-decoration:none; color:inherit; display:block; margin-bottom:.35rem;">Manufacturing Scenarios &rarr;</a>
@@ -408,7 +476,7 @@
         </div>
         <a href="used-machinery-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study scenario cosolvent knowledgeslot marketforge">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-18">March 18, 2026</time>
@@ -421,7 +489,7 @@
         </a>
         <a href="irish-trad-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study scenario cosolvent knowledgeslot marketforge cultural-services">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-17">March 17, 2026</time>
@@ -434,7 +502,7 @@
         </a>
         <a href="ukraine-defense-procurement-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets market-design ai cosolvent knowledgeslot marketforge defense case-study scenario supply-chain">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-13">March 13, 2026</time>
@@ -447,7 +515,7 @@
         </a>
         <a href="junior-mining-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study cosolvent knowledgeslot marketforge mining exploration critical-minerals">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-12">March 12, 2026</time>
@@ -460,7 +528,7 @@
         </a>
         <a href="virtual-guest-lectures.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study scenario education knowledge-sharing">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-12">March 12, 2026</time>
@@ -473,7 +541,7 @@
         </a>
         <a href="boardy-proof-of-concept.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2026">
+           data-stream="other" data-year="2026" data-tags="thin-markets market-design ai explainer marketforge cosolvent knowledgeslot">
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -485,7 +553,7 @@
         </a>
         <a href="ethiopia-produce-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study scenario cosolvent knowledgeslot marketforge">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
@@ -498,7 +566,7 @@
         </a>
         <a href="malting-barley-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study cosolvent knowledgeslot marketforge grain craft-beer">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
@@ -511,7 +579,7 @@
         </a>
         <a href="rural-legal-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study scenario cosolvent knowledgeslot marketforge canada">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
@@ -524,7 +592,7 @@
         </a>
         <a href="thin-market-size.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2026">
+           data-stream="other" data-year="2026" data-tags="thin-markets market-design ai explainer marketforge investors">
           <div class="blog-meta">
             <time datetime="2026-03-10">March 10, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -536,7 +604,7 @@
         </a>
         <a href="artisanal-craft-collaboration.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study scenario cosolvent knowledgeslot marketforge artisans">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-09">March 09, 2026</time>
@@ -549,7 +617,7 @@
         </a>
         <a href="diaspora-property-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study cosolvent knowledgeslot marketforge diaspora">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-09">March 09, 2026</time>
@@ -562,7 +630,7 @@
         </a>
         <a href="cosolvent-toolkit.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2026">
+           data-stream="other" data-year="2026" data-tags="cosolvent thin-markets market-design explainer">
           <div class="blog-meta">
             <time datetime="2026-03-07">March 07, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -574,7 +642,7 @@
         </a>
         <a href="heritage-craft-thin-market.html"
            class="blog-card card reveal"
-           data-stream="market-scenario" data-year="2026">
+           data-stream="market-scenario" data-year="2026" data-tags="thin-markets ai market-design case-study cosolvent knowledgeslot marketforge">
           <div class="blog-stream-badge" style="color:#f59e0b;background:rgba(245,158,11,.13);border:1px solid rgba(245,158,11,.32);">Market Scenario</div>
           <div class="blog-meta">
             <time datetime="2026-03-07">March 07, 2026</time>
@@ -587,7 +655,7 @@
         </a>
         <a href="why-thin-markets-fail.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2026">
+           data-stream="other" data-year="2026" data-tags="thin-markets ai market-design">
           <div class="blog-meta">
             <time datetime="2026-02-25">February 25, 2026</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -600,7 +668,7 @@
         <div class="blog-year-heading" data-year="2025">2025</div>
         <a href="why-ai-wont-take-over-work.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2025">
+           data-stream="other" data-year="2025" data-tags="ai technology explainer">
           <div class="blog-meta">
             <time datetime="2025-10-23">October 23, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -612,7 +680,7 @@
         </a>
         <a href="market-that-feeds-22-million.html"
            class="blog-card card reveal"
-           data-stream="workshop-notes" data-year="2025">
+           data-stream="workshop-notes" data-year="2025" data-tags="thin-markets market-design case-study explainer">
           <div class="blog-stream-badge" style="color:#818cf8;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.32);">Workshop Notes</div>
           <div class="blog-meta">
             <time datetime="2025-09-29">September 29, 2025</time>
@@ -625,7 +693,7 @@
         </a>
         <a href="repetition-lean-thinking-thin-markets.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2025">
+           data-stream="other" data-year="2025" data-tags="thin-markets market-design ai cosolvent explainer">
           <div class="blog-meta">
             <time datetime="2025-08-29">August 29, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -637,7 +705,7 @@
         </a>
         <a href="thick-thin-structure-grain-trade.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2025">
+           data-stream="other" data-year="2025" data-tags="thin-markets trade canada explainer">
           <div class="blog-meta">
             <time datetime="2025-07-24">July 24, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -649,7 +717,7 @@
         </a>
         <a href="markets-premium-grain-western-canada.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2025">
+           data-stream="other" data-year="2025" data-tags="thin-markets trade canada explainer">
           <div class="blog-meta">
             <time datetime="2025-07-23">July 23, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -661,7 +729,7 @@
         </a>
         <a href="creating-trust-in-thin-markets.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2025">
+           data-stream="other" data-year="2025" data-tags="thin-markets market-design cosolvent explainer">
           <div class="blog-meta">
             <time datetime="2025-07-20">July 20, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -673,7 +741,7 @@
         </a>
         <a href="pre-technology-solutions-thin-markets.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2025">
+           data-stream="other" data-year="2025" data-tags="thin-markets market-design explainer">
           <div class="blog-meta">
             <time datetime="2025-07-18">July 18, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -685,7 +753,7 @@
         </a>
         <a href="bulk-vs-containerized-shipment.html"
            class="blog-card card reveal"
-           data-stream="other" data-year="2025">
+           data-stream="other" data-year="2025" data-tags="thin-markets trade canada explainer">
           <div class="blog-meta">
             <time datetime="2025-07-16">July 16, 2025</time>
             <span class="blog-meta__sep">&middot;</span>
@@ -704,24 +772,33 @@
     var items     = Array.from(document.querySelectorAll('[data-stream]'));
     var yearHeads = Array.from(document.querySelectorAll('.blog-year-heading'));
     var countEl   = document.getElementById('blog-post-count');
-    var active    = 'all';
+    var clearBtn  = document.getElementById('blog-clear-btn');
+    var activeStream = 'all';
+    var activeTag    = '';
+
+    function cardTags(el) {
+      return el.dataset.tags ? el.dataset.tags.split(' ').filter(Boolean) : [];
+    }
 
     function applyFilter() {
       var vis = 0;
       items.forEach(function (el) {
-        var show = active === 'all' || el.dataset.stream === active;
+        var streamOk = activeStream === 'all' || el.dataset.stream === activeStream;
+        var tagOk    = !activeTag || cardTags(el).indexOf(activeTag) !== -1;
+        var show = streamOk && tagOk;
         el.classList.toggle('blog-index-item--hidden', !show);
         if (show) vis++;
       });
 
-      // Featured: first visible item gets full-width only in 'All' view
+      // Featured: first visible card gets full-width only in full 'All' view
       var first = items.find(function (el) {
         return !el.classList.contains('blog-index-item--hidden');
       });
       items.forEach(function (el) { el.classList.remove('blog-card--featured'); });
-      if (active === 'all' && first) first.classList.add('blog-card--featured');
+      if (activeStream === 'all' && !activeTag && first)
+        first.classList.add('blog-card--featured');
 
-      // Hide year headings that have no visible items
+      // Hide year headings with no visible items
       yearHeads.forEach(function (h) {
         var yr  = h.dataset.year;
         var has = items.some(function (el) {
@@ -731,24 +808,43 @@
       });
 
       if (countEl) countEl.textContent = vis;
-      var clearBtn = document.getElementById('blog-clear-btn');
-      if (clearBtn) clearBtn.style.display = active === 'all' ? 'none' : 'inline-flex';
+
+      // Clear button: visible when any filter is active
+      var filtered = activeStream !== 'all' || activeTag !== '';
+      if (clearBtn) clearBtn.style.display = filtered ? 'inline-flex' : 'none';
+
+      // Update stream tab active states
       document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
-        btn.classList.toggle('active', btn.dataset.stream === active);
+        btn.classList.toggle('active', btn.dataset.stream === activeStream);
+      });
+
+      // Update tag pill active states
+      document.querySelectorAll('.blog-tag-pill').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.tag === activeTag);
       });
     }
 
+    // Stream tabs
     document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        active = this.dataset.stream;
+        activeStream = this.dataset.stream;
         applyFilter();
       });
     });
 
-    var clearBtn = document.getElementById('blog-clear-btn');
+    // Tag pills: click active tag to deselect; click new tag to select
+    document.querySelectorAll('.blog-tag-pill').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activeTag = activeTag === this.dataset.tag ? '' : this.dataset.tag;
+        applyFilter();
+      });
+    });
+
+    // Clear all
     if (clearBtn) {
       clearBtn.addEventListener('click', function () {
-        active = 'all';
+        activeStream = 'all';
+        activeTag    = '';
         applyFilter();
       });
     }
