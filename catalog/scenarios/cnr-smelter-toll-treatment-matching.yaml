@@ -1,0 +1,135 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cnr-smelter-toll-treatment-matching
+title: Smelter and Refinery Toll Treatment Matching
+card_title: Toll Treatment Capacity Matching
+sector: canadian-natural-resources
+sub_sector: Primary Metals Processing
+forge_tier: 3
+status: published
+tags: [mining, smelting, refining, toll-treatment, concentrate, base-metals, metallurgy]
+market_example:
+  summary: A B2B platform matching junior and mid-tier mine operators with episodic concentrate
+    surpluses or single-season production with smelters and refineries that have spare toll
+    treatment capacity—solving a capital-intensive market failure that forces small producers
+    out of production when they cannot secure a term smelting contract.
+  problem: "Processing concentrated mineral output into refined metal requires access to a
+    smelter or refinery, typically under a long-term 'smelting contract' that fixes the terms
+    for concentrate payment, penalty elements, treatment charges, and refining charges over
+    multiple years. The major mining companies have no difficulty securing these arrangements;
+    they have the production volume and the corporate relationships that smelters require for
+    long-term offtake commitments. The market failure falls on small producers: a junior mine
+    operator whose copper-gold deposit produces 2,000 tonnes of concentrate per year—far below
+    the minimum commitment threshold for most Canadian smelters' standard contracts—has essentially
+    no path to toll treatment. The smelters that do accept toll treatment (ad-hoc processing of
+    concentrate on a per-tonne basis when their own feed is short) have no transparent mechanism
+    to advertise available windows, and the junior producer has no mechanism to discover them.
+    Several Canadian and US copper-gold producers have failed to begin commercial production, or
+    have suspended production after startup, not because of geological failure but because they
+    could not secure toll treatment—a $0 capital cost solution to a problem that conventional
+    financing cannot solve."
+  dominant_forces:
+    - "Smelter and refinery minimum throughput requirements systematically exclude small producers
+      from term contracts, creating a structural access gap at exactly the production scale where
+      junior mines operate."
+    - "Toll treatment windows—when a smelter has spare capacity between major feed contracts—are
+      sporadic, short-notice, and communicated only through existing relationship networks."
+    - "Concentrate specifications (penalty elements, moisture content, particle size distribution)
+      are highly variable and must match the smelter's circuit design, making generic commodity
+      brokerage inadequate for toll treatment matching."
+  deeperpoint_fit: "KnowledgeSlot models the concentrate specification matching problem: copper
+    grades, arsenic and bismuth penalty element profiles, silver and gold credits, moisture ranges,
+    and particle size distributions are matched against each smelter's circuit tolerance profiles
+    and current campaign schedules. CoSolvent manages the B2B matching: a junior producer's
+    concentrate production specification is matched against smelter toll treatment availability
+    windows with the specificity required to produce a viable term sheet, not just a general introduction."
+  economic_upside: "A single toll treatment agreement enabling a small copper-gold mine to begin
+    or sustain production represents $5–50M in annual gross revenue for the mine operator.
+    The platform captures a brokerage margin on matched toll treatment volume—a portion of a
+    market that is currently entirely opaque and relationship-gated. Governments seeking to
+    develop Canadian critical mineral processing capacity have direct policy interest in funding
+    the platform as supply-chain infrastructure."
+sponsor_opportunities:
+  - title: Concentrate Specification Matching SaaS
+    type: saas
+    revenue_model: Annual subscription for mine operators and smelter procurement teams
+    strategic_logic: "Mine operators pay for structured access to Canadian, US, and international
+      smelter toll treatment windows, matched to their specific concentrate profile—eliminating
+      months of manual negotiation that currently delays production startup for small mines."
+    recurring: true
+  - title: Toll Treatment Contract Brokerage
+    type: managed-service
+    revenue_model: Per-tonne brokerage fee on matched toll treatment volume
+    strategic_logic: "The platform acts as the structured broker for toll treatment placement,
+      managing concentrate specification verification, campaign scheduling negotiation, and
+      logistics coordination between mine site and smelter—capturing margin on a market
+      segment that traditional commodity traders ignore as too small or too complex."
+    recurring: true
+  - title: Critical Minerals Processing Supply Chain Intelligence
+    type: commerce-extension
+    revenue_model: Policy intelligence subscription for Natural Resources Canada and provincial mining ministries
+    strategic_logic: "Governments investing in Canadian critical minerals processing capacity need
+      real-time visibility into domestic toll treatment availability and small-producer access
+      gaps. The platform's aggregated data becomes a policy tool for identifying where smelter
+      capacity expansions would have the greatest impact on junior producer viability."
+    recurring: true
+story:
+  title: The Concentrate in the Shed
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Lena - COO, small copper-gold mine in northern British Columbia"
+    - "David - Commercial Manager, Canadian smelter and refinery complex"
+  summary: "A small BC copper-gold mine on the verge of suspending production secures toll
+    treatment access through a concentrate-specification matching platform, avoiding a shutdown
+    that would have put 47 people out of work."
+  body: |
+    ## Act A - The Market Structure
+
+    The mining industry has a processing bottleneck that is almost never discussed because
+    it primarily affects companies too small to have investor relations staff to talk about it.
+
+    Copper production requires a copper smelter, and copper smelters need volume. A major
+    mine has no problem securing a term smelting contract; its production justifies the
+    smelter's fixed overhead. A small mine producing 2,000 tonnes of concentrate per year—less
+    than a week's throughput for a major Canadian smelter—is structurally invisible to the
+    term contract market. The only path is toll treatment: paying a smelter to process
+    concentrate on a spot basis during feed gaps. But toll treatment windows are communicated
+    through the same relationship networks that the small producer was excluded from in the
+    first place.
+
+    ---
+
+    ## Act B - The Story
+
+    **Lena** is staring at 800 tonnes of copper-gold concentrate in a warehouse on a haul road
+    in northern BC. The mine has been operating for seven months. Both of the smelters their
+    Vancouver broker introduced them to declined: one because the arsenic penalty profile
+    exceeds their circuit tolerance, one because they have no available campaign slot until
+    Q3 next year. If the concentrate doesn't move within 60 days, Lena will need to suspend
+    production—her bonded storage limit is finite and the next ore parcel is ready.
+
+    **David's** smelter has a six-week toll treatment window opening in three weeks because a
+    major feed contract customer moved their shipment. He needs concentrate that is compatible
+    with his reverberatory furnace's arsenic tolerance and that can be delivered in two tranches.
+    His commercial team posted the availability in industry newsletters. Nobody who matched
+    his specification has seen it.
+
+    Lena's metallurgist uploads a concentrate specification to the platform: copper grade,
+    arsenic content, bismuth, lead, silver credit, moisture. David's commercial team has
+    already registered the smelter's circuit specifications and the available window. The
+    match is automatic. The platform generates a draft toll treatment term sheet specifying
+    treatment charges, penalty deductions, metal credits, and delivery schedule. Lena's
+    logistics coordinator books the trucks within 48 hours of the match. The mine stays open.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Toll treatment availability is one of the most valuable pieces of information in the
+    small-mine value chain, and it circulates through a handful of relationship conversations
+    that most small producers are never part of. DeeperPoint builds the specification-matched
+    broker layer that turns a closed network into an open, transparent market—keeping small mines
+    in production when they should be operating.
+
+    *Characters are fictional. The toll treatment access gap for small Canadian producers is real.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

@@ -1,0 +1,140 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cnr-flow-through-share-financing
+title: Flow-Through Share Financing Matching
+card_title: Flow-Through Share Matching
+sector: canadian-natural-resources
+sub_sector: Mineral Exploration Capital
+forge_tier: 2
+status: published
+tags: [mining, exploration, flow-through-shares, financing, tax-credits, investors, cra, tsxv]
+market_example:
+  summary: A structured matching platform connecting junior Canadian mineral explorers seeking
+    flow-through share financing with high-net-worth individual investors and their tax advisors
+    who need to deploy Canadian Exploration Expense credits before year-end—bypassing the
+    expensive brokered placement circuit that extracts 6–8% in agent commissions.
+  problem: "Flow-through shares are a uniquely Canadian financing instrument: investors in
+    a junior mineral exploration company's flow-through share placement can renounce the
+    qualifying exploration expenditures to the investor, who claims them as a deduction against
+    income—effectively providing a 30–50% after-tax cost reduction on the investment, depending
+    on the investor's provincial tax rate. The CRA requires that the renounced expenditures
+    be incurred within 24 months of the share issuance, creating a structured capital deployment
+    mechanism that aligns investor tax planning timelines with exploration program execution.
+    The market failure is on the distribution side. Accessing flow-through investors today
+    requires retaining a brokerage firm that specializes in resource financings—typically charging
+    6–8% in agent commissions plus warrant sweeteners that dilute existing shareholders. For a
+    junior company raising $500,000, this means $40,000 in commissions and a legal bill of
+    $25,000–$35,000 before a dollar is in the ground. Smaller companies below the threshold of
+    broker interest—raising $150,000 to $400,000 for a focused Phase 1 program at a genuinely
+    early-stage prospect—cannot access the investor pool at all. Meanwhile, thousands of
+    high-net-worth Canadians and family offices with year-end tax-planning needs actively seek
+    flow-through placements but have no structured way to discover small, geologically sound
+    exploration companies below the broker coverage threshold."
+  dominant_forces:
+    - "Canada's flow-through share regime is one of the world's most effective exploration
+      financing tools, but its distribution through brokered placements systematically excludes
+      small-raise companies and direct investors who do not run through institutional channels."
+    - "Year-end tax planning creates predictable capital deployment windows (October–December)
+      that junior companies could exploit efficiently if they could reach the right investors
+      without broker intermediation."
+    - "The 2023 Critical Mineral Exploration Tax Credit (CMETC) added a federal 30% tax
+      credit on top of existing provincial credits for qualifying critical mineral exploration,
+      dramatically increasing flow-through investment returns for qualifying projects—but
+      awareness among direct investors is limited without structured outreach."
+  deeperpoint_fit: "KnowledgeSlot encodes the CRA flow-through share rules, CMETC qualifying
+    criteria, and the standard renunciation agreement structure. CoSolvent matches a company's
+    qualifying exploration program (commodity, location, exploration budget, expenditure timeline)
+    against investor profiles that specify their tax-credit eligibility, investment size range,
+    and sector preferences. The platform structures a compliant term sheet and renunciation
+    agreement template, eliminating much of the legal setup cost."
+  economic_upside: "The Canadian flow-through share market deploys approximately $1–1.5 billion
+    annually. The platform targets the sub-$500K raise segment that is systematically underserved
+    by brokers and represents hundreds of early-stage programs. Revenue from a 2–3% platform fee
+    versus 6–8% broker commissions makes the platform significantly cheaper for issuers while
+    being sustainable for the operator."
+sponsor_opportunities:
+  - title: Flow-Through Placement Marketplace
+    type: managed-service
+    revenue_model: 2.5% platform fee on matched placement value, versus 6-8% broker commissions
+    strategic_logic: "Junior companies save 3–5 percentage points in financing costs compared
+      to brokered placements; investors gain structured access to a curated, geologically vetted
+      flow-through offering registry that does not depend on broker coverage relationships."
+    recurring: true
+  - title: CMETC Eligibility Pre-Screening Service
+    type: saas
+    revenue_model: Annual subscription for tax advisors and family offices deploying flow-through capital
+    strategic_logic: "Tax advisors and family offices need rapid CMETC eligibility assessment
+      for their clients' flow-through investments. The platform's pre-screening tool—integrated
+      with current CRA guidance and quarterly qualifying mineral updates—becomes the go-to
+      compliance tool for this niche advisory market."
+    recurring: true
+  - title: Renunciation Compliance Tracking
+    type: commerce-extension
+    revenue_model: Per-placement compliance monitoring subscription
+    strategic_logic: "Flow-through issuers must incur the renounced CEE expenditures within
+      24 months of issuance or face CRA penalties. The platform monitors program expenditure
+      timelines against renunciation commitments, flagging shortfalls and triggering automated
+      investor notifications—reducing compliance failures that expose both company and investor
+      to CRA reassessment."
+    recurring: true
+story:
+  title: The Year-End Window
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Tomas - President, small gold-nickel explorer, Red Lake area, Ontario"
+    - "Diane - Wealth Advisor managing HNW client portfolios with year-end tax needs, Toronto"
+  summary: "A gold-nickel junior that cannot afford broker commissions directly places flow-through
+    shares with high-net-worth investors through a platform that matches the company's CMETC-qualifying
+    program with the clients' year-end tax-planning timeline."
+  body: |
+    ## Act A - The Market Structure
+
+    Canada's flow-through share regime is one of the most elegant resource financing tools
+    ever designed. It lets the government subsidize mineral exploration by routing tax credits
+    through the investor rather than the company—aligning private capital with public resource
+    development goals without direct government spending.
+
+    Its fatal flaw is distribution. The brokered placement circuit that delivers flow-through
+    capital to junior companies works beautifully for raises above $1M. Below that threshold,
+    brokers cannot cover their costs, and the junior company—which may have a perfectly competent
+    geological program, a valid CMETC-qualifying commodity, and a year-end expenditure timeline
+    that maps perfectly onto investor tax planning—simply cannot reach the market.
+
+    ---
+
+    ## Act B - The Story
+
+    **Tomas** needs to raise $280,000 to fund a Phase 1 soil geochemistry and ground magnetics
+    survey on a gold-nickel target southwest of Red Lake. The commodity qualifies for CMETC.
+    The expenditure window is right. Two Toronto brokers told him the raise is too small to
+    economically underwrite. One suggested a finder's fee arrangement, but the legal costs
+    alone would consume 10% of the raise. Tomas is considering funding the program personally,
+    which would exhaust his working capital and leave nothing for the next stage.
+
+    **Diane** manages portfolios for sixteen families with tax years ending December 31st. She
+    routinely places $15,000–$40,000 per client in flow-through investments. Her current flow-through
+    inventory comes from two Toronto brokers who allocate her clients into the same three repeat
+    issuers. Her clients want diversification into earlier-stage programs with higher exploration
+    leverage—and the CMETC premium for qualifying critical minerals makes gold-nickel exposure
+    particularly attractive this year. She has no mechanism to find Tomas.
+
+    Tomas uploads his qualifying exploration program to the platform in October: commodity,
+    location, planned CEE expenditures, timeline, CMETC eligibility pre-screen. The platform
+    generates a compliant flow-through offering profile. Diane queries the platform for her
+    clients' Q4 window: investment size range, CMETC qualification, gold and base metal exposure.
+    Tomas's program surfaces as a qualified match. The platform generates the term sheet and
+    renunciation agreement framework. Diane places $240,000 across eight client accounts.
+    Tomas starts the field program in January with zero broker commissions paid.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The flow-through share mechanism was designed to deploy private capital into Canadian
+    mineral exploration regardless of broker coverage. Without a distribution platform that
+    reaches below the broker threshold, the mechanism fails for the smallest, earliest-stage
+    programs—precisely the ones where geological risk is highest and the incentive is most
+    needed. DeeperPoint builds the marketplace that makes flow-through financing work as intended.
+
+    *Characters are fictional. The flow-through market gap below broker thresholds is real.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

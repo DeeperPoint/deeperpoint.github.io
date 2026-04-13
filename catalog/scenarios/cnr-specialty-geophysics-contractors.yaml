@@ -1,0 +1,142 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cnr-specialty-geophysics-contractors
+title: Specialty Geophysics Survey Contractor Exchange
+card_title: Geophysics Survey Contractor Matching
+sector: canadian-natural-resources
+sub_sector: Exploration Technology Services
+forge_tier: 1
+status: published
+tags: [mining, exploration, geophysics, airborne, tem, em, magnetics, survey, contractors]
+market_example:
+  summary: A structured matching platform connecting junior and mid-tier exploration companies
+    needing specialty geophysical surveys—airborne TEM, ground TDEM, IP, gravity—with the
+    small pool of accredited geophysical survey contractors whose equipment and expertise
+    match the required survey design and deposit model.
+  problem: "Geophysical surveys are the primary tool for targeting drill programs in blind
+    mineral exploration—the difference between drilling into productive ground and wasting
+    $500,000 on a miss often hangs on survey design choices and the competency of the
+    contractor executing the survey. The specialty geophysics sector in Canada is a thin
+    market by any definition: a handful of Canadian-based contractors operate helicopter-borne
+    time-domain electromagnetic (TDEM) systems capable of deep basement penetration in
+    the conductivity ranges relevant to base metal and nickel-copper targets. Fewer than
+    a dozen operators run fixed-wing frequency-domain EM systems suited to uranium exploration
+    in the Athabasca Basin. Ground-based induced polarization survey crews with proven
+    competency in hard rock settings number in the tens nationally. These contractors have
+    different equipment capabilities, different regional expertise, different seasonal
+    deployment calendars, and dramatically different suitability for different geological
+    targets. A junior company scoping a magnetite-bearing nickel sulphide target needs
+    a different contractor capability than one chasing an unconformity uranium target
+    in Saskatchewan. But the mechanism for finding, evaluating, and booking specialty
+    geophysics contractors is the same as for drill rigs: personal networks, trade show
+    introductions, and the geological consulting firm's existing contractor relationships—a
+    system that systematically fails first-time programs and companies without established
+    geological advisor relationships."
+  dominant_forces:
+    - "Specialty geophysics equipment availability is limited to a small national pool:
+      fewer than a dozen TDEM helicopter operators, fewer than 10 fixed-wing frequency-domain
+      systems, with seasonal demand peaks driven by exploration funding windows."
+    - "Survey design must match the geological target—wrong equipment selection for a deposit
+      model produces data that is not only useless but actively misleading, causing drill
+      programs to be sited in incorrect locations."
+    - "Geophysics contractors have strong regional preferences driven by mobilization costs,
+      crew familiarity with local conditions, and existing maintenance relationships with
+      regional camp operators—factors invisible to a junior company scoping their first survey."
+  deeperpoint_fit: "KnowledgeSlot encodes the survey design matching logic: deposit model to
+    geophysical method relationships (e.g., TDEM for deep sulphide conductors, IP for porphyry
+    and intrusion-hosted targets, gravity for mafic intrusions and dense ore bodies). CoSolvent
+    matches the geological target description against contractor capability profiles—system
+    type, maximum depth penetration, accreditation status, regional deployment experience,
+    and current calendar availability."
+  economic_upside: "A single airborne TDEM survey for a shield exploration program costs
+    $80,000–$400,000. Poor contractor selection for a geological target results in unusable
+    data and wasted program budgets. The platform captures a matching fee on survey bookings
+    while dramatically reducing the geological mismatch rate that wastes millions in exploration
+    capital annually."
+sponsor_opportunities:
+  - title: Geophysics Contractor Registry SaaS
+    type: saas
+    revenue_model: Annual subscription for junior and mid-tier exploration companies
+    strategic_logic: "Exploration managers and their geological consultants pay for a structured
+      registry of Canadian specialty geophysics contractors, searchable by survey method, depth
+      capability, regional experience, and calendar availability—replacing a multi-week
+      RFQ process with a 48-hour booking workflow."
+    recurring: true
+  - title: Survey Design Suitability Assessment
+    type: managed-service
+    revenue_model: Per-survey design review fee charged to exploration company
+    strategic_logic: "Before booking a contractor, junior companies pay for an independent
+      review of their proposed survey design against their geological target model—ensuring
+      that the chosen method, system parameters, and line spacing are appropriate before
+      committing the survey budget."
+    recurring: false
+  - title: Exploration Program Integration Data Package
+    type: commerce-extension
+    revenue_model: Per-survey data integration subscription
+    strategic_logic: "After survey completion, the platform packages the raw geophysical data
+      with the geological target model in a format compatible with the company's drill targeting
+      software—enabling immediate drill hole siting without the usual multi-week data processing
+      and interpretation lag."
+    recurring: false
+story:
+  title: The Invisible Conductor
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Marcus - Chief Geologist, junior nickel-copper explorer, northwest Ontario"
+    - "Sylvia - Operations Director, specialty helicopter TDEM geophysics company, Timiskaming"
+  summary: "A junior company targeting a deep nickel sulphide conductor in northwest Ontario
+    finds the only available helicopter TDEM system with the penetration depth specification
+    their target requires through a structured geophysics contractor exchange."
+  body: |
+    ## Act A - The Market Structure
+
+    Geophysics is the geological telescope—the instrument that lets an exploration company
+    see below the overburden and rock surface to where the ore body might be. But there is
+    no universal geophysical camera. A helicopter TDEM system tuned for uranium detection
+    in the Athabasca Beaufort Basin will not image a nickel sulphide conductor at 400-metre
+    depth in a Proterozoic terrane. Survey method, system parameters, line spacing, and
+    data processing protocol are all deposit-model-specific decisions.
+
+    The pool of contractors capable of executing the right survey for a given geological
+    target is thin by definition. There are perhaps six helicopter TDEM operators in Canada
+    whose systems can penetrate to the depth and conductivity contrast required for deep
+    sulphide detection. In a hot exploration season, they are booked months in advance—and
+    they are not all registered anywhere.
+
+    ---
+
+    ## Act B - The Story
+
+    **Marcus** has a ground magnetics anomaly at his flagship property that is consistent
+    with a mafic-ultramafic intrusion—the kind of host that carries Voisey's Bay-style
+    nickel-copper-cobalt mineralization if the sulphide content is high enough. He needs
+    a helicopter TDEM survey: minimum 400-metre depth penetration, Geotem or Tempest-class
+    specifications, flown at 60-metre line spacing over a six-square-kilometre target area.
+    His geological consultant called three contractors. Two booked. One operates a system
+    with depth penetration rated to 250 metres—not enough for the interpreted target depth.
+
+    **Sylvia's** company returned from a six-week uranium survey in Saskatchewan two weeks
+    early because permitting delays pushed back the client's program. Her Hs350 helicopter
+    is hangared in Timiskaming with the MEGATEM II system already mounted. She has a five-week
+    window before her next committed program. She didn't send any marketing emails.
+
+    Marcus queries the platform: TDEM, helicopter, minimum 400m depth, 60m line spacing,
+    northwest Ontario, available within three weeks. Sylvia's system specs surface as the
+    only matching available operator in Canada. Marcus reviews her system parameters and
+    reference program history. The mobilization is booked. The survey generates 47 lineal
+    kilometres of TDEM data over a 14-day program. The strongest conductor anomaly—380 metres
+    of depth, 92 siemens—is precisely where the geological model predicted it should be.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The difference between the right geophysics contractor and the wrong one is the difference
+    between a drill hole that intersects mineralization and a drill hole that costs $400,000
+    and proves nothing. The market cannot afford to match on availability and price alone—it
+    must match on geological suitability. DeeperPoint builds the structured deposit-model-aware
+    contractor matching that the industry needs.
+
+    *Characters are fictional. The specialty geophysics contractor bottleneck is a recognized
+    constraint in Canadian exploration. [DeeperPoint](../../marketforge.html) is building the
+    infrastructure this story describes.*

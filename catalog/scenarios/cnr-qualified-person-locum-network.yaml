@@ -1,0 +1,140 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cnr-qualified-person-locum-network
+title: NI 43-101 Qualified Person Locum Network
+card_title: Qualified Person (QP) Locum Matching
+sector: canadian-natural-resources
+sub_sector: Regulatory Compliance
+forge_tier: 1
+status: published
+tags: [mining, exploration, ni-43-101, qualified-person, regulatory, compliance, consultants]
+market_example:
+  summary: A specialist matching platform connecting junior mining companies that need an
+    NI 43-101 Qualified Person to supervise drilling, sign technical reports, or provide
+    independent sign-off with P.Geo.- or P.Eng.-registered geological consultants who have
+    the deposit-type expertise and availability to take on the engagement.
+  problem: "Every technical report, resource estimate, and public disclosure made by a
+    publicly-listed Canadian mining company under National Instrument 43-101 must be
+    reviewed and signed off by an independent 'Qualified Person'—a P.Geo. or P.Eng.
+    whose professional credentials and relevant domain expertise make them legally
+    responsible for the scientific content of the disclosure. This is not a technicality;
+    the QP requirement is the cornerstone of Canada's mineral disclosure regime and the
+    primary protection against fraudulent promotions. The structural problem is a severe
+    mismatch between the QP supply and the surging demand for QP services during exploration
+    booms. QPs are senior geological professionals with decades of specific deposit-type
+    experience—they are not interchangeable. A QP with twenty years in Archean VMS systems
+    is not a credible independent authority on a platinum-group element intrusion in a
+    Proterozoic layered complex. Junior companies in a drilling season need QP availability
+    on short timelines, but the market for QP services operates almost entirely through
+    personal professional networks. There is no structured registry of available QPs by
+    deposit-type expertise, jurisdiction familiarity, and current engagement status—so junior
+    companies routinely delay technical report filings, fail to meet regulatory deadlines,
+    or make do with QPs whose expertise doesn't match their deposit type."
+  dominant_forces:
+    - "NI 43-101 mandates independent QP supervision for all public technical disclosures,
+      creating unavoidable, recurrent demand for credentialed consultants at every stage
+      of exploration—but the QP market has no central registry; access is entirely network-dependent."
+    - "QPs are deposit-type specialists, not generalists—the geological expertise required to
+      credibly supervise a diamond drilling program on a magmatic sulphide target is fundamentally
+      different from that required for a porphyry or epithermal system."
+    - "Exploration booms (triggered by commodity price surges or critical minerals policy programs)
+      create sudden demand spikes for QP services that the informal network cannot dispatch
+      quickly enough, causing regulatory filing delays and securities disclosure violations."
+  deeperpoint_fit: "KnowledgeSlot encodes the NI 43-101 QP competency framework: deposit type
+    categories, jurisdiction-specific licensing requirements, and the independence standards
+    required for different types of engagements (supervision vs. technical report authorship
+    vs. resource estimation). CoSolvent matches a junior company's project profile—commodity,
+    deposit style, jurisdiction, program stage—against QP profiles built from professional
+    credentials, deposit-type resume, and current engagement availability."
+  economic_upside: "QP engagements range from $15,000 (technical report review) to $150,000+
+    (multi-year resource estimation program). The Canadian mining sector generates thousands
+    of NI 43-101 disclosures annually. A structured registry capturing even 15% of unsponsored
+    QP engagements through network friction generates substantial platform revenue while
+    dramatically improving the quality and compliance rate of mineral disclosures."
+sponsor_opportunities:
+  - title: QP Registry SaaS
+    type: saas
+    revenue_model: Annual subscription for junior mining companies; matching fee per QP engagement initiated
+    strategic_logic: "Junior companies pay for always-on, structured access to QP availability
+      across deposit types and jurisdictions—eliminating the multi-week scramble for compliant
+      supervision that currently delays drilling season starts and technical report filings."
+    recurring: true
+  - title: QP Credential Verification Service
+    type: managed-service
+    revenue_model: Per-QP verification and credentialing fee, with annual renewal
+    strategic_logic: "The platform manages credential verification—P.Geo. and P.Eng. licensing
+      status, professional liability insurance, independence confirmation—providing securities
+      regulators and company boards with documented assurance that the QP assignment meets
+      NI 43-101 independence and competency requirements."
+    recurring: true
+  - title: Regulatory Deadline Tracking Dashboard
+    type: commerce-extension
+    revenue_model: Annual SaaS subscription for junior company boards and legal counsel
+    strategic_logic: "The platform tracks each company's active NI 43-101 filing obligations
+      and QP engagement timelines, providing automated reminders and deadline risk flags to
+      boards and securities counsel—reducing the compliance failures that trigger TSX-V
+      suspension notices and securities commission notices of default."
+    recurring: true
+story:
+  title: The Filing Deadline
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Raj - CFO, junior copper exploration company, Vancouver"
+    - "Dr. Sandra Keig - Independent P.Geo., magmatic sulphide specialist, Sudbury"
+  summary: "A junior mining company racing to file an NI 43-101 technical report before an
+    exchange deadline finds the only available, deposit-appropriate QP in Canada through
+    a structured credential-matching registry."
+  body: |
+    ## Act A - The Market Structure
+
+    NI 43-101 is Canada's framework for protecting investors in mining and exploration
+    companies—and it is enforced through the legal liability of a single individual, the
+    Qualified Person, who must vouch with their professional license for every material
+    technical claim a public company makes about a mineral project.
+
+    The system works because the QP's professional license creates a genuine deterrent
+    against promotional inflation. What it does not do is ensure that the right QP finds
+    the right project. That matching happens through personal professional networks built
+    over decades at CIM conferences and in the hallways of PDAC—a system that is
+    catastrophically slow when a junior company has a drilling season deadline and two
+    weeks to find compliant supervision.
+
+    ---
+
+    ## Act B - The Story
+
+    **Raj** has a problem he didn't see coming. Novus Copper's drilling contractor moved
+    up the start date for the winter program by three weeks—taking advantage of a sudden
+    rig availability—and Raj needs a QP on site in northern Manitoba in 14 days. Their
+    previous QP, a retired Falconbridge geologist, had a cardiac event and cannot travel.
+    Finding a replacement through the usual channels—emails to his network, a call to
+    the company's geological advisor—has produced two names. The first is booked through
+    March. The second has never worked on a magmatic sulphide system; their expertise is
+    porphyry copper. That mismatch would undermine the independence determination.
+
+    **Dr. Keig** spent 22 years at Inco and Sudbury-based junior companies characterizing
+    magmatic sulphide Cu-Ni-PGE systems across the Sudbury Basin, Thompson Nickel Belt,
+    and Raglan area. She retired from Inco two years ago and now takes independent consulting
+    engagements on QP supervision contracts. She has two weeks free between her current
+    Saskatchewan engagement and a scheduled QP review starting in April. She is in exactly
+    the right deposit-type domain. Raj has never heard of her.
+
+    Raj queries the platform for QP availability: magmatic sulphide competency, Manitoba
+    jurisdiction, 14-day lead time, full drilling supervision scope. Dr. Keig's profile
+    appears—credential-verified, availability confirmed, independence documentation pre-loaded.
+    A supervised engagement scope agreement is structured through the platform. Dr. Keig
+    is on a flight to Thompson three days later. The program starts on schedule. The NI 43-101
+    technical report is filed on time. Novus Copper avoids a TSX-V suspension notice.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    When a single professional's license is the regulatory linchpin of an entire country's
+    mining disclosure system, the mechanism for finding that professional must be faster,
+    more structured, and more expertise-specific than word of mouth. DeeperPoint builds the
+    credentialed QP registry that the industry has needed since NI 43-101 came into force.
+
+    *Characters are fictional. The QP bottleneck is real and regularly delays exploration
+    programs and securities filings. [DeeperPoint](../../marketforge.html) is building the
+    infrastructure this story describes.*

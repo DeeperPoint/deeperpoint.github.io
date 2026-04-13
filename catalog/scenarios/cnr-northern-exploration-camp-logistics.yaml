@@ -1,0 +1,145 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cnr-northern-exploration-camp-logistics
+title: Northern Exploration Camp and Fly-In Logistics Coordination
+card_title: Exploration Camp Logistics Exchange
+sector: canadian-natural-resources
+sub_sector: Exploration Logistics
+forge_tier: 1
+status: published
+tags: [mining, exploration, camp-services, fly-in, logistics, northern-ontario, northern-canada, helicopter]
+market_example:
+  summary: A coordinated logistics platform matching junior exploration companies with shared
+    remote camp capacity, helicopter charter availability, and specialty fly-in logistics providers
+    across northern Canada's exploration districts—replacing the fragmented, relationship-dependent
+    coordination that costs exploration programs weeks of setup time and 20–30% in camp cost premiums.
+  problem: "Running a diamond drilling or geophysical survey program in the remote Canadian Shield
+    or sub-Arctic requires establishing and supplying a field camp: a remote site with accommodation,
+    cook service, fuel storage, equipment staging, and helicopter access. In Canada's northern
+    exploration districts—the Abitibi and James Bay Lowlands in Quebec and Ontario, the Northwest
+    Territories, Nunavut, and northern BC—the infrastructure that supports these camps is provided
+    by a small number of specialty service providers: fly camp operators who establish and supply
+    seasonal field camps, helicopter companies with long-line supply and exploration-specific
+    aircraft, fuel depot operators at staging points, and boat charter services for lake access
+    in the Shield. This services market is thin and relationship-dependent. A junior exploration
+    company running its first northern program has no directory of regional providers, no visibility
+    into current availability, and no mechanism to assess whether a camp operator has experience
+    in their specific district. Camp setup for a single-season program can consume six to eight weeks
+    of the project manager's time in logistics coordination before a single metre of drilling has begun.
+    The cost premium for poorly sourced logistics—expensive helicopter charters, camp setup delays,
+    fuel resupply inefficiencies—routinely adds 15–25% to drilling program budgets. When two or
+    three junior companies are operating in the same district in the same season, there is also
+    significant uncoordinated demand for the same limited helicopter and camp supply capacity,
+    driving up costs for all when shared logistics could reduce them."
+  dominant_forces:
+    - "Northern exploration logistics providers are small, regional, and invisible to junior
+      companies without existing network connections in the specific district."
+    - "Helicopter charter capacity in remote exploration districts is the critical scheduling
+      constraint: a single helicopter company may serve five concurrent junior programs in
+      the same district, with no mechanism for coordinating demand or sharing capacity."
+    - "Camp setup and supply logistics consume a disproportionate share of junior company
+      management time relative to their budget weight—logistics coordination is not a
+      core competency for geologists managing first northern programs."
+    - "Co-located programs in the same district represent a natural shared logistics
+      opportunity that is almost never exploited due to competitive sensitivity about program
+      locations and lack of a trusted coordination mechanism."
+  deeperpoint_fit: "CoSolvent coordinates district-level logistics pooling: for programs operating
+    within the same geological district and seasonal window, the platform facilitates shared
+    helicopter charter, co-located camp capacity sharing (with program independence preserved),
+    and coordinated fuel depot resupply scheduling. KnowledgeSlot encodes northern logistics
+    best practices: camp regulatory requirements, food safety standards for fly-in camps,
+    fuel storage regulations, and Transport Canada helicopter charter requirements for exploration."
+  economic_upside: "A coordinated logistics exchange reducing camp and charter costs by 15%
+    across 200 programs per season represents $10–30M in operational savings returned to
+    exploration budgets—extending net drilling meters by 10–15% without additional investor capital.
+    Platform revenue via logistics coordination fees and helicopter charter booking commissions."
+sponsor_opportunities:
+  - title: Northern Logistics Provider Registry
+    type: saas
+    revenue_model: Annual subscription for logistics service providers and annual access fee for exploration companies
+    strategic_logic: "Regional fly camp operators, helicopter companies, and fuel depot operators
+      pay to maintain searchable profiles, creating a structured northern logistics marketplace
+      that reduces customer acquisition costs for providers and logistics sourcing time for
+      exploration companies."
+    recurring: true
+  - title: District Logistics Pooling Coordination
+    type: managed-service
+    revenue_model: Per-program logistics coordination fee plus percentage of shared charter savings
+    strategic_logic: "The platform actively coordinates shared helicopter charter and camp resupply
+      between co-located programs, with program-independent supply chains (each company's samples,
+      crew, and data remain segregated), capturing a portion of the savings generated as the
+      coordination fee."
+    recurring: false
+  - title: Camp Cost Benchmarking Intelligence
+    type: commerce-extension
+    revenue_model: Annual data subscription for mining investment analysts and exploration company boards
+    strategic_logic: "Aggregated camp setup and logistics cost data by district and program type
+      allows exploration company boards and their investors to benchmark program cost estimates
+      against district norms—identifying programs where logistics cost inflation may signal
+      management inefficiency before capital is committed."
+    recurring: true
+story:
+  title: The Shared Helicopter
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Yasmin - Project Manager, junior base metal explorer, James Bay Lowlands, Quebec"
+    - "Pierre - Operations Director, regional fly camp and helicopter charter provider, Chibougamau"
+  summary: "A junior exploration company in the James Bay Lowlands reduces their helicopter
+    charter costs by 22% and their camp setup timeline by three weeks by joining a district
+    logistics coordination pool with two other programs, enabled by a shared logistics platform."
+  body: |
+    ## Act A - The Market Structure
+
+    The logistics of a remote northern exploration program are less dramatic than the geology
+    but more likely to determine whether the program gets completed on time and on budget.
+
+    Every field day in the remote Canadian Shield requires fuel, food, a place to sleep, and
+    a way to move people and equipment between camp and drill site. These things are supplied
+    by a small regional service industry that knows its territory well but is structurally
+    invisible to the first-time project manager who learned their trade in a city geology office.
+
+    The hidden inefficiency is competition for shared infrastructure. In a district where three
+    junior programs are operating in the same summer season, each of them has independently
+    sourced a helicopter charter, each is running separate fuel resupply runs, and each is
+    paying camp setup costs that a coordinated shared arrangement would cut by a third.
+    Nobody coordinates because nobody knows who else is operating, and nobody trusts the
+    other programs enough to coordinate without a neutral intermediary.
+
+    ---
+
+    ## Act B - The Story
+
+    **Yasmin** is in the sixth week of logistics setup for a geophysical and reconnaissance
+    drilling program on a nickel-cobalt target in the James Bay Lowlands. She has a helicopter
+    charter committed at $5,800/hour, a camp operator she found through the Quebec mineral
+    exploration association, and a fuel resupply schedule that requires two float plane rotations
+    per week. Total fixed logistics costs: $380,000 for the eight-week program. Geology
+    budget: $290,000. The ratio is wrong.
+
+    **Pierre** runs a camp service and helicopter charter operation out of Chibougamau. He
+    has a Bell 206 and an AS350 available for the same eight-week window. He is currently
+    contracted to two other programs in the same lowlands district—a gold explorer 40 km
+    north of Yasmin's camp and a chromite-vanadium program 60 km east. He has never spoken
+    to either of the other program's project managers, but he knows the district has three
+    concurrent programs because he's seen the helicopter traffic.
+
+    The platform surfaces the three co-located programs to a district coordination proposal:
+    shared fuel depot resupply (one float plane serving three camp locations on a coordinated
+    schedule), coordinated helicopter repositioning (maximizing flight hours between client
+    call-outs instead of returning to base between every rotation), and shared camp emergency
+    protocol (mutual assistance agreements for medical evacuation). Yasmin agrees to the
+    coordination arrangement. The shared logistics reduce her helicopter charter costs by 22%
+    and her fuel resupply costs by 18%. She redirects the savings to three additional drill holes.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Northern exploration logistics are a shared district resource operating as competitive
+    individual costs. Nobody coordinates because the coordination mechanism doesn't exist.
+    DeeperPoint provides the trusted neutral platform that enables logistics pooling across
+    competitive programs, delivering shared efficiency without compromising program independence.
+
+    *Characters are fictional. Northern exploration logistics cost inefficiency and the
+    absence of district coordination mechanisms are real and widely recognized in the industry.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
