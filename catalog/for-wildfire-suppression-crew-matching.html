@@ -1,0 +1,528 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wildfire Suppression: Matching Specialty Firefighting Contractors to Provincial Surge Capacity Requests — DeeperPoint</title>
+  <meta name="description" content="When a provincial fire management agency issues a surge capacity request for specialty wildfire suppression resources — helicopter bucket crews, Type 1 hand crews with interface experience, heavy equipment operators for fireguard construction — the contractors with the specific equipment and crew certification needed cannot be efficiently identified and mobilized before the 24–72 hour deployment window closes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Forestry &middot; Wildfire Management &amp;amp; Emergency Response</div>
+      <h1 class="detail-title">Wildfire Suppression: Matching Specialty Firefighting Contractors to Provincial Surge Capacity Requests</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
+        <span class="blog-tag">forestry</span><span class="blog-tag">wildfire</span><span class="blog-tag">fire-suppression</span><span class="blog-tag">emergency-response</span><span class="blog-tag">contractor</span><span class="blog-tag">canada</span><span class="blog-tag">bc</span><span class="blog-tag">alberta</span><span class="blog-tag">participant-scarcity</span><span class="blog-tag">surge-capacity</span><span class="blog-tag">temporal-urgency</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Canadian wildfire suppression is one of the most time-critical thin markets in existence. When a wildland-urban interface fire escalates to a level requiring surge capacity resources beyond a provincial agency&#x27;s standing contract capacity, the fire management agency issues Emergency Resource Requests (ERRs) — requests for specific suppression resources with specific certification, equipment, and mobilization timeline requirements. The market that responds to ERRs is a competitive, fragmented contractor ecosystem of specialty wildfire suppression firms, helicopter operators, heavy equipment operators, and hand crew contractors distributed across western Canada, who have different equipment inventories, crew certification profiles, and current deployment status at any given moment. The provincial agency mobilizing surge resources must work through regional coordinator networks, standing contract lists, and phone-tree communication to identify contractors who are simultaneously (1) not already deployed to another fire, (2) certified at the relevant NWCG or CIFFC crew type, (3) within logistical range of the fire location, and (4) able to meet the mobilization timeline. This four-constraint matching problem — solved under 24-hour operational pressure — is currently done through relationship-based networks and phone coordination that systematically fails when multiple large fires burn simultaneously across provincial boundaries, as in the 2017, 2021, and 2023 BC wildfire seasons.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Temporal urgency — wildfire suppression deployment windows are 12–72 hours; a contractor identified after 48 hours may arrive after the fire&#x27;s most critical phase has passed or after competing resources have been mobilized</li><li>Multi-constraint certification matching — the requirement for specific NWCG crew type certification (Type 1, Type 2, Type 2IA), equipment type (water tender capacity, dozer class, helicopter bucket type), and interface or backcountry experience simultaneously is not executable through a standing contract list that doesn&#x27;t index these combinations</li><li>Real-time availability opacity — contractor availability changes hourly during a multi-fire season; a contractor on the standing contract list who has been deployed to a neighboring province is unavailable, and this status is not captured in any system the mobilizing agency can query</li><li>Inter-provincial resource coordination — BC requesting Alberta contractors, or Ontario contractors mobilizing to Quebec, requires navigating different provincial standing contract relationships and CIFFC (Canadian Interagency Forest Fire Centre) coordination protocols that add hours to the mobilization timeline</li><li>Equipment payload and logistics specificity — the distance from staging area to fire site determines the logistical viability of each contractor&#x27;s equipment; a dozer operator in Prince George is logistically relevant to a fire near Williams Lake but not near Cranbrook</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes contractor profiles (crew type certification by NWCG and CIFFC level, equipment inventory by type and capacity, current deployment status updated in real time, geographic base and logistical range, provincial standing contract status, mobilization timeline capability) against agency demand signals (resource type, crew certification required, equipment specification, fire location and logistical staging distance, mobilization deadline, provincial contract preference). Real-time availability updating is the critical infrastructure function that no current system provides.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Canadian wildfire suppression expenditure exceeded $1B in 2021 and $3.3B in 2023 — years of multi-province simultaneous large-fire events. Suppression effectiveness is highly time-sensitive: resources mobilized within 24 hours of an escalation event have significantly higher suppression success rates than resources mobilized after 48–72 hours. A platform that reduces average mobilization time by 12–24 hours for 10% of surge capacity requests in a high-fire year could prevent fire growth events worth $50M–$200M in additional suppression cost, private timber loss, and community evacuation cost. The Canadian wildfire suppression contractor market — helicopter operators, hand crew contractors, heavy equipment operators — exceeds $500M annually in high-fire years.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Second Fire</div>
+        <p><strong>Characters:</strong> Carol — BC Wildfire Service incident commander, Kamloops; managing a complex wildland-urban interface fire with two active perimeters and emergency resource requests for Type 1 interface hand crews and large water tenders, Dave — owner/operator, a wildfire suppression contractor, Prince George BC; two NWCG Type 1 interface-certified crews and two 7,000-litre water tenders, currently between deployments</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Surge Capacity Clock</h2>
+<p>A wildland-urban interface fire in British Columbia's Interior — the type of fire that threatens communities, not just timber — follows a predictable operational escalation arc. In the first 24 hours, initial attack crews attempt direct suppression. If the fire exceeds initial attack capacity, the Incident Commander escalates to extended attack and begins issuing Emergency Resource Requests for additional resources: more hand crews, more water tenders, heavy equipment for fireguard construction. The resources that arrive in hours 24–48 determine whether the fire is contained before it reaches community interface zones.</p>
+<p>The resources that arrive in hours 48–72 often arrive to a fire that has already jumped the containment perimeter.</p>
+<p>The BC Wildfire Service standing contract list contains the contractors with whom the province has pre-established pricing and deployment agreements. In a low-fire year, the standing list is sufficient — most fires are contained within initial attack or the first extension request. In a high-fire year — 2021, 2023 — multiple simultaneous fires drain the standing list simultaneously, and the ERR system must reach into non-standing contractors, contractors registered in other provinces, and CIFFC's national resource pool. This expansion moves the identification mechanism from a structured database query to a phone-tree that begins with the regional coordinator's personal knowledge.</p>
+<p>The contractor who is not in the regional coordinator's phone-tree does not exist in a surge event.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Carol's</strong> IDF-classified fire near Kamloops had escalated to a two-perimeter complex by the morning of day two. She had requested two additional Type 1 hand crews — NWCG Interface-certified, with WUI (wildland-urban interface) tactics training — and two large-volume water tenders (minimum 7,000 litres) for structure protection on the eastern perimeter. The BC regional coordinator began calling down the standing contract list.</p>
+<p>Day two, hour 6: four Type 1 crews identified, all deployed to a concurrent fire near Vernon.</p>
+<p>Hour 12: one crew became available from the Vernon fire's reduced operations. One more crew needed.</p>
+<p>Hour 18: regional coordinator began calling non-standing contractors from a previous year's ERR contact list. Seven calls. Three no answers. Two deployed. One available but equipment non-compliant with BC insurance requirements. One could provide a crew but without water tender support.</p>
+<p>Hour 30: fire crossed the eastern perimeter containment line. Structure protection operations activated.</p>
+<p>Hour 36: a second regional coordinator, pulled from the Northern Region to assist, called <strong>Dave</strong> whose name appeared in a BC Wood Specialties contact list that had been mistakenly forwarded as an industry contact list two years earlier.</p>
+<p><strong>Dave</strong> had been in his Prince George staging yard for four days between deployments. He had two NWCG Type 1 Interface-certified crews — six people each, Interface-trained, WUI tactics qualified — and two 8,500-litre water tenders with BC operating certificates current. He was 3.5 hours from Kamloops by road. His mobilization time from notification to departure: 45 minutes.</p>
+<p>His phone had not rung during Carol's 36-hour search.</p>
+<p>His platform registration:  NWCG Type 1 Interface-certified hand crews (2), water tenders 8,500L (2), current BC Wildfire Service contractor insurance, Prince George base, available now, 3.5h surface transport to Kamloops.</p>
+<p>He would have been a first-page result in any query combining "Type 1 Interface, water tender, available, Interior BC, 4h radius Kamloops."</p>
+<hr />
+<p>Dave's crews arrived at hour 41 of the incident. The structure protection line on the eastern perimeter held. Four properties sustained exterior damage. Eleven properties that had been in the exposure zone were protected.</p>
+<p>The incident after-action review noted: "ERR Type 1 Interface crew request fulfilled in 36h; optimal resource was identified at 36h, available from hour 0. Single-point-of-failure in non-standing contractor identification."</p>
+<p>Carol requested that the BC Wildfire Service evaluate improved contractor availability systems for the following season.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Dave's availability, his crew certifications, and his water tender capacity were not secret. They were documented in his BC Wildfire Service contractor file, in his NWCG training records, and in his equipment insurance certificates.</p>
+<p>They were not accessible to Carol's regional coordinator at hour 6, when Dave's crews were most valuable, because the search moved through the standing contract list first and the personal phone-tree second. Dave was not in the standing contract list — he had applied for standing contract status and been waitlisted. He was not in the regional coordinator's phone-tree — Prince George is in the Northern Region and the Kamloops search began in the Interior Region.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> encodes the real-time availability, the specific certification combination — Interface, WUI tactics, crew type — and the logistical range from the contractor's staging location as searchable attributes that an Incident Commander can query at hour 2, before the fire crosses the containment perimeter at hour 30.</p>
+<p><em>Characters are fictional. BC Wildfire Service ERR procedures, NWCG Type 1 Interface certification requirements, CIFFC mutual aid protocols, and the 2021 and 2023 BC wildfire seasons' multi-fire suppression resource constraints are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Wildfire Surge Capacity Matching Platform (SaaS)</div>
+        <p>CIFFC (Canadian Interagency Forest Fire Centre) already coordinates inter-provincial wildfire resource sharing through mutual aid agreements (the Canadian Interprovincial Fire Crew program). A platform integrated with CIFFC&#x27;s resource tracking and dispatch infrastructure extends their coordination capacity with real-time contractor availability data that the current phone-based coordination cannot provide. Provincial ministries of forests (BC MoFLNROFG, Alberta Forestry) are the natural platform sponsors.</p>
+        <div class="opp-card__revenue">&#128181; Annual contractor registration and availability management ($400–$1,200/year based on resource count); provincial agency subscription ($3,000–$8,000/year); per-mobilization facilitation ($200–$500 per successful resource deployment)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Contractor Certification Registry and Verification Service</div>
+        <p>A mobilizing agency cannot deploy a contractor whose crew certification it cannot verify. The current verification process during surge mobilization relies on self-reporting by the contractor and standing contract documentation that may be months old. A real-time certification registry that maintains current crew qualification records — verified against NWCG and CIFFC training records — eliminates the certification verification step from the mobilization timeline, reducing mobilization time by 4–8 hours in surge scenarios.</p>
+        <div class="opp-card__revenue">&#128181; Annual contractor NWCG/CIFFC certification verification and registry update ($200–$500 per contractor); crew qualification audit and agency-ready documentation package ($300–$700 per crew)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Inter-Provincial Resource Sharing Facilitation Service</div>
+        <p>Inter-provincial wildfire resource sharing through CIFFC&#x27;s mutual aid system requires documentation of contractor qualifications, equipment specifications, and provincial licensing equivalency that adds 6–12 hours to cross-provincial mobilization timelines. A facilitation service that prepares the inter-provincial documentation package — crew qualification equivalency, equipment cross-registration, insurance confirmation — converts cross-provincial mobilization from a documentation bottleneck into a logistics-only problem.</p>
+        <div class="opp-card__revenue">&#128181; Inter-provincial contractor facilitation (BC-Alberta, Alberta-Saskatchewan, Ontario-Quebec; $500–$1,500 per inter-provincial mobilization); CIFFC emergency resource request documentation support ($200–$400 per ERR)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Wildfire Equipment and Logistics Commerce Extension</div>
+        <p>Wildfire suppression contractors mobilizing to remote fire locations on short notice have immediate equipment and consumable supply needs — fuel for water tenders and dozers, hose and fittings for pump operations, crew food and accommodation. A supply chain coordination service that pre-identifies supply sources along mobilization routes and handles procurement during deployment converts the platform&#x27;s resource matching function into a complete mobilization support service — generating recurring commerce revenue from every successful deployment.</p>
+        <div class="opp-card__revenue">&#128181; Wildfire suppression equipment procurement facilitation for contractors (water tenders, portable pump systems, hose packs; 5–8% procurement margin); contractor equipment rental coordination during surge events; fuel and consumable supply chain coordination for deployed contractors; platform earns equipment commerce revenue from every suppression mobilization it facilitates</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
