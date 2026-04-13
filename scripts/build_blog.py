@@ -879,6 +879,8 @@ def buildIndexPage(posts, series_index):
       });
 
       if (countEl) countEl.textContent = vis;
+      var clearBtn = document.getElementById('blog-clear-btn');
+      if (clearBtn) clearBtn.style.display = active === 'all' ? 'none' : 'inline-flex';
       document.querySelectorAll('.blog-stream-tab').forEach(function (btn) {
         btn.classList.toggle('active', btn.dataset.stream === active);
       });
@@ -890,6 +892,14 @@ def buildIndexPage(posts, series_index):
         applyFilter();
       });
     });
+
+    var clearBtn = document.getElementById('blog-clear-btn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        active = 'all';
+        applyFilter();
+      });
+    }
 
     applyFilter();
   })();
@@ -910,6 +920,14 @@ def buildIndexPage(posts, series_index):
       </div>
       <div class="blog-index-count">
         Showing <span id="blog-post-count">{total}</span> of {total} posts
+        <button id="blog-clear-btn"
+                style="display:none;margin-left:.75rem;padding:2px 10px;border-radius:14px;
+                       border:1px solid rgba(239,68,68,.4);background:transparent;
+                       color:#fca5a5;font-size:.74rem;font-weight:600;
+                       cursor:pointer;font-family:inherit;
+                       transition:background .15s;"
+                onmouseover="this.style.background='rgba(239,68,68,.12)'"
+                onmouseout="this.style.background='transparent'">&#10005; Show all</button>
       </div>
       <div class="blog-grid">
         {grid_html}
