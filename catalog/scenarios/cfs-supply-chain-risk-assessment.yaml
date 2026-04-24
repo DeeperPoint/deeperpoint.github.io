@@ -1,0 +1,213 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cfs-supply-chain-risk-assessment
+title: "Supply Chain Risk Assessment and Disruption Insurance Matching"
+card_title: "Supply Chain Risk and Insurance Matching"
+sector: canadian-financial-services
+sub_sector: Supply Chain and Trade Credit Risk
+forge_tier: 2
+status: published
+tags: [insurance, supply-chain, trade-credit, risk-assessment, disruption, contingent-business-interruption, single-source, critical-supplier, risk-management]
+
+market_example:
+  summary: "Canadian manufacturers and distributors with concentrated or opaque supply
+    chains carry material disruption risk that contingent business interruption insurance
+    could transfer—but CBI underwriting requires supply chain transparency that most
+    companies lack, and the specialists who can both map the risk and structure the
+    coverage are unknown to the buyers who need them. A matching platform connects
+    supply chain risk managers, trade credit insurers, and CBI underwriters around
+    specific buyer risk profiles."
+  problem: "Contingent business interruption insurance covers revenue loss caused not by
+    damage to the insured's own property but by disruption to a key supplier or customer.
+    It is the natural insurance response to supply chain concentration risk—the single-source
+    supplier, the sole qualified subcomponent manufacturer, the monopoly logistics provider.
+    The structural problems are interconnected: CBI underwriting requires that the insured
+    can identify and characterize their key supplier dependencies with sufficient specificity
+    for the insurer to assess the probability and severity of disruption scenarios; most
+    mid-market manufacturers have never mapped their supply chain to this standard; and
+    the specialists who can conduct supply chain risk assessments in the format CBI
+    underwriters require are concentrated in a small number of risk engineering and supply
+    chain consulting practices that work primarily with large industrial accounts. Trade
+    credit insurance—covering the credit risk of key customers defaulting on accounts
+    receivable—presents a symmetric problem: trade credit insurers will cover a portfolio
+    of receivables if the seller can present customer credit profiles in underwriting-ready
+    format, a structured risk presentation that most mid-market sellers have never
+    prepared. The result is that Canadian manufacturers and distributors with material
+    supply chain concentration or customer credit concentration carry risks that are
+    technically insurable but remain uninsured because the matching and risk structuring
+    infrastructure does not exist in the mid-market."
+  dominant_forces:
+    - "CBI and trade credit underwriters require supply chain and customer credit data
+      in structured underwriting formats that mid-market companies do not routinely
+      maintain, creating a risk presentation gap that no standard commercial broker can
+      bridge without specialist supply chain risk engineering capability."
+    - "Post-pandemic supply chain reconfiguration has substantially increased single-source
+      and geographic concentration risk for Canadian manufacturers who reshored or
+      near-shored production but retained concentrated supply relationships—expanding the
+      addressable CBI market at the same time as supply chain risk engineering capacity
+      remains scarce."
+    - "Trade finance lenders and export credit agencies (EDC, BDC) are increasingly
+      requiring supply chain risk assessment and trade credit insurance as conditions
+      of financing, creating regulatory pressure on mid-market companies to access
+      the specialist ecosystem the commercial insurance market cannot efficiently direct
+      them toward."
+  deeperpoint_fit: "KnowledgeSlot encodes the supply chain risk assessment methodology
+    frameworks used by CBI and trade credit underwriters—supplier tier mapping standards,
+    single-source concentration metrics, customer credit profile requirements, geographic
+    concentration assessment frameworks—alongside the specialist practices that conduct
+    supply chain risk assessments and the CBI and trade credit underwriters that accept
+    their risk presentations. CoSolvent matches the buyer's industry, supply chain
+    structure, and concentration profile against the appropriate risk assessment specialists
+    and the underwriters most likely to provide coverage for the characterized risk."
+  economic_upside: "The global contingent business interruption insurance market exceeds
+    $4B in annual premium, growing at 15% annually post-pandemic. The Canadian mid-market
+    segment—manufacturers and distributors at $10–500M revenue with uninsured supply chain
+    concentration risk—represents an estimated $300–800M in addressable CBI and trade credit
+    premium. Trade credit insurance alone covers approximately $80B in Canadian trade
+    receivables annually; mid-market penetration is estimated below 25% of eligible
+    receivables. A platform enabling 15% of uninsured mid-market CBI and trade credit
+    demand to find coverage generates $45–120M in placed annual premium."
+
+sponsor_opportunities:
+  - title: "Supply Chain Risk Assessment Coordination Service"
+    type: managed-service
+    revenue_model: "Per-engagement fee for supply chain risk assessment packages structured
+      for CBI underwriting submission ($8,000–30,000 per assessment depending on supply
+      chain complexity; covers supplier tier mapping, single-source dependency analysis,
+      geographic concentration quantification, and underwriting-format risk presentation)."
+    strategic_logic: "CBI underwriters accept risk presentations that characterize supplier
+      dependencies in standardized formats. Most mid-market manufacturers have never mapped
+      their supply chain to this standard. A managed risk assessment service that produces
+      a CBI-ready supply chain risk presentation converts the data collection problem into
+      a structured commercial engagement, making the CBI market accessible to companies
+      that currently cannot complete the underwriting process."
+    recurring: false
+
+  - title: "Ongoing Supply Chain Risk Intelligence Subscription"
+    type: saas
+    revenue_model: "Annual supply chain risk monitoring subscription per company ($5,000–20,000/year;
+      covers continuous monitoring of key suppliers for financial distress signals, geopolitical
+      event alerts, production disruption news, and regulatory change affecting supply chain
+      access)."
+    strategic_logic: "CBI policyholders need ongoing intelligence on the suppliers named
+      in their CBI schedules—early warning of supplier financial distress, geopolitical
+      disruption signals, and production capacity changes that would trigger a claim or
+      require a policy schedule update. A monitoring subscription that delivers structured
+      intelligence on named CBI suppliers creates recurring revenue while making the platform
+      an essential operational tool for every CBI policyholder it placed."
+    recurring: true
+
+  - title: "Trade Credit Receivables Portfolio Monitoring"
+    type: commerce-extension
+    revenue_model: "Annual trade credit monitoring subscription per seller ($2,000–8,000/year;
+      covers continuous customer credit monitoring for the seller's top 20 accounts,
+      limit utilization tracking, credit limit change alerts, and claim early warning indicators)."
+    strategic_logic: "Trade credit insurance policyholders must actively monitor customer
+      credit limits set by the insurer and report significant credit changes. A monitoring
+      service that tracks customer credit health against trade credit policy limits and
+      generates early warning alerts before limit reductions create coverage gaps converts
+      the trade credit administrative burden into a managed subscription service—maintaining
+      the seller's relationship with the platform through the life of their trade credit policy."
+    recurring: true
+
+  - title: "Supply Chain Disruption Response Logistics Extension"
+    type: logistics-extension
+    revenue_model: "Retainer subscription for pre-qualified alternative supplier identification
+      ($3,000–10,000/year; covers maintaining a pre-vetted alternative supplier database
+      for a company's top 10 single-source dependencies, enabling rapid supplier transition
+      if primary supplier disruption occurs); per-event alternative supplier activation
+      coordination fee."
+    strategic_logic: "Insurance covers the financial loss from supply chain disruption;
+      it does not resolve the operational problem of finding an alternative supplier
+      during a disruption event. A pre-qualified alternative supplier database maintained
+      alongside the CBI policy creates an operational response capability that the insurer
+      values (it reduces claim severity) and the policyholder values (it shortens disruption
+      duration). The logistics extension converts CBI placement into a supply chain resilience
+      service, creating a recurring revenue stream from every CBI account the platform established."
+    recurring: true
+
+story:
+  title: "The Supplier Nobody Knew About"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Anita - VP Operations, precision automotive components manufacturer, Windsor"
+    - "Derek - supply chain risk engineer and CBI specialist broker, Toronto"
+  summary: "A Windsor automotive components manufacturer discovers—through a CBI underwriting
+    process structured by a specialist broker—that 60% of its production depends on a single
+    Tier 2 resin supplier in Texas whose plant flood risk was never mapped, and obtains CBI
+    coverage that pays $3.2M when that supplier closes for twelve weeks following a hurricane."
+  body: |
+    ## Act A - The Market Structure
+
+    Supply chain concentration risk is endemic in manufacturing. Every manufacturer has
+    single-source dependencies—a component, a compound, a subassembly—that was single-sourced
+    for cost or quality reasons and never re-qualified with an alternative because the primary
+    supplier has never failed. The risk is invisible until it materializes. When it materializes,
+    the downstream revenue loss is severe and occurs before any physical damage at the insured's
+    own facility—making it unrecoverable under a standard property or business interruption policy.
+
+    Contingent business interruption insurance exists to cover this scenario. The coverage is
+    available, the underwriting logic is sound, and Lloyd's and specialty insurers maintain
+    meaningful capacity for CBI covers. The access barrier is the underwriting requirement:
+    the insured must identify the named suppliers whose disruption would trigger coverage,
+    characterize the dependency (how much revenue depends on this supplier), and provide the
+    supplier's location, business operations, and known risk factors. Most manufacturers
+    have never assembled this information in underwriting format. Most commercial brokers
+    have never asked them to. CBI remains the most consistently underutilized commercial
+    insurance product relative to the risk it covers.
+
+    ---
+
+    ## Act B - The Story
+
+    **Anita** runs operations for a Windsor precision components manufacturer supplying
+    plastic and composite parts to three Canadian OEM automotive plants. Her annual revenue
+    is $42M. She has comprehensive commercial insurance including standard business interruption
+    coverage for damage to her own plant. She has never purchased CBI coverage. Her commercial
+    broker has never mentioned it.
+
+    When a peer at a manufacturing association conference described a CBI claim settlement,
+    Anita mentioned it to her commercial broker. The broker contacted three commercial CBI
+    underwriters; two declined to quote without a supply chain risk assessment, and one
+    offered a limited named-supplier policy if Anita could identify her top five suppliers.
+    Anita realized she didn't know where all of her critical components originated—she
+    bought from a Tier 1 compound distributor in Michigan who sourced from multiple Tier 2
+    resin manufacturers. The chain was opaque.
+
+    **Derek** is a supply chain risk engineer who structures CBI and trade credit submissions
+    for specialty brokers. His process maps supply chains to the second and third tier,
+    identifies geographic concentration and single-source dependencies, and formats the
+    risk presentation to CBI underwriting standards. He has worked with automotive, aerospace,
+    and pharmaceutical manufacturers—never had an inbound inquiry from a Windsor Tier 2
+    supplier. He found clients through reinsurance broker referrals and one Lloyd's syndicate
+    underwriter who sent him referrals when direct submissions arrived without adequate supply
+    chain characterization.
+
+    Anita's risk profile surfaces Derek's practice on the specialist platform. Derek's
+    supply chain risk assessment reveals that 60% of Anita's production depends on a single
+    Tier 2 resin formulator in Port Arthur, Texas—a facility located in a coastal flood zone.
+    The assessment produces a CBI-ready named-supplier submission. Coverage is placed for
+    the Texas supplier at a $4M per-occurrence limit. Fourteen months after placement,
+    Hurricane Beryl causes twelve weeks of plant closure at the Port Arthur facility.
+    Anita's CBI policy pays $3.2M in revenue loss. Her commercial property policy pays nothing—
+    no damage occurred at her Windsor plant.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Anita had insurable supply chain risk for the entire life of her company. The risk was
+    characterized by Derek in six weeks of structured supply chain mapping. The coverage was
+    available and the premium was commercially reasonable relative to the risk. The market
+    failed because Anita's commercial broker did not have supply chain risk engineering
+    capability, Derek's practice was not visible to Anita's commercial broker, and no
+    mechanism existed to connect a Tier 2 automotive manufacturer's unexplored CBI need
+    with the specialist who could convert that need into a bindable submission.
+
+    This failure pattern repeats across Canadian manufacturing: significant insurable supply
+    chain concentration risk, commercially available coverage, specialist capacity—and no
+    matching infrastructure connecting them.
+
+    *Characters are fictional. Contingent business interruption insurance underwriting requirements
+    and mid-market penetration gaps are well-documented in the commercial insurance market.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
