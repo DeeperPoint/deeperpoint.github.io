@@ -1,0 +1,562 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encore Career and Phased Retirement Financial Planning Matching — DeeperPoint</title>
+  <meta name="description" content="Canadians aged 55–70 who want to launch businesses, consult independently, or transition to purpose-driven part-time work face a financial planning problem that straddles retirement planning and startup advisory — two specialties that rarely coexist in one advisor. A matching platform connects encore career planners with the small number of financial planners who specialize in the financial architecture of second-act professional transitions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Financial Services &middot; Retirement Transition Planning</div>
+      <h1 class="detail-title">Encore Career and Phased Retirement Financial Planning Matching</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">retirement</span><span class="blog-tag">encore-career</span><span class="blog-tag">phased-retirement</span><span class="blog-tag">self-employment</span><span class="blog-tag">entrepreneurship</span><span class="blog-tag">CPP</span><span class="blog-tag">life-planning</span><span class="blog-tag">financial-planning</span><span class="blog-tag">second-act</span><span class="blog-tag">55-plus</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>The binary model of retirement — full-time work followed by full-time leisure — no longer describes the trajectory of a significant portion of Canadians aged 55–70. Many are transitioning to encore careers: consulting practices built on their professional expertise, social enterprises, small businesses, portfolio board work, or hybrid part-time employed and self-employed arrangements. These transitions create financial planning complexity that does not fit neatly into either the retirement planning or the small business planning advisor categories. The encore career planner needs advice on: when to begin drawing CPP (the answer changes when the client has earned income from self-employment, which generates additional CPP contributions and affects the post-retirement benefit calculation); how to structure a consulting practice for tax efficiency while preserving RRSP room and TFSA contribution capacity; whether to incorporate and pay salary or dividends in a way that interacts optimally with their pension income, CPP timing, and OAS eligibility; how to manage a phased RRSP drawdown that funds a business startup period without triggering OAS clawback in later years; how to structure business income to maintain RRSP contribution room during income- generating years of the encore career; and how to plan business succession or wind-down that aligns with the client&#x27;s eventual full retirement. Standard retirement planners are not trained in small business tax structure or startup financial planning. Standard startup advisors know nothing about CPP post-retirement benefit calculations or OAS clawback thresholds. The advisor who holds both domains simultaneously — and has worked enough encore career clients to have developed methodology for the integration — is rare. They are findable through accounting firm referrals and word-of-mouth from clients who have completed the transition, but not through any structured discovery mechanism.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Encore career financial planning requires simultaneously optimizing registered asset drawdown strategy, government benefit timing, self-employment tax structure, and business financial planning in an integrated framework that spans two advisory domains that have no established collaboration infrastructure — creating a planning gap that most advisors cannot bridge individually.</li><li>The encore career population is growing rapidly: an estimated 40% of Canadians aged 55–64 who report planned retirement within five years also report intention to do some form of self-employment or consulting work — a planning need that is invisible to the retirement advisory market because it does not look like a conventional retirement client.</li><li>The financial consequences of uncoordinated encore career planning are substantial and often irreversible: a client who begins CPP at 65 without modelling the post- retirement benefit effect of continued self-employment contributions, or who accumulates RRSP assets during high-income encore years without a drawdown strategy for the transition to full retirement, locks in suboptimal tax outcomes that cannot be corrected after the fact.</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>KnowledgeSlot encodes the encore career financial planning specialist profile: CFP practitioners with documented encore and phased retirement client experience, small business tax structure competence (incorporation, salary vs. dividend optimization, HST registration, business expense planning), and CPP post-retirement benefit calculation methodology. CoSolvent matches clients by their planned encore activity type (consulting, small business, portfolio work, social enterprise), existing asset structure (pension, RRSP, TFSA, non-registered), business revenue projection, and target full-retirement timeline against advisors whose competence profile spans the required domains.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The Canadian encore career market represents an estimated 1.5–2.5 million people aged 55–70 who are in active planning for a professional transition that is neither full retirement nor continuation of their current career. At average advisory engagement values of $3,500–8,000 (comprehensive encore career financial plan plus annual review), the addressable market is $5.25–20B in annual advisory services. A platform connecting 15,000 encore career planners annually to specialist advisors generates $52–120M in facilitated advisory revenue.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Business Plan Nobody Knew to Make</div>
+        <p><strong>Characters:</strong> Gordon - former VP Engineering, age 61, planning an independent project management consultancy, Calgary, Fatima - CFP with encore career and phased retirement specialty, Edmonton</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>Canadians who plan to leave employment and begin self-employment face a planning
+transition that looks, from the outside, like a retirement. They are leaving a
+job. They have registered assets. They are asking questions about CPP. Their financial
+advisor puts them in the retirement planning file.</p>
+<p>But the financial structure of an encore career is not a retirement. It generates
+earned income — which creates RRSP contribution room, CPP post-retirement contributions,
+and potentially HST registration obligations. It involves a business entity — which
+creates decisions about incorporation, salary versus dividend, retained earnings, and
+business expense deductibility. It involves a transition period during which registered
+assets may be drawn down to fund low-income startup years — and then a second transition
+to full retirement when the encore career winds down. Each of these decisions interacts
+with the others. The retirement advisor models the registered assets. The accountant
+handles the corporation. Neither models the integration. The client pays the tax cost
+of uncoordinated advice.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Gordon</strong> spent twenty years at a Calgary energy company, the last seven as VP Engineering.
+He has a defined contribution pension plan valued at $720,000, $380,000 in RRSP, $95,000
+in TFSA, and an expectation of CPP at approximately $12,000 per year at 65. His plan
+was to retire from the corporation at 62, take six months off, and then build a project
+management consulting practice drawing on his energy sector expertise. He expected to
+earn $120,000–180,000 annually in consulting fees for eight to ten years. He brought
+this plan to his financial advisor, who confirmed that the registered assets were well-
+positioned for the retirement phase and suggested taking CPP at 65 alongside consulting
+income. He brought it to his accountant, who suggested incorporating the consulting
+practice to defer corporate tax on retained earnings. Neither had worked through the
+interaction between the two pieces.</p>
+<p><strong>Fatima</strong> has spent seven years building a practice specifically around encore career
+and phased retirement financial planning. Her client base is almost entirely Canadians
+aged 58–68 who are transitioning from employment to self-employment. The first thing
+she models for every new encore client is the CPP post-retirement benefit: if a client
+takes CPP at 65 while earning self-employment income that generates CPP contributions,
+each year of contribution generates a modest additional benefit — and the interaction
+with the salary-versus-dividend decision in an incorporated consulting practice determines
+whether self-employment income generates CPP contributions at all. The second thing she
+models is the registered asset drawdown: if Gordon can generate enough RRSP deductions
+during his high-income consulting years, he may reduce the registered asset balance enough
+to eliminate OAS clawback exposure in his full retirement years.</p>
+<p>The integrated analysis — CPP post-retirement benefit timing, incorporated salary
+optimization for CPP contribution, RRSP management during the encore income years,
+transition to full retirement drawdown — is not available from either Gordon's financial
+advisor or his accountant individually. Fatima assembles it. The restructured plan
+increases Gordon's projected after-tax income by $28,000 per year during his consulting
+decade and eliminates his projected OAS clawback exposure entirely.</p>
+<p>Gordon found Fatima through the specialist platform after reading a provincial energy
+industry retiree newsletter that mentioned encore career financial planning as a
+distinct advisory category. His financial advisor had never mentioned the category existed.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Gordon's situation is not unusual. It is the standard condition of the educated, financially
+literate professional who plans an encore career with two good advisors who do not
+communicate with each other about the integration. The planning gap is not created by
+bad advice. It is created by the absence of a specialist who bridges the two advisory
+domains. That specialist exists — in Calgary, in Edmonton, in Toronto — but has no
+discovery mechanism that reaches the population of encore career planners who need
+integration before they make the decisions that cannot be reversed.</p>
+<p><em>Characters are fictional. CPP post-retirement benefit calculation, RRSP contribution room
+under self-employment income, and OAS clawback thresholds are factual elements of Canadian
+encore career financial planning. <a href="../../marketforge.html">DeeperPoint</a> is building the
+infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Encore Career Financial Planning Specialist Registry SaaS</div>
+        <p>The encore career advisor community is currently invisible outside professional accounting networks. A registry organized by encore career type (consulting, small business, portfolio work, social enterprise), geographic coverage, and fee structure gives specialist advisors national market access while giving encore planners a structured discovery mechanism that does not require navigating the generalist financial advisory market.</p>
+        <div class="opp-card__revenue">&#128181; Annual subscription for encore career financial planning specialists ($2,000–5,000/year per advisor); consumer access for Canadians researching second-act financial planning ($200–400/year).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Encore Career Business Financial Planning Tool</div>
+        <p>No commercial tool currently integrates business income tax modelling with CPP post-retirement benefit calculation and RRSP/TFSA contribution room tracking for the self-employed encore career client. A purpose-built encore career planning tool creates direct consumer value that converts platform visitors into matched advisor clients while providing advisors a shared computational infrastructure for the integration analysis that is currently done in separate spreadsheet models.</p>
+        <div class="opp-card__revenue">&#128181; Per-client business financial planning tool subscription ($120–350/year; covers self-employment income tax modelling, CPP post-retirement benefit calculator, incorporation vs. sole proprietorship tax comparison, and RRSP/TFSA contribution optimization under business income scenarios); advisor-tier institutional access ($1,500–4,000/year per advisor for multi-client platform access).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Small Business Formation Services Facilitation</div>
+        <p>Encore career clients who decide to incorporate or register a business as part of their financial plan immediately need a corporate lawyer, an accountant, and bookkeeping infrastructure. The financial planning platform already has the client&#x27;s business concept, the incorporated structure recommendation, and the tax objectives. Extending into business formation service facilitation converts a planning match into a business formation commerce relationship whose value substantially exceeds the planning fee.</p>
+        <div class="opp-card__revenue">&#128181; Business incorporation facilitation coordination fee connecting encore career clients to matched corporate lawyers and accountants for business formation ($500–1,500 per facilitated incorporation); HST registration and CRA account setup coordination service; bookkeeping software setup subscription.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Encore Career Peer Learning Community Subscription</div>
+        <p>Canadians planning encore careers benefit from peer connection with others who have already navigated the transition — not just professional advice, but the experiential knowledge of people who built consulting practices, launched social enterprises, or structured phased retirement arrangements. A peer community organized by encore career type creates network value that the financial planning match initiates but does not fully deliver, creating recurring subscription revenue from members long after the initial advisor match.</p>
+        <div class="opp-card__revenue">&#128181; Annual encore career peer community subscription ($150–400/year; includes facilitated peer group access organized by encore career type, monthly expert sessions on encore career financial topics, and a community knowledge base of encore career planning case studies); employer pre-retirement program license ($5,000–20,000/year per employer for employee access).</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
