@@ -1573,7 +1573,8 @@ img {
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--glass-border);
-  background: rgba(0, 0, 0, 0.3);
+  background: #ffffff;
+  padding: var(--space-sm);
 }
 
 .timeline__figure img {
