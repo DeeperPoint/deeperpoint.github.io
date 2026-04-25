@@ -1488,6 +1488,141 @@ img {
   margin-bottom: 0;
 }
 
+/* --- Expandable Timeline Entry Cards --- */
+.timeline__entry {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.timeline__entry:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__entry:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.timeline__entry[open] {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.timeline__entry-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.timeline__entry-header::-webkit-details-marker {
+  display: none;
+}
+
+.timeline__entry-header::marker {
+  display: none;
+  content: '';
+}
+
+.timeline__entry-year {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--dp-blue-light);
+  min-width: 5.5em;
+  flex-shrink: 0;
+}
+
+.timeline__entry-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--dp-white);
+  flex: 1;
+}
+
+.timeline__entry-chevron {
+  font-size: 0.75rem;
+  color: var(--dp-muted);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.timeline__entry[open] .timeline__entry-chevron {
+  transform: rotate(90deg);
+}
+
+.timeline__entry-body {
+  padding: 0 var(--space-lg) var(--space-lg);
+  animation: entryReveal 300ms var(--ease-out);
+}
+
+@keyframes entryReveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.timeline__figure {
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.timeline__figure img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+}
+
+.timeline__entry-body p {
+  font-size: 0.9375rem;
+  color: var(--dp-silver);
+  line-height: 1.8;
+}
+
+/* Era-specific year colors */
+.timeline__item--origins .timeline__entry-year {
+  color: var(--dp-blue-light);
+}
+
+.timeline__item--academic .timeline__entry-year {
+  color: #34d399;
+}
+
+.timeline__item--ipov .timeline__entry-year {
+  color: #fbbf24;
+}
+
+.timeline__item--recent .timeline__entry-year {
+  color: #a78bfa;
+}
+
+/* Responsive: stack year above title on mobile */
+@media (max-width: 640px) {
+  .timeline__entry-header {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+  }
+  .timeline__entry-year {
+    min-width: auto;
+  }
+  .timeline__figure img {
+    max-height: 250px;
+  }
+}
+
+
 /* --- Gantt Chart --- */
 .gantt {
   background: rgba(255, 255, 255, 0.02);
