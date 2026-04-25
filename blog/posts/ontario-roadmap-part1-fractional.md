@@ -1,13 +1,9 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
 slug: ontario-roadmap-part1-fractional
-series-position: 1
-title: "Market Scenario: A Cosolvent-Powered Marketplace"
+title: "Workshop Notes: A Cosolvent-Powered Marketplace"
 date: 2026-03-23
-stream: market-scenario
-tags: [thin-markets, market-design, ontario, manufacturing, ai, case-study]
+stream: workshop-notes
+tags: [thin-markets, market-design, ontario, manufacturing, ai, cosolvent, explainer]
 summary: "In a thin market, independent shops cannot afford to buy massive machines for occasional use. Semantic AI coordination solves this instantly."
 estimated-read: 6 min read
 ---

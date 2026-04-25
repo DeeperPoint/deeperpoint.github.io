@@ -3,7 +3,7 @@ series: manufacturing-scenarios
 series-title: "Manufacturing Scenarios"
 series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
 slug: manufacturing-scenarios-testing
-series-position: 4
+series-position: 3
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 date: 2026-03-18
 stream: market-scenario

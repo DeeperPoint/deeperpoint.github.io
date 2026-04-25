@@ -1,0 +1,150 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Notes: The Match Argument — DeeperPoint</title>
+  <meta name="description" content="Matching platforms find you a counterparty. A Content Match Story tells you why they're worth your time — before you spend it.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Workshop Notes: The Match Argument">
+  <meta property="og:description" content="Matching platforms find you a counterparty. A Content Match Story tells you why they're worth your time — before you spend it.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/content-match-story.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Workshop Notes: The Match Argument">
+  <meta name="twitter:description" content="Matching platforms find you a counterparty. A Content Match Story tells you why they're worth your time — before you spend it.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../examples.html" class="nav__link">Examples</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-04-14">April 14, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>5 min read</span>
+        </div>
+        <h1 class="blog-post__title">Workshop Notes: The Match Argument</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">cosolvent</span><span class="blog-tag">marketforge</span><span class="blog-tag">explainer</span>
+        </div>
+      </div>
+      
+      <article class="blog-post">
+        <figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/content-match-story-hero.jpg" alt="The gap between algorithmic match and human commitment is where thin markets lose most of their value." loading="lazy">
+  <figcaption>The gap between algorithmic match and human commitment is where thin markets lose most of their value.</figcaption>
+</figure>
+
+<p>There is a moment in every matching platform&rsquo;s workflow where the technology hands off to the humans — and most platforms handle it badly.</p>
+<p>The algorithm has done its work. Two parties have been identified. A match exists. And then the platform does the same thing LinkedIn has been doing since 2003: it tells you a name, shows you a profile, and leaves you to figure out the rest.</p>
+<p>This is where thin markets break.</p>
+<hr />
+<h2 id="the-post-match-attrition-problem">The Post-Match Attrition Problem</h2>
+<p>In a thick market — say, recruiting software engineers in San Francisco — the post-match handoff is a manageable problem. There are thousands of candidates, hundreds of open roles, and enough volume that even a thirty percent attrition rate between match and conversation is acceptable. The funnel is wide enough to absorb the waste.</p>
+<p>Thin markets are different. The defining characteristic of a thin market is that counterparties are rare. There may be a handful of qualified buyers for a highly specialized agricultural product, a half-dozen potential investors for an esoteric technology, or a small pool of facilitators with the precise combination of credentials a complex cross-border deal requires.</p>
+<p>When you have three viable counterparties in the world, you cannot afford to lose one to a conversation that begins with mutual confusion about why you&rsquo;re talking.</p>
+<p>And yet that is exactly what most matching platforms produce. The match notification arrives. Both parties look at each other&rsquo;s profiles. Neither is quite sure what the other is looking for in this specific context. They schedule a call to find out. The call takes thirty minutes. Twenty of those minutes are spent establishing context that an AI system could have provided in thirty seconds. Sometimes the call ends productively. Often it doesn&rsquo;t — and both parties walk away slightly more skeptical of the platform that connected them.</p>
+<p>This attrition is not random. It is structural. It happens because the platform has chosen to announce the match without making the case for it.</p>
+<hr />
+<h2 id="what-a-match-argument-looks-like">What a Match Argument Looks Like</h2>
+<p>Consider the difference between being told &ldquo;you have been matched with a grain importer in the Philippines&rdquo; and reading this:</p>
+<blockquote>
+<p><em>A mid-sized rice and feed mill in Mindanao is expanding its raw material sourcing and has indicated interest in Canadian malting barley. Their current procurement window aligns with your typical harvest and storage timeline. They have working relationships with two of the inspection bodies your certificates are issued by, which reduces the documentation burden on both sides. The volume range they are targeting falls within your typical export lot sizes. Here is what a first shipment between your two operations might plausibly look like&hellip;</em></p>
+</blockquote>
+<p>The second version is a <em>case</em>. It draws on what the platform knows about both parties and makes a specific, contextual argument for why this pairing is worth exploring. It does not guarantee the match will succeed. It does not oversell. It simply provides enough structured context that both parties can make an informed decision about whether to proceed — before anyone has to spend time finding out.</p>
+<p>This is the Content Match Story.</p>
+<hr />
+<h2 id="the-privacy-architecture">The Privacy Architecture</h2>
+<p>The obvious objection is privacy. If the platform generates a narrative drawing on what it knows about both parties, does it not risk disclosing information that neither party has consented to share?</p>
+<p>This is a real constraint, and the answer is in how the story is structured.</p>
+<p><strong>Stage one is anonymous.</strong> The first delivery is identity-blind. Both parties receive a narrative that describes the pairing in terms of capabilities, needs, and potential outcomes — without naming either party or revealing any identifying information. A buyer reads about &ldquo;a supplier with these characteristics.&rdquo; A supplier reads about &ldquo;a buyer with these requirements.&rdquo; Both parties can assess fit against the narrative without any privacy exposure.</p>
+<p><strong>Stage two requires mutual consent.</strong> If both parties signal interest after reading the anonymous story, identities are revealed — only then, and only on both sides simultaneously. This is the double opt-in model that well-designed matching platforms already use for introductions; the Content Match Story adds the argument that makes the opt-in decision informed rather than speculative.</p>
+<p><strong>Stage three grows with the relationship.</strong> As parties move into active engagement, the story can evolve into a deal-context document: a running account of what has been agreed, what remains open, and what a completed transaction might look like. This transitions naturally from a match story into the early form of a deal brief.</p>
+<p>What the platform knows, and what it discloses, are different things. The narrative is generated from the platform&rsquo;s deep knowledge of both participants — but it references neither party&rsquo;s protected signals directly. The system reads everything; the story reveals only what each participant has authorized to be shared at their current stage of engagement.</p>
+<hr />
+<h2 id="three-markets-same-problem">Three Markets, Same Problem</h2>
+<p>The post-match attrition problem is not specific to any one vertical. It appears wherever matching is rare and stakes are high.</p>
+<p>In <strong>cross-border specialty trade</strong>, a Canadian grain exporter and a Southeast Asian mill operator may be an excellent match by every algorithmic measure. But the exporter does not know whether the mill&rsquo;s certification requirements align with their grain specifications. The mill does not know whether the exporter&rsquo;s logistics partners serve their port. The post-match call is spent establishing these facts. A Content Match Story — drawing on the platform&rsquo;s knowledge of both parties&rsquo; certification profiles, logistics relationships, and volume ranges — could resolve most of these questions before the call begins.</p>
+<p>In <strong>professional networking</strong>, a founder raising a seed round and a venture investor focused on exactly her sector are matched. Neither knows how the other thinks about valuation, dilution, or timeline. They schedule a thirty-minute call. Fifteen minutes are spent on context. A Content Match Story, generated from what each party has shared with the platform about their current priorities and constraints, could compress that context into a two-minute read — leaving the full thirty minutes for the actual conversation.</p>
+<p>In <strong>social services and healthcare</strong>, a patient being referred between service providers is often the one who must carry the context — walking into each new engagement and re-explaining their situation from the beginning. An AI-generated referral narrative, shared at the appropriate consent level with the receiving provider, could replace that exhausting repetition with a structured, accurate account of what the patient needs and what has been tried.</p>
+<p>The mechanism is the same across all three contexts. The gap between match and productive conversation is filled with context that the platform already has and could provide — but typically doesn&rsquo;t.</p>
+<hr />
+<h2 id="the-structural-principle">The Structural Principle</h2>
+<p>The Content Match Story is a solution to a specific form of information asymmetry. The platform knows why the match was made. The participants do not. The platform possesses the match argument; it keeps it to itself.</p>
+<p>This is not malice — it is convention. Platforms have historically been designed around announcing matches, not arguing for them. The argument requires synthesis, not retrieval. It requires the platform to reason about the relationship between two parties, not just the properties of each individually.</p>
+<p>This is, incidentally, exactly the kind of synthesis that large language models are well-suited to perform. The match rationale generation capability in Cosolvent&rsquo;s roadmap has always been a technical feature waiting for the right framing. The Content Match Story is that framing: a human-readable, privacy-respecting, three-stage narrative that bridges the gap between algorithm and conversation.</p>
+<p>In thick markets, this gap is a friction cost. In thin markets, it is an existential risk. Every wasted post-match conversation is a trust withdrawal from a fragile account. Platforms that learn to argue for their matches — clearly, honestly, and early — will hold participants in ways that platforms that merely announce matches cannot.</p>
+<hr />
+<p><em>The Content Match Story is part of the Cosolvent matching framework. For more on how Cosolvent approaches the trusted intermediary problem in thin markets, see <a href="../mf-cosolvent.html">Cosolvent</a>. For the theoretical grounding, see <a href="../thin-markets.html">Thin Markets</a>.</em></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="../search.html" class="footer__link">Search</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script src="../nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

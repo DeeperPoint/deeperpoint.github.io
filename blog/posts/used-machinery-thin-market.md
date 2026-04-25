@@ -1,4 +1,8 @@
 ---
+series: manufacturing-scenarios
+series-title: "Manufacturing Scenarios"
+series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
+series-position: 1
 title: "Market Scenario: The Machine Under the Tarp"
 date: 2026-03-18
 slug: used-machinery-thin-market

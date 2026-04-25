@@ -3,7 +3,7 @@ series: manufacturing-scenarios
 series-title: "Manufacturing Scenarios"
 series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
 slug: manufacturing-scenarios-skills
-series-position: 5
+series-position: 4
 title: "Market Scenario: The Welder Who Wrote Firewalls"
 date: 2026-03-18
 stream: market-scenario
