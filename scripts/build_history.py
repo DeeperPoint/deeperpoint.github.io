@@ -154,7 +154,7 @@ ENTRIES = [
      "img":"ClimbingMountain-scaled.png",
      "text":"Canadian prairie grain producers have been exporting their crops around the world for many decades. However, the system is still focused on selling and shipping bulk quantities. Even though Canada grows some of the highest quality grains in the world, Canadian farmers often get the commodity price rather than the premium price that their crops deserve. I am working with a long-time colleague on an idea to change that."},
     {"year":"2025","era":"recent","title":"DeeperPoint AI Matching",
-     "img":"ClimbingMountain-scaled.png",
+     "img":"assets/myimages/marketforge-workflow-pipeline.png",
      "text":"The initiative for selling prairie grains morphed into a focus on developing an AI-enhanced system to match remote and arms-length business interests. A system like this might consummate the deal, but it could plausibly help the parties to speed through the mating dance to decide if they want to finish up offline."},
 ]
 
@@ -166,6 +166,7 @@ ERA_CONFIG = {
 }
 
 def build_entry_html(e):
+    img_path = e["img"] if "/" in e["img"] else f'images/about/{e["img"]}'
     return f'''                        <details class="timeline__entry">
                             <summary class="timeline__entry-header">
                                 <span class="timeline__entry-year">{e["year"]}</span>
@@ -174,7 +175,7 @@ def build_entry_html(e):
                             </summary>
                             <div class="timeline__entry-body">
                                 <figure class="timeline__figure">
-                                    <img src="images/about/{e["img"]}" alt="{e["title"]}" loading="lazy">
+                                    <img src="{img_path}" alt="{e["title"]}" loading="lazy">
                                 </figure>
                                 <p>{e["text"]}</p>
                             </div>
