@@ -1,0 +1,573 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retired Export Trade Specialist Matching for Canadian SME Market Entry — DeeperPoint</title>
+  <meta name="description" content="Canadian SMEs attempting to enter specific export markets need country-specific trade knowledge — regulatory frameworks, distributor relationship norms, customs classification, and in-market institutional contacts — that retired Trade Commissioner Service officers, EDC country specialists, and corporate international trade directors accumulated over decades. A matching platform connects SME exporters with retired specialists whose country and sector experience precisely fits the target market.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Senior Expert Marketplace &middot; International Trade and Market Entry Advisory</div>
+      <h1 class="detail-title">Retired Export Trade Specialist Matching for Canadian SME Market Entry</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">senior-talent</span><span class="blog-tag">retired-trade-specialists</span><span class="blog-tag">export</span><span class="blog-tag">SME</span><span class="blog-tag">market-entry</span><span class="blog-tag">EDC</span><span class="blog-tag">TCS</span><span class="blog-tag">trade-commissioner</span><span class="blog-tag">international-trade</span><span class="blog-tag">country-specific</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Export market entry is fundamentally an information asymmetry problem. An SME attempting to enter the South Korean market for the first time does not know which regulatory agency certifies its product category, which distributor relationship norms will determine whether their approach will be interpreted as professional or presumptuous, what the realistic timeline is for a first import licence, whether the trade agreement tariff treatment actually applies to their specific HS code, or which in-market industry association event is genuinely attended by decision-makers versus aspirational. This knowledge exists — in people who have spent careers at Export Development Canada, the Trade Commissioner Service, or as corporate international trade directors at Canadian companies with established operations in the target market. Upon retirement, these specialists carry country and sector knowledge that the standard export advisory market does not know how to access. The EDC and TCS provide institutional support, but their resources are stretched across hundreds of markets and thousands of client companies; they cannot provide the intensive country-specific advisory that a company making its first distributor negotiation in Japan requires. Trade consultancies exist, but they typically employ active practitioners whose market knowledge is current in their most recent assignments and shallow for markets they have not covered recently. The retired trade specialist who spent twelve years as a Trade Commissioner in Southeast Asia, or eight years as EDC&#x27;s Korea country manager, or fifteen years as Bombardier&#x27;s head of Japan market development, holds a depth and specificity of market knowledge that cannot be purchased elsewhere at any price — but is not available through any advisory market that SME exporters can navigate. The match fails because retired trade specialists have no mechanism to signal their country-specific expertise to the SME export market, and SME exporters have no mechanism to find specialists whose experience matches their specific target market rather than geographic region.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Export market entry advisory is highly country- and sector-specific: a retired Trade Commissioner with twelve years in Southeast Asia provides high-value advice for a Vietnam market entry and near-zero value for a Brazil market entry — making geographic generalism useless and country-specific matching essential.</li><li>Retired trade specialists have no market-access infrastructure and are not findable through the advisory market SMEs use: they are not listed in trade consulting directories, their TCS and EDC credentials are institution-internal, and their country-specific expertise is not searchable in any public domain.</li><li>The window for productive export advisory engagement is often narrow and high-stakes: an SME at the point of first distributor negotiation or regulatory submission in a new market needs advice in days, not the months required to develop a relationship with a consulting firm whose market expertise may not match the target country.</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>KnowledgeSlot encodes the retired trade specialist taxonomy at the country, sector, and institutional experience level: TCS posting history by country and sector, EDC country credit and market knowledge, corporate market development experience by geography and industry, and specific regulatory and distribution knowledge by product category and target market. CoSolvent matches SME exporters by target market, product category (mapped to HS code range), regulatory challenge type, and stage of market entry against retired specialists with documented country posting experience, sector expertise, and in-market institutional contact knowledge.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Canada exports approximately $600B annually. The SME exporter segment — companies with fewer than 500 employees engaged in or actively developing export markets — accounts for an estimated $80–120B in export revenue, with the largest concentration of market entry advisory need in the 15,000–25,000 SMEs actively attempting first-time entry into new markets annually. At average advisory engagement values of $3,000–10,000 (country-specific market entry advisory, distributor relationship coaching, regulatory navigation), the addressable annual advisory market is $45–250M. A platform connecting 5,000 export advisory engagements annually generates $15–50M in facilitated revenue.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Distributor Who Said No to Everyone</div>
+        <p><strong>Characters:</strong> Chantal - CEO, precision water filtration technology company, Quebec City, Howard - retired Trade Commissioner, 11 years in Japan and South Korea, Victoria BC</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>Export market entry failure in Japan is not usually a product problem. Japanese
+industrial distributors are risk-averse by design, relationship-driven by culture,
+and protocol-sensitive by training. A Canadian company that approaches a Japanese
+distributor with the materials and methods appropriate for a German trade fair — a
+slick product brochure, a direct pricing proposal, a request for a distribution
+agreement in the first meeting — will be politely declined. The distributor is not
+signalling product rejection. They are signalling relationship phase mismatch.
+A relationship that would take eighteen months to develop through the correct protocol
+has been foreclosed in the first meeting by an approach that signals ignorance of
+the protocol.</p>
+<p>This is not taught in export trade courses. It is learned through years of in-market
+relationship experience — watching a Canadian company with a genuinely superior product
+fail in Japan because their entry approach was American rather than Japanese, and then
+watching a subsequent company with a comparable product succeed because they understood
+that the first three meetings were not about the product at all. The Trade Commissioner
+who has facilitated two hundred of these entry attempts over eleven years in Tokyo
+and Seoul knows the protocol at a granular level. The Canadian company that has never
+exported to Japan does not know what they do not know.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Chantal</strong> leads a company that produces specialized municipal water filtration systems
+with a technology profile well-suited to Japanese water infrastructure requirements —
+ageing municipal systems in mid-size Japanese cities are a documented upgrade market.
+Her company has attended the Japan Water Works Association exhibition twice, received
+positive technical reviews from Japanese municipal engineers at both events, and generated
+three rounds of email inquiry from potential distributor contacts — none of which
+progressed beyond the initial exchange. She engaged the Canadian Trade Commissioner
+Service office in Tokyo, who provided an introduction to two potential distributor
+contacts; both meetings were cordial and produced no follow-up. She did not understand
+why. Her product was technically competitive, her pricing was acceptable, and her
+company had a genuine market opportunity she could not access.</p>
+<p><strong>Howard</strong> retired after eleven years as a Trade Commissioner in Tokyo and Seoul,
+followed by four years managing TCS Japan programs from Ottawa. He has facilitated
+entry for sixty-three Canadian companies in the Japanese market across environmental
+technology, municipal infrastructure, and industrial systems categories. He now lives
+in Victoria and consults occasionally for former TCS colleagues, but has no advisory
+visibility in the SME export market.</p>
+<p>Howard's specialist profile surfaces on the platform when Chantal posts her situation:
+Japan market entry, municipal water infrastructure category, three years of failed
+distributor engagement, TCS introductions that didn't progress. Howard reviews her
+approach materials in advance of their first call. The issue is immediately apparent:
+her product technical documentation has been prepared for the North American regulatory
+context, not the JWWA (Japan Water Works Association) certification framework; her
+distributor pitch opens with pricing, which in Japanese distributor culture signals
+that she is treating the relationship as a transaction; and her follow-up emails
+have been sent to the contact name on the business card rather than through the
+organizational hierarchy that Japanese distributors use for incoming supplier evaluation.</p>
+<p>Howard provides a market entry protocol briefing — forty-five minutes of specific,
+actionable guidance on the sequence of relationship steps, the documentation adaptations
+required for JWWA pre-approval, and the organizational approach to follow-up. He
+then makes one phone call: to a Tokyo-based manufacturer's representative he has known
+for fifteen years who specializes in placing Canadian and European environmental
+technology with Japanese municipal procurement channels and who has been looking for
+a Canadian water filtration partner for eighteen months. A formal introduction is made.
+A distributor relationship begins.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Howard's knowledge of Japanese distributor protocol and his personal contact network
+in the municipal environmental technology sector are not reproducible through any
+standard advisory channel at any price. The TCS can provide institutional introductions
+but cannot provide the granular protocol coaching that changes how an approach is
+made rather than just who it is made to. The trade consulting market in Canada does
+not employ retired Trade Commissioners whose in-country contact networks remain active.</p>
+<p>Chantal spent three years and approximately $80,000 in trade show attendance, travel,
+and consultant fees making an approach that Howard diagnosed in a forty-five minute
+briefing. The knowledge that would have redirected her approach was forty minutes
+away by phone, held by a retired professional in Victoria who had no mechanism to
+signal its availability to a Quebec City water technology company he had never heard of.</p>
+<p><em>Characters are fictional. Japanese distributor relationship norms, JWWA certification
+requirements, and TCS market entry advisory programs are factual.
+<a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Country-Specific Export Trade Expert Registry SaaS</div>
+        <p>Provincial and federal export development organizations — Ontario Made, Export Accelerator Program, regional EDCs — have member SME exporters and access to retired TCS and EDC alumni networks but no platform connecting them. A country-organized expert registry provides institutional value to export development programs while creating a subscription revenue model from both the SME and specialist sides of the market.</p>
+        <div class="opp-card__revenue">&#128181; Annual subscription for SME exporters seeking country-specific market entry advisory ($1,500–4,000/year; organized by target country, product sector, and market entry stage); annual listing subscription for retired trade specialists ($500–1,500/year).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Market Entry Briefing Package Service</div>
+        <p>SME exporters entering a new market for the first time benefit most from a structured briefing that covers the five knowledge domains where market ignorance is most costly: regulatory pathway, distributor norms, institutional contacts, tariff treatment, and realistic timeline. A managed briefing service that structures the retired specialist&#x27;s knowledge into a standard format produces a defensible deliverable that EDC, BDC, and provincial export programs can reference as part of their client support.</p>
+        <div class="opp-card__revenue">&#128181; Per-engagement fee for structured market entry advisory briefings ($1,500–5,000 per briefing; covers regulatory certification pathway, distributor relationship protocol, institutional contact map, trade agreement tariff applicability analysis, and first-year market entry timeline for a specific country and product category).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">In-Market Distributor Introduction Facilitation</div>
+        <p>The highest-value asset of a retired Trade Commissioner or EDC country specialist is not their regulatory knowledge — it is their in-market institutional contact network: the distributor they know personally, the chamber of commerce officer who will take a call because of a trusted relationship. Facilitating warm introductions from the retired specialist&#x27;s network to qualified SME clients converts a knowledge advisory service into a market access commerce service with substantially higher per-transaction value.</p>
+        <div class="opp-card__revenue">&#128181; Per-introduction facilitation fee for warm distributor and institutional introductions from the retired specialist&#x27;s in-country network ($500–2,000 per qualified introduction); success fee on first distribution agreement ($1,500–5,000).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Export Documentation and Compliance Coordination Service</div>
+        <p>SME exporters who have successfully entered a market with specialist advisory assistance have an ongoing compliance and documentation monitoring need as regulatory requirements, trade agreement tariff schedules, and country-specific import procedures evolve. The compliance subscription creates recurring revenue from the same SME exporters the market entry advisory matched, while keeping the retired specialist productively engaged on an ongoing basis.</p>
+        <div class="opp-card__revenue">&#128181; Annual export compliance subscription per SME exporter ($2,000–6,000/year; covers ongoing export documentation review, trade agreement tariff update monitoring, and country-specific regulatory change alerts for active export markets); per-shipment compliance review fee for high-value or regulated exports.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
