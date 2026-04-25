@@ -1,0 +1,218 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: tdm-industrial-trades-deep-match
+title: "Rich-Profile Semantic Matching for Specialized Industrial Trades and Skilled Technicians"
+card_title: "Specialized Trades Deep-Profile Matching"
+sector: talent-deep-match
+sub_sector: Industrial Trades and Technical Workforce
+forge_tier: 2
+status: published
+tags: [talent-matching, trades, skilled-workers, industrial, machinist, millwright, toolmaker, CNC, maintenance, semantic-matching, rich-profile]
+
+market_example:
+  summary: "Industrial employers searching for machinists, millwrights, toolmakers, and
+    precision technicians cannot evaluate candidates through a job description and resume
+    alone — the work that matters is in the machine logs, maintenance records, and process
+    notes a skilled tradesperson produces. A rich-document matching platform lets employers
+    upload technical context and candidates upload work evidence, then semantically matches
+    across the full corpus."
+  problem: "A precision machining shop looking for a CNC programmer with five-axis mill
+    experience on Mazak Smooth technology is not looking for someone who lists 'Mazak' on
+    their resume. They are looking for someone who has solved the same class of problem
+    their shop solves — who has set up the same complex fixture geometries, who has dealt
+    with the same titanium and Inconel cutting parameter challenges, who has written G-code
+    that deals with the same tolerance requirements. That knowledge is not expressed in
+    a job description and cannot be evaluated from a resume. It is expressed in the setup
+    sheets the machinist wrote, the process improvement notes they documented, the quality
+    logs they maintained, the work instructions they developed for a training successor.
+    Standard job boards match on keyword proximity: 'CNC' and 'Mazak' appearing in the
+    same resume. This produces a candidate pool of everyone who has listed those keywords —
+    which includes the person who used a Mazak once on a training course and the person
+    who has programmed Mazak five-axis machines in production for eight years. The employer
+    cannot distinguish them from a resume. They can distinguish them from a setup sheet.
+    The rich-profile matching model changes the matching input on both sides: the employer
+    uploads the job description plus the process documentation, machine logs, and work
+    instructions that the outgoing or ideal incumbent would have produced; the candidate
+    uploads their resume plus their own setup sheets, process notes, quality logs, training
+    materials they developed, and awards or recognition they received. The semantic matching
+    engine operates across the full document corpus on both sides — finding the candidate
+    whose work product evidence most closely matches the evidence of what the job actually
+    requires. The profile stays live and searchable until the position is filled or withdrawn,
+    enabling matches that emerge over time as new candidates enter the market."
+  dominant_forces:
+    - "Skilled trades qualification is work-evident rather than credential-evident: the
+      work product a skilled tradesperson produces — setup sheets, process notes, quality
+      logs, maintenance records — contains far more evaluable signal about their specific
+      competence than the credential listing on their resume, but standard job boards have
+      no mechanism to ingest, index, or semantically match on work product evidence."
+    - "The trades labour shortage in Canada creates a thin market where employers compete
+      for the same small pool of highly qualified candidates — but the matching process
+      is so inefficient that the right candidate for a specific shop is invisible behind
+      the noise of partially qualified candidates who pass keyword filters, creating false
+      scarcity where the supply-demand gap is partly a matching infrastructure gap."
+    - "Career transitions and non-linear credentials — a skilled machinist who learned
+      on the job at a single employer for fifteen years without formal certification, or
+      a recent trades graduate with exceptional talent whose credential does not distinguish
+      them from classmates — are particularly poorly served by keyword matching, which
+      rewards credential signalling over demonstrated competence."
+  deeperpoint_fit: "The rich-profile talent matching model extends CoSolvent's semantic
+    matching architecture to the employment market. KnowledgeSlot encodes the technical
+    vocabulary of specific trade domains — machining, millwright, toolmaking, instrumentation,
+    welding — enabling semantic interpretation of both the employer's technical context
+    documents (process documentation, machine manuals, quality standards, work instructions)
+    and the candidate's work evidence documents (setup sheets, process notes, award citations,
+    project writeups). The Generative Match Story explains to the employer why a specific
+    candidate's documented work experience matches their technical context — not just that
+    'Mazak' appears in both documents, but that the specific fixture setup approaches and
+    tolerance management strategies the candidate documented match the problems the employer's
+    process documents reveal."
+  economic_upside: "The Canadian skilled trades talent shortage is estimated at 250,000
+    unfilled positions annually, with industrial machining, millwright, and precision
+    technician roles among the hardest to fill. The average cost of an unfilled industrial
+    trades position is estimated at $35,000–80,000 per year in lost production, overtime,
+    and recruitment costs. A platform filling 5,000 trades placements annually at average
+    platform fees of $2,000–5,000 per successful placement generates $10–25M in annual
+    placement facilitation revenue, with additional subscription revenue from employer
+    profile maintenance and candidate document hosting."
+
+sponsor_opportunities:
+  - title: "Rich-Profile Talent Matching Platform SaaS"
+    type: saas
+    revenue_model: "Employer subscription ($500–2,000/month per active job profile; covers
+      document corpus ingestion, semantic indexing, ongoing candidate matching alerts, and
+      match explanation generation); candidate profile hosting (free to candidate, funded
+      by employer subscription model)."
+    strategic_logic: "Employers with persistent specialized hiring needs — precision machining,
+      maintenance and reliability, toolroom management — pay subscription for continuous
+      access to matched candidates as profiles enter the system, rather than paying per-post
+      fees on job boards that generate high-volume irrelevant applications. The persistent
+      profile model aligns platform economics with placement success rather than post volume."
+    recurring: true
+
+  - title: "Technical Profile Enrichment Service"
+    type: managed-service
+    revenue_model: "Per-profile enrichment engagement for candidates who need help digitizing
+      and structuring their work evidence ($200–600 per candidate profile; covers document
+      scanning, work evidence narrative development, and portfolio organization for
+      candidates who have significant work history but no digital work product documentation)."
+    strategic_logic: "The most valuable candidates in the industrial trades thin market
+      are often older workers with thirty years of undocumented expertise — they have the
+      skills but not the setup sheets saved digitally. A profile enrichment service that
+      helps them document and structure their work evidence expands the candidate pool
+      to include the highest-value workers who are currently invisible to digital matching
+      systems. This is also a workforce development service that provincial training
+      authorities and sector councils will fund."
+    recurring: false
+
+  - title: "Employer Technical Context Document Preparation Service"
+    type: managed-service
+    revenue_model: "Per-position document preparation engagement for employers who need
+      help structuring the technical context documentation for a job profile ($400–1,200
+      per position; covers process documentation inventory, technical requirement
+      specification, and work evidence exemplar selection from existing company records)."
+    strategic_logic: "Many SME manufacturers have technical context information available
+      — the departing machinist's setup sheets, the process documentation, the quality
+      standards — but have never organized it into a structured form that a matching
+      system can ingest. A document preparation service that converts existing company
+      records into a rich employer job profile creates a better-matched candidate pool
+      while building a structured technical knowledge base the employer benefits from
+      regardless of the hiring outcome."
+    recurring: false
+
+  - title: "Sector Council and Training Authority Integration Subscription"
+    type: commerce-extension
+    revenue_model: "Annual integration subscription for trades sector councils and provincial
+      apprenticeship authorities ($15,000–50,000/year; connects graduating apprentice
+      profiles and journeyperson records directly into the matching platform, enabling
+      employers to identify high-potential graduates at the point of certification)."
+    strategic_logic: "Trades sector councils — ITA BC, Ontario College of Trades (successor
+      programs), provincial apprenticeship authorities — maintain records of apprentice
+      training programs, journeyperson certifications, and employer sponsor relationships.
+      Integrating these records into the candidate profile matching system converts
+      apprenticeship completion data into immediately discoverable talent — turning a
+      regulatory record into a job market signal at the moment it has maximum value."
+    recurring: true
+
+story:
+  title: "The Setup Sheet Nobody Sent"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Roland - owner, precision aerospace components shop, 22 employees, Winnipeg"
+    - "Dani - journeyperson machinist, five-axis Mazak specialist, recently laid off from a closed aerospace subcontractor, Brandon"
+  summary: "A Winnipeg aerospace precision shop that has posted a CNC machinist position
+    on three job boards and received ninety applications — none of whom have the five-axis
+    Mazak experience the job requires — finds the right candidate through a rich-profile
+    platform after the candidate uploads three setup sheets and a process improvement note
+    that match the shop's own technical documentation."
+  body: |
+    ## Act A - The Market Structure
+
+    Precision machining competence is not a credential. It is a practice. The journeyperson
+    machinist who has the Red Seal and the machinist who has spent eight years programming
+    and operating Mazak five-axis mills in production aerospace work carry the same credential
+    and appear identically on a standard resume. The difference between them is visible in
+    their work: in the fixture design approaches documented in their setup sheets, in the
+    cutting parameter choices recorded in their process notes, in the surface finish and
+    tolerance outcomes logged in the quality records they kept. The credential certifies
+    that they can machine. The work evidence shows how they machine.
+
+    Job boards are credential filters. They surface everyone who has the credential and
+    has written the right keywords. For generalist machining roles at standard tolerances
+    on common materials, this is adequate — the credential carries the required information.
+    For specialized aerospace precision work at tight tolerances on difficult materials with
+    specific machine platforms, the credential is necessary but not sufficient. The employer
+    needs evidence of the specific practice. The evidence exists in the candidate's work
+    history. No standard job board has ever ingested it.
+
+    ---
+
+    ## Act B - The Story
+
+    **Roland** runs a twenty-two-person precision shop in Winnipeg producing aerospace
+    structural components for Tier 1 primes. His shop runs two Mazak VARIAXIS i-500 five-axis
+    machining centres on titanium and aluminum aerospace alloys. His senior programmer-machinist
+    retired in January after nineteen years. Roland posted the position on three job boards
+    with a detailed description of the machine platform, material experience required, and
+    tolerance requirements. Ninety-four applications arrived in two weeks. He filtered for
+    'five-axis' and 'Mazak': eleven remained. He interviewed four. None had production
+    five-axis experience on Mazak Smooth technology. Three had listed Mazak because they
+    had attended a demonstration at a trade show. One had used a three-axis Mazak at a
+    previous job.
+
+    Roland uploaded the job profile to the rich-profile platform — the job description,
+    plus the setup documentation his retiring machinist had produced for their three most
+    complex recurring part families, plus two of his process improvement memos, plus the
+    quality standard documentation for his aerospace customer's first-article inspection
+    requirements. The platform indexed the full corpus.
+
+    **Dani** had spent nine years as a CNC programmer and machinist at an aerospace
+    subcontractor in Brandon that closed when its prime customer moved production offshore.
+    Her resume listed her credentials and experience accurately. She had also uploaded to
+    the platform the setup sheets for the five most complex part families she had programmed,
+    a process improvement note she had written reducing setup time on a complex titanium
+    bracket by 40%, and her journeyperson certificate. The semantic matching engine found
+    her profile against Roland's document corpus: the fixture design language in her setup
+    sheets matched the fixture approach documented in the retiring machinist's setup documentation;
+    her process improvement memo referenced the same cutting parameter constraints that Roland's
+    quality documentation required; her titanium machining approach matched Roland's documented
+    material requirements at a level no keyword search could have found.
+
+    Roland received a match notification with a generated explanation of why Dani's document
+    corpus matched his. He contacted her that afternoon. She was hired within two weeks.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Roland's shop needed a machinist whose practice matched his technical context. Dani's
+    practice was exactly the match. The evidence of the match existed in documents that
+    both parties had produced in the course of their work. No job board in Canada had any
+    mechanism to ingest those documents, index them semantically, and find the match across
+    the combined corpus. The keyword filter that produced ninety-four applications and zero
+    suitable candidates is not a technology failure. It is an infrastructure design failure:
+    the information that would have completed the market was available but in a form no
+    matching system was built to process.
+
+    *Characters are fictional. Precision aerospace machining talent shortages and the
+    limitations of keyword-based job matching for specialized trades are well-documented.
+    [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*

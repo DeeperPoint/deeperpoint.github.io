@@ -1,0 +1,560 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rich-Profile Semantic Matching for Specialized Industrial Trades and Skilled Technicians — DeeperPoint</title>
+  <meta name="description" content="Industrial employers searching for machinists, millwrights, toolmakers, and precision technicians cannot evaluate candidates through a job description and resume alone — the work that matters is in the machine logs, maintenance records, and process notes a skilled tradesperson produces. A rich-document matching platform lets employers upload technical context and candidates upload work evidence, then semantically matches across the full corpus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Talent Deep Match &middot; Industrial Trades and Technical Workforce</div>
+      <h1 class="detail-title">Rich-Profile Semantic Matching for Specialized Industrial Trades and Skilled Technicians</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">talent-matching</span><span class="blog-tag">trades</span><span class="blog-tag">skilled-workers</span><span class="blog-tag">industrial</span><span class="blog-tag">machinist</span><span class="blog-tag">millwright</span><span class="blog-tag">toolmaker</span><span class="blog-tag">CNC</span><span class="blog-tag">maintenance</span><span class="blog-tag">semantic-matching</span><span class="blog-tag">rich-profile</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>A precision machining shop looking for a CNC programmer with five-axis mill experience on Mazak Smooth technology is not looking for someone who lists &#x27;Mazak&#x27; on their resume. They are looking for someone who has solved the same class of problem their shop solves — who has set up the same complex fixture geometries, who has dealt with the same titanium and Inconel cutting parameter challenges, who has written G-code that deals with the same tolerance requirements. That knowledge is not expressed in a job description and cannot be evaluated from a resume. It is expressed in the setup sheets the machinist wrote, the process improvement notes they documented, the quality logs they maintained, the work instructions they developed for a training successor. Standard job boards match on keyword proximity: &#x27;CNC&#x27; and &#x27;Mazak&#x27; appearing in the same resume. This produces a candidate pool of everyone who has listed those keywords — which includes the person who used a Mazak once on a training course and the person who has programmed Mazak five-axis machines in production for eight years. The employer cannot distinguish them from a resume. They can distinguish them from a setup sheet. The rich-profile matching model changes the matching input on both sides: the employer uploads the job description plus the process documentation, machine logs, and work instructions that the outgoing or ideal incumbent would have produced; the candidate uploads their resume plus their own setup sheets, process notes, quality logs, training materials they developed, and awards or recognition they received. The semantic matching engine operates across the full document corpus on both sides — finding the candidate whose work product evidence most closely matches the evidence of what the job actually requires. The profile stays live and searchable until the position is filled or withdrawn, enabling matches that emerge over time as new candidates enter the market.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Skilled trades qualification is work-evident rather than credential-evident: the work product a skilled tradesperson produces — setup sheets, process notes, quality logs, maintenance records — contains far more evaluable signal about their specific competence than the credential listing on their resume, but standard job boards have no mechanism to ingest, index, or semantically match on work product evidence.</li><li>The trades labour shortage in Canada creates a thin market where employers compete for the same small pool of highly qualified candidates — but the matching process is so inefficient that the right candidate for a specific shop is invisible behind the noise of partially qualified candidates who pass keyword filters, creating false scarcity where the supply-demand gap is partly a matching infrastructure gap.</li><li>Career transitions and non-linear credentials — a skilled machinist who learned on the job at a single employer for fifteen years without formal certification, or a recent trades graduate with exceptional talent whose credential does not distinguish them from classmates — are particularly poorly served by keyword matching, which rewards credential signalling over demonstrated competence.</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>The rich-profile talent matching model extends CoSolvent&#x27;s semantic matching architecture to the employment market. KnowledgeSlot encodes the technical vocabulary of specific trade domains — machining, millwright, toolmaking, instrumentation, welding — enabling semantic interpretation of both the employer&#x27;s technical context documents (process documentation, machine manuals, quality standards, work instructions) and the candidate&#x27;s work evidence documents (setup sheets, process notes, award citations, project writeups). The Generative Match Story explains to the employer why a specific candidate&#x27;s documented work experience matches their technical context — not just that &#x27;Mazak&#x27; appears in both documents, but that the specific fixture setup approaches and tolerance management strategies the candidate documented match the problems the employer&#x27;s process documents reveal.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The Canadian skilled trades talent shortage is estimated at 250,000 unfilled positions annually, with industrial machining, millwright, and precision technician roles among the hardest to fill. The average cost of an unfilled industrial trades position is estimated at $35,000–80,000 per year in lost production, overtime, and recruitment costs. A platform filling 5,000 trades placements annually at average platform fees of $2,000–5,000 per successful placement generates $10–25M in annual placement facilitation revenue, with additional subscription revenue from employer profile maintenance and candidate document hosting.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Setup Sheet Nobody Sent</div>
+        <p><strong>Characters:</strong> Roland - owner, precision aerospace components shop, 22 employees, Winnipeg, Dani - journeyperson machinist, five-axis Mazak specialist, recently laid off from a closed aerospace subcontractor, Brandon</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>Precision machining competence is not a credential. It is a practice. The journeyperson
+machinist who has the Red Seal and the machinist who has spent eight years programming
+and operating Mazak five-axis mills in production aerospace work carry the same credential
+and appear identically on a standard resume. The difference between them is visible in
+their work: in the fixture design approaches documented in their setup sheets, in the
+cutting parameter choices recorded in their process notes, in the surface finish and
+tolerance outcomes logged in the quality records they kept. The credential certifies
+that they can machine. The work evidence shows how they machine.</p>
+<p>Job boards are credential filters. They surface everyone who has the credential and
+has written the right keywords. For generalist machining roles at standard tolerances
+on common materials, this is adequate — the credential carries the required information.
+For specialized aerospace precision work at tight tolerances on difficult materials with
+specific machine platforms, the credential is necessary but not sufficient. The employer
+needs evidence of the specific practice. The evidence exists in the candidate's work
+history. No standard job board has ever ingested it.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Roland</strong> runs a twenty-two-person precision shop in Winnipeg producing aerospace
+structural components for Tier 1 primes. His shop runs two Mazak VARIAXIS i-500 five-axis
+machining centres on titanium and aluminum aerospace alloys. His senior programmer-machinist
+retired in January after nineteen years. Roland posted the position on three job boards
+with a detailed description of the machine platform, material experience required, and
+tolerance requirements. Ninety-four applications arrived in two weeks. He filtered for
+'five-axis' and 'Mazak': eleven remained. He interviewed four. None had production
+five-axis experience on Mazak Smooth technology. Three had listed Mazak because they
+had attended a demonstration at a trade show. One had used a three-axis Mazak at a
+previous job.</p>
+<p>Roland uploaded the job profile to the rich-profile platform — the job description,
+plus the setup documentation his retiring machinist had produced for their three most
+complex recurring part families, plus two of his process improvement memos, plus the
+quality standard documentation for his aerospace customer's first-article inspection
+requirements. The platform indexed the full corpus.</p>
+<p><strong>Dani</strong> had spent nine years as a CNC programmer and machinist at an aerospace
+subcontractor in Brandon that closed when its prime customer moved production offshore.
+Her resume listed her credentials and experience accurately. She had also uploaded to
+the platform the setup sheets for the five most complex part families she had programmed,
+a process improvement note she had written reducing setup time on a complex titanium
+bracket by 40%, and her journeyperson certificate. The semantic matching engine found
+her profile against Roland's document corpus: the fixture design language in her setup
+sheets matched the fixture approach documented in the retiring machinist's setup documentation;
+her process improvement memo referenced the same cutting parameter constraints that Roland's
+quality documentation required; her titanium machining approach matched Roland's documented
+material requirements at a level no keyword search could have found.</p>
+<p>Roland received a match notification with a generated explanation of why Dani's document
+corpus matched his. He contacted her that afternoon. She was hired within two weeks.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Roland's shop needed a machinist whose practice matched his technical context. Dani's
+practice was exactly the match. The evidence of the match existed in documents that
+both parties had produced in the course of their work. No job board in Canada had any
+mechanism to ingest those documents, index them semantically, and find the match across
+the combined corpus. The keyword filter that produced ninety-four applications and zero
+suitable candidates is not a technology failure. It is an infrastructure design failure:
+the information that would have completed the market was available but in a form no
+matching system was built to process.</p>
+<p><em>Characters are fictional. Precision aerospace machining talent shortages and the
+limitations of keyword-based job matching for specialized trades are well-documented.
+<a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Rich-Profile Talent Matching Platform SaaS</div>
+        <p>Employers with persistent specialized hiring needs — precision machining, maintenance and reliability, toolroom management — pay subscription for continuous access to matched candidates as profiles enter the system, rather than paying per-post fees on job boards that generate high-volume irrelevant applications. The persistent profile model aligns platform economics with placement success rather than post volume.</p>
+        <div class="opp-card__revenue">&#128181; Employer subscription ($500–2,000/month per active job profile; covers document corpus ingestion, semantic indexing, ongoing candidate matching alerts, and match explanation generation); candidate profile hosting (free to candidate, funded by employer subscription model).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Technical Profile Enrichment Service</div>
+        <p>The most valuable candidates in the industrial trades thin market are often older workers with thirty years of undocumented expertise — they have the skills but not the setup sheets saved digitally. A profile enrichment service that helps them document and structure their work evidence expands the candidate pool to include the highest-value workers who are currently invisible to digital matching systems. This is also a workforce development service that provincial training authorities and sector councils will fund.</p>
+        <div class="opp-card__revenue">&#128181; Per-profile enrichment engagement for candidates who need help digitizing and structuring their work evidence ($200–600 per candidate profile; covers document scanning, work evidence narrative development, and portfolio organization for candidates who have significant work history but no digital work product documentation).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Employer Technical Context Document Preparation Service</div>
+        <p>Many SME manufacturers have technical context information available — the departing machinist&#x27;s setup sheets, the process documentation, the quality standards — but have never organized it into a structured form that a matching system can ingest. A document preparation service that converts existing company records into a rich employer job profile creates a better-matched candidate pool while building a structured technical knowledge base the employer benefits from regardless of the hiring outcome.</p>
+        <div class="opp-card__revenue">&#128181; Per-position document preparation engagement for employers who need help structuring the technical context documentation for a job profile ($400–1,200 per position; covers process documentation inventory, technical requirement specification, and work evidence exemplar selection from existing company records).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Sector Council and Training Authority Integration Subscription</div>
+        <p>Trades sector councils — ITA BC, Ontario College of Trades (successor programs), provincial apprenticeship authorities — maintain records of apprentice training programs, journeyperson certifications, and employer sponsor relationships. Integrating these records into the candidate profile matching system converts apprenticeship completion data into immediately discoverable talent — turning a regulatory record into a job market signal at the moment it has maximum value.</p>
+        <div class="opp-card__revenue">&#128181; Annual integration subscription for trades sector councils and provincial apprenticeship authorities ($15,000–50,000/year; connects graduating apprentice profiles and journeyperson records directly into the matching platform, enabling employers to identify high-potential graduates at the point of certification).</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

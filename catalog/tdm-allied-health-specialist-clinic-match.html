@@ -1,0 +1,575 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rich-Profile Semantic Matching for Allied Health Specialists in Community and Specialty Clinics — DeeperPoint</title>
+  <meta name="description" content="Community clinics, pediatric practices, and specialty rehabilitation centers need allied health professionals — OTs, SLPs, PTs, RDs — whose population and setting experience matches their client base with specificity that a registration and years-of- experience filter cannot provide. A rich-profile platform where clinics upload program documents and practitioners upload case type narratives, publications, and training certificates enables semantic matching on the clinical practice that matters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 820px;
+      padding: 0 1.5rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .45rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .4rem;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 540px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Talent Deep Match &middot; Allied Health and Rehabilitation Workforce</div>
+      <h1 class="detail-title">Rich-Profile Semantic Matching for Allied Health Specialists in Community and Specialty Clinics</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">talent-matching</span><span class="blog-tag">allied-health</span><span class="blog-tag">occupational-therapy</span><span class="blog-tag">speech-language</span><span class="blog-tag">physiotherapy</span><span class="blog-tag">community-clinic</span><span class="blog-tag">pediatric</span><span class="blog-tag">geriatric</span><span class="blog-tag">semantic-matching</span><span class="blog-tag">rich-profile</span><span class="blog-tag">population-specialty</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>An occupational therapist who has spent six years working with adults recovering from stroke in an acute hospital setting and an occupational therapist who has spent six years working with autistic children in a school-based program carry the same OT registration and may list the same credential level on a resume. For a pediatric autism clinic seeking a new OT, these candidates are not equivalents. The clinical reasoning, the assessment tools, the family support approach, the interdisciplinary collaboration norms, and the outcome measurement frameworks are entirely different between acute neurorehabilitation and pediatric autism intervention. The wrong hire — the stroke rehab OT in the autism clinic — will need twelve months of retraining and will deliver lower-quality intervention to a vulnerable population in the interim. This mismatch is entirely preventable from documents: the stroke rehab OT&#x27;s client narratives, case study writeups, and continuing education certificates all demonstrate the neurorehabilitation focus; the autism intervention OT&#x27;s practice documents demonstrate the pediatric and neurodevelopmental focus. Community and specialty clinics in Canada routinely hire allied health professionals by credential and registration status, interview them for values alignment, and discover the population and setting mismatch only after onboarding — at high cost to both the professional and the client population. The rich-profile matching model allows clinics to upload their program descriptions, clinical protocols, case complexity profiles, and exemplary assessment report formats, and allows practitioners to upload continuing education certificates, clinical case study writeups (appropriately anonymized), published work, program development proposals, and any other documents that represent their clinical practice. Semantic matching across this document corpus identifies the practitioners whose documented clinical practice aligns with the clinic&#x27;s documented service model.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Allied health clinical competence is population-, setting-, and approach-specific in ways that registration credentials cannot capture: an SLP with a pediatric articulation and language disorder specialty provides qualitatively different clinical value to a school-based program than an SLP whose practice has been entirely in adult dysphagia management — the same registration covering fundamentally different clinical practices.</li><li>Community and specialty clinics in rural and remote areas, and those serving specific cultural communities, need allied health professionals whose cultural competence, language capability, or geographic comfort matches the community served — attributes that are visible in practitioner background documents (training certificates, community program involvement, cultural competency training records, lived experience disclosures) but invisible in a credential filter.</li><li>New graduates in allied health professional programs are difficult to evaluate through standard credential-based hiring because their clinical placement records, capstone project reports, and clinical supervisor assessments contain substantially more evaluable information about their clinical approach and population interest than their registration certificate alone — but clinical supervisors and academic program directors are not connected to the clinic hiring market in a structured way.</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>KnowledgeSlot encodes the allied health population and setting taxonomy: OT specialty areas (pediatric neurodevelopmental, adult neurorehabilitation, geriatric falls prevention, mental health and psychosocial rehabilitation, assistive technology); SLP specialty areas (pediatric language and articulation, autism and AAC, adult dysphagia, aphasia, fluency); PT specialty areas (musculoskeletal orthopaedic, neurological rehabilitation, vestibular, pelvic health, pediatric). CoSolvent semantically matches the clinic&#x27;s document corpus (program descriptions, clinical protocols, assessment report exemplars, case complexity profiles) against the practitioner&#x27;s document corpus (continuing education certificates, anonymized case writeups, capstone project reports, publications, cultural competency training records) — identifying the population and setting match that registration credentials cannot provide.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Canada&#x27;s allied health workforce — occupational therapists, speech-language pathologists, physiotherapists, dietitians, and audiologists — numbers approximately 90,000 registered professionals, with community clinic, pediatric practice, and specialty rehabilitation center hiring representing an estimated 8,000–12,000 positions annually. Average cost of an allied health wrong hire in a specialty clinic (recruitment, onboarding, reduced service quality during retraining, early departure) is estimated at $25,000–60,000. A platform reducing wrong-hire rates in 20% of specialty allied health hiring prevents $40–144M in annual wrong-hire costs. Platform subscription revenue at $600–1,500/month per active clinic job profile generates $6–18M annually across the specialty allied health employer market.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Assessment Nobody Recognized</div>
+        <p><strong>Characters:</strong> Dr. Sarah - clinic director, pediatric autism and neurodevelopmental services, Saskatoon, Maya - OT, autism and AAC specialty, new graduate, recently completed 14-month clinical placement in pediatric autism program, Saskatoon</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>New graduate allied health professionals are particularly poorly served by credential-
+based hiring. They all hold the same credential — the degree and the registration.
+The differences between them — the clinical population they focused on during their
+training, the intervention approaches they developed competence in, the supervisor
+assessments that rated their reasoning and communication, the capstone projects that
+demonstrated their clinical interest — are documented in institutional records that
+the employment market has no mechanism to access or evaluate.</p>
+<p>A new OT graduate whose fourteen months of clinical placements were concentrated in
+pediatric autism and AAC programs at a specialized center has clinical foundation
+experience that is directly relevant to a pediatric autism clinic's needs — and
+entirely invisible to an employer who sees only 'new graduate OT, University of
+Saskatchewan, 2024.' The clinical placement record, the supervisor assessment, the
+AAC equipment manufacturer training certificate, and the capstone project report on
+PECS protocol implementation all contain evaluable, specific evidence of clinical
+population focus. They are in the university's records. They are not in the job
+application form.</p>
+<p>The employer who needs an OT with autism and AAC experience and the new graduate who
+spent fourteen months developing exactly that experience are in the same city. The
+information that would complete the match is in institutional documents that no
+hiring platform currently has a mechanism to ingest.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Dr. Sarah</strong> directs a pediatric autism clinic in Saskatoon serving 120 children
+and their families. Her clinic uses the ESDM (Early Start Denver Model) with augmentative
+communication integration — a specific clinical approach that requires OT practitioners
+who understand both the ESDM framework and AAC device programming and family coaching.
+She had been posting for a new OT for three months. The Saskatchewan OT registration
+body's public directory listed 40 OTs in Saskatoon. Three had responded to her posting.
+None had autism-specific or AAC experience. She had considered hiring a new graduate
+if she could find one with the right clinical foundation.</p>
+<p>Dr. Sarah uploaded her clinic's job posting, the program description for the ESDM
+service model, an exemplary AAC device programming report from her current senior OT,
+and the clinic's family coaching protocol document.</p>
+<p><strong>Maya</strong> had deliberately structured her OT training around pediatric autism and
+neurodevelopmental intervention. Her two longest clinical placements — seven months
+at a pediatric autism program and seven months in a school-based AAC program — had
+given her more autism and AAC clinical hours than most practicing OTs in the province.
+She had completed a capstone project on PECS protocol fidelity assessment for
+preschool-age children with autism. Her clinical supervisor at the autism program
+had written an assessment describing her ESDM-informed clinical reasoning in specific
+terms. She had completed a Tobii Dynavox device programming certification. She had
+applied to Dr. Sarah's clinic through the Saskatchewan Health Authority job portal.
+Her application listed 'University of Saskatchewan OT graduate, clinical placements
+in pediatric and school settings.' The job portal had no field for clinical placement
+specialization, capstone project title, or equipment certification. Her application
+looked identical to every other new OT graduate who applied.</p>
+<p>Maya uploaded to the rich-profile platform: her capstone project report (title and
+abstract), her Tobii Dynavox certification, a letter from her clinical supervisor
+at the autism program describing her clinical reasoning (shared with supervisor
+consent), and an anonymized case writeup she had done for her capstone demonstrating
+PECS protocol implementation. The semantic matching engine found her profile against
+Dr. Sarah's clinic corpus: the ESDM vocabulary in her supervisor letter matched the
+ESDM program description; the AAC device programming content in her Tobii certification
+matched the exemplary AAC report; the PECS protocol content in her capstone matched
+the clinical approach described in the family coaching protocol.</p>
+<p>Dr. Sarah received the match notification and the explanation. She called Maya within
+the hour. Maya was hired before the end of the week.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Maya's clinical training was the most specific possible preparation for Dr. Sarah's
+role. That specificity was fully documented in institutional records, supervisor
+assessments, and a manufacturer training certificate. The job portal that separated
+them had no mechanism to ingest any of those documents. The application form had no
+field that captured the information that made Maya the right match.</p>
+<p>The infrastructure failure is not in the candidates or the employers. It is in the
+application forms and job board architectures that were designed for credential filtering,
+not for clinical practice matching. Building the infrastructure that reads the documents
+instead of the credential list is all that is required to find these matches — and they
+are waiting to be found in every allied health specialty in every Canadian city.</p>
+<p><em>Characters are fictional. OT clinical specialty distinctions between autism intervention
+and neurorehabilitation, ESDM methodology, and AAC integration in pediatric programs
+are factual. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure
+this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Allied Health Specialist Matching Platform SaaS</div>
+        <p>Specialty clinics pay for allied health recruitment support because clinical wrong hires in specialized populations — pediatric autism, geriatric falls, pelvic health — create both client care quality problems and regulatory exposure. A matching service that reads clinical practice from documents rather than credentials provides a qualitatively different service than registration-board member directories or generalist job boards.</p>
+        <div class="opp-card__revenue">&#128181; Clinic subscription ($600–1,500/month per active position; covers clinical document corpus ingestion, population-and-setting-aware semantic indexing, and match explanation with clinical specificity); practitioner profile hosting (free; premium CE certificate integration and clinical portfolio tools at $60–120/year).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Clinical Placement Record Integration Service</div>
+        <p>Allied health academic programs — OT, SLP, PT programs at Canadian universities — maintain detailed clinical placement records, supervisor assessments, and capstone project reports for every graduating student. This institutional information is exactly what specialty clinics need to evaluate new graduate fit and is not available through any standard hiring channel. An integration that converts the academic clinical record into a structured candidate profile creates a direct pipeline from allied health programs to specialty clinic employers.</p>
+        <div class="opp-card__revenue">&#128181; Annual integration subscription for allied health academic programs ($8,000–20,000/year per program; connects graduating student clinical placement records, capstone project reports, and clinical supervisor assessments into the matching platform — enabling clinics to identify graduating students whose clinical placement profile matches their service model before graduation).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Cultural and Linguistic Competency Profile Matching Extension</div>
+        <p>Clinics serving Indigenous communities, recent immigrant populations, or specific cultural communities need allied health professionals whose cultural competency and community connection match the client population as much as their clinical specialty does. A cultural competency matching extension that reads practitioner documents (cultural safety training records, community involvement evidence, language proficiency documentation) expands the matching to the full set of attributes that determine success in community-specific clinical roles.</p>
+        <div class="opp-card__revenue">&#128181; Cultural competency profile add-on for clinics serving specific cultural communities ($200–500/month per clinic; enables matching on practitioner language capabilities, cultural competency training records, lived experience disclosures, and community connection documents alongside clinical practice matching).</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Continuing Education and Specialty Certification Pathway Service</div>
+        <p>A practitioner who is a 70% match for a specialty clinic role — strong in clinical population fit but missing a specific certification — is much more valuable to the clinic than a 40% match with the right credential list. A CE pathway service that identifies the specific training gap and facilitates the CE course — potentially subsidized by the hiring clinic — converts near-matches into strong placements while creating a practitioner development revenue stream from the professional development investment clinics are already making.</p>
+        <div class="opp-card__revenue">&#128181; CE pathway subscription per practitioner ($80–200/year; identifies the continuing education courses, specialty certifications, and mentorship programs that would advance the practitioner&#x27;s match score for the specific clinic roles in their target practice area); clinic-sponsored CE subsidy program facilitation (connecting clinics willing to subsidize CE for matched candidates with the candidates who need specific CE to qualify for the role).</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
