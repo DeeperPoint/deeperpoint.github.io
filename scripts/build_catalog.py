@@ -372,18 +372,19 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     /* --- Curated collections panel --- */
     .collections-panel {
       margin: 0 auto 1rem;
-      max-width: 820px;
-      padding: 0 1.5rem;
+      max-width: 840px;
+      padding: 0 1rem;
     }
     .collections-panel__label {
       font-size: .65rem; font-weight: 700; letter-spacing: .12em;
       text-transform: uppercase; color: #64748b;
-      margin-bottom: .45rem; text-align: center;
+      margin-bottom: .55rem; text-align: center;
     }
     .collections-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: .4rem;
+      justify-items: stretch;
     }
     .col-card {
       display: flex; align-items: center; gap: .5rem;
@@ -394,6 +395,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       cursor: pointer;
       transition: background .15s, border-color .15s;
       text-align: left;
+      width: 100%;
     }
     .col-card:hover {
       background: rgba(99,102,241,.14);
@@ -413,8 +415,9 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     .col-card__count {
       font-size: .63rem; color: #64748b; line-height: 1;
     }
-    @media (max-width: 540px) {
+    @media (max-width: 480px) {
       .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
     }
 
     /* --- Story placeholder --- */
@@ -875,33 +878,6 @@ def buildIndexPage(scenarios):
       <div class="collections-panel">
         <div class="collections-panel__label">&#128204; Browse by collection</div>
         <div class="collections-grid">
-          <button class="col-card" id="col-education"
-            onclick="selectCollection(['canadian-education'], [], 'col-education')"
-            title="Canadian Education">
-            <span class="col-card__icon">&#127891;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Canadian Education</span>
-              <span class="col-card__count">10 scenarios</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-crossborder"
-            onclick="selectCollection(['canadian-education'], ['cross-border'], 'col-crossborder')"
-            title="Cross-Border Learning">
-            <span class="col-card__icon">&#127758;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Cross-Border Learning</span>
-              <span class="col-card__count">4 scenarios</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-developing"
-            onclick="selectCollection(['developing-economy'], [], 'col-developing')"
-            title="Developing Economies">
-            <span class="col-card__icon">&#127807;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Developing Economies</span>
-              <span class="col-card__count">10 scenarios</span>
-            </span>
-          </button>
           <button class="col-card" id="col-manufacturing"
             onclick="selectCollection(['manufacturing'], [], 'col-manufacturing')"
             title="Manufacturing &amp; Trades">
@@ -909,6 +885,15 @@ def buildIndexPage(scenarios):
             <span class="col-card__body">
               <span class="col-card__name">Manufacturing &amp; Trades</span>
               <span class="col-card__count">12 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-realestate"
+            onclick="selectCollection(['construction','real-estate-assembly'], [], 'col-realestate')"
+            title="Real Estate &amp; Construction">
+            <span class="col-card__icon">&#127959;&#65039;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Real Estate &amp; Build</span>
+              <span class="col-card__count">15 scenarios</span>
             </span>
           </button>
           <button class="col-card" id="col-social"
@@ -920,13 +905,58 @@ def buildIndexPage(scenarios):
               <span class="col-card__count">10 scenarios</span>
             </span>
           </button>
-          <button class="col-card" id="col-realestate"
-            onclick="selectCollection(['construction','real-estate-assembly'], [], 'col-realestate')"
-            title="Real Estate &amp; Construction">
-            <span class="col-card__icon">&#127959;&#65039;</span>
+          <button class="col-card" id="col-finance"
+            onclick="selectCollection(['canadian-financial-services'], [], 'col-finance')"
+            title="Finance &amp; Risk">
+            <span class="col-card__icon">&#128176;</span>
             <span class="col-card__body">
-              <span class="col-card__name">Real Estate &amp; Build</span>
-              <span class="col-card__count">15 scenarios</span>
+              <span class="col-card__name">Finance &amp; Risk</span>
+              <span class="col-card__count">20 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-talent"
+            onclick="selectCollection(['senior-expert-marketplace','talent-deep-match'], [], 'col-talent')"
+            title="Talent Markets">
+            <span class="col-card__icon">&#129489;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Talent Markets</span>
+              <span class="col-card__count">10 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-health"
+            onclick="selectCollection(['canadian-healthcare-support'], [], 'col-health')"
+            title="Healthcare &amp; Social">
+            <span class="col-card__icon">&#129657;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Healthcare &amp; Social</span>
+              <span class="col-card__count">12 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-education"
+            onclick="selectCollection(['canadian-education'], [], 'col-education')"
+            title="Canadian Education">
+            <span class="col-card__icon">&#127891;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Canadian Education</span>
+              <span class="col-card__count">10 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-defence"
+            onclick="selectCollection(['canadian-defence-sector'], [], 'col-defence')"
+            title="Canada Defence">
+            <span class="col-card__icon">&#128737;&#65039;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Canada Defence</span>
+              <span class="col-card__count">5 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-global"
+            onclick="selectCollection(['developing-economy','global-knowledge-equity','canada-mexico-trade'], [], 'col-global')"
+            title="Global &amp; Emerging">
+            <span class="col-card__icon">&#127758;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Global &amp; Emerging</span>
+              <span class="col-card__count">18 scenarios</span>
             </span>
           </button>
         </div>
