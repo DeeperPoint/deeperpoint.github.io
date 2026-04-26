@@ -142,7 +142,7 @@ ENTRIES = [
      "img":"StacksHOA.png",
      "text":"I served as president of the Stacks Home Owner\u2019s Association. I lasted 13 months \u2026 one month longer than the previous record-holder."},
     {"year":"2020","era":"recent","title":"Phantom Data in Trucking",
-     "img":"DistributionOfGaps.png",
+     "img":"phantom-data-2x.png",
      "text":"I resumed work with Michael Darden and DFM Data Corp in a supportive role. DFMDC is tackling a hugely important problem that is beginning to surface in the US trucking spot market. The spot market arranges 500,000 to 1.5 million truck loads per day. My investigation resulted in two findings: a) the problem is real and big, and b) the way the DFM industry works, it is really hard to fix unless we can institute a reliable ID on planned truckloads before they enter the negotiation and bidding system."},
     {"year":"2021","era":"recent","title":"Transport Unit Identifier (TUID)",
      "img":"TUIDSystemDesignV2-e1627666065651.png",
