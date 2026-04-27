@@ -1,0 +1,525 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinary Specialist Referral: Matching Rural Pet Owners with Veterinary Specialists for Complex Cases — DeeperPoint</title>
+  <meta name="description" content="Pet owners in rural and secondary-city Canada needing veterinary specialists — oncologists, cardiologists, orthopedic surgeons, dermatologists, neurologists — cannot find specialists with available appointments within reasonable travel distance, while veterinary specialists in urban centres have capacity gaps they cannot fill because rural referring veterinarians lack visibility into specialist availability.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="../../marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="../../examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../../history.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Pets And Animals &middot; Veterinary Specialty Care Access</div>
+      <h1 class="detail-title">Veterinary Specialist Referral: Matching Rural Pet Owners with Veterinary Specialists for Complex Cases</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
+        <span class="blog-tag">pets</span><span class="blog-tag">veterinary</span><span class="blog-tag">specialist</span><span class="blog-tag">rural</span><span class="blog-tag">telehealth</span><span class="blog-tag">canada</span><span class="blog-tag">participant-scarcity</span><span class="blog-tag">geographic-dispersion</span><span class="blog-tag">opacity</span>
+      </div>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Canada has approximately 500 board-certified veterinary specialists, concentrated almost entirely in Toronto, Montreal, Vancouver, Calgary, and Guelph. A dog owner in Prince George whose pet has a suspected mast cell tumour needs a veterinary oncologist. The nearest one is in Vancouver — 8 hours away. The local veterinarian knows the dog needs specialist care but has no systematic way to determine which oncologist has availability, whether a telehealth consultation could substitute for an in-person visit for initial staging, or whether a specialist might be doing locum rotations in a closer city. The owner either drives 16 hours round trip, delays care while calling clinics individually, or foregoes specialist treatment entirely. Meanwhile, a veterinary oncologist in Calgary has a cancellation opening next Tuesday that would be perfect — but neither the Prince George vet nor the dog&#x27;s owner knows about it.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Geographic concentration — 85%+ of veterinary specialists practice in five urban centres; rural pet owners face 4–12 hour drives for specialist appointments</li><li>Availability opacity — specialist clinics manage their own appointment books with no cross-clinic visibility; referring vets cannot see who has openings</li><li>Telehealth uncertainty — many specialist consultations (dermatology, behavioural, oncology staging review) could begin via telehealth, but neither referring vets nor owners know which specialists offer it</li><li>Referral network narrowness — rural veterinarians refer to the 2–3 specialists they personally know, not the full pool of available specialists</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Semantic matching encodes specialist profiles (board certification, species, subspecialty, telehealth capability, appointment availability by date, geographic location, locum rotation schedule, fee range) against referral demand signals (species, presenting condition, urgency, owner location, travel willingness, telehealth preference, budget). Real-time availability integration surfaces the appointment that exists — not just the specialist who exists.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Canadian pet care spending exceeds $10B annually. Veterinary specialist services represent an estimated $500M–$1B. A platform that improves rural-to-specialist referral matching for 10% of cases generates $50–100M in facilitated specialist consultations and measurably reduces delayed or foregone treatment in rural Canada.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">Eight Hours for a Diagnosis</div>
+        <p><strong>Characters:</strong> Sarah — dog owner, Prince George, BC; golden retriever with a suspected mast cell tumour, Dr. Patel — veterinary oncologist, Calgary; board-certified ACVIM (oncology), offering telehealth initial consultations</p>
+        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
+        <div class="story-body">
+          <h2>Act A — The Specialist Desert</h2>
+<p>Canada's veterinary specialist infrastructure mirrors its human healthcare geography: concentrated in a handful of urban centres, leaving the rest of the country in a specialist desert. A pet owner in Prince George, Sudbury, or Fredericton whose animal needs specialist care faces the same structural problem: the specialist exists, but the distance, cost, and logistics of reaching them create a barrier that delays or prevents treatment.</p>
+<p>The referring veterinarian — the local GP who identifies the need — is the critical node. But that veterinarian's referral network is typically 2–3 specialists they have personally worked with, not the full pool of board-certified specialists across Western Canada. They call the clinic they know, get a three-week wait, and tell the owner that's the best available. They don't know about the oncologist in Calgary who has an opening next Tuesday because no system connects referring vet availability searches to specialist appointment books.</p>
+<hr />
+<h2>Act B — The Story</h2>
+<p><strong>Sarah's</strong> golden retriever, Baxter, had developed a lump on his hind leg that her Prince George veterinarian had aspirated and identified as a suspected mast cell tumour. The vet recommended a veterinary oncologist for staging and treatment planning. She gave Sarah two names — both in Vancouver, both with three-week waits.</p>
+<p>Sarah looked at the calendar. Three weeks of anxiety, then an eight-hour drive each way with a dog who got carsick on the highway to Quesnel. She started calling clinics herself. Vancouver: three weeks. Victoria: four weeks. She didn't think to call Calgary because she didn't know veterinary oncologists existed there.</p>
+<p>She entered the platform's owner search: veterinary oncologist, dog, mast cell tumour, Prince George BC, willing to travel or telehealth.</p>
+<p><strong>Dr. Patel</strong> had been practising veterinary oncology in Calgary for nine years. She had started offering telehealth initial consultations during COVID and found them effective for staging review — she could assess bloodwork, imaging, and aspirate cytology remotely and determine whether the case required in-person examination or could proceed with a treatment plan coordinated through the referring vet.</p>
+<p>Her platform profile showed: ACVIM board-certified oncology, telehealth initial consultations available, next telehealth opening in four days, next in-person opening in ten days, fee range $250–$400 for initial consultation.</p>
+<p>The match surfaced Dr. Patel second — behind a Vancouver oncologist who was closer but had a three-week wait. Sarah chose Dr. Patel. The telehealth consultation happened four days later.</p>
+<hr />
+<p>Dr. Patel reviewed the cytology, bloodwork, and radiographs that Sarah's Prince George vet had forwarded through the platform. She staged the tumour as Grade II, recommended wide surgical excision, and coordinated the surgical plan with the Prince George veterinarian — who was experienced in soft tissue surgery and could perform the excision locally under Dr. Patel's guidance.</p>
+<p>Baxter had surgery in Prince George the following week. Dr. Patel reviewed the histopathology report via telehealth and confirmed clean margins. No trip to Vancouver. No trip to Calgary. Total specialist cost: $350 for the telehealth consultation and $150 for the histopathology review.</p>
+<p>Sarah's Prince George vet said it was the first time she had coordinated a specialist case entirely through telehealth. She added Dr. Patel to her referral network.</p>
+<hr />
+<h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
+<p>Dr. Patel's telehealth availability, board certification, and willingness to coordinate with referring veterinarians were all facts that would have solved Sarah's problem instantly. Dr. Patel's Calgary clinic website listed telehealth consultations. Her ACVIM board certification was publicly verifiable.</p>
+<p>She was invisible to Sarah and to Sarah's Prince George vet because veterinary specialist referral operates on personal networks, not searchable infrastructure. The referring vet knew two Vancouver oncologists. She did not know a Calgary oncologist offered telehealth. No system connected the referring vet's urgent need to the specialist's available appointment.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> connects the urgent referral to the available specialist — not the geographically closest specialist or the personally known specialist, but the one with the right availability, the right modality (telehealth vs. in-person), and the right subspecialty for the case.</p>
+<p><em>Characters are fictional. ACVIM board certification structure, mast cell tumour as a common canine cancer, veterinary specialist concentration in Canadian urban centres, and Prince George's distance from specialist veterinary care are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Veterinary Specialist Referral Platform (SaaS)</div>
+        <p>The Canadian Veterinary Medical Association and provincial veterinary associations provide organized membership on both sides. Specialist colleges (ACVIM, ACVS, ACVD) have board-certified member registries that could seed the specialist database.</p>
+        <div class="opp-card__revenue">&#128181; Annual referring clinic subscription ($200–$500/year); specialist clinic listing with availability integration ($300–$800/year); per-referral facilitation ($20–$50 per completed referral)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Veterinary Telehealth Triage Service</div>
+        <p>Many specialist consultations can begin with telehealth — a dermatologist reviewing photographs, an oncologist reviewing bloodwork and imaging. A managed triage service that determines whether telehealth is appropriate and coordinates the case transfer reduces unnecessary travel and accelerates care.</p>
+        <div class="opp-card__revenue">&#128181; Initial telehealth consultation coordination ($50–$150 per consultation); case file preparation and transfer ($30–$80 per case); follow-up coordination between specialist and referring vet ($25–$60 per follow-up)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Specialist Locum Rotation Coordination</div>
+        <p>Some veterinary specialists are willing to do periodic rotations in secondary cities — spending one day per month in Kelowna or Thunder Bay. A managed service that coordinates these rotations benefits the specialist (consolidated patient load), the local clinic (specialist revenue without hiring), and pet owners (specialist access without travel).</p>
+        <div class="opp-card__revenue">&#128181; Locum rotation scheduling for specialists visiting secondary cities ($200–$500 per rotation day); clinic space coordination ($100–$300 per rotation); patient scheduling for locum days ($30–$80 per appointment)</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Logistics Extension</div>
+        <div class="opp-card__title">Pet Medical Travel Coordination</div>
+        <p>When in-person specialist care is necessary, the logistics of travelling with a sick animal — driving routes, pet-friendly accommodation, post-surgical recovery housing — are a significant burden. A logistics extension converts a stressful journey into a managed process.</p>
+        <div class="opp-card__revenue">&#128181; Travel logistics coordination for specialist appointments ($50–$150 per trip); accommodation recommendations near specialist clinics ($20–$40 per booking); pet transport coordination for surgical cases ($100–$300 per transport)</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>
