@@ -1,0 +1,169 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cjs-police-oversight-investigator
+title: "Independent Police Oversight Investigator Matching"
+card_title: "Police Oversight Investigator Matching"
+sector: canadian-justice-system
+sub_sector: "Law Enforcement Oversight"
+forge_tier: 3
+status: published
+tags: [legal, police, oversight, accountability, investigations, public-trust]
+
+market_example:
+  summary: "Matches civilian police oversight agencies with qualified independent
+    investigators — retired officers, civilian forensics specialists, and
+    use-of-force experts — for mandatory serious-incident investigations,
+    where investigator shortages cause delays that erode public trust."
+  problem: "Every Canadian province has a civilian oversight body mandated to
+    independently investigate serious incidents involving police — deaths in
+    custody, officer-involved shootings, serious injuries during arrest. These
+    agencies include Ontario's Special Investigations Unit (SIU), Alberta's
+    ASIRT, and BC's Independent Investigations Office (IIO). They must deploy
+    investigators within hours of an incident, but the qualified pool is
+    extraordinarily thin: investigators must have specific forensic training,
+    be demonstrably independent of the involved police service, and in some
+    jurisdictions must never have served as police officers at all. The result
+    is agencies that are chronically understaffed, geographically constrained,
+    and forced to decline or delay investigations — outcomes that directly
+    damage public confidence in police accountability."
+  dominant_forces:
+    - "Independence requirements — investigators must have no prior employment
+      or personal connection to the police service under investigation,
+      dramatically narrowing the eligible pool for each incident"
+    - "Temporal urgency — oversight agencies must deploy within hours of a
+      serious incident; scene integrity, witness availability, and public
+      confidence all degrade with delay"
+    - "Geographic dispersion — incidents occur across vast provinces, but
+      qualified investigators are concentrated in capital cities; rural and
+      northern incidents are especially difficult to staff"
+  deeperpoint_fit: "CoSolvent maintains a real-time registry of qualified
+    independent investigators with verified credentials, conflict-of-interest
+    declarations, and geographic availability. When an incident is reported,
+    the platform automatically filters out investigators with connections to
+    the involved service and ranks remaining candidates by proximity,
+    specialization (use-of-force, forensics, in-custody death protocols), and
+    availability. KnowledgeSlot curates jurisdiction-specific investigation
+    standards, evidentiary chain-of-custody requirements, and mandatory
+    reporting templates."
+  economic_upside: "Canada's oversight agencies collectively investigate
+    300–500 serious incidents annually. The political and social cost of
+    delayed or understaffed investigations is enormous — but the direct fiscal
+    cost of maintaining standing investigative capacity is also high. A
+    platform that enables surge staffing from a shared, verified pool reduces
+    per-agency overhead while improving deployment speed. Enterprise SaaS
+    licensing at $75,000–$200,000 per provincial agency."
+
+sponsor_opportunities:
+  - title: "Oversight Investigator Dispatch Platform"
+    type: saas
+    revenue_model: "Enterprise licensing per provincial oversight agency
+      ($75,000–$200,000/year per agency)"
+    strategic_logic: "Oversight agencies are publicly funded and under intense
+      political pressure to demonstrate investigative capacity. A platform
+      that demonstrably accelerates deployment times and expands the available
+      investigator pool is a defensible budget line item."
+    recurring: true
+
+  - title: "Inter-Provincial Investigator Sharing Protocol"
+    type: managed-service
+    revenue_model: "Per-deployment facilitation fee ($1,500–$3,000 per
+      cross-provincial investigator deployment)"
+    strategic_logic: "An investigator qualified in Alberta can often serve in
+      Saskatchewan or BC, but no mechanism exists for cross-provincial sharing.
+      The platform brokers these deployments, handling credential verification,
+      travel logistics, and jurisdictional compliance — a managed service that
+      multiplies effective supply without training a single new investigator."
+    recurring: true
+
+  - title: "Conflict-of-Interest Verification Engine"
+    type: saas
+    revenue_model: "Per-incident screening fee ($200–$500) or annual
+      subscription ($25,000/year per agency)"
+    strategic_logic: "The independence requirement is the hardest constraint
+      to verify. The platform maintains a continuously updated database of
+      investigator employment history, personal connections, and prior case
+      involvement, enabling automated conflict screening that would take
+      human administrators hours."
+    recurring: true
+
+  - title: "Civilian Investigator Training Pipeline"
+    type: commerce-extension
+    revenue_model: "Training program listing fees ($2,000/year); referral
+      commission per enrolled trainee ($500–$1,000)"
+    strategic_logic: "Several provinces are moving toward fully civilian
+      investigator models. The platform connects career-changers (military
+      police, federal investigators, forensic accountants) with specialized
+      civilian oversight training programs, building the pipeline that
+      agencies desperately need."
+    recurring: true
+
+story:
+  title: "Forty-Eight Hours"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Director Okafor - head of provincial civilian oversight agency, Edmonton"
+    - "Investigator Leblanc - retired RCMP forensic specialist, Moncton"
+  summary: "A civilian oversight director in Alberta deploys a qualified
+    investigator from New Brunswick within 18 hours of a fatal police encounter,
+    after the platform eliminates six local candidates for conflict-of-interest."
+  body: |
+    ## Act A - The Market Structure
+
+    Civilian police oversight is a thin market by design. The entire purpose
+    of independence requirements is to prevent the investigated from
+    investigating themselves. But independence is a constraint that shrinks
+    the supply pool for every incident — because the pool is defined not just
+    by qualification but by who the investigator is *not* connected to. In a
+    country where police services overlap, share training academies, and
+    transfer officers between forces, the web of connections is dense. The
+    result: a qualified forensic investigator in Calgary may be disqualified
+    from investigating an Edmonton incident because her former partner
+    transferred to EPS three years ago.
+
+    The public does not see the matching problem. The public sees delay —
+    and delay looks like cover-up.
+
+    ---
+
+    ## Act B - The Story
+
+    **Director Okafor** receives a call at 2 AM. A fatal encounter during a
+    wellness check in rural Alberta. ASIRT must deploy an investigative team
+    by morning. She has eight investigators on her active roster. The platform
+    runs conflict screening against the involved service: three investigators
+    previously served with officers now at that service; two have pending
+    cases involving the same detachment; one is on leave. Two remain — but
+    neither has forensic scene reconstruction expertise, which this incident
+    requires.
+
+    Okafor expands the search nationally. The platform identifies
+    **Investigator Leblanc** in Moncton — a retired RCMP forensic specialist
+    who left the force eight years ago, has no connections to any Alberta
+    service, holds current civilian oversight certification from a New
+    Brunswick training program, and is available immediately. The platform
+    verifies his credentials, confirms no conflicts, and books travel.
+    Leblanc is on scene by 8 PM the following day.
+
+    The investigation proceeds on schedule. The public report is issued within
+    the statutory timeline. No procedural challenges are raised.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Police oversight agencies cannot stockpile investigators the way police
+    services stockpile officers. The independence constraint means that every
+    incident reshuffles who is eligible. Without a national, real-time
+    registry that can perform instant conflict screening and cross-provincial
+    deployment, each agency is an island — understaffed, geographically
+    constrained, and unable to meet the public's legitimate expectation of
+    swift, independent accountability.
+
+    [Thin market infrastructure](../../thin-markets.html) does not solve the
+    political challenges of police oversight. It solves the logistics — and
+    logistics is where most oversight failures actually originate.
+
+    *Characters are fictional. The investigator shortage at Canadian civilian
+    oversight agencies is real and has been documented by multiple provincial
+    auditors. [DeeperPoint](../../marketforge.html) is building the
+    infrastructure this story describes.*

@@ -1,0 +1,80 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cjs-reentry-employer-matching
+title: "Reintegration Employer-Candidate Matching"
+card_title: "Reentry Employer-Candidate Matching"
+sector: canadian-justice-system
+sub_sector: "Rehabilitation & Employment"
+forge_tier: 2
+status: published
+tags: [legal, corrections, employment, reintegration, trades, ban-the-box]
+
+market_example:
+  summary: "Matches employers willing to hire individuals with criminal records with pre-screened candidates whose trade credentials, work history, and parole conditions align with specific job requirements — solving the mutual invisibility that keeps inclusive employers unfilled and qualified candidates unemployed."
+  problem: "Approximately 4 million Canadians have a criminal record. Many have trade certifications or skilled work experience that lapsed during incarceration. Employers willing to hire them exist but are invisible to candidates, and candidates are invisible to employers. Standard job boards penalize criminal records in screening algorithms. Staffing agencies avoid the liability. The result is a two-sided discovery failure: employers with labour shortages cannot find pre-screened candidates, and candidates with genuine skills cannot find employers who will consider them. Unemployment within the first year of release is the single strongest predictor of recidivism."
+  dominant_forces:
+    - "Mutual invisibility — ban-the-box employers cannot signal their willingness through standard hiring channels, and candidates cannot identify them without insider knowledge"
+    - "Credential decay — trade licences and safety tickets lapse during incarceration; reinstatement processes are opaque, vary by province, and cost money the candidate does not have"
+    - "Liability perception — employers fear negligent-hiring lawsuits; without structured due diligence documentation, legal risk suppresses willingness even among sympathetic employers"
+  deeperpoint_fit: "CoSolvent operates the two-sided marketplace: candidates register their trade credentials, work history, and parole conditions; employers register positions with explicit ban-the-box status and conviction-category restrictions. KnowledgeSlot curates the credential reinstatement pathway for every provincial licensing body. The Generative Match Story produces a structured candidate summary documenting employer due diligence without exposing raw criminal record data."
+  economic_upside: "Each avoided reincarceration saves approximately $130,000 per year. Employment within 90 days of release reduces recidivism by 30–50%. A platform facilitating 500 placements annually generates $1.5–$2.5M in placement and subscription revenue while producing $30–$65M in avoided incarceration costs."
+
+sponsor_opportunities:
+  - title: "Ban-the-Box Employer Registry & Matching SaaS"
+    type: saas
+    revenue_model: "Employer subscription ($499–$1,499/year) tiered by company size; corrections institution contract ($25,000–$75,000/year)"
+    strategic_logic: "Employers in skilled trades face acute labour shortages. A verified, liability-documented matching platform converts latent willingness into active hiring by reducing perceived risk and administrative burden."
+    recurring: true
+  - title: "Credential Reinstatement Navigation Service"
+    type: managed-service
+    revenue_model: "Per-candidate navigation fee ($150–$300); institutional contract for pre-release credential audit ($50/candidate)"
+    strategic_logic: "A journeyman electrician whose licence lapsed needs to know exactly what the provincial authority requires to reinstate. The platform maps every licensing body's reinstatement process, converting unemployable ex-offenders into employable tradespeople."
+    recurring: true
+  - title: "Employer Due Diligence Documentation"
+    type: managed-service
+    revenue_model: "Per-placement documentation fee ($200–$400)"
+    strategic_logic: "The platform generates a structured hiring record documenting the employer's due diligence — background check acknowledgment, parole officer coordination, insurance notification — creating a defensible paper trail that protects the employer."
+    recurring: true
+  - title: "Social Impact Bond Partnership"
+    type: commerce-extension
+    revenue_model: "Pay-for-success contract with provincial government ($2,000–$5,000 per verified employment retention at 6 and 12 months)"
+    strategic_logic: "The platform's individual-level matching and outcome tracking data is precisely what SIB investors require. Government pays on demonstrated employment retention, creating a self-sustaining revenue stream tied to social outcomes."
+    recurring: true
+
+story:
+  title: "The Licence on the Wall"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Ray - journeyman welder, released 6 months ago, Hamilton"
+    - "Sandra - HR manager, fabrication shop, Kitchener"
+  summary: "A welder whose CWB certification lapsed during a five-year sentence is matched with a fabrication shop desperate for skilled hands, after the platform navigates credential reinstatement and documents employer due diligence."
+  body: |
+    ## Act A - The Market Structure
+
+    The Canadian skilled trades sector has 300,000+ unfilled positions. The correctional system releases approximately 8,000 individuals per year, many with trade backgrounds. These two facts coexist without connection because the labour market's discovery infrastructure actively excludes people with criminal records.
+
+    Job boards use automated screening that flags criminal record disclosure. Staffing agencies avoid the liability. Parole officers know which employers have hired ex-offenders before, but that knowledge is personal and informal. The credential problem compounds the discovery problem: a welder's CWB certification, an electrician's provincial licence, a heavy equipment operator's safety tickets — all lapse during incarceration. Reinstatement is possible but opaque, varies by province, and costs money.
+
+    ---
+
+    ## Act B - The Story
+
+    **Ray** was a CWB-certified welder for 12 years before his conviction. He has been out for six months. His certification lapsed in year two. He has applied to 40 jobs. Three called back. All rescinded after the background check.
+
+    **Sandra** runs HR at a 45-person fabrication shop in Kitchener. She has two unfilled welder positions for seven months. She is willing to hire individuals with non-violent records but has no idea how to find candidates.
+
+    Ray's case worker registers him on the platform. The credential navigator identifies his CWB certification can be reinstated with a practical test ($350) and a safety refresher. A community fund covers the fee. Ray completes reinstatement in three weeks.
+
+    The platform matches Ray to Sandra's open position. The match summary documents his reinstated CWB certification, his 12-year work history, his non-violent parole conditions, and the insurance broker's acknowledgment. Sandra hires him. The platform generates the due diligence record.
+
+    Twelve months later, Ray is a lead welder. Sandra has filled her second position through the platform.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The employment gap for people with criminal records is not a motivation problem or a skills problem. It is a matching infrastructure problem compounded by a credential navigation problem. Willing employers and qualified candidates exist on both sides of a wall that neither can see through.
+
+    What [thin market infrastructure](../../thin-markets.html) provides is the two-sided discovery mechanism plus the credential reinstatement pathway. The due diligence documentation layer removes the liability barrier that suppresses employer willingness even when the candidate is right in front of them.
+
+    *Characters are fictional. The skilled trades shortage, credential reinstatement processes, and employer liability concerns are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
