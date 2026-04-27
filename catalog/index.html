@@ -422,85 +422,112 @@
       <div class="collections-panel">
         <div class="collections-panel__label">&#128204; Browse by collection</div>
         <div class="collections-grid">
+          <button class="col-card" id="col-resources"
+            onclick="selectCollection(['canadian-natural-resources','canadian-energy','canadian-forestry'], [], 'col-resources')"
+            title="Resources, Energy &amp; Forestry">
+            <span class="col-card__icon">&#9935;&#65039;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Resources &amp; Energy</span>
+              <span class="col-card__count">24 scenarios</span>
+            </span>
+          </button>
           <button class="col-card" id="col-manufacturing"
-            onclick="selectCollection(['manufacturing'], [], 'col-manufacturing')"
-            title="Manufacturing &amp; Trades">
+            onclick="selectCollection(['manufacturing','construction','logistics'], [], 'col-manufacturing')"
+            title="Manufacturing, Construction &amp; Logistics">
             <span class="col-card__icon">&#9881;&#65039;</span>
             <span class="col-card__body">
-              <span class="col-card__name">Manufacturing &amp; Trades</span>
-              <span class="col-card__count">12 scenarios</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-realestate"
-            onclick="selectCollection(['construction','real-estate-assembly'], [], 'col-realestate')"
-            title="Real Estate &amp; Construction">
-            <span class="col-card__icon">&#127959;&#65039;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Real Estate &amp; Build</span>
-              <span class="col-card__count">15 scenarios</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-social"
-            onclick="selectCollection(['social-enterprise'], [], 'col-social')"
-            title="Social Enterprise">
-            <span class="col-card__icon">&#129309;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Social Enterprise</span>
-              <span class="col-card__count">10 scenarios</span>
+              <span class="col-card__name">Manufacturing &amp; Build</span>
+              <span class="col-card__count">11 scenarios</span>
             </span>
           </button>
           <button class="col-card" id="col-finance"
             onclick="selectCollection(['canadian-financial-services'], [], 'col-finance')"
-            title="Finance &amp; Risk">
+            title="Finance, Insurance &amp; Risk">
             <span class="col-card__icon">&#128176;</span>
             <span class="col-card__body">
               <span class="col-card__name">Finance &amp; Risk</span>
               <span class="col-card__count">20 scenarios</span>
             </span>
           </button>
+          <button class="col-card" id="col-justice"
+            onclick="selectCollection(['canadian-justice-system','social-enterprise'], [], 'col-justice')"
+            title="Justice, Social Enterprise &amp; Reintegration">
+            <span class="col-card__icon">&#9878;&#65039;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Justice &amp; Social</span>
+              <span class="col-card__count">21 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-agfood"
+            onclick="selectCollection(['canadian-agriculture','canadian-food-last-stage'], [], 'col-agfood')"
+            title="Agriculture &amp; Food">
+            <span class="col-card__icon">&#127806;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Agriculture &amp; Food</span>
+              <span class="col-card__count">18 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-northern"
+            onclick="selectCollection(['remote-town-renewal','municipal-government'], [], 'col-northern')"
+            title="Northern, Remote &amp; Municipal">
+            <span class="col-card__icon">&#127956;&#65039;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Northern &amp; Municipal</span>
+              <span class="col-card__count">23 scenarios</span>
+            </span>
+          </button>
           <button class="col-card" id="col-talent"
-            onclick="selectCollection(['senior-expert-marketplace','talent-deep-match'], [], 'col-talent')"
-            title="Talent Markets">
+            onclick="selectCollection(['senior-expert-marketplace','talent-deep-match','professional-services'], [], 'col-talent')"
+            title="Talent &amp; Professional Services">
             <span class="col-card__icon">&#129489;</span>
             <span class="col-card__body">
-              <span class="col-card__name">Talent Markets</span>
-              <span class="col-card__count">10 scenarios</span>
+              <span class="col-card__name">Talent &amp; Professional</span>
+              <span class="col-card__count">22 scenarios</span>
             </span>
           </button>
           <button class="col-card" id="col-health"
-            onclick="selectCollection(['canadian-healthcare-support'], [], 'col-health')"
-            title="Healthcare &amp; Social">
+            onclick="selectCollection(['canadian-healthcare-support','global-health-pharma'], [], 'col-health')"
+            title="Healthcare &amp; Global Health">
             <span class="col-card__icon">&#129657;</span>
             <span class="col-card__body">
-              <span class="col-card__name">Healthcare &amp; Social</span>
-              <span class="col-card__count">12 scenarios</span>
+              <span class="col-card__name">Healthcare &amp; Pharma</span>
+              <span class="col-card__count">14 scenarios</span>
             </span>
           </button>
-          <button class="col-card" id="col-education"
-            onclick="selectCollection(['canadian-education'], [], 'col-education')"
-            title="Canadian Education">
+          <button class="col-card" id="col-culture"
+            onclick="selectCollection(['arts-cultural-markets','canadian-sport','canadian-education'], [], 'col-culture')"
+            title="Arts, Sport &amp; Education">
             <span class="col-card__icon">&#127891;</span>
             <span class="col-card__body">
-              <span class="col-card__name">Canadian Education</span>
-              <span class="col-card__count">10 scenarios</span>
+              <span class="col-card__name">Arts, Sport &amp; Education</span>
+              <span class="col-card__count">32 scenarios</span>
             </span>
           </button>
-          <button class="col-card" id="col-defence"
-            onclick="selectCollection(['canadian-defence-sector'], [], 'col-defence')"
-            title="Canada Defence">
+          <button class="col-card" id="col-govdef"
+            onclick="selectCollection(['canadian-defence-sector','canadian-gov-expert-networks','canadian-export'], [], 'col-govdef')"
+            title="Defence, Government &amp; Export">
             <span class="col-card__icon">&#128737;&#65039;</span>
             <span class="col-card__body">
-              <span class="col-card__name">Canada Defence</span>
-              <span class="col-card__count">5 scenarios</span>
+              <span class="col-card__name">Defence, Gov &amp; Export</span>
+              <span class="col-card__count">25 scenarios</span>
             </span>
           </button>
           <button class="col-card" id="col-global"
-            onclick="selectCollection(['developing-economy','global-knowledge-equity','canada-mexico-trade'], [], 'col-global')"
-            title="Global &amp; Emerging">
+            onclick="selectCollection(['developing-economy','global-knowledge-equity','canada-mexico-trade','diaspora-connections'], [], 'col-global')"
+            title="Global Trade &amp; Development">
             <span class="col-card__icon">&#127758;</span>
             <span class="col-card__body">
-              <span class="col-card__name">Global &amp; Emerging</span>
-              <span class="col-card__count">18 scenarios</span>
+              <span class="col-card__name">Global &amp; Diaspora</span>
+              <span class="col-card__count">30 scenarios</span>
+            </span>
+          </button>
+          <button class="col-card" id="col-research"
+            onclick="selectCollection(['canadian-research-institutions','environmental-circular-economy','pets-and-animals'], [], 'col-research')"
+            title="Research, Environment &amp; Specialized">
+            <span class="col-card__icon">&#128300;</span>
+            <span class="col-card__body">
+              <span class="col-card__name">Research &amp; Environment</span>
+              <span class="col-card__count">20 scenarios</span>
             </span>
           </button>
         </div>
