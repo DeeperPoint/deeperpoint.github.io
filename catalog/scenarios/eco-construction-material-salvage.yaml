@@ -1,0 +1,91 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: eco-construction-material-salvage
+title: "Construction Material Salvage: Matching Demolition Sites with Builders Seeking Reclaimed Lumber, Brick, Fixtures, and Architectural Salvage"
+card_title: "Demolition Salvage to Builder Reuse Matching"
+sector: environmental-circular-economy
+sub_sector: Construction Material Reuse & Architectural Salvage
+forge_tier: 1
+status: published
+tags: [environment, circular-economy, construction, demolition, salvage, reuse, canada, temporal-mismatch, opacity, trust-deficit]
+
+market_example:
+  summary: "Demolition contractors dismantling buildings with reusable materials — old-growth lumber, heritage brick, hardwood flooring, architectural fixtures, steel beams — default to landfill because they cannot find buyers fast enough, while builders, renovators, and artisans seeking exactly these reclaimed materials pay premium prices at salvage yards or go without."
+  problem: "Construction and demolition waste accounts for approximately 30% of Canadian landfill volume — roughly 9 million tonnes annually. A significant fraction of this waste is materials with high reuse value: century-old Douglas fir beams, heritage clay brick, hardwood flooring, cast iron radiators, architectural mouldings, industrial steel, and vintage hardware. A demolition contractor in Kitchener tearing down a 1920s factory has 200 old-growth Douglas fir beams, 40,000 heritage bricks, and a set of original factory windows. A timber-frame builder in Muskoka would pay $15/board-foot for those beams — five times the price of new lumber. A heritage renovation contractor in Stratford needs exactly that brick. An architectural salvage enthusiast in Toronto wants those windows. But the demolition contractor has two weeks to clear the site. He calls two salvage yards; one is full, one will take the brick but not the wood. He doesn't know the Muskoka builder exists. The beams go to landfill. The builder buys new lumber. The heritage brick is crushed for aggregate. The windows are destroyed. Everyone loses."
+  dominant_forces:
+    - "Temporal mismatch — demolition timelines (days to weeks) are far shorter than the time required to find buyers for specialty reclaimed materials; the material is destroyed before the buyer is found"
+    - "Material characterization gap — reclaimed materials vary enormously in quality, species, grade, and condition; no standardized grading system exists for demolition salvage"
+    - "Logistics complexity — salvaged materials require careful removal, transport, storage, and sometimes decontamination (lead paint, asbestos abatement) that generic waste haulers cannot provide"
+    - "Liability uncertainty — demolition contractors face liability questions about material quality guarantees that discourage resale"
+  deeperpoint_fit: "Semantic matching encodes demolition site profiles (material inventory with species identification, dimensions, quantity, condition, photographs, removal timeline, site location, hazardous material status) against builder/renovator demand signals (material type, species, grade, quantity, acceptable condition, project timeline, location, budget). Pre-demolition material inventories posted before the wrecking ball arrives give buyers lead time to arrange purchase and transport."
+  economic_upside: "Canadian C&D waste represents approximately $2B in potential reuse material value that is currently landfilled. A platform that diverts 5% of this material to reuse generates $100M in reclaimed material transactions annually, with additional environmental value in avoided landfill, reduced virgin material extraction, and embodied carbon preservation."
+
+sponsor_opportunities:
+  - title: "Pre-Demolition Material Marketplace (SaaS)"
+    type: saas
+    revenue_model: "Annual demolition contractor listing ($150–$400/year); builder/renovator search subscription ($100–$300/year); per-listing material inventory posting ($50–$150 per demolition site); per-sale transaction facilitation (5–10% of material value)"
+    strategic_logic: "Provincial construction associations, the Canadian Construction Association, and demolition contractor associations provide organized communities. Municipal demolition permits could trigger platform notifications — requiring material inventories before permits are issued."
+    recurring: true
+  - title: "Pre-Demolition Material Assessment"
+    type: managed-service
+    revenue_model: "Pre-demolition material inventory and valuation ($500–$2,000 per site); species identification and grading for reclaimed wood ($200–$600 per inventory); hazardous material assessment integration ($300–$800 per site)"
+    strategic_logic: "Demolition contractors lack the expertise to identify and value reusable materials. A managed assessment service that inventories, photographs, and grades materials before demolition begins creates the data that makes matching possible."
+    recurring: false
+  - title: "Salvage Logistics Coordination"
+    type: logistics-extension
+    revenue_model: "Careful material removal coordination ($300–$1,500 per extraction); transport to buyer ($100–$500 per load); temporary storage coordination ($50–$200/week per pallet)"
+    strategic_logic: "Salvaged materials require careful removal — beams must be extracted without damage, brick must be cleaned, fixtures must be disconnected properly. A logistics service that coordinates careful extraction and transport bridges the gap between demolition schedule and buyer readiness."
+    recurring: true
+  - title: "Reclaimed Material Certification"
+    type: commerce-extension
+    revenue_model: "Material grading and certification for structural reuse ($150–$400 per lot); provenance documentation for heritage materials ($100–$250 per lot); embodied carbon credit calculation ($75–$200 per transaction)"
+    strategic_logic: "Builders using reclaimed structural materials need engineering certification that the material meets code. A certification service that grades and documents reclaimed materials for structural reuse removes the liability barrier that prevents builders from specifying salvaged materials."
+    recurring: true
+
+story:
+  title: "Two Hundred Beams"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Carlos — demolition contractor, Kitchener, Ontario; two weeks to clear a 1920s textile factory with 200 old-growth Douglas fir beams"
+    - "Peter — timber-frame builder, Muskoka, Ontario; searching for 40 reclaimed Douglas fir beams for a lakeside cottage commission"
+  summary: "A Kitchener demolition contractor about to landfill 200 old-growth Douglas fir beams from a 1920s factory discovers — through the platform — a Muskoka timber-frame builder who would pay $15/board-foot for exactly those beams."
+  body: |
+    ## Act A — The Two-Week Clock
+
+    Demolition is a deadline business. The contractor wins the job, gets the permit, and has a fixed window to clear the site before the new construction begins. Every day the site is not cleared costs money — equipment rental, insurance, crew wages, penalty clauses. The incentive structure rewards speed, not material recovery.
+
+    A 1920s factory contains materials that took a century to grow and decades to season. Old-growth Douglas fir beams — tight-grained, clear, structurally superior to anything available new — are worth $15–$25/board-foot to builders who know what they have. At commodity lumber prices, a single 8×12 beam 20 feet long is worth $150 new. The same beam in old-growth reclaimed fir is worth $600–$1,000 to a timber-frame builder. Two hundred beams represent $120,000–$200,000 in reuse value.
+
+    The demolition contractor sees them as obstacles. His crew can drop them into a dumpster in four hours. Finding a buyer would take weeks he doesn't have.
+
+    ---
+
+    ## Act B — The Story
+
+    **Carlos** had won the demolition contract for a 1920s textile factory in Kitchener. Two weeks to clear the site. The building contained approximately 200 Douglas fir beams — 8×12 and 10×12, 16 to 24 feet long, in excellent condition. His foreman mentioned that salvage yards sometimes bought old beams, but the two yards Carlos called were either full or offered $2/board-foot — barely worth the labour to extract them carefully.
+
+    He posted the material inventory on the platform: 200 Douglas fir beams, dimensions and photographs, 1920s textile factory, Kitchener Ontario, available for two weeks, buyer must arrange extraction and transport.
+
+    **Peter** built timber-frame cottages in Muskoka. His clients wanted the character of reclaimed wood — the tight grain, the nail holes, the patina. He had been searching for a supply of reclaimed Douglas fir for six months. Salvage yards had sporadic inventory — three beams here, five there — never enough for a full project. He needed 40 beams for his current commission.
+
+    His platform demand profile: Douglas fir beams, 8×12 minimum, 16+ feet, reclaimed, structural grade, 40 beams minimum, willing to travel within Ontario.
+
+    The match surfaced the Kitchener factory within hours of Carlos's posting. Peter drove to Kitchener the next morning, inspected the beams, and contracted a specialty extraction crew to remove 40 beams over three days at $12/board-foot plus extraction costs.
+
+    ---
+
+    Carlos earned $48,000 from the 40 beams Peter bought — versus the $800 the salvage yard had offered for the same material. The platform matched the remaining 160 beams with three additional buyers within the two-week window: a barn renovation company in Elora, an artisan furniture maker in Hamilton, and a heritage building contractor in Ottawa.
+
+    Total revenue from salvaged beams: $165,000. Total landfill diversion: approximately 80 tonnes of old-growth wood. Carlos said the salvage revenue exceeded his profit margin on the demolition contract itself.
+
+    ---
+
+    ## Act C — Why This Market Stays Broken Without Infrastructure
+
+    Peter had been searching for reclaimed Douglas fir for six months. Carlos's factory contained five times what Peter needed. They were 90 minutes apart. The economic logic was unambiguous — $12/board-foot versus $2 at the salvage yard, or zero at the landfill.
+
+    The match never happened spontaneously because demolition contractors and timber-frame builders operate in completely separate industries, on completely different timelines. The demolition contractor's two-week window and the builder's six-month search never overlap in any shared information channel.
+
+    [Thin market infrastructure](../../thin-markets.html) bridges the temporal gap — posting the material inventory before demolition begins and matching it to standing demand profiles — so that the buyer is found while the beams still exist.
+
+    *Characters are fictional. Old-growth Douglas fir as a premium reclaimed building material, Kitchener's industrial heritage architecture, Muskoka's timber-frame building market, and the 30% share of Canadian landfill attributable to C&D waste are real. [DeeperPoint](../../marketforge.html) is building the infrastructure this story describes.*
