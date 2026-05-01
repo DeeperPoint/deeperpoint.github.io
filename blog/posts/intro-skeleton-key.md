@@ -67,7 +67,7 @@ There is also an **investor** angle. Some thin markets are large enough that a p
 
 I want to be transparent about readiness. The DeeperPoint stack is under active development — there is enough working code that the design direction is real and testable, but each component (Cosolvent, KnowledgeSlot, ClientSynth, MarketForge) has a published [roadmap](../marketforge.html) that I maintain and update. This is an honest R&D project, not a product launch.
 
-One concrete milestone on that roadmap: DeeperPoint is building **GPSim**, a market simulator assembled via the MarketForge workplan that models the Canadian specialty grain-to-Asia scenario end to end. GPSim is well into development but still some months from public release. When it's ready, it will be the first full demonstration of how the toolkit handles a real cross-border thin market — from semantic onboarding through matching through deal assembly — against realistic synthetic participants.
+One concrete milestone on that roadmap: DeeperPoint is building **ForgeTwin**, a digital twin assembled via the MarketForge workplan that models a thin market end to end — from semantic onboarding through matching through deal assembly — against realistic synthetic participants. The first ForgeTwin scenario modelled cross-border specialty grain trade; the framework has since been applied to manufacturing verticals including fractional capacity sharing and consortium bidding.
 
 You can examine the open-source core of Cosolvent [right now](https://github.com/DeeperPoint/Cosolvent). But a harness without people who use it is just code. What it needs is the right collaborators.
 
