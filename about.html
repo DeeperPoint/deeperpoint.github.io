@@ -1,0 +1,238 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — DeeperPoint</title>
+  <meta name="description" content="The founder's mission and professional journey — why DeeperPoint exists and what it aims to build.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About — DeeperPoint">
+  <meta property="og:description" content="The founder's mission and professional journey — why DeeperPoint exists and what it aims to build.">
+  <meta property="og:url" content="https://deeperpoint.com/about.html">
+  <meta property="og:site_name" content="DeeperPoint">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-bio { background: rgba(255,255,255,.03); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,.1); margin-bottom: var(--space-2xl); }
+    .about-bio p { color: var(--dp-silver); line-height: 1.7; margin-bottom: 1rem; }
+    .about-bio p:last-child { margin-bottom: 0; }
+    .about-contact { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--space-md); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+    .about-divider { border: none; border-top: 1px solid rgba(99,102,241,.18); margin: var(--space-3xl) 0; }
+    .about-section { margin-bottom: var(--space-3xl); }
+    .about-section h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: var(--space-lg); }
+    .about-section h3 { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--color-text-primary, #f1f5f9); margin-top: var(--space-xl); margin-bottom: var(--space-md); }
+    .about-section p { color: var(--color-text-secondary, #cbd5e1); line-height: 1.75; margin-bottom: 1rem; }
+    .about-section ol, .about-section ul { color: var(--color-text-secondary, #cbd5e1); line-height: 1.75; margin-bottom: 1rem; padding-left: 1.5rem; }
+    .about-section a { color: #818cf8; text-decoration: none; }
+    .about-section a:hover { color: #a5b4fc; text-decoration: underline; }
+    .about-section table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+    .about-section th, .about-section td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid rgba(255,255,255,.06); color: var(--color-text-secondary, #cbd5e1); font-size: .9rem; }
+    .about-section th { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .about-section em { color: var(--color-text-muted, #94a3b8); }
+    .about-section strong { color: var(--color-text-primary, #f1f5f9); }
+    .about-part-label { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #818cf8; margin-bottom: .3rem; }
+
+  </style>
+</head>
+
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="thin-markets.html" class="nav__link">The Problem</a></li>
+        <li><a href="marketforge.html" class="nav__link">The Project</a></li>
+        <li><a href="examples.html" class="nav__link">Examples</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="about.html" class="nav__link nav__link--active">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="about" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal text-center" style="margin-bottom: var(--space-2xl);">
+        <span class="section__label">About</span>
+        <h1 class="section__title">The Founder &amp; the Mission</h1>
+        <p class="section__desc section__desc--centered">
+          Who is behind DeeperPoint, and why this project exists.
+        </p>
+      </div>
+
+      <!-- === BIOGRAPHY === -->
+      <div class="about-bio reveal">
+        <p><strong style="white-space: nowrap;">Mustafa (Vic) Uzumeri</strong> has spent five decades working across transportation planning, operations research, academic teaching, eLearning production, video systems, supply chain data standards, and AI marketplace design.</p>
+        <p>The thread connecting them is a persistent interest in how complex systems actually work: transportation networks, factories, classrooms, supply chains, and markets. Each phase built on the last. Transportation planning led to operations research. Operations research led to teaching. Teaching led to eLearning production. eLearning production led to video and surveillance systems. And all of it converged into thin market theory and the DeeperPoint framework.</p>
+        <p>Vic is retired, self-funded, and answerable to no board or investors. That independence is a deliberate choice — it means DeeperPoint can optimise for long-term structural impact rather than quarterly returns.</p>
+        <p style="font-size: .9rem; color: var(--dp-muted);">
+          <a href="history.html" style="color: #818cf8;">Read the full professional history →</a> &nbsp;|&nbsp;
+          Vic also writes independently on <a href="https://uzumeri.substack.com/" target="_blank" rel="noopener" style="color: #818cf8;">Substack</a>.
+        </p>
+      </div>
+
+      <div class="about-contact reveal">
+        <a href="https://www.linkedin.com/in/uzumeri" target="_blank" rel="noopener" title="Connect on LinkedIn" style="display:inline-flex;align-items:center;opacity:.85;transition:opacity .2s;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 72 72"><rect width="72" height="72" rx="8" fill="#0A66C2"/><path fill="#fff" d="M20.7 55.3h-8.5V29.7h8.5v25.6zM16.5 26.1c-2.7 0-4.9-2.2-4.9-4.9s2.2-4.9 4.9-4.9 4.9 2.2 4.9 4.9-2.2 4.9-4.9 4.9zm39.9 29.2h-8.5V42.9c0-3-.1-6.8-4.1-6.8-4.1 0-4.8 3.2-4.8 6.6v12.6h-8.5V29.7H39v3.5h.1c1.2-2.3 4.2-4.8 8.7-4.8 9.3 0 11 6.1 11 14.1v12.8h-.4z"/></svg>
+        </a>
+        <a href="mailto:vic.uzumeri@deeperpoint.com" class="btn btn--outline" style="font-size: 0.875rem;">
+          vic.uzumeri@deeperpoint.com
+        </a>
+      </div>
+
+      <hr class="about-divider">
+
+      <!-- === MISSION: WHY I'M BUILDING THIS === -->
+      <div class="reveal" style="text-align:center; margin-bottom: var(--space-2xl);">
+        <span class="section__label">The Mission</span>
+        <h2 class="section__title" style="font-size:1.75rem;">Why I&rsquo;m Building Tools for Markets That Don&rsquo;t Exist Yet</h2>
+        <p class="section__desc section__desc--centered" style="font-size:.9rem;">
+          Originally published as a four-part blog series, March 2026.
+        </p>
+      </div>
+
+      <!-- PART 1 -->
+      <div class="about-section reveal" id="veterinarians-xray">
+        <div class="about-part-label">Part 1</div>
+        <h2>The Veterinarian&rsquo;s X-Ray</h2>
+
+        <p><em>(No actual animals in this article. The patients here are markets.)</em></p>
+        <p>In 1974, I was a young engineer in Ontario, converting manual travel-demand calculations into Fortran for one of Canada&rsquo;s first full metropolitan transportation studies. By 1977, I was helping assemble a consortium bid for the Caracas subway. A decade later, I was doing PhD research on product family manufacturing &mdash; why factories that make related but not identical things behave so differently from textbook assembly lines. Then came two decades of building software tools for explaining complex industrial systems, followed by work on global standards for tracking shipping containers and truck loads.</p>
+        <p>I mention this not as credentialism, but because it explains what happens to you when you spend fifty years moving across that many domains. You stop being surprised by surface differences. You start seeing skeletons.</p>
+        <p>That is exactly what happened when I started looking at failing and underperforming markets.</p>
+        <h3>The zoo analogy</h3>
+        <p>Imagine a veterinarian who works at a zoo. His patients include a giraffe, a fruit bat, a wolverine, and a harbour seal. To a visitor, these animals have nothing in common &mdash; different sizes, different habitats, different diets, wildly different behaviour. But the veterinarian sees past the fur and the fins. He reads x-rays and blood panels. Underneath, every one of these creatures has a spine, a heart, lungs, a liver. The diagnostic toolkit is the same. The treatment logic is portable.</p>
+        <p>That is how I see <a href="thin-markets.html">thin markets</a>.</p>
+        <p>A thin market is any market where willing buyers and willing sellers exist &mdash; and a transaction would genuinely benefit both &mdash; but the transaction doesn&rsquo;t happen. The market fails silently. No alarm goes off. The deal just&hellip; doesn&rsquo;t exist.</p>
+        <p>On the surface, the examples look bewilderingly unrelated. A heritage barn restoration in rural Ontario, where the general contractor cannot find a certified timber framer within 600 kilometres. A Saskatchewan farmer with a single shipping container of high-protein malting barley and no way to reach the Filipino craft brewer who actually wants it. A family in the Ottawa Valley who needs a collaborative family lawyer specialising in a custody arrangement that no local practitioner handles.</p>
+        <p>Three completely different worlds. But read the x-ray, and every one of them suffers from the same five forces:</p>
+        <ol>
+          <li><strong>Discovery failure</strong> &mdash; the participants can&rsquo;t find each other.</li>
+          <li><strong>Information asymmetry</strong> &mdash; they can&rsquo;t evaluate what they&rsquo;ve found.</li>
+          <li><strong>Trust deficit</strong> &mdash; they have no basis for believing what the other side claims.</li>
+          <li><strong>Offering complexity</strong> &mdash; what&rsquo;s being traded won&rsquo;t fit a drop-down menu or a standard SKU.</li>
+          <li><strong>Participant scarcity</strong> &mdash; there simply aren&rsquo;t enough players in a local radius to create competitive pressure.</li>
+        </ol>
+        <p>Five forces. Present in every case. Different weights, different flavours &mdash; but the same diagnostic checklist.</p>
+        <h3>Two kinds of failure</h3>
+        <p>Not all thin markets fail in the same way. Some are <strong>latent</strong> &mdash; the market could exist, but it doesn&rsquo;t. No one has built the infrastructure, and the potential participants don&rsquo;t even know there&rsquo;s a counterparty out there.</p>
+        <p>Other thin markets do function &mdash; partially, expensively, and haphazardly. They depend on <strong>human brokers, traders, and coordinators</strong> who use personal networks, phone calls, trade shows, and hard-won relationships to muscle through the five forces by sheer effort. This human-powered approach is labour-intensive, costly, error-prone, and myopic &mdash; limited to whatever the broker can personally see and remember.</p>
+        <p>The opportunity is twofold: bring latent markets into existence, and make existing ones dramatically more effective. Both require the same underlying capabilities &mdash; the same x-ray, the same diagnostic toolkit.</p>
+        <h3>Why this matters to me personally</h3>
+        <p>I am retired. I am self-funded. Nobody is paying me to look at these patterns, and no board is asking me to ship a product. I have the rarest resource a person can have at this stage of a career: time, combined with the freedom to follow curiosity wherever it leads.</p>
+        <p>I&rsquo;m using that freedom because I&rsquo;m genuinely worried. AI is arriving fast, and its default trajectory is to further entrench the platforms that already dominate. But thin markets are where AI could do something radically different. The same capabilities &mdash; semantic matching, conversational onboarding, trusted intermediation &mdash; that make big platforms more dominant could also be deployed to make small, broken, invisible markets <em>functional</em> for the first time.</p>
+        <p>I can see the pattern. I can&rsquo;t unsee it. And I have the time to do something about it.</p>
+      </div>
+
+      <!-- PART 2 -->
+      <div class="about-section reveal" id="trillions-in-shadows">
+        <div class="about-part-label">Part 2</div>
+        <h2>Trillions in the Shadows</h2>
+
+        <p>The natural next question is: <em>so what?</em> Interesting pattern, maybe. But how much commerce is actually missing?</p>
+        <p>The honest answer is that nobody knows precisely, because you cannot count transactions that never occurred. They leave no trace in the data. But we can build a rigorous estimate. And when you do, the numbers are unsettling.</p>
+        <h3>The invisible economy</h3>
+        <p>We <a href="blog/thin-market-size.html">estimated this sector by sector</a>, applying a four-factor model across the full NAICS taxonomy. The methodology is anchored in the transaction cost literature &mdash; Wallis and North (1988) measured total transaction costs at roughly 55% of U.S. GDP; our thin market estimate captures the subset where transactions fail entirely rather than merely costing too much.</p>
+        <table>
+          <thead><tr><th>Scope</th><th>Missing commerce</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Canada</strong></td><td><strong>$76&ndash;141 billion</strong> (2.7&ndash;5.0% of GDP)</td></tr>
+            <tr><td><strong>Global</strong></td><td><strong>$5.7&ndash;10.4 trillion</strong> (5.2&ndash;9.5% of GDP)</td></tr>
+          </tbody>
+        </table>
+        <p>That is not a market to be <em>captured</em> by a single platform. It is a landscape &mdash; distributed across every sector, every country, every trade corridor.</p>
+        <h3>Where the pain concentrates</h3>
+        <p>The damage is not distributed evenly. And the global picture has a sharp gradient: <strong>the poorer the economy, the more deeply entrenched its thin markets.</strong> In advanced economies, institutional infrastructure compresses thin market friction. In developing economies, that infrastructure is weak or absent.</p>
+        <p>This means the social returns to solving thin markets are highest exactly where the problem is worst &mdash; and where the human stakes of getting the transition right are highest too.</p>
+        <h3>The policy dimension</h3>
+        <p>There is also a geopolitical urgency. Mark Carney has articulated a Middle Powers vision &mdash; a coalition of democracies with a combined GDP of roughly $37.7 trillion. These nations have signed trade agreements with each other. The legal access exists. What doesn&rsquo;t exist is the <a href="blog/thin-markets-middle-powers.html">market infrastructure to use it</a>.</p>
+        <p>Every new trade corridor between a Canadian SME and a buyer in Frankfurt or Osaka starts as a thin market. Trade agreements open the door. Thin market forces keep everyone from walking through it.</p>
+      </div>
+
+      <!-- PART 3 -->
+      <div class="about-section reveal" id="skeleton-key">
+        <div class="about-part-label">Part 3</div>
+        <h2>The Skeleton Key</h2>
+
+        <p>Whenever a problem is measured in trillions, the reflexive Silicon Valley response is to build a proprietary platform, capture the market, and extract a toll. That instinct is wrong here.</p>
+        <p>A conventional marketplace works because it standardises the offering &mdash; squeezing diverse goods into a uniform listing format. This strategy creates thickness by <em>destroying information</em>. In thin markets, the information you&rsquo;d have to destroy is the entire reason the transaction has value.</p>
+        <p>You can&rsquo;t build 10,000 custom platforms for 10,000 niche verticals. But you also can&rsquo;t smash the nuances into a generic template. What you need is a <em>configurable framework</em> &mdash; a skeleton key.</p>
+        <h3>The DeeperPoint stack</h3>
+        <p>This is what <a href="marketforge.html">DeeperPoint&rsquo;s toolkit</a> is designed to be. It has four layers:</p>
+        <p><strong><a href="https://github.com/DeeperPoint/Cosolvent">Cosolvent</a></strong> is the open-source core &mdash; MIT-licensed, free to use and modify. It handles AI-driven onboarding, semantic vector matching, and multilateral deal assembly.</p>
+        <p><strong>KnowledgeSlot</strong> is the domain intelligence layer &mdash; capturing, structuring, and maintaining industry-specific knowledge using AI-assisted curation.</p>
+        <p><strong>ClientSynth</strong> generates realistic synthetic populations of marketplace participants for testing and demonstration &mdash; <a href="mf-clientsynth.html">never mixed with real users</a>.</p>
+        <p><strong>MarketForge</strong> is the project workplan that guides the assembly of all three upstream tools into a deployable marketplace for a specific vertical.</p>
+        <h3>The open/proprietary boundary</h3>
+        <p>Cosolvent &mdash; the matching engine &mdash; is open because the core market physics are universal. Democratising that infrastructure is the only strategy that matches the <em>scale</em> of the problem.</p>
+        <p>But standing up a live marketplace requires <em>domain-specific labour</em> that doesn&rsquo;t scale automatically. The upper layers are proprietary not because I want to gatekeep &mdash; but because the labour of customisation is real, and the project has to be financially sustainable to survive.</p>
+        <h3>The sponsor model</h3>
+        <p>DeeperPoint&rsquo;s architecture assumes that every thin market has a natural <strong>sponsor</strong> &mdash; an entity with the authority, the trust, and the industry knowledge to stand up a functioning marketplace. The sponsor brings the vertical expertise. The toolkit provides the <a href="marketforge.html">configurable software architecture</a>. Together, they can stand up a marketplace that neither could build alone.</p>
+      </div>
+
+      <!-- PART 4 -->
+      <div class="about-section reveal" id="open-invitation">
+        <div class="about-part-label">Part 4</div>
+        <h2>An Open Invitation</h2>
+
+        <h3>My position</h3>
+        <p>I am retired. I am self-funded. I have no venture capital investors, no board to report to, no pitch deck with a hockey-stick revenue projection.</p>
+        <p>Because I&rsquo;m not optimising for a Series A or an exit multiple, I have the freedom to optimise for something that venture-backed projects almost never can: <strong>long-term structural impact.</strong> I can choose open source over lock-in. I can let the framework evolve at the pace of real-world learning rather than the pace of a burn rate.</p>
+        <p>That freedom is a competitive advantage. I intend to use it.</p>
+        <h3>What success looks like</h3>
+        <p>Not a unicorn valuation. Not a platform with a million users.</p>
+        <p>Success, for me, is <strong>three to five sponsored marketplaces</strong> running on the DeeperPoint toolkit in distinct verticals within two to three years. Real transactions happening that would not have happened otherwise. Small numbers. Real impact.</p>
+        <h3>Who I&rsquo;m looking for</h3>
+        <p><strong>Domain experts and vertical sponsors.</strong> You run a trade association, a cooperative, an NGO, a provincial agency, or a municipal economic development office &mdash; and you know a specific matching market is broken. What you lack is the software infrastructure. That&rsquo;s what DeeperPoint provides.</p>
+        <p><strong>Policy thinkers.</strong> You&rsquo;re working on trade diversification, workforce development, or economic inclusion. <a href="marketforge.html">MarketForge is the procedural roadmap</a> that makes thin trade corridors commercially navigable.</p>
+        <p><strong>Investors and venture builders.</strong> You see commercial potential in matching platforms for specific verticals and want to build on proven infrastructure rather than reinventing the plumbing.</p>
+        <p><strong>Open-source developers.</strong> You want to contribute to an MIT-licensed harness at the intersection of AI and market design. The <a href="https://github.com/DeeperPoint/Cosolvent">Cosolvent codebase</a> is on GitHub. Pull requests are welcome.</p>
+        <p><strong>Curious generalists.</strong> You recognise thin markets in your own world and want to understand the framework. Start with the <a href="whitepaper.html">whitepaper</a>, browse the <a href="catalog/index.html">catalog of examples</a>, and then get in touch.</p>
+        <h3>What I bring</h3>
+        <p>Fifty years of cross-domain engineering experience. A working R&amp;D prototype with <a href="marketforge.html">published roadmaps</a> for each component. A rigorous analytical framework grounded in the transaction cost literature. An open-source codebase. A growing body of <a href="blog/index.html">published analysis</a>. And time &mdash; the most valuable thing a retired person has.</p>
+        <h3>The invitation</h3>
+        <p>Getting money is secondary. Finding the right people is the point.</p>
+        <p>If you see a thin market in your world &mdash; a place where transactions should be happening but aren&rsquo;t, where AI-driven matching could unlock real value for real participants &mdash; I want to hear from you.</p>
+        <p><em>Explore the <a href="thin-markets.html">theory</a>. Read the <a href="whitepaper.html">whitepaper</a>. Review the <a href="marketforge.html">toolkit</a>. Examine the <a href="https://github.com/DeeperPoint/Cosolvent">code</a>. And reach out.</em></p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="search.html" class="footer__link">Search</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+  <script src="nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
