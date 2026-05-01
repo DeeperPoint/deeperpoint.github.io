@@ -1,4 +1,4 @@
-﻿<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,9 +88,104 @@
                 </ul>
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                    <a href="#features" class="btn btn--primary">View Feature Sheet ↓</a>
                     <a href="assets/mysitedocs/KSwebroadmap.pdf" class="btn btn--outline" download>⬇ Roadmap (PDF)</a>
                     <a href="marketforge.html" class="btn btn--outline">← Back to Ecosystem</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Sheet -->
+    <section class="section" id="features" style="border-top: 1px solid var(--glass-border);">
+        <div class="container container--narrow">
+            <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
+                <span class="section__label" style="background: rgba(245, 158, 11, 0.1); color: var(--dp-amber); border: 1px solid rgba(245, 158, 11, 0.3);">Feature Sheet</span>
+                <h2 class="section__title">KnowledgeSlot Feature Overview</h2>
+                <p class="section__desc section__desc--centered">✅ Implemented &nbsp;&nbsp; 🔜 Planned</p>
+            </div>
+
+            <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-md);">
+
+                <!-- Document Ingestion -->
+                <details open style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-amber); font-size: 1.1rem;">Document Ingestion</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Multi-Format Parsing</td><td style="padding: 0.5rem;">PDF (pymupdf4llm), DOCX, PPTX, Markdown, and plain text ingestion with metadata extraction.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Semantic Chunking</td><td style="padding: 0.5rem;">LLM-driven segmentation into self-contained knowledge units with titles and summaries.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Vector Embedding</td><td style="padding: 0.5rem;">OpenAI text-embedding-3-small with pgvector storage and cosine-distance search.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Duplicate Detection</td><td style="padding: 0.5rem;">SHA-256 content hashing with similarity thresholds prevents redundant ingestion.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">URL Scraping</td><td style="padding: 0.5rem;">Ingest directly from web pages, government databases, and industry portals.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Schema Intelligence -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-amber); font-size: 1.1rem;">Schema Intelligence</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Vertical-Specific Metadata</td><td style="padding: 0.5rem;">Tag documents with vertical, region, and topic for filtered retrieval.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Topic Taxonomy</td><td style="padding: 0.5rem;">Hierarchical topic trees for organized domain knowledge browsing.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Authority Grading</td><td style="padding: 0.5rem;">Rank sources by reliability — peer-reviewed journals, government data, vs. general web.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Schema Auto-Discovery</td><td style="padding: 0.5rem;">Analyze ingested documents to suggest new metadata fields and taxonomies.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Retrieval & Integration -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Retrieval &amp; Integration</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Hybrid Search</td><td style="padding: 0.5rem;">Combined vector similarity + keyword search with metadata filters.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Domain Q&amp;A</td><td style="padding: 0.5rem;">RAG-powered question answering grounded in curated reference library.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Cosolvent Integration</td><td style="padding: 0.5rem;">Feed curated knowledge directly into Cosolvent's matching and Content Match Story pipelines.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Cross-Vertical Linking</td><td style="padding: 0.5rem;">Discover connections between knowledge in different verticals for multi-market insights.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Curation Workflow -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Curation Workflow</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Sponsor Dashboard</td><td style="padding: 0.5rem;">Web UI for browsing, searching, and managing the reference library.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Chunk Review Interface</td><td style="padding: 0.5rem;">Inspect individual chunks, edit metadata, and verify extracted knowledge units.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Staleness Detection</td><td style="padding: 0.5rem;">Flag documents past their review date or with superseded source data.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Curatorial Pull Signal</td><td style="padding: 0.5rem;">Identify knowledge gaps from failed matches and prompt sponsors to add missing references.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Provenance -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-emerald); font-size: 1.1rem;">Provenance &amp; Trust</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Source Tracking</td><td style="padding: 0.5rem;">Every chunk traces back to its source document, page, and upload context.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Content Hashing</td><td style="padding: 0.5rem;">SHA-256 hashing prevents re-ingestion of identical content.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Citation Generation</td><td style="padding: 0.5rem;">Auto-generate citations when knowledge is used in Content Match Stories.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Architecture -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-silver); font-size: 1.1rem;">Architecture</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Language</td><td style="padding: 0.5rem;">Python 3.11+</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Framework</td><td style="padding: 0.5rem;">FastAPI + Jinja2</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Database</td><td style="padding: 0.5rem;">PostgreSQL + pgvector</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">AI Providers</td><td style="padding: 0.5rem;">OpenAI (embedding + chunking)</td></tr>
+                            <tr><td style="padding: 0.5rem; font-weight: 600;">Integration</td><td style="padding: 0.5rem;">Native Cosolvent pipeline feed</td></tr>
+                        </table>
+                    </div>
+                </details>
+
             </div>
         </div>
     </section>

@@ -132,11 +132,140 @@
                 </ul>
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                    <a href="#features" class="btn btn--primary">View Feature Sheet ↓</a>
                     <a href="assets/mysitedocs/Coswebroadmap.pdf" class="btn btn--outline" download>⬇ Roadmap (PDF)</a>
                     <a href="https://github.com/DeeperPoint/cosolvent-beta" class="btn btn--primary" target="_blank"
                         rel="noopener">Explore Repository →</a>
                     <a href="marketforge.html" class="btn btn--outline">← Back to Ecosystem</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Sheet -->
+    <section class="section" id="features" style="border-top: 1px solid var(--glass-border);">
+        <div class="container container--narrow">
+            <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
+                <span class="section__label" style="background: rgba(16, 185, 129, 0.1); color: var(--dp-emerald); border: 1px solid rgba(16, 185, 129, 0.3);">Feature Sheet</span>
+                <h2 class="section__title">Cosolvent Feature Overview</h2>
+                <p class="section__desc section__desc--centered">✅ Implemented &nbsp;&nbsp; 🔜 Planned</p>
+            </div>
+
+            <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-md);">
+
+                <!-- Configuration & Deployment -->
+                <details open style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-emerald); font-size: 1.1rem;">Configuration &amp; Deployment</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">YAML-Driven Marketplace Definition</td><td style="padding: 0.5rem;">Define participant types, schemas, permissions, and discovery settings in a single marketplace.yaml file.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Deterministic Compiler Pipeline</td><td style="padding: 0.5rem;">YAML → normalize → hash → render → write → manifest. Reproducible artifact generation with drift detection.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Browser-Based Setup Panel</td><td style="padding: 0.5rem;">Visual configuration UI with presets, real-time validation, and live YAML preview.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Docker Compose Deployment</td><td style="padding: 0.5rem;">Single-command launch: API server, PostgreSQL + pgvector, Redis, ARQ background workers.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">AI-Assisted Configuration</td><td style="padding: 0.5rem;">AI assistant generates config suggestions from conversational market description.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Multi-Tenancy</td><td style="padding: 0.5rem;">Tenant isolation for hosting multiple marketplaces on a single deployment.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Profile Infrastructure -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-emerald); font-size: 1.1rem;">Profile Infrastructure</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Dynamic Profile Schemas</td><td style="padding: 0.5rem;">Runtime Pydantic models generated from config. No hard-coded entity types.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Three-Tier Field Visibility</td><td style="padding: 0.5rem;">Every field tagged public, protected, or private with enforcement at the API layer.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Configurable Onboarding</td><td style="padding: 0.5rem;">Per-type onboarding: manual/auto approval, document uploads, AI extraction, completeness thresholds.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Gallery / Matching Separation</td><td style="padding: 0.5rem;">Split into a curated gallery layer (browsing) and a richer matching layer (AI-only signals).</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Group / Cooperative Type</td><td style="padding: 0.5rem;">Groups of small producers participate as a single entity with aggregated profiles.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- AI & Semantic Search -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">AI &amp; Semantic Search</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">AI Document Extraction</td><td style="padding: 0.5rem;">LLM reads uploaded documents and extracts structured profile fields automatically.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Semantic Vector Search</td><td style="padding: 0.5rem;">pgvector cosine-distance search with metadata filtering and configurable thresholds.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Hybrid &amp; RAG Search</td><td style="padding: 0.5rem;">Two retrieval modes — hybrid (vector + keyword) and rag_strict (vector-only with grounding).</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Multi-Provider AI</td><td style="padding: 0.5rem;">Provider-agnostic LLM layer supporting OpenAI, OpenRouter, and Google Gemini.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Knowledge Slot Integration</td><td style="padding: 0.5rem;">Sponsor-curated domain knowledge library with vertical-specific metadata and domain Q&amp;A.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">VLM Integration</td><td style="padding: 0.5rem;">Image-based document extraction for certificates, invoices, and product photos.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Matching & Deal Engine -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Matching &amp; Deal Engine</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Participant Discovery</td><td style="padding: 0.5rem;">Config-driven search with filter fields, anonymous/authenticated results, and similarity thresholds.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Bidirectional Matching</td><td style="padding: 0.5rem;">Mutual preference matching considering both parties' profiles.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Deal Data Model</td><td style="padding: 0.5rem;">Structured deals linking principals, facilitators, role slots, product, route, and timeline.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Handoff Artifact</td><td style="padding: 0.5rem;">Platform's primary deliverable — assembled from profiles, signals, conversations, and recommendations.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Anticipatory Matching</td><td style="padding: 0.5rem;">Proactive notifications when new listings match a participant's needs.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Communication -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-blue-light); font-size: 1.1rem;">Communication</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Conversation Lifecycle</td><td style="padding: 0.5rem;">Create, accept, reject, and close conversations with full state tracking.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Real-Time WebSocket</td><td style="padding: 0.5rem;">Live message delivery via WebSocket connections.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Config-Driven Rules</td><td style="padding: 0.5rem;">Conversation initiation rules defined per participant-type pair in marketplace config.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Progressive Trust Gating</td><td style="padding: 0.5rem;">Communication channels unlock progressively as trust stages advance.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Trust & Verification -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-blue-light); font-size: 1.1rem;">Trust &amp; Verification</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Admin Approval Workflow</td><td style="padding: 0.5rem;">Binary trust gate — admin manually approves or rejects participant applications.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Verification Pipeline</td><td style="padding: 0.5rem;">Auto-analyze documents for consistency and assign verification confidence scores.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Reputation System</td><td style="padding: 0.5rem;">Track transaction outcomes, response times, and dispute rates.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Progressive Trust Stages</td><td style="padding: 0.5rem;">Six-stage trust ladder from anonymous browsing to post-transaction evaluation.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Admin & Developer -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-emerald); font-size: 1.1rem;">Admin &amp; Developer Tools</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Admin Dashboard</td><td style="padding: 0.5rem;">Aggregate marketplace statistics, user management, and application approval.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">OpenAPI Documentation</td><td style="padding: 0.5rem;">Auto-generated interactive API docs at /docs.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Drift Detection</td><td style="padding: 0.5rem;">compile --check verifies generated artifacts match current config.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">36+ Unit Tests</td><td style="padding: 0.5rem;">Coverage across config, compiler, permissions, visibility, schemas, and more.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Background Job Processing</td><td style="padding: 0.5rem;">ARQ worker pool for async document processing, embedding generation.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Architecture -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-silver); font-size: 1.1rem;">Architecture</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Language</td><td style="padding: 0.5rem;">Python 3.11+</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">API Framework</td><td style="padding: 0.5rem;">FastAPI</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Database</td><td style="padding: 0.5rem;">PostgreSQL + pgvector</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Cache / Queue</td><td style="padding: 0.5rem;">Redis + ARQ</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">AI Providers</td><td style="padding: 0.5rem;">OpenAI · OpenRouter · Google Gemini</td></tr>
+                            <tr><td style="padding: 0.5rem; font-weight: 600;">License</td><td style="padding: 0.5rem;">Open Source (MIT)</td></tr>
+                        </table>
+                    </div>
+                </details>
+
             </div>
         </div>
     </section>

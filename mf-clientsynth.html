@@ -1,4 +1,4 @@
-﻿<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,8 +99,107 @@
                         profile content, documents, and historical behaviors.</li>
                 </ul>
 
-                <a href="assets/mysitedocs/ClientSwebroadmap.pdf" class="btn btn--outline" download>⬇ Roadmap (PDF)</a>
-                <a href="marketforge.html" class="btn btn--outline" style="margin-left: 1rem;">← Back to Ecosystem</a>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                    <a href="#features" class="btn btn--primary">View Feature Sheet ↓</a>
+                    <a href="assets/mysitedocs/ClientSwebroadmap.pdf" class="btn btn--outline" download>⬇ Roadmap (PDF)</a>
+                    <a href="marketforge.html" class="btn btn--outline">← Back to Ecosystem</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Sheet -->
+    <section class="section" id="features" style="border-top: 1px solid var(--glass-border);">
+        <div class="container container--narrow">
+            <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
+                <span class="section__label" style="background: rgba(139, 92, 246, 0.1); color: var(--dp-violet); border: 1px solid rgba(139, 92, 246, 0.3);">Feature Sheet</span>
+                <h2 class="section__title">ClientSynth Feature Overview</h2>
+                <p class="section__desc section__desc--centered">✅ Implemented &nbsp;&nbsp; 🟡 Partial &nbsp;&nbsp; 🔜 Planned</p>
+            </div>
+
+            <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-md);">
+
+                <!-- Data Generation Pipeline -->
+                <details open style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-violet); font-size: 1.1rem;">Data Generation Pipeline</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">AI-Powered Field Generation</td><td style="padding: 0.5rem;">Context-aware value generation via OpenRouter with per-field prompts and batch retry logic.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">17+ Field Types</td><td style="padding: 0.5rem;">Name, email, phone, company, address, date, number, text, image, PDF, enum, boolean, URL, JSON, custom AI.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Job Processor</td><td style="padding: 0.5rem;">Production-grade batch processing with pause/resume/cancel and progress tracking.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Persona Contexts</td><td style="padding: 0.5rem;">Coherent populations where fields are internally consistent (title matches industry).</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Locale-Aware Generation</td><td style="padding: 0.5rem;">Culturally appropriate names, addresses, and certifications per country/region.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Time-Series Data</td><td style="padding: 0.5rem;">Generate data that changes over time — seasonal volumes, price fluctuations.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Schema Intelligence -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-violet); font-size: 1.1rem;">Schema Intelligence</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Visual Schema Designer</td><td style="padding: 0.5rem;">Drag-and-drop schema builder with field type selection, prompt configuration, and ordering.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Schema Discovery from Files</td><td style="padding: 0.5rem;">Upload CSV, JSON, or XLSX and the system automatically infers a schema.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Schema Induction</td><td style="padding: 0.5rem;">Field clustering, type detection heuristics, and LLM-assisted description generation.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Pre-Built Templates</td><td style="padding: 0.5rem;">Common data shapes (e-commerce, healthcare, financial, real estate) to start from.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Image & PDF Generation -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Image &amp; PDF Generation</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Context-Aware Images</td><td style="padding: 0.5rem;">Image prompts built dynamically from record data — headshots match role and demographics.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Template-Based PDFs</td><td style="padding: 0.5rem;">Generate realistic certificates, invoices, and reports from structured data.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">S3 Storage Integration</td><td style="padding: 0.5rem;">Generated assets automatically uploaded to S3 with URL and metadata tracking.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Data Quality -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Data Quality &amp; Variation</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Distribution Manager</td><td style="padding: 0.5rem;">Define target distributions for categorical fields with deviation analysis.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Pattern Detector</td><td style="padding: 0.5rem;">Catches when the AI falls into loops or repetitive templates.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Similarity Scorer</td><td style="padding: 0.5rem;">Cross-record uniqueness scoring ensures generated records are sufficiently distinct.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Population-Level Scoring</td><td style="padding: 0.5rem;">Evaluate entire populations for market realism: buyer/seller ratios, coverage, capacity.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Cosolvent Integration -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-emerald); font-size: 1.1rem;">Cosolvent Integration</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Cosolvent Participant Export</td><td style="padding: 0.5rem;">Dedicated export format reshaping records into Cosolvent's participants JSONB format.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">API Streaming</td><td style="padding: 0.5rem;">Continuous webhook-based hydration of Cosolvent test instances.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">MarketDefinition Import</td><td style="padding: 0.5rem;">Import a Cosolvent MarketDefinition and auto-generate conformant schemas.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Scenario Definition Language</td><td style="padding: 0.5rem;">Define population scenarios in JSON/YAML with geographic and role distributions.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Architecture -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-silver); font-size: 1.1rem;">Architecture</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Language</td><td style="padding: 0.5rem;">TypeScript (strict)</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Framework</td><td style="padding: 0.5rem;">Next.js 14 (App Router)</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Database</td><td style="padding: 0.5rem;">PostgreSQL (RLS multi-tenant)</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">AI (text)</td><td style="padding: 0.5rem;">OpenRouter (Gemini, GPT, Claude)</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">AI (images)</td><td style="padding: 0.5rem;">Fal (multi-provider)</td></tr>
+                            <tr><td style="padding: 0.5rem; font-weight: 600;">Deployment</td><td style="padding: 0.5rem;">Vercel (serverless)</td></tr>
+                        </table>
+                    </div>
+                </details>
+
             </div>
         </div>
     </section>
