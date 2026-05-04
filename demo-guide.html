@@ -176,15 +176,43 @@
     <!-- Intro + TOC -->
     <section class="section" id="intro">
         <div class="container container--narrow">
-            <div class="demo-banner reveal">
-                <p class="demo-banner__title">⚠️ Static Demonstration Mode</p>
+            <div class="demo-banner reveal" style="background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.06)); border-color: rgba(16,185,129,0.2);">
+                <p class="demo-banner__title" style="color: var(--dp-emerald);">✅ Working Proof of Concept</p>
                 <p class="demo-banner__text">
-                    This demo uses <strong style="color:#fff;">pre-generated data</strong> — the matching engine is not running live. All participants, scores, and deal terms are simulated to illustrate how MarketForge would operate in a real aerospace precision-machining market. Navigation and screen flows work normally.
+                    This is a live demonstration of the <strong style="color:#fff;">headless marketplace engine</strong> in action. The Cosolvent engine generated every match score, deal term, and participant profile you see here. The matching data is pre-generated (no live LLM calls), but every screen displays <strong style="color:#fff;">real engine output</strong> — the same data a production system would produce.
+                </p>
+                <p class="demo-banner__text" style="margin-top: 0.75rem;">
+                    The key insight: <strong style="color:#fff;">this entire frontend was built independently of the engine.</strong> A sponsor deploying MarketForge in their vertical would build their own UI — branded, customized, domain-specific — on top of the same engine API. That's what "headless" means in practice.
                 </p>
             </div>
 
+            <!-- What this demonstrates -->
             <div class="demo-step reveal">
-                <h2 style="font-family: var(--font-display); color: #fff; margin-bottom: 0.75rem;">How to Explore the Demo</h2>
+                <h2 style="font-family: var(--font-display); color: #fff; margin-bottom: 0.75rem;">What This Demo Proves</h2>
+                <p class="demo-step__desc" style="margin-bottom: 1.25rem;">Each screen in the demo illustrates a specific capability of the engine architecture. Here's what to look for:</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <div class="callout callout--emerald">
+                        <p class="callout__label">Multi-perspective views</p>
+                        <p class="callout__text">The same engine data supports different user experiences — supply, demand, and verification sides see the same market differently.</p>
+                    </div>
+                    <div class="callout callout--amber">
+                        <p class="callout__label">KnowledgeSlot enhancement</p>
+                        <p class="callout__text">Domain knowledge measurably improves match quality — toggle the +18 KnowledgeSlot boost on the match report to see the difference.</p>
+                    </div>
+                    <div class="callout callout--violet">
+                        <p class="callout__label">Identity escrow</p>
+                        <p class="callout__text">Trust mechanics work before parties know who they're dealing with — identities stay hidden behind callsigns until both sides opt in.</p>
+                    </div>
+                    <div class="callout callout--cyan">
+                        <p class="callout__label">Structured deal assembly</p>
+                        <p class="callout__text">The engine assembles a complete transaction — scope, pricing, facilitators, documents — not just a contact introduction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to explore -->
+            <div class="demo-step reveal">
+                <h2 style="font-family: var(--font-display); color: #fff; margin-bottom: 0.75rem;">How to Explore</h2>
                 <p class="demo-step__desc">The demo is built for <strong style="color:#fff;">multi-perspective exploration</strong>. Three pre-loaded personas — a machine shop, a buyer, and an inspector — let you see the same market from every angle. Start as one, walk through the pipeline, then <strong style="color:#fff;">switch personas</strong> using the panel in the bottom-left sidebar to experience how the other side sees the same matches, scores, and deal terms.</p>
                 <p class="demo-step__desc" style="margin-bottom: 1.25rem;">The screenshots below follow <strong style="color:#fff;">Joana Mendes</strong> (machine shop, supply side), but every screen has a counterpart view from Lena Park (buyer) and Dmitri Volkov (inspector). We recommend going through at least two personas to appreciate how bidirectional matching works.</p>
                 <div class="toc-grid">
@@ -470,6 +498,21 @@
                         <p class="callout__text">MSA-draft-v2.pdf, NDA-mutual.pdf, ITAR-attestation.pdf, Quality-agreement-AS9100.pdf — all attached and downloadable.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Headless Architecture Callout -->
+    <section class="section" id="headless" style="padding-top:0;">
+        <div class="container container--narrow">
+            <div class="demo-step reveal">
+                <div class="demo-step__header">
+                    <span class="demo-step__num">Architecture Note</span>
+                    <h2 class="demo-step__title">This Is a Headless System</h2>
+                </div>
+                <p class="demo-step__desc">Every screen you've just seen was built <strong style="color:#fff;">on top of</strong> the Cosolvent engine — not inside it. The engine provides matching scores, deal terms, identity escrow, and document assembly via API. This frontend is just one possible presentation layer.</p>
+                <p class="demo-step__desc">A timber association deploying MarketForge for specialty lumber would build a completely different UI — different branding, different fields, different workflow — but powered by the <strong style="color:#fff;">same engine underneath</strong>. A government trade agency sponsoring a cross-border exchange would brand it as their own. A procurement network would embed matching into their existing portal.</p>
+                <p class="demo-step__desc" style="margin-bottom: 0;">That's what "headless" means in practice: <strong style="color:#fff;">the engine does the work; the sponsor owns the experience.</strong></p>
             </div>
         </div>
     </section>
