@@ -41,7 +41,7 @@ Both Elara and Jens were members of an EIT deep tech community. And both were us
 
 Elara logged into the platform. Unlike traditional networks that ask users to fill out publicly searchable profiles, this tool—sponsored by EIT—provided a strictly governed, secure repository. 
 
-Elara securely submitted the detailed "edges" of her problem into the repository. She described her specific chemical formula and manufacturing constraints. However, the EIT platform operated under strict semantic matching rules enforced by the Cosolvent harness. The scopri.ai layer, acting as a highly specialized KnowledgeSlot, was instructed to ingest this data *only* for the purpose of semantic matching. 
+Elara securely submitted the detailed "edges" of her problem into the repository. She described her specific chemical formula and manufacturing constraints. However, the EIT platform operated under strict semantic matching rules enforced by the Cosolvent engine. The scopri.ai layer, acting as a highly specialized KnowledgeSlot, was instructed to ingest this data *only* for the purpose of semantic matching. 
 
 The system was architecturally constrained. The AI could "read" Elara's needs to understand the structural shape of the problem she was trying to solve, but it was hard-coded to never reveal that raw data to any counterparty or other system users without her express, stage-gated approval. 
 

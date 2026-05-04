@@ -53,7 +53,7 @@ Semantic matching does not fix structural opacity. It finds the match. It cannot
 
 This is the problem KnowledgeSlot is designed to solve.
 
-KnowledgeSlot is one of five architectural components in the Cosolvent marketplace harness. It is a **sponsor-curated reference library** — a domain-specific knowledge base that the marketplace operator populates with the authoritative documents that govern trade in their vertical: standard contracts, regulatory frameworks, grading standards, arbitration rules, certification requirements, and compliance guides.
+KnowledgeSlot is one of five architectural components in the Cosolvent marketplace engine. It is a **sponsor-curated reference library** — a domain-specific knowledge base that the marketplace operator populates with the authoritative documents that govern trade in their vertical: standard contracts, regulatory frameworks, grading standards, arbitration rules, certification requirements, and compliance guides.
 
 The critical design decision is that this library is **separate from participant-supplied information**. A buyer's profile, a seller's offering description, their documents and history — these live in the Context Slot, governed by a privacy model that controls what is shared and with whom. The reference library is different: it is authoritative, sponsor-curated, and openly available to all participants as a shared foundation.
 
@@ -173,4 +173,4 @@ That is the full architecture — and the schema is the thread that runs through
 
 ---
 
-*This article is the companion to [Workshop Notes: How KnowledgeSlot Keeps Its Answers Relevant](knowledgeslot-schema-scoped-rag.html), which covers the schema architecture that makes domain-specific retrieval reliable. The theoretical foundation is developed in the [DeeperPoint whitepaper](../whitepaper.html). The full architecture of how KnowledgeSlot fits into the Cosolvent marketplace harness is described on the [MarketForge](../marketforge.html) page.*
+*This article is the companion to [Workshop Notes: How KnowledgeSlot Keeps Its Answers Relevant](knowledgeslot-schema-scoped-rag.html), which covers the schema architecture that makes domain-specific retrieval reliable. The theoretical foundation is developed in the [DeeperPoint whitepaper](../whitepaper.html). The full architecture of how KnowledgeSlot fits into the Cosolvent marketplace engine is described on the [MarketForge](../marketforge.html) page.*

@@ -137,7 +137,7 @@ The honest answer: not as much as you'd think. AI4M already has the community, t
 3. **A deal structure** — not for buying AI, but for the ancillary transactions. Equipment bill of sale. Consulting engagement letter. Pilot project partnership agreement. Training data license.
 4. **A trust model** — member verification, transaction ratings, dispute resolution. The community already provides informal trust; the marketplace formalizes it.
 
-The technology for all of this exists. The [Cosolvent](../marketforge.html) harness is designed precisely for this pattern: a YAML-configured marketplace with dynamic profiles, semantic matching, progressive trust, and structured deal assembly.
+The technology for all of this exists. The [Cosolvent](../marketforge.html) engine is designed precisely for this pattern: a YAML-configured marketplace with dynamic profiles, semantic matching, progressive trust, and structured deal assembly.
 
 ## The Larger Point
 

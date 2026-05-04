@@ -69,7 +69,7 @@ I want to be transparent about readiness. The DeeperPoint stack is under active 
 
 One concrete milestone on that roadmap: DeeperPoint is building **ForgeTwin**, a digital twin assembled via the MarketForge workplan that models a thin market end to end — from semantic onboarding through matching through deal assembly — against realistic synthetic participants. The first ForgeTwin scenario modelled cross-border specialty grain trade; the framework has since been applied to manufacturing verticals including fractional capacity sharing and consortium bidding.
 
-You can examine the open-source core of Cosolvent [right now](https://github.com/DeeperPoint/Cosolvent). But a harness without people who use it is just code. What it needs is the right collaborators.
+You can examine the open-source core of Cosolvent [right now](https://github.com/DeeperPoint/Cosolvent). But an engine without people who use it is just code. What it needs is the right collaborators.
 
 That's the subject of Part 4.
 

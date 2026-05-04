@@ -94,7 +94,7 @@ Meridian's posting on the platform was not a job description. It was a work envi
 
 ### The Match
 
-The semantic matching engine in Cosolvent — the platform's deal-assembly harness — did not match Demarco to Meridian PharmaPack because of a keyword overlap between their profiles.
+The semantic matching engine in Cosolvent — the platform's deal-assembly engine — did not match Demarco to Meridian PharmaPack because of a keyword overlap between their profiles.
 
 It matched them because Demarco's capability map aligned with Meridian's work function requirements across six specific dimensions: visual inspection pattern recognition, sustained repetitive task tolerance, fine motor accuracy, documented procedure compliance, low-verbal-supervision preference, and preference for structured environmental conditions.
 
