@@ -355,6 +355,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <li><a href="{root}thin-markets.html" class="nav__link">The Problem</a></li>
         <li><a href="{root}marketforge.html" class="nav__link">The Project</a></li>
         <li><a href="{root}examples.html" class="nav__link">Examples</a></li>
+        <li><a href="{root}who-should-care.html" class="nav__link">Who's It For</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
         <li><a href="{root}ebook.html" class="nav__link">Ebook</a></li>
         <li><a href="{root}history.html" class="nav__link">About</a></li>
