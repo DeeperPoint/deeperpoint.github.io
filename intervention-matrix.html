@@ -1,0 +1,421 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Intervention Matrix — DeeperPoint</title>
+<meta name="description" content="Interactive matrix comparing how traditional and AI-powered engineering interventions address thin-market challenges. Click any cell to see the mechanism.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── Intervention Matrix scoped styles ── */
+.im{max-width:1200px;margin:0 auto;padding:24px 20px}
+.im h1{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:4px}
+.im .subtitle{color:#8a9bb5;font-size:.9rem;margin-bottom:24px;line-height:1.5}
+.im h2{font-family:var(--font-display);font-size:1.15rem;font-weight:600;color:#fff;margin:28px 0 12px;display:flex;align-items:center;gap:8px}
+.im .badge{font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.im .badge-trad{background:#1a3a5c;color:#5ba3e6}
+.im .badge-ai{background:#1a3c2a;color:#4eca8b}
+
+.im .legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px;font-size:.75rem;color:#8a9bb5}
+.im .legend-item{display:flex;align-items:center;gap:5px}
+.im .lsw{width:18px;height:12px;border-radius:3px;display:inline-block}
+
+.im .table-wrap{overflow-x:auto;margin-bottom:8px;border-radius:8px;border:1px solid #1e2d42}
+.im table{width:100%;border-collapse:collapse;min-width:600px}
+.im thead th{background:#111d2e;color:#c0cee0;font-size:.75rem;font-weight:600;padding:10px 10px;text-align:center;border-bottom:2px solid #1e2d42;position:relative;cursor:pointer;transition:background .2s}
+.im thead th:hover{background:#182a40}
+.im thead th.ch{text-align:left;min-width:130px;cursor:pointer}
+.im thead th .hint{display:block;font-size:.6rem;font-weight:400;color:#5a7a9a;margin-top:2px}
+.im tbody td{padding:8px 10px;font-size:.78rem;text-align:center;border-bottom:1px solid #151f30;line-height:1.35;transition:background .15s}
+.im tbody td.ch-cell{text-align:left;font-weight:600;color:#c8daf0;background:#0f1a28;cursor:pointer;position:relative}
+.im tbody td.ch-cell:hover{background:#142236}
+.im tbody tr:hover td:not(.ch-cell){filter:brightness(1.15)}
+
+.im tr.grp td{background:#0a1520!important;font-size:.68rem;font-weight:700;color:#4a6a8a;text-transform:uppercase;letter-spacing:.05em;padding:6px 10px;border-bottom:1px solid #1a2a3e}
+
+.im td.s{background:#0f3a22;color:#4eca8b;font-weight:600}
+.im td.l{background:#112a1e;color:#3aad6e}
+.im td.b{background:#0f2540;color:#4a9de6;font-weight:600}
+.im td.n{background:transparent;color:#4a5a6a}
+.im td.r{background:#2a2210;color:#c9a84c}
+.im td.v{background:#151c28;color:#7a8a9a}
+
+.im td[data-cell]{cursor:pointer;position:relative;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;text-decoration-thickness:1px}
+.im td[data-cell]:hover{filter:brightness(1.3)!important}
+
+.tt-cell{background:#142a1e;color:#4eca8b}
+.tt-trad-cell{background:#1a3050;color:#5ba3e6}
+
+.tooltip-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;background:rgba(0,0,0,.4)}
+.tooltip-overlay.active{display:block}
+.tooltip-box{position:fixed;z-index:1000;background:#1a2940;border:1px solid #2a4060;border-radius:10px;padding:18px 20px;max-width:420px;width:90vw;box-shadow:0 12px 40px rgba(0,0,0,.5);display:none;animation:fadeIn .15s ease}
+.tooltip-box.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.tooltip-box .tt-badge{font-size:.6rem;padding:2px 7px;border-radius:8px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;display:inline-block}
+.tt-trad{background:#1a3a5c;color:#5ba3e6}
+.tt-ai{background:#1a3c2a;color:#4eca8b}
+.tt-exist{background:#2a1a1a;color:#e67a5b}
+.tt-resist{background:#1a2a3c;color:#5ba3e6}
+.tooltip-box h3{font-size:1rem;color:#fff;margin:4px 0 8px;font-weight:600}
+.tooltip-box p{font-size:.82rem;line-height:1.55;color:#b0c0d4}
+.tooltip-box .close-btn{position:absolute;top:10px;right:14px;background:none;border:none;color:#5a7a9a;font-size:1.1rem;cursor:pointer;padding:4px}
+.tooltip-box .close-btn:hover{color:#fff}
+
+.im .pattern{background:#111d2e;border-left:3px solid #4eca8b;padding:12px 16px;border-radius:0 8px 8px 0;margin-top:20px;font-size:.82rem;line-height:1.5;color:#8aa0b8}
+.im .pattern strong{color:#4eca8b}
+
+@media(max-width:700px){
+  .im{padding:16px 10px}
+  .im h1{font-size:1.2rem}
+  .im thead th,.im tbody td{padding:6px 6px;font-size:.7rem}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+</div>
+
+<nav class="nav" id="nav">
+    <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+        </button>
+        <ul class="nav__links">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="thin-markets.html" class="nav__link">The Problem</a></li>
+            <li><a href="marketforge.html" class="nav__link">The Project</a></li>
+            <li><a href="examples.html" class="nav__link">Examples</a></li>
+            <li><a href="who-should-care.html" class="nav__link">Who's It For</a></li>
+            <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+            <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="section" style="padding-top: calc(var(--nav-height) + var(--space-xl));">
+<div class="im">
+<h1>Part VI: The Intervention Matrix</h1>
+<p class="subtitle">How engineering interventions address thin-market challenges. Click any <strong>row header</strong> or <strong>column header</strong> for its definition. Click any <strong>cell</strong> to see how the mechanism works.</p>
+
+<div class="legend">
+  <div class="legend-item"><span class="lsw" style="background:#4eca8b"></span>Eliminates / Strong</div>
+  <div class="legend-item"><span class="lsw" style="background:#4a9de6"></span>Bridges</div>
+  <div class="legend-item"><span class="lsw" style="background:#3aad6e"></span>Lowers</div>
+  <div class="legend-item"><span class="lsw" style="background:#7a8a9a"></span>Partially</div>
+  <div class="legend-item"><span class="lsw" style="background:#4a5a6a"></span>Neutral</div>
+  <div class="legend-item"><span class="lsw" style="background:#c9a84c"></span>Raises</div>
+</div>
+
+<!-- ══ TABLE A: Traditional Interventions ══ -->
+<h2><span class="badge badge-trad">Traditional</span> Traditional Engineering Interventions</h2>
+<div class="table-wrap">
+<table id="trad-table">
+<thead><tr>
+  <th class="ch">Challenge</th>
+  <th data-def="standardization">Standardization<span class="hint">click for definition</span></th>
+  <th data-def="human-broker">Human Broker<span class="hint">click for definition</span></th>
+  <th data-def="market-maker">Market Maker<span class="hint">click for definition</span></th>
+  <th data-def="futures-storage">Futures / Storage<span class="hint">click for definition</span></th>
+  <th data-def="geo-concentration">Geographic Concentration<span class="hint">click for definition</span></th>
+  <th data-def="clearinghouse">Clearinghouse / Escrow<span class="hint">click for definition</span></th>
+</tr></thead>
+<tbody>
+<tr class="grp"><td colspan="7">Existential Challenges</td></tr>
+<tr><td class="ch-cell" data-def="risk">Risk</td><td class="l" data-cell="std-risk">Reduces (brand)</td><td class="l" data-cell="broker-risk">Reduces (relationship)</td><td class="n" data-cell="maker-risk">Neutral</td><td class="l" data-cell="fut-risk">Reduces (hedging)</td><td class="l" data-cell="geo-risk">Reduces (reputation)</td><td class="s" data-cell="clear-risk">Reduces (guarantee)</td></tr>
+<tr><td class="ch-cell" data-def="trust">Trust</td><td class="l" data-cell="std-trust">Increases (brand)</td><td class="l" data-cell="broker-trust">Increases (relationship)</td><td class="n" data-cell="maker-trust">Neutral</td><td class="l" data-cell="fut-trust">Increases (clearinghouse)</td><td class="l" data-cell="geo-trust">Increases (reputation)</td><td class="s" data-cell="clear-trust">Increases (guarantee)</td></tr>
+<tr><td class="ch-cell" data-def="regulatory">Regulatory Friction</td><td class="v" data-cell="std-reg">May align (compliance)</td><td class="v" data-cell="broker-reg">Navigates (expertise)</td><td class="r" data-cell="maker-reg">Requires licensing</td><td class="r" data-cell="fut-reg">Requires regulation</td><td class="v" data-cell="geo-reg">Jurisdictional concentration</td><td class="r" data-cell="clear-reg">Requires approval</td></tr>
+<tr class="grp"><td colspan="7">Resistance Challenges</td></tr>
+<tr><td class="ch-cell" data-def="opacity">Opacity</td><td class="l" data-cell="std-opacity">Lowers</td><td class="l" data-cell="broker-opacity">Lowers</td><td class="n" data-cell="maker-opacity">Neutral</td><td class="l" data-cell="fut-opacity">Lowers (price discovery)</td><td class="l" data-cell="geo-opacity">Lowers (co-location)</td><td class="l" data-cell="clear-opacity">Lowers (guaranteed performance)</td></tr>
+<tr><td class="ch-cell" data-def="geo-distance">Geographic Distance</td><td class="n" data-cell="std-geo">Neutral</td><td class="n" data-cell="broker-geo">Neutral (limited range)</td><td class="n" data-cell="maker-geo">Neutral</td><td class="n" data-cell="fut-geo">Neutral</td><td class="s" data-cell="geo-geo">Eliminates (co-location)</td><td class="n" data-cell="clear-geo">Neutral</td></tr>
+<tr><td class="ch-cell" data-def="temporal">Temporal Distance</td><td class="n" data-cell="std-temp">Neutral</td><td class="r" data-cell="broker-temp">Increases (latency)</td><td class="b" data-cell="maker-temp">Bridges (short-range)</td><td class="b" data-cell="fut-temp">Bridges (med/long-range)</td><td class="v" data-cell="geo-temp">Partially (fixed schedule)</td><td class="n" data-cell="clear-temp">Neutral</td></tr>
+<tr><td class="ch-cell" data-def="complexity">Offering Complexity</td><td class="v" data-cell="std-complex">Reduces (lossy)</td><td class="v" data-cell="broker-complex">Interprets</td><td class="n" data-cell="maker-complex">Ignores</td><td class="v" data-cell="fut-complex">Standardizes</td><td class="v" data-cell="geo-complex">Enables inspection</td><td class="n" data-cell="clear-complex">Ignores</td></tr>
+<tr><td class="ch-cell" data-def="cold-start">Cold Start</td><td class="n" data-cell="std-cold">Neutral</td><td class="v" data-cell="broker-cold">Partially (network)</td><td class="n" data-cell="maker-cold">Neutral</td><td class="n" data-cell="fut-cold">Neutral</td><td class="v" data-cell="geo-cold">Partially (events)</td><td class="n" data-cell="clear-cold">Neutral</td></tr>
+<tr><td class="ch-cell" data-def="cognitive">Cognitive Bandwidth</td><td class="l" data-cell="std-cog">Lowers load</td><td class="l" data-cell="broker-cog">Lowers load</td><td class="l" data-cell="maker-cog">Lowers load</td><td class="r" data-cell="fut-cog">Increases complexity</td><td class="r" data-cell="geo-cog">Increases (overload at scale)</td><td class="n" data-cell="clear-cog">Neutral</td></tr>
+<tr><td class="ch-cell" data-def="fulfillment">Fulfillment</td><td class="v" data-cell="std-fulfill">Standardizes logistics</td><td class="v" data-cell="broker-fulfill">Facilitates</td><td class="v" data-cell="maker-fulfill">Holds inventory</td><td class="v" data-cell="fut-fulfill">Stores physically</td><td class="v" data-cell="geo-fulfill">Co-locates goods</td><td class="v" data-cell="clear-fulfill">Guarantees settlement</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ══ TABLE B: AI Interventions ══ -->
+<h2><span class="badge badge-ai">AI-Enabled</span> AI-Powered Engineering Interventions</h2>
+<div class="table-wrap">
+<table id="ai-table">
+<thead><tr>
+  <th class="ch">Challenge</th>
+  <th data-def="ai-matching">AI Matching<span class="hint">click for definition</span></th>
+  <th data-def="ai-intermediary">AI Trusted Intermediary<span class="hint">click for definition</span></th>
+  <th data-def="ai-input">AI Input Translation<span class="hint">click for definition</span></th>
+  <th data-def="ai-memory">AI Memory<span class="hint">click for definition</span></th>
+</tr></thead>
+<tbody>
+<tr class="grp"><td colspan="5">Existential Challenges</td></tr>
+<tr><td class="ch-cell" data-def="risk">Risk</td><td class="l" data-cell="match-risk">Reduces (verification)</td><td class="l" data-cell="interm-risk">Reduces (confidentiality)</td><td class="n" data-cell="input-risk">Neutral</td><td class="l" data-cell="mem-risk">Reduces (track record)</td></tr>
+<tr><td class="ch-cell" data-def="trust">Trust</td><td class="l" data-cell="match-trust">Increases (transparency)</td><td class="s" data-cell="interm-trust">Increases (confidentiality)</td><td class="n" data-cell="input-trust">Neutral</td><td class="s" data-cell="mem-trust">Increases (evidence-based)</td></tr>
+<tr><td class="ch-cell" data-def="regulatory">Regulatory Friction</td><td class="v" data-cell="match-reg">Can adapt to regimes</td><td class="v" data-cell="interm-reg">Can compartmentalize info</td><td class="v" data-cell="input-reg">Can translate compliance</td><td class="v" data-cell="mem-reg">Tracks compliance history</td></tr>
+<tr class="grp"><td colspan="5">Resistance Challenges</td></tr>
+<tr><td class="ch-cell" data-def="opacity">Opacity</td><td class="s" data-cell="match-opacity">Eliminates</td><td class="s" data-cell="interm-opacity">Eliminates (for withholding)</td><td class="l" data-cell="input-opacity">Lowers (access)</td><td class="l" data-cell="mem-opacity">Lowers (pattern recognition)</td></tr>
+<tr><td class="ch-cell" data-def="geo-distance">Geographic Distance</td><td class="l" data-cell="match-geo">Lowers (global search)</td><td class="l" data-cell="interm-geo">Lowers (cross-border)</td><td class="l" data-cell="input-geo">Lowers (remote participation)</td><td class="n" data-cell="mem-geo">Neutral</td></tr>
+<tr><td class="ch-cell" data-def="temporal">Temporal Distance</td><td class="l" data-cell="match-temp">Lowers (async brokerage)</td><td class="l" data-cell="interm-temp">Lowers (async brokerage)</td><td class="n" data-cell="input-temp">Neutral</td><td class="b" data-cell="mem-temp">Bridges (intent persistence)</td></tr>
+<tr><td class="ch-cell" data-def="complexity">Offering Complexity</td><td class="s" data-cell="match-complex">Synthesizes</td><td class="v" data-cell="interm-complex">Synthesizes confidentially</td><td class="v" data-cell="input-complex">Captures from any format</td><td class="v" data-cell="mem-complex">Accumulates over time</td></tr>
+<tr><td class="ch-cell" data-def="cold-start">Cold Start</td><td class="v" data-cell="match-cold">Partially (discovery)</td><td class="v" data-cell="interm-cold">Partially</td><td class="v" data-cell="input-cold">Partially (new users)</td><td class="s" data-cell="mem-cold">Addresses (synthetic bootstrapping)</td></tr>
+<tr><td class="ch-cell" data-def="cognitive">Cognitive Bandwidth</td><td class="s" data-cell="match-cog">Minimizes load</td><td class="l" data-cell="interm-cog">Minimizes load</td><td class="l" data-cell="input-cog">Minimizes load</td><td class="l" data-cell="mem-cog">Minimizes (anticipation)</td></tr>
+<tr><td class="ch-cell" data-def="fulfillment">Fulfillment</td><td class="v" data-cell="match-fulfill">Optimizes routing</td><td class="n" data-cell="interm-fulfill">Neutral</td><td class="n" data-cell="input-fulfill">Neutral</td><td class="v" data-cell="mem-fulfill">Tracks performance</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pattern"><strong>The pattern:</strong> AI interventions address more challenges simultaneously than any single traditional intervention, at lower marginal cost and higher scale. AI Memory in particular addresses challenges — cold start, trust, temporal distance — that have been especially resistant to traditional solutions.</div>
+</div>
+
+<!-- Tooltip overlay and box -->
+<div class="tooltip-overlay" id="overlay"></div>
+<div class="tooltip-box" id="ttbox">
+  <button class="close-btn" id="tt-close">&times;</button>
+  <span class="tt-badge" id="tt-badge"></span>
+  <h3 id="tt-title"></h3>
+  <p id="tt-body"></p>
+</div>
+
+<script>
+const DEFS = {
+  // ── Challenge (row) definitions ──
+  "risk": {cat:"Existential Challenge",badge:"tt-exist",title:"Risk",body:"The possibility that a transaction results in loss rather than gain. In thin markets, risk is amplified by fewer comparable transactions (making fair value assessment harder), limited counterparty options, and infrequent trading that prevents quick exit from bad positions. This produces the liquidity premium: participants demand better prices because they cannot exit quickly. Risk is binary below a threshold — if participants perceive unacceptable risk, they exit regardless of potential profit."},
+  "trust": {cat:"Existential Challenge",badge:"tt-exist",title:"Trust",body:"Whether participants feel secure enough to engage. Thin markets lack the repeated interactions that naturally build trust in thick markets. The chicken-and-egg problem applies: trades do not happen without trust, but trust does not develop without successful trades. In B2B markets, trust has an additional dimension — can the marketplace be trusted with confidential information? Without it, participants either avoid the platform or share so little that matching becomes impossible."},
+  "regulatory": {cat:"Existential Challenge",badge:"tt-exist",title:"Regulatory Friction",body:"Legal and institutional frameworks that fragment or entirely prevent market formation. Fragmentation occurs through securities law, data sovereignty rules (e.g., GDPR), professional licensing restrictions, tariffs and trade sanctions, capital controls, and incompatible product standards. Beyond formal regulation, institutional context matters: reliability of contract enforcement, corruption levels, banking infrastructure, and cultural norms around commerce. A market that appears globally thick may actually be many legally separated thin markets."},
+  "opacity": {cat:"Resistance Challenge",badge:"tt-resist",title:"Opacity",body:"All the ways information is hidden, distorted, or costly to obtain. Includes search friction (how hard it is to find the right match), inspection and verification costs, strategic information withholding (buyers hiding budgets; sellers hiding capacity), and bargaining costs. High opacity creates the classic \"market for lemons\" dynamic: buyers assume average quality, price accordingly, and good sellers exit."},
+  "geo-distance": {cat:"Resistance Challenge",badge:"tt-resist",title:"Geographic Distance",body:"How far apart counterparties are in physical or virtual space. Transportation costs create natural market boundaries. Communication friction persists even when delivery is digital, because geographic distance correlates with language differences, cultural norms, and legal systems. For digital goods, physical distance collapses but is replaced by virtual distance: platform fragmentation, data sovereignty, payment system incompatibilities, and standards mismatches."},
+  "temporal": {cat:"Resistance Challenge",badge:"tt-resist",title:"Temporal Distance",body:"The time gap between when one party is ready to transact and when a suitable counterparty is available. Operates at multiple scales — hours to days (time-zone differences), weeks to months (project cycles, seasonal production), and years (capital projects, career markets). For services there is no inventory buffer: capacity is consumed at delivery and cannot be stockpiled, making temporal distance a fundamentally harder problem for service markets."},
+  "complexity": {cat:"Resistance Challenge",badge:"tt-resist",title:"Offering Complexity",body:"How many distinct details matter for each offering. High complexity fragments markets: if every item is unique, there is no single market but millions of micro-markets. Complexity also raises cognitive load on buyers. Historically, the only solution was standardization — sacrificing nuance to pool liquidity — creating an unavoidable tradeoff between thickness and relevance. AI is the first intervention capable of resolving this tradeoff."},
+  "cold-start": {cat:"Resistance Challenge",badge:"tt-resist",title:"Cold Start",body:"The chicken-and-egg problem that plagues every new marketplace: buyers are needed to attract sellers, and sellers are needed to attract buyers. In thin markets this is especially acute because natural participant density is already low. The cold start is most severe in many-to-many markets where both sides must reach critical mass simultaneously — a structural coordination failure, not merely a marketing challenge."},
+  "cognitive": {cat:"Resistance Challenge",badge:"tt-resist",title:"Cognitive Bandwidth",body:"The human limits on processing complex information. Classical economics assumes infinite processing power; real participants experience choice overload. Too much apparent thickness can cause market failure: a dating app with millions of profiles or a supermarket with fifty jam varieties can paralyze decision-making. Curated marketplaces often outperform open ones precisely because they respect these limits."},
+  "fulfillment": {cat:"Resistance Challenge",badge:"tt-resist",title:"Fulfillment",body:"The physical and logistical obstacles to delivering goods and services once a match is made. For physical goods, the economic shipping radius defines natural market boundaries (ready-mix concrete: under 30 km; semiconductors: global). Cold chain and perishable logistics affect what markets are even possible. For services, fulfillment constraints are primarily temporal: provider availability and scheduling coordination replace the spatial constraints of physical goods."},
+  // ── Intervention (column) definitions ──
+  "standardization": {cat:"Traditional",badge:"tt-trad",title:"Standardization",body:"Forcing heterogeneous goods into standard categories to create fungibility — the property that makes one unit interchangeable with another. Standardization pools liquidity and enables other tools (market makers, futures, automated matching) to function. The tradeoff is lossy: nuance that matters to specific buyers is stripped away. This tension between thickness (standardization) and relevance (preserving uniqueness) defined marketplace design for centuries — until AI."},
+  "human-broker": {cat:"Traditional",badge:"tt-trad",title:"Human Broker",body:"A trusted intermediary who builds long-term relationships with buyers and sellers, develops deep knowledge of inventory and needs, verifies quality through experience and reputation, and manually matches counterparties. Brokers capture value through commissions (typically 3–20%). Their primary limitation is scale: each broker has finite capacity, geographic reach, and — critically — when a broker retires, decades of accumulated market memory are lost."},
+  "market-maker": {cat:"Traditional",badge:"tt-trad",title:"Market Maker",body:"An intermediary that holds inventory and stands ready to buy when you want to sell and sell when you want to buy — bridging short- to medium-range temporal distance by absorbing asynchronous arrivals. Market makers quote bid and ask prices and profit from the spread, but bear inventory risk and adverse selection risk. They only work for fungible goods and cannot bridge long-range temporal distance."},
+  "futures-storage": {cat:"Traditional",badge:"tt-trad",title:"Futures / Storage",body:"Two complementary tools for bridging medium- and long-range temporal distance. Storage physically decouples production timing from demand timing (grain elevators convert a two-week harvest into year-round supply). Futures contracts allow parties to trade expectations about the future, pulling future liquidity into the present. Both require significant infrastructure and only work for goods that can be stored or standardized into contracts."},
+  "geo-concentration": {cat:"Traditional",badge:"tt-trad",title:"Geographic Concentration",body:"Bringing all market participants to the same physical location — one of the oldest engineering solutions. Physical marketplaces, industry clusters, financial centers, and trade shows all collapse geographic and temporal distance simultaneously. Limitation: excludes participants who cannot travel and concentrates market power among those with proximity."},
+  "clearinghouse": {cat:"Traditional",badge:"tt-trad",title:"Clearinghouse / Escrow",body:"Institutions that sit between buyers and sellers and guarantee that both sides perform. Clearinghouses backstop financial market trades; escrow services hold payment until delivery is confirmed; letters of credit enable trade between parties who have never met. These tools address the fundamental barrier in thin markets: without trust that the counterparty will perform, trades simply do not happen."},
+  "ai-matching": {cat:"AI-Enabled",badge:"tt-ai",title:"AI Matching",body:"Semantic matching of buyer intent against complex, heterogeneous supply using vector embeddings and large language models. Unlike keyword search, AI understands context, synonyms, and nuance — resolving the historical tension between standardization (thickness) and relevance (uniqueness). AI can also conduct generative preference elicitation: instead of filter forms, it has a conversation that builds a detailed preference model. The most disruptive single intervention in market design history."},
+  "ai-intermediary": {cat:"AI-Enabled",badge:"tt-ai",title:"AI Trusted Intermediary",body:"AI acts as a confidential intermediary that learns sensitive information from both parties without requiring mutual disclosure. The buyer shares their true budget, timeline, and strategic priorities under confidentiality; the seller shares actual capacity, past results, and pricing flexibility. The AI identifies fit and facilitates introductions only when appropriate — neither party has revealed sensitive information to the other. Particularly transformative for B2B procurement and cross-border trade."},
+  "ai-input": {cat:"AI-Enabled",badge:"tt-ai",title:"AI Input Translation",body:"Accepts information however users naturally provide it — voice recordings, WhatsApp messages, photos of handwritten invoices, video walkthroughs — and translates it into structured marketplace data. Eliminates the digital literacy barrier that excludes vast populations from formal markets. A farmer can call a phone number, speak in their local language, and have AI extract quantity, quality, and timing data to generate a listing."},
+  "ai-memory": {cat:"AI-Enabled",badge:"tt-ai",title:"AI Memory",body:"Transforms market memory from a fragile, person-dependent asset into a persistent, scalable advantage. Unlike traditional databases, AI remembers why a past deal failed — the specific criteria, the concerns, the context — and pre-vets future matches accordingly. Memory enables evidence-based trust (the confidence of a 10-year relationship available to new participants) and moves from search to anticipation. When a broker retires, their knowledge is gone; AI memory persists indefinitely."}
+};
+
+// ── Cell-level explanations: HOW each intervention addresses each challenge ──
+const CELLS = {
+  // ═══ TRADITIONAL INTERVENTIONS ═══
+
+  // Standardization × Challenges
+  "std-risk":     {title:"Standardization → Risk",      body:"Certified categories (Grade A wheat, AAA bonds) create accountability chains. If a graded product fails to meet its standard, the certifier's brand is at stake. Buyers can rely on the grade rather than independently verifying every transaction."},
+  "std-trust":    {title:"Standardization → Trust",     body:"Shared vocabulary and grading systems create predictable expectations. Both parties know what 'Grade A' means, eliminating ambiguity and reducing the need to trust an individual counterparty's claims."},
+  "std-reg":      {title:"Standardization → Regulatory", body:"Standards can be designed to align with regulatory requirements — organic certification meets USDA/EU rules, ISO standards satisfy quality regulations. But standards can also conflict with local regulations or create barriers for non-certified participants."},
+  "std-opacity":  {title:"Standardization → Opacity",   body:"By defining clear quality categories and grading criteria, standardization converts hidden quality attributes into visible, comparable labels. A buyer can compare Grade A wheat from any seller without inspecting each lot individually."},
+  "std-geo":      {title:"Standardization → Geographic Distance", body:"Standards do not move goods closer together. They help comparison and substitution once goods are found, but they do not solve the underlying problem of physical separation between buyer and seller."},
+  "std-temp":     {title:"Standardization → Temporal Distance", body:"Standards do not bridge time gaps between when supply and demand appear. That requires storage, futures contracts, or market makers — tools that physically or financially decouple production timing from consumption timing."},
+  "std-complex":  {title:"Standardization → Offering Complexity", body:"This is standardization's primary function — and its primary tradeoff. By forcing a complex offering into a standard category, you lose the nuance that makes each item unique. The diamond with unusual sparkle becomes just another VS1 stone. Complexity is reduced, but so is the relevance that specific buyers might value."},
+  "std-cold":     {title:"Standardization → Cold Start", body:"Standards make existing markets more efficient but do not help attract the first participants. A marketplace with perfect grading standards but no listings is still empty."},
+  "std-cog":      {title:"Standardization → Cognitive Bandwidth", body:"Fewer attributes to evaluate means faster decisions. Instead of assessing 20 quality dimensions, a buyer evaluates one grade label. This is why commodity exchanges work — fungibility eliminates the cognitive cost of comparison."},
+  "std-fulfill":  {title:"Standardization → Fulfillment", body:"Standardized packaging, labeling, and handling requirements streamline logistics. The shipping container is the defining example: by standardizing the unit of transport, it made global shipping a commodity and dramatically lowered fulfillment costs."},
+
+  // Human Broker × Challenges
+  "broker-risk":    {title:"Human Broker → Risk",      body:"Brokers stake their personal reputation on every deal they facilitate. A broker who connects a buyer with a bad seller loses future business. This creates a powerful incentive to pre-screen counterparties and only facilitate deals likely to succeed."},
+  "broker-trust":   {title:"Human Broker → Trust",     body:"Long-term relationships are the broker's core asset. A grain broker who has worked with the same farmers for 15 years can vouch for their reliability in ways no database can. Trust transfers from the broker to the counterparty."},
+  "broker-reg":     {title:"Human Broker → Regulatory", body:"Experienced brokers develop deep expertise in the regulatory landscape of their niche — which certifications matter, which customs procedures apply, which jurisdictions have compatible rules. They navigate complexity that would overwhelm individual participants."},
+  "broker-opacity": {title:"Human Broker → Opacity",   body:"Brokers verify quality through direct experience and reputation stakes. They inspect goods, know which sellers are reliable, and filter out the lemons. This raises the average quality of the pool, counteracting adverse selection."},
+  "broker-geo":     {title:"Human Broker → Geographic Distance", body:"Broker networks are typically regional. A Saskatoon grain broker knows the Saskatchewan market deeply but cannot effectively cover Japanese or European buyers. Their geographic reach is limited by personal relationships and travel capacity."},
+  "broker-temp":    {title:"Human Broker → Temporal Distance", body:"Brokers add latency — human response times, business hours, travel schedules. A deal that could close instantly on a digital platform takes days through a broker because of phone tag, scheduling, and manual coordination. The broker's involvement actually increases temporal distance."},
+  "broker-complex": {title:"Human Broker → Offering Complexity", body:"Good brokers interpret complexity for their clients — translating technical specifications into practical implications, explaining which attributes matter for a specific use case. They act as human translators between complex supply and specific demand."},
+  "broker-cold":    {title:"Human Broker → Cold Start", body:"Established brokers bring their existing network of relationships to a new marketplace. This partially seeds both sides — but only to the extent of the broker's personal network, which is inherently limited in scale."},
+  "broker-cog":     {title:"Human Broker → Cognitive Bandwidth", body:"Instead of evaluating hundreds of options, buyers describe their needs to the broker, who presents a curated shortlist. The broker absorbs the cognitive load of search and preliminary evaluation."},
+  "broker-fulfill": {title:"Human Broker → Fulfillment", body:"Brokers coordinate logistics between parties — arranging shipping, scheduling delivery windows, resolving customs paperwork. They facilitate but do not fundamentally change the physical constraints of delivery."},
+
+  // Market Maker × Challenges
+  "maker-risk":    {title:"Market Maker → Risk",      body:"Market makers do not reduce counterparty risk for the participants — they absorb it themselves. The market maker bears inventory risk (prices may move while they hold goods) and adverse selection risk (they may be trading against better-informed parties). For participants, the risk profile is unchanged."},
+  "maker-trust":   {title:"Market Maker → Trust",     body:"Market makers provide a standing offer to buy or sell, but they do not vouch for counterparty reliability. Trust in the market maker's solvency matters, but the market maker does not build trust between end participants."},
+  "maker-reg":     {title:"Market Maker → Regulatory", body:"Operating as a market maker typically requires licensing and regulatory compliance — securities registration, capital adequacy requirements, reporting obligations. The intervention itself creates a regulatory burden."},
+  "maker-opacity": {title:"Market Maker → Opacity",   body:"Market makers provide bid-ask quotes that reveal price information, but they do not reduce opacity about quality, counterparty reliability, or other non-price attributes. Price discovery helps, but it is only one dimension of transparency."},
+  "maker-geo":     {title:"Market Maker → Geographic Distance", body:"Market makers bridge time, not space. They hold inventory locally and trade with whoever arrives. They do not extend the geographic reach of the market."},
+  "maker-temp":    {title:"Market Maker → Temporal Distance", body:"This is the market maker's primary function. By holding inventory, they absorb the time gap between sellers who want to sell now and buyers who arrive later. Without market makers, you wait days or weeks for a natural counterparty. With them, you trade immediately — at the cost of the bid-ask spread."},
+  "maker-complex": {title:"Market Maker → Offering Complexity", body:"Market makers only work for fungible goods where one unit is interchangeable with another. Complex, heterogeneous offerings — specialty equipment, professional services, unique artisanal products — cannot be held in inventory and resold. The market maker ignores complexity by only operating in standardized markets."},
+  "maker-cold":    {title:"Market Maker → Cold Start", body:"Market makers require existing liquidity to function — they profit from bid-ask spreads on active trading. In a market with no participants, there is no one to trade with and no spread to capture. They do not help start markets; they help sustain them."},
+  "maker-cog":     {title:"Market Maker → Cognitive Bandwidth", body:"By providing standing quotes, market makers eliminate the need for buyers and sellers to search for counterparties. You see a price, you accept or reject. Decision-making is simplified to a single variable: is this price acceptable?"},
+  "maker-fulfill": {title:"Market Maker → Fulfillment", body:"Market makers hold physical or financial inventory, providing immediate delivery from their stock. This eliminates the wait for a natural seller to deliver but ties up capital in holding goods."},
+
+  // Futures/Storage × Challenges
+  "fut-risk":    {title:"Futures/Storage → Risk",      body:"Futures contracts allow participants to hedge against price movements. A farmer locks in next year's price today, eliminating the risk that prices drop between planting and harvest. The risk is transferred to speculators who are willing to bear it in exchange for potential profit."},
+  "fut-trust":   {title:"Futures/Storage → Trust",     body:"Futures exchanges operate through clearinghouses that guarantee both sides of every contract. This institutional guarantee substitutes for interpersonal trust — you do not need to trust your counterparty because the exchange guarantees performance."},
+  "fut-reg":     {title:"Futures/Storage → Regulatory", body:"Futures markets are among the most heavily regulated financial instruments. Operating a futures exchange requires government authorization, margin requirements, position limits, and extensive reporting. The regulatory infrastructure is substantial."},
+  "fut-opacity": {title:"Futures/Storage → Opacity",   body:"Futures prices are publicly visible and updated continuously. They reveal the market's collective expectation of future prices, providing a transparent reference point for spot transactions. This price discovery function reduces opacity around fair value."},
+  "fut-geo":     {title:"Futures/Storage → Geographic Distance", body:"Futures contracts are financial instruments — they do not move physical goods. Storage infrastructure is fixed in location. Neither intervention addresses the fundamental problem of physical separation between buyer and seller."},
+  "fut-temp":    {title:"Futures/Storage → Temporal Distance", body:"This is the core function of both tools. Storage physically decouples production timing from demand timing — grain elevators convert a two-week harvest into year-round supply. Futures contracts financially decouple pricing from delivery timing — a farmer sells next year's crop today. Together they bridge medium- and long-range temporal gaps."},
+  "fut-complex": {title:"Futures/Storage → Offering Complexity", body:"Futures contracts require standardized underliers — Grade A wheat, West Texas Intermediate crude. This forces complexity reduction through standardization. You can only have a futures contract on something that can be clearly defined and graded."},
+  "fut-cold":    {title:"Futures/Storage → Cold Start", body:"Futures markets and storage infrastructure serve existing markets — they optimize timing for goods already being traded. They do not attract new participants to a market that has not yet formed."},
+  "fut-cog":     {title:"Futures/Storage → Cognitive Bandwidth", body:"Forward pricing, basis calculations, carry costs, margin requirements, and contract specifications add substantial cognitive complexity. Participants need sophisticated understanding of financial instruments to use these tools effectively. This raises the barrier to participation."},
+  "fut-fulfill": {title:"Futures/Storage → Fulfillment", body:"Storage infrastructure physically holds goods between production and consumption. Grain elevators, warehouses, and cold chains are the literal mechanism by which temporal distance is bridged for physical products. Storage is a fulfillment intervention."},
+
+  // Geographic Concentration × Challenges
+  "geo-risk":    {title:"Geographic Concentration → Risk",      body:"When participants trade repeatedly at the same location — the same trade fair, the same market square — they develop reputations. Cheaters are identified and excluded. Reputation effects reduce risk, but only within the concentrated community."},
+  "geo-trust":   {title:"Geographic Concentration → Trust",     body:"Repeated face-to-face interaction at the same location builds personal relationships. A carpet dealer at the Grand Bazaar who has traded from the same stall for 20 years carries enormous trust capital — earned through thousands of visible transactions."},
+  "geo-reg":     {title:"Geographic Concentration → Regulatory", body:"Concentrating activity within a single jurisdiction simplifies regulatory compliance — one set of rules applies. But it also means the market is subject to that jurisdiction's specific regulations, which may not align with participants from elsewhere."},
+  "geo-opacity": {title:"Geographic Concentration → Opacity",   body:"When all goods are in one place, buyers can physically inspect them. Co-location eliminates the inspection cost that rises with distance. At a trade fair, you can touch, test, and compare competing offerings side by side."},
+  "geo-geo":     {title:"Geographic Concentration → Geographic Distance", body:"This is the defining function: eliminate distance by bringing everyone to the same place. Trade fairs, industry clusters, financial centers, and physical marketplaces all collapse geographic distance to near-zero for participants who attend. The limitation is that it excludes everyone who cannot travel there."},
+  "geo-temp":    {title:"Geographic Concentration → Temporal Distance", body:"Trade fairs and market days create fixed schedules — everyone arrives at the same time. This partially bridges temporal distance, but only for the duration of the event. Between events, the temporal gap returns. The market exists intensely for three days, then disappears for months."},
+  "geo-complex": {title:"Geographic Concentration → Offering Complexity", body:"Physical co-location enables direct inspection of complex goods. A buyer evaluating custom machinery can see it operate, test tolerances, and ask questions in person. This does not reduce complexity, but it makes complexity manageable through hands-on evaluation."},
+  "geo-cold":    {title:"Geographic Concentration → Cold Start", body:"Events and trade fairs create coordinated arrival — both sides show up because the event is scheduled. This partially addresses the cold start by guaranteeing a minimum audience. But it only works episodically and requires marketing to attract initial attendees."},
+  "geo-cog":     {title:"Geographic Concentration → Cognitive Bandwidth", body:"At scale, geographic concentration can overwhelm. A trade fair with 3,000 exhibitors creates more options than any visitor can evaluate. The cognitive load of navigating a massive venue, triaging exhibitors, and scheduling meetings can exceed the benefit of co-location."},
+  "geo-fulfill": {title:"Geographic Concentration → Fulfillment", body:"Co-locating goods simplifies logistics — delivery distances shrink to walking distance within the venue or cluster. Industry clusters (like Dalton, Georgia for carpets) benefit from shared logistics infrastructure that emerges naturally from geographic density."},
+
+  // Clearinghouse/Escrow × Challenges
+  "clear-risk":    {title:"Clearinghouse → Risk",      body:"This is the clearinghouse's defining function. By guaranteeing both sides of every transaction, it eliminates counterparty risk entirely. The buyer does not need to worry whether the seller will deliver; the clearinghouse guarantees it. This is the strongest risk reduction mechanism in traditional market engineering."},
+  "clear-trust":   {title:"Clearinghouse → Trust",     body:"Institutional guarantee substitutes for interpersonal trust. Participants do not need to trust each other — they only need to trust the clearinghouse. Letters of credit serve the same function in international trade: a bank's guarantee replaces the need for the buyer and seller to know each other."},
+  "clear-reg":     {title:"Clearinghouse → Regulatory", body:"Clearinghouses themselves require regulatory approval and ongoing supervision. Capital adequacy, risk management, reporting requirements, and governance standards must be met. The regulatory infrastructure needed to operate a clearinghouse is substantial."},
+  "clear-opacity": {title:"Clearinghouse → Opacity",   body:"The guarantee of performance reduces one important form of opacity: uncertainty about whether the counterparty will actually deliver what they promised. You still may not know everything about the goods, but you know the transaction will be completed as agreed."},
+  "clear-geo":     {title:"Clearinghouse → Geographic Distance", body:"Clearinghouses guarantee settlement regardless of location, but they do not help participants find each other across distance. They solve the trust-at-a-distance problem but not the search-at-a-distance problem."},
+  "clear-temp":    {title:"Clearinghouse → Temporal Distance", body:"Clearinghouses guarantee that future obligations will be met, but they do not bridge the time gap between buyer and seller arrival. The guarantee is about performance certainty, not timing coordination."},
+  "clear-complex": {title:"Clearinghouse → Offering Complexity", body:"Clearinghouses guarantee settlement of standardized contracts. They do not interpret, evaluate, or simplify complex offerings. The goods must already be defined clearly enough to specify contractual obligations."},
+  "clear-cold":    {title:"Clearinghouse → Cold Start", body:"A clearinghouse requires existing transaction volume to justify its operating costs. It reduces risk for an active market but does not attract participants to a market that has not yet formed."},
+  "clear-cog":     {title:"Clearinghouse → Cognitive Bandwidth", body:"The guarantee simplifies one dimension of decision-making — you do not need to evaluate counterparty creditworthiness. But it does not help with product evaluation, price comparison, or search. The cognitive load of finding and evaluating offerings remains unchanged."},
+  "clear-fulfill": {title:"Clearinghouse → Fulfillment", body:"Clearinghouses guarantee that settlement occurs — payment is made, goods are delivered as contracted. They enforce the terms of the deal. For financial instruments, settlement is the fulfillment. For physical goods, the clearinghouse guarantees financial settlement while physical delivery logistics remain separate."},
+
+  // ═══ AI INTERVENTIONS ═══
+
+  // AI Matching × Challenges
+  "match-risk":    {title:"AI Matching → Risk",       body:"AI cross-references claims against verified data sources — past transaction records, third-party certifications, public filings — to flag inconsistencies before a deal proceeds. A buyer considering a new supplier sees an AI-generated verification score rather than relying on the supplier's self-description alone."},
+  "match-trust":   {title:"AI Matching → Trust",      body:"Matching criteria and reasoning are made transparent: both parties can see why they were paired and what factors the AI considered. This openness builds trust in the platform itself, and by extension in the matches it produces. Users understand they were selected on merit, not hidden algorithms."},
+  "match-reg":     {title:"AI Matching → Regulatory",  body:"AI can maintain separate matching rules per jurisdiction — filtering out listings that violate local import restrictions, professional licensing requirements, or data sovereignty rules. The same buyer sees different results depending on which regulatory regime applies to their location."},
+  "match-opacity": {title:"AI Matching → Opacity",     body:"Semantic matching eliminates the core search friction problem. Instead of requiring buyers to guess the right keywords, AI understands intent: 'someone who can fix our supply chain in Southeast Asia' matches against service providers whose capabilities are described in completely different vocabularies. The buyer no longer needs to know the market's internal taxonomy."},
+  "match-geo":     {title:"AI Matching → Geographic Distance", body:"Vector embeddings place every listing in semantic space regardless of physical location. A buyer in Toronto searching for specialty manufacturing capacity is matched to a supplier in Bratislava — a pairing that neither party would have discovered through conventional search because they operate in different trade networks and speak different languages."},
+  "match-temp":    {title:"AI Matching → Temporal Distance", body:"AI agents represent each party around the clock. While a Canadian seller sleeps, their AI agent engages a Japanese buyer in real time — answering technical questions, negotiating within pre-set parameters, and qualifying the lead. The deal progresses asynchronously without either party waiting for the other's business hours."},
+  "match-complex": {title:"AI Matching → Offering Complexity", body:"This is the breakthrough: AI resolves the centuries-old tradeoff between standardization and relevance. A listing with 47 technical specifications is not reduced to a category — it is mapped to high-dimensional semantic space where AI identifies which 3–5 attributes actually matter for each specific buyer's use case. Complexity becomes a matching advantage rather than a fragmentation problem."},
+  "match-cold":    {title:"AI Matching → Cold Start",  body:"AI can identify likely matches from publicly available data — trade records, procurement notices, industry reports — before either party has formally joined the marketplace. Pre-qualified match suggestions give both sides a reason to engage: 'We've found a trading partner for you. Would you like to explore?'"},
+  "match-cog":     {title:"AI Matching → Cognitive Bandwidth", body:"Instead of presenting 500 listings with 20 attributes each, AI pre-filters to a shortlist of 3–5 highly relevant options and explains why each was selected. Generative preference elicitation replaces filter forms with conversation: 'Tell me what matters most to you' produces a preference model that does the cognitive heavy lifting."},
+  "match-fulfill": {title:"AI Matching → Fulfillment", body:"AI factors logistics constraints into matching — shipping costs, cold chain availability, customs processing times — and can optimize routing across multiple suppliers or split shipments. A match is not just semantically good; it is physically deliverable."},
+
+  // AI Trusted Intermediary × Challenges
+  "interm-risk":    {title:"AI Intermediary → Risk",      body:"The AI holds confidential performance data from both sides — the buyer's past payment reliability, the seller's delivery track record — and can assess counterparty risk without either party having to disclose sensitive information to the other. Risk assessment happens behind a confidentiality wall."},
+  "interm-trust":   {title:"AI Intermediary → Trust",     body:"This is the mechanism that breaks the strategic information withholding deadlock. The buyer shares their real budget; the seller shares their real pricing flexibility. The AI determines compatibility without either party revealing their position. Deals that would have died — 'because neither side would share enough to find out if it would work' — now proceed to introduction."},
+  "interm-reg":     {title:"AI Intermediary → Regulatory", body:"The AI can compartmentalize information by jurisdiction — ensuring that data subject to GDPR stays within EU processing boundaries, that export-controlled technical specifications are only shared with cleared counterparties, and that industry-specific disclosure rules are enforced automatically."},
+  "interm-opacity": {title:"AI Intermediary → Opacity",    body:"Strategic withholding — buyers hiding budgets, sellers hiding capacity — is the most destructive form of opacity in B2B markets. The AI eliminates it by accepting confidential disclosures from both sides and identifying fit without requiring mutual revelation. The information asymmetry that kills deals is resolved structurally, not through persuasion."},
+  "interm-geo":     {title:"AI Intermediary → Geographic Distance", body:"Cross-border trade compounds the trust problem: parties in different countries have no shared legal framework, no mutual acquaintances, and different cultural norms around disclosure. The AI bridges this by acting as a culturally neutral, jurisdiction-aware intermediary that both sides can trust with sensitive information."},
+  "interm-temp":    {title:"AI Intermediary → Temporal Distance", body:"The AI conducts structured information exchange asynchronously — collecting requirements from one party during their business hours, synthesizing them, and presenting options to the other party during theirs. Multi-day negotiations that would stall across time zones proceed smoothly because the AI maintains full context between sessions."},
+  "interm-complex": {title:"AI Intermediary → Offering Complexity", body:"The AI synthesizes complex, multi-attribute offerings into personalized summaries for each buyer — but does so under confidentiality. A seller's proprietary methodology or pricing structure is translated into 'fit signals' without exposing the underlying details. Complexity is navigated without competitive intelligence leaks."},
+  "interm-cold":    {title:"AI Intermediary → Cold Start", body:"The confidentiality guarantee reduces the perceived risk of joining a new marketplace. Early participants who would otherwise worry about revealing sensitive information to an unproven platform can engage knowing the AI compartmentalizes their data. This lowers the trust barrier that compounds the cold start problem."},
+  "interm-cog":     {title:"AI Intermediary → Cognitive Bandwidth", body:"Instead of evaluating dozens of potential counterparties, each with complex and sensitive offerings, participants receive curated introductions: 'Based on what you've told me confidentially, here are the three best fits and why.' The cognitive burden of discovery, evaluation, and risk assessment is absorbed by the intermediary."},
+  "interm-fulfill": {title:"AI Intermediary → Fulfillment", body:"Fulfillment is primarily a physical logistics problem. The trusted intermediary role — focused on information brokerage and confidential matching — does not directly address shipping, storage, or delivery mechanics. Hence neutral."},
+
+  // AI Input Translation × Challenges
+  "input-risk":    {title:"AI Input Translation → Risk",      body:"Input translation converts unstructured information into structured data — it does not verify the truthfulness of that information. A voice recording becomes a listing, but the AI does not independently confirm that the goods described actually exist or match the description. Risk reduction requires verification, not just translation."},
+  "input-trust":   {title:"AI Input Translation → Trust",     body:"Lowering the barrier to participation increases the diversity of the participant pool, but trust is built through verified performance and reputation — not through easier data entry. Input translation is about access, not about credibility."},
+  "input-reg":     {title:"AI Input Translation → Regulatory", body:"AI can translate compliance requirements into the user's native language and format — presenting customs forms, certification requirements, or regulatory checklists in conversational terms rather than bureaucratic jargon. A farmer learns what 'organic certification' requires through a spoken conversation rather than a 40-page standards document."},
+  "input-opacity": {title:"AI Input Translation → Opacity",    body:"By accepting information in any format — voice, photos, informal text — AI makes it dramatically easier for participants to describe their offerings accurately. A seller who would have listed 'grain, good quality' in a text form can instead speak for two minutes about variety, protein content, harvest date, and storage conditions. More information enters the marketplace, reducing the opacity that feeds adverse selection."},
+  "input-geo":     {title:"AI Input Translation → Geographic Distance", body:"Language barriers are a major component of virtual distance. AI translates between the participant's native language and the marketplace's operating languages in real time — a Tamil-speaking farmer and a German-speaking buyer both interact in their own language while the AI handles translation transparently."},
+  "input-temp":    {title:"AI Input Translation → Temporal Distance", body:"Input translation addresses how information enters the system, not when parties are available to transact. It does not bridge the time gap between buyer readiness and seller availability — that requires asynchronous brokerage or memory, not format conversion."},
+  "input-complex": {title:"AI Input Translation → Offering Complexity", body:"AI extracts structured, multi-attribute data from unstructured inputs — a video walkthrough of industrial equipment becomes a detailed specification sheet; a voice description of a harvest becomes a listing with variety, grade, moisture, and protein fields. The offering's full complexity is captured without requiring the seller to navigate forms they may not understand."},
+  "input-cold":    {title:"AI Input Translation → Cold Start", body:"By eliminating the digital literacy barrier, input translation opens participation to populations who were previously excluded — smallholder farmers, informal-economy producers, low-literacy artisans. Each new participant adds supply or demand, directly attacking the cold start problem by expanding the participant pool beyond the digitally literate."},
+  "input-cog":     {title:"AI Input Translation → Cognitive Bandwidth", body:"Instead of navigating complex forms with dozens of fields, users describe their needs conversationally. The AI asks clarifying questions in natural language, builds a structured query from the responses, and translates the result into marketplace-compatible data. The cognitive cost of participation drops from 'fill out this 30-field form' to 'tell me what you need.'"},
+  "input-fulfill": {title:"AI Input Translation → Fulfillment", body:"Input translation affects how information enters the system, not how goods are physically delivered. Logistics infrastructure, shipping, and settlement are outside the scope of format conversion."},
+
+  // AI Memory × Challenges
+  "mem-risk":    {title:"AI Memory → Risk",      body:"AI maintains a verified performance dossier for each participant — successful deliveries, dispute outcomes, quality consistency over time. A new buyer can assess a seller's risk based on 200 tracked transactions rather than a single self-reported reference. The track record is institutional, not personal — it survives staff turnover, company reorganizations, and broker retirements."},
+  "mem-trust":   {title:"AI Memory → Trust",     body:"This is 'Trust-as-a-Service.' AI provides evidence-based trust scores derived from accumulated transaction history — verified settlements, dispute resolution patterns, quality benchmarks. A new participant can trade with the confidence of a 10-year relationship because the AI vouches for the counterparty based on documented evidence, not reputation or hearsay."},
+  "mem-reg":     {title:"AI Memory → Regulatory", body:"AI tracks each participant's compliance history across jurisdictions — which certifications they hold, when they expire, past regulatory issues, and audit results. This creates an institutional compliance memory that persists regardless of staff turnover and can be queried instantly during matching."},
+  "mem-opacity": {title:"AI Memory → Opacity",    body:"Pattern recognition across historical transactions reveals information that no single interaction could surface. AI identifies seasonal pricing patterns, detects quality trends across suppliers, and flags anomalies — 'this seller's protein content claims have been consistently 2% above verified test results.' Systemic opacity is reduced through accumulated evidence."},
+  "mem-geo":     {title:"AI Memory → Geographic Distance", body:"Memory does not directly reduce physical or virtual distance between counterparties. Geographic barriers are addressed by matching (discovery across distance) and input translation (language barriers), not by accumulated historical knowledge."},
+  "mem-temp":    {title:"AI Memory → Temporal Distance", body:"This is intent persistence — AI remembers that a buyer was searching for specific equipment six months ago, what their evolving requirements looked like, and what would close the deal. When a matching listing appears, the AI proactively reconnects the parties. The buyer's intent is 'stored' across time just as a grain elevator stores physical inventory, bridging the temporal gap between need and availability."},
+  "mem-complex": {title:"AI Memory → Offering Complexity", body:"With each interaction, the AI's understanding of complex offerings deepens. A listing that was initially a simple text description accumulates buyer questions, inspection results, quality test data, and transaction outcomes. Over time, the AI builds a richer, more nuanced model of each offering than any single description could capture."},
+  "mem-cold":    {title:"AI Memory → Cold Start", body:"Synthetic market bootstrapping: AI analyzes publicly available data — trade records, procurement notices, industry reports, job postings — to construct synthetic demand and supply profiles. Before either party has joined, the AI can demonstrate that trading partners exist. As synthetic matches convert to real transactions, the marketplace transitions from bootstrapped to organic liquidity. This is the only intervention that directly engineers a solution to the many-to-many cold start problem."},
+  "mem-cog":     {title:"AI Memory → Cognitive Bandwidth", body:"Memory enables anticipation rather than search. Instead of a procurement manager conducting a new search each quarter, the AI tracks their evolving specification pattern and proactively alerts them when matching supply appears. The cognitive shift is from 'I must actively search the market' to 'the market comes to me when something relevant appears.'"},
+  "mem-fulfill": {title:"AI Memory → Fulfillment", body:"AI tracks delivery performance over time — which shipping routes reliably meet deadlines, which carriers have damage incidents, which customs brokers process fastest for specific commodity types. This historical performance data optimizes future fulfillment decisions without the participants needing to research logistics options from scratch each time."}
+};
+
+const overlay = document.getElementById('overlay');
+const ttbox = document.getElementById('ttbox');
+const ttBadge = document.getElementById('tt-badge');
+const ttTitle = document.getElementById('tt-title');
+const ttBody = document.getElementById('tt-body');
+
+function showDef(key) {
+  const d = DEFS[key];
+  if (!d) return;
+  ttBadge.textContent = d.cat;
+  ttBadge.className = 'tt-badge ' + d.badge;
+  ttTitle.textContent = d.title;
+  ttBody.textContent = d.body;
+  overlay.classList.add('active');
+  ttbox.classList.add('active');
+  ttbox.style.top = '50%';
+  ttbox.style.left = '50%';
+  ttbox.style.transform = 'translate(-50%,-50%)';
+}
+
+function showCell(key) {
+  const c = CELLS[key];
+  if (!c) return;
+  // Determine if traditional or AI based on key prefix
+  const isTrad = key.startsWith('std-') || key.startsWith('broker-') || key.startsWith('maker-') || key.startsWith('fut-') || key.startsWith('geo-') || key.startsWith('clear-');
+  ttBadge.textContent = 'How it works';
+  ttBadge.className = 'tt-badge ' + (isTrad ? 'tt-trad-cell' : 'tt-cell');
+  ttTitle.textContent = c.title;
+  ttBody.textContent = c.body;
+  overlay.classList.add('active');
+  ttbox.classList.add('active');
+  ttbox.style.top = '50%';
+  ttbox.style.left = '50%';
+  ttbox.style.transform = 'translate(-50%,-50%)';
+}
+
+function hideDef() {
+  overlay.classList.remove('active');
+  ttbox.classList.remove('active');
+}
+
+overlay.addEventListener('click', hideDef);
+document.getElementById('tt-close').addEventListener('click', hideDef);
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') hideDef(); });
+
+// Row/column header definitions
+document.querySelectorAll('th[data-def], td[data-def]').forEach(function(el){
+  el.addEventListener('click', function(){ showDef(this.getAttribute('data-def')); });
+});
+
+// AI cell explanations
+document.querySelectorAll('td[data-cell]').forEach(function(el){
+  el.addEventListener('click', function(){ showCell(this.getAttribute('data-cell')); });
+});
+</script>
+</div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__inner">
+            <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+            <ul class="footer__links">
+                <li><a href="search.html" class="footer__link">Search</a></li>
+                <li><a href="index.html" class="footer__link">Home</a></li>
+                <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+                <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="reveal.js"></script>
+<script src="nav-mobile.js"></script>
+<script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
