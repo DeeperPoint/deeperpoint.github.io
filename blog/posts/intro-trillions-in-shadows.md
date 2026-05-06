@@ -19,7 +19,7 @@ estimated-read: 6 min read
 
 *Part 2 of 4 — Why I'm Building Tools for Markets That Don't Exist Yet*
 
-In [Part 1](intro-veterinarians-xray.html), I described the pattern I keep seeing: markets that *should* work but don't, because five structural forces — discovery failure, information asymmetry, trust deficit, offering complexity, and participant scarcity — prevent willing buyers and willing sellers from ever meeting. The cases look wildly different on the surface — heritage construction, specialty grain, family law — but the x-ray reveals the same anatomy every time.
+In [Part 1](intro-veterinarians-xray.html), I described the pattern I keep seeing: markets that *should* work but don't, because structural forces — from risk and trust deficits to opacity, distance, and offering complexity — prevent willing buyers and willing sellers from ever meeting. The cases look wildly different on the surface — heritage construction, specialty grain, family law — but the x-ray reveals the same anatomy every time.
 
 The natural next question is: *so what?* Interesting pattern, maybe. But how much commerce is actually missing?
 
@@ -58,7 +58,7 @@ This means the social returns to solving thin markets are highest exactly where 
 
 There is also a geopolitical urgency. Mark Carney has articulated a Middle Powers vision — a coalition of democracies including the EU, CPTPP nations, Japan, South Korea, and Australia with a combined GDP of roughly $37.7 trillion. These nations have signed trade agreements with each other. The legal access exists. What doesn't exist is the [market infrastructure to use it](../blog/thin-markets-middle-powers.html).
 
-Every new trade corridor between a Canadian SME and a buyer in Frankfurt or Osaka starts as a thin market. The participants exist. The desire to trade exists. But the five forces — now compounded by language barriers, regulatory fragmentation, and 6–14 hours of time zone difference — prevent the transaction from forming. Trade agreements open the door. Thin market forces keep everyone from walking through it.
+Every new trade corridor between a Canadian SME and a buyer in Frankfurt or Osaka starts as a thin market. The participants exist. The desire to trade exists. But the structural forces — now compounded by language barriers, regulatory fragmentation, and 6–14 hours of time zone distance — prevent the transaction from forming. Trade agreements open the door. Thin market forces keep everyone from walking through it.
 
 If Canada is serious about reducing dependence on a single trading partner, thin market engineering is not optional — it's the infrastructure layer that makes diversification commercially real rather than diplomatically declared.
 

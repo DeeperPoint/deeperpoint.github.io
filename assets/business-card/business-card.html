@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeeperPoint Business Card — Print Ready</title>
+
+  <!-- DeeperPoint brand fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       DeeperPoint Business Card — Print Stylesheet
+       Standard: 3.5 × 2 in (88.9 × 50.8 mm)
+       Bleed:    0.125 in (3.175 mm) each side
+       Trim:     3.75 × 2.25 in with bleed
+       ============================================ */
+
+    /* --- Design Tokens (from deeperpoint.com/styles.css) --- */
+    :root {
+      --dp-midnight: #0a0e1a;
+      --dp-navy:     #111827;
+      --dp-slate:    #1e293b;
+      --dp-steel:    #334155;
+      --dp-muted:    #64748b;
+      --dp-silver:   #94a3b8;
+      --dp-cloud:    #cbd5e1;
+      --dp-snow:     #f1f5f9;
+      --dp-white:    #ffffff;
+
+      --dp-blue:       #3b82f6;
+      --dp-blue-light: #60a5fa;
+      --dp-cyan:       #06b6d4;
+      --dp-emerald:    #10b981;
+      --dp-violet:     #8b5cf6;
+
+      --font-display: 'Outfit', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      /* Card dimensions */
+      --card-w: 3.5in;
+      --card-h: 2in;
+      --bleed:  0.125in;
+      --safe:   0.125in;  /* safety margin inside trim */
+    }
+
+    /* --- Page Setup --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #e2e8f0;
+      font-family: var(--font-body);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--dp-slate);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .print-instructions {
+      max-width: 600px;
+      text-align: center;
+      color: var(--dp-muted);
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: var(--dp-white);
+      border-radius: 8px;
+      border: 1px solid var(--dp-cloud);
+    }
+
+    /* --- Card Container (with bleed area) --- */
+    .card-wrap {
+      width: calc(var(--card-w) + var(--bleed) * 2);
+      height: calc(var(--card-h) + var(--bleed) * 2);
+      position: relative;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      background: var(--dp-midnight);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Trim-line guides (visible on screen, hidden in print) */
+    .card::after {
+      content: '';
+      position: absolute;
+      top: var(--bleed);
+      left: var(--bleed);
+      right: var(--bleed);
+      bottom: var(--bleed);
+      border: 1px dashed rgba(255,255,255,0.1);
+      pointer-events: none;
+    }
+
+    /* Safe-zone content area */
+    .card__content {
+      position: absolute;
+      top: calc(var(--bleed) + var(--safe));
+      left: calc(var(--bleed) + var(--safe));
+      right: calc(var(--bleed) + var(--safe));
+      bottom: calc(var(--bleed) + var(--safe));
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =====================
+       FRONT SIDE
+       ===================== */
+
+    /* Network graph decoration */
+    .front .network-bg {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .front .network-bg svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Gradient accent stripe at top */
+    .front .accent-stripe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--dp-violet), var(--dp-blue), var(--dp-cyan), var(--dp-emerald));
+    }
+
+    .front .card__content {
+      justify-content: space-between;
+    }
+
+    .front__logo {
+      font-family: var(--font-display);
+      font-size: 13pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--dp-white);
+    }
+    .front__logo span {
+      color: var(--dp-blue-light);
+    }
+
+    .front__identity {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .front__name {
+      font-family: var(--font-display);
+      font-size: 14pt;
+      font-weight: 700;
+      color: var(--dp-white);
+      letter-spacing: -0.02em;
+      margin-bottom: 2pt;
+    }
+
+    .front__title {
+      font-family: var(--font-body);
+      font-size: 8pt;
+      font-weight: 500;
+      color: var(--dp-blue-light);
+      letter-spacing: 0.03em;
+    }
+
+    .front__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 2pt;
+    }
+
+    .front__contact-line {
+      font-family: var(--font-body);
+      font-size: 7pt;
+      font-weight: 400;
+      color: var(--dp-silver);
+      letter-spacing: 0.02em;
+    }
+
+    /* Tagline in bottom-right */
+    .front__tagline {
+      position: absolute;
+      bottom: calc(var(--bleed) + var(--safe));
+      right: calc(var(--bleed) + var(--safe));
+      font-family: var(--font-body);
+      font-size: 5.5pt;
+      font-weight: 500;
+      color: var(--dp-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    /* =====================
+       BACK SIDE
+       ===================== */
+
+    /* Gradient accent stripe at top */
+    .back .accent-stripe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--dp-violet), var(--dp-blue), var(--dp-cyan), var(--dp-emerald));
+    }
+
+    .back .card__content {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 6pt;
+    }
+
+    .back__scan-label {
+      font-family: var(--font-body);
+      font-size: 6.5pt;
+      font-weight: 500;
+      color: var(--dp-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .back__qr-frame {
+      width: 1.1in;
+      height: 1.1in;
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .back__qr-frame img {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+    }
+
+    .back__prompt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1pt;
+    }
+
+    .back__prompt-label {
+      font-family: var(--font-body);
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--dp-blue-light);
+      letter-spacing: 0.03em;
+    }
+
+    .back__prompt-text {
+      font-family: var(--font-body);
+      font-size: 7.5pt;
+      font-weight: 400;
+      color: var(--dp-white);
+      font-style: italic;
+    }
+
+    .back__tagline {
+      font-family: var(--font-body);
+      font-size: 6pt;
+      font-weight: 500;
+      color: var(--dp-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 2pt;
+    }
+
+
+    /* =====================
+       PRINT STYLES
+       ===================== */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        gap: 0;
+      }
+      h2, .print-instructions { display: none; }
+
+      .card-wrap {
+        box-shadow: none;
+        page-break-after: always;
+        margin: 0;
+      }
+
+      /* Remove trim guides */
+      .card::after { display: none; }
+
+      /* Ensure colors print */
+      .card {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+    }
+
+    @page {
+      size: calc(3.5in + 0.25in) calc(2in + 0.25in);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-instructions">
+    <strong>Print Instructions:</strong> Use File → Print, set paper size to "Custom" (3.75 × 2.25 in),
+    margins to "None", and enable "Background graphics". The dashed line shows the trim boundary.
+    Content inside the dashed line is the safe zone.<br>
+    Or export as PDF and send to a professional print service (Moo, Vistaprint, etc.) with bleed marks.
+  </div>
+
+  <!-- ========== FRONT ========== -->
+  <h2>Front</h2>
+  <div class="card-wrap front">
+    <div class="card">
+      <div class="accent-stripe"></div>
+
+      <!-- Network decoration -->
+      <div class="network-bg">
+        <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Edges -->
+          <line x1="180" y1="30" x2="260" y2="60" stroke="#8b5cf6" stroke-width="0.5"/>
+          <line x1="260" y1="60" x2="240" y2="130" stroke="#06b6d4" stroke-width="0.5"/>
+          <line x1="240" y1="130" x2="280" y2="170" stroke="#10b981" stroke-width="0.5"/>
+          <line x1="180" y1="30" x2="140" y2="80" stroke="#3b82f6" stroke-width="0.5"/>
+          <line x1="140" y1="80" x2="200" y2="100" stroke="#8b5cf6" stroke-width="0.5"/>
+          <line x1="200" y1="100" x2="260" y2="60" stroke="#60a5fa" stroke-width="0.5"/>
+          <line x1="200" y1="100" x2="240" y2="130" stroke="#3b82f6" stroke-width="0.5"/>
+          <line x1="140" y1="80" x2="120" y2="140" stroke="#06b6d4" stroke-width="0.5"/>
+          <line x1="120" y1="140" x2="180" y2="160" stroke="#10b981" stroke-width="0.5"/>
+          <line x1="180" y1="160" x2="240" y2="130" stroke="#3b82f6" stroke-width="0.5"/>
+          <line x1="180" y1="160" x2="280" y2="170" stroke="#60a5fa" stroke-width="0.5"/>
+          <line x1="80" y1="50" x2="140" y2="80" stroke="#8b5cf6" stroke-width="0.5"/>
+          <line x1="80" y1="50" x2="180" y2="30" stroke="#06b6d4" stroke-width="0.5"/>
+          <line x1="60" y1="170" x2="120" y2="140" stroke="#10b981" stroke-width="0.5"/>
+          <line x1="60" y1="170" x2="180" y2="160" stroke="#3b82f6" stroke-width="0.5"/>
+          <!-- Nodes -->
+          <circle cx="180" cy="30"  r="3" fill="#8b5cf6"/>
+          <circle cx="260" cy="60"  r="3" fill="#06b6d4"/>
+          <circle cx="140" cy="80"  r="2.5" fill="#3b82f6"/>
+          <circle cx="200" cy="100" r="2.5" fill="#60a5fa"/>
+          <circle cx="240" cy="130" r="3" fill="#06b6d4"/>
+          <circle cx="120" cy="140" r="2.5" fill="#10b981"/>
+          <circle cx="180" cy="160" r="3" fill="#3b82f6"/>
+          <circle cx="280" cy="170" r="2.5" fill="#10b981"/>
+          <circle cx="80"  cy="50"  r="2" fill="#8b5cf6"/>
+          <circle cx="60"  cy="170" r="2" fill="#10b981"/>
+        </svg>
+      </div>
+
+      <div class="card__content">
+        <div class="front__logo">Deeper<span>Point</span></div>
+
+        <div class="front__identity">
+          <div class="front__name">Mustafa (Vic) Uzumeri</div>
+          <div class="front__title">Founder &amp; Systems Designer</div>
+        </div>
+
+        <div class="front__contact">
+          <div class="front__contact-line">vic.uzumeri@deeperpoint.com</div>
+          <div class="front__contact-line">deeperpoint.com</div>
+        </div>
+      </div>
+
+      <div class="front__tagline">Thin Market Engineering with AI</div>
+    </div>
+  </div>
+
+  <!-- ========== BACK ========== -->
+  <h2>Back</h2>
+  <div class="card-wrap back">
+    <div class="card">
+      <div class="accent-stripe"></div>
+
+      <div class="card__content">
+        <div class="back__scan-label">Scan to learn about the project</div>
+
+        <div class="back__qr-frame">
+          <img src="qr-about-dark.png" alt="QR code linking to deeperpoint.com/about.html">
+        </div>
+
+        <div class="back__prompt">
+          <div class="back__prompt-label">Ask any AI:</div>
+          <div class="back__prompt-text">"Browse deeperpoint.com/about and tell me what this project is"</div>
+        </div>
+
+        <div class="back__tagline">Thin Market Engineering with AI</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

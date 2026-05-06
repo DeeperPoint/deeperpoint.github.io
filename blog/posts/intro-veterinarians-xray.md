@@ -10,13 +10,13 @@ title: "Workshop Notes: The Veterinarian's X-Ray"
 slug: intro-veterinarians-xray
 date: 2026-03-13
 tags: [thin-markets, market-design, ai, explainer]
-summary: "Thin markets look wildly different on the surface — heritage masonry, specialty grain, family law — but they share the same five structural forces underneath. Once you learn to read the x-ray, you see them everywhere. Part 1 of a 4-part series."
+summary: "Thin markets look wildly different on the surface — heritage masonry, specialty grain, family law — but they share the same structural challenges underneath. Once you learn to read the x-ray, you see them everywhere. Part 1 of a 4-part series."
 estimated-read: 5 min read
 ---
 
 <figure class="blog-hero">
   <img class="blog-hero__img" src="../images/blog/intro-veterinarians-xray-hero.png" alt="A veterinarian studying an X-ray that reveals the hidden structure of a marketplace" loading="lazy">
-  <figcaption>Once you learn to read the x-ray, you see the same five forces in every failing market.</figcaption>
+  <figcaption>Once you learn to read the x-ray, you see the same structural forces in every failing market.</figcaption>
 </figure>
 
 *(No actual animals in this article. The patients here are markets.)*
@@ -39,21 +39,31 @@ A thin market is any market where willing buyers and willing sellers exist — a
 
 On the surface, the examples look bewilderingly unrelated. A [heritage barn restoration](heritage-craft-thin-market.html) in rural Ontario, where the general contractor cannot find a certified timber framer within 600 kilometres. A Saskatchewan farmer with a [single shipping container of high-protein malting barley](malting-barley-thin-market.html) and no way to reach the Filipino craft brewer who actually wants it. A family in the Ottawa Valley who needs a [collaborative family lawyer](rural-legal-thin-market.html) specialising in a custody arrangement that no local practitioner handles.
 
-Three completely different worlds. But read the x-ray, and every one of them suffers from the same five forces:
+Three completely different worlds. But read the x-ray, and every one of them is shaped by the same [ten structural challenges](../intervention-matrix.html) — three that can kill a market outright, and seven that grind it down:
 
-1. **Discovery failure** — the participants can't find each other.
-2. **Information asymmetry** — they can't evaluate what they've found.
-3. **Trust deficit** — they have no basis for believing what the other side claims.
-4. **Offering complexity** — what's being traded won't fit a drop-down menu or a standard SKU.
-5. **Participant scarcity** — there simply aren't enough players in a local radius to create competitive pressure.
+**Existential threats** — below a critical level, the market cannot function at all:
 
-Five forces. Present in every case. Different weights, different flavours — but the same diagnostic checklist.
+- **Risk** — participants can't assess whether a transaction will result in loss rather than gain.
+- **Trust** — no basis for believing what the other side claims, and no history of successful trades to build on.
+- **Regulatory friction** — legal frameworks, licensing rules, or data sovereignty requirements fragment the market into isolated pieces.
+
+**Resistance forces** — they don't prevent all transactions, but they make every one harder:
+
+- **Opacity** — the participants can't find each other, can't evaluate what they've found, or face strategic information withholding.
+- **Geographic distance** — transportation costs, language barriers, and incompatible legal systems create natural boundaries.
+- **Temporal distance** — one party is ready to transact months or years before a suitable counterparty appears.
+- **Offering complexity** — what's being traded won't fit a drop-down menu or a standard SKU.
+- **Cold start** — buyers are needed to attract sellers, and sellers are needed to attract buyers, but neither will go first.
+- **Cognitive bandwidth** — too many options, too much complexity, and not enough human processing capacity to evaluate them.
+- **Fulfillment** — even after a match is made, the physical logistics of delivering goods or scheduling services can defeat the transaction.
+
+Ten challenges. Present in every case. Different weights, different combinations — but the same diagnostic checklist.
 
 ## Two kinds of failure
 
 Not all thin markets fail in the same way. Some are **latent** — the market could exist, but it doesn't. No one has built the infrastructure, and the potential participants don't even know there's a counterparty out there. The Saskatchewan barley grower and the Filipino craft brewer are a latent market: each exists, neither knows the other does, and no transaction has ever been attempted.
 
-Other thin markets do function — partially, expensively, and haphazardly. They depend on **human brokers, traders, and coordinators** who use personal networks, phone calls, trade shows, and hard-won relationships to muscle through the five forces by sheer effort. The [Ethiopian produce middlemen](ethiopia-produce-thin-market.html) are this kind of intermediary. So are the freight brokers in North American trucking, the export consultants who help SMEs navigate foreign markets, and the trade show organisers who create temporary bursts of market thickness at enormous cost.
+Other thin markets do function — partially, expensively, and haphazardly. They depend on **human brokers, traders, and coordinators** who use personal networks, phone calls, trade shows, and hard-won relationships to muscle through these forces by sheer effort. The [Ethiopian produce middlemen](ethiopia-produce-thin-market.html) are this kind of intermediary. So are the freight brokers in North American trucking, the export consultants who help SMEs navigate foreign markets, and the trade show organisers who create temporary bursts of market thickness at enormous cost.
 
 This human-powered approach is labour-intensive, costly, error-prone, and myopic — limited to whatever the broker can personally see and remember. It works well enough to capture some value, but it leaves most of the market's potential unrealised.
 
