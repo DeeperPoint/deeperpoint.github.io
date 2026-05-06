@@ -356,6 +356,68 @@
       color: #4eca8b
     }
 
+    .im .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    
+    .im .factor-card {
+      background: #111d2e;
+      border: 1px solid #1e2d42;
+      border-radius: 8px;
+      padding: 24px;
+    }
+    
+    .im .factor-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    
+    .im .factor-card p {
+      color: #8a9bb5;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    
+    .im .factor-card ul {
+      color: #c0cee0;
+      font-size: 0.85rem;
+      padding-left: 20px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .im .factor-card li {
+      margin-bottom: 8px;
+    }
+    
+    .im .factor-card li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .im .ai-response {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed #2a4060;
+      color: #8aa0b8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    
+    .im .ai-response strong {
+      color: #4eca8b;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     @media(max-width:700px) {
       .im {
         padding: 16px 10px
@@ -640,6 +702,56 @@
         any single traditional intervention, at lower marginal cost and higher scale. AI Memory in particular addresses
         challenges — cold start, trust, temporal distance — that have been especially resistant to traditional
         solutions.</div>
+
+      <!-- ══ BEYOND THE MATRIX: STRATEGY DIAGNOSTICS ══ -->
+      <div style="margin-top: 64px;">
+        <h2>Assessing Strategy Viability</h2>
+        <p class="table-subtitle">While the matrix above maps structural market challenges to engineering interventions, evaluating a specific startup or market strategy requires analyzing three additional dimensions of market physics.</p>
+        
+        <div class="factors-grid">
+          <div class="factor-card">
+            <h3>1. Market Gravity</h3>
+            <p>Gravity determines what naturally pulls participants to a solution and keeps them there.</p>
+            <ul>
+              <li><strong>Supply & Demand Pull:</strong> Is the attraction structural (genuine need) or subsidized (manufactured through incentives)?</li>
+              <li><strong>Incumbent Gravity:</strong> What forces (habit, lock-in) do existing alternatives exert?</li>
+              <li><strong>Compounding:</strong> Does the platform's pull strengthen with use via data moats or network effects, or is every transaction a fresh struggle?</li>
+            </ul>
+            <div class="ai-response">
+              <strong>AI Engineering Response</strong>
+              Use <em>Pre-qualified AI Matching</em> on public data to deliver "ready-to-close" leads (substituting algorithmic push for natural market pull). Use <em>Synthetic Bootstrapping (ClientSynth)</em> to simulate a thick ecosystem, generating artificial gravity to attract early sponsors.
+            </div>
+          </div>
+          
+          <div class="factor-card">
+            <h3>2. Business Model Physics</h3>
+            <p>A market can have perfect matching physics but terrible business model physics.</p>
+            <ul>
+              <li><strong>Revenue Architecture:</strong> Who pays whom, and do they have the margins to support the platform's take rate?</li>
+              <li><strong>Bootstrapping Math:</strong> Does the Annual Contract Value (ACV) justify the friction and cost of acquiring the customer?</li>
+              <li><strong>Unit Economics:</strong> Are use cases highly recurring (building lifetime value) or episodic (requiring constant re-acquisition)?</li>
+            </ul>
+            <div class="ai-response">
+              <strong>AI Engineering Response</strong>
+              Use <em>AI Input Translation</em> and <em>AI Trusted Intermediaries</em> to collapse the marginal cost of onboarding. When ACV is too low for high-touch sales, AI reduces the friction cost (the denominator) to near-zero, making previously broken bootstrapping math viable.
+            </div>
+          </div>
+          
+          <div class="factor-card">
+            <h3>3. Evidence Quality & Signal</h3>
+            <p>When grading a proposed solution, the quality of Product-Market Fit (PMF) evidence matters.</p>
+            <ul>
+              <li><strong>Evidence Stack:</strong> Is the proof based on verifiable third-party adoption and real revenue, or just mockups and unverified testimonials?</li>
+              <li><strong>PMF Signal:</strong> Is adoption organic (overcoming friction naturally) or heavily reliant on sales effort and subsidies?</li>
+              <li><strong>Conversion Risk:</strong> Is there a clear path to monetization, or a massive drop-off at the paywall because the free tier is "good enough"?</li>
+            </ul>
+            <div class="ai-response">
+              <strong>AI Engineering Response</strong>
+              Use <em>AI Memory</em> to build an institutional track record of verified settlements, replacing anecdotal testimonials with systemic proof. Before launch, use <em>ClientSynth</em> to safely test PMF assumptions in a structured sandbox, avoiding the trap of subsidized demand.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Tooltip overlay and box -->
