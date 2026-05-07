@@ -823,10 +823,10 @@
                 </div>
             </div>
 
-            <!-- Step 6: Opacity, Cognition, Fulfillment -->
+            <!-- Step 6: Opacity, Cognition, Fulfillment & Fragmentation -->
             <div class="diag-step" data-step="6">
                 <div class="diag-card">
-                    <h2>6. Resistance — Opacity, Cognition & Fulfillment</h2>
+                    <h2>6. Resistance — Opacity, Cognition, Fulfillment & Fragmentation</h2>
 
                     <h3>Opacity</h3>
                     <div class="diag-q">
@@ -944,6 +944,17 @@
                             <option value="no">No — fulfillment is straightforward</option>
                             <option value="some">Somewhat — logistics adds meaningful friction</option>
                             <option value="severe">Yes — fulfillment is a serious constraint</option>
+                        </select>
+                    </div>
+
+                    <h3>Participant Fragmentation</h3>
+                    <div class="diag-q">
+                        <label><strong>Volume thresholds:</strong> Are participants individually too small to meet minimum commercial requirements or overcome transaction costs?</label>
+                        <select id="q-fragmentation">
+                            <option value="">Select...</option>
+                            <option value="no">No — participants have sufficient scale to transact independently</option>
+                            <option value="some">Some — occasional pooling helps but isn't strictly required</option>
+                            <option value="severe">Severe — participants are fundamentally sub-scale singletons</option>
                         </select>
                     </div>
                 </div>
@@ -1161,6 +1172,7 @@
         function assessOpacity() { return avgSev(['q-search-friction', 'q-lemons', 'q-withholding', 'q-bargaining'], [{ low: 'Low', moderate: 'Moderate', high: 'High' }, { no: 'Low', some: 'Moderate', severe: 'High' }, { no: 'Low', some: 'Moderate', severe: 'Critical' }, { low: 'Low', moderate: 'Moderate', high: 'High' }]); }
         function assessCog() { const ids = ['q-cognitive', 'q-spiral']; const maps = [{ no: 'None', some: 'Moderate', severe: 'High' }, { no: 'None', some: 'Moderate', severe: 'High' }]; let t = 0, c = 0; ids.forEach((id, i) => { const v = document.getElementById(id)?.value; if (v && maps[i][v]) { t += sn(maps[i][v]); c++; } }); if (!c) return 'Not assessed'; const a = t / c; return a < 0.5 ? 'None' : a < 1.5 ? 'Low' : a < 2.5 ? 'Moderate' : 'High'; }
         function assessFull() { return { no: 'None', some: 'Moderate', severe: 'High' }[document.getElementById('q-fulfillment')?.value] || 'Not assessed'; }
+        function assessFrag() { return { no: 'None', some: 'Moderate', severe: 'High' }[document.getElementById('q-fragmentation')?.value] || 'Not assessed'; }
 
         function drawRadar(dims) { const sc = dims.filter(d => sn(d.severity) >= 0); if (sc.length < 3) return ''; const n = sc.length, cx = 190, cy = 190, r = 150; let s = '<div class="radar-wrap"><svg viewBox="0 0 380 420" style="max-width:380px;width:100%;">'; for (let ring = 1; ring <= 4; ring++) { let pts = []; for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2, rr = r * ring / 4; pts.push((cx + rr * Math.cos(a)).toFixed(1) + ',' + (cy + rr * Math.sin(a)).toFixed(1)); } s += '<polygon points="' + pts.join(' ') + '" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>'; } for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2; s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + (cx + r * Math.cos(a)).toFixed(1) + '" y2="' + (cy + r * Math.sin(a)).toFixed(1) + '" stroke="rgba(255,255,255,0.06)"/>'; const lx = cx + (r + 20) * Math.cos(a), ly = cy + (r + 20) * Math.sin(a); const anc = Math.abs(Math.cos(a)) < 0.1 ? 'middle' : Math.cos(a) > 0 ? 'start' : 'end'; const lb = sc[i].label.length > 16 ? sc[i].label.substring(0, 15) + '\u2026' : sc[i].label; s += '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="' + anc + '" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">' + lb + '</text>'; } let pts = []; for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2, rr = r * sn(sc[i].severity) / 4; pts.push((cx + rr * Math.cos(a)).toFixed(1) + ',' + (cy + rr * Math.sin(a)).toFixed(1)); } s += '<polygon points="' + pts.join(' ') + '" fill="rgba(139,92,246,0.2)" stroke="#8b5cf6" stroke-width="2"/>'; const cols = ['#10b981', '#06b6d4', '#f59e0b', '#f87171', '#fca5a5']; for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2, rr = r * sn(sc[i].severity) / 4; s += '<circle cx="' + (cx + rr * Math.cos(a)).toFixed(1) + '" cy="' + (cy + rr * Math.sin(a)).toFixed(1) + '" r="4" fill="' + cols[sn(sc[i].severity)] + '"/>'; } s += '</svg></div>'; return s; }
 
@@ -1180,6 +1192,7 @@
                 { label: 'Opacity', severity: assessOpacity(), interventions: 'AI trusted intermediation, confidential information synthesis, standardized pricing' },
                 { label: 'Cognitive overload', severity: assessCog(), interventions: 'Curated matching, generative preference elicitation, personalized translation' },
                 { label: 'Fulfillment', severity: assessFull(), interventions: 'Cold chain infrastructure, settlement mechanisms, scheduling coordination' },
+                { label: 'Participant fragmentation', severity: assessFrag(), interventions: 'Institutional aggregation, AI-enabled semantic grouping, virtual collectives' },
                 { label: 'Cold start', severity: sv('q-cold-start', { na: 'None', low: 'Low', moderate: 'Moderate', severe: 'Critical' }), interventions: 'Synthetic bootstrapping (ClientSynth), pre-qualified match suggestions, seeded liquidity' },
             ]; lastDims = dims;
             const dom = dims.filter(d => d.severity === 'High' || d.severity === 'Critical');

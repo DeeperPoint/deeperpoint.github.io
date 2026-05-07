@@ -19,7 +19,7 @@ estimated-read: 6 min read
 
 *Part 3 of 4 — Why I'm Building Tools for Markets That Don't Exist Yet*
 
-In [Part 1](intro-veterinarians-xray.html) I described the pattern: thin markets that look wildly different on the surface all share the same ten structural challenges underneath. In [Part 2](intro-trillions-in-shadows.html) I quantified the scale: up to $10.4 trillion in missing global commerce. The problem is enormous and it is everywhere.
+In [Part 1](intro-veterinarians-xray.html) I described the pattern: thin markets that look wildly different on the surface all share the same eleven structural challenges underneath. In [Part 2](intro-trillions-in-shadows.html) I quantified the scale: up to $10.4 trillion in missing global commerce. The problem is enormous and it is everywhere.
 
 Whenever a problem is measured in trillions, the reflexive Silicon Valley response is to build a proprietary platform, capture the market, and extract a toll. That instinct is wrong here, and understanding *why* it's wrong is the key to understanding DeeperPoint.
 

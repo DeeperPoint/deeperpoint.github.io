@@ -39,7 +39,7 @@ A thin market is any market where willing buyers and willing sellers exist — a
 
 On the surface, the examples look bewilderingly unrelated. A [heritage barn restoration](heritage-craft-thin-market.html) in rural Ontario, where the general contractor cannot find a certified timber framer within 600 kilometres. A Saskatchewan farmer with a [single shipping container of high-protein malting barley](malting-barley-thin-market.html) and no way to reach the Filipino craft brewer who actually wants it. A family in the Ottawa Valley who needs a [collaborative family lawyer](rural-legal-thin-market.html) specialising in a custody arrangement that no local practitioner handles.
 
-Three completely different worlds. But read the x-ray, and every one of them is shaped by the same [ten structural challenges](../intervention-matrix.html) — three that can kill a market outright, and seven that grind it down:
+Three completely different worlds. But read the x-ray, and every one of them is shaped by the same [eleven structural challenges](../intervention-matrix.html) — three that can kill a market outright, and eight that grind it down:
 
 **Existential threats** — below a critical level, the market cannot function at all:
 
@@ -56,8 +56,9 @@ Three completely different worlds. But read the x-ray, and every one of them is 
 - **Cold start** — buyers are needed to attract sellers, and sellers are needed to attract buyers, but neither will go first.
 - **Cognitive bandwidth** — too many options, too much complexity, and not enough human processing capacity to evaluate them.
 - **Fulfillment** — even after a match is made, the physical logistics of delivering goods or scheduling services can defeat the transaction.
+- **Participant fragmentation** — the pool of potential buyers or sellers is too scattered to act collectively, reducing their visibility and leverage.
 
-Ten challenges. Present in every case. Different weights, different combinations — but the same diagnostic checklist.
+Eleven challenges. Present in every case. Different weights, different combinations — but the same diagnostic checklist.
 
 ## Two kinds of failure
 
