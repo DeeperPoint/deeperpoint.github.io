@@ -180,6 +180,7 @@
       padding: 10px 10px;
       border-bottom: 2px solid #2a4a6e;
       border-top: 1px solid #1a2a3e;
+      cursor: pointer;
     }
 
     .im td.s {
@@ -503,7 +504,7 @@
           </thead>
           <tbody>
             <tr class="grp">
-              <td colspan="8">Existential Challenges</td>
+              <td colspan="8" data-def="existential">Existential Challenges</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="risk">Risk</td>
@@ -536,7 +537,7 @@
               <td class="l" data-cell="inst-reg">Lowers (shared compliance)</td>
             </tr>
             <tr class="grp">
-              <td colspan="8">Resistance Challenges</td>
+              <td colspan="8" data-def="resistance">Resistance Challenges</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="opacity">Opacity</td>
@@ -642,7 +643,7 @@
           </thead>
           <tbody>
             <tr class="grp">
-              <td colspan="6">Existential Challenges</td>
+              <td colspan="6" data-def="existential">Existential Challenges</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="risk">Risk</td>
@@ -669,7 +670,7 @@
               <td class="l" data-cell="agg-reg">Lowers (shared compliance)</td>
             </tr>
             <tr class="grp">
-              <td colspan="6">Resistance Challenges</td>
+              <td colspan="6" data-def="resistance">Resistance Challenges</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="opacity">Opacity</td>
@@ -807,6 +808,8 @@
     <script>
       const DEFS = {
         // ── Challenge (row) definitions ──
+        "existential": { cat: "Category", badge: "tt-exist", title: "Existential Challenges", body: "These are threshold problems (Binary Gates). Below a critical level, the market cannot function at all — no amount of optimization helps." },
+        "resistance": { cat: "Category", badge: "tt-resist", title: "Resistance Challenges", body: "These are gradient forces. They do not prevent all transactions, but they reduce efficiency and thickness. The higher the resistance, the thinner the market." },
         "risk": { cat: "Existential Challenge", badge: "tt-exist", title: "Risk", body: "The possibility that a transaction results in loss rather than gain. In thin markets, risk is amplified by fewer comparable transactions (making fair value assessment harder), limited counterparty options, and infrequent trading that prevents quick exit from bad positions. This produces the liquidity premium: participants demand better prices because they cannot exit quickly. Risk is binary below a threshold — if participants perceive unacceptable risk, they exit regardless of potential profit." },
         "trust": { cat: "Existential Challenge", badge: "tt-exist", title: "Trust", body: "Whether participants feel secure enough to engage. Thin markets lack the repeated interactions that naturally build trust in thick markets. The chicken-and-egg problem applies: trades do not happen without trust, but trust does not develop without successful trades. In B2B markets, trust has an additional dimension — can the marketplace be trusted with confidential information? Without it, participants either avoid the platform or share so little that matching becomes impossible." },
         "regulatory": { cat: "Existential Challenge", badge: "tt-exist", title: "Regulatory Friction", body: "Legal and institutional frameworks that fragment or entirely prevent market formation. Fragmentation occurs through securities law, data sovereignty rules (e.g., GDPR), professional licensing restrictions, tariffs and trade sanctions, capital controls, and incompatible product standards. Beyond formal regulation, institutional context matters: reliability of contract enforcement, corruption levels, banking infrastructure, and cultural norms around commerce. A market that appears globally thick may actually be many legally separated thin markets." },
