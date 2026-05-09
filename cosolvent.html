@@ -1,0 +1,158 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosolvent Suite — DeeperPoint</title>
+    <meta name="description"
+        content="The Cosolvent Suite brings together open-source infrastructure (Cosolvent & CommonContext) and proprietary testing (ClientSynth) to turn thin market theory into working software.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
+        <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="cosolvent.html" class="nav__link nav__link--active">Cosolvent</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+        </div>
+    </nav>
+
+    <section class="section" id="cosolvent-hero">
+        <div class="container container--narrow">
+            <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
+                <span class="section__label"
+                    style="background: rgba(16, 185, 129, 0.1); color: var(--dp-emerald); border: 1px solid rgba(16, 185, 129, 0.3);">Cosolvent Suite</span>
+                <h1 class="section__title">Where the Theory Becomes Working Software</h1>
+                <p class="section__desc section__desc--centered">
+                    To make thin markets thicker, we need infrastructure that can handle complex matching without destroying nuance. We are building the open-source tools to do exactly that, alongside the proprietary simulation engine to test them.
+                </p>
+            </div>
+        </div>
+
+        <div class="container container--narrow">
+
+            <h2 style="font-family: var(--font-display); color: #fff; margin-bottom: 1.5rem; text-align: center;" class="reveal">The Open-Source Infrastructure</h2>
+            
+            <!-- Open Source Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);"
+                class="reveal">
+
+                <!-- Cosolvent -->
+                <div class="card card--build" style="padding: var(--space-lg);">
+                    <div class="door__icon door__icon--build">⚙️</div>
+                    <h3 class="door__title">Cosolvent</h3>
+                    <span
+                        style="display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dp-emerald); margin-bottom: 0.75rem;">Open Source · MIT Licensed</span>
+                    <p class="door__hook">
+                        The headless transaction engine. A powerful matching core that ingests complex profiles, identifies fit, and orchestrates confidential negotiations between counterparties.
+                    </p>
+                    <a href="mf-cosolvent.html" class="btn btn--outline" style="margin-top: 1rem;">View Cosolvent Details →</a>
+                </div>
+
+                <!-- CommonContext -->
+                <div class="card card--build" style="padding: var(--space-lg); border-color: rgba(245, 158, 11, 0.3);">
+                    <div class="door__icon door__icon--match" style="background: rgba(245, 158, 11, 0.15); color: var(--dp-amber);">📚</div>
+                    <h3 class="door__title">CommonContext</h3>
+                    <span
+                        style="display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dp-amber); margin-bottom: 0.75rem;">Open Source · MIT Licensed</span>
+                    <p class="door__hook">
+                        The metadata utility and domain knowledge manager. Structures and maintains the industry expertise required to operate the market—from regulatory frameworks to product ontologies. (Formerly KnowledgeSlot).
+                    </p>
+                </div>
+            </div>
+
+            <div class="reveal" style="margin-bottom: var(--space-2xl);">
+                <div style="background: rgba(6, 182, 212, 0.05); border: 1px solid rgba(6, 182, 212, 0.2); padding: var(--space-lg); border-radius: var(--radius-md);">
+                    <h3 style="color: var(--dp-cyan); font-family: var(--font-display); margin-bottom: 0.5rem;">The Customization Boundary</h3>
+                    <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
+                        The Cosolvent and CommonContext suite provides the backend matching logic and ontology mapping. However, we deliberately defer the "last mile" — frontend participant interfaces, payment processing pipelines, trust protocol enforcement, and deep domain-specific business rules — to vertical market sponsors. 
+                    </p>
+                </div>
+            </div>
+
+            <h2 style="font-family: var(--font-display); color: #fff; margin-bottom: 1.5rem; text-align: center;" class="reveal">The Proprietary Testing Harness</h2>
+
+            <!-- Proprietary Card -->
+            <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl);"
+                class="reveal">
+                
+                <!-- ClientSynth -->
+                <div class="card" style="padding: var(--space-lg); border-color: rgba(139, 92, 246, 0.3);">
+                    <div class="door__icon door__icon--science" style="background: rgba(139, 92, 246, 0.15); color: var(--dp-violet);">👥</div>
+                    <h3 class="door__title">ClientSynth</h3>
+                    <span
+                        style="display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dp-violet); margin-bottom: 0.75rem;">Proprietary Tool</span>
+                    <p class="door__hook">
+                        Generates realistic synthetic populations of marketplace participants — buyers, sellers, intermediaries — for testing and demonstration purposes. It allows us to flood an open-source Cosolvent instance with agentic actors, stress-testing the market physics and verifying match rates before risking live participant capital or reputation.
+                    </p>
+                    <a href="mf-clientsynth.html" class="btn btn--outline" style="margin-top: 1rem;">View ClientSynth Details →</a>
+                </div>
+            </div>
+
+            <!-- Cross-links -->
+            <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6, 182, 212, 0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-cyan);">Browse the catalog of examples</h3>
+                        <p>Explore over 250 searchable thin market scenarios to see how these tools apply in practice across different verticals.</p>
+                    </div>
+                    <a href="examples.html" class="btn btn--primary"
+                        style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;">Browse the Catalog →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+          <li><a href="search.html" class="footer__link">Search</a></li>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank"
+                            rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank"
+                            rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reveal.js"></script>
+    <script src="nav-mobile.js"></script>
+    <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
