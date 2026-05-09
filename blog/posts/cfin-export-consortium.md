@@ -35,7 +35,7 @@ In Ottawa, Alex Barlow recognizes this structural gap. At a recent trade summit,
 
 ## Act II: Designing the Consortium
 
-When Elias logs into the CFIN Exchange, he is guided through an AI-assisted onboarding process. Rather than just updating his corporate bio, the platform’s **KnowledgeSlot** interacts with him to define structured "Needs" and "Capabilities."
+When Elias logs into the CFIN Exchange, he is guided through an AI-assisted onboarding process. Rather than just updating his corporate bio, the platform’s **CommonContext** interacts with him to define structured "Needs" and "Capabilities."
 
 Crucially, Elias is assured by the platform's **Three-Layer Visibility architecture**. He creates a highly confidential Matching Profile. He specifies: *"Target Market: Japan. Need: 1/3 capacity in a temperature-controlled container departing Port of Vancouver in Q3. Requirement: Seeking cost-sharing for Japanese food-grade regulatory clearance. Restriction: Must not partner with competing dairy-alternative brands."*
 

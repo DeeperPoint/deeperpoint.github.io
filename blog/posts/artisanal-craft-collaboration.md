@@ -3,8 +3,8 @@
 title: "Market Scenario: The Vase and the Rebozo"
 stream: market-scenario
 date: 2026-03-09
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, artisans]
-summary: A personal story about a ceramic vase and a Turkish textile became the seed of a question — what if the right collaborators could find each other at scale? A thin market platform built on Cosolvent and KnowledgeSlot sketches the answer, told through the eyes of two Mexican artisans.
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, artisans]
+summary: A personal story about a ceramic vase and a Turkish textile became the seed of a question — what if the right collaborators could find each other at scale? A thin market platform built on Cosolvent and CommonContext sketches the answer, told through the eyes of two Mexican artisans.
 estimated-read: 12 min read
 slug: artisanal-craft-collaboration
 ---
@@ -183,6 +183,6 @@ My wife's friend made a vase that belonged with a Turkish table runner. It was b
 
 ---
 
-*The story of Luisa and Rodrigo is fictional — an imagined scenario, not a description of an existing platform or real participants. But the craft traditions described are real, the market forces are documented, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a sponsor organization like FONART could build using those tools. The operational details — which craft traditions to include, how to structure artisan agreements, how to verify quality, how to navigate cultural protocols — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Luisa and Rodrigo is fictional — an imagined scenario, not a description of an existing platform or real participants. But the craft traditions described are real, the market forces are documented, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of application a sponsor organization like FONART could build using those tools. The operational details — which craft traditions to include, how to structure artisan agreements, how to verify quality, how to navigate cultural protocols — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](../thin-markets.html) · [The MarketForge platform →](../marketforge.html) · [Who should build this? →](../who-should-care.html)*

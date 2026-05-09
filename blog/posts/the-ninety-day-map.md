@@ -5,7 +5,7 @@ title: "Market Scenario: The Ninety-Day Map"
 date: 2026-04-08
 slug: the-ninety-day-map
 stream: market-scenario
-tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, knowledgeslot, marketforge]
+tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, commoncontext, marketforge]
 summary: A woman released from federal incarceration faces a dozen agencies, each with separate eligibility rules, clashing timelines, and no shared intake. A MarketForge-powered platform generates the one thing nobody gave her — a map.
 estimated-read: 10 min read
 ---
@@ -85,7 +85,7 @@ Amara had learned about it three months before Leticia's release, at a sector br
 
 This one was different in one specific way: it started from the sequencing problem.
 
-The platform's KnowledgeSlot layer — the curated domain knowledge base maintained by the platform's operator — held eligibility rules, intake windows, documentation requirements, and dependency logic for forty-seven relevant service categories across Ontario's twenty-three community service districts. Not a generalized database of social services. A specific, maintained, policy-versioned map of what required what, when, and in what order — built in partnership with the agencies themselves, validated against actual policy documents, and updated quarterly when rules changed.
+The platform's CommonContext layer — the curated domain knowledge base maintained by the platform's operator — held eligibility rules, intake windows, documentation requirements, and dependency logic for forty-seven relevant service categories across Ontario's twenty-three community service districts. Not a generalized database of social services. A specific, maintained, policy-versioned map of what required what, when, and in what order — built in partnership with the agencies themselves, validated against actual policy documents, and updated quarterly when rules changed.
 
 Amara could access the platform's intake module through a secure browser. She could enter a client's situation — jurisdiction of release, sentence type, outstanding conditions, documentation status, benefit history, employment background, housing preference — without entering any identifying information at all. The system would return a sequenced service pathway: not a list of resources, but an ordered roadmap of which applications to file in which sequence, which intake windows to target, which dependencies to resolve first, and where conditional or simultaneous steps could be taken to compress the timeline.
 
@@ -163,7 +163,7 @@ The other forces are also present:
 
 The platform described in this story is a sequencing and referral tool, not a case management system. The distinction is not semantic. **A case management system monitors a person over time; a sequencing tool generates and hands off a plan.** The ethical architecture requires that distinction: this population's data cannot be held, aggregated, or retained without consent and without specific purpose. The thin market engineering intervention here is not surveillance — it is cartography. Making the map that nobody makes.
 
-The KnowledgeSlot layer — the maintained, policy-versioned dependency graph of service eligibility and intake sequencing — is the core innovation. It is also the kind of knowledge curation that no individual agency can sustain alone but that a sponsored, sector-wide platform can maintain on their behalf. The natural sponsor is a consortium: provincial and federal justice ministries, the Elizabeth Fry and John Howard Societies, and university-based social innovation programs with the research capacity to maintain and validate the knowledge base.
+The CommonContext layer — the maintained, policy-versioned dependency graph of service eligibility and intake sequencing — is the core innovation. It is also the kind of knowledge curation that no individual agency can sustain alone but that a sponsored, sector-wide platform can maintain on their behalf. The natural sponsor is a consortium: provincial and federal justice ministries, the Elizabeth Fry and John Howard Societies, and university-based social innovation programs with the research capacity to maintain and validate the knowledge base.
 
 Toronto Metropolitan University's Social Ventures Zone is exactly the kind of institutional environment where a venture like this could be incubated — where the proximity to both the justice system and the social services sector, and the university's research infrastructure, could sustain the knowledge curation work that makes the platform real.
 

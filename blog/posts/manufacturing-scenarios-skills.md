@@ -7,7 +7,7 @@ series-position: 4
 title: "Market Scenario: The Welder Who Wrote Firewalls"
 date: 2026-03-18
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, manufacturing]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, manufacturing]
 summary: "A small manufacturer needs industrial cybersecurity help. A machining shop 300 km away has a production supervisor whose previous career was in IT security."
 estimated-read: 12 min read
 ---

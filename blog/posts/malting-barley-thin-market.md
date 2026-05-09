@@ -3,7 +3,7 @@ title: "Market Scenario: One Container of Barley — How a Saskatchewan Farmer a
 date: 2026-03-10
 slug: malting-barley-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, grain, craft-beer]
+tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge, grain, craft-beer]
 summary: A grain farmer in Saskatchewan grows premium two-row malting barley that the big trading companies blend into commodity shipments. A craft brewery purchasing manager in Cebu wants one container of something special for a seasonal lager. They need each other — but neither knows the other exists.
 estimated-read: 12 min read
 ---
@@ -165,6 +165,6 @@ The system that was designed to move grain in 6,000-tonne bulk shipments between
 
 ---
 
-*The story of Darren and Maribel is fictional — an imagined scenario, not a description of an existing platform or real participants. But the grain trade dynamics, the container shipping economics, and the regulatory requirements described are real, the thin market forces are documented, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a grain growers' association or a craft brewing guild could build using those tools. The operational details — which quality parameters to match on, how to structure documentary collections for small-lot grain trades, how to navigate CFIA phytosanitary certification — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Darren and Maribel is fictional — an imagined scenario, not a description of an existing platform or real participants. But the grain trade dynamics, the container shipping economics, and the regulatory requirements described are real, the thin market forces are documented, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of application a grain growers' association or a craft brewing guild could build using those tools. The operational details — which quality parameters to match on, how to structure documentary collections for small-lot grain trades, how to navigate CFIA phytosanitary certification — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*

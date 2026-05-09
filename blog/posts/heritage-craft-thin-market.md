@@ -3,7 +3,7 @@ title: "Market Scenario: The Last Timber Framers — Heritage Craft and the Mark
 date: 2026-03-07
 slug: heritage-craft-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge]
+tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge]
 summary: A master timber framer in rural Vermont can't find commissions. A homeowner in Virginia can't find a timber framer. The market between them works by word of mouth — which means it barely works at all. This is a thin market, and the craft is aging out.
 estimated-read: 11 min read
 ---
@@ -144,6 +144,6 @@ This is what market engineering means in practice for heritage trades: not just 
 
 ---
 
-*The story of Silas and Catherine is fictional — an imagined scenario, not a description of an existing platform or real participants. But the craft traditions, the conservation standards, and the market dynamics described are real, the thin market forces are documented, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a sponsor organization like the Preservation Trades Network or a regional heritage council could build using those tools. The operational details — which craft traditions to include, which conservation standards to enforce, how to verify practitioner credentials, how to structure easement-compliant commissions — are rightly the work of a sponsor embedded in the specific heritage context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Silas and Catherine is fictional — an imagined scenario, not a description of an existing platform or real participants. But the craft traditions, the conservation standards, and the market dynamics described are real, the thin market forces are documented, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of application a sponsor organization like the Preservation Trades Network or a regional heritage council could build using those tools. The operational details — which craft traditions to include, which conservation standards to enforce, how to verify practitioner credentials, how to structure easement-compliant commissions — are rightly the work of a sponsor embedded in the specific heritage context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*

@@ -5,7 +5,7 @@ title: "Market Scenario: Tomatoes in the Sun"
 stream: market-scenario
 slug: ethiopia-produce-thin-market
 date: 2026-03-10
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge]
 summary: A smallholder farmer in the Rift Valley and a hotel chef in Addis Ababa are 160 kilometres apart. Between them stand five intermediaries, no cold chain, and a system that wastes a third of everything it touches. This is a thin market.
 estimated-read: 13 min read
 ---
@@ -169,6 +169,6 @@ She would.
 
 ---
 
-*The story of Tigist, Henok, and Alemayehu is fictional — an imagined scenario, not a description of an existing platform or real participants. But the tomato supply chain described is real, drawn from documented research on Ethiopian post-harvest losses, the Meki-to-Addis corridor, GAIN's E-PLAN reusable plastic crate programmes, and SokoFresh's cooling-as-a-service model in East Africa. The market forces are documented, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a sponsor organization like the Ethiopian Agricultural Transformation Institute, in partnership with NGOs and regional agriculture bureaus, could build using those tools. The operational details — which tomato grades merit which prices, how to calibrate AI voice interfaces for Amharic, how to integrate mobile money settlement with cooperative accounting — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Tigist, Henok, and Alemayehu is fictional — an imagined scenario, not a description of an existing platform or real participants. But the tomato supply chain described is real, drawn from documented research on Ethiopian post-harvest losses, the Meki-to-Addis corridor, GAIN's E-PLAN reusable plastic crate programmes, and SokoFresh's cooling-as-a-service model in East Africa. The market forces are documented, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of application a sponsor organization like the Ethiopian Agricultural Transformation Institute, in partnership with NGOs and regional agriculture bureaus, could build using those tools. The operational details — which tomato grades merit which prices, how to calibrate AI voice interfaces for Amharic, how to integrate mobile money settlement with cooperative accounting — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*

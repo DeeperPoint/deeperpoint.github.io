@@ -79,7 +79,7 @@ market_example:
     - "Force 1 — brief explanation"
     - "Force 2 — brief explanation"
     - "Force 3 — brief explanation"
-  deeperpoint_fit: "How CoSolvent, KnowledgeSlot, ClientSynth, and/or the
+  deeperpoint_fit: "How CoSolvent, CommonContext, ClientSynth, and/or the
     Generative Match Story address the dominant forces."
   economic_upside: "Quantified opportunity — market size, transaction volume,
     platform revenue estimate."

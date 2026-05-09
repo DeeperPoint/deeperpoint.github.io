@@ -73,4 +73,4 @@ DeeperPoint is building the scaffolding that allows sponsors of specific thin ma
 
 ---
 
-*This post introduces a series on why thin markets fail to close even after parties have found each other. The next two posts go deeper into the architecture: [why a semantic match isn't enough](why-industry-context-closes-deals.html) to close a deal, and [how a metadata schema makes domain knowledge retrievable](knowledgeslot-schema-scoped-rag.html) at the right level of specificity.*
+*This post introduces a series on why thin markets fail to close even after parties have found each other. The next two posts go deeper into the architecture: [why a semantic match isn't enough](why-industry-context-closes-deals.html) to close a deal, and [how a metadata schema makes domain knowledge retrievable](commoncontext-schema-scoped-rag.html) at the right level of specificity.*

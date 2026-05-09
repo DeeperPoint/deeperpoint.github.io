@@ -3,7 +3,7 @@ title: "Market Scenario: The Invisible Specialist"
 date: 2026-04-08
 slug: the-invisible-specialist
 stream: market-scenario
-tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, knowledgeslot, marketforge]
+tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, commoncontext, marketforge]
 summary: A young man with autism spectrum condition has an extraordinary ability the pharmaceutical packaging industry desperately needs — but neither side knows the other exists. A MarketForge-powered platform closes that gap.
 estimated-read: 9 min read
 hero-caption: Blister pack inspection line at a contract pharmaceutical packaging facility outside Toronto. Photo illustration.
@@ -54,13 +54,13 @@ She had no idea what to do with that observation. The tool she used to match cli
 
 That job posting does not exist. The employer who needs it doesn't know they're looking for it.
 
-### The KnowledgeSlot Layer
+### The CommonContext Layer
 
 The Inclusive Employment Exchange — a pilot platform deployed by a consortium of provincial employment support agencies and two Toronto-area university programs — was not built on a job board.
 
 It was built on a matching engine that started from the supply side rather than the demand side.
 
-The platform's KnowledgeSlot layer held a curated knowledge base assembled by occupational therapists, job coaches, and disability employment specialists over eighteen months. It contained not job descriptions but *work function taxonomies* — granular catalogues of the specific subskills embedded in industrial, commercial, and services roles:
+The platform's CommonContext layer held a curated knowledge base assembled by occupational therapists, job coaches, and disability employment specialists over eighteen months. It contained not job descriptions but *work function taxonomies* — granular catalogues of the specific subskills embedded in industrial, commercial, and services roles:
 
 - sustained repetitive visual inspection
 - fine motor repetition with quality gate checkpoints
@@ -90,7 +90,7 @@ When Meridian was approached by a regional employment support network about part
 
 The platform's intake was different. Instead of asking her to post a job description, it asked her to describe what the role *actually required* — in operational terms, not HR terms. An occupational assessment module walked through the work environment: noise levels, lighting, standing versus sitting, supervision model, shift structure, quality gate frequency. It asked about the consequences of error and the cadence of feedback.
 
-Meridian's posting on the platform was not a job description. It was a work environment profile — specific, structured, and matched to the KnowledgeSlot's function taxonomy.
+Meridian's posting on the platform was not a job description. It was a work environment profile — specific, structured, and matched to the CommonContext's function taxonomy.
 
 ### The Match
 
@@ -110,7 +110,7 @@ With the match came a document neither party had requested.
 
 ### The Generative Match Story
 
-The platform generated what it called a Match Story — a plain-language narrative of how this specific engagement could work, assembled from three sources: Demarco's capability profile, Meridian's work environment profile, and the KnowledgeSlot's curated knowledge of supported employment best practices in the pharmaceutical manufacturing sector.
+The platform generated what it called a Match Story — a plain-language narrative of how this specific engagement could work, assembled from three sources: Demarco's capability profile, Meridian's work environment profile, and the CommonContext's curated knowledge of supported employment best practices in the pharmaceutical manufacturing sector.
 
 The Match Story described a twelve-week supported employment trial structured around Health Canada's GMP inspection documentation requirements. It named the accommodation adjustments that were standard in this setting: a dedicated inspection station with consistent lighting, a visual reference card for known-correct configurations, a documented daily quality gate checklist, and a job coach check-in cadence that reduced verbal supervisory contact to structured end-of-shift reviews.
 
@@ -150,17 +150,17 @@ The forces are identifiable:
 
 **Strategic information withholding, dual-sided.** Employers don't post the specific operational parameters of their hard-to-fill roles because they don't believe an employment support agency will understand them. Workers with disabilities and their advocates don't disclose specific capability profiles because the typical onboarding process punishes over-disclosure — you end up sorted into the lowest-skill roles regardless of what you reveal. Both sides play down, and both sides lose.
 
-**Opacity through vocabulary mismatch.** The language of disability employment support — accommodation needs, supported employment, job coaches — is not the language of production floor operations — inspection frequency, error rate thresholds, GMP compliance, shift structure. Neither party can search for the other because they don't share a vocabulary. The KnowledgeSlot's work function taxonomy is the bridge that existing tools don't build.
+**Opacity through vocabulary mismatch.** The language of disability employment support — accommodation needs, supported employment, job coaches — is not the language of production floor operations — inspection frequency, error rate thresholds, GMP compliance, shift structure. Neither party can search for the other because they don't share a vocabulary. The CommonContext's work function taxonomy is the bridge that existing tools don't build.
 
 **Cognitive overload on both sides.** An employer managing three vacancy crises simultaneously cannot attend specialist employment fairs and learn the regulatory landscape of supported employment at the same time. A job candidate with executive function challenges cannot navigate the job market's standard onboarding requirements while simultaneously managing accommodation documentation requirements. The platform reduces cognitive load by doing the translation work — and by starting the conversation with a concrete, specific Match Story rather than an open-ended application.
 
-**Regulatory fog.** The ODSP employer wage supplement exists. The GMP documentation flexibility exists. Neither is well-known to the other side of the market. The KnowledgeSlot turns regulatory fog into actionable information for both parties.
+**Regulatory fog.** The ODSP employer wage supplement exists. The GMP documentation flexibility exists. Neither is well-known to the other side of the market. The CommonContext turns regulatory fog into actionable information for both parties.
 
 **Participant scarcity, asymmetric.** The supply of employers genuinely equipped for inclusive employment is truly small — not because employers are unwilling in principle, but because the infrastructure to support the employment relationship is missing and the cost of building it ad hoc is prohibitive. The platform provides that infrastructure at a fraction of the per-engagement cost of a bespoke agency integration.
 
 This is not primarily an accessibility story. It is a *market design* story. Demarco is not a charitable case — he's a specialist. The same AI-driven innovations that are transforming commodity trade and cross-border professional services can be applied to employment markets where the matching vocabulary is missing and the structural information asymmetry is deep.
 
-MarketForge's sponsor model suggests a natural institutional home for this kind of platform: a provincial ministry of labour, an employment support agency network, or a university-affiliated social innovation incubator — organizations that can curate the KnowledgeSlot's domain knowledge, carry the trusted intermediary role, and operate the platform as a public or social benefit rather than a pure commercial service.
+MarketForge's sponsor model suggests a natural institutional home for this kind of platform: a provincial ministry of labour, an employment support agency network, or a university-affiliated social innovation incubator — organizations that can curate the CommonContext's domain knowledge, carry the trusted intermediary role, and operate the platform as a public or social benefit rather than a pure commercial service.
 
 The technology exists. The structural desire exists. The gap is the matching infrastructure.
 

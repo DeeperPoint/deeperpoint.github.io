@@ -7,7 +7,7 @@ series-position: 5
 title: "Market Scenario: The Idle Shift"
 date: 2026-03-18
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, manufacturing]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, manufacturing]
 summary: "Canadian manufacturers routinely operate at 60–80% capacity utilization. Billions of dollars of capability sits idle — but no one advertises surplus capacity, and no one admits they can't fill an order."
 estimated-read: 13 min read
 ---

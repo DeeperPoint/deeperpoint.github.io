@@ -4,7 +4,7 @@
 title: "Boardy.ai and the Proof of Concept for Thin Market Engineering"
 slug: boardy-proof-of-concept
 date: 2026-03-10
-tags: [thin-markets, market-design, ai, explainer, marketforge, cosolvent, knowledgeslot]
+tags: [thin-markets, market-design, ai, explainer, marketforge, cosolvent, commoncontext]
 summary: "Boardy.ai is an AI superconnector that matches founders to investors through voice conversations. Whether its team knows it or not, Boardy has built a working implementation of several core thin market engineering principles. If it can thicken the market for startup capital, the framework works everywhere."
 estimated-read: 12 min read
 ---

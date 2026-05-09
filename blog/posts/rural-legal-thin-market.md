@@ -5,7 +5,7 @@ title: "Market Scenario: Six Hundred Kilometres from a Family Lawyer"
 stream: market-scenario
 slug: rural-legal-thin-market
 date: 2026-03-10
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, canada]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, canada]
 summary: "In rural and northern Ontario, people face legal problems just as complex as anyone in Toronto — but the nearest specialist may be a six-hour drive away. A Law Society portal based on MarketForge could match rural clients to urban specialists and expand access to justice across the province."
 estimated-read: 10 min read
 ---
@@ -143,6 +143,6 @@ The local practitioner in Kapuskasing — the one who told Claire honestly that 
 
 ---
 
-*The story of Claire and Nadia is fictional — an imagined scenario, not a description of an existing platform or real participants. But the legal landscape described is real: the FOLA "greying of the bar" findings are documented, Ontario's access-to-justice gap in northern communities is well-established, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of portal a regulatory body like the Law Society of Ontario could build using those tools. The operational details — the attorney certification data, the francophone court provisions, the agricultural property valuation process — are rightly the work of a sponsor embedded in Ontario's legal profession. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Claire and Nadia is fictional — an imagined scenario, not a description of an existing platform or real participants. But the legal landscape described is real: the FOLA "greying of the bar" findings are documented, Ontario's access-to-justice gap in northern communities is well-established, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of portal a regulatory body like the Law Society of Ontario could build using those tools. The operational details — the attorney certification data, the francophone court provisions, the agricultural property valuation process — are rightly the work of a sponsor embedded in Ontario's legal profession. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](../thin-markets.html) · [The MarketForge platform →](../marketforge.html) · [Who should build this? →](../who-should-care.html)*

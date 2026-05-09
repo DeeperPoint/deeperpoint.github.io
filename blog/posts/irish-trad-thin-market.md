@@ -3,7 +3,7 @@ title: "Market Scenario - Happy St. Paddy's Day"
 date: 2026-03-17
 slug: irish-trad-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge, cultural-services]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, cultural-services]
 summary: A global community of Irish traditional musicians, instrument makers, and cultural organizations generates a fragmented market for cultural services with almost no matching infrastructure. A thin market platform could connect a concertina player in Clare with a cultural festival in Buenos Aires — if someone built the plumbing.
 estimated-read: 10 min read
 ---
@@ -160,7 +160,7 @@ The thin market begins to thicken. Not because there are suddenly more concertin
 
 ---
 
-*The stories of Caitlín and Martín are fictional — imagined scenarios, not descriptions of an existing platform or real participants. But the traditions described are real, the market forces are documented, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a sponsor coalition like ITMA and Ealaín na Gaeltachta could build using those tools. The operational details — which musicians to include, how to verify stylistic credentials, how to navigate the cultural sensitivities of tradition-bearing communities, how to structure residency agreements across jurisdictions — are rightly the work of sponsors embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The stories of Caitlín and Martín are fictional — imagined scenarios, not descriptions of an existing platform or real participants. But the traditions described are real, the market forces are documented, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of application a sponsor coalition like ITMA and Ealaín na Gaeltachta could build using those tools. The operational details — which musicians to include, how to verify stylistic credentials, how to navigate the cultural sensitivities of tradition-bearing communities, how to structure residency agreements across jurisdictions — are rightly the work of sponsors embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *A note on timing: Irish traditional music is a niche cultural market — beautiful, global, and genuinely thin, but unlikely to be the first thin market that a platform like MarketForge would serve. The more probable path is that larger, more commercially urgent thin markets — agricultural commodities, cross-border professional services, industrial procurement — prove the infrastructure first. Once the open-source tools are mature and the development path is well-trodden, that is when a market this specialised becomes practical. The plumbing has to exist before you can run water through it.*
 

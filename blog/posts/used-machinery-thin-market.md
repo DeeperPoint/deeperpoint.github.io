@@ -7,7 +7,7 @@ title: "Market Scenario: The Machine Under the Tarp"
 date: 2026-03-18
 slug: used-machinery-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, knowledgeslot, marketforge]
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge]
 summary: A $140,000 CNC machining center sits under a tarp at the back of a factory in Stratford. A manufacturer in Windsor needs exactly that machine. Neither knows the other exists.
 estimated-read: 10 min read
 ---

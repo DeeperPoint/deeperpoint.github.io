@@ -4,7 +4,7 @@
 title: "Workshop Notes: Why a Semantic Match Is Not Enough"
 date: 2026-04-06
 stream: workshop-notes
-tags: [thin-markets, market-design, knowledgeslot, clientsynth, ai, cosolvent, marketforge, explainer]
+tags: [thin-markets, market-design, commoncontext, clientsynth, ai, cosolvent, marketforge, explainer]
 summary: Semantic matching tells you two parties could do business. Industry context tells you whether they actually can — and shows them how. The schema that makes retrieval reliable is also what makes matching actionable.
 estimated-read: 10 min read
 slug: why-industry-context-closes-deals
@@ -51,9 +51,9 @@ Semantic matching does not fix structural opacity. It finds the match. It cannot
 
 ## What Industry Context Provides
 
-This is the problem KnowledgeSlot is designed to solve.
+This is the problem CommonContext is designed to solve.
 
-KnowledgeSlot is one of five architectural components in the Cosolvent marketplace engine. It is a **sponsor-curated reference library** — a domain-specific knowledge base that the marketplace operator populates with the authoritative documents that govern trade in their vertical: standard contracts, regulatory frameworks, grading standards, arbitration rules, certification requirements, and compliance guides.
+CommonContext is one of five architectural components in the Cosolvent marketplace engine. It is a **sponsor-curated reference library** — a domain-specific knowledge base that the marketplace operator populates with the authoritative documents that govern trade in their vertical: standard contracts, regulatory frameworks, grading standards, arbitration rules, certification requirements, and compliance guides.
 
 The critical design decision is that this library is **separate from participant-supplied information**. A buyer's profile, a seller's offering description, their documents and history — these live in the Context Slot, governed by a privacy model that controls what is shared and with whom. The reference library is different: it is authoritative, sponsor-curated, and openly available to all participants as a shared foundation.
 
@@ -77,7 +77,7 @@ The whitepaper calls this **information asymmetry** and identifies it as one of 
 
 ## The Demand Signal Loop
 
-One of the more elegant design features of KnowledgeSlot is what happens when the reference library fails.
+One of the more elegant design features of CommonContext is what happens when the reference library fails.
 
 When a participant asks a question the library cannot answer — a regulatory change that has not been ingested yet, a contract clause that applies to a corridor not yet covered — the system does not simply fail. It acknowledges the gap gracefully, provides what synthesis it can, and simultaneously fires a **Curatorial Pull Signal** to the sponsor's dashboard.
 
@@ -107,7 +107,7 @@ The whitepaper identifies this dynamic explicitly in the context of smallholder 
 
 An AI industry context has none of these failure modes. It does not retire. It does not have exclusive client relationships to protect. And critically, it does not have a rake to maximize.
 
-The KnowledgeSlot architecture makes domain knowledge a **shared infrastructure** — available to every participant on the platform, not a proprietary asset controlled by a gatekeeper. The knowledge that a seasoned broker accumulated over decades becomes, in this model, the marketplace's foundation rather than one party's competitive advantage. And because the system has no financial interest in withholding it, there is no mechanism for that knowledge to become a tool of extraction.
+The CommonContext architecture makes domain knowledge a **shared infrastructure** — available to every participant on the platform, not a proprietary asset controlled by a gatekeeper. The knowledge that a seasoned broker accumulated over decades becomes, in this model, the marketplace's foundation rather than one party's competitive advantage. And because the system has no financial interest in withholding it, there is no mechanism for that knowledge to become a tool of extraction.
 
 The broker's expertise becomes the marketplace's infrastructure. And the marketplace's infrastructure does not get greedy when times get hard.
 
@@ -121,7 +121,7 @@ Semantic matching gets you into the room. It tunes the antennas, detects the sig
 
 Industry context is what lets them actually talk — and what converts a structurally compatible pairing into a transaction that closes.
 
-KnowledgeSlot is DeeperPoint's answer to that second problem. It is what the matching engine reaches for when the other party says "I'm interested — tell me more."
+CommonContext is DeeperPoint's answer to that second problem. It is what the matching engine reaches for when the other party says "I'm interested — tell me more."
 
 ## From Compatibility to Feasibility
 
@@ -131,9 +131,9 @@ When the Cosolvent matching engine evaluates a potential deal, it is not running
 
 1. **User Context** — the declared profiles and capability descriptions of the two parties, held in the Context Slot and scoped to what each party has agreed to share.
 2. **Semantic Matching** — Cosolvent's core function: identifying latent alignment between the parties' qualitative needs and capabilities, surfacing pairings that would not appear in a criteria-based filter.
-3. **Industry Context** — the authoritative regulatory, technical, and structural constraints retrieved from KnowledgeSlot, scoped to the specific corridor and product category of the potential transaction.
+3. **Industry Context** — the authoritative regulatory, technical, and structural constraints retrieved from CommonContext, scoped to the specific corridor and product category of the potential transaction.
 
-Because all three sources draw from the same controlled vocabulary, the match is not evaluated in isolation. Cosolvent can ask not just *are these two parties semantically compatible?* but *does KnowledgeSlot's industry context indicate any structural barrier to this specific transaction?* A grain seller and a flour mill may align perfectly on product and scale, but if the destination country's phytosanitary requirements are not met by the seller's certified protocol, the match is structurally incomplete — and the system can surface that gap before the parties invest time in a conversation that will stall on exactly that point.
+Because all three sources draw from the same controlled vocabulary, the match is not evaluated in isolation. Cosolvent can ask not just *are these two parties semantically compatible?* but *does CommonContext's industry context indicate any structural barrier to this specific transaction?* A grain seller and a flour mill may align perfectly on product and scale, but if the destination country's phytosanitary requirements are not met by the seller's certified protocol, the match is structurally incomplete — and the system can surface that gap before the parties invest time in a conversation that will stall on exactly that point.
 
 This is the shift from compatibility to feasibility. Because the participant profiles and the industry constraints are schema-aligned, the matching process itself produces the grounding needed to articulate why a deal combination makes practical sense — or why it does not, and what would have to be resolved for it to work.
 
@@ -147,7 +147,7 @@ This is a subtler problem than it appears. In thin B2B markets, first contact be
 
 The Generative Match Story is a feature designed for this moment.
 
-Once a match has been identified as structurally sound, either party can trigger the system to generate a brief, deal-specific narrative — a scenario describing how this particular buyer and this particular seller could work together. The narrative is not a template or a contract draft. It is generated by a language model working from three grounded inputs: the matched participants' schema-aligned profiles (what each party has disclosed about their capabilities and needs), the KnowledgeSlot-retrieved regulatory and contractual context for the specific corridor, and the semantic alignment analysis that produced the match in the first place.
+Once a match has been identified as structurally sound, either party can trigger the system to generate a brief, deal-specific narrative — a scenario describing how this particular buyer and this particular seller could work together. The narrative is not a template or a contract draft. It is generated by a language model working from three grounded inputs: the matched participants' schema-aligned profiles (what each party has disclosed about their capabilities and needs), the CommonContext-retrieved regulatory and contractual context for the specific corridor, and the semantic alignment analysis that produced the match in the first place.
 
 Because the inputs are specific, the narrative is specific. It does not describe a generic grain transaction between a generic Canadian seller and a generic Philippine mill. It describes how this seller's certified non-GMO durum wheat, documented to Canadian Grain Commission standards, could move under a GAFTA No. 27 CIF Manila contract to meet the mill's declared protein specification — including what phytosanitary documentation would be required and which quality arbitration body would govern a dispute. The scenario is written in plain language, not regulatory jargon, because its function is to give both parties a shared model of the transaction to talk about.
 
@@ -161,11 +161,11 @@ The result is a first conversation that begins on shared ground rather than oppo
 
 ## What This Looks Like in Practice
 
-In the grain trading vertical that KnowledgeSlot is currently building for, the reference library spans GAFTA contract standards, Canadian Grain Commission grading and measurement protocols, and destination-country regulatory requirements for several major import markets. The schema that structures that library — the controlled vocabulary of trade corridors, product categories, document types, and issuing bodies — is the same vocabulary that structures participant profiles in Cosolvent and synthetic agents in ClientSynth.
+In the grain trading vertical that CommonContext is currently building for, the reference library spans GAFTA contract standards, Canadian Grain Commission grading and measurement protocols, and destination-country regulatory requirements for several major import markets. The schema that structures that library — the controlled vocabulary of trade corridors, product categories, document types, and issuing bodies — is the same vocabulary that structures participant profiles in Cosolvent and synthetic agents in ClientSynth.
 
-When the matching engine pairs a Saskatchewan seller with a Philippine flour mill, the feasibility check runs against that shared schema. If the seller's declared certifications align with the destination market's requirements as documented in KnowledgeSlot, the match is confirmed as practically viable. If there is a gap — say, the seller's phytosanitary certification protocol differs from the one the destination country requires — the system surfaces that gap as part of the match report rather than after three weeks of negotiation.
+When the matching engine pairs a Saskatchewan seller with a Philippine flour mill, the feasibility check runs against that shared schema. If the seller's declared certifications align with the destination market's requirements as documented in CommonContext, the match is confirmed as practically viable. If there is a gap — say, the seller's phytosanitary certification protocol differs from the one the destination country requires — the system surfaces that gap as part of the match report rather than after three weeks of negotiation.
 
-If either party requests a Generative Match Story, the system produces a scenario that accurately describes a transaction consistent with both parties' profiles and the applicable KnowledgeSlot constraints. The parties open their conversation by discussing the scenario's assumptions — agreeing with some, correcting others, and using the gaps as the natural agenda for their first substantive exchange.
+If either party requests a Generative Match Story, the system produces a scenario that accurately describes a transaction consistent with both parties' profiles and the applicable CommonContext constraints. The parties open their conversation by discussing the scenario's assumptions — agreeing with some, correcting others, and using the gaps as the natural agenda for their first substantive exchange.
 
 Semantic matching gets the right parties into the room. Industry context gives them the shared vocabulary to negotiate. The Generative Match Story gives them something to negotiate about from the moment they meet.
 
@@ -173,4 +173,4 @@ That is the full architecture — and the schema is the thread that runs through
 
 ---
 
-*This article is the companion to [Workshop Notes: How KnowledgeSlot Keeps Its Answers Relevant](knowledgeslot-schema-scoped-rag.html), which covers the schema architecture that makes domain-specific retrieval reliable. The theoretical foundation is developed in the [DeeperPoint whitepaper](../whitepaper.html). The full architecture of how KnowledgeSlot fits into the Cosolvent marketplace engine is described on the [MarketForge](../marketforge.html) page.*
+*This article is the companion to [Workshop Notes: How CommonContext Keeps Its Answers Relevant](commoncontext-schema-scoped-rag.html), which covers the schema architecture that makes domain-specific retrieval reliable. The theoretical foundation is developed in the [DeeperPoint whitepaper](../whitepaper.html). The full architecture of how CommonContext fits into the Cosolvent marketplace engine is described on the [MarketForge](../marketforge.html) page.*

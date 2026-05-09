@@ -39,7 +39,7 @@ This is what [DeeperPoint's toolkit](../marketforge.html) is designed to be. It 
 
 **[Cosolvent](https://github.com/DeeperPoint/Cosolvent)** is the open-source core — MIT-licensed, free to use, free to modify. It handles the hardest universal problems of thin market engineering: AI-driven onboarding that lets participants describe complex offerings in natural language rather than rigid forms; semantic vector matching that understands "precision heritage restoration" and "historical masonry conservation" are the same thing even when they share zero keywords; and multilateral deal assembly that pulls in the insurers, certifiers, and logistics partners a complex transaction requires. The [Cosolvent explainer](cosolvent-toolkit.html) goes deeper on what it handles and — just as importantly — what it deliberately defers.
 
-**KnowledgeSlot** is the domain intelligence layer. Cosolvent can match, but it needs to know *what matters* in a given vertical. What certifications does a heritage mason need? What grading standards apply to barley destined for craft brewing? What regulatory framework governs collaborative family law in Ontario? KnowledgeSlot captures, structures, and maintains this industry-specific knowledge using AI-assisted curation.
+**CommonContext** is the domain intelligence layer. Cosolvent can match, but it needs to know *what matters* in a given vertical. What certifications does a heritage mason need? What grading standards apply to barley destined for craft brewing? What regulatory framework governs collaborative family law in Ontario? CommonContext captures, structures, and maintains this industry-specific knowledge using AI-assisted curation.
 
 **ClientSynth** generates realistic synthetic populations of marketplace participants — buyers, sellers, intermediaries — so that a market sponsor can stress-test matching quality and deal flow *before* recruiting a single real user. These synthetic profiles are [used only for testing and demonstration](../mf-clientsynth.html) — never mixed with real users.
 
@@ -65,7 +65,7 @@ There is also an **investor** angle. Some thin markets are large enough that a p
 
 ## Where the toolkit stands today
 
-I want to be transparent about readiness. The DeeperPoint stack is under active development — there is enough working code that the design direction is real and testable, but each component (Cosolvent, KnowledgeSlot, ClientSynth, MarketForge) has a published [roadmap](../marketforge.html) that I maintain and update. This is an honest R&D project, not a product launch.
+I want to be transparent about readiness. The DeeperPoint stack is under active development — there is enough working code that the design direction is real and testable, but each component (Cosolvent, CommonContext, ClientSynth, MarketForge) has a published [roadmap](../marketforge.html) that I maintain and update. This is an honest R&D project, not a product launch.
 
 One concrete milestone on that roadmap is already live: **[ForgeTwin](../demo-guide.html)**, a digital twin that models a thin market end to end — from semantic onboarding through matching through deal assembly — against realistic synthetic participants. The first ForgeTwin scenario modelled cross-border specialty grain trade; the current [working demo](../demo-guide.html) applies the framework to aerospace precision machining, demonstrating multi-perspective matching, identity escrow, and structured deal assembly.
 

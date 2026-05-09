@@ -3,7 +3,7 @@ title: "Market Scenario: The House You Can't Visit — Diaspora Property Managem
 date: 2026-03-09
 slug: diaspora-property-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, diaspora]
+tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge, diaspora]
 summary: An Ethiopian-Canadian professional in Toronto owns a rental property in Addis Ababa that needs $10,000 in upgrades. She can't fly over to manage the work. Her cousins can help, but they can't evaluate a contractor's electrical work or negotiate material prices. This is a thin market — and the trust gap costs more than the renovation.
 estimated-read: 12 min read
 ---
@@ -136,6 +136,6 @@ She doesn't need to buy a plane ticket. She is, in the only sense that matters f
 
 ---
 
-*The story of Almaz and Bekele is fictional — an imagined scenario, not a description of an existing platform or real participants. But the diaspora dynamics, the economic trade-offs, and the regulatory environment described are real, the thin market forces are documented, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a diaspora business association or a bilateral trade organization could build using those tools. The operational details — which contractor verification standards to enforce, how to structure escrow in the Ethiopian banking system, how to integrate E-POA and Fayda for identity verification — are rightly the work of a sponsor embedded in the specific diaspora context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Almaz and Bekele is fictional — an imagined scenario, not a description of an existing platform or real participants. But the diaspora dynamics, the economic trade-offs, and the regulatory environment described are real, the thin market forces are documented, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of application a diaspora business association or a bilateral trade organization could build using those tools. The operational details — which contractor verification standards to enforce, how to structure escrow in the Ethiopian banking system, how to integrate E-POA and Fayda for identity verification — are rightly the work of a sponsor embedded in the specific diaspora context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*

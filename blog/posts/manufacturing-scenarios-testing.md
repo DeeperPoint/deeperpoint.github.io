@@ -7,7 +7,7 @@ series-position: 3
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 date: 2026-03-18
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, manufacturing, welding, testing]
+tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge, manufacturing, welding, testing]
 summary: "A fabrication shop needs a weld procedure test. A college lab 300 km away has certified equipment sitting idle — but neither side knows the other exists."
 estimated-read: 12 min read
 ---

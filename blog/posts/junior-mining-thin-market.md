@@ -3,7 +3,7 @@ title: "Market Scenario: Drill Core and Deal Flow — How a Geologist in Norther
 date: 2026-03-12
 slug: junior-mining-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, knowledgeslot, marketforge, mining, exploration, critical-minerals]
+tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge, mining, exploration, critical-minerals]
 summary: A junior exploration geologist in a bush camp near Kapuskasing has drill core that tells a compelling copper-gold story. A critical minerals investment fund in Stockholm has a mandate to deploy capital into exactly that kind of project. Neither knows the other exists — because the mining industry's discovery infrastructure runs on conference circuits and personal networks that systematically exclude the geologically excellent but promotionally invisible.
 estimated-read: 12 min read
 ---
@@ -176,6 +176,6 @@ The conference circuit hasn't disappeared. Claire's company will go to PDAC next
 
 ---
 
-*The story of Claire and Erik is fictional — an imagined scenario, not a description of an existing platform or real participants. But the junior mining exploration dynamics, the NI 43-101 compliance framework, and the conference-dependent matching infrastructure described are real, the thin market forces are documented, and the engine architecture (Cosolvent, KnowledgeSlot) is under active development. This post illustrates the kind of application a mining industry association like the Ontario Prospectors Association or the CIM could build using those tools. The operational details — which geological parameters to match on, how to structure earn-in terms for exploration joint ventures, how to navigate the QP supervision requirements for NI 43-101 compliance — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
+*The story of Claire and Erik is fictional — an imagined scenario, not a description of an existing platform or real participants. But the junior mining exploration dynamics, the NI 43-101 compliance framework, and the conference-dependent matching infrastructure described are real, the thin market forces are documented, and the engine architecture (Cosolvent, CommonContext) is under active development. This post illustrates the kind of application a mining industry association like the Ontario Prospectors Association or the CIM could build using those tools. The operational details — which geological parameters to match on, how to structure earn-in terms for exploration joint ventures, how to navigate the QP supervision requirements for NI 43-101 compliance — are rightly the work of a sponsor embedded in the specific context. The platform provides the matching infrastructure and the domain knowledge layer; the context is always local.*
 
 *[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [Who should build this? →](https://deeperpoint.com/who-should-care.html)*

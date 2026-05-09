@@ -59,7 +59,7 @@ I keep finding new entries because the thin market pattern is structural, not co
 
 That describes most of the economy that sits below the threshold where large platforms compete. The catalog is not documenting exceptions. It is documenting a large, coherent class of market that has been systematically underserved because the matching infrastructure required to serve it has not existed.
 
-It exists now, at least in design. The open-source MarketForge scaffolding — CoSolvent for AI-mediated matching, KnowledgeSlot for encoded domain knowledge, the Generative Match Story for building trust in the match before commitment — is the platform architecture that each catalog entry implicitly calls for.
+It exists now, at least in design. The open-source MarketForge scaffolding — CoSolvent for AI-mediated matching, CommonContext for encoded domain knowledge, the Generative Match Story for building trust in the match before commitment — is the platform architecture that each catalog entry implicitly calls for.
 
 ## What comes next
 

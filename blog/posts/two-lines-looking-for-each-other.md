@@ -5,7 +5,7 @@ title: "Market Scenario: Two Lines Looking for Each Other"
 date: 2026-04-10
 slug: two-lines-looking-for-each-other
 stream: market-scenario
-tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, knowledgeslot, marketforge, co-packing, food-safety]
+tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, commoncontext, marketforge, co-packing, food-safety]
 summary: A Guelph food entrepreneur with a validated recipe and a retail listing cannot find a HACCP-certified co-packer. A Chilliwack facility with two idle IQF lines cannot find brand clients. Neither knows the other exists.
 estimated-read: 7 min read
 ---
@@ -48,7 +48,7 @@ Both receive a match notification.
 
 ---
 
-Along with the notification, the platform generates a **Generative Match Story** — a plain-language narrative of how this specific co-manufacturing relationship could be structured, drawn from Priya’s and Diane’s profiles and the KnowledgeSlot’s curated knowledge of Canadian co-manufacturing regulatory requirements.
+Along with the notification, the platform generates a **Generative Match Story** — a plain-language narrative of how this specific co-manufacturing relationship could be structured, drawn from Priya’s and Diane’s profiles and the CommonContext’s curated knowledge of Canadian co-manufacturing regulatory requirements.
 
 The scenario describes the likely documentation sequence: a co-manufacturing agreement establishing the roles of each CFIA-licensed party, a quality agreement specifying finished product release criteria, a Preventive Control Plan addendum covering Priya’s product in Diane’s facility, and an allergen control protocol addressing the specific inclusions in Priya’s recipe. It notes that under SFCA, Priya will need to either be named as the manufacturer on her label or establish a written agreement clearly designating Diane’s facility as the manufacturer under Priya’s food safety system oversight. It describes the typical timeline: documentation finalized before the trial run, trial run used to validate the PCP addendum, commercial runs following confirmation of finished product releases.
 

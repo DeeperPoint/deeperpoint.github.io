@@ -3,7 +3,7 @@ title: "Market Scenario: The First Wall"
 date: 2026-04-08
 slug: the-first-wall
 stream: market-scenario
-tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, knowledgeslot, marketforge]
+tags: [thin-markets, market-design, ai, case-study, scenario, cosolvent, commoncontext, marketforge]
 summary: A seaweed-based insulation startup in Rimouski has OBC certification and no completed installations. A heritage retrofit project in Hamilton has a moisture problem that standard insulation cannot solve. Neither knows the other exists.
 estimated-read: 9 min read
 hero-caption: Bundles of raw seaweed-based insulation material, ready for installation.
@@ -64,7 +64,7 @@ He had not heard of Kelpotek.
 
 ### The Platform
 
-The Sustainable Materials Exchange was a sector-specific MarketForge deployment, operated as a public-private partnership between NGen Canada — the Advanced Manufacturing supercluster — and the Canada Green Building Council. Its KnowledgeSlot contained a curated database of certified sustainable building materials, maintained against current NBC and OBC versions, including performance characteristics beyond what appeared on standard product data sheets.
+The Sustainable Materials Exchange was a sector-specific MarketForge deployment, operated as a public-private partnership between NGen Canada — the Advanced Manufacturing supercluster — and the Canada Green Building Council. Its CommonContext contained a curated database of certified sustainable building materials, maintained against current NBC and OBC versions, including performance characteristics beyond what appeared on standard product data sheets.
 
 The matching profiles on the supply side included not just R-values and certifications, but the specific application conditions under which each material conferred a performance advantage over conventional alternatives. Kelpotek's profile — entered by Aveline's team — included a flag: *Heritage masonry applications with vapour-open requirement and R-18+ at 140mm constraint*.
 
@@ -72,7 +72,7 @@ The matching profiles on the demand side were compiled differently. Specifiers a
 
 Derek's project brief — registered through the platform after his energy modeller mentioned it at a Passive House Canada event — was matched to Kelpotek within 48 hours.
 
-The match score was high for a specific reason: not just that Kelpotek's R-value met the target, but that the platform's KnowledgeSlot had flagged that Kelpotek's vapour permeance at R-18 in 140mm exceeded the 10 ng threshold by a margin that would satisfy the Heritage Hamilton requirement without a separate variance application. The knowledgebase had cross-referenced the Heritage Hamilton technical guidance document — a 2019 update to their masonry conservation standards — against the product performance data.
+The match score was high for a specific reason: not just that Kelpotek's R-value met the target, but that the platform's CommonContext had flagged that Kelpotek's vapour permeance at R-18 in 140mm exceeded the 10 ng threshold by a margin that would satisfy the Heritage Hamilton requirement without a separate variance application. The knowledgebase had cross-referenced the Heritage Hamilton technical guidance document — a 2019 update to their masonry conservation standards — against the product performance data.
 
 Derek hadn't known that document existed. Aveline hadn't known about the Heritage Hamilton variance process. Neither had known about the other.
 
@@ -86,7 +86,7 @@ First, the vapour permeance profile. Kelpotek's measured impermeance at full ins
 
 Second, the fire rating. The NRC assessment had tested the mineral retardant treatment to CAN/ULC-S102 — a flame-spread standard that Derek's energy modeller had assumed the product wouldn't meet, which was why he hadn't investigated seaweed-based products at all. It met it.
 
-Third, the freight logistics. Rimouski to Hamilton by rail was a ten-day lead time. The platform's KnowledgeSlot had a freight logistics module — a partnership with a Quebec-based sustainable freight aggregator — that could arrange consolidated shipment with two other Ontario projects scheduled for the same production window, bringing the per-metre freight cost below the cellulose alternative.
+Third, the freight logistics. Rimouski to Hamilton by rail was a ten-day lead time. The platform's CommonContext had a freight logistics module — a partnership with a Quebec-based sustainable freight aggregator — that could arrange consolidated shipment with two other Ontario projects scheduled for the same production window, bringing the per-metre freight cost below the cellulose alternative.
 
 Fourth, a provenance note. The seaweed was farmed in the Gulf of St. Lawrence under a DFO aquaculture licence. The product qualified for the LEED v4 regional materials credit at a 25% weighting — which closed a gap in the project's LEED certification pathway that the developer's sustainability consultant had flagged as at risk.
 
@@ -96,7 +96,7 @@ Their first conversation lasted forty minutes. At the end of it, they had agreed
 
 Eight months later, the Barton Street building was under construction. Kelpotek's product was on the wall on all three floors.
 
-The installation photos went into the KnowledgeSlot's completed-project database. Two specifiers who had been tracking the product from the sidelines submitted project briefs the following week.
+The installation photos went into the CommonContext's completed-project database. Two specifiers who had been tracking the product from the sidelines submitted project briefs the following week.
 
 The first wall was the hardest one.
 
@@ -112,7 +112,7 @@ The sustainable materials market is thin in a specific and structural way that d
 
 **Offering complexity is the dominant matching barrier.** A seaweed-based insulation product is not substitutable for standard mineral wool in most applications. It is not substitutable for anything in a small number of applications where its specific vapour management profile is decisive. The challenge is not marketing the product broadly — it is finding the projects where the product is the right answer, which requires knowledge that neither the manufacturer nor the typical specifier holds individually but that can be assembled from existing technical data.
 
-This is precisely what the KnowledgeSlot architecture is designed for. The domain knowledge required to match Kelpotek to Derek's project was not invented — it existed in the NRC certification report, the Heritage Hamilton technical guidance, the LEED v4 regional materials credit rules, and the freight aggregator's logistics database. None of these documents were in the same place. The KnowledgeSlot curates them into a single reasoning layer.
+This is precisely what the CommonContext architecture is designed for. The domain knowledge required to match Kelpotek to Derek's project was not invented — it existed in the NRC certification report, the Heritage Hamilton technical guidance, the LEED v4 regional materials credit rules, and the freight aggregator's logistics database. None of these documents were in the same place. The CommonContext curates them into a single reasoning layer.
 
 **The trust architecture matters differently here.** In markets like legal services or disability employment, trust between participants is the central barrier. In sustainable materials, the trust challenge is between the specifier and the material — a kind of institutional trust that the building codes and certification bodies are supposed to address but don't fully resolve in practice. The Technical Suitability Narrative — the Generative Match Story in this context — functions as a technical due diligence document, not just a human connection facilitator. It converts the certification data into project-specific evidence, which is what the specifier actually needs to make a decision.
 
