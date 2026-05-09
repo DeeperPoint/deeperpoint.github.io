@@ -170,4 +170,4 @@ If Boardy can thicken the thin market of founders and funders, anything seems po
 
 ---
 
-*[What makes a thin market tick? →](../thin-markets.html) · [How big is the thin market problem? →](thin-market-size.html) · [The MarketForge platform →](../marketforge.html) · [Twenty examples →](../examples.html)*
+*[What makes a thin market tick? →](../thin-markets.html) · [How big is the thin market problem? →](thin-market-size.html) · [The MarketForge platform →](../marketforge.html) · [The Opportunity Catalog →](../catalog/index.html)*

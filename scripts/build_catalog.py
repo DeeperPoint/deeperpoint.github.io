@@ -450,13 +450,13 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       </button>
       <ul class="nav__links">
         <li><a href="__ROOT__index.html" class="nav__link">Home</a></li>
-        <li><a href="__ROOT__thin-markets.html" class="nav__link">The Problem</a></li>
-        <li><a href="__ROOT__marketforge.html" class="nav__link">The Project</a></li>
-        <li><a href="__ROOT__examples.html" class="nav__link nav__link--active">Examples</a></li>
-        <li><a href="__ROOT__who-should-care.html" class="nav__link">Who's It For</a></li>
+        <li><a href="__ROOT__thin-markets.html" class="nav__link">Theory</a></li>
+        <li><a href="__ROOT__intervention-matrix.html" class="nav__link">Matrix</a></li>
+        <li><a href="__ROOT__catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="__ROOT__marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="__ROOT__cosolvent.html" class="nav__link">Cosolvent</a></li>
         <li><a href="__ROOT__blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="__ROOT__ebook.html" class="nav__link">Ebook</a></li>
-        <li><a href="__ROOT__history.html" class="nav__link">About</a></li>
+        <li><a href="__ROOT__about.html" class="nav__link">About</a></li>
       </ul>
     </div>
   </nav>

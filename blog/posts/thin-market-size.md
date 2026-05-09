@@ -216,4 +216,4 @@ Five assumptions deserve explicit scrutiny:
 
 *The detailed methodology, per-sector tables, and full NAICS analysis underlying this post are documented in the DeeperPoint reference library. Academic anchoring uses Wallis & North (1988), Coase (1937/1960), North (1990), Akerlof (1970), and Stiglitz & Weiss (1981).*
 
-*[What makes a thin market tick? →](../thin-markets.html) · [Twenty examples →](../examples.html) · [The MarketForge platform →](../marketforge.html)*
+*[What makes a thin market tick? →](../thin-markets.html) · [The Opportunity Catalog →](../catalog/index.html) · [The MarketForge platform →](../marketforge.html)*
