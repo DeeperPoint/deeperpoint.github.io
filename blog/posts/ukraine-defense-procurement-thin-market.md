@@ -61,20 +61,20 @@ Then, friction hits.
 
 Mateo asks about Spanish export control regulations. Since these are customized for a conflict zone, are these antennas now classified as military equipment under the EU Common Military List? If so, Mateo's civilian firm doesn't have the necessary export licenses, which typically take months to acquire. He cannot risk his business on an illegal export.
 
-Olena queries the system’s **Knowledge Slot**: *"Are custom antennas for commercial drone retrofits subject to emergency export control exemptions from Spain to Ukraine?"*
+Olena queries the system’s **CommonContext**: *"Are custom antennas for commercial drone retrofits subject to emergency export control exemptions from Spain to Ukraine?"*
 
-Because export regulations shift rapidly, the Knowledge Slot fails to return a definitive, high-confidence answer. Instead of guessing, the system performs an *external synthesis fallback*, offering a provisional analysis of the EU dual-use regulation framework, but clearly marking it as "Unverified."
+Because export regulations shift rapidly, the CommonContext fails to return a definitive, high-confidence answer. Instead of guessing, the system performs an *external synthesis fallback*, offering a provisional analysis of the EU dual-use regulation framework, but clearly marking it as "Unverified."
 
 Simultaneously, the platform fires a **Curatorial Pull Signal** to the Brave1 sponsor dashboard. The system has detected a high-value match blocked by a precise knowledge gap: *Legal classification of dual-use RF modifications departing from Spain.*
 
-A legal specialist at Brave1 receives the signal, immediately phones their counterpart in the Spanish Ministry of Industry, Trade and Tourism, and secures the specific emergency exemption directive. Within hours, the sponsor uploads the verified documentation and legal precedent directly into the Knowledge Slot, permanently resolving the gap. The system notifies Olena and Mateo that the transaction is unblocked.
+A legal specialist at Brave1 receives the signal, immediately phones their counterpart in the Spanish Ministry of Industry, Trade and Tourism, and secures the specific emergency exemption directive. Within hours, the sponsor uploads the verified documentation and legal precedent directly into the CommonContext, permanently resolving the gap. The system notifies Olena and Mateo that the transaction is unblocked.
 
 ## 4. Structuring the Deal
 
 The platform moves into **deal structuring**. The rapid acquisition of defense technology requires specific verification and facilitation:
 
 - **Quality Assurance**: The platform routes a request to an independent RF testing laboratory in Poland (a facilitator) to verify a prototype before the full run ships.
-- **Logistics**: The Knowledge Slot routes the shipment through a verified, expedited logistics corridor for dual-use technology operating out of Rzeszów, Poland.
+- **Logistics**: The CommonContext routes the shipment through a verified, expedited logistics corridor for dual-use technology operating out of Rzeszów, Poland.
 - **Payment**: The platform structures milestone payments using a trusted escrow framework, ensuring Mateo is paid upon the prototype's verification and upon final delivery, while protecting Olena's operational budget.
 
 What could have been a three-month bureaucratic impossibility becomes a verified, legally compliant, three-week delivery.
@@ -89,7 +89,7 @@ The primary forces at play are **Information Asymmetry** (defense planners don't
 
 When institutional networks rely solely on existing "thick" pipelines—the major defense primes—they lose the agility required by modern warfare. A specialized platform using the DeeperPoint framework doesn't just digitize a catalog; it translates localized, fragmented capabilities into universally matching primitives, providing the connective tissue for a highly dispersed defense innovation ecosystem.
 
-Furthermore, this scenario illustrates the power of **Design Fiction** and **Demand-Driven Curation**. By stress-testing the architecture against a realistic legal friction point (Spanish export controls), we see how the Knowledge Slot's "Pull Signal" transforms a blocker into an asset, allowing the system's sponsor to surgically thicken the market's knowledge base exactly where it is needed most.
+Furthermore, this scenario illustrates the power of **Design Fiction** and **Demand-Driven Curation**. By stress-testing the architecture against a realistic legal friction point (Spanish export controls), we see how the CommonContext's "Pull Signal" transforms a blocker into an asset, allowing the system's sponsor to surgically thicken the market's knowledge base exactly where it is needed most.
 
 *Disclaimer: The characters, companies, and specific transactions in this narrative are fictional, created to illustrate the application of thin market principles and the DeeperPoint market design framework. They do not represent real individuals or specific institutional partnerships.*
 

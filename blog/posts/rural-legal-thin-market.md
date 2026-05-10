@@ -45,9 +45,9 @@ Claire does not know who to trust. She does not know what a reasonable fee struc
 
 The Law Society of Ontario — the regulatory body overseeing 57,000 lawyers and 10,000 paralegals in the province — has a mandate that includes facilitating access to justice. In this scenario, the LSO partners with the Ontario Bar Association to deploy a MarketForge-powered portal for civil legal matching in underserved regions.
 
-The sponsor configuration is specific to Ontario's legal landscape. The Knowledge Slot — the curated reference library that grounds the platform's AI in domain expertise — is loaded with Ontario-specific content: the *Family Law Act*'s treatment of agricultural property, the *Children's Law Reform Act*'s francophone education provisions, Legal Aid Ontario's eligibility thresholds, the Ontario Court of Justice's video appearance rules, the cost guidelines published by the Assessment Office, and model retainer agreements approved by the Law Society.
+The sponsor configuration is specific to Ontario's legal landscape. The CommonContext — the curated reference library that grounds the platform's AI in domain expertise — is loaded with Ontario-specific content: the *Family Law Act*'s treatment of agricultural property, the *Children's Law Reform Act*'s francophone education provisions, Legal Aid Ontario's eligibility thresholds, the Ontario Court of Justice's video appearance rules, the cost guidelines published by the Assessment Office, and model retainer agreements approved by the Law Society.
 
-Critically, the Knowledge Slot also contains the Law Society's specialisation and certification data — not just who is *licensed* to practice family law, but who holds the *Certified Specialist* designation, who has reported family law as a primary practice area, who has completed continuing education in agricultural law, who is bilingual in French.
+Critically, the CommonContext also contains the Law Society's specialisation and certification data — not just who is *licensed* to practice family law, but who holds the *Certified Specialist* designation, who has reported family law as a primary practice area, who has completed continuing education in agricultural law, who is bilingual in French.
 
 ---
 
@@ -89,19 +89,19 @@ Neither party sees the other's full profile. The platform makes the introduction
 
 ---
 
-## 6. The Knowledge Slot in Action
+## 6. The CommonContext in Action
 
-Before Claire decides whether to accept the match, she uses the platform's Knowledge Slot to ask practical questions — in French, by voice:
+Before Claire decides whether to accept the match, she uses the platform's CommonContext to ask practical questions — in French, by voice:
 
 *"What should I expect to pay for a family law case like mine?"*
 
-The Knowledge Slot does not give her a Google search result. It retrieves from the Law Society's curated reference library: the Assessment Office's cost guidelines for contested family law matters, the typical fee range for cases involving property division with agricultural assets ($8,000–$20,000 depending on complexity and cooperation), the availability of unbundled services (coaching-only, document-review-only, hearing-representation-only), and the Legal Aid Ontario income thresholds that she likely exceeds.
+The CommonContext does not give her a Google search result. It retrieves from the Law Society's curated reference library: the Assessment Office's cost guidelines for contested family law matters, the typical fee range for cases involving property division with agricultural assets ($8,000–$20,000 depending on complexity and cooperation), the availability of unbundled services (coaching-only, document-review-only, hearing-representation-only), and the Legal Aid Ontario income thresholds that she likely exceeds.
 
 *"Can a lawyer from Ottawa represent me in Cochrane?"*
 
-The Knowledge Slot explains: Ontario lawyers are licensed to practice anywhere in the province. The Ontario Court of Justice permits video appearances for most family proceedings. For actions requiring filing in Cochrane, documents can be filed electronically or by appointing a local agent for service.
+The CommonContext explains: Ontario lawyers are licensed to practice anywhere in the province. The Ontario Court of Justice permits video appearances for most family proceedings. For actions requiring filing in Cochrane, documents can be filed electronically or by appointing a local agent for service.
 
-These answers are not generic. They are drawn from the sponsor's curated content — the Law Society's actual rules, the court's actual practice directions, Legal Aid's actual thresholds. A generalist chatbot would have given Claire a Wikipedia summary. The Knowledge Slot gives her operational guidance.
+These answers are not generic. They are drawn from the sponsor's curated content — the Law Society's actual rules, the court's actual practice directions, Legal Aid's actual thresholds. A generalist chatbot would have given Claire a Wikipedia summary. The CommonContext gives her operational guidance.
 
 ---
 
@@ -133,13 +133,13 @@ The local practitioner in Kapuskasing — the one who told Claire honestly that 
 
 **Discovery.** Claire in Hearst and Nadia in Ottawa are 600 kilometres apart. Claire cannot search for "family lawyer with agricultural property division experience" because no existing directory categorises attorneys that way. Nadia has never marketed to northern Ontario because there was no mechanism to do so.
 
-**Information asymmetry.** Claire does not know what her case requires, what fair representation costs, or how to evaluate whether a distant lawyer can handle her specific issues. The Knowledge Slot closes this gap with curated, sponsor-verified information — not search engine noise.
+**Information asymmetry.** Claire does not know what her case requires, what fair representation costs, or how to evaluate whether a distant lawyer can handle her specific issues. The CommonContext closes this gap with curated, sponsor-verified information — not search engine noise.
 
 **Trust deficit.** Both parties need confidence before committing. Claire needs to know that a Toronto or Ottawa lawyer can actually work in her reality. Nadia needs to know that the case is real, manageable, and worth her time. The platform's progressive disclosure — match rationale first, full profile only on mutual acceptance — builds trust without premature exposure.
 
 **Participant scarcity.** There are not many family lawyers in Ontario with both the Certified Specialist designation and meaningful experience in agricultural property. There are not many clients in northern Ontario with the specific combination of needs that Claire has. But they exist. The market is thin, not empty.
 
-**The sponsor's role.** The Law Society and Ontario Bar Association provide what no platform can generate alone: the curated Knowledge Slot content (practice directions, fee guidelines, court rules), the attorney certification data, the regulatory credibility that gives both parties confidence in the system. The platform provides the matching engine and the communication infrastructure. The sponsor provides the context.
+**The sponsor's role.** The Law Society and Ontario Bar Association provide what no platform can generate alone: the curated CommonContext content (practice directions, fee guidelines, court rules), the attorney certification data, the regulatory credibility that gives both parties confidence in the system. The platform provides the matching engine and the communication infrastructure. The sponsor provides the context.
 
 ---
 

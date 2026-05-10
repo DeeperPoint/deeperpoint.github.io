@@ -10,7 +10,7 @@
 
 Thin markets are everywhere. Willing buyers and willing sellers exist but fail to transact because of friction: opacity, trust deficits, regulatory complexity, geographic distance, or sheer cognitive overload. Every one of these twenty examples represents a market where an AI-driven intervention could realistically create new commerce and new jobs.
 
-Each example was selected because it aligns with the capabilities already being built into the DeeperPoint toolset — Cosolvent's semantic matching, trusted intermediary protocol, Knowledge Slot, multilateral deal assembly, and engine-level configurability.
+Each example was selected because it aligns with the capabilities already being built into the DeeperPoint toolset — Cosolvent's semantic matching, trusted intermediary protocol, CommonContext, multilateral deal assembly, and engine-level configurability.
 
 ---
 
@@ -47,7 +47,7 @@ Each example was selected because it aligns with the capabilities already being 
 
 **Global scope.** These markets span six continents, twenty industries, and range from billion-dollar commodity flows to village-level ecotourism.
 
-**Actionable with existing tools.** Every example maps to at least three DeeperPoint capabilities already under development — semantic matching, trusted intermediary, Knowledge Slot curation, Deal Briefs, facilitator role slots, or user aggregation.
+**Actionable with existing tools.** Every example maps to at least three DeeperPoint capabilities already under development — semantic matching, trusted intermediary, CommonContext curation, Deal Briefs, facilitator role slots, or user aggregation.
 
 ---
 

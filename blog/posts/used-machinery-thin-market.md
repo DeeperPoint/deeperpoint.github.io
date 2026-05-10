@@ -99,7 +99,7 @@ The platform also generates a brief transaction summary alongside the capability
 
 ### 4. What the Platform Knows
 
-When AMT and the regional MEP configured the platform, they populated the **Knowledge Slot** — the sponsor-curated reference library — with vertical-specific information that neither Frank nor Sofía would easily find on their own:
+When AMT and the regional MEP configured the platform, they populated the **CommonContext** — the sponsor-curated reference library — with vertical-specific information that neither Frank nor Sofía would easily find on their own:
 
 - **Valuation benchmarks**: depreciation curves for CNC equipment by brand, model, age, and spindle hours — data typically locked inside appraisal firms and auction houses
 - **Inspection and certification protocols**: what an independent machine inspection covers (geometric accuracy tests, spindle runout measurement, ballbar testing), who provides certified inspections in Ontario, and what documentation a buyer should require
@@ -111,7 +111,7 @@ When AMT and the regional MEP configured the platform, they populated the **Know
 
 Over five days in a match-scoped communication channel, Frank and Sofía exchange additional verification — a ballbar circularity test (4.2 microns, well within tolerance), coolant system photos, control software details. The platform tracks every exchange, building the documentation trail that supports the eventual agreement.
 
-When both parties are ready, the platform assembles the full transaction structure: an independent machine tool inspector in Stratford for the pre-purchase condition assessment; a rigging company and air-ride carrier for the move; and pricing guidance from the Knowledge Slot's valuation benchmarks, suggesting $120,000–$155,000 for a Variaxis i-700 at this age and condition. The complete deal structure — principals, facilitators, inspection requirements, logistics timeline — is assembled in a **Handoff Artifact**. The platform then steps back, allowing Frank and Sofía to review the artifact, finalize the price, and execute the actual contract offline directly with each other.
+When both parties are ready, the platform assembles the full transaction structure: an independent machine tool inspector in Stratford for the pre-purchase condition assessment; a rigging company and air-ride carrier for the move; and pricing guidance from the CommonContext's valuation benchmarks, suggesting $120,000–$155,000 for a Variaxis i-700 at this age and condition. The complete deal structure — principals, facilitators, inspection requirements, logistics timeline — is assembled in a **Handoff Artifact**. The platform then steps back, allowing Frank and Sofía to review the artifact, finalize the price, and execute the actual contract offline directly with each other.
 
 ---
 

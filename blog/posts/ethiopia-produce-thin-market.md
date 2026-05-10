@@ -93,9 +93,9 @@ Alemayehu sees the match in his dashboard: source region, estimated delivery tim
 
 ---
 
-## 5. The Knowledge Slot in Action
+## 5. The CommonContext in Action
 
-When the Agricultural Transformation Institute configured the platform, they populated the **Knowledge Slot** — the sponsor-curated reference library — with information specific to Ethiopian fresh produce:
+When the Agricultural Transformation Institute configured the platform, they populated the **CommonContext** — the sponsor-curated reference library — with information specific to Ethiopian fresh produce:
 
 - **Post-harvest handling protocols**: grading standards for Ethiopian tomato varieties (colour, firmness, size categories), proper stacking heights for reusable plastic crates, and the temperature and humidity targets for short-term cold storage — drawn from GAIN's E-PLAN research on the Meki corridor
 - **Cold storage operations**: SokoFresh-style solar cold room operating parameters, CaaS (Cooling as a Service) fee structures, and capacity planning guidance based on actual pilot data from Kenyan deployments adapted for Ethiopian conditions
@@ -103,7 +103,7 @@ When the Agricultural Transformation Institute configured the platform, they pop
 - **Regulatory and quality standards**: Ethiopian Standards Agency specifications for horticultural products, the E-PLAN recommended packaging protocols, and the MoA's Postharvest Management Strategy guidelines
 - **Financial services integration**: how transaction records on the platform can satisfy the documentation requirements for microfinance loan applications, mobile money payment reconciliation, and emerging crop insurance programmes being piloted by the Agricultural Transformation Institute
 
-When Tigist calls the hotline and asks — in Amharic, in her own words — "How do I know if my tomatoes are Grade A?", the Knowledge Slot retrieves the sponsor-curated grading standards and the voice assistant explains: "Grade A means firm, uniform red colour, no cracks or soft spots, and between 5 and 8 centimetres diameter. Sort them before the truck arrives. Place damaged ones aside — you can sell those at the local market for cooking paste."
+When Tigist calls the hotline and asks — in Amharic, in her own words — "How do I know if my tomatoes are Grade A?", the CommonContext retrieves the sponsor-curated grading standards and the voice assistant explains: "Grade A means firm, uniform red colour, no cracks or soft spots, and between 5 and 8 centimetres diameter. Sort them before the truck arrives. Place damaged ones aside — you can sell those at the local market for cooking paste."
 
 This is not a web search result. It is vertically specific, locally curated, and delivered in the user's language through a channel she can access with the phone she already owns.
 
@@ -161,7 +161,7 @@ Step back from the narrative and look at the structural forces.
 
 Here is what changes. Post-harvest loss on the platform-managed corridor drops from roughly 30 percent to under 10 percent. Two hundred tonnes of tomatoes per year that would have rotted in the sun or been crushed in wooden crates now reach consumers. Farmers in the pilot receive an average of 22 birr per kilogram — nearly double the pre-platform average — because the margin that previously compensated for spoilage and information asymmetry now stays in their pockets. Consumers pay slightly less than the peak-season prices they were accustomed to, for measurably better quality.
 
-And the platform remembers. Every match, every transport run, every grading result, every payment confirmation feeds back into the system. The matching engine gets better at predicting demand patterns. The Knowledge Slot grows as the sponsor adds new content — pest management protocols, irrigation scheduling guidance, new cold storage technology assessments. The thin market thickens, connection by connection.
+And the platform remembers. Every match, every transport run, every grading result, every payment confirmation feeds back into the system. The matching engine gets better at predicting demand patterns. The CommonContext grows as the sponsor adds new content — pest management protocols, irrigation scheduling guidance, new cold storage technology assessments. The thin market thickens, connection by connection.
 
 Tigist's extension agent calls her one afternoon. "A microfinance cooperative in Adama is offering production loans to farmers with verified platform records. Your transaction history qualifies. Would you like to apply?"
 

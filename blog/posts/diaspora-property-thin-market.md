@@ -34,7 +34,7 @@ She estimates the renovation at about 850,000 birr — roughly $10,000 CAD at th
 
 Almaz has tried the obvious solutions. Her cousin Dawit lives in Addis and is willing to help, but he's a university lecturer — he doesn't know how to evaluate whether a contractor has installed PVC conduit before plastering over the electrical wiring, and he doesn't have the standing to push back if the contractor cuts corners. Almaz flew to Addis fourteen months ago for a different emergency and spent most of her two-week visit dealing with jet lag (the five-day "zombie window" of altitude adjustment and time zone recovery) and contractor negotiations. She got seven functional days out of a trip that cost her $15,000 in flights, accommodation, and lost income.
 
-This morning, a colleague at the hospital — another Ethiopian-Canadian who recently renovated a property in Addis — tells Almaz about a platform that the Ethiopian Diaspora Business Association has launched in partnership with a Canadian-Ethiopian business network. The platform provides verified oversight of renovation projects, matching diaspora property owners with vetted contractors and wrapping the entire project in a transparency layer: mandatory photo uploads at each milestone, AI-powered inspection of construction photos, escrow-backed payments, and a Knowledge Slot loaded with Ethiopian building codes, material pricing, and contractor verification data.
+This morning, a colleague at the hospital — another Ethiopian-Canadian who recently renovated a property in Addis — tells Almaz about a platform that the Ethiopian Diaspora Business Association has launched in partnership with a Canadian-Ethiopian business network. The platform provides verified oversight of renovation projects, matching diaspora property owners with vetted contractors and wrapping the entire project in a transparency layer: mandatory photo uploads at each milestone, AI-powered inspection of construction photos, escrow-backed payments, and a CommonContext loaded with Ethiopian building codes, material pricing, and contractor verification data.
 
 Almaz is interested. She is also skeptical — she has heard too many stories about services that promise accountability and deliver nothing.
 
@@ -78,7 +78,7 @@ Before either party responds, the platform generates a project summary describin
 
 ## 5. What the Platform Knows
 
-When the Ethiopian Diaspora Business Association and its Canadian partner configured the platform, they populated the **Knowledge Slot** with domain-specific reference material:
+When the Ethiopian Diaspora Business Association and its Canadian partner configured the platform, they populated the **CommonContext** with domain-specific reference material:
 
 - **Ethiopian Building Code (EBC 9)**: the current standards for residential electrical, plumbing, and structural work — the regulatory framework that determines whether Almaz's renovation is compliant and insurable
 - **Material pricing**: current market prices for cement, rebar, tiles, PVC conduit, electrical wire, and imported fittings in Addis Ababa — updated regularly, allowing the platform to flag when a contractor's material quote is significantly above or below market rate
@@ -86,7 +86,7 @@ When the Ethiopian Diaspora Business Association and its Canadian partner config
 - **E-POA and Fayda**: Ethiopia's electronic Power of Attorney system and national digital ID — critical for diaspora clients who need to authorize legal actions, sign documents, or verify identity remotely without flying to Addis
 - **Contractor verification standards**: what constitutes a licensed contractor in Addis Ababa, what insurance and bonding is available, and how to verify a contractor's municipal registration
 
-The Knowledge Slot carries vertical-specific metadata tags — `building_code`, `material_class`, `payment_method`, `legal_instrument`, `property_type` — that scope retrieval so that when Almaz asks "Is the electrical quote reasonable?", the platform surfaces current Addis wire and conduit pricing, not generic construction cost data.
+The CommonContext carries vertical-specific metadata tags — `building_code`, `material_class`, `payment_method`, `legal_instrument`, `property_type` — that scope retrieval so that when Almaz asks "Is the electrical quote reasonable?", the platform surfaces current Addis wire and conduit pricing, not generic construction cost data.
 
 ## 6. The Virtual Foreman
 
@@ -106,7 +106,7 @@ Bekele's crew installs the conduit. He uploads the verification photo. The AI co
 
 Over eight weeks, Almaz and Bekele communicate through the platform's channel. The platform provides AI-assisted language processing — both speak Amharic, but the platform also detects "soft delays" in contractor messages. When Bekele writes "I am hoping to get the imported tiles soon," the platform's NLP layer adds a context note for Almaz: *"Note: No confirmed delivery date. Import delays for Italian tile are currently averaging 10–14 days. Consider requesting a delivery confirmation."*
 
-Almaz asks the Knowledge Slot about tile alternatives. The platform surfaces three locally manufactured tile options that meet her specification at 30% lower cost, with current availability confirmed. She discusses the options with Bekele, who recommends one — and the project stays on schedule.
+Almaz asks the CommonContext about tile alternatives. The platform surfaces three locally manufactured tile options that meet her specification at 30% lower cost, with current availability confirmed. She discusses the options with Bekele, who recommends one — and the project stays on schedule.
 
 The platform tracks every exchange: photos, messages, milestone verifications, payment releases. This documentation trail becomes the project record — proof of work, proof of payment, proof of compliance.
 
@@ -116,7 +116,7 @@ Step back from the narrative and look at the structural forces:
 
 **Trust deficit** — This is the defining force. Almaz cannot verify Bekele's work from 10,000 kilometres away. Her cousin cannot evaluate electrical code compliance. The current options — fly in ($15,000), trust family (high leakage risk), or ignore the problem (asset deterioration) — all carry costs that exceed the renovation itself. The platform closes the trust gap by manufacturing verifiable transparency: geotagged photos, AI-powered inspection, escrow-backed payments, and an immutable documentation trail.
 
-**Information asymmetry** — Almaz doesn't know the Ethiopian Building Code. Bekele doesn't know what "Airbnb-grade finishes" mean to a Canadian client. The Knowledge Slot bridges both gaps — providing Almaz with code compliance data and Bekele with clear specification standards, each in their own context.
+**Information asymmetry** — Almaz doesn't know the Ethiopian Building Code. Bekele doesn't know what "Airbnb-grade finishes" mean to a Canadian client. The CommonContext bridges both gaps — providing Almaz with code compliance data and Bekele with clear specification standards, each in their own context.
 
 **Geographic dispersion** — Toronto and Addis Ababa are 10,000 kilometres and eight time zones apart. The "biological tax" of travel (jet lag, altitude adjustment, the five-day zombie window) makes short visits operationally inefficient. The platform makes geography irrelevant by providing real-time, AI-verified project visibility from any location.
 

@@ -77,9 +77,9 @@ This is the mechanism that makes domain Q&A feel like talking to an expert rathe
 
 ## The Shared Vocabulary Guardrail
 
-There is a third design dimension that the schema architecture enables, though it is not visible to participants: coherence between the Knowledge Slot and the Context Slot.
+There is a third design dimension that the schema architecture enables, though it is not visible to participants: coherence between the CommonContext and the Context Slot.
 
-The Context Slot holds participant-supplied documents — profiles, capability descriptions, deal histories. These are tagged using a participant metadata schema derived from the marketplace's `MarketDefinition` — the field vocabulary that defines what participants disclose about themselves. The Knowledge Slot's `reference_metadata_schema` covers different content but overlapping concepts: both use geographical terms, product category identifiers, and certification types.
+The Context Slot holds participant-supplied documents — profiles, capability descriptions, deal histories. These are tagged using a participant metadata schema derived from the marketplace's `MarketDefinition` — the field vocabulary that defines what participants disclose about themselves. The CommonContext's `reference_metadata_schema` covers different content but overlapping concepts: both use geographical terms, product category identifiers, and certification types.
 
 The architectural guardrail is that both schemas must draw from the same controlled vocabulary for these shared concepts. "Canada" in a participant's country-of-origin field and "Canada" in a reference document's `origin_region` tag are the same token. This shared vocabulary is what makes cross-slot retrieval possible in the future — queries that span participant profiles and the reference library in a single search, using the same embedding model and the same metadata dimensions.
 

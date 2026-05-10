@@ -124,7 +124,7 @@ Only after mutual opt-in and a technical scope exchange — Jonas uploading 3D m
 
 ### 4. What the Platform Knows
 
-When CME configured the capacity exchange, they populated the **Knowledge Slot** with domain-specific reference material:
+When CME configured the capacity exchange, they populated the **CommonContext** with domain-specific reference material:
 
 - **Contract machining rate benchmarks**: anonymized pricing data for five-axis machining by material, complexity, and region — so neither party negotiates blind. The platform suggests that comparable Ti-6Al-4V work in Ontario typically runs $185–$280 per machine hour.
 - **Non-compete and disclosure boundaries**: template provisions governing what each party can disclose — designed so Priya can record revenue without identifying her customer, and Jonas can report domestic content compliance without naming his supplier.

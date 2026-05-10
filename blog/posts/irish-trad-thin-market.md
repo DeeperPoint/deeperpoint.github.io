@@ -77,13 +77,13 @@ Both say yes.
 
 ---
 
-## 4. The Knowledge Slot in Action
+## 4. The CommonContext in Action
 
 Before Caitlín responds to the Centro's enquiry, she has questions. She has never been to South America. She doesn't speak Spanish. She doesn't know what an Irish traditional music workshop looks like in Buenos Aires — what level the players are, what tunes they know, what regional styles they've been exposed to.
 
 She asks the platform's chatbot: *"What is the Irish traditional music scene in Buenos Aires like? What level should I expect the workshop participants to be?"*
 
-The platform routes her query to the **Knowledge Slot** — the sponsor-curated reference library populated by the ITMA partnership. But the sponsor hadn't anticipated this specific question. The Knowledge Slot has extensive curated guidance on teaching in translation and Argentine visa requirements, but no specific profile of the Buenos Aires session community.
+The platform routes her query to the **CommonContext** — the sponsor-curated reference library populated by the ITMA partnership. But the sponsor hadn't anticipated this specific question. The CommonContext has extensive curated guidance on teaching in translation and Argentine visa requirements, but no specific profile of the Buenos Aires session community.
 
 Ten years ago, a platform would have returned "No results found." But MarketForge handles knowledge gaps differently. 
 
@@ -94,12 +94,12 @@ Simultaneously, the platform fires a **"Curatorial Pull Signal"** to the sponsor
 
 This is demand-driven curation. Instead of asking sponsors to exhaustively document the entire global ecosystem upfront — a massive barrier to adoption — the platform uses active market queries to identify exactly what knowledge has commercial value. 
 
-An administrator at ITMA sees the pull signal. Recognizing a high-potential match is stalled on a knowledge gap, they reach out to their contacts at the Argentine *Federación*. Within a few hours, they draft a concise, authoritative profile of the Buenos Aires community and commit it to the Knowledge Slot. 
+An administrator at ITMA sees the pull signal. Recognizing a high-potential match is stalled on a knowledge gap, they reach out to their contacts at the Argentine *Federación*. Within a few hours, they draft a concise, authoritative profile of the Buenos Aires community and commit it to the CommonContext. 
 
 Caitlín receives a notification that her query has a verified update:
 > *"Sponsor Update (ITMA): The Centro's session community includes approximately 40 regular players, mostly at intermediate level. The community's repertoire is weighted toward East Galway material. They are highly committed but have had little exposure to West Clare concertina ornamentation. Providing structured breakdown of rolls and cuts will be highly valued."*
 
-Caitlín could not have found this specific, contextual insight through a web search. It comes from the on-demand curation of the sponsor, unblocking the transaction and permanently enriching the Knowledge Slot for all future platform users.
+Caitlín could not have found this specific, contextual insight through a web search. It comes from the on-demand curation of the sponsor, unblocking the transaction and permanently enriching the CommonContext for all future platform users.
 
 ---
 
@@ -115,8 +115,8 @@ The exchange is practical. Martín shares a video from last year's residency. Ca
 
 When both parties confirm the engagement, the platform moves into **deal structuring**. The residency requires specific facilitation:
 
-- **Travel logistics**: The Knowledge Slot provides visa requirements, and a travel coordinator from the platform's facilitator pool is engaged.
-- **Technical requirements**: Caitlín needs an unamplified venue with good natural reverb. The Knowledge Slot suggests suitable venues in Buenos Aires based on previous residencies.
+- **Travel logistics**: The CommonContext provides visa requirements, and a travel coordinator from the platform's facilitator pool is engaged.
+- **Technical requirements**: Caitlín needs an unamplified venue with good natural reverb. The CommonContext suggests suitable venues in Buenos Aires based on previous residencies.
 - **Payment**: The platform structures the payment in tranches through the Centro's existing grant mechanism, providing the necessary documentation trail.
 
 The deal structure — principal participants, facilitators, role assignments, timeline, and fee structure — is assembled in a **Handoff Artifact** that both parties review and confirm.
@@ -131,11 +131,11 @@ Step back from the narrative and look at the structural forces that prevented th
 
 **Opacity** — Supply capacity (e.g., a workshop slot opening unexpectedly) remains invisible to global demand without persistent matching infrastructure.
 
-**Knowledge asymmetry and demand-driven curation** — Caitlín had never taught outside Europe. She didn't know what to expect from a Buenos Aires audience, how to structure material for interpretation into Spanish, or what regional styles the community had and hadn't been exposed to. The Knowledge Slot doesn't just act as a static library — it uses "curatorial pull signals" to tell the sponsor exactly what knowledge is missing to close a deal. By allowing user queries to drive curation, the platform systematically closes knowledge gaps without requiring sponsors to document the entire world upfront. Without that verified institutional knowledge, Caitlín might have declined the engagement out of uncertainty.
+**Knowledge asymmetry and demand-driven curation** — Caitlín had never taught outside Europe. She didn't know what to expect from a Buenos Aires audience, how to structure material for interpretation into Spanish, or what regional styles the community had and hadn't been exposed to. The CommonContext doesn't just act as a static library — it uses "curatorial pull signals" to tell the sponsor exactly what knowledge is missing to close a deal. By allowing user queries to drive curation, the platform systematically closes knowledge gaps without requiring sponsors to document the entire world upfront. Without that verified institutional knowledge, Caitlín might have declined the engagement out of uncertainty.
 
 **Geographic and temporal distance** — The Irish traditional music market is one of the most geographically dispersed cultural markets in the world. Session communities exist in Buenos Aires, Tokyo, Cape Town, Sydney, Vancouver, Berlin, and dozens of other cities — all generating demand for authentic Irish practitioners who are concentrated in a small island on the western edge of Europe. The temporal mismatch is equally severe: a festival director books artists nine to twelve months in advance, but a musician's availability changes week to week. Without persistent, asynchronous matching — where the platform holds both supply-side profiles and demand-side requirements and matches them continuously — these temporally separated participants never connect.
 
-**The sponsor's role** — What the platform doesn't do alone. The ITMA partnership carries the cultural authority that makes the platform trustworthy to musicians — traditional musicians are deeply wary of platforms that might commodify or misrepresent their art. Ealaín na Gaeltachta provides the Irish-language and Gaeltacht cultural context. The *Federación* in Argentina provides the diaspora institutional connection. These sponsors populate the Knowledge Slot, verify musician credentials, and provide the cultural legitimacy that no software platform can generate on its own.
+**The sponsor's role** — What the platform doesn't do alone. The ITMA partnership carries the cultural authority that makes the platform trustworthy to musicians — traditional musicians are deeply wary of platforms that might commodify or misrepresent their art. Ealaín na Gaeltachta provides the Irish-language and Gaeltacht cultural context. The *Federación* in Argentina provides the diaspora institutional connection. These sponsors populate the CommonContext, verify musician credentials, and provide the cultural legitimacy that no software platform can generate on its own.
 
 ## 9. Scaling the Model: Instruments, Costumes, Arrangements, and More
 

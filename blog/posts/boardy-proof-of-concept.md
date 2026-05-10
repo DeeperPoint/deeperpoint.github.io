@@ -102,9 +102,9 @@ The convergences are remarkable. The divergences are equally instructive — and
 
 ### Boardy Is Single-Vertical; DeeperPoint Is a Framework
 
-Boardy operates in one vertical: professional networking, with a heavy emphasis on founders and investors. Its Knowledge Slot equivalent is the AI's accumulated understanding of the startup ecosystem — who are credible investors, what stage-appropriate introductions look like, what founders need at seed versus Series A.
+Boardy operates in one vertical: professional networking, with a heavy emphasis on founders and investors. Its CommonContext equivalent is the AI's accumulated understanding of the startup ecosystem — who are credible investors, what stage-appropriate introductions look like, what founders need at seed versus Series A.
 
-DeeperPoint's architecture is designed to be *vertical-agnostic*. The Cosolvent engine, the Knowledge Slot, and the YAML-driven marketplace configuration are designed so that a sponsor — a trade association, a government agency, a regulatory body — can deploy a matching platform for *any* thin market: [specialty grain](malting-barley-thin-market.html), [rural legal services](rural-legal-thin-market.html), [heritage crafts](heritage-craft-thin-market.html), or [developing-world produce distribution](ethiopia-produce-thin-market.html).
+DeeperPoint's architecture is designed to be *vertical-agnostic*. The Cosolvent engine, the CommonContext, and the YAML-driven marketplace configuration are designed so that a sponsor — a trade association, a government agency, a regulatory body — can deploy a matching platform for *any* thin market: [specialty grain](malting-barley-thin-market.html), [rural legal services](rural-legal-thin-market.html), [heritage crafts](heritage-craft-thin-market.html), or [developing-world produce distribution](ethiopia-produce-thin-market.html).
 
 This is not a criticism of Boardy — single-vertical focus is a perfectly legitimate strategy, especially at seed stage. But it does mean Boardy's proof of concept applies to the *principles* of thin market engineering, not to the *framework generalization* problem that DeeperPoint is solving.
 
@@ -112,7 +112,7 @@ This is not a criticism of Boardy — single-vertical focus is a perfectly legit
 
 Boardy is a commercial product. It is its own sponsor, curator, and platform operator. It collects information, curates matches, and monetizes the network directly.
 
-DeeperPoint's architecture explicitly separates the *platform* (matching infrastructure), the *sponsor* (the institution that configures, curates, and governs), and the *Knowledge Slot* (the domain-specific reference library). This three-layer separation is what allows the same framework to serve a Law Society matching rural clients to urban lawyers, an African agricultural cooperative connecting smallholders to cold chain logistics, or a trade ministry linking manufacturers to export markets.
+DeeperPoint's architecture explicitly separates the *platform* (matching infrastructure), the *sponsor* (the institution that configures, curates, and governs), and the *CommonContext* (the domain-specific reference library). This three-layer separation is what allows the same framework to serve a Law Society matching rural clients to urban lawyers, an African agricultural cooperative connecting smallholders to cold chain logistics, or a trade ministry linking manufacturers to export markets.
 
 Boardy's commercial model works for the startup ecosystem because the ecosystem is self-selecting and relatively homogeneous. Founders and investors share vocabulary, incentives, and cultural norms. In more complex verticals — where participants speak different languages, operate under different regulatory regimes, and have fundamentally different levels of digital literacy — the sponsor model is essential.
 
@@ -128,11 +128,11 @@ DeeperPoint's architecture anticipates this trajectory through what we call the 
 
 Boardy Ventures suggests that this trajectory is not unique to complex verticals. Even in the relatively simple world of founder-investor matching, the platform naturally evolves from connector to participant. That is a powerful validation of the framework's prediction that matching infrastructure, given enough memory and deal flow, becomes deal infrastructure.
 
-### Boardy Has No Knowledge Slot
+### Boardy Has No CommonContext
 
 When a founder talks to Boardy, the AI draws on its general training and its accumulated network intelligence. There is no visible curated reference library — no equivalent of a sponsor loading the system with "here are the regulations for cross-border grain trade" or "here are the Law Society's cost guidelines for family law."
 
-For professional networking, this works. The domain knowledge is general enough that a well-trained LLM can handle it. But for vertical-specific thin markets — where a participant might ask "can a lawyer from Ottawa represent me in Cochrane?" or "what moisture level is acceptable for Grade 1 Canada Western Red Spring?" — general AI knowledge is insufficient. The Knowledge Slot exists because thin markets have *domain-specific* information that must be curated by someone embedded in that domain.
+For professional networking, this works. The domain knowledge is general enough that a well-trained LLM can handle it. But for vertical-specific thin markets — where a participant might ask "can a lawyer from Ottawa represent me in Cochrane?" or "what moisture level is acceptable for Grade 1 Canada Western Red Spring?" — general AI knowledge is insufficient. The CommonContext exists because thin markets have *domain-specific* information that must be curated by someone embedded in that domain.
 
 ---
 
@@ -164,7 +164,7 @@ But the framing is wrong, for three reasons:
 
 2. **The market is measured in trillions.** Our recent analysis estimates [thin market friction at $5.7–10.4 trillion globally](thin-market-size.html). Startup networking is one vertical among thousands. There is no scarcity of problems to solve.
 
-3. **Every successful thin market application validates every other one.** When Boardy proves that voice onboarding works for founders, that is evidence that voice onboarding works for grain farmers. When DeeperPoint proves that the Knowledge Slot works for legal matching, that is evidence that curated domain knowledge works for agricultural trade. We are exploring adjacent regions of the same landscape.
+3. **Every successful thin market application validates every other one.** When Boardy proves that voice onboarding works for founders, that is evidence that voice onboarding works for grain farmers. When DeeperPoint proves that the CommonContext works for legal matching, that is evidence that curated domain knowledge works for agricultural trade. We are exploring adjacent regions of the same landscape.
 
 If Boardy can thicken the thin market of founders and funders, anything seems possible.
 

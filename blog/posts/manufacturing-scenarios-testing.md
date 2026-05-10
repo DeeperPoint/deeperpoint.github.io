@@ -118,7 +118,7 @@ Dr. Chandra registered his laboratory on the platform three months ago, at the s
 
 Anil also uploaded his lab's most recent calibration certificates, his own CV (Ph.D. in Materials Engineering, 18 years of welding metallurgy experience, CWI-certified), and a sample test report from his lab — the format he uses for internal academic work.
 
-The platform noted the accreditation gap and flagged it — not as a disqualification, but as a condition that must be addressed before the match is made. The Knowledge Slot surfaces: *"For CWB-submitted PQRs, the testing laboratory must be either ISO/IEC 17025 accredited or operating under the supervision of a P.Eng. with demonstrated competence in the test methods. Alternative: the test results can be witnessed and countersigned by a CWB-certified welding inspector."*
+The platform noted the accreditation gap and flagged it — not as a disqualification, but as a condition that must be addressed before the match is made. The CommonContext surfaces: *"For CWB-submitted PQRs, the testing laboratory must be either ISO/IEC 17025 accredited or operating under the supervision of a P.Eng. with demonstrated competence in the test methods. Alternative: the test results can be witnessed and countersigned by a CWB-certified welding inspector."*
 
 This is information that Anil didn't know. It changes his position: if Dave Olynyk (who is a CWB-certified welding inspector) witnesses the testing in person, the results are acceptable for PQR submission — no ISO 17025 accreditation required. Dave driving three hours south to Sudbury to witness a day's testing is dramatically different from Dave shipping coupons to Toronto and waiting three weeks.
 
@@ -136,7 +136,7 @@ Both parties receive match notifications. Dave sees a lab three hours south with
 
 ### 4. What the Platform Knows
 
-When the Ontario Manufacturing Coalition configured the platform, they populated the **Knowledge Slot** with domain-specific reference material curated by the CWB and the Ontario College of Trades:
+When the Ontario Manufacturing Coalition configured the platform, they populated the **CommonContext** with domain-specific reference material curated by the CWB and the Ontario College of Trades:
 
 - **CWB Bulletin W59-002**: the alternative supervision provisions for non-accredited laboratories — the conditions under which a CWB inspector can witness testing at a non-17025 lab, and the documentation requirements. This is the regulatory workaround that makes the entire match viable.
 - **Liability and insurance guidance**: the Coalition's group professional liability insurance policy, covering participant labs performing testing within the platform's documented scope — addressing the specific insurance gap that had previously prevented college and university labs from accepting external work.
@@ -163,7 +163,7 @@ By 2:00 PM, Dave has his completed test reports and drives back to Timmins with 
 
 ### 6. What Makes This a Thin Market Story
 
-**Opacity** — No directory of available testing capacity at Ontario colleges and universities exists; these institutions have no sales infrastructure, no pricing model, and no way to manage the liability. **Geographic distance** — The market isn't thin because testing capacity doesn't exist regionally; it's thin because neither side can see what's within economical range. Sudbury is three hours from Timmins; Toronto is seven. **Trust** — The Knowledge Slot surfaced a regulatory workaround — CWB inspector witnessing — that preserved the validity of results without a $25,000 accreditation process. **Temporal distance** — Testing needs arise unpredictably; lab capacity fluctuates with academic schedules. The platform accounts for this mismatch, surfacing available capacity when demand appears.
+**Opacity** — No directory of available testing capacity at Ontario colleges and universities exists; these institutions have no sales infrastructure, no pricing model, and no way to manage the liability. **Geographic distance** — The market isn't thin because testing capacity doesn't exist regionally; it's thin because neither side can see what's within economical range. Sudbury is three hours from Timmins; Toronto is seven. **Trust** — The CommonContext surfaced a regulatory workaround — CWB inspector witnessing — that preserved the validity of results without a $25,000 accreditation process. **Temporal distance** — Testing needs arise unpredictably; lab capacity fluctuates with academic schedules. The platform accounts for this mismatch, surfacing available capacity when demand appears.
 
 </div>
 

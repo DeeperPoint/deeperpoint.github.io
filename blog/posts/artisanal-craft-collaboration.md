@@ -87,9 +87,9 @@ My wife and her friend found each other because they lived in the same town. Lui
 
 ## 4. What They Know That the Platform Doesn't
 
-Here is what the Knowledge Slot brings to the conversation.
+Here is what the CommonContext brings to the conversation.
 
-When the FONART sponsors configured the platform, they populated the **Knowledge Slot** — the sponsor-curated reference library that sits alongside participant data but is architecturally separate from it. For the artisanal craft vertical, this library contains:
+When the FONART sponsors configured the platform, they populated the **CommonContext** — the sponsor-curated reference library that sits alongside participant data but is architecturally separate from it. For the artisanal craft vertical, this library contains:
 
 - **Mexican craft tradition documentation**: descriptions of regional craft specializations, the historical roots of talavera, majólica, Zapotec weaving, natural dye techniques, and the geographic distribution of craft villages across Mexico
 - **International market context**: information about the high-end home furnishings market, buyer profiles for luxury retailers, interior design purchasing patterns, and the premium that provenance-documented artisanal work commands
@@ -99,7 +99,7 @@ When the FONART sponsors configured the platform, they populated the **Knowledge
 
 This reference material is not participant data — it is domain knowledge that the sponsor curated and loaded into the platform's reference library. When Luisa or Rodrigo asks the platform a question — "How would I price a collaborative set?" or "What does a buyer at a high-end retailer expect in terms of packaging?" — the platform answers from this curated library, citing its sources, not from a generic AI search.
 
-The Knowledge Slot also carries **vertical-specific metadata tags**: `craft_tradition`, `region`, `material_class`, `dye_technique`, `firing_method`, `certification_type`, `export_classification`. These tags scope retrieval so that when Rodrigo asks about dye certifications, the platform surfaces Oaxacan natural-dye standards, not talavera glaze composition rules.
+The CommonContext also carries **vertical-specific metadata tags**: `craft_tradition`, `region`, `material_class`, `dye_technique`, `firing_method`, `certification_type`, `export_classification`. These tags scope retrieval so that when Rodrigo asks about dye certifications, the platform surfaces Oaxacan natural-dye standards, not talavera glaze composition rules.
 
 My wife's friend didn't need any of this. She was an experienced ceramicist who understood her own materials and could experiment in real time. But scaling this kind of collaboration to artisans who have never met, across regions, across media, and across international markets — that's where curated domain knowledge becomes infrastructure.
 
@@ -121,10 +121,10 @@ When Luisa and Rodrigo confirm that they are ready to produce the set, the platf
 
 The deal is not a two-party contract. The platform identifies that this transaction requires facilitation:
 
-- **Quality verification**: FONART's certification process for artisanal authenticity. The platform's Knowledge Slot provides the specific requirements; the FONART representative in each region is flagged as a facilitator participant.
+- **Quality verification**: FONART's certification process for artisanal authenticity. The platform's CommonContext provides the specific requirements; the FONART representative in each region is flagged as a facilitator participant.
 - **Packaging and logistics**: fragile ceramics and natural-fiber textiles require specialized export packaging. The platform searches its facilitator profiles and identifies a logistics specialist in Guadalajara who has handled artisanal export shipments before.
 - **Photography and documentation**: the set needs professional documentation — not just for the buyer but for the provenance record. A photographer in Oaxaca City who is registered on the platform as a creative services facilitator is proposed.
-- **Pricing**: the platform's reference library includes data on comparable artisanal sets sold at international retail. The chatbot, drawing from the Knowledge Slot, suggests a price range for the set based on the materials, labor hours, scale, and the premium that collaborative provenance commands. The artisans set their own price within that guidance.
+- **Pricing**: the platform's reference library includes data on comparable artisanal sets sold at international retail. The chatbot, drawing from the CommonContext, suggests a price range for the set based on the materials, labor hours, scale, and the premium that collaborative provenance commands. The artisans set their own price within that guidance.
 
 The deal structure — principals, facilitators, role assignments, pricing, timeline, quality requirements — is assembled in a **Handoff Artifact**: a structured document that captures everything a buyer would need to evaluate and purchase the set.
 
@@ -152,7 +152,7 @@ Take a step back from the narrative and look at the structural forces that preve
 
 **Buyer access** — The buyers who would pay €1,500 for a provenance-documented collaborative artisanal set are not browsing Etsy or walking through weekend markets. They are buyers at Roche Bobois, design galleries, interior design firms — participants who need a discovery mechanism tuned to aesthetic quality, provenance, and scale. The platform's demand-side matching surfaces the set to exactly these buyers.
 
-**Knowledge asymmetry** — Neither artisan knows how to price a collaborative set for international retail, how to handle export packaging for ceramics, or what certifications a European buyer expects. The Knowledge Slot — populated by the FONART sponsor with domain-specific reference material — provides this information in context, without requiring either artisan to become an expert in international trade. My wife's friend certainly could have marketed those sets internationally — but she would have had to figure out every one of these things from scratch. She didn't. The sets stayed in Alabama.
+**Knowledge asymmetry** — Neither artisan knows how to price a collaborative set for international retail, how to handle export packaging for ceramics, or what certifications a European buyer expects. The CommonContext — populated by the FONART sponsor with domain-specific reference material — provides this information in context, without requiring either artisan to become an expert in international trade. My wife's friend certainly could have marketed those sets internationally — but she would have had to figure out every one of these things from scratch. She didn't. The sets stayed in Alabama.
 
 ## 9. What the Sponsor Carries
 
@@ -163,7 +163,7 @@ The FONART sponsors carry the parts that software cannot:
 - **Cultural protocols**: how to approach artisan communities, how to structure agreements that respect communal production traditions, how to ensure that collaboration doesn't pressure artisans into aesthetically compromising their own traditions
 - **Quality verification**: physical inspection, kiln and loom visits, materials sourcing verification — things that require presence in the towns, not algorithmic inference
 - **Dispute resolution context**: if a shipment arrives broken, if a buyer rejects a piece, if payment is delayed — these require human judgment, local knowledge, and institutional backing
-- **Content curation for the Knowledge Slot**: the sponsor decides which reference documents to include, what pricing benchmarks to provide, what export guidance is relevant. This curatorial judgment is what makes the Knowledge Slot authoritative rather than generic
+- **Content curation for the CommonContext**: the sponsor decides which reference documents to include, what pricing benchmarks to provide, what export guidance is relevant. This curatorial judgment is what makes the CommonContext authoritative rather than generic
 
 The platform provides the matching infrastructure, the communication channels, the deal structure, and the reference library. The context is always local.
 

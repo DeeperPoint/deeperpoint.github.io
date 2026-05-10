@@ -115,7 +115,7 @@ The structural fit is unusually clean:
 
 **The trusted intermediary protocol** solves the disclosure problem. A manufacturer evaluating an AI vendor doesn't want to reveal their production volumes, reject rates, or capital budget until they trust the vendor. The platform can assess fit without exposing sensitive operational data.
 
-**The Knowledge Slot** already has a natural content source. AI4M's "Ask the Experts" sessions, webinar recordings, and blog posts constitute a curated reference library. Formalized into a searchable, AI-indexed knowledge base, this material becomes actionable context for every marketplace query.
+**The CommonContext** already has a natural content source. AI4M's "Ask the Experts" sessions, webinar recordings, and blog posts constitute a curated reference library. Formalized into a searchable, AI-indexed knowledge base, this material becomes actionable context for every marketplace query.
 
 **Progressive trust stages** map to how these relationships work in practice:
 

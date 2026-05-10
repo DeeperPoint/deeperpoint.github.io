@@ -115,7 +115,7 @@ Both parties receive match notifications. Nadine sees a production supervisor in
 
 ### 4. What the Platform Knows
 
-When CME configured the platform, they populated the **Knowledge Slot** with domain-specific reference material:
+When CME configured the platform, they populated the **CommonContext** with domain-specific reference material:
 
 - **IEC 62443 requirements mapped to shop sizes**: a simplified matrix showing which security levels are expected for different manufacturing contexts — a 20-person job shop has different requirements than a 500-person Tier 1 supplier
 - **Skills engagement contract templates**: standard terms for fractional engagements between SMBs, covering IP protection, non-competition scope, liability allocation, and payment terms — vetted by CME's legal team

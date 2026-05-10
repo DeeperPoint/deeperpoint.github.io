@@ -74,7 +74,7 @@ Catherine sees:
 
 For eleven months, Catherine searched for "timber framer" and found carpentry companies. The platform searched for the *structural match* between her barn's needs and a craftsperson's abilities — and found Silas.
 
-Both parties say yes. And then comes a moment that would not exist in a word-of-mouth market: the platform generates a Generative Match Story — a plain-language description of how this specific commission could unfold, assembled from Silas's capability profile, Catherine's requirements profile, and the Knowledge Slot's content on Virginia preservation easements and heritage commission conventions.
+Both parties say yes. And then comes a moment that would not exist in a word-of-mouth market: the platform generates a Generative Match Story — a plain-language description of how this specific commission could unfold, assembled from Silas's capability profile, Catherine's requirements profile, and the CommonContext's content on Virginia preservation easements and heritage commission conventions.
 
 The scenario describes the project arc: a site visit by Silas to assess the barn's structural condition before any scope is agreed; Virginia Department of Historic Resources approval required before work begins (the easement's terms make this non-optional); species-matched white oak to be sourced from a reclaimed lumber supplier in the Shenandoah Valley; the restoration sequenced as stabilisation first, then structural repair, then finish work; payment structured in three milestone instalments tied to DHR approval, framing completion, and final inspection. The scenario also notes the documentation requirement that most clients overlook: the Virginia easement requires written documentation of all materials used and all work performed, submitted to DHR within sixty days of project completion.
 
@@ -86,7 +86,7 @@ Catherine reads the same scenario on her phone and immediately understands what 
 
 ## 4. What the Platform Knows
 
-When the Preservation Trades Network and the regional heritage council configured the platform, they populated the **Knowledge Slot** — the sponsor-curated reference library — with domain-specific information:
+When the Preservation Trades Network and the regional heritage council configured the platform, they populated the **CommonContext** — the sponsor-curated reference library — with domain-specific information:
 
 - **Conservation standards**: the Secretary of the Interior's Standards for the Treatment of Historic Properties, the SPAB (Society for the Protection of Ancient Buildings) repair philosophy, state-specific historic preservation easement requirements — the regulatory frameworks that govern what can and cannot be done to a historic structure
 - **Timber framing terminology and techniques**: a structured reference covering joinery types (mortise-and-tenon, scarf joints, tying joints, lap joints, hammer-beam trusses), wood species properties (shrinkage rates, durability, availability), and traditional vs. modern methods — so that the platform can match on technique, not just category
@@ -94,7 +94,7 @@ When the Preservation Trades Network and the regional heritage council configure
 - **Pricing benchmarks**: project cost data for heritage timber framing by region, scope, and complexity — information typically known only to experienced practitioners and preservation architects
 - **Grant and incentive programs**: federal and state historic preservation tax credits, easement programs, and heritage craft grants that can offset project costs — information that often determines whether a project proceeds or doesn't
 
-The Knowledge Slot carries vertical-specific metadata tags — `joinery_type`, `wood_species`, `conservation_standard`, `region`, `project_era` — that scope retrieval so that when Catherine asks "What are the Virginia easement requirements for modifying a documented structure?", the platform surfaces Virginia-specific preservation law, not generic renovation guidance.
+The CommonContext carries vertical-specific metadata tags — `joinery_type`, `wood_species`, `conservation_standard`, `region`, `project_era` — that scope retrieval so that when Catherine asks "What are the Virginia easement requirements for modifying a documented structure?", the platform surfaces Virginia-specific preservation law, not generic renovation guidance.
 
 ## 5. The Conversation
 
@@ -104,17 +104,17 @@ Catherine sends photos of the barn: the failing bents, the tying joints that are
 
 Over two weeks, they exchange photos, voice notes, sketches (Silas draws on graph paper and his daughter photographs them), and questions about materials sourcing. The platform's document pipeline tracks everything — building the project documentation that will become part of the deal.
 
-Catherine asks the platform's Knowledge Slot about Virginia historic preservation easements. The response is specific: the easement requires that restoration work maintain "the historic fabric to the greatest extent possible," that replacement materials be "compatible in material, design, color, texture, and other visual qualities," and that all work be documented and approved by the Virginia Department of Historic Resources.
+Catherine asks the platform's CommonContext about Virginia historic preservation easements. The response is specific: the easement requires that restoration work maintain "the historic fabric to the greatest extent possible," that replacement materials be "compatible in material, design, color, texture, and other visual qualities," and that all work be documented and approved by the Virginia Department of Historic Resources.
 
 ## 6. Structuring the Commission
 
 When both parties indicate they're ready to proceed, the platform moves into deal structuring — Cosolvent's multilateral deal model. A heritage restoration commission is not a two-party handshake. The platform identifies that this project requires:
 
-- **Conservation oversight**: the Virginia Department of Historic Resources must review and approve the restoration plan. The platform flags this as a required facilitator role and provides the contact process from the Knowledge Slot.
+- **Conservation oversight**: the Virginia Department of Historic Resources must review and approve the restoration plan. The platform flags this as a required facilitator role and provides the contact process from the CommonContext.
 - **Structural engineering**: the foundation assessment that Silas recommended. The platform surfaces a structural engineer in Virginia who specializes in historic structures and is registered as a facilitator.
-- **Materials sourcing**: reclaimed chestnut for the replacement timber, white oak pegs, and period-appropriate hardware. The Knowledge Slot identifies three suppliers; the platform proposes them as facilitator participants.
+- **Materials sourcing**: reclaimed chestnut for the replacement timber, white oak pegs, and period-appropriate hardware. The CommonContext identifies three suppliers; the platform proposes them as facilitator participants.
 - **Documentation**: photography and written documentation of the restoration process, required by the easement. A preservation documentation specialist in the mid-Atlantic region is surfaced as a facilitator.
-- **Pricing guidance**: the Knowledge Slot's benchmarking data suggests that a full timber-frame bank barn restoration in the mid-Atlantic, using reclaimed species-matched lumber with full easement compliance, ranges from $140,000 to $220,000 — consistent with Catherine's budget.
+- **Pricing guidance**: the CommonContext's benchmarking data suggests that a full timber-frame bank barn restoration in the mid-Atlantic, using reclaimed species-matched lumber with full easement compliance, ranges from $140,000 to $220,000 — consistent with Catherine's budget.
 
 The deal structure — principal participants, facilitators, role assignments, conservation requirements, materials specifications, timeline, pricing — is assembled in a **Handoff Artifact** that both parties review.
 

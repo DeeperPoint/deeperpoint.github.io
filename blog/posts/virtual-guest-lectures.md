@@ -60,11 +60,11 @@ The system also calculates the temporal logistics. Mateo’s class is at 7:00 PM
 
 Mateo receives a notification with Elena’s anonymized profile, highlighting exactly *why* it’s a match, pulling quotes from her publications seamlessly aligned with his syllabus. He hits accept. 
 
-## 5. The Knowledge Slot and Collaboration
+## 5. The CommonContext and Collaboration
 
 Before Elena commits, she needs to know she isn't walking into a room of unprepared beginners. Through the platform's scoped communication channel, Mateo shares his course background. 
 
-Mateo then uses the GSCA's sponsor-curated Knowledge Slot to prep his students. Instead of sending his students to generic web searches about port automation, the Knowledge Slot provides access to the GSCA’s vertically specific, verified case studies on terminal upgrades in the Oceania region. The texts are auto-translated, giving the Spanish-speaking students the exact foundational context they need to ask Elena intelligent questions.
+Mateo then uses the GSCA's sponsor-curated CommonContext to prep his students. Instead of sending his students to generic web searches about port automation, the CommonContext provides access to the GSCA’s vertically specific, verified case studies on terminal upgrades in the Oceania region. The texts are auto-translated, giving the Spanish-speaking students the exact foundational context they need to ask Elena intelligent questions.
 
 Within the platform, a structured "deal" is assembled. The terms are simple but crucial: Elena agrees to a 45-minute virtual presentation followed by 15 minutes of Q&A. A potential geographical barrier—language—is also addressed. While Elena speaks English, the platform provisions the secure video link with robust real-time AI voice translation. It also auto-translates the calendar invites to their respective time zones, and explicitly outlines the GSCA’s "no sales pitch" policy, which Elena must acknowledge. The friction of international scheduling and communication is entirely eliminated.
 
@@ -72,7 +72,7 @@ Within the platform, a structured "deal" is assembled. The terms are simple but 
 
 On a Tuesday evening in Arequipa, Mateo's students settle into their seats. On a Wednesday morning in Sydney, Elena clicks the link from her office desk. 
 
-For 45 minutes, Elena speaks in her native English, walking the Peruvian logistics professionals through the messy reality of implementing automated guided vehicles. The platform's real-time AI interpreter seamlessly translates her words into Spanish for the classroom. In turn, the students, prepped by the Knowledge Slot, ask highly specific, advanced questions in Spanish, which Elena hears in English. When the hour is up, Elena simply closes the window and returns to her workday. 
+For 45 minutes, Elena speaks in her native English, walking the Peruvian logistics professionals through the messy reality of implementing automated guided vehicles. The platform's real-time AI interpreter seamlessly translates her words into Spanish for the classroom. In turn, the students, prepped by the CommonContext, ask highly specific, advanced questions in Spanish, which Elena hears in English. When the hour is up, Elena simply closes the window and returns to her workday. 
 
 No travel. No endless email chains. No language barrier. Just a high-value, cross-continental transfer of specific, specialized knowledge.
 
