@@ -17,7 +17,7 @@ market_example:
     - "Trust deficit — institutions don't extend trust to individuals with criminal records; the person has often experienced serious institutional harm and does not extend trust to institutions"
     - "Opacity — available service capacity is not visible; people don't know which agencies have openings, which have waitlists, or which have intake requirements they can actually meet"
     - "Temporal distance — the reintegration window is narrow; the first 72 hours and 30 days after release are the highest-risk period; matching delays in critical services create cascading failures"
-  deeperpoint_fit: "KnowledgeSlot curates service eligibility rules across categories: housing (subsidized housing, transitional housing, halfway house eligibility by conviction type), employment (ban-the-box employer registry, ACCES Employment programs, Ontario Works enrollment), addiction services (RAAM clinic access, CAMH community services, peer support programs), legal aid (Legal Aid Ontario eligibility, duty counsel availability), and benefit enrollment (Ontario Works, ODSP, OSAP reinstatement). Semantic matching aligns the individual's situation (sentence length, conviction category, housing history, employment history, disclosed needs) with available service capacity. The consent model and data minimization protocol are essential — this population cannot be exposed to standard data profiling."
+  deeperpoint_fit: "CommonContext curates service eligibility rules across categories: housing (subsidized housing, transitional housing, halfway house eligibility by conviction type), employment (ban-the-box employer registry, ACCES Employment programs, Ontario Works enrollment), addiction services (RAAM clinic access, CAMH community services, peer support programs), legal aid (Legal Aid Ontario eligibility, duty counsel availability), and benefit enrollment (Ontario Works, ODSP, OSAP reinstatement). Semantic matching aligns the individual's situation (sentence length, conviction category, housing history, employment history, disclosed needs) with available service capacity. The consent model and data minimization protocol are essential — this population cannot be exposed to standard data profiling."
   economic_upside: "The Annual cost of reincarceration in Canada is approximately $130,000 per person per year. Successful reintegration that prevents even one reincarceration event per successfully matched individual generates government savings that are 10–50x the cost of the matching infrastructure. Social return on investment studies of reintegration support programs consistently find SROI ratios of 3:1 to 8:1."
 
 sponsor_opportunities:
@@ -83,7 +83,7 @@ story:
 
     ---
 
-    The platform's KnowledgeSlot layer indexed, in the six weeks before Marcus's release:
+    The platform's CommonContext layer indexed, in the six weeks before Marcus's release:
     - Transitional housing availability in East Toronto accepting his conviction category (two vacancies at Thursday release date)
     - Ontario Works expedited reinstatement process for individuals released from federal institutions (possible to initiate pre-release; Carla can file the pre-authorization three weeks before release)
     - RAAM clinic Tuesday walk-in access (no waitlist required)

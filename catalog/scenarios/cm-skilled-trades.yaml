@@ -17,7 +17,7 @@ market_example:
     - "Cognitive overload — A Mexican welder with TMEC/AWS certification faces pages of IRCC documentation without any guide to which pathway applies to their specific situation"
     - "Trust deficit — Canadian contractors cannot verify Mexican credentials at scale; Mexican workers fear sponsor misrepresentation without institutional backing"
     - "Temporal distance — Construction project labour needs peak during specific build phases; seasonal availability windows rarely align without advance planning"
-  deeperpoint_fit: "Semantic matching aligns worker profiles (certified trade, NOM/AWS/CWB equivalency level, language, prior Canada experience, willing provinces) with contractor project profiles (occupation, project phase, location, LMIA status, Red Seal equivalency acceptance). The verification pipeline validates Mexican NOM trade certificates and TMEC credential equivalency before encoding in matching profiles. KnowledgeSlot curates Red Seal/NOM equivalency tables by trade, TFWP LMIA application requirements by province and occupation, and CUSMA professional categories applicable to trades. Multi-channel input (WhatsApp/SMS in Spanish) allows Mexican workers to participate without English-language job portals."
+  deeperpoint_fit: "Semantic matching aligns worker profiles (certified trade, NOM/AWS/CWB equivalency level, language, prior Canada experience, willing provinces) with contractor project profiles (occupation, project phase, location, LMIA status, Red Seal equivalency acceptance). The verification pipeline validates Mexican NOM trade certificates and TMEC credential equivalency before encoding in matching profiles. CommonContext curates Red Seal/NOM equivalency tables by trade, TFWP LMIA application requirements by province and occupation, and CUSMA professional categories applicable to trades. Multi-channel input (WhatsApp/SMS in Spanish) allows Mexican workers to participate without English-language job portals."
   economic_upside: "Canada's construction labour gap is estimated at 300,000+ workers by 2030. Mexico's underemployed trades workforce is a natural counterpart. Legal, documented labour mobility reduces project delays, creates formal employment for Mexican workers with better wage protection than informal migration, and builds bilateral human capital links that outlast individual project cycles."
 
 sponsor_opportunities:
@@ -89,7 +89,7 @@ story:
 
     ---
 
-    Along with the notification, the platform generates a **Generative Match Story** — a structured guide to how this specific employment arrangement could proceed, drawing on KnowledgeSlot's curated TFWP and Red Seal credential data.
+    Along with the notification, the platform generates a **Generative Match Story** — a structured guide to how this specific employment arrangement could proceed, drawing on CommonContext's curated TFWP and Red Seal credential data.
 
     The story describes the LMIA process Brian's company will need to complete — specifically noting that their existing pre-approval covers the occupation code and that the filing timeline is compatible with the project phase window. It explains that Rodrigo's AWS D1.1 certification satisfies Alberta's Red Seal pipefitter equivalency pathway under the Interprovincial Standards Program, and that a bridging document from the Provincial Apprenticeship office is required before the work permit application. It identifies an immigration consultant with CUSMA trades experience who can manage both filings concurrently.
 

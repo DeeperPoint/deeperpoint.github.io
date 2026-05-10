@@ -6,7 +6,7 @@ sector: developing-economy
 sub_sector: "Agricultural Export Logistics"
 forge_tier: 2
 status: published
-tags: [thin-markets, agriculture, export, smallholder, ethiopia, mexico, post-harvest, cosolvent, knowledgeslot]
+tags: [thin-markets, agriculture, export, smallholder, ethiopia, mexico, post-harvest, cosolvent, commoncontext]
 
 market_example:
   summary: "Thousands of smallholder farmers in the Ethiopian Rift Valley and Mexican highlands grow export-quality produce that never reaches foreign buyers — not because of quality, but because the match between what they grow and what buyers want is never made. A matching platform can bridge farm-gate to export terminal."
@@ -17,8 +17,8 @@ market_example:
     - "Trust deficit — Export buyers require quality certification, provenance documentation, and consistent volume guarantees that informal chains cannot provide"
     - "Post-harvest loss — 20–40% spoilage between farm and port destroys the economics of export aggregation"
     - "Discovery failure — No mechanism for export buyer to identify which smallholder clusters produce export-grade quality in which season"
-  deeperpoint_fit: "CoSolvent builds dual profiles: farmer clusters (volume, quality grade, harvest calendar, geographic coordinates) and export buyers (volume requirements, certification standards, price bands, preferred provenance types). KnowledgeSlot is populated with export grading standards (GlobalG.A.P., EU phytosanitary requirements, USDA grade specifications), cold chain protocols, and post-harvest handling guides — delivered via voice interface in Amharic or Spanish. The Generative Match Story walks each match through a structured narrative: what the buyer needs, what the cluster produces, what logistics sequence gets the produce there, and what certification steps are required."
-  economic_upside: "Ethiopia's horticultural export market targets $1B USD annually; Mexico's vegetable export sector exceeds $6B. Even a 10% rerouting of smallholder production through verified aggregation channels would represent $100M+ in additional farmer-captured value. Platform revenue: transaction fee on matched export volume, KnowledgeSlot SaaS subscription to exporters, certification facilitation fees."
+  deeperpoint_fit: "CoSolvent builds dual profiles: farmer clusters (volume, quality grade, harvest calendar, geographic coordinates) and export buyers (volume requirements, certification standards, price bands, preferred provenance types). CommonContext is populated with export grading standards (GlobalG.A.P., EU phytosanitary requirements, USDA grade specifications), cold chain protocols, and post-harvest handling guides — delivered via voice interface in Amharic or Spanish. The Generative Match Story walks each match through a structured narrative: what the buyer needs, what the cluster produces, what logistics sequence gets the produce there, and what certification steps are required."
+  economic_upside: "Ethiopia's horticultural export market targets $1B USD annually; Mexico's vegetable export sector exceeds $6B. Even a 10% rerouting of smallholder production through verified aggregation channels would represent $100M+ in additional farmer-captured value. Platform revenue: transaction fee on matched export volume, CommonContext SaaS subscription to exporters, certification facilitation fees."
 
 sponsor_opportunities:
   - title: "Export Aggregator SaaS"
@@ -30,7 +30,7 @@ sponsor_opportunities:
   - title: "Certification Facilitation Service"
     type: managed-service
     revenue_model: "Per-farm certification coordination fee ($50–$200 per farm per cycle). GlobalG.A.P. group certification bundles for cooperative clusters."
-    strategic_logic: "International certification is the gating requirement for premium export access. The platform's KnowledgeSlot and documentation trail dramatically reduce the cost of group certification — a service no existing player provides at smallholder scale."
+    strategic_logic: "International certification is the gating requirement for premium export access. The platform's CommonContext and documentation trail dramatically reduce the cost of group certification — a service no existing player provides at smallholder scale."
     recurring: true
 
   - title: "Post-Harvest Finance Integration"
@@ -118,7 +118,7 @@ story:
     profile this specific. He requests contact.
 
     Over four weeks, Diego and Tekeste negotiate through the platform's deal channel.
-    The KnowledgeSlot surfaces GroupG.A.P. documentation templates in Amharic. A certification
+    The CommonContext surfaces GroupG.A.P. documentation templates in Amharic. A certification
     facilitator registered on the platform visits the cooperative twice. Diego agrees to
     pre-commit purchase at a price that covers the certification cost amortized over two seasons.
 
