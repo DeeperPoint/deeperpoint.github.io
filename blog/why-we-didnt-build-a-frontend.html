@@ -1,0 +1,131 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Notes: Why We Didn't Build a Frontend — DeeperPoint</title>
+  <meta name="description" content="The reasoning behind making Cosolvent a headless engine and why standardizing the participant interface destroys the very heterogeneity that makes thin markets valuable.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Workshop Notes: Why We Didn't Build a Frontend">
+  <meta property="og:description" content="The reasoning behind making Cosolvent a headless engine and why standardizing the participant interface destroys the very heterogeneity that makes thin markets valuable.">
+  <meta property="og:url" content="https://deeperpoint.com/blog/why-we-didnt-build-a-frontend.html">
+  <meta property="og:site_name" content="DeeperPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Workshop Notes: Why We Didn't Build a Frontend">
+  <meta name="twitter:description" content="The reasoning behind making Cosolvent a headless engine and why standardizing the participant interface destroys the very heterogeneity that makes thin markets valuable.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" type="application/rss+xml" title="DeeperPoint Blog" href="https://deeperpoint.com/blog/feed.xml">
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../thin-markets.html" class="nav__link">Theory</a></li>
+        <li><a href="../intervention-matrix.html" class="nav__link">Matrix</a></li>
+        <li><a href="../ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="../catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="../marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="../cosolvent.html" class="nav__link">Cosolvent</a></li>
+        <li><a href="../blog/index.html" class="nav__link nav__link--active">Blog</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="blog-post" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <a href="index.html" class="blog-back">&larr; All Posts</a>
+        <div class="blog-meta">
+          <time datetime="2026-05-11">May 11, 2026</time>
+          <span class="blog-meta__sep">&middot;</span>
+          <span>2 min read</span>
+        </div>
+        <h1 class="blog-post__title">Workshop Notes: Why We Didn't Build a Frontend</h1>
+        <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
+          <span class="blog-tag">market-design</span><span class="blog-tag">cosolvent</span><span class="blog-tag">ai</span><span class="blog-tag">architecture</span>
+        </div>
+      </div>
+      
+      <article class="blog-post">
+        <p>When we set out to build Cosolvent, our objective was to dramatically reduce the time it takes to test a new thin market platform. If you see a structural matching failure in the artisanal craft sector or a regulatory bottleneck in diaspora property investments, you should be able to spin up the infrastructure to solve it in days, not quarters.</p>
+<p>We needed matching logic. We needed permission roles. We needed a sponsor dashboard to govern the transactions.</p>
+<p>But we explicitly decided <em>not</em> to build a participant frontend.</p>
+<p>Cosolvent is a headless marketplace engine. It provides a robust, deterministic backend API for participants, but no out-of-the-box user interface for the buyers and sellers actually using the market. The sponsor has to build that themselves.</p>
+<p>To many software engineers, this sounds like an incomplete product. Why build the engine but leave out the steering wheel? The answer lies in the physics of thin markets themselves.</p>
+<h3 id="the-standardization-trap">The Standardization Trap</h3>
+<p>Thick markets—like ride-sharing or consumer e-commerce—thrive on standardization. An Uber ride in Toronto is the same transaction as an Uber ride in Tokyo. The interface can be rigid and universal because the service being exchanged has been deliberately commoditized.</p>
+<p>Thin markets are the exact opposite. Their value comes from their heterogeneity. </p>
+<p>A platform matching junior mining exploration projects to joint-venture capital requires an interface that understands NI 43-101 compliance reports, geological survey maps, and complex earn-in equity structures. A platform matching heritage restoration craftspeople to historical society commissions needs an interface that understands conservation standards, portfolio verification, and apprenticeship lineage.</p>
+<p>If we had tried to build a universal participant frontend for Cosolvent, we would have inevitably forced standardization onto these markets. We would have reduced complex, high-stakes, context-dependent deals into generic &ldquo;item&rdquo; and &ldquo;price&rdquo; fields. </p>
+<p>In trying to make the software easier to deploy, we would have destroyed the very nuance that makes these markets work.</p>
+<h3 id="the-separation-of-engine-and-context">The Separation of Engine and Context</h3>
+<p>The solution was to draw a hard architectural boundary. </p>
+<p><strong>The engine defines structure.</strong> Cosolvent handles the universal physics of market engineering: semantic vector matching, three-tier data visibility, state-persisted communication channels, role-based permissions, and the deterministic generation of APIs from a central configuration file.</p>
+<p><strong>The vertical defines content.</strong> The market sponsor—the industry association, the specialized broker, the domain expert—defines what the market actually is. They dictate the ontology, the rules of engagement, and most importantly, the participant experience.</p>
+<p>By remaining headless, Cosolvent forces the sponsor to design an interface that makes sense for their specific buyers and sellers. It preserves the local context.</p>
+<h3 id="the-role-of-ai-in-frontend-generation">The Role of AI in Frontend Generation</h3>
+<p>A few years ago, telling a non-technical domain expert to &ldquo;just build the frontend yourself&rdquo; against a REST API would have been a death sentence for adoption. It would have required a dedicated engineering team and months of bespoke development.</p>
+<p>Today, the landscape has changed.</p>
+<p>Cosolvent automatically generates a comprehensive, deterministic OpenAPI specification based on the sponsor&rsquo;s unique market configuration. Because this specification is rigid and explicitly typed, modern AI coding assistants can consume it and generate a fully functional client SDK—and a tailored frontend interface—in a matter of hours.</p>
+<p>The sponsor doesn&rsquo;t need to write the boilerplate wiring. They can use AI to build a custom participant frontend that respects the specific vernacular, workflow, and trust signals of their industry.</p>
+<h3 id="the-right-tool-for-the-job">The Right Tool for the Job</h3>
+<p>Software architecture is always a reflection of market structure. Standardized, high-volume markets get monolithic, one-size-fits-all platforms. </p>
+<p>Thin markets require something different. They require a powerful engine that does the heavy lifting of coordination and matching, paired with a hyper-local, context-aware interface that speaks the language of the participants. </p>
+<p>By making Cosolvent headless, we ensured it could be the former, without ever pretending to be the latter.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="../search.html" class="footer__link">Search</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../reveal.js"></script>
+  <script src="../nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
