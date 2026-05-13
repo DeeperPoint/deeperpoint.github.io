@@ -45,7 +45,7 @@ It takes many forms:
 
 Every manufacturer knows how to eliminate *muda* — the non-value-added waste that lean manufacturing has spent forty years teaching us to see inside the plant. Idle machines, waiting time, excess inventory, unnecessary motion. At the plant level, we are ruthless about this. At the *ecosystem* level, nobody even looks. Shadow capacity is muda analysis applied to the industrial ecosystem — and the waste it reveals dwarfs anything inside a single factory.
 
-Each of these is a different *kind* of shadow capacity. But they share a single structural cause: **the absence of a coordination mechanism** that makes them visible, matchable, and transactable.
+Each of these is a different *kind* of shadow capacity. But they share a single structural cause: **the absence of a coordination mechanism** that makes them visible, matchable, and transactable. In [thin market theory](../thin-markets.html), this is the signature pattern — participants exist on both sides, but the market between them is too sparse, too opaque, and too trust-dependent to clear on its own.
 
 ---
 
@@ -87,7 +87,7 @@ Over the next several weeks, this newsletter will map the specific forms of shad
 
 This is not a catalogue of complaints. It is a diagnostic. The thesis is simple: **shadow capacity is not a collection of separate problems. It is a single structural condition with a single cause — and a single class of solution.**
 
-The solution is not a directory. It is not a trade show. It is not a government program. It is a marketplace — one designed specifically for the trust dynamics, confidentiality requirements, and compound matching challenges that keep shadow capacity in the dark.
+The solution is not a directory. It is not a trade show. It is not a government program. It is a [thin market](../thin-markets.html) marketplace — one designed specifically for the trust dynamics, confidentiality requirements, and compound matching challenges that keep shadow capacity in the dark.
 
 The capability exists. The demand exists. The only thing missing is the device that connects them.
 

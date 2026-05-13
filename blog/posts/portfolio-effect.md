@@ -32,7 +32,7 @@ Insurance works the same way. One house might burn down. A thousand houses won't
 
 Now bring the arithmetic back to Ontario's manufacturing ecosystem.
 
-Fifty shops across southwestern Ontario each have variable demand for specialized machining capacity. In any given month, some are over capacity and some are under. If a coordination platform can make the idle capacity visible and accessible to the shops that are overflowing, the aggregate utilization is dramatically smoother than any individual shop's utilization — because the peaks and valleys partially cancel.
+Fifty shops across southwestern Ontario each have variable demand for specialized machining capacity. In any given month, some are over capacity and some are under. If a coordination platform can make the idle capacity visible and accessible to the shops that are overflowing, the aggregate utilization is dramatically smoother than any individual shop's utilization — because the peaks and valleys partially cancel. This is exactly the condition that [thin market theory](../thin-markets.html) describes: both sides exist, but the market between them is too sparse and opaque to clear on its own.
 
 The same pooling logic applies to every form of [shadow capacity](shadow-capacity.html) mapped in this series:
 
@@ -50,7 +50,7 @@ In every case, the arithmetic is the same. Individual firms experience lumpy, va
 
 Portfolio theory is seventy years old. Distribution centre logistics is forty. Risk pooling is as old as Lloyds of London. The mathematics of aggregation is thoroughly proven.
 
-What Ontario's manufacturing ecosystem lacks is not the theory — it is the **coordination device**. The mechanism that makes idle capacity visible. That matches overflow demand to underutilized supply. That does it confidentially, so a shop revealing idle capacity doesn't signal weakness to its competitors.
+What Ontario's manufacturing ecosystem lacks is not the theory — it is the **coordination device**. The mechanism that makes idle capacity visible. That matches overflow demand to underutilized supply. That does it confidentially, so a shop revealing idle capacity doesn't signal weakness to its competitors. In thin market terms, this is an intermediary that solves the trust, opacity, and matching problems simultaneously.
 
 The distribution centre works because a computer system tells each truck how much to load for each store on each run. The coordination platform works the same way — except the "inventory" is machine time, certification expertise, testing capacity, and specialized skills, and the "stores" are twenty-four thousand manufacturing SMEs.
 
