@@ -1,14 +1,14 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
+series: shadow-capacity
+series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
+series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
 slug: certification-bridge-thin-market
-series-position: 6
+series-position: 3
 title: "Market Scenario: The Certification Bridge"
 date: 2026-05-12
 stream: market-scenario
-tags: [thin-markets, scenario, cosolvent, ai, case-study, trade, canada]
-summary: A graphene supercapacitor startup has working technology but cannot sell a single unit without UL 9540 certification — a $400,000 barrier designed for companies a hundred times its size. A polytechnic-sponsored Cosolvent marketplace assembles a fractional certification team from across Ontario's institutional landscape.
+tags: [thin-markets, scenario, cosolvent, ai, case-study, trade, canada, shadow-capacity]
+summary: A graphene supercapacitor startup has working technology but cannot sell a single unit without UL 9540 certification — a $400,000 barrier designed for companies a hundred times its size. The expertise exists fractionally in the shadows of Ontario's institutional landscape. A polytechnic-sponsored Cosolvent marketplace assembles a fractional certification team.
 estimated-read: 12 min read
 hero-caption: A rack-mounted battery energy storage system in a certification test lab — capable, innovative, and grounded until the paperwork clears.
 ---
@@ -171,7 +171,11 @@ The SMART Centre's R&D partnership with VoltaicEdge evolves from a research coll
 
 ---
 
-## What Makes This a Thin Market Story
+## What Makes This a Shadow Capacity Story
+
+This is a story about shadow capacity — not idle machines, but idle expertise. Rajesh's twenty-two years of UL evaluation knowledge. Dr. Santos's fire testing methodology. The SMART Centre's validated PCS data. The Ontario Centre for Innovation's grant program. Every one of these capabilities existed, was funded, and was available. None of them was visible to Nadia, and none of them was connected to any other.
+
+This is what shadow capacity looks like beyond the factory floor: productive capability that is present in the ecosystem but structurally inaccessible because no coordination mechanism connects it.
 
 **Institutional fragmentation** — The capabilities Nadia needed existed across five independent organizations in four Ontario cities. No directory connected them. No coordinator assembled them. Each operated in isolation, unaware of the others' relevance to the same client need.
 
@@ -186,4 +190,4 @@ The SMART Centre's R&D partnership with VoltaicEdge evolves from a research coll
 
 ---
 
-*For more on how AI-driven coordination infrastructure addresses thin market failures, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*
+*This is part 3 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on how AI-driven coordination infrastructure addresses thin market failures, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*
