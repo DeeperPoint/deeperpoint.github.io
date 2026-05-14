@@ -3,6 +3,8 @@
 title: "Workshop Notes: The Portfolio Effect"
 date: 2026-05-13
 slug: portfolio-effect
+series: shadow-capacity
+series-position: 2
 stream: workshop-notes
 tags: [thin-markets, shadow-capacity, market-design, explainer]
 summary: "The mathematics of shadow capacity recovery is not new — it is the same pooling arithmetic that powers portfolio theory, distribution centres, and insurance. Applied to Ontario's manufacturing ecosystem, it predicts that coordination can unlock capacity that individual firms cannot access alone."
@@ -53,6 +55,8 @@ Portfolio theory is seventy years old. Distribution centre logistics is forty. R
 What Ontario's manufacturing ecosystem lacks is not the theory — it is the **coordination device**. The mechanism that makes idle capacity visible. That matches overflow demand to underutilized supply. That does it confidentially, so a shop revealing idle capacity doesn't signal weakness to its competitors. In thin market terms, this is an intermediary that solves the trust, opacity, and matching problems simultaneously.
 
 The distribution centre works because a computer system tells each truck how much to load for each store on each run. The coordination platform works the same way — except the "inventory" is machine time, certification expertise, testing capacity, and specialized skills, and the "stores" are twenty-four thousand manufacturing SMEs.
+
+With ownership and 200+ plants, Magna International can move work and talent around to fully surface the shadow capacity in those many small plants. That works for Magna at scale. The opportunity that AI offers lies in the possibility of building highly specialized and sophisticated marketplaces to do what Magna does — but among and between arms-length companies.
 
 The portfolio effect is not speculative. It is the oldest proven arithmetic in operations management. The only question is whether we can build the coordination device that lets Ontario's manufacturers access it.
 

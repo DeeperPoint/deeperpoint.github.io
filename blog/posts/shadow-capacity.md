@@ -3,6 +3,12 @@
 title: "Workshop Notes: Shadow Capacity"
 date: 2026-05-14
 slug: shadow-capacity
+series: shadow-capacity
+series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
+series-position: 1
+pinned: true
+pin-weight: 2
+series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This 18-part series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
 stream: workshop-notes
 tags: [thin-markets, market-design, ai, manufacturing, explainer]
 summary: Ontario's manufacturing ecosystem is operating at a fraction of its productive potential — not because the capabilities don't exist, but because they can't see each other. Shadow capacity is the name for everything that's there but invisible.

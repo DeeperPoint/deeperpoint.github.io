@@ -825,8 +825,18 @@ def buildIndexPage(posts, series_index):
         _, data = payload
         return bool(data.get("pinned"))
 
-    # Pinned items first, then newest-first within each group
-    items.sort(key=lambda x: (0 if _is_pinned(x[2], x[3]) else 1, -x[0].toordinal()))
+    def _pin_weight(itype, payload):
+        if itype == "post":
+            return payload.get("pin-weight", 99)
+        _, data = payload
+        return min((p.get("pin-weight", 99) for p in data["posts"]), default=99)
+
+    # Pinned items first, then by pin-weight, then newest-first within each group
+    items.sort(key=lambda x: (
+        0 if _is_pinned(x[2], x[3]) else 1,
+        _pin_weight(x[2], x[3]) if _is_pinned(x[2], x[3]) else 99,
+        -x[0].toordinal()
+    ))
     total = len(items)
 
     # Group by year, preserving sort order
