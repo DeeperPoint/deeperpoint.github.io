@@ -1,14 +1,14 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
+series: shadow-capacity
+series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
+series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
 slug: manufacturing-scenarios-testing
-series-position: 3
+series-position: 4
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
 date: 2026-03-18
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge, manufacturing, welding, testing]
-summary: "A fabrication shop needs a weld procedure test. A college lab 300 km away has certified equipment sitting idle — but neither side knows the other exists."
+tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge, manufacturing, welding, testing, shadow-capacity]
+summary: "A college metallurgy lab has a calibrated tensile testing machine sitting idle most of the week. A fabrication shop 300 km away ships test coupons to Toronto because it can't see the capacity three hours south. This is shadow capacity — not broken equipment, but invisible equipment."
 estimated-read: 12 min read
 ---
 <!-- markdownlint-disable MD033 MD001 -->
@@ -161,10 +161,16 @@ By 2:00 PM, Dave has his completed test reports and drives back to Timmins with 
 
 ---
 
-### 6. What Makes This a Thin Market Story
+### 6. What Makes This a Shadow Capacity Story
+
+Dr. Chandra's tensile testing machine depreciates at $12,000 per year whether it runs or not. It runs about three hours a day during the academic term and sometimes not at all for weeks. Dave Olynyk's welders sit idle while he waits three to five weeks for Toronto test results. The capability exists. The need exists. Neither side can see the other.
+
+This is shadow capacity in its purest form: not broken equipment, not missing expertise, but *invisible* equipment and *invisible* expertise. A $300,000 laboratory asset operating at perhaps 15% utilization, while the fabrication shops within a six-hour radius ship specimens to Toronto because no coordination mechanism surfaces the capacity that is right there.
 
 **Opacity** — No directory of available testing capacity at Ontario colleges and universities exists; these institutions have no sales infrastructure, no pricing model, and no way to manage the liability. **Geographic distance** — The market isn't thin because testing capacity doesn't exist regionally; it's thin because neither side can see what's within economical range. Sudbury is three hours from Timmins; Toronto is seven. **Trust** — The CommonContext surfaced a regulatory workaround — CWB inspector witnessing — that preserved the validity of results without a $25,000 accreditation process. **Temporal distance** — Testing needs arise unpredictably; lab capacity fluctuates with academic schedules. The platform accounts for this mismatch, surfacing available capacity when demand appears.
 
 </div>
 
-*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [The Cosolvent open protocol →](https://github.com/DeeperPoint/Cosolvent)*
+---
+
+*This is part 4 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on the structural dynamics of thin markets, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*
