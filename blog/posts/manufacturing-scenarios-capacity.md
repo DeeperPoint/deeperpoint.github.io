@@ -1,14 +1,14 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
+series: shadow-capacity
+series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
+series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
 slug: manufacturing-scenarios-capacity
 series-position: 5
 title: "Market Scenario: The Idle Shift"
 date: 2026-03-18
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, manufacturing]
-summary: "Canadian manufacturers routinely operate at 60–80% capacity utilization. Billions of dollars of capability sits idle — but no one advertises surplus capacity, and no one admits they can't fill an order."
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, manufacturing, shadow-capacity]
+summary: "Two Makino five-axis machining centres sit idle sixteen hours a day — $522,000 in carrying costs over eighteen months. Sixty kilometres away, a robotics integrator needs exactly that capacity. Neither side will say so out loud. This is shadow capacity at its most deliberately hidden."
 estimated-read: 13 min read
 ---
 <!-- markdownlint-disable MD033 MD001 -->
@@ -139,14 +139,18 @@ The engagement contract includes a **future capacity reciprocity** provision —
 
 ---
 
-### 6. What Makes This the Hardest Thin Market
+### 6. What Makes This a Shadow Capacity Story
 
-The four scenarios in Part IV form a progression. The used machinery story was about passive opacity — neither side knew the other existed. The fractional testing story was about fractured discovery — supply existed in institutions that didn't market it. The fractional skills story was about skill invisibility — talent existed but wasn't listed anywhere. The capacity exchange is structurally distinct: the market failure is **active strategic concealment**. Both sides are deliberately hiding. The platform must protect secrets, not merely reduce search friction — without confidentiality guarantees that both parties believe, this market cannot form at all.
+Priya's two idle Makinos represent $522,000 in carrying costs over eighteen months — shadow capacity that depreciates whether the spindles turn or not. Jonas's robotics contract stalls because he cannot see the five-axis capability sitting sixty kilometres away. The capacity exists. The need exists. But this is not the passive invisibility of a college lab or a hidden skill set. This is *deliberate concealment* — the most structurally difficult form of shadow capacity.
 
-**Temporal perishability** compounds the problem. Unlike used equipment under a tarp, manufacturing capacity expires every hour. An idle shift tonight is gone tomorrow.
+Both sides are actively hiding. Priya will not advertise surplus capacity because it signals declining business. Jonas will not advertise a capability gap because it undermines customer confidence. The opacity is strategic, not accidental. The platform must protect secrets, not merely reduce search friction — without confidentiality guarantees that both parties believe, this market cannot form at all.
 
-**Reciprocity as a market-thickening mechanism** is unique to this scenario. Every successful capacity exchange increases the likelihood of the next one, because both parties now have a track record and a reciprocal interest. The platform's institutional memory — tracking relationships, outcomes, and reciprocity signals — makes the market progressively thicker over time.
+**Temporal perishability** compounds the problem. Unlike used equipment under a tarp, manufacturing capacity expires every hour. An idle shift tonight is gone tomorrow — shadow capacity that is not just invisible but *perishable*.
+
+**Reciprocity as a market-thickening mechanism** is unique to this scenario. Every successful capacity exchange increases the likelihood of the next one. The platform's institutional memory — tracking relationships, outcomes, and reciprocal interest — makes the shadow gradually lighter over time.
 
 </div>
 
-*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [The Cosolvent open protocol →](https://github.com/DeeperPoint/Cosolvent)*
+---
+
+*This is part 5 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on the structural dynamics of thin markets, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*

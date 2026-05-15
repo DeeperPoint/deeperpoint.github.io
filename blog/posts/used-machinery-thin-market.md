@@ -1,14 +1,14 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
-series-position: 1
+series: shadow-capacity
+series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
+series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
+series-position: 7
 title: "Market Scenario: The Machine Under the Tarp"
 date: 2026-03-18
 slug: used-machinery-thin-market
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge]
-summary: A $140,000 CNC machining center sits under a tarp at the back of a factory in Stratford. A manufacturer in Windsor needs exactly that machine. Neither knows the other exists.
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, shadow-capacity]
+summary: "A $140,000 CNC machining centre sits under a tarp in Stratford with full CMM data proving what it can do. A manufacturer in Windsor is about to spend $350,000 on a new one. Shadow capacity trapped under polytarp because no marketplace can read a technical manual."
 estimated-read: 10 min read
 ---
 
@@ -115,23 +115,16 @@ When both parties are ready, the platform assembles the full transaction structu
 
 ---
 
-### 6. What Makes This a Thin Market Story
+### 6. What Makes This a Shadow Capacity Story
 
-**Information asymmetry** — The platform doesn't just close the information gap — it *inverts* it. A documented used machine with CMM data, maintenance records, and production evidence is more transparent than a new machine that arrives with only a specification sheet.
-**Discovery** — Frank in Stratford and Sofía in Windsor, 300 kilometres apart, had no mechanism to find each other; listing platforms match by category, not by production capability.
-**Trust** — Independent inspection and a documented communication trail build verifiable trust without requiring either party to take the other's word.
-**Deal complexity** — Rigging, freight, inspection, and service transfer require coordination neither party can provide alone; the platform assembles the full transaction from its facilitator pool.
+Frank's Variaxis has been shadow capacity for fourteen months. Not broken, not obsolete — invisible. A $340,000-new machine, worth $130,000–$150,000 with full documentation, depreciating under a polytarp because no marketplace can read its technical manual. Meanwhile, Sofía in Windsor is about to spend $350,000 on a new machine with a six-month lead time — buying promises when proof exists 300 kilometres away.
 
----
+This is the paradox of shadow capacity in used equipment: a documented machine with CMM data, maintenance records, and production evidence is actually a *more known quantity* than a new one. A new machine arrives with a specification sheet — a set of promises. Frank's arrives with proof. But that proof has zero value if no marketplace can ingest it, interpret it, and match it against a buyer's production parameters.
 
-### 7. After the Tarp Comes Off
+**Information asymmetry** — The platform doesn't just close the information gap — it *inverts* it. A documented used machine is more transparent than a new one. **Discovery** — Frank in Stratford and Sofía in Windsor, 300 kilometres apart, had no mechanism to find each other; listing platforms match by category, not by production capability. **Trust** — Independent inspection and a documented communication trail build verifiable trust without requiring either party to take the other's word. **Deal complexity** — Rigging, freight, inspection, and service transfer require coordination neither party can provide alone.
 
-Here is what changes. Frank sells his Variaxis for $138,000 — nearly the midpoint of the platform's valuation range and $98,000 more than the broker offered. The machine is decommissioned, inspected, crated, and trucked to Windsor in three days. Sofía's team has it installed and producing turbocharger housings within two weeks of arrival — three months ahead of the new-machine lead time and at 60% of the cost.
-
-The platform remembers the transaction. The matching engine now has data on what a successful equipment match looks like in this vertical — which capability parameters matter most, which inspection results predict buyer confidence, which logistics configurations work for heavy machinery moves. The next match is faster, higher-confidence, and better facilitated.
-
-And Frank's factory floor has a conspicuous openness where the tarp used to be. He's already thinking about the coordinate measuring machine in the quality lab that he hasn't used since the product consolidation. He opens the app.
+The tarp comes off. But how many more machines are still under tarps across Ontario, shadow capacity trapped by marketplace opacity?
 
 ---
 
-*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [The Cosolvent open protocol →](https://github.com/DeeperPoint/Cosolvent)*
+*This is part 7 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on the structural dynamics of thin markets, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*

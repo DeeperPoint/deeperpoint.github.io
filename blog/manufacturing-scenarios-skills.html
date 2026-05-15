@@ -6,19 +6,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Market Scenario: The Welder Who Wrote Firewalls — DeeperPoint</title>
-  <meta name="description" content="A small manufacturer needs industrial cybersecurity help. A machining shop 300 km away has a production supervisor whose previous career was in IT security.">
+  <meta name="description" content="A production supervisor at a machining shop did cybersecurity for eight years in a previous career. He has hardened his own shop's OT network and has surplus expertise sitting idle. A hydraulic cylinder manufacturer 300 km away desperately needs exactly that skill. Shadow capacity locked inside people, not machines.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Market Scenario: The Welder Who Wrote Firewalls">
-  <meta property="og:description" content="A small manufacturer needs industrial cybersecurity help. A machining shop 300 km away has a production supervisor whose previous career was in IT security.">
+  <meta property="og:description" content="A production supervisor at a machining shop did cybersecurity for eight years in a previous career. He has hardened his own shop's OT network and has surplus expertise sitting idle. A hydraulic cylinder manufacturer 300 km away desperately needs exactly that skill. Shadow capacity locked inside people, not machines.">
   <meta property="og:url" content="https://deeperpoint.com/blog/manufacturing-scenarios-skills.html">
   <meta property="og:site_name" content="DeeperPoint">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Market Scenario: The Welder Who Wrote Firewalls">
-  <meta name="twitter:description" content="A small manufacturer needs industrial cybersecurity help. A machining shop 300 km away has a production supervisor whose previous career was in IT security.">
+  <meta name="twitter:description" content="A production supervisor at a machining shop did cybersecurity for eight years in a previous career. He has hardened his own shop's OT network and has surplus expertise sitting idle. A hydraulic cylinder manufacturer 300 km away desperately needs exactly that skill. Shadow capacity locked inside people, not machines.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,6 +82,10 @@
     }
     .series-card--pinned {
       border-left-color: #f59e0b;
+      background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
+    }
+    .blog-card--pinned {
+      border-left: 3px solid #f59e0b;
       background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
     }
 
@@ -160,15 +164,15 @@
         </div>
         <h1 class="blog-post__title">Market Scenario: The Welder Who Wrote Firewalls</h1>
         <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
-          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">commoncontext</span><span class="blog-tag">marketforge</span><span class="blog-tag">manufacturing</span>
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">commoncontext</span><span class="blog-tag">marketforge</span><span class="blog-tag">manufacturing</span><span class="blog-tag">shadow-capacity</span>
         </div>
       </div>
       
       <div class="series-nav">
-        <div class="series-nav__header">Part of a 4-post series</div>
-        <div class="series-nav__title">Manufacturing Scenarios</div>
-        <div class="series-nav__steps"><a href="used-machinery-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">1</span>The Machine Under the Tarp</a><a href="ontario-roadmap-part3-pocket.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Virtual Tier-One</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">4</span>The Welder Who Wrote Firewalls</span><a href="manufacturing-scenarios-capacity.html" class="series-nav__step"><span class="series-nav__step-num">5</span>The Idle Shift</a></div>
-        <div class="series-nav__arrows"><a href="ontario-roadmap-part3-pocket.html" class="series-nav__arrow">&larr; The Virtual Tier-One</a><a href="manufacturing-scenarios-capacity.html" class="series-nav__arrow">The Idle Shift &rarr;</a></div>
+        <div class="series-nav__header">Part of a 7-post series</div>
+        <div class="series-nav__title">Recapturing Shadow Manufacturing Capacity in Ontario</div>
+        <div class="series-nav__steps"><a href="shadow-capacity.html" class="series-nav__step"><span class="series-nav__step-num">1</span>Shadow Capacity</a><a href="portfolio-effect.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Portfolio Effect</a><a href="certification-bridge-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">3</span>The Certification Bridge</a><a href="manufacturing-scenarios-testing.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Tensile Test That Almost D…</a><a href="manufacturing-scenarios-capacity.html" class="series-nav__step"><span class="series-nav__step-num">5</span>The Idle Shift</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">6</span>The Welder Who Wrote Firewalls</span><a href="used-machinery-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">7</span>The Machine Under the Tarp</a></div>
+        <div class="series-nav__arrows"><a href="manufacturing-scenarios-capacity.html" class="series-nav__arrow">&larr; The Idle Shift</a><a href="used-machinery-thin-market.html" class="series-nav__arrow">The Machine Under the Tarp &rarr;</a></div>
       </div>
       <article class="blog-post">
         <!-- markdownlint-disable MD033 MD001 -->
@@ -249,10 +253,13 @@
 <p>Over five weeks, working approximately twelve hours per week, Maxime segments the OT network, enables multifactor authentication, writes a cybersecurity policy adapted from his own, drafts an incident response plan, conducts employee training in French, and completes the Scandinavian OEM&rsquo;s self-assessment questionnaire with Nadine.</p>
 <p>Total billable hours: fifty-three. Total cost: $4,505. Time to completion: five weeks. The Montréal consulting firms quoted $25,000+ and eight to twelve weeks — and neither had CNC shop floor experience.</p>
 <hr />
-<h3 id="6-what-makes-this-a-thin-market-story">6. What Makes This a Thin Market Story</h3>
-<p><strong>Opacity</strong> — Maxime&rsquo;s cybersecurity competence is invisible to anyone outside his own shop. It doesn&rsquo;t appear on LinkedIn, in any industry directory, or on any freelance platform. Multiply this by every SMB employee in Canada who carries a specialist skill from a previous career. <strong>Discovery</strong> — No mechanism connects SMB-to-SMB fractional skill sharing; traditional directories are designed around full-time roles, not surplus capacity inside small firms. <strong>Information asymmetry</strong> — A GICSP certification tells Nadine something, but what she needs to know is: <em>has this person actually secured a CNC shop floor?</em> The platform matches demonstrated competence against specific requirements, not credential proxies. <strong>Trust</strong> — Nadine is giving Maxime access to her network infrastructure; Marc-André is lending out his production supervisor. The platform&rsquo;s engagement framework provides IP, non-compete, and liability protections without requiring either party to hire a lawyer. <strong>The taxonomy problem</strong> — SMBs need exotic skill combinations (&ldquo;cybersecurity for CNC-networked manufacturing environments&rdquo;), not generic categories. Only semantic matching can navigate these compound requirements.</p>
+<h3 id="6-what-makes-this-a-shadow-capacity-story">6. What Makes This a Shadow Capacity Story</h3>
+<p>Maxime Ouellet carries forty-plus hours of industrial cybersecurity expertise that his current employer has already used and no longer needs at full capacity. That expertise — GICSP-certified, shop-floor-tested, documented — is shadow capacity locked inside a person, not a machine. It depreciates differently from idle equipment: it stays sharp through professional maintenance but generates zero economic value for the wider ecosystem because no mechanism makes it visible.</p>
+<p>This is the human face of shadow capacity. Every SME employee who carries specialist skills from a previous career — quality management from aerospace, regulatory expertise from pharma, project controls from construction — represents latent capability that the manufacturing ecosystem cannot see or access. Multiply Maxime by every career-changer in every SME across Ontario and the scale of the waste becomes structural.</p>
+<p><strong>Opacity</strong> — Maxime&rsquo;s cybersecurity competence is invisible to anyone outside his own shop. It doesn&rsquo;t appear on LinkedIn, in any industry directory, or on any freelance platform. <strong>Discovery</strong> — No mechanism connects SMB-to-SMB fractional skill sharing; traditional directories are designed around full-time roles, not surplus capacity inside small firms. <strong>Information asymmetry</strong> — A GICSP certification tells Nadine something, but what she needs to know is: <em>has this person actually secured a CNC shop floor?</em> <strong>Trust</strong> — Nadine is giving Maxime access to her network infrastructure; Marc-André is lending out his production supervisor. The platform’s engagement framework provides IP, non-compete, and liability protections without requiring either party to hire a lawyer.</p>
 </div>
-<p><em><a href="https://deeperpoint.com/thin-markets.html">What makes a thin market tick? →</a> · <a href="https://deeperpoint.com/marketforge.html">The MarketForge platform →</a> · <a href="https://github.com/DeeperPoint/Cosolvent">The Cosolvent open protocol →</a></em></p>
+<hr />
+<p><em>This is part 6 of the series <a href="https://deeperpoint.com/blog/series/shadow-capacity.html">Recapturing Shadow Manufacturing Capacity in Ontario</a>. For more on the structural dynamics of thin markets, see <a href="https://deeperpoint.com/thin-markets.html">The Problem</a> and the <a href="https://deeperpoint.com/intervention-matrix.html">Intervention Matrix</a>.</em></p>
       </article>
     </div>
   </section>

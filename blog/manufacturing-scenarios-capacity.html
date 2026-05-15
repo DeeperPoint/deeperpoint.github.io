@@ -6,19 +6,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Market Scenario: The Idle Shift — DeeperPoint</title>
-  <meta name="description" content="Canadian manufacturers routinely operate at 60–80% capacity utilization. Billions of dollars of capability sits idle — but no one advertises surplus capacity, and no one admits they can't fill an order.">
+  <meta name="description" content="Two Makino five-axis machining centres sit idle sixteen hours a day — $522,000 in carrying costs over eighteen months. Sixty kilometres away, a robotics integrator needs exactly that capacity. Neither side will say so out loud. This is shadow capacity at its most deliberately hidden.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Market Scenario: The Idle Shift">
-  <meta property="og:description" content="Canadian manufacturers routinely operate at 60–80% capacity utilization. Billions of dollars of capability sits idle — but no one advertises surplus capacity, and no one admits they can't fill an order.">
+  <meta property="og:description" content="Two Makino five-axis machining centres sit idle sixteen hours a day — $522,000 in carrying costs over eighteen months. Sixty kilometres away, a robotics integrator needs exactly that capacity. Neither side will say so out loud. This is shadow capacity at its most deliberately hidden.">
   <meta property="og:url" content="https://deeperpoint.com/blog/manufacturing-scenarios-capacity.html">
   <meta property="og:site_name" content="DeeperPoint">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Market Scenario: The Idle Shift">
-  <meta name="twitter:description" content="Canadian manufacturers routinely operate at 60–80% capacity utilization. Billions of dollars of capability sits idle — but no one advertises surplus capacity, and no one admits they can't fill an order.">
+  <meta name="twitter:description" content="Two Makino five-axis machining centres sit idle sixteen hours a day — $522,000 in carrying costs over eighteen months. Sixty kilometres away, a robotics integrator needs exactly that capacity. Neither side will say so out loud. This is shadow capacity at its most deliberately hidden.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,6 +82,10 @@
     }
     .series-card--pinned {
       border-left-color: #f59e0b;
+      background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
+    }
+    .blog-card--pinned {
+      border-left: 3px solid #f59e0b;
       background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
     }
 
@@ -156,19 +160,19 @@
         <div class="blog-meta">
           <time datetime="2026-03-18">March 18, 2026</time>
           <span class="blog-meta__sep">&middot;</span>
-          <span>8 min read</span>
+          <span>9 min read</span>
         </div>
         <h1 class="blog-post__title">Market Scenario: The Idle Shift</h1>
         <div class="blog-meta" style="margin-bottom: var(--space-2xl);">
-          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">commoncontext</span><span class="blog-tag">marketforge</span><span class="blog-tag">manufacturing</span>
+          <span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span><span class="blog-tag">case-study</span><span class="blog-tag">scenario</span><span class="blog-tag">cosolvent</span><span class="blog-tag">commoncontext</span><span class="blog-tag">marketforge</span><span class="blog-tag">manufacturing</span><span class="blog-tag">shadow-capacity</span>
         </div>
       </div>
       
       <div class="series-nav">
-        <div class="series-nav__header">Part of a 4-post series</div>
-        <div class="series-nav__title">Manufacturing Scenarios</div>
-        <div class="series-nav__steps"><a href="used-machinery-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">1</span>The Machine Under the Tarp</a><a href="ontario-roadmap-part3-pocket.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Virtual Tier-One</a><a href="manufacturing-scenarios-skills.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Welder Who Wrote Firewalls</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">5</span>The Idle Shift</span></div>
-        <div class="series-nav__arrows"><a href="manufacturing-scenarios-skills.html" class="series-nav__arrow">&larr; The Welder Who Wrote Firewalls</a></div>
+        <div class="series-nav__header">Part of a 7-post series</div>
+        <div class="series-nav__title">Recapturing Shadow Manufacturing Capacity in Ontario</div>
+        <div class="series-nav__steps"><a href="shadow-capacity.html" class="series-nav__step"><span class="series-nav__step-num">1</span>Shadow Capacity</a><a href="portfolio-effect.html" class="series-nav__step"><span class="series-nav__step-num">2</span>The Portfolio Effect</a><a href="certification-bridge-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">3</span>The Certification Bridge</a><a href="manufacturing-scenarios-testing.html" class="series-nav__step"><span class="series-nav__step-num">4</span>The Tensile Test That Almost D…</a><span class="series-nav__step series-nav__step--current" aria-current="true"><span class="series-nav__step-num">5</span>The Idle Shift</span><a href="manufacturing-scenarios-skills.html" class="series-nav__step"><span class="series-nav__step-num">6</span>The Welder Who Wrote Firewalls</a><a href="used-machinery-thin-market.html" class="series-nav__step"><span class="series-nav__step-num">7</span>The Machine Under the Tarp</a></div>
+        <div class="series-nav__arrows"><a href="manufacturing-scenarios-testing.html" class="series-nav__arrow">&larr; The Tensile Test That Almost D…</a><a href="manufacturing-scenarios-skills.html" class="series-nav__arrow">The Welder Who Wrote Firewalls &rarr;</a></div>
       </div>
       <article class="blog-post">
         <!-- markdownlint-disable MD033 MD001 -->
@@ -249,12 +253,14 @@
 <p>The deal is not a traditional purchase order. It is closer to the soccer loan than the commodity transaction. Meridian provides forty-five hours of second-shift five-axis machining with Tomasz operating. AxionTech provides 3D models, drawings, and raw material. Total cost: approximately $11,400. Priya&rsquo;s net contribution to overhead after operator and tooling costs: $7,200 — meaningful against the machine&rsquo;s $14,500/month carrying cost. For Jonas, precision titanium machining sixty kilometres away at a fraction of a new-machine purchase makes the decision trivial.</p>
 <p>The engagement contract includes a <strong>future capacity reciprocity</strong> provision — not a binding obligation, but a registered preference. If either company needs the other&rsquo;s capability in the future, they get priority matching. Over time, the relationship evolves from anonymous counterparties into a manufacturing alliance — two complementary companies leaning on each other&rsquo;s strengths without merging, without joint ventures, without the overhead of a formal partnership.</p>
 <hr />
-<h3 id="6-what-makes-this-the-hardest-thin-market">6. What Makes This the Hardest Thin Market</h3>
-<p>The four scenarios in Part IV form a progression. The used machinery story was about passive opacity — neither side knew the other existed. The fractional testing story was about fractured discovery — supply existed in institutions that didn&rsquo;t market it. The fractional skills story was about skill invisibility — talent existed but wasn&rsquo;t listed anywhere. The capacity exchange is structurally distinct: the market failure is <strong>active strategic concealment</strong>. Both sides are deliberately hiding. The platform must protect secrets, not merely reduce search friction — without confidentiality guarantees that both parties believe, this market cannot form at all.</p>
-<p><strong>Temporal perishability</strong> compounds the problem. Unlike used equipment under a tarp, manufacturing capacity expires every hour. An idle shift tonight is gone tomorrow.</p>
-<p><strong>Reciprocity as a market-thickening mechanism</strong> is unique to this scenario. Every successful capacity exchange increases the likelihood of the next one, because both parties now have a track record and a reciprocal interest. The platform&rsquo;s institutional memory — tracking relationships, outcomes, and reciprocity signals — makes the market progressively thicker over time.</p>
+<h3 id="6-what-makes-this-a-shadow-capacity-story">6. What Makes This a Shadow Capacity Story</h3>
+<p>Priya&rsquo;s two idle Makinos represent $522,000 in carrying costs over eighteen months — shadow capacity that depreciates whether the spindles turn or not. Jonas&rsquo;s robotics contract stalls because he cannot see the five-axis capability sitting sixty kilometres away. The capacity exists. The need exists. But this is not the passive invisibility of a college lab or a hidden skill set. This is <em>deliberate concealment</em> — the most structurally difficult form of shadow capacity.</p>
+<p>Both sides are actively hiding. Priya will not advertise surplus capacity because it signals declining business. Jonas will not advertise a capability gap because it undermines customer confidence. The opacity is strategic, not accidental. The platform must protect secrets, not merely reduce search friction — without confidentiality guarantees that both parties believe, this market cannot form at all.</p>
+<p><strong>Temporal perishability</strong> compounds the problem. Unlike used equipment under a tarp, manufacturing capacity expires every hour. An idle shift tonight is gone tomorrow — shadow capacity that is not just invisible but <em>perishable</em>.</p>
+<p><strong>Reciprocity as a market-thickening mechanism</strong> is unique to this scenario. Every successful capacity exchange increases the likelihood of the next one. The platform&rsquo;s institutional memory — tracking relationships, outcomes, and reciprocal interest — makes the shadow gradually lighter over time.</p>
 </div>
-<p><em><a href="https://deeperpoint.com/thin-markets.html">What makes a thin market tick? →</a> · <a href="https://deeperpoint.com/marketforge.html">The MarketForge platform →</a> · <a href="https://github.com/DeeperPoint/Cosolvent">The Cosolvent open protocol →</a></em></p>
+<hr />
+<p><em>This is part 5 of the series <a href="https://deeperpoint.com/blog/series/shadow-capacity.html">Recapturing Shadow Manufacturing Capacity in Ontario</a>. For more on the structural dynamics of thin markets, see <a href="https://deeperpoint.com/thin-markets.html">The Problem</a> and the <a href="https://deeperpoint.com/intervention-matrix.html">Intervention Matrix</a>.</em></p>
       </article>
     </div>
   </section>

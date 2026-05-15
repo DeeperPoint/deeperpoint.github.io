@@ -1,14 +1,14 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
+series: shadow-capacity
+series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
+series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
 slug: manufacturing-scenarios-skills
-series-position: 4
+series-position: 6
 title: "Market Scenario: The Welder Who Wrote Firewalls"
 date: 2026-03-18
 stream: market-scenario
-tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, manufacturing]
-summary: "A small manufacturer needs industrial cybersecurity help. A machining shop 300 km away has a production supervisor whose previous career was in IT security."
+tags: [thin-markets, ai, market-design, case-study, scenario, cosolvent, commoncontext, marketforge, manufacturing, shadow-capacity]
+summary: "A production supervisor at a machining shop did cybersecurity for eight years in a previous career. He has hardened his own shop's OT network and has surplus expertise sitting idle. A hydraulic cylinder manufacturer 300 km away desperately needs exactly that skill. Shadow capacity locked inside people, not machines."
 estimated-read: 12 min read
 ---
 <!-- markdownlint-disable MD033 MD001 -->
@@ -132,10 +132,16 @@ Total billable hours: fifty-three. Total cost: $4,505. Time to completion: five 
 
 ---
 
-### 6. What Makes This a Thin Market Story
+### 6. What Makes This a Shadow Capacity Story
 
-**Opacity** — Maxime's cybersecurity competence is invisible to anyone outside his own shop. It doesn't appear on LinkedIn, in any industry directory, or on any freelance platform. Multiply this by every SMB employee in Canada who carries a specialist skill from a previous career. **Discovery** — No mechanism connects SMB-to-SMB fractional skill sharing; traditional directories are designed around full-time roles, not surplus capacity inside small firms. **Information asymmetry** — A GICSP certification tells Nadine something, but what she needs to know is: *has this person actually secured a CNC shop floor?* The platform matches demonstrated competence against specific requirements, not credential proxies. **Trust** — Nadine is giving Maxime access to her network infrastructure; Marc-André is lending out his production supervisor. The platform's engagement framework provides IP, non-compete, and liability protections without requiring either party to hire a lawyer. **The taxonomy problem** — SMBs need exotic skill combinations ("cybersecurity for CNC-networked manufacturing environments"), not generic categories. Only semantic matching can navigate these compound requirements.
+Maxime Ouellet carries forty-plus hours of industrial cybersecurity expertise that his current employer has already used and no longer needs at full capacity. That expertise — GICSP-certified, shop-floor-tested, documented — is shadow capacity locked inside a person, not a machine. It depreciates differently from idle equipment: it stays sharp through professional maintenance but generates zero economic value for the wider ecosystem because no mechanism makes it visible.
+
+This is the human face of shadow capacity. Every SME employee who carries specialist skills from a previous career — quality management from aerospace, regulatory expertise from pharma, project controls from construction — represents latent capability that the manufacturing ecosystem cannot see or access. Multiply Maxime by every career-changer in every SME across Ontario and the scale of the waste becomes structural.
+
+**Opacity** — Maxime's cybersecurity competence is invisible to anyone outside his own shop. It doesn't appear on LinkedIn, in any industry directory, or on any freelance platform. **Discovery** — No mechanism connects SMB-to-SMB fractional skill sharing; traditional directories are designed around full-time roles, not surplus capacity inside small firms. **Information asymmetry** — A GICSP certification tells Nadine something, but what she needs to know is: *has this person actually secured a CNC shop floor?* **Trust** — Nadine is giving Maxime access to her network infrastructure; Marc-André is lending out his production supervisor. The platform’s engagement framework provides IP, non-compete, and liability protections without requiring either party to hire a lawyer.
 
 </div>
 
-*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [The Cosolvent open protocol →](https://github.com/DeeperPoint/Cosolvent)*
+---
+
+*This is part 6 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on the structural dynamics of thin markets, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*

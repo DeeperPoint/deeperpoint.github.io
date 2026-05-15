@@ -1,14 +1,13 @@
 ---
-series: manufacturing-scenarios
-series-title: "Manufacturing Scenarios"
-series-description: "Fictional but technically grounded scenarios illustrating how independent manufacturing shops can scale coordination without being acquired or commoditized."
 slug: ontario-roadmap-part3-pocket
-series-position: 2
-title: "Market Scenario: The Virtual Tier-One"
+title: "Workshop Notes: The Virtual Tier-One"
 date: 2026-03-23
-stream: market-scenario
-tags: [thin-markets, market-design, ontario, manufacturing, ai, case-study, marketforge]
-summary: "When a massive global clean-energy contract lands on the table, no single Ontario SME is big enough to bid. Using an AI broker, a dynamic consortium forms instantly, rivaling a Hegemon tier-1 factory."
+stream: workshop-notes
+pinned: true
+pin-weight: 3
+pin-label: "&#9733; Key Concept"
+tags: [thin-markets, market-design, ontario, manufacturing, ai, case-study, marketforge, shadow-capacity, explainer]
+summary: "No single Ontario SME can bid on a global clean-energy contract. But a coordination platform can assemble an eight-node consortium in three minutes — manufacturing, testing, program management, trade compliance, export finance — that collectively delivers Tier-One capability without any firm surrendering its independence."
 estimated-read: 7 min read
 ---
 <!-- markdownlint-disable MD033 MD001 -->
@@ -84,4 +83,6 @@ A final note on Veridian Project Services. In this scenario, Veridian acts as th
 
 </div>
 
-*[What makes a thin market tick? →](https://deeperpoint.com/thin-markets.html) · [The MarketForge platform →](https://deeperpoint.com/marketforge.html) · [The Cosolvent open protocol →](https://github.com/DeeperPoint/Cosolvent)*
+---
+
+*The Virtual Tier-One is the culmination of the [Shadow Capacity](https://deeperpoint.com/blog/series/shadow-capacity.html) thesis: when scattered capabilities become visible, they can be composed into something no single firm could build alone. For more on the structural dynamics of thin markets, see [The Problem](https://deeperpoint.com/thin-markets.html), the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html), and the [MarketForge platform](https://deeperpoint.com/marketforge.html).*

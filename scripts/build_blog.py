@@ -101,6 +101,10 @@ SERIES_STYLES = """  <style>
       border-left-color: #f59e0b;
       background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
     }
+    .blog-card--pinned {
+      border-left: 3px solid #f59e0b;
+      background: linear-gradient(135deg, rgba(245,158,11,.07) 0%, rgba(99,102,241,.05) 100%);
+    }
 
     /* ---- Series nav bar (in-post) ---- */
     .series-nav {
@@ -724,30 +728,36 @@ def buildPostPage(meta, body_html, series_posts=None):
     return head + content + footer
 
 
-def buildPostCardHtml(meta, stream="other", is_featured=False):
+def buildPostCardHtml(meta, stream="other", is_featured=False, pinned=False, pin_label=None):
     """Build a standalone post card for the blog index."""
     date_str = meta["date"].strftime("%B %d, %Y")
     year = str(meta["date"].year)
     tags_html = "".join(
         f'<span class="blog-tag">{tag}</span>' for tag in meta["tags"]
     )
+    pinned_class = " blog-card--pinned" if pinned else ""
     featured_class = " blog-card--featured" if is_featured else ""
     stream_label = STREAM_LABELS.get(stream, "")
     if stream_label:
         color, bg, border = STREAM_COLORS.get(stream, STREAM_COLORS["other"])
         badge_html = (
             f'<div class="blog-stream-badge" '
-            f'style="color:{color};background:{bg};border:1px solid {border};">'
+            f'style="color:{color};background:{bg};border:1px solid {border};">' 
             f'{stream_label}</div>\n          '
         )
     else:
         badge_html = ""
+    if pinned:
+        badge_text = pin_label or "&#9733; Start Here"
+        pinned_badge_html = f'<div class="pinned-badge">{badge_text}</div>'
+    else:
+        pinned_badge_html = ""
     tags_attr = " ".join(meta.get("tags", []))
     return f"""
         <a href="{meta['slug']}.html"
-           class="blog-card card reveal{featured_class}"
+           class="blog-card card reveal{featured_class}{pinned_class}"
            data-stream="{stream}" data-year="{year}" data-tags="{tags_attr}">
-          {badge_html}<div class="blog-meta">
+          {pinned_badge_html}{badge_html}<div class="blog-meta">
             <time datetime="{meta['date'].isoformat()}">{date_str}</time>
             <span class="blog-meta__sep">&middot;</span>
             <span>{meta['reading_time']} min read</span>
@@ -860,7 +870,8 @@ def buildIndexPage(posts, series_index):
         for date, stream, itype, payload in year_groups[yr]:
             is_pinned = _is_pinned(itype, payload)
             if itype == "post":
-                grid_html += buildPostCardHtml(payload, stream=stream, is_featured=is_first)
+                pin_label = payload.get("pin-label") if is_pinned else None
+                grid_html += buildPostCardHtml(payload, stream=stream, is_featured=is_first, pinned=is_pinned, pin_label=pin_label)
             else:
                 slug, data = payload
                 pin_label = data.get("pin-label")
