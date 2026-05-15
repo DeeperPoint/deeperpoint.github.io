@@ -464,6 +464,8 @@ def buildSeriesIndex(posts):
         # Pin the series if any post in it is pinned
         if meta.get("pinned"):
             series[slug]["pinned"] = True
+            if meta.get("pin-label"):
+                series[slug]["pin-label"] = meta["pin-label"]
         series[slug]["posts"].append(meta)
 
     for slug, data in series.items():
@@ -537,7 +539,7 @@ def buildSeriesNavHtml(current_meta, series_posts):
       </div>"""
 
 
-def buildSeriesCardHtml(series_slug, series_data, pinned=False, stream="other"):
+def buildSeriesCardHtml(series_slug, series_data, pinned=False, pin_label=None, stream="other"):
     """Build the series group card for the blog index page."""
     posts = series_data["posts"]
     total = len(posts)
@@ -561,7 +563,8 @@ def buildSeriesCardHtml(series_slug, series_data, pinned=False, stream="other"):
     series_page_url = f"series/{series_slug}.html"
     date_str = series_data["date"].strftime("%B %Y")
     pinned_class = " series-card--pinned" if pinned else ""
-    pinned_badge = '<div class="pinned-badge">&#9733; Start Here</div>' if pinned else ""
+    badge_text = pin_label or "&#9733; Start Here"
+    pinned_badge = f'<div class="pinned-badge">{badge_text}</div>' if pinned else ""
 
     stream_label = STREAM_LABELS.get(stream, "")
     if stream_label:
@@ -860,7 +863,8 @@ def buildIndexPage(posts, series_index):
                 grid_html += buildPostCardHtml(payload, stream=stream, is_featured=is_first)
             else:
                 slug, data = payload
-                grid_html += buildSeriesCardHtml(slug, data, pinned=is_pinned, stream=stream)
+                pin_label = data.get("pin-label")
+                grid_html += buildSeriesCardHtml(slug, data, pinned=is_pinned, pin_label=pin_label, stream=stream)
             is_first = False
 
     # Stream tab counts

@@ -8,6 +8,7 @@ series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
 series-position: 1
 pinned: true
 pin-weight: 2
+pin-label: "&#9733; Featured Series"
 series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This 18-part series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
 stream: workshop-notes
 tags: [thin-markets, market-design, ai, manufacturing, explainer]
