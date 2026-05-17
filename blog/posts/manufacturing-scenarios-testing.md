@@ -20,7 +20,7 @@ estimated-read: 12 min read
   <figcaption>A tensile testing machine at a community college metallurgy lab — capable, certified, and idle most of the week.</figcaption>
 </figure>
 
-*Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of AI-brokered consortium assembly. The characters, companies, and events are invented. The market forces, the capability gaps, and the platform architecture are real.*
+*Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of AI-brokered consortium assembly. The characters, companies, and events are invented. The market forces, the capability gaps, and the platform architecture are grounded in practice.*
 
 ---
 
@@ -76,7 +76,7 @@ This is the trust problem layered onto the opacity problem. Even when the partie
 
 ### What the Platform Changes
 
-Now imagine that the **Ontario Manufacturing Coalition** — a consortium of the Ontario College of Trades, the Ontario chapter of the Canadian Welding Bureau, and the Council of Ontario Universities — has deployed a materials testing marketplace on MarketForge infrastructure, populated with sponsor-curated domain knowledge and designed to solve exactly this class of coordination failure. *The specific characters and events are fictional, but the testing requirements, accreditation frameworks, and geographic realities of rural manufacturing in northern Ontario are real.*
+Now imagine that the **Ontario Manufacturing Coalition** — a consortium of the Ontario College of Trades, the Ontario chapter of the Canadian Welding Bureau, and the Council of Ontario Universities — has deployed a materials testing marketplace on MarketForge infrastructure, populated with sponsor-curated domain knowledge and designed to solve exactly this class of coordination failure. *The specific characters and events are fictional, but the testing requirements, accreditation frameworks, and geographic realities of rural manufacturing in northern Ontario are grounded in practice.*
 
 ---
 

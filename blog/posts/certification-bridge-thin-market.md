@@ -20,7 +20,7 @@ hero-caption: A rack-mounted battery energy storage system in a certification te
 
 ## The Battery That Couldn't Ship
 
-*Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of certification and compliance coordination in a thin market. The characters and companies are invented; the specific company name "VoltaicEdge" is fictional. The certification requirements, institutional landscape, and coordination failures are real.*
+*Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of certification and compliance coordination in a thin market. The characters and companies are invented; the specific company name "VoltaicEdge" is fictional. The certification requirements, institutional landscape, and coordination failures are grounded in practice.*
 
 ---
 

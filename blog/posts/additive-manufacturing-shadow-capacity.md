@@ -19,7 +19,7 @@ series-position: 5
 
 ## The Machine Between Shifts
 
-*Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of AI-assisted thin market coordination. The characters, companies, and events are invented. The technical specifications, certification frameworks, process parameters, and market dynamics are real.*
+*Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of AI-assisted thin market coordination. The characters, companies, and events are invented. The technical specifications, certification frameworks, process parameters, and market dynamics are grounded in practice.*
 
 ---
 
@@ -75,7 +75,7 @@ Unless something intervenes.
 
 ### What the Platform Changes
 
-Now imagine that **Canada Makes** — the national additive manufacturing initiative operated under Canadian Manufacturers & Exporters, with co-investment from NGen (Next Generation Manufacturing Canada) — has deployed a capacity coordination platform built on MarketForge infrastructure, populated with curated domain knowledge specific to the Canadian AM ecosystem, and designed to surface exactly this class of invisible capability. *The specific characters and events are fictional, but the certification frameworks, process requirements, and market geography are real.*
+Now imagine that **Canada Makes** — the national additive manufacturing initiative operated under Canadian Manufacturers & Exporters, with co-investment from NGen (Next Generation Manufacturing Canada) — has deployed a capacity coordination platform built on MarketForge infrastructure, populated with curated domain knowledge specific to the Canadian AM ecosystem, and designed to surface exactly this class of invisible capability. *The specific characters and events are fictional, but the certification frameworks, process requirements, and market geography are grounded in practice.*
 
 ---
 
