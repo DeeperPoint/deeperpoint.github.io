@@ -1,24 +1,19 @@
+<!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 ---
-series: shadow-capacity
-series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
-series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
-slug: manufacturing-scenarios-testing
-series-position: 4
 title: "Market Scenario: The Tensile Test That Almost Didn't Happen"
-date: 2026-03-18
+date: 2026-05-16
 stream: market-scenario
 tags: [thin-markets, ai, market-design, case-study, cosolvent, commoncontext, marketforge, manufacturing, welding, testing, shadow-capacity]
 summary: "A college metallurgy lab has a calibrated tensile testing machine sitting idle most of the week. A fabrication shop 300 km away ships test coupons to Toronto because it can't see the capacity three hours south. This is shadow capacity — not broken equipment, but invisible equipment."
 estimated-read: 12 min read
+hero-image: images/blog/fractional-testing-thin-market-hero.png
+hero-caption: A tensile testing machine at a community college metallurgy lab — capable, certified, and idle most of the week.
+slug: manufacturing-scenarios-testing
+series: shadow-capacity
+series-position: 4
 ---
-<!-- markdownlint-disable MD033 MD001 -->
 
-<div class="scenario-story" markdown="1">
-
-<figure class="blog-hero">
-  <img class="blog-hero__img" src="../images/blog/fractional-testing-thin-market-hero.png" alt="A tensile testing machine at a community college metallurgy lab — capable, certified, and idle most of the week" loading="lazy">
-  <figcaption>A tensile testing machine at a community college metallurgy lab — capable, certified, and idle most of the week.</figcaption>
-</figure>
+## The Tensile Test That Almost Didn't Happen
 
 *Disclaimer: This is a fictional market scenario designed to illustrate the structural dynamics of AI-brokered consortium assembly. The characters, companies, and events are invented. The market forces, the capability gaps, and the platform architecture are grounded in practice.*
 
@@ -100,6 +95,14 @@ The platform's AI extracts the structured requirements from this natural-languag
 
 Dave also shares, in a private matching layer, his budget ceiling ($1,200 — lower than Toronto commercial rates, but he's hoping the shorter supply chain compensates), his willingness to drive the coupons to a lab within a six-hour radius rather than shipping, and his preference for a lab that can also provide metallographic examination if the bend tests show anything borderline.
 
+The platform's intake AI sends one follow-up before closing his listing:
+
+> *"You've specified results within 14 days. Can you clarify: is that 14 days from today (including shipping time if needed), or 14 days from when coupons arrive at the lab? And is there flexibility if a lab can complete the testing in 5 days but needs 2 days of advance scheduling?"*
+
+Dave types back: *"14 days from today, door to door. And yes, 2 days advance scheduling is fine — I just can't wait for Toronto queues."*
+
+The platform logs the clarification. The timeline constraint is tight enough that it will filter out labs with more than 3 business days of current backlog — a detail that changes which facilities appear in the match results.
+
 ---
 
 ### 2. Anil's Profile
@@ -118,9 +121,13 @@ Dr. Chandra registered his laboratory on the platform three months ago, at the s
 
 Anil also uploaded his lab's most recent calibration certificates, his own CV (Ph.D. in Materials Engineering, 18 years of welding metallurgy experience, CWI-certified), and a sample test report from his lab — the format he uses for internal academic work.
 
-The platform noted the accreditation gap and flagged it — not as a disqualification, but as a condition that must be addressed before the match is made. The CommonContext surfaces: *"For CWB-submitted PQRs, the testing laboratory must be either ISO/IEC 17025 accredited or operating under the supervision of a P.Eng. with demonstrated competence in the test methods. Alternative: the test results can be witnessed and countersigned by a CWB-certified welding inspector."*
+The platform noted the accreditation gap and flagged it — not as a disqualification, but as a condition that required a Loop 2 query. The matching engine had identified a strong candidate — capable equipment, correct standards competence, tight turnaround — but hit a gap the CommonContext needed to resolve: *what does CWB accept as an alternative to ISO/IEC 17025 accreditation for PQR witness testing?*
 
-This is information that Anil didn't know. It changes his position: if Dave Olynyk (who is a CWB-certified welding inspector) witnesses the testing in person, the results are acceptable for PQR submission — no ISO 17025 accreditation required. Dave driving three hours south to Sudbury to witness a day's testing is dramatically different from Dave shipping coupons to Toronto and waiting three weeks.
+The system queried the CommonContext knowledge base. The curator had already populated the relevant CWB provision:
+
+> *"For CWB-submitted PQRs, the testing laboratory must be either ISO/IEC 17025 accredited or operating under the supervision of a P.Eng. with demonstrated competence in the test methods. Alternative: the test results can be witnessed and countersigned by a CWB-certified welding inspector."*
+
+This is information that Anil didn't know applied to his situation. It changes his position entirely: if Dave Olynyk — who is a CWB-certified welding inspector — witnesses the testing in person, the results are acceptable for PQR submission. No ISO 17025 accreditation required. Dave driving three hours south to Sudbury to witness a day's testing is dramatically different from Dave shipping coupons to Toronto and waiting three weeks.
 
 ---
 
@@ -168,8 +175,6 @@ Dr. Chandra's tensile testing machine depreciates at $12,000 per year whether it
 This is shadow capacity in its purest form: not broken equipment, not missing expertise, but *invisible* equipment and *invisible* expertise. A $300,000 laboratory asset operating at perhaps 15% utilization, while the fabrication shops within a six-hour radius ship specimens to Toronto because no coordination mechanism surfaces the capacity that is right there.
 
 **Opacity** — No directory of available testing capacity at Ontario colleges and universities exists; these institutions have no sales infrastructure, no pricing model, and no way to manage the liability. **Geographic distance** — The market isn't thin because testing capacity doesn't exist regionally; it's thin because neither side can see what's within economical range. Sudbury is three hours from Timmins; Toronto is seven. **Trust** — The CommonContext surfaced a regulatory workaround — CWB inspector witnessing — that preserved the validity of results without a $25,000 accreditation process. **Temporal distance** — Testing needs arise unpredictably; lab capacity fluctuates with academic schedules. The platform accounts for this mismatch, surfacing available capacity when demand appears.
-
-</div>
 
 ---
 
