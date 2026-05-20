@@ -8,7 +8,6 @@ stream: engineers-log
 tags: [thin-markets, market-design, ai, cosolvent]
 summary: "An in-depth evaluation of the DeeperPoint thesis using Claude Opus 4.6, exploring the system-level impact of the Intervention Matrix on transaction cost economics."
 estimated-read: 15 min read
-unlisted: true
 ---
 
 **Author:** Mustafa Uzumeri  
