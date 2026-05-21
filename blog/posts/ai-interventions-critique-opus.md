@@ -10,6 +10,10 @@ summary: "An in-depth evaluation of the DeeperPoint thesis using Claude Opus 4.6
 estimated-read: 15 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/ai-interventions-critique-opus-hero.png" alt="AI vs. 80 Years of Nobel Economics" loading="lazy">
+</figure>
+
 **Author:** Mustafa Uzumeri  
 **Date:** May 19, 2026  
 **Evaluation Model:** Claude Opus 4.6  
