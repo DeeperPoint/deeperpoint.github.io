@@ -1,7 +1,7 @@
 <!--Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.-->
 
 ---
-title: "Can AI Dissolve the Hard Tradeoffs of Market Economics? A Critical Evaluation of the DeeperPoint Thesis"
+title: "AI vs. 80 Years of Nobel Economics"
 slug: ai-interventions-critique-opus
 date: 2026-05-19
 stream: engineers-log
