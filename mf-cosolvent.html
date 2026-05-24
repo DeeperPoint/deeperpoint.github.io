@@ -217,6 +217,80 @@
                     </div>
                 </details>
 
+                <!-- AI Risk Insulation & Dynamic Contracts -->
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">AI Risk Insulation &amp; Dynamic Contracts</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1rem;">
+                            The <strong>AI Risk Insulation</strong> module of the Cosolvent engine addresses externally imposed market uncertainty (EMU). By acting as a secure oracle, it ingests real-time macro-economic feeds—such as central bank daily exchange rates, tariff registries, corridor shipping logs, and commodity price indexes—to programmatically write, negotiate, and execute <strong>Dynamic Contingent Contracts</strong>.
+                        </p>
+                        <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+                            This directly neutralizes the <em>Option Value of Delay</em> in volatile macro environments by adapting transaction terms, currency splits, and compliance escapes within automated escrow locks.
+                        </p>
+
+                        <h4 style="color: #fff; font-family: var(--font-display); margin-bottom: 0.5rem; font-size: 1rem;">Programmatic JSON Contract Schema</h4>
+                        <p style="color: var(--dp-muted); font-size: 0.8125rem; margin-bottom: 0.75rem;">
+                            Below is an example of a serialized Dynamic Contingent Contract managed by the Cosolvent engine, establishing a currency collar, tariff threshold split, and regulatory compliance escape trigger.
+                        </p>
+                        <pre style="background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.8125rem; color: #a78bfa; overflow-x: auto; line-height: 1.5; margin-bottom: 1.5rem;">{
+  "contract_id": "dcc_8f3a9d2c_412e",
+  "principals": {
+    "buyer": "buyer_firm_109",
+    "seller": "seller_firm_304"
+  },
+  "financials": {
+    "base_amount": 125000.00,
+    "currency": "USD",
+    "settlement_type": "prog_escrow"
+  },
+  "ai_risk_insulation": {
+    "currency_collar": {
+      "reference_pair": "CAD_USD",
+      "oracle_source": "central_bank_feed",
+      "base_rate": 0.7350,
+      "lower_floor": 0.7100,
+      "upper_ceiling": 0.7600,
+      "contingency": {
+        "action": "adjust_pro_rata",
+        "formula": "price * (current_rate / base_rate)"
+      }
+    },
+    "tariff_indexation": {
+      "commodity_code": "1001.99.00",
+      "transit_corridor": "CA_US_border_windsor",
+      "base_tariff_pct": 0.05,
+      "max_tariff_cap": 0.15,
+      "escalation_contingency": {
+        "split_ratio": { "buyer": 0.5, "seller": 0.5 },
+        "action": "terminate_with_full_refund_above_cap"
+      }
+    },
+    "regulatory_escape": {
+      "required_registries": [
+        "fda_import_compliance",
+        "cfia_export_certification"
+      ],
+      "check_frequency_seconds": 3600,
+      "contingency": {
+        "trigger_on_revocation": true,
+        "action": "automatic_force_majeure_refund",
+        "escrow_resolution": "return_to_buyer"
+      }
+    }
+  }
+}</pre>
+
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Oracle Feed Ingestion Pipeline</td><td style="padding: 0.5rem;">Native integrations for swallowing official central bank daily FX rates and tariff lookup APIs.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Currency Collar Structuring</td><td style="padding: 0.5rem;">Defines dynamic adjustment ranges to cushion buyer/seller margins from unexpected intraday or multi-day FX drops.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Programmatic Escrow Locks</td><td style="padding: 0.5rem;">Binds settlement funds in automated multi-sig escrows that auto-release or auto-refund based on compliance oracle status.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Tariff Cost-Splitting Engine</td><td style="padding: 0.5rem;">Apportion border cost increases fairly between transacting parties based on real-time customs database queries.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Force Majeure Auto-Triggers</td><td style="padding: 0.5rem;">Automatically terminates pending deals and refunds escrows if crucial regulatory certificates are revoked mid-transit.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+
                 <!-- Communication -->
                 <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
                     <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-blue-light); font-size: 1.1rem;">Communication</summary>

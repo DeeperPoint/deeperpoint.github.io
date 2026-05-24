@@ -91,42 +91,61 @@
             <!-- Why Markets Stay Thin -->
             <div class="reveal"
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
-                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Why Markets Stay Thin
-                </h2>
-                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1.5rem; color: #fff;">Operational Definition of Thinness</h2>
+                <p style="margin-bottom: 2rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
                     Traditional economics often assumed that markets work "magically" when supply meets demand. But
-                    a century of research — from Coase and Williamson on transaction costs, to Akerlof on information
-                    asymmetry, to Roth on market design — has established that real-world markets have friction. The
-                    DeeperPoint framework builds on this foundation, identifying specific forces that prevent thickness:
+                    real-world markets have friction. Our upgraded framework redefines thinness not by counting participants, but by measuring the accumulated frictions that block deals.
                 </p>
+
+                <!-- High-Fidelity Glassmorphic Visual Cards -->
+                <div style="display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: 2.5rem;">
+                    <!-- Green Card: Sparsity is Not the Issue -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.75rem; line-height: 1; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));">🟢</div>
+                        <div>
+                            <h4 style="color: var(--dp-emerald); margin-bottom: 0.25rem; font-size: 1.0625rem;">Sparsity is a Symptom, Not the Cause</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">A lack of potential counterparties does not make a market thin. If transacting friction is near-zero, even a tiny pool of participants can clear deals seamlessly and achieve <strong style="color: #fff;">Bespoke Thickness</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Red Card: Frictions Block Intent -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.75rem; line-height: 1; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.3));">🔴</div>
+                        <div>
+                            <h4 style="color: #f87171; margin-bottom: 0.25rem; font-size: 1.0625rem;">Friction is the Core Blockage</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">A market is thin when relationship-level frictions ($F_{endo}$, like trust deficits or opacity) and macro-environmental uncertainty ($F_{exo}$/EMU, like tariff or currency volatility) accumulate to block matching and freeze deal intent.</p>
+                        </div>
+                    </div>
+
+                    <!-- Blue Card: The Operational Statement -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.25); align-items: flex-start;">
+                        <div style="font-size: 1.75rem; line-height: 1; filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));">🔵</div>
+                        <div>
+                            <h4 style="color: var(--dp-blue-light); margin-bottom: 0.25rem; font-size: 1.0625rem;">The Market Engineer's Core Thesis</h4>
+                            <p style="color: var(--dp-white); font-size: 0.9375rem; line-height: 1.6; margin: 0;">The goal of a market designer is not to recruit headcount or spend on marketing. The mission is to **dissolve relationship frictions** through AI tools and **insulate transactions** from macro uncertainty.</p>
+                        </div>
+                    </div>
+                </div>
 
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-md);">
                     <div
                         style="padding: 1rem; border-radius: var(--radius-md); background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.15);">
                         <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🛡️</div>
-                        <h4 style="color: var(--dp-violet); margin-bottom: 0.25rem; font-size: 0.9375rem;">Existential
-                            Threats</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Risk, trust deficits, and regulatory
-                            fragmentation can prevent a market from forming <em>at all</em>.</p>
+                        <h4 style="color: var(--dp-violet); margin-bottom: 0.25rem; font-size: 0.9375rem;">Existential Threats</h4>
+                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Frictions like risk and trust deficits that prevent a market from forming <em>at all</em> without platform mediation.</p>
                     </div>
                     <div
                         style="padding: 1rem; border-radius: var(--radius-md); background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.15);">
                         <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">⚡</div>
-                        <h4 style="color: var(--dp-cyan); margin-bottom: 0.25rem; font-size: 0.9375rem;">Resistance
-                            Forces</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Opacity, offering complexity, geographic
-                            and temporal distance, cognitive overload, and fulfillment constraints make transactions
-                            harder.</p>
+                        <h4 style="color: var(--dp-cyan); margin-bottom: 0.25rem; font-size: 0.9375rem;">Resistance Forces</h4>
+                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Opacity, offering complexity, geographic and temporal distance, cognitive overload, and fulfillment constraints.</p>
                     </div>
                     <div
-                        style="padding: 1rem; border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.15);">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🥚</div>
-                        <h4 style="color: var(--dp-emerald); margin-bottom: 0.25rem; font-size: 0.9375rem;">Cold Start
-                        </h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">You need buyers to attract sellers and
-                            sellers to attract buyers — simultaneously. In thin markets, this chicken-and-egg problem is
-                            especially severe.</p>
+                        style="padding: 1rem; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.15);">
+                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🌍</div>
+                        <h4 style="color: var(--dp-amber); margin-bottom: 0.25rem; font-size: 0.9375rem;">Exogenous EMU Frictions</h4>
+                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Externally-Imposed Market Uncertainty (Geopolitical tariffs, regulatory updates, currency shifts, tech obsolescence).</p>
                     </div>
                 </div>
             </div>
@@ -217,6 +236,189 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Interactive Quadrant Model Widget -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem; color: #fff;">Interactive Quadrant Model</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6;">
+                    Drag the sliders below to adjust <strong>Participant Density ($P$)</strong> and <strong>Friction Density ($F$)</strong>. Watch how the market's classification shifts in real-time between the four quadrants of the DeeperPoint framework.
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; flex-wrap: wrap; margin-bottom: var(--space-md);">
+                    <!-- Controls -->
+                    <div style="display: flex; flex-direction: column; gap: var(--space-lg); width: 100%;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9375rem;">
+                                <span style="color: #fff; font-weight: 500;">Participant Density ($P$)</span>
+                                <span id="val-p" style="color: var(--dp-cyan); font-weight: 600; font-family: var(--font-mono);">30%</span>
+                            </div>
+                            <input type="range" id="slider-p" min="0" max="100" value="30" style="width: 100%; cursor: pointer; accent-color: var(--dp-cyan);">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--dp-muted); margin-top: 0.25rem;">
+                                <span>Sparse / Low Headcount</span>
+                                <span>Dense / High Headcount</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9375rem;">
+                                <span style="color: #fff; font-weight: 500;">Friction Density ($F$)</span>
+                                <span id="val-f" style="color: var(--dp-violet); font-weight: 600; font-family: var(--font-mono);">70%</span>
+                            </div>
+                            <input type="range" id="slider-f" min="0" max="100" value="70" style="width: 100%; cursor: pointer; accent-color: var(--dp-violet);">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--dp-muted); margin-top: 0.25rem;">
+                                <span>Near-Zero / Frictionless</span>
+                                <span>Hyper-Dense Frictions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagram Plot -->
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                        <div id="quad-box" style="position: relative; width: 260px; height: 260px; border: 2px solid var(--glass-border); border-radius: var(--radius-md); background: rgba(0,0,0,0.25); overflow: hidden;">
+                            <!-- Quadrant Grid Borders -->
+                            <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.15);"></div>
+                            <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.15);"></div>
+
+                            <!-- Quadrant Labels -->
+                            <!-- Q3: Existential Thin (Top-Left) -->
+                            <div id="label-q3" style="position: absolute; left: 8px; top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); transition: color 0.2s;">Q3: Existential Thin</div>
+                            <!-- Q4: Latent Thin (Top-Right) -->
+                            <div id="label-q4" style="position: absolute; right: 8px; top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); text-align: right; transition: color 0.2s;">Q4: Latent Thin</div>
+                            <!-- Q1: Bespoke Thick (Bottom-Left) -->
+                            <div id="label-q1" style="position: absolute; left: 8px; bottom: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); transition: color 0.2s;">Q1: Bespoke Thick</div>
+                            <!-- Q2: Liquid Thick (Bottom-Right) -->
+                            <div id="label-q2" style="position: absolute; right: 8px; bottom: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); text-align: right; transition: color 0.2s;">Q2: Liquid Thick</div>
+
+                            <!-- Coordinates labels on edges -->
+                            <div style="position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); font-size: 0.625rem; color: var(--dp-muted);">P (Density) →</div>
+                            <div style="position: absolute; left: 2px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 0.625rem; color: var(--dp-muted); transform-origin: left center;">← F (Friction)</div>
+
+                            <!-- Plotting Dot -->
+                            <div id="plot-dot" style="position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--dp-blue-light); border: 2px solid #fff; box-shadow: 0 0 12px var(--dp-blue); transform: translate(-50%, 50%); transition: left 0.1s ease-out, bottom 0.1s ease-out; left: 30%; bottom: 30%; z-index: 10;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnosis Output Card -->
+                <div id="quad-diag-card" style="padding: var(--space-lg); border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); transition: border-color 0.3s, background 0.3s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <h4 id="diag-title" style="color: #fff; font-size: 1.125rem; font-family: var(--font-display); margin: 0;">Evaluating Market...</h4>
+                        <span id="diag-badge" style="padding: 0.125rem 0.5rem; border-radius: 100px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Quadrant</span>
+                    </div>
+                    <p id="diag-desc" style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">Drag sliders to calculate...</p>
+                    <div style="border-top: 1px solid var(--glass-border); padding-top: 0.75rem;">
+                        <span style="font-size: 0.75rem; color: var(--dp-muted); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">Recommended Engineering Action</span>
+                        <p id="diag-rec" style="color: var(--dp-white); font-weight: 500; font-size: 0.9375rem; margin: 0;">...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quadrant Widget Styles & Logic -->
+            <style>
+                #quad-box div.active {
+                    color: #fff !important;
+                    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+                }
+                .badge-q1 { background: rgba(16, 185, 129, 0.15); color: var(--dp-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+                .badge-q2 { background: rgba(6, 182, 212, 0.15); color: var(--dp-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+                .badge-q3 { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+                .badge-q4 { background: rgba(245, 158, 11, 0.15); color: var(--dp-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+            </style>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const sliderP = document.getElementById('slider-p');
+                    const sliderF = document.getElementById('slider-f');
+                    const valP = document.getElementById('val-p');
+                    const valF = document.getElementById('val-f');
+                    const plotDot = document.getElementById('plot-dot');
+                    const quadCard = document.getElementById('quad-diag-card');
+                    
+                    const labels = {
+                        q1: document.getElementById('label-q1'),
+                        q2: document.getElementById('label-q2'),
+                        q3: document.getElementById('label-q3'),
+                        q4: document.getElementById('label-q4')
+                    };
+                    
+                    const diagTitle = document.getElementById('diag-title');
+                    const diagBadge = document.getElementById('diag-badge');
+                    const diagDesc = document.getElementById('diag-desc');
+                    const diagRec = document.getElementById('diag-rec');
+
+                    function updatePlot() {
+                        const p = parseInt(sliderP.value, 10);
+                        const f = parseInt(sliderF.value, 10);
+                        
+                        valP.textContent = p + '%';
+                        valF.textContent = f + '%';
+                        
+                        // Positioning dot (coordinates mapping)
+                        // Left aligns to P%
+                        // Bottom aligns to (100 - F)% (so F=100 is at the top)
+                        plotDot.style.left = p + '%';
+                        plotDot.style.bottom = (100 - f) + '%';
+                        
+                        // Determine active quadrant
+                        let activeQuad = '';
+                        if (p < 50 && f >= 50) activeQuad = 'q3'; // Low P, High F
+                        else if (p >= 50 && f >= 50) activeQuad = 'q4'; // High P, High F
+                        else if (p < 50 && f < 50) activeQuad = 'q1'; // Low P, Low F
+                        else activeQuad = 'q2'; // High P, Low F
+                        
+                        // Update grid labels highlighting
+                        Object.keys(labels).forEach(k => {
+                            if (k === activeQuad) labels[k].classList.add('active');
+                            else labels[k].classList.remove('active');
+                        });
+                        
+                        // Diagnostic summaries
+                        if (activeQuad === 'q2') {
+                            // Liquid Thick
+                            diagTitle.textContent = "Liquid Thick Market (Quadrant 2)";
+                            diagBadge.className = "badge-q2";
+                            diagBadge.textContent = "Quadrant 2";
+                            diagDesc.textContent = "A highly liquid, frictionless, and crowded marketplace (e.g. public equities, mass consumer commodities). Clearing speeds are near-instant, information asymmetry is low, and prices are fully transparent. Standard databases and conventional platforms work perfectly.";
+                            diagRec.textContent = "No heavy market engineering required. Standard SaaS platforms and payment checkouts suffice.";
+                            quadCard.style.borderColor = "rgba(6, 182, 212, 0.2)";
+                            quadCard.style.background = "rgba(6, 182, 212, 0.02)";
+                        } else if (activeQuad === 'q1') {
+                            // Bespoke Thick
+                            diagTitle.textContent = "Bespoke Thick Market (Quadrant 1)";
+                            diagBadge.className = "badge-q1";
+                            diagBadge.textContent = "Quadrant 1";
+                            diagDesc.textContent = "A market with a sparse participant pool (few buyers/sellers) but extremely low transaction friction (e.g. specialty collectors, bespoke partners). Deals take time to formulate simply because of participant sparsity, but they clear successfully without complex matching.";
+                            diagRec.textContent = "Utilize simple directory listings, search indexes, or notification feeds to signal counterparty availability.";
+                            quadCard.style.borderColor = "rgba(16, 185, 129, 0.2)";
+                            quadCard.style.background = "rgba(16, 185, 129, 0.02)";
+                        } else if (activeQuad === 'q4') {
+                            // Latent Thin
+                            diagTitle.textContent = "Latent Thin Market (Quadrant 4)";
+                            diagBadge.className = "badge-q4";
+                            diagBadge.textContent = "Quadrant 4";
+                            diagDesc.textContent = "A massive, dense pool of potential transactors, but exchange is heavily blocked by high relationship-level frictions (e.g. specialized B2B talent procurement, custom component fabricators). Information opacity and high offering complexity create destructive search paralyzing the participants.";
+                            diagRec.textContent = "Deploy AI Semantic Matching to bridge offering complexity and AI Trusted Intermediary models to overcome strategic information withholding.";
+                            quadCard.style.borderColor = "rgba(245, 158, 11, 0.2)";
+                            quadCard.style.background = "rgba(245, 158, 11, 0.02)";
+                        } else {
+                            // Existential Thin
+                            diagTitle.textContent = "Existential Thin Market (Quadrant 3)";
+                            diagBadge.className = "badge-q3";
+                            diagBadge.textContent = "Quadrant 3";
+                            diagDesc.textContent = "The most hostile market environment. Participant density is sparse, relationship frictions are elevated, and the market is highly exposed to exogenous environmental volatility (tariffs, compliance velocity, macro margins risk). Transaction intent is paralyzed by the Option Value of Delay.";
+                            diagRec.textContent = "Deploy the full Cosolvent stack: AI matching/intermediaries to dissolve relationship-level barriers, AND AI Risk Insulation to hedge macro volatility and write dynamic contingent contracts.";
+                            quadCard.style.borderColor = "rgba(239, 68, 68, 0.2)";
+                            quadCard.style.background = "rgba(239, 68, 68, 0.02)";
+                        }
+                    }
+
+                    sliderP.addEventListener('input', updatePlot);
+                    sliderF.addEventListener('input', updatePlot);
+                    
+                    // Run initial state
+                    updatePlot();
+                });
+            </script>
 
             <!-- DeeperPoint's Approach -->
             <div class="reveal"

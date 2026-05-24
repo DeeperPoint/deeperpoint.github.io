@@ -537,6 +537,16 @@
               <td class="r" data-cell="clear-reg">Requires approval</td>
               <td class="l" data-cell="inst-reg">Lowers (shared compliance)</td>
             </tr>
+            <tr>
+              <td class="ch-cell" data-def="emu">Externally-Imposed Market Uncertainty (EMU)</td>
+              <td class="v" data-cell="std-emu">Lowers (compliance)</td>
+              <td class="v" data-cell="broker-emu">Navigates</td>
+              <td class="n" data-cell="maker-emu">Neutral</td>
+              <td class="l" data-cell="fut-emu">Lowers (price hedging)</td>
+              <td class="n" data-cell="geo-emu">Neutral</td>
+              <td class="n" data-cell="clear-emu">Neutral</td>
+              <td class="v" data-cell="inst-emu">Partially</td>
+            </tr>
             <tr class="grp">
               <td colspan="8" data-def="resistance">Resistance Challenges</td>
             </tr>
@@ -640,11 +650,12 @@
               <th data-def="ai-input">AI Input Translation<span class="hint">click for definition</span></th>
               <th data-def="ai-memory">AI Memory<span class="hint">click for definition</span></th>
               <th data-def="ai-agg">AI-Enabled Aggregation<span class="hint">click for definition</span></th>
+              <th data-def="ai-risk">AI Risk Insulation<span class="hint">click for definition</span></th>
             </tr>
           </thead>
           <tbody>
             <tr class="grp">
-              <td colspan="6" data-def="existential">Existential Challenges</td>
+              <td colspan="7" data-def="existential">Existential Challenges</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="risk">Risk</td>
@@ -653,6 +664,7 @@
               <td class="n" data-cell="input-risk">Neutral</td>
               <td class="l" data-cell="mem-risk">Reduces (track record)</td>
               <td class="l" data-cell="agg-risk">Reduces (shared data)</td>
+              <td class="s" data-cell="risk-risk">Reduces (dynamic hedging)</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="trust">Trust</td>
@@ -661,6 +673,7 @@
               <td class="n" data-cell="input-trust">Neutral</td>
               <td class="s" data-cell="mem-trust">Increases (evidence-based)</td>
               <td class="s" data-cell="agg-trust">Increases (strength in numbers)</td>
+              <td class="v" data-cell="risk-trust">Supporting</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="regulatory">Regulatory Friction</td>
@@ -669,9 +682,19 @@
               <td class="v" data-cell="input-reg">Can translate compliance</td>
               <td class="v" data-cell="mem-reg">Tracks compliance history</td>
               <td class="l" data-cell="agg-reg">Lowers (shared compliance)</td>
+              <td class="s" data-cell="risk-reg">Reduces (escape clauses)</td>
+            </tr>
+            <tr>
+              <td class="ch-cell" data-def="emu">Externally-Imposed Market Uncertainty (EMU)</td>
+              <td class="v" data-cell="match-emu">Lowers (routing)</td>
+              <td class="n" data-cell="interm-emu">Neutral</td>
+              <td class="n" data-cell="input-emu">Neutral</td>
+              <td class="v" data-cell="mem-emu">Supporting</td>
+              <td class="v" data-cell="agg-emu">Supporting</td>
+              <td class="s" data-cell="risk-emu">Strongest (insulates margins)</td>
             </tr>
             <tr class="grp">
-              <td colspan="6" data-def="resistance">Resistance Challenges</td>
+              <td colspan="7" data-def="resistance">Resistance Challenges</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="opacity">Opacity</td>
@@ -680,6 +703,7 @@
               <td class="l" data-cell="input-opacity">Lowers (access)</td>
               <td class="l" data-cell="mem-opacity">Lowers (pattern recognition)</td>
               <td class="l" data-cell="agg-opacity">Lowers (collective visibility)</td>
+              <td class="n" data-cell="risk-opacity">Neutral</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="geo-distance">Geographic Distance</td>
@@ -688,6 +712,7 @@
               <td class="l" data-cell="input-geo">Lowers (remote participation)</td>
               <td class="n" data-cell="mem-geo">Neutral</td>
               <td class="l" data-cell="agg-geo">Lowers (virtual clusters)</td>
+              <td class="v" data-cell="risk-geo">Supporting</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="temporal">Temporal Distance</td>
@@ -696,6 +721,7 @@
               <td class="n" data-cell="input-temp">Neutral</td>
               <td class="b" data-cell="mem-temp">Bridges (intent persistence)</td>
               <td class="n" data-cell="agg-temp">Neutral</td>
+              <td class="v" data-cell="risk-temp">Supporting</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="complexity">Offering Complexity</td>
@@ -704,6 +730,7 @@
               <td class="v" data-cell="input-complex">Captures from any format</td>
               <td class="v" data-cell="mem-complex">Accumulates over time</td>
               <td class="n" data-cell="agg-complex">Neutral</td>
+              <td class="n" data-cell="risk-complex">Neutral</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="cold-start">Cold Start</td>
@@ -712,6 +739,7 @@
               <td class="v" data-cell="input-cold">Partially (new users)</td>
               <td class="s" data-cell="mem-cold">Addresses (synthetic bootstrapping)</td>
               <td class="v" data-cell="agg-cold">Partially (pools volume)</td>
+              <td class="v" data-cell="risk-cold">Supporting</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="cognitive">Cognitive Bandwidth</td>
@@ -720,6 +748,7 @@
               <td class="l" data-cell="input-cog">Minimizes load</td>
               <td class="l" data-cell="mem-cog">Minimizes (anticipation)</td>
               <td class="n" data-cell="agg-cog">Neutral</td>
+              <td class="n" data-cell="risk-cog">Neutral</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="fulfillment">Fulfillment</td>
@@ -728,6 +757,7 @@
               <td class="n" data-cell="input-fulfill">Neutral</td>
               <td class="v" data-cell="mem-fulfill">Tracks performance</td>
               <td class="s" data-cell="agg-fulfill">Addresses (co-loads logistics)</td>
+              <td class="v" data-cell="risk-fulfill">Supporting</td>
             </tr>
             <tr>
               <td class="ch-cell" data-def="fragmentation">Participant Fragmentation</td>
@@ -736,6 +766,7 @@
               <td class="n" data-cell="input-frag">Neutral</td>
               <td class="n" data-cell="mem-frag">Neutral</td>
               <td class="s" data-cell="agg-frag">Addresses (ad-hoc fluid scale)</td>
+              <td class="v" data-cell="risk-frag">Supporting</td>
             </tr>
           </tbody>
         </table>
@@ -836,6 +867,7 @@
         "cognitive": { cat: "Resistance Challenge", badge: "tt-resist", title: "Cognitive Bandwidth", body: "The human limits on processing complex information. Classical economics assumes infinite processing power; real participants experience choice overload. Too much apparent thickness can cause market failure: a dating app with millions of profiles or a supermarket with fifty jam varieties can paralyze decision-making. Curated marketplaces often outperform open ones precisely because they respect these limits." },
         "fulfillment": { cat: "Resistance Challenge", badge: "tt-resist", title: "Fulfillment", body: "The physical and logistical obstacles to delivering goods and services once a match is made. For physical goods, the economic shipping radius defines natural market boundaries (ready-mix concrete: under 30 km; semiconductors: global). Cold chain and perishable logistics affect what markets are even possible. For services, fulfillment constraints are primarily temporal: provider availability and scheduling coordination replace the spatial constraints of physical goods." },
         "fragmentation": { cat: "Resistance Challenge", badge: "tt-resist", title: "Participant Fragmentation", body: "The condition where individual market participants are too small to meet minimum commercial thresholds for trading, logistics, or financing. Even if a perfect match exists conceptually, the sheer lack of scale prevents the transaction. This forces participants into dependency on extractive middlemen who pool volume but capture most of the margin." },
+        "emu": { cat: "Exogenous Challenge", badge: "tt-exist", title: "Externally-Imposed Market Uncertainty (EMU)", body: "Exogenous risks arising from the macro environment that suppress counterparty deal intent. This includes Geopolitical corridor risk (sanctions, tariffs), Regulatory standard velocity, Macro/FX margin exposure, and Technological obsolescence cycles. When EMU is high, buyers face a massive Option Value of Delay and refuse to transact, freezing the market." },
         // ── Intervention (column) definitions ──
         "standardization": { cat: "Traditional", badge: "tt-trad", title: "Standardization", body: "Forcing heterogeneous goods into standard categories to create fungibility — the property that makes one unit interchangeable with another. Standardization pools liquidity and enables other tools (market makers, futures, automated matching) to function. The tradeoff is lossy: nuance that matters to specific buyers is stripped away. This tension between thickness (standardization) and relevance (preserving uniqueness) defined marketplace design for centuries — until AI." },
         "human-broker": { cat: "Traditional", badge: "tt-trad", title: "Human Broker", body: "A trusted intermediary who builds long-term relationships with buyers and sellers, develops deep knowledge of inventory and needs, verifies quality through experience and reputation, and manually matches counterparties. Brokers capture value through commissions (typically 3–20%). Their primary limitation is scale: each broker has finite capacity, geographic reach, and — critically — when a broker retires, decades of accumulated market memory are lost." },
@@ -848,7 +880,8 @@
         "ai-intermediary": { cat: "AI-Enabled", badge: "tt-ai", title: "AI Trusted Intermediary", body: "AI acts as a confidential intermediary that learns sensitive information from both parties without requiring mutual disclosure. The buyer shares their true budget, timeline, and strategic priorities under confidentiality; the seller shares actual capacity, past results, and pricing flexibility. The AI identifies fit and facilitates introductions only when appropriate — neither party has revealed sensitive information to the other. Particularly transformative for B2B procurement and cross-border trade." },
         "ai-input": { cat: "AI-Enabled", badge: "tt-ai", title: "AI Input Translation", body: "Accepts information however users naturally provide it — voice recordings, uploaded documents, photos, WhatsApp messages, video walkthroughs — in any language, and translates it into structured marketplace data guided by the platform's metadata schema. Three modes work together: conversational voice input eliminates digital literacy barriers; document upload with schema-guided extraction lets participants submit existing materials (manuals, certificates, spec sheets) and have the AI extract exactly the attributes the marketplace requires; and multilingual ingestion processes inputs in any language transparently. As the schema evolves, extraction adapts automatically — new fields trigger re-extraction from existing documents without participant effort." },
         "ai-memory": { cat: "AI-Enabled", badge: "tt-ai", title: "AI Memory", body: "Transforms market memory from a fragile, person-dependent asset into a persistent, scalable advantage. Unlike traditional databases, AI remembers why a past deal failed — the specific criteria, the concerns, the context — and pre-vets future matches accordingly. Memory enables evidence-based trust (the confidence of a 10-year relationship available to new participants) and moves from search to anticipation. When a broker retires, their knowledge is gone; AI memory persists indefinitely." },
-        "ai-agg": { cat: "AI-Enabled", badge: "tt-ai", title: "AI-Enabled Aggregation", body: "Fluid, dynamic, and ad-hoc aggregation. AI identifies and groups sub-scale participants into virtual collective counterparties that meet minimum viable thresholds without requiring permanent institutional overhead. AI handles discovery, mediates group formation, and matches the collective to buyers." }
+        "ai-agg": { cat: "AI-Enabled", badge: "tt-ai", title: "AI-Enabled Aggregation", body: "Fluid, dynamic, and ad-hoc aggregation. AI identifies and groups sub-scale participants into virtual collective counterparties that meet minimum viable thresholds without requiring permanent institutional overhead. AI handles discovery, mediates group formation, and matches the collective to buyers." },
+        "ai-risk": { cat: "AI-Enabled", badge: "tt-ai", title: "AI Risk Insulation", body: "AI insulates B2B transactions from exogenous macro-environmental volatility. Acting as an oracle digesting real-time FX, tariff, commodity, and compliance registries, it programmatically writes Dynamic Contingent Contracts (with currency collars, price indexation, and force majeure compliance escapes) and manages smart escrows. This directly neutralizes the Option Value of Delay and shields transaction value." }
       };
 
       // ── Cell-level explanations: HOW each intervention addresses each challenge ──
@@ -1011,7 +1044,35 @@
         "agg-cold": { title: "AI-Enabled Aggregation → Cold Start", body: "Quickly synthesizes critical mass by identifying and grouping small participants who collectively form an attractive counterparty." },
         "agg-cog": { title: "AI-Enabled Aggregation → Cognitive Bandwidth", body: "Presents a unified offering to the buyer, shielding them from the complexity of dealing with multiple small vendors." },
         "agg-fulfill": { title: "AI-Enabled Aggregation → Fulfillment", body: "Identifies optimal co-loading opportunities, enabling shared logistics without formal organizational overhead." },
-        "agg-frag": { title: "AI-Enabled Aggregation → Participant Fragmentation", body: "The AI-native solution. Solves fragmentation through semantic, on-the-fly grouping based on specific criteria, without requiring permanent institutional overhead." }
+        "agg-frag": { title: "AI-Enabled Aggregation → Participant Fragmentation", body: "The AI-native solution. Solves fragmentation through semantic, on-the-fly grouping based on specific criteria, without requiring permanent institutional overhead." },
+
+        // Exogenous EMU row / AI Risk Insulation cell definitions
+        "std-emu": { title: "Standardization → Exogenous Uncertainty (EMU)", body: "Standardizing compliance documents simplifies cross-border paperwork but does not insulate margins from tariff or FX shocks." },
+        "broker-emu": { title: "Human Broker → Exogenous Uncertainty (EMU)", body: "Experienced human brokers manually navigate trade sanctions or FX swings using their personal expertise, though at high transactional latency." },
+        "maker-emu": { title: "Market Maker → Exogenous Uncertainty (EMU)", body: "Neutral. Market makers hold inventory locally but cannot bridge physical border blocks or international currency swings." },
+        "fut-emu": { title: "Futures/Storage → Exogenous Uncertainty (EMU)", body: "Futures contracts allow hedging of commodity prices, but do not protect specific transaction corridors from customs or compliance updates." },
+        "geo-emu": { title: "Geographic Concentration → Exogenous Uncertainty (EMU)", body: "Neutral. Physical co-location does not address cross-border regulatory or currency shocks." },
+        "clear-emu": { title: "Clearinghouse → Exogenous Uncertainty (EMU)", body: "Neutral. Standard escrows guarantee performance but do not hedge dynamic price or tariff volatility." },
+        "inst-emu": { title: "Institutional Aggregation → Exogenous Uncertainty (EMU)", body: "Partially pools and spreads compliance or corridor costs across the group, though at high administrative overhead." },
+
+        "match-emu": { title: "AI Matching → Exogenous Uncertainty (EMU)", body: "Lowers. AI Matching dynamically steers counterparty matches away from volatile transit corridors or high-tariff jurisdictions." },
+        "interm-emu": { title: "AI Trusted Intermediary → Exogenous Uncertainty (EMU)", body: "Neutral. Information confidentiality does not hedge macro-environmental pricing or routing risks." },
+        "input-emu": { title: "AI Input Translation → Exogenous Uncertainty (EMU)", body: "Neutral. Data translation does not address geopolitical or macro volatility." },
+        "mem-emu": { title: "AI Memory → Exogenous Uncertainty (EMU)", body: "Supporting. Remembers historical volatility patterns to help qualify and select more stable corridors." },
+        "agg-emu": { title: "AI-Enabled Aggregation → Exogenous Uncertainty (EMU)", body: "Supporting. Pools procurement volume among fragmented participants to negotiate institutional risk-hedging terms." },
+
+        "risk-risk": { title: "AI Risk Insulation → Risk", body: "This is its defining function. AI Risk Insulation programmatically hedges B2B transaction risk using currency collars, dynamic price indexation, and tariff cost-splitting formulas within programmatic escrows." },
+        "risk-trust": { title: "AI Risk Insulation → Trust", body: "Programmatic escrows and clearly defined smart-contract triggers build operational transaction confidence between counterparties, even in high-risk environments." },
+        "risk-reg": { title: "AI Risk Insulation → Regulatory Friction", body: "AI Risk Insulation tracks compliance velocity and structures automated exit or force-majeure clauses to shield participants from sudden regulatory updates." },
+        "risk-opacity": { title: "AI Risk Insulation → Opacity", body: "Neutral. Focuses on risk hedging and contract structuring rather than information discovery." },
+        "risk-geo": { title: "AI Risk Insulation → Geographic Distance", body: "Insulates long-distance cross-border trade corridors from transit and corridor volatility associated with geographic separation." },
+        "risk-temp": { title: "AI Risk Insulation → Temporal Distance", body: "Protects long-execution-window B2B transactions from currency or commodity pricing shifts over the lifetime of the fulfillment contract." },
+        "risk-complex": { title: "AI Risk Insulation → Offering Complexity", body: "Neutral. Risk management does not change or simplify physical specifications of unique offerings." },
+        "risk-cold": { title: "AI Risk Insulation → Cold Start", body: "Neutralizing exogenous risks lowers the entry barriers for early sponsors and participants, accelerating initial marketplace liquidity." },
+        "risk-cog": { title: "AI Risk Insulation → Cognitive Bandwidth", body: "Neutral. Focuses on margin protection rather than option curation." },
+        "risk-fulfill": { title: "AI Risk Insulation → Fulfillment", body: "Factors transit risks and real-time freight pricing indexes into dynamic contract options to prevent fulfillment defaults." },
+        "risk-frag": { title: "AI Risk Insulation → Participant Fragmentation", body: "Allows aggregated smaller participants to pool their risk and access institutional hedging terms collectively." },
+        "risk-emu": { title: "AI Risk Insulation → Exogenous Uncertainty (EMU)", body: "The primary cure for EMU. Programmatically shields B2B transaction margins from Geopolitical, Regulatory, and Macro/FX volatility via smart currency collars, dynamic escrows, and adaptive pricing." }
       };
 
       const overlay = document.getElementById('overlay');

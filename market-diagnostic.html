@@ -567,6 +567,30 @@
                             <option value="high">High — fragile market structure, trust could collapse</option>
                         </select>
                     </div>
+
+                    <h3>Exogenous Risk Exposure</h3>
+                    <div class="diag-q">
+                        <label><strong>Geopolitical & Trade Volatility:</strong> Is the market exposed to trade corridors with high tariff risk, sudden sanctions, or physical shipping blocks?</label>
+                        <select id="q-geopolitical">
+                            <option value="">Select...</option>
+                            <option value="none">None — trade is purely domestic or extremely stable</option>
+                            <option value="low">Low — minimal exposure to volatile corridors</option>
+                            <option value="moderate">Moderate — real risk of sudden tariff changes or trade friction</option>
+                            <option value="high">High — heavily exposed to trade wars, sanctions, or maritime chokepoints</option>
+                            <option value="critical">Critical — trade corridors are actively contested or highly volatile</option>
+                        </select>
+                    </div>
+                    <div class="diag-q">
+                        <label><strong>Macro & FX Exposure:</strong> How vulnerable are transaction margins to currency fluctuations, inflation, or macro pricing swings?</label>
+                        <select id="q-macro">
+                            <option value="">Select...</option>
+                            <option value="none">None — transaction cycles are instant with zero FX exposure</option>
+                            <option value="low">Low — stable pricing with minor currency fluctuations</option>
+                            <option value="moderate">Moderate — margins can be compressed by currency shifts or pricing lag</option>
+                            <option value="high">High — long contract windows with severe FX or inflation risk</option>
+                            <option value="critical">Critical — hyper-exposed; a minor currency or macro swing wipes out all margins</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="diag-nav">
                     <button class="btn btn--outline" onclick="goToStep(2)">← Back</button>
@@ -645,7 +669,7 @@
                         </select>
                     </div>
 
-                    <h3>Laws and Regulations</h3>
+                    <h3>Regulatory Friction (Exogenous - EMU)</h3>
                     <div class="diag-q">
                         <label><strong>Do regulatory differences fragment the market?</strong></label>
                         <select id="q-regulation">
@@ -815,6 +839,19 @@
                             <option value="no">No — can pre-schedule and queue</option>
                             <option value="some">Somewhat — limited concurrent capacity</option>
                             <option value="yes">Yes — perishable capacity, lost if not used</option>
+                        </select>
+                    </div>
+
+                    <h3>Technological Obsolescence</h3>
+                    <div class="diag-q">
+                        <label><strong>Technological Obsolescence:</strong> How fast are specifications, standard components, or participant skills depreciating?</label>
+                        <select id="q-obsolescence">
+                            <option value="">Select...</option>
+                            <option value="none">None — specifications and technologies remain stable for a decade or more</option>
+                            <option value="low">Low — slow, predictable technological iterations</option>
+                            <option value="moderate">Moderate — mid-cycle upgrades require regular capital reinvestment</option>
+                            <option value="high">High — rapid technological shifts; components obsolete within 18–36 months</option>
+                            <option value="critical">Critical — extreme obsolescence velocity; standards or assets depreciate almost instantly</option>
                         </select>
                     </div>
                 </div>
@@ -1153,9 +1190,10 @@
             }
         });
 
-        /* ── Assessment functions (unchanged logic) ── */
+        /* ── Assessment functions (v4.0 Dual-Friction Model) ── */
         function sv(id, m) { const v = document.getElementById(id)?.value || ''; return m[v] || 'Not assessed'; }
         function sn(s) { return { None: 0, Low: 1, Moderate: 2, High: 3, Critical: 4 }[s] ?? -1; }
+        function snScore(s) { const val = sn(s); return val < 0 ? 0 : val; }
         function fv(v) { return { ['one-to-one']: 'One-to-One', ['one-to-many']: 'One-to-Many', ['many-to-many']: 'Many-to-Many', tiny: 'Very Small', small: 'Small', medium: 'Medium', large: 'Large', ['Not specified']: '—' }[v] || v; }
         function avgSev(ids, maps) { let t = 0, c = 0; ids.forEach((id, i) => { const v = document.getElementById(id)?.value; if (v && maps[i][v]) { t += sn(maps[i][v]); c++; } }); if (!c) return 'Not assessed'; const a = t / c; return a < 1 ? 'Low' : a < 2 ? 'Moderate' : a < 3 ? 'High' : 'Critical'; }
 
@@ -1175,6 +1213,19 @@
         function assessFull() { return { no: 'None', some: 'Moderate', severe: 'High' }[document.getElementById('q-fulfillment')?.value] || 'Not assessed'; }
         function assessFrag() { return { no: 'None', some: 'Moderate', severe: 'High' }[document.getElementById('q-fragmentation')?.value] || 'Not assessed'; }
 
+        function assessGeopolitical() {
+            const v = document.getElementById('q-geopolitical')?.value || '';
+            return { none: 'None', low: 'Low', moderate: 'Moderate', high: 'High', critical: 'Critical' }[v] || 'Not assessed';
+        }
+        function assessMacro() {
+            const v = document.getElementById('q-macro')?.value || '';
+            return { none: 'None', low: 'Low', moderate: 'Moderate', high: 'High', critical: 'Critical' }[v] || 'Not assessed';
+        }
+        function assessObsolescence() {
+            const v = document.getElementById('q-obsolescence')?.value || '';
+            return { none: 'None', low: 'Low', moderate: 'Moderate', high: 'High', critical: 'Critical' }[v] || 'Not assessed';
+        }
+
         function drawRadar(dims) { const sc = dims.filter(d => sn(d.severity) >= 0); if (sc.length < 3) return ''; const n = sc.length, cx = 190, cy = 190, r = 150; let s = '<div class="radar-wrap"><svg viewBox="0 0 380 420" style="max-width:380px;width:100%;">'; for (let ring = 1; ring <= 4; ring++) { let pts = []; for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2, rr = r * ring / 4; pts.push((cx + rr * Math.cos(a)).toFixed(1) + ',' + (cy + rr * Math.sin(a)).toFixed(1)); } s += '<polygon points="' + pts.join(' ') + '" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>'; } for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2; s += '<line x1="' + cx + '" y1="' + cy + '" x2="' + (cx + r * Math.cos(a)).toFixed(1) + '" y2="' + (cy + r * Math.sin(a)).toFixed(1) + '" stroke="rgba(255,255,255,0.06)"/>'; const lx = cx + (r + 20) * Math.cos(a), ly = cy + (r + 20) * Math.sin(a); const anc = Math.abs(Math.cos(a)) < 0.1 ? 'middle' : Math.cos(a) > 0 ? 'start' : 'end'; const lb = sc[i].label.length > 16 ? sc[i].label.substring(0, 15) + '\u2026' : sc[i].label; s += '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="' + anc + '" dominant-baseline="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="Inter,sans-serif">' + lb + '</text>'; } let pts = []; for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2, rr = r * sn(sc[i].severity) / 4; pts.push((cx + rr * Math.cos(a)).toFixed(1) + ',' + (cy + rr * Math.sin(a)).toFixed(1)); } s += '<polygon points="' + pts.join(' ') + '" fill="rgba(139,92,246,0.2)" stroke="#8b5cf6" stroke-width="2"/>'; const cols = ['#10b981', '#06b6d4', '#f59e0b', '#f87171', '#fca5a5']; for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n - Math.PI / 2, rr = r * sn(sc[i].severity) / 4; s += '<circle cx="' + (cx + rr * Math.cos(a)).toFixed(1) + '" cy="' + (cy + rr * Math.sin(a)).toFixed(1) + '" r="4" fill="' + cols[sn(sc[i].severity)] + '"/>'; } s += '</svg></div>'; return s; }
 
         let lastDims = [];
@@ -1182,27 +1233,128 @@
             document.querySelectorAll('.diag-step').forEach(e => e.classList.remove('active'));
             document.getElementById('diag-summary').classList.add('active');
             const arr = document.getElementById('q-arrangement')?.value || 'Not specified', par = document.getElementById('q-participant')?.value || 'Not specified', ms = document.getElementById('q-market-size')?.value || 'Not specified';
+            
+            const trustSev = assessTrust();
+            const riskSev = assessRisk();
+            const opacitySev = assessOpacity();
+            const geoSev = assessGeo();
+            const tempSev = assessTemporal();
+            const compSev = assessComplexity();
+            const coldSev = sv('q-cold-start', { na: 'None', low: 'Low', moderate: 'Moderate', severe: 'Critical' });
+            const cogSev = assessCog();
+            const fullSev = assessFull();
+            const fragSev = assessFrag();
+
+            const regSev = assessReg();
+            const geoPolSev = assessGeopolitical();
+            const macroSev = assessMacro();
+            const obsolescenceSev = assessObsolescence();
+
+            const iEndo = snScore(trustSev) + snScore(riskSev) + snScore(opacitySev) + 
+                          snScore(geoSev) + snScore(tempSev) + snScore(compSev) + 
+                          snScore(coldSev) + snScore(cogSev) + snScore(fullSev) + 
+                          snScore(fragSev);
+
+            const iEmu = snScore(regSev) + snScore(geoPolSev) + snScore(macroSev) + snScore(obsolescenceSev);
+
+            // Gains-from-Trade Index G
+            const qG = document.getElementById('q-gains')?.value || 'high';
+            let G = 1.0;
+            if (qG === 'moderate') G = 0.5;
+            else if (qG === 'marginal') G = 0.1;
+
+            const thinnessScore = ((iEndo + iEmu) * G).toFixed(1);
+
             const dims = [
                 { label: 'Structural desire', severity: assessDesire(), interventions: 'If weak, reconsider whether this market is worth engineering. Transient techniques amplify but cannot create desire.' },
-                { label: 'Risk', severity: assessRisk(), interventions: 'Clearinghouse/escrow, AI fair-value estimation, diversification support' },
-                { label: 'Trust deficit', severity: assessTrust(), interventions: 'Progressive trust building, AI reputation inference, trusted intermediation, confidential computation' },
-                { label: 'Regulatory', severity: assessReg(), interventions: 'Benign standards adoption, regulatory alignment, compliance translation' },
-                { label: 'Complexity', severity: assessComplexity(), interventions: 'Semantic matching, vector embeddings, generative preference elicitation' },
-                { label: 'Geographic distance', severity: assessGeo(), interventions: 'Digital delivery, AI cross-border matching, asynchronous brokerage' },
-                { label: 'Temporal distance', severity: assessTemporal(), interventions: 'Market makers, storage/futures, AI asynchronous brokerage, intent persistence' },
-                { label: 'Opacity', severity: assessOpacity(), interventions: 'AI trusted intermediation, confidential information synthesis, standardized pricing' },
-                { label: 'Cognitive overload', severity: assessCog(), interventions: 'Curated matching, generative preference elicitation, personalized translation' },
-                { label: 'Fulfillment', severity: assessFull(), interventions: 'Cold chain infrastructure, settlement mechanisms, scheduling coordination' },
-                { label: 'Participant fragmentation', severity: assessFrag(), interventions: 'Institutional aggregation, AI-enabled semantic grouping, virtual collectives' },
-                { label: 'Cold start', severity: sv('q-cold-start', { na: 'None', low: 'Low', moderate: 'Moderate', severe: 'Critical' }), interventions: 'Synthetic bootstrapping (ClientSynth), pre-qualified match suggestions, seeded liquidity' },
+                { label: 'Risk (Endo)', severity: riskSev, interventions: 'Clearinghouse/escrow, AI fair-value estimation, diversification support' },
+                { label: 'Trust deficit (Endo)', severity: trustSev, interventions: 'Progressive trust building, AI reputation inference, trusted intermediation, confidential computation' },
+                { label: 'Regulatory (EMU)', severity: regSev, interventions: 'Compliance translation, benign standards adoption, regulatory compliance escape clauses' },
+                { label: 'Complexity (Endo)', severity: compSev, interventions: 'Semantic matching, vector embeddings, generative preference elicitation' },
+                { label: 'Geographic (Endo)', severity: geoSev, interventions: 'Digital delivery, AI cross-border matching, asynchronous brokerage' },
+                { label: 'Temporal (Endo)', severity: tempSev, interventions: 'Market makers, storage/futures, AI asynchronous brokerage, intent persistence' },
+                { label: 'Opacity (Endo)', severity: opacitySev, interventions: 'AI trusted intermediation, confidential information synthesis, standardized pricing' },
+                { label: 'Cognitive load (Endo)', severity: cogSev, interventions: 'Curated matching, generative preference elicitation, personalized translation' },
+                { label: 'Fulfillment (Endo)', severity: fullSev, interventions: 'Cold chain infrastructure, settlement mechanisms, scheduling coordination' },
+                { label: 'Fragmentation (Endo)', severity: fragSev, interventions: 'Institutional aggregation, AI-enabled semantic grouping, virtual collectives' },
+                { label: 'Cold start (Endo)', severity: coldSev, interventions: 'Synthetic bootstrapping (ClientSynth), pre-qualified match suggestions, seeded liquidity' },
+                { label: 'Geopolitical (EMU)', severity: geoPolSev, interventions: 'AI Risk Insulation, dynamic transit corridor routing, tariff cost splitting' },
+                { label: 'Macro & FX (EMU)', severity: macroSev, interventions: 'AI Risk Insulation, programmatic currency collars, dynamic price indexation' },
+                { label: 'Obsolescence (EMU)', severity: obsolescenceSev, interventions: 'AI Risk Insulation, automated depreciation adjustment options' }
             ]; lastDims = dims;
+            
             const dom = dims.filter(d => d.severity === 'High' || d.severity === 'Critical');
+            
             let h = '<h2>Your Market Profile</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--space-md);margin-bottom:var(--space-lg);">';
             [{ l: 'Arrangement', v: arr }, { l: 'Participant Type', v: par }, { l: 'Market Size', v: ms }].forEach(x => { h += '<div style="padding:1rem;background:rgba(255,255,255,.03);border-radius:var(--radius-md);"><div style="color:var(--dp-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem;">' + x.l + '</div><div style="color:#fff;font-weight:600;">' + fv(x.v) + '</div></div>'; });
-            h += '</div>' + drawRadar(dims);
+            h += '</div>';
+
+            // Insert beautifully formatted Version 4.0 Dual-Friction Score Card
+            h += `
+            <div class="diag-card" style="background:linear-gradient(135deg, rgba(6,182,212,0.1) 0%, rgba(139,92,246,0.1) 100%); border: 1px solid rgba(139,92,246,0.3); padding: var(--space-xl); margin-bottom: var(--space-xl);">
+                <h3 style="margin-top:0; color:#fff; font-family:var(--font-display); font-size:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: var(--space-md);">
+                    <span>v4.0 Dual-Friction Diagnostic Index</span>
+                    <span style="font-size:2.25rem; font-weight:700; color:var(--dp-cyan); text-shadow:0 0 15px rgba(6,182,212,0.4);">${thinnessScore} <span style="font-size:1rem; font-weight:400; color:var(--dp-silver);">/ 56.0 Max</span></span>
+                </h3>
+                <p style="color:var(--dp-silver); font-size:1rem; line-height:1.6; margin-bottom:var(--space-lg);">
+                    This index measures structural market thinness by evaluating relationship-level barriers against macro-environmental volatility, scaled by your market's fundamental Gains from Trade ($G = ${G}$).
+                </p>
+
+                <!-- Endogenous Frictions Scorebar -->
+                <div style="margin-bottom:var(--space-md);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                        <strong style="color:#fff; font-size:0.9375rem;">Endogenous Relationship Frictions ($I_{f,\\text{endo}}$)</strong>
+                        <span style="color:var(--dp-cyan); font-weight:600; font-size:0.9375rem;">${iEndo} / 40</span>
+                    </div>
+                    <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; overflow:hidden; border:1px solid rgba(255,255,255,0.03);">
+                        <div style="height:100%; width:${(iEndo/40*100).toFixed(0)}%; background:linear-gradient(90deg, var(--dp-cyan) 0%, var(--dp-blue) 100%); border-radius:5px;"></div>
+                    </div>
+                    <div style="color:var(--dp-muted); font-size:0.8125rem; margin-top:4px;">
+                        Covers trust, risk, opacity, geographic/temporal distance, complexity, cold-start, cognitive bandwidth, and fragmentation.
+                    </div>
+                </div>
+
+                <!-- Exogenous Frictions Scorebar -->
+                <div style="margin-bottom:var(--space-md);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                        <strong style="color:#fff; font-size:0.9375rem;">Exogenous Environmental Volatility ($I_{f,\\text{emu}}$)</strong>
+                        <span style="color:var(--dp-violet); font-weight:600; font-size:0.9375rem;">${iEmu} / 16</span>
+                    </div>
+                    <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; overflow:hidden; border:1px solid rgba(255,255,255,0.03);">
+                        <div style="height:100%; width:${(iEmu/16*100).toFixed(0)}%; background:linear-gradient(90deg, var(--dp-violet) 0%, #a78bfa 100%); border-radius:5px;"></div>
+                    </div>
+                    <div style="color:var(--dp-muted); font-size:0.8125rem; margin-top:4px;">
+                        Covers regulatory churn, geopolitical transit volatility, currency/macro swings, and technology obsolescence.
+                    </div>
+                </div>
+            </div>`;
+
+            // Draw radar chart
+            h += drawRadar(dims);
+
+            // Dynamic AI Risk Insulation prescription block
+            if (iEmu >= 8) {
+                h += `
+                <div style="margin-top:var(--space-lg); margin-bottom:var(--space-lg); padding:1.25rem; background:rgba(139,92,246,.08); border:1px solid rgba(139,92,246,0.25); border-radius:var(--radius-md);">
+                    <h4 style="color:#c084fc; margin-top:0; margin-bottom:.5rem; display:flex; align-items:center; gap:6px; font-family:var(--font-display); font-size:1.1rem;">
+                        <span>🛡️</span> Critical Exogenous Volatility Detected
+                    </h4>
+                    <p style="color:var(--dp-silver); font-size:.9375rem; margin:0; line-height:1.6;">
+                        Your market shows high exposure to exogenous environmental volatility ($I_{f,\\text{emu}} = ${iEmu} \\ge 8$). Standard B2B matching tools are insufficient because counterparties are paralyzed by the <strong>Option Value of Delay</strong>.
+                    </p>
+                    <p style="color:var(--dp-silver); font-size:.9375rem; margin-top:.75rem; line-height:1.6;">
+                        DeeperPoint recommends deploying the <strong>AI Risk Insulation</strong> module of the Cosolvent engine. By acting as an oracle to digest real-time compliance feeds, currency rates, and tariff indexes, it programmatically writes <strong>Dynamic Contingent Contracts</strong> with integrated currency collars and regulatory compliance escape triggers to insulate margins and unlock transaction flow.
+                    </p>
+                    <div style="margin-top:1rem;">
+                        <a href="cosolvent.html" class="btn btn--primary" style="padding:.375rem 1rem; font-size:.875rem;">Explore AI Risk Insulation Spec →</a>
+                    </div>
+                </div>`;
+            }
+
             h += '<h3 style="color:#fff;margin-top:var(--space-lg);">Challenge Assessment</h3><div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:.9375rem;"><thead><tr style="border-bottom:1px solid var(--glass-border);"><th style="text-align:left;padding:.75rem;color:var(--dp-muted);font-size:.8125rem;text-transform:uppercase;letter-spacing:.03em;">Dimension</th><th style="text-align:left;padding:.75rem;color:var(--dp-muted);font-size:.8125rem;text-transform:uppercase;letter-spacing:.03em;">Severity</th><th style="text-align:left;padding:.75rem;color:var(--dp-muted);font-size:.8125rem;text-transform:uppercase;letter-spacing:.03em;">Suggested Interventions</th></tr></thead><tbody>';
             dims.forEach(d => { const show = d.severity !== 'None' && d.severity !== 'Low' && d.severity !== 'Not assessed'; h += '<tr style="border-bottom:1px solid rgba(255,255,255,.04);"><td style="padding:.75rem;color:#fff;font-weight:500;">' + d.label + '</td><td style="padding:.75rem;"><span class="severity-badge severity-' + d.severity.toLowerCase().replace(' ', '-') + '">' + d.severity + '</span></td><td style="padding:.75rem;color:var(--dp-silver);font-size:.875rem;">' + (show ? d.interventions : '\u2014') + '</td></tr>'; });
             h += '</tbody></table></div>';
+            
             if (dom.length) h += '<div style="margin-top:var(--space-lg);padding:1rem;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);border-radius:var(--radius-md);"><h4 style="color:#fca5a5;margin-bottom:.5rem;">\u26A0\uFE0F Dominant Challenges</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">' + dom.map(d => '<strong>' + d.label + '</strong>').join(', ') + ' \u2014 these require priority attention and likely AI-driven engineering interventions.</p></div>';
             if (arr === 'many-to-many' && par === 'B2B') h += '<div style="margin-top:var(--space-md);padding:1rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);border-radius:var(--radius-md);"><h4 style="color:var(--dp-emerald);margin-bottom:.5rem;">\u2705 Good Fit for DeeperPoint Tools</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">Your market profile (many-to-many, B2B) aligns with DeeperPoint\u2019s primary focus. The <a href="cosolvent.html" style="color:var(--dp-emerald);">MarketForge ecosystem</a> is designed for this challenge.</p></div>';
             h += '<div style="margin-top:var(--space-lg);padding:1rem;background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.15);border-radius:var(--radius-md);"><h4 style="color:var(--dp-violet);margin-bottom:.5rem;">\uD83D\uDCD6 Learn More</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">See the <a href="whitepaper.html" style="color:var(--dp-violet);">whitepaper</a> for detailed explanations, or explore real-world applications on the <a href="testbeds.html" style="color:var(--dp-violet);">test beds</a> page.</p></div>';
@@ -1213,7 +1365,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function copyReport() { if (!lastDims.length) { alert('Generate a summary first.'); return; } let t = 'MARKET ENGINEER\'S DIAGNOSTIC REPORT\n' + '='.repeat(40) + '\n\n'; lastDims.forEach(d => { t += d.label + ': ' + d.severity + (d.severity !== 'None' && d.severity !== 'Low' && d.severity !== 'Not assessed' ? ' -> ' + d.interventions : '') + '\n'; }); const dom = lastDims.filter(d => d.severity === 'High' || d.severity === 'Critical'); if (dom.length) t += '\nDominant: ' + dom.map(d => d.label).join(', ') + '\n'; t += '\nGenerated by DeeperPoint Market Diagnostic\n'; navigator.clipboard.writeText(t).then(() => { const b = document.querySelector('.copy-btn'); b.textContent = '\u2713 Copied!'; setTimeout(() => b.textContent = '\uD83D\uDCCB Copy Report', 2000); }).catch(() => alert('Copy failed.')); }
+        function copyReport() { if (!lastDims.length) { alert('Generate a summary first.'); return; } let t = 'MARKET ENGINEER\'S DIAGNOSTIC REPORT\n' + '='.repeat(40) + '\n\n'; lastDims.forEach(d => { t += d.label + ': ' + d.severity + (d.severity !== 'None' && d.severity !== 'Low' && d.severity !== 'Not assessed' ? ' -> ' + d.interventions : '') + '\n'; }); const dom = lastDims.filter(d => d.severity === 'High' || d.severity === 'Critical'); if (dom.length) t += '\nDominant: ' + dom.map(d => d.label).join(', ') + '\n'; t += '\nGenerated by DeeperPoint Market Diagnostic\n'; navigator.clipboard.writeText(t).then(() => { const b = document.querySelector('.copy-btn'); b.textContent = '\u2713 Copied!'; setTimeout(() => b.textContent = '📋 Copy Report', 2000); }).catch(() => alert('Copy failed.')); }
 
         /* ── Initialization: restore saved state or start fresh ── */
         (function init() {
