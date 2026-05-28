@@ -1,0 +1,309 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Digital Twin Simulation — DeeperPoint</title>
+    <meta name="description"
+        content="Launch and interact with the MarketForge Digital Twin developer sandbox, illustrating semantic matching, identity escrow, and deal assembly.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ═══════════════════════════════════════════
+           IFRAME CONTAINER LAYOUT (DESKTOP)
+           ═══════════════════════════════════════════ */
+        
+        .demo-page {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .demo-iframe-container {
+            flex: 1;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: #0f172a;
+            border: none;
+            position: relative;
+        }
+
+        .demo-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* ── Glassmorphic Floating Notice Card ── */
+        .sandbox-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            padding: 1.25rem var(--space-lg);
+            max-width: 390px;
+            width: calc(100% - 40px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .sandbox-notice__close {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: none;
+            border: none;
+            color: var(--dp-muted);
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .sandbox-notice__close:hover {
+            color: #fff;
+        }
+
+        .sandbox-notice__title {
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--dp-amber);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .sandbox-notice__text {
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: var(--dp-silver);
+            margin: 0 0 0.75rem 0;
+        }
+
+        .sandbox-notice__text strong {
+            color: #fff;
+        }
+
+        .sandbox-notice__btn {
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: var(--radius-sm);
+            color: var(--dp-amber);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.375rem 0.75rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .sandbox-notice__btn:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.4);
+            color: #fff;
+        }
+
+        /* ═══════════════════════════════════════════
+           MOBILE VIEWPORT LAYOUT (< 1024PX)
+           ═══════════════════════════════════════════ */
+        
+        .demo-mobile {
+            display: none;
+            padding-top: calc(var(--space-4xl) + 20px);
+            padding-bottom: var(--space-3xl);
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .notice-card-mobile {
+            background: rgba(245, 158, 11, 0.04);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .notice-card-mobile h3 {
+            font-family: var(--font-display);
+            font-size: 1.0625rem;
+            color: var(--dp-amber);
+            margin-bottom: 0.5rem;
+        }
+
+        .notice-card-mobile p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--dp-silver);
+            margin: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE VIEWPORT BREAKPOINTS
+           ═══════════════════════════════════════════ */
+        
+        @media (max-width: 1023px) {
+            .demo-iframe-container {
+                display: none;
+            }
+            .sandbox-notice {
+                display: none;
+            }
+            .demo-mobile {
+                display: block;
+            }
+            body {
+                overflow: auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body class="demo-page">
+
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
+        <li><a href="project.html" class="nav__link">Project</a></li>
+        <li><a href="demo.html" class="nav__link nav__link--active">Demo</a></li>
+        <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+        </div>
+    </nav>
+
+    <!-- DESKTOP SCREEN: Responsive Iframe Embed -->
+    <div class="demo-iframe-container" id="iframe-container">
+        <iframe src="https://marketforgedigitaltwin.vercel.app/" class="demo-iframe" id="demo-iframe"
+            title="MarketForge Digital Twin Sandbox Simulation"></iframe>
+
+        <!-- Dismissible Notice Box -->
+        <div class="sandbox-notice" id="sandbox-notice" aria-live="polite">
+            <button class="sandbox-notice__close" id="notice-close" aria-label="Dismiss notice">&times;</button>
+            <div class="sandbox-notice__title">
+                <span>💡</span> Sandbox Simulation Notice
+            </div>
+            <p class="sandbox-notice__text">
+                This sandbox runs a pre-compiled client-side simulation of the **Cosolvent matching engine** (focused on a three-sided aerospace precision machining vertical).
+            </p>
+            <p class="sandbox-notice__text">
+                **Note:** The demo does not consult active LLMs, ensuring zero latency or operational dependencies. However, it displays real, pre-generated data outputs and the exact **step-by-step match-reveal-contract workflow** that occurs in a production twin.
+            </p>
+            <button class="sandbox-notice__btn" id="notice-btn">Dismiss Notice</button>
+        </div>
+    </div>
+
+    <!-- MOBILE SCREEN: Screenshot Preview & Direct Launch fallback -->
+    <main class="demo-mobile">
+        <div class="container container--narrow">
+            <div class="reveal text-center" style="margin-bottom: var(--space-xl);">
+                <span class="spoke-hero__badge spoke-hero__badge--match" style="margin-bottom: 0.50rem;">🖥️ Live Simulation</span>
+                <h1 class="spoke-hero__headline" style="font-size: 2rem; margin-bottom: 0.5rem;">ForgeTwin Simulation Sandbox</h1>
+                <p style="color: var(--dp-blue-light); font-size: 0.9375rem; line-height: 1.6; margin: 0 auto; max-width: 580px;">
+                    See the same market from three different angles. Choose a persona (machine shop, aerospace buyer, or accredited lab inspector) and experience the bilateral matching engine in action.
+                </p>
+            </div>
+
+            <div class="notice-card-mobile reveal">
+                <h3>💡 Sandbox Simulation Notice</h3>
+                <p>
+                    This sandbox environment demonstrates a pre-compiled client-side simulation of the <strong>Cosolvent matching engine</strong>. It is a proof-of-concept design that does not execute live external LLM calls. It shows the exact, high-fidelity visual and structural workflows—including anonymous matching, profile authentication, and deal-assembly—that take place in a production DeeperPoint digital twin.
+                </p>
+            </div>
+
+            <!-- Screenshot Fallback Card -->
+            <div class="card reveal" style="padding: var(--space-md); margin-bottom: var(--space-xl); text-align: center;">
+                <figure style="margin: 0; display: inline-block; width: 100%;">
+                    <img src="images/demo/01-landing.png" alt="MarketForge digital twin simulation landing page preview"
+                        style="width: 100%; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                    <figcaption style="color: var(--dp-muted); font-size: 0.75rem; margin-top: 0.5rem; font-family: var(--font-body);">
+                        MarketForge sandbox landing page showing matching pulse and pipeline configurations.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="reveal" style="text-align: center;">
+                <a href="https://marketforgedigitaltwin.vercel.app/" class="btn btn--primary" 
+                    style="background: var(--dp-accent); border-color: var(--dp-accent); color: #fff; width: 100%; justify-content: center; padding: var(--space-md);"
+                    target="_blank" rel="noopener">Launch Full Screen Demo →</a>
+                <p style="color: var(--dp-muted); font-size: 0.75rem; margin-top: var(--space-xs); font-family: var(--font-body);">
+                    Opens the responsive sandbox dashboard directly in a new browser tab.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="reveal.js"></script>
+    <script src="nav-mobile.js"></script>
+    <script>
+        /**
+         * Interactive Sandbox Notice Controls
+         * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const notice = document.getElementById('sandbox-notice');
+            const closeBtn = document.getElementById('notice-close');
+            const dismissBtn = document.getElementById('notice-btn');
+
+            // Check if user has already dismissed this notice during their session
+            if (sessionStorage.getItem('dp-sandbox-notice-dismissed') === 'true') {
+                if (notice) notice.style.display = 'none';
+            }
+
+            function dismissNotice() {
+                if (notice) {
+                    notice.style.opacity = '0';
+                    notice.style.transform = 'translateY(10px)';
+                    setTimeout(() => {
+                        notice.style.display = 'none';
+                    }, 300);
+                }
+                sessionStorage.setItem('dp-sandbox-notice-dismissed', 'true');
+            }
+
+            if (closeBtn) closeBtn.addEventListener('click', dismissNotice);
+            if (dismissBtn) dismissBtn.addEventListener('click', dismissNotice);
+        });
+    </script>
+</body>
+
+</html>

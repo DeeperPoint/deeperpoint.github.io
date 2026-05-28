@@ -358,7 +358,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <li><a href="{root}index.html" class="nav__link">Home</a></li>
         <li><a href="{root}thin-markets.html" class="nav__link">Theory</a></li>
         <li><a href="{root}project.html" class="nav__link">Project</a></li>
-        <li><a href="https://marketforgedigitaltwin.vercel.app/" class="nav__link" target="_blank" rel="noopener">Demo</a></li>
+        <li><a href="{root}demo.html" class="nav__link">Demo</a></li>
         <li><a href="{root}intervention-matrix.html" class="nav__link">Matrix</a></li>
         <li><a href="{root}catalog/index.html" class="nav__link">Catalog</a></li>
         <li><a href="{root}marketmaps.html" class="nav__link">MarketMaps</a></li>

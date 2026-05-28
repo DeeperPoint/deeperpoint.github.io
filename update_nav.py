@@ -5,7 +5,7 @@ new_nav_items = [
     ("Home", "index.html"),
     ("Theory", "thin-markets.html"),
     ("Project", "project.html"),
-    ("Demo", "https://marketforgedigitaltwin.vercel.app/"),
+    ("Demo", "demo.html"),
     ("Matrix", "intervention-matrix.html"),
     ("Catalog", "catalog/index.html"),
     ("MarketMaps", "marketmaps.html"),
