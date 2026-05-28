@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarketForge Platform — DeeperPoint</title>
     <meta name="description"
-        content="The MarketForge Platform is a structured implementation roadmap that takes a thin market vertical from diagnostic scoping through RAG database ingestion, synthetic cohort simulation, and live launch.">
+        content="The MarketForge Platform provides a step-by-step roadmap to establish a local digital twin simulation, curating industry knowledge and validating matching physics.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,16 +15,22 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* ═══════════════════════════════════════════
+           VERTICAL STEP-LIST STYLING
+           ═══════════════════════════════════════════ */
+        
         .timeline {
             position: relative;
             margin: var(--space-2xl) 0;
             padding-left: 2rem;
             border-left: 2px dashed rgba(6, 182, 212, 0.2);
         }
+
         .timeline__phase {
             position: relative;
             margin-bottom: var(--space-2xl);
         }
+
         .timeline__phase::before {
             content: '';
             position: absolute;
@@ -37,15 +43,17 @@
             border: 4px solid var(--dp-midnight);
             box-shadow: 0 0 10px var(--dp-cyan);
         }
+
         .timeline__title {
             font-family: var(--font-display);
             font-size: 1.35rem;
             color: #fff;
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-lg);
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
+
         .timeline__badge {
             font-size: 0.6875rem;
             text-transform: uppercase;
@@ -56,55 +64,101 @@
             color: var(--dp-cyan);
             border: 1px solid rgba(6, 182, 212, 0.2);
         }
-        .step-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: var(--space-lg);
+
+        /* ── The Clean Step Row Layout ── */
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
             margin-top: var(--space-md);
         }
-        .step-card {
-            background: rgba(255, 255, 255, 0.02);
+
+        .step-row {
+            background: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-md);
-            padding: var(--space-lg);
-            transition: all var(--transition-med);
+            padding: var(--space-md) var(--space-lg);
+            display: grid;
+            grid-template-columns: 80px 180px 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+            transition: all var(--transition-fast);
         }
-        .step-card:hover {
-            border-color: rgba(6, 182, 212, 0.3);
+
+        .step-row:hover {
+            border-color: rgba(6, 182, 212, 0.25);
             background: rgba(6, 182, 212, 0.02);
         }
-        .step-card__num {
+
+        .step-row__num {
             font-size: 0.75rem;
             font-weight: 700;
             color: var(--dp-amber);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
+            font-family: var(--font-body);
         }
-        .step-card__title {
+
+        .step-row__badge {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 100px;
+            text-align: center;
+            white-space: nowrap;
+            width: fit-content;
+        }
+
+        .step-row__badge--core {
+            color: var(--dp-emerald);
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.18);
+        }
+
+        .step-row__badge--founder {
+            color: var(--dp-amber);
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.18);
+        }
+
+        .step-row__badge--joint {
+            color: var(--dp-cyan);
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.18);
+        }
+
+        .step-row__content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+        }
+
+        .step-row__title {
             font-family: var(--font-display);
             font-size: 1.05rem;
             color: #fff;
-            margin-bottom: 0.5rem;
+            margin: 0;
         }
-        .step-card__desc {
+
+        .step-row__desc {
             font-size: 0.875rem;
             color: var(--dp-silver);
-            line-height: 1.55;
-            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            margin: 0;
         }
-        .allocation-tag {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .allocation-tag--core {
-            color: var(--dp-emerald);
-        }
-        .allocation-tag--founder {
-            color: var(--dp-amber);
+
+        /* ── Responsive Step Rows ── */
+        @media (max-width: 768px) {
+            .step-row {
+                grid-template-columns: 1fr;
+                gap: var(--space-xs);
+                padding: var(--space-md);
+            }
+
+            .step-row__badge {
+                margin-top: 0.25rem;
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -126,18 +180,18 @@
                 <span class="nav__toggle-bar"></span>
                 <span class="nav__toggle-bar"></span>
             </button>
-      <ul class="nav__links">
-        <li><a href="index.html" class="nav__link">Home</a></li>
-        <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
-        <li><a href="project.html" class="nav__link">Project</a></li>
-        <li><a href="demo.html" class="nav__link">Demo</a></li>
-        <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
-        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
-        <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
-        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
-        <li><a href="about.html" class="nav__link">About</a></li>
-      </ul>
+            <ul class="nav__links">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
+                <li><a href="project.html" class="nav__link">Project</a></li>
+                <li><a href="demo.html" class="nav__link">Demo</a></li>
+                <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
+                <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+                <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+                <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+                <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+                <li><a href="about.html" class="nav__link">About</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -151,7 +205,8 @@
                     Building a successful coordination marketplace requires a clean architectural split. MarketForge provides the structured, step-by-step engineering roadmap that takes a target vertical from diagnostic scoping through local simulation and launch.
                 </p>
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: var(--space-md);">
-                    <a href="assets/mysitedocs/MarketForgeCreationGuide.pdf" class="btn btn--primary" style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;" download>⬇ Download Creation Guide (PDF)</a>
+                    <a href="assets/mysitedocs/MarketForgeCreationGuide.pdf" class="btn btn--primary"
+                        style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;" download>⬇ Download Creation Guide (PDF)</a>
                     <a href="demo.html" class="btn btn--outline">Explore ForgeTwin Sandbox Demo →</a>
                 </div>
             </div>
@@ -162,23 +217,26 @@
         <div class="container">
 
             <!-- Section 1: The Reorganization Matrix Intro -->
-            <div class="card" style="padding: var(--space-2xl); margin-bottom: var(--space-3xl); border-color: rgba(16, 185, 129, 0.2);">
+            <div class="card"
+                style="padding: var(--space-2xl); margin-bottom: var(--space-3xl); border-color: rgba(16, 185, 129, 0.2);">
                 <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-2xl); align-items: center;">
                     <div>
-                        <h2 style="color: #fff; font-family: var(--font-display); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem;">Core Infrastructure vs. Domain Customization</h2>
+                        <h2 style="color: #fff; font-family: var(--font-display); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem;">
+                            Core Platform vs. Market Vertical: Dividing the Work
+                        </h2>
                         <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 1rem;">
                             To ensure scalable and rapid deployments, DeeperPoint divides the building blocks of a vertical marketplace into two clear layers:
                         </p>
                         <div style="margin-bottom: 1rem;">
-                            <strong style="color: var(--dp-emerald); font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">🛠️ Core Platform Layer (DeeperPoint Open-Source)</strong>
+                            <strong style="color: var(--dp-emerald); font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">🛠️ Core Platform Layer (DeeperPoint Open-Source Project)</strong>
                             <span style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.5; display: block;">
-                                Delivers generic, reusable underlying matching algorithms (Cosolvent), reference knowledge models (CommonContext), default prompts, and automated metadata feedback loops.
+                                Responsible for providing the underlying matching software, the file analysis tools, the security mechanisms, and the automatic story-generation code.
                             </span>
                         </div>
                         <div>
-                            <strong style="color: var(--dp-amber); font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">👤 Domain Customization Layer (Vertical Founder)</strong>
+                            <strong style="color: var(--dp-amber); font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">👤 Market Vertical Layer (The Founder / Sponsor)</strong>
                             <span style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.5; display: block;">
-                                Sours regional legal documents, configures specialized attributes (`marketplace.yaml`), vibe-codes the user interface layout, calibrates matching stories, and operates curation feedback channels.
+                                Responsible for picking the specific industry, uploading regional legal and trade files, building the user-friendly website pages, and managing the local business operations.
                             </span>
                         </div>
                     </div>
@@ -188,37 +246,46 @@
                             DeeperPoint operates on a highly generic, extensible role schema designed to fit any complex transaction corridor:
                         </p>
                         <ul style="color: var(--dp-silver); font-size: 0.8125rem; line-height: 1.6; padding-left: 1.25rem;">
-                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Supply:</strong> Providers, caregivers, sellers, or fabricators.</li>
-                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Demand:</strong> Consumers, recipients, buyers, or clients.</li>
-                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Facilitators:</strong> Intermediaries, inspectors, brokers, or logistics managers.</li>
+                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Supply:</strong> The side offering services, products, capabilities, or craft (e.g., machine shops, independent contractors).</li>
+                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Demand:</strong> The side looking for or buying those services and products (e.g., specialized buyers, local clients).</li>
+                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Facilitators:</strong> Trusted third parties who help make the trade happen safely (e.g., quality inspectors, transport handlers, local verifiers).</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Section 2: The 5-Phase Timeline -->
-            <h2 style="color: #fff; font-family: var(--font-display); font-size: 2rem; text-align: center; margin-bottom: var(--space-xl);">The 5-Phase Creation Timeline</h2>
-            
+            <h2 style="color: #fff; font-family: var(--font-display); font-size: 2rem; text-align: center; margin-bottom: var(--space-xl);">
+                The 5-Phase Creation Timeline
+            </h2>
+
             <div class="timeline">
-                
+
                 <!-- Phase 1 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 1: Establish the Infrastructure
-                        <span class="timeline__badge">Local Sandbox Setup</span>
+                        Phase 1: Setting Up the Basics
+                        <span class="timeline__badge">Infrastructure</span>
                     </div>
-                    <div class="step-grid">
-                        <div class="step-card">
-                            <div class="step-card__num">Step 01</div>
-                            <h4 class="step-card__title">Cloning & Containerization</h4>
-                            <p class="step-card__desc">Download the core open-source repositories (Cosolvent, CommonContext) and launch local Docker databases with pgvector support.</p>
-                            <span class="allocation-tag allocation-tag--core">⚙️ Core Platform: Docker compose configs</span>
+
+                    <div class="step-list">
+                        <!-- Step 1 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 01</span>
+                            <span class="step-row__badge step-row__badge--core">🛠️ Core Platform</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Setting up the server environment</h4>
+                                <p class="step-row__desc">The open-source project provides pre-packaged server building blocks (software containers) that configure the matching engine and search database automatically.</p>
+                            </div>
                         </div>
-                        <div class="step-card">
-                            <div class="step-card__num">Step 02</div>
-                            <h4 class="step-card__title">Custom Scoping</h4>
-                            <p class="step-card__desc">Scope participant schemas in `marketplace.yaml` defining attributes, secure credentials, and custom roles.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: YAML field config</span>
+                        <!-- Step 2 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 02</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Defining your market rules</h4>
+                                <p class="step-row__desc">The founder configures a simple settings file to define the unique traits, qualifications, and questions required for their specific market.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -226,33 +293,46 @@
                 <!-- Phase 2 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 2: Curate the CommonContext
-                        <span class="timeline__badge" style="color: var(--dp-amber); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.05);">Knowledge Ingest</span>
+                        Phase 2: Building the Sector Reference Library
+                        <span class="timeline__badge" style="color: var(--dp-amber); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.05);">Curation</span>
                     </div>
-                    <div class="step-grid">
-                        <div class="step-card">
-                            <div class="step-card__num">Step 03</div>
-                            <h4 class="step-card__title">Document Ingestion</h4>
-                            <p class="step-card__desc">Snoop sector contracts and regulatory manuals, converting them into structure-aware Markdown vectors via CommonContext parsers.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: Document sourcing & loading</span>
+
+                    <div class="step-list">
+                        <!-- Step 3 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 03</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Collecting industry documents</h4>
+                                <p class="step-row__desc">The founder gathers standard contracts, government regulations, and industry guidelines and loads them into the reference library.</p>
+                            </div>
                         </div>
-                        <div class="step-card">
-                            <div class="step-card__num">Step 04</div>
-                            <h4 class="step-card__title">Meta-Schema Calibration</h4>
-                            <p class="step-card__desc">Run the AI Schema Analyzer on ingested files and calibrate proposals to align with precise local terminology.</p>
-                            <span class="allocation-tag allocation-tag--core" style="color: var(--dp-cyan);">🤝 Joint: Extraction & calibration</span>
+                        <!-- Step 4 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 04</span>
+                            <span class="step-row__badge step-row__badge--joint">🤝 Joint Effort</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Aligning industry terms</h4>
+                                <p class="step-row__desc">The core software analyzes the loaded documents, and the founder reviews the results to ensure the system understands precise local industry terms.</p>
+                            </div>
                         </div>
-                        <div class="step-card">
-                            <div class="step-card__num">Step 05</div>
-                            <h4 class="step-card__title">Escape Hatch Extraction</h4>
-                            <p class="step-card__desc">Parse bulletins to extract regulatory Alternative Compliance Rules (ACRs)—mapping legal workarounds for small firms.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: Rule crawlers & validation</span>
+                        <!-- Step 5 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 05</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Extracting legal workarounds</h4>
+                                <p class="step-row__desc">The founder finds and maps the alternative paths or "escape hatches" in regulations that allow smaller businesses to qualify.</p>
+                            </div>
                         </div>
-                        <div class="step-card">
-                            <div class="step-card__num">Step 06</div>
-                            <h4 class="step-card__title">Schema Locking</h4>
-                            <p class="step-card__desc">Integrate compliance escape triggers directly back into the vertical's profile metadata in `marketplace.yaml`.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: Injecting metadata triggers</span>
+                        <!-- Step 6 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 06</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Saving compliance settings</h4>
+                                <p class="step-row__desc">The founder locks these workaround options directly into the market's settings file so they can be triggered automatically.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -260,21 +340,28 @@
                 <!-- Phase 3 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 3: Stress-Test with Cohorts
-                        <span class="timeline__badge" style="color: var(--dp-violet); border-color: rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05);">Simulation & Twin</span>
+                        Phase 3: Stress-Testing the Marketplace
+                        <span class="timeline__badge" style="color: var(--dp-violet); border-color: rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05);">Simulation</span>
                     </div>
-                    <div class="step-grid">
-                        <div class="step-card">
-                            <div class="step-card__num">Step 07</div>
-                            <h4 class="step-card__title">Synthetic User Design</h4>
-                            <p class="step-card__desc">Apply ClientSynth cohort design guidelines to map probability metrics and synthesize diverse, realistic test personas.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: Designing persona specs</span>
+
+                    <div class="step-list">
+                        <!-- Step 7 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 07</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Creating simulated users</h4>
+                                <p class="step-row__desc">The founder designs a diverse group of mock participants (mock buyers, sellers, and inspectors) to test how they interact under different conditions.</p>
+                            </div>
                         </div>
-                        <div class="step-card">
-                            <div class="step-card__num">Step 08</div>
-                            <h4 class="step-card__title">Sandbox Verification</h4>
-                            <p class="step-card__desc">Deploy your Digital Twin sandbox, mount vertical parameters, and run matching loops to prove transaction equations.</p>
-                            <span class="allocation-tag allocation-tag--core">⚙️ Core: pgvector similarity tests</span>
+                        <!-- Step 8 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 08</span>
+                            <span class="step-row__badge step-row__badge--core">🛠️ Core Platform</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Running sandbox matching tests</h4>
+                                <p class="step-row__desc">The core engine runs simulated trades and matches between the mock participants to prove the marketplace arithmetic works before launching to real users.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -282,21 +369,28 @@
                 <!-- Phase 4 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 4: UI UX & Fine-Tuning
-                        <span class="timeline__badge">Custom Client</span>
+                        Phase 4: Designing the Screen & Writing Stories
+                        <span class="timeline__badge">UI UX</span>
                     </div>
-                    <div class="step-grid">
-                        <div class="step-card">
-                            <div class="step-card__num">Step 09</div>
-                            <h4 class="step-card__title">Vibe-Code Front-end</h4>
-                            <p class="step-card__desc">Vibe code a lightweight custom web frontend using LLM support, integrating custom onboarding and a developer Simulation Switcher.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: Client look & feel code</span>
+
+                    <div class="step-list">
+                        <!-- Step 9 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 09</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Building the user screens</h4>
+                                <p class="step-row__desc">The founder builds a clean, lightweight web page or mobile screen tailored to their users, connecting it directly to the matching engine.</p>
+                            </div>
                         </div>
-                        <div class="step-card">
-                            <div class="step-card__num">Step 10</div>
-                            <h4 class="step-card__title">Narrative Calibration</h4>
-                            <p class="step-card__desc">Calibrate Generative Match Story (GMS) templates to translate raw vectors into readable, step-by-step transaction walkthroughs.</p>
-                            <span class="allocation-tag allocation-tag--core" style="color: var(--dp-cyan);">🤝 Joint: GMS prompts & privacy gates</span>
+                        <!-- Step 10 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 10</span>
+                            <span class="step-row__badge step-row__badge--joint">🤝 Joint Effort</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Writing the match stories</h4>
+                                <p class="step-row__desc">The core software translates complex matching scores into simple, step-by-step plain English stories that explain to both sides why they are a great fit.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -304,21 +398,28 @@
                 <!-- Phase 5 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 5: Launch and Curate
-                        <span class="timeline__badge" style="color: var(--dp-emerald); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05);">Strategic Launch</span>
+                        Phase 5: Launching & Continuous Curation
+                        <span class="timeline__badge" style="color: var(--dp-emerald); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05);">Launch</span>
                     </div>
-                    <div class="step-grid">
-                        <div class="step-card">
-                            <div class="step-card__num">Step 11</div>
-                            <h4 class="step-card__title">Branded Onboarding</h4>
-                            <p class="step-card__desc">Draft non-technical local onboarding assets and marketing booklets demonstrating spatial and financial advantages.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: Marketing & value manuals</span>
+
+                    <div class="step-list">
+                        <!-- Step 11 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 11</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Welcoming new users</h4>
+                                <p class="step-row__desc">The founder creates simple guidebooks, manuals, and value explanations to help real-world businesses sign up easily.</p>
+                            </div>
                         </div>
-                        <div class="step-card">
-                            <div class="step-card__num">Step 12</div>
-                            <h4 class="step-card__title">Ongoing Curation Loops</h4>
-                            <p class="step-card__desc">Configure dashboards to capture blocked match alerts and feed missing regulatory exceptions back into the library.</p>
-                            <span class="allocation-tag allocation-tag--founder">👤 Founder: Sponsoring curator updates</span>
+                        <!-- Step 12 -->
+                        <div class="step-row">
+                            <span class="step-row__num">Step 12</span>
+                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
+                            <div class="step-row__content">
+                                <h4 class="step-row__title">Updating the library</h4>
+                                <p class="step-row__desc">The founder sets up alert channels so when a match is blocked by a missing rule, they can quickly update the library with a new workaround.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -326,36 +427,47 @@
             </div>
 
             <!-- Custom Sandbox Pipeline Diagram -->
-            <div class="card" style="padding: var(--space-2xl); border-color: rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.02); margin-bottom: var(--space-3xl);">
+            <div class="card"
+                style="padding: var(--space-2xl); border-color: rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.02); margin-bottom: var(--space-3xl);">
                 <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-2xl); align-items: center;">
-                    <div style="display: flex; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
-                        <img src="assets/myimages/marketforge-creation-flow.png" alt="DeeperPoint Digital Twin Sandbox Pipeline" style="max-width: 100%; height: auto; object-fit: contain;" loading="lazy">
+                    <div
+                        style="display: flex; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
+                        <img src="assets/myimages/marketforge-creation-flow.png"
+                            alt="DeeperPoint Digital Twin Sandbox Pipeline"
+                            style="max-width: 100%; height: auto; object-fit: contain;" loading="lazy">
                     </div>
                     <div>
                         <span class="section__label" style="color: var(--dp-violet);">Validation Sandbox</span>
-                        <h2 style="color: #fff; font-family: var(--font-display); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem;">The Digital Twin Architecture</h2>
+                        <h2 style="color: #fff; font-family: var(--font-display); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem;">
+                            The Digital Twin Architecture
+                        </h2>
                         <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 1.25rem;">
-                            Before launching to live users, the vertical founder constructs a local **Digital Twin** modeling the industry vertical. This integrates your custom YAML parameters and custom-designed synthetic user cohorts directly into the matching protocol environment:
+                            Before launching to real businesses, the founder sets up a **Digital Twin** (a local computer simulation) to test their marketplace. They create three groups of simulated users:
                         </p>
                         <ul style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.7; padding-left: 1.25rem; margin-bottom: 0;">
-                             <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Standard Cohort:</strong> Verifies that fully compliant counterparties match immediately.</li>
-                             <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Treatment Cohort (e.g. "Dave" Persona):</strong> Proves that uncertified local providers carrying alternative compliance triggers successfully bypass rigid blockers.</li>
-                             <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Control Cohort:</strong> Confirms that unqualified providers are safely blocked and routed to dynamic data-enrichment queries.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Group A (Fully Compliant):</strong> Confirms that users who clear every standard match immediately.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Group B (Has Workarounds):</strong> Proves that users who carry alternative qualifications (workarounds) successfully match instead of getting blocked.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Group C (Unqualified):</strong> Verifies that unqualified users are safely blocked and guided on how to improve.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Section 3: Curation Learning Loops -->
-            <h2 style="color: #fff; font-family: var(--font-display); font-size: 2rem; text-align: center; margin-bottom: var(--space-xl);">CommonContext Continuous Curation Loops</h2>
-            
+            <h2 style="color: #fff; font-family: var(--font-display); font-size: 2rem; text-align: center; margin-bottom: var(--space-xl);">
+                CommonContext Continuous Curation Loops
+            </h2>
+
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
-                
+
                 <!-- Loop 1 -->
-                <div class="card" style="padding: var(--space-xl); border-color: rgba(6, 182, 212, 0.2); background: rgba(6, 182, 212, 0.01);">
-                    <h3 style="color: var(--dp-cyan); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">Loop 1: Initial Calibration</h3>
+                <div class="card"
+                    style="padding: var(--space-xl); border-color: rgba(6, 182, 212, 0.2); background: rgba(6, 182, 212, 0.01);">
+                    <h3 style="color: var(--dp-cyan); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">
+                        Loop 1: Preparing the Ground
+                    </h3>
                     <p style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">
-                        Occurs during the sandbox setup phase. The sponsor curator feeds regulatory manuals into the text parsers, validates proposed vector schemas, and seeds Alternative Compliance Rules.
+                        Before launch, the founder uploads industry rulebooks to teach the software the baseline terminology and workarounds.
                     </p>
                     <span style="font-size: 0.75rem; color: var(--dp-muted); display: block; border-top: 1px solid var(--glass-border); padding-top: 0.5rem;">
                         <strong>Result:</strong> Calibrates matching models to regional industrial realities.
@@ -363,10 +475,13 @@
                 </div>
 
                 <!-- Loop 2 -->
-                <div class="card" style="padding: var(--space-xl); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.01);">
-                    <h3 style="color: var(--dp-emerald); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">Loop 2: Profile Enrichment</h3>
+                <div class="card"
+                    style="padding: var(--space-xl); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.01);">
+                    <h3 style="color: var(--dp-emerald); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">
+                        Loop 2: Automatic Profile Helping
+                    </h3>
                     <p style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">
-                        Occurs in real-time. When a transaction is blocked solely because a specific workaround parameter is unknown, the AI automatically prompts the participant (via SMS or WhatsApp) and dynamically enriches their profile.
+                        If a business gets blocked during matching because of a missing qualification, the software automatically messages them to ask for their workaround and updates their profile instantly.
                     </p>
                     <span style="font-size: 0.75rem; color: var(--dp-muted); display: block; border-top: 1px solid var(--glass-border); padding-top: 0.5rem;">
                         <strong>Result:</strong> Unlocks blocked matches in minutes without manual support.
@@ -374,10 +489,13 @@
                 </div>
 
                 <!-- Loop 3 -->
-                <div class="card" style="padding: var(--space-xl); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.01);">
-                    <h3 style="color: var(--dp-amber); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">Loop 3: Curator Pull Loop</h3>
+                <div class="card"
+                    style="padding: var(--space-xl); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.01);">
+                    <h3 style="color: var(--dp-amber); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">
+                        Loop 3: Closing the Curation Gaps
+                    </h3>
                     <p style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">
-                        Occurs during operations. When a match is blocked by a standard lacking any workaround rule, the system alerts the curator's Gap Signal UI, prompting them to crawl and approve a new ACR.
+                        If a transaction is blocked by a brand new regulatory barrier, the system alerts the founder, who quickly uploads the appropriate workaround to make the market smarter.
                     </p>
                     <span style="font-size: 0.75rem; color: var(--dp-muted); display: block; border-top: 1px solid var(--glass-border); padding-top: 0.5rem;">
                         <strong>Result:</strong> System gets progressively smarter with every match.
@@ -387,12 +505,18 @@
             </div>
 
             <!-- Cross-links / Spoke Banner -->
-            <div class="crosslink" style="border-left: 4px solid var(--dp-emerald); background: rgba(16, 185, 129, 0.05); padding: var(--space-xl);">
+            <div class="crosslink"
+                style="border-left: 4px solid var(--dp-emerald); background: rgba(16, 185, 129, 0.05); padding: var(--space-xl);">
                 <div class="crosslink__text">
-                    <h3 style="color: var(--dp-emerald); margin: 0 0 0.5rem 0; font-family: var(--font-display);">Ready to review the software?</h3>
-                    <p style="margin: 0; color: var(--dp-silver); font-size: 0.9375rem;">Explore the core Cosolvent suite and download the MIT licensed transaction database blocks.</p>
+                    <h3 style="color: var(--dp-emerald); margin: 0 0 0.5rem 0; font-family: var(--font-display);">
+                        Ready to review the software?
+                    </h3>
+                    <p style="margin: 0; color: var(--dp-silver); font-size: 0.9375rem;">
+                        Explore the core Cosolvent suite and download the MIT licensed transaction database blocks.
+                    </p>
                 </div>
-                <a href="cosolvent.html" class="btn btn--primary" style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff; white-space: nowrap;">Explore Cosolvent →</a>
+                <a href="cosolvent.html" class="btn btn--primary"
+                    style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff; white-space: nowrap;">Explore Cosolvent →</a>
             </div>
 
         </div>
