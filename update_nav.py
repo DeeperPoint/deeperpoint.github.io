@@ -5,7 +5,7 @@ new_nav_items = [
     ("Home", "index.html"),
     ("Theory", "thin-markets.html"),
     ("Project", "project.html"),
-    ("Demo", "demo-guide.html"),
+    ("Demo", "https://marketforgedigitaltwin.vercel.app/"),
     ("Matrix", "intervention-matrix.html"),
     ("Catalog", "catalog/index.html"),
     ("MarketMaps", "marketmaps.html"),
@@ -31,20 +31,23 @@ def build_nav_html(prefix, current_filepath):
     
     lines = ['      <ul class="nav__links">']
     for label, target in new_nav_items:
+        is_external = target.startswith('http://') or target.startswith('https://')
         href = target
-        if prefix:
+        if not is_external and prefix:
             href = prefix + target
             
         is_active = False
-        # If the target is an exact match for the current file
-        if normalized_current == target:
-            is_active = True
-        # For directories like blog/ or catalog/, if we are inside them, maybe mark as active
-        elif target.endswith('index.html') and target != 'index.html' and normalized_current.startswith(target.replace('index.html', '')):
-            is_active = True
+        if not is_external:
+            # If the target is an exact match for the current file
+            if normalized_current == target:
+                is_active = True
+            # For directories like blog/ or catalog/, if we are inside them, maybe mark as active
+            elif target.endswith('index.html') and target != 'index.html' and normalized_current.startswith(target.replace('index.html', '')):
+                is_active = True
             
         active_class = ' nav__link--active' if is_active else ''
-        lines.append(f'        <li><a href="{href}" class="nav__link{active_class}">{label}</a></li>')
+        target_attr = ' target="_blank" rel="noopener"' if is_external else ''
+        lines.append(f'        <li><a href="{href}" class="nav__link{active_class}"{target_attr}>{label}</a></li>')
     lines.append('      </ul>')
     return '\n'.join(lines)
 
