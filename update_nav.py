@@ -5,6 +5,7 @@ new_nav_items = [
     ("Home", "index.html"),
     ("Theory", "thin-markets.html"),
     ("Project", "project.html"),
+    ("Demo", "demo-guide.html"),
     ("Matrix", "intervention-matrix.html"),
     ("Catalog", "catalog/index.html"),
     ("MarketMaps", "marketmaps.html"),
