@@ -357,11 +357,11 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       <ul class="nav__links">
         <li><a href="{root}index.html" class="nav__link">Home</a></li>
         <li><a href="{root}thin-markets.html" class="nav__link">Theory</a></li>
+        <li><a href="{root}project.html" class="nav__link">Project</a></li>
         <li><a href="{root}intervention-matrix.html" class="nav__link">Matrix</a></li>
         <li><a href="{root}ebook.html" class="nav__link">Ebook</a></li>
         <li><a href="{root}catalog/index.html" class="nav__link">Catalog</a></li>
         <li><a href="{root}marketmaps.html" class="nav__link">MarketMaps</a></li>
-        <li><a href="{root}cosolvent.html" class="nav__link">Cosolvent</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
         <li><a href="{root}about.html" class="nav__link">About</a></li>
       </ul>
