@@ -1,0 +1,440 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — DeeperPoint</title>
+  <meta name="description"
+    content="How a DeeperPoint marketplace takes two strangers from anonymous discovery to a structured Deal Brief — in four stages, with privacy and trust at every step.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How It Works — DeeperPoint">
+  <meta property="og:description"
+    content="From profiles to Deal Brief: how DeeperPoint's matching infrastructure works in practice.">
+  <meta property="og:url" content="https://deeperpoint.com/how-it-works.html">
+  <meta property="og:site_name" content="DeeperPoint">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ═══════════════════════════════════════════
+       HOW IT WORKS — STAGE TIMELINE STYLING
+       ═══════════════════════════════════════════ */
+    .hiw-intro { max-width: 720px; margin: 0 auto var(--space-2xl); }
+    .hiw-intro p { color: var(--dp-silver); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+    .hiw-intro strong { color: #fff; }
+
+    .hiw-stage {
+      position: relative;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-xl);
+      transition: border-color 0.3s ease;
+    }
+    .hiw-stage:hover { border-color: rgba(99, 102, 241, 0.3); }
+
+    .hiw-stage__num {
+      position: absolute;
+      top: -1px; left: var(--space-xl);
+      background: var(--dp-midnight);
+      padding: 0 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transform: translateY(-50%);
+    }
+
+    .hiw-stage__header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .hiw-stage__icon { font-size: 1.75rem; flex-shrink: 0; }
+    .hiw-stage__title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: #fff;
+      margin: 0;
+    }
+
+    .hiw-stage__body { color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.75; }
+    .hiw-stage__body p { margin-bottom: 0.75rem; }
+    .hiw-stage__body p:last-child { margin-bottom: 0; }
+    .hiw-stage__body strong { color: #fff; }
+    .hiw-stage__body em { color: var(--dp-muted); }
+
+    .hiw-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .hiw-detail {
+      background: rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+    }
+    .hiw-detail__label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .hiw-detail__text { color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin: 0; }
+
+    /* Stage connector */
+    .hiw-connector {
+      display: flex;
+      justify-content: center;
+      margin: -0.5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    .hiw-connector__arrow {
+      width: 2px;
+      height: 2rem;
+      background: linear-gradient(to bottom, rgba(99, 102, 241, 0.4), rgba(99, 102, 241, 0.1));
+    }
+
+    /* Comparison table */
+    .hiw-compare {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.875rem;
+    }
+    .hiw-compare th {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hiw-compare td {
+      padding: 0.6rem 0.75rem;
+      color: var(--dp-silver);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: top;
+    }
+    .hiw-compare td:first-child { font-weight: 600; color: var(--dp-muted); white-space: nowrap; }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hiw-detail-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Key distinction callout */
+    .hiw-callout {
+      border-left: 3px solid var(--dp-amber);
+      background: rgba(245, 158, 11, 0.04);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: var(--space-xl) 0;
+    }
+    .hiw-callout p { color: var(--dp-silver); line-height: 1.7; margin: 0; font-size: 0.9375rem; }
+    .hiw-callout strong { color: #fff; }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation (standard — no active state since page is not in nav) -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
+        <li><a href="project.html" class="nav__link">Project</a></li>
+        <li><a href="demo.html" class="nav__link">Demo</a></li>
+        <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="section" style="padding-top: calc(var(--space-4xl) + 60px); padding-bottom: 0;">
+    <div class="container container--narrow">
+      <div class="text-center reveal" style="margin-bottom: var(--space-2xl);">
+        <span class="section__label">How It Works</span>
+        <h1 class="section__title">From Strangers to Deal Brief</h1>
+        <p class="section__desc section__desc--centered">
+          How two parties who don&rsquo;t know each other move from anonymous discovery through structured negotiation to a document their professionals can act on.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container container--narrow">
+
+      <div class="hiw-intro reveal">
+        <p>
+          Conventional marketplace platforms do one of two things: <strong>show you a list</strong> (search results, supplier directories) or <strong>close the deal for you</strong> (e-commerce checkout, escrow, fulfillment). Both work well when the product is standardized and the market has enough volume to absorb waste.
+        </p>
+        <p>
+          DeeperPoint operates in a third space &mdash; markets where the parties don&rsquo;t yet know <em>what</em> the deal is, let alone the price. The product specification emerges through negotiation. The transaction structure requires facilitators whose roles must be defined. The regulatory pathway is specific to this particular pairing.
+        </p>
+        <p>
+          In these markets, the platform&rsquo;s job is not to close the deal. It is to <strong>get the parties to a meeting of the minds</strong> &mdash; and then hand the result to their own professionals for execution.
+        </p>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════════
+           STAGE 1: PROFILES
+           ════════════════════════════════════════════════════════ -->
+      <div class="hiw-stage reveal">
+        <div class="hiw-stage__num" style="color: var(--dp-emerald);">Stage 1</div>
+        <div class="hiw-stage__header">
+          <span class="hiw-stage__icon">👤</span>
+          <h2 class="hiw-stage__title">Profiles — Both Sides Describe Themselves</h2>
+        </div>
+        <div class="hiw-stage__body">
+          <p>
+            Each participant creates a profile using the marketplace&rsquo;s vertical-specific schema. A Saskatchewan barley grower describes cultivar, grade, volume, delivery window, and export experience. A Filipino craft brewer describes batch size, grain specification, import pathway, and pricing flexibility. A heritage restoration architect describes the project, conservation requirements, budget range, and timeline.
+          </p>
+          <p>
+            Profiles are <strong>not forms with fixed taxonomies</strong>. Each marketplace defines its own schema through the <a href="mf-cosolvent.html" style="color: #818cf8;">Cosolvent</a> configuration compiler &mdash; different verticals have different fields, different visibility rules, different matching weights.
+          </p>
+          <div class="hiw-detail-grid">
+            <div class="hiw-detail">
+              <div class="hiw-detail__label" style="color: var(--dp-emerald);">Three-tier visibility</div>
+              <p class="hiw-detail__text">Every field is tagged <strong style="color: #fff;">public</strong> (browsable gallery), <strong style="color: #fff;">protected</strong> (revealed on mutual consent), or <strong style="color: #fff;">private</strong> (used by the AI for matching, never shown to other participants).</p>
+            </div>
+            <div class="hiw-detail">
+              <div class="hiw-detail__label" style="color: var(--dp-cyan);">AI-assisted onboarding</div>
+              <p class="hiw-detail__text">Participants can upload existing documents (capability statements, certifications, lab results). The AI extracts structured fields automatically &mdash; no manual form-filling required.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-connector"><div class="hiw-connector__arrow"></div></div>
+
+      <!-- ════════════════════════════════════════════════════════
+           STAGE 2: CONTENT MATCH STORY
+           ════════════════════════════════════════════════════════ -->
+      <div class="hiw-stage reveal">
+        <div class="hiw-stage__num" style="color: var(--dp-cyan);">Stage 2</div>
+        <div class="hiw-stage__header">
+          <span class="hiw-stage__icon">🤝</span>
+          <h2 class="hiw-stage__title">Content Match Story — The Case for the Match</h2>
+        </div>
+        <div class="hiw-stage__body">
+          <p>
+            When the matching engine identifies a promising pairing, it does not just notify the parties. It generates a <strong>Content Match Story</strong> &mdash; an AI-authored narrative explaining <em>why</em> this match is worth pursuing and <em>what</em> the parties could plausibly accomplish together. Not a profile summary. Not a referral. A <em>case</em>, made on behalf of the match.
+          </p>
+          <p>
+            The story is delivered <strong>anonymously</strong>. Both parties read the argument for the match without knowing who the other party is. This protects competitive intelligence: a manufacturer exploring new markets doesn&rsquo;t signal to competitors that they&rsquo;re looking, and a buyer with a sourcing gap doesn&rsquo;t reveal their vulnerability.
+          </p>
+          <p>
+            Identity is revealed only on <strong>double opt-in</strong> &mdash; both parties must independently signal interest before either name is disclosed. When they do connect, they arrive at their first conversation already understanding the match argument. The cold-call problem disappears.
+          </p>
+          <div class="hiw-detail-grid">
+            <div class="hiw-detail">
+              <div class="hiw-detail__label" style="color: var(--dp-cyan);">What the story includes</div>
+              <p class="hiw-detail__text">Capability alignment, complementary strengths, potential deal structure, relevant regulatory context from <a href="mf-commoncontext.html" style="color: #818cf8;">CommonContext</a>, and an honest assessment of gaps or risks.</p>
+            </div>
+            <div class="hiw-detail">
+              <div class="hiw-detail__label" style="color: var(--dp-violet);">Why this matters in thin markets</div>
+              <p class="hiw-detail__text">When each viable match is rare, you cannot afford a 70% attrition rate between &ldquo;matched&rdquo; and &ldquo;first conversation.&rdquo; The story converts passive matches into active engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-connector"><div class="hiw-connector__arrow"></div></div>
+
+      <!-- ════════════════════════════════════════════════════════
+           STAGE 3: NEGOTIATION
+           ════════════════════════════════════════════════════════ -->
+      <div class="hiw-stage reveal">
+        <div class="hiw-stage__num" style="color: var(--dp-blue-light);">Stage 3</div>
+        <div class="hiw-stage__header">
+          <span class="hiw-stage__icon">💬</span>
+          <h2 class="hiw-stage__title">Structured Negotiation — Exploring the Fit</h2>
+        </div>
+        <div class="hiw-stage__body">
+          <p>
+            After double opt-in, the parties enter a structured negotiation workspace. This is not a chat window &mdash; it is a guided process where the platform tracks <strong>what has been agreed, what remains open, and what each party&rsquo;s last position was</strong>.
+          </p>
+          <p>
+            The platform also identifies <strong>facilitators</strong> who need to be involved: an inspector for a machinery condition assessment, a freight forwarder for cross-border logistics, a regulatory consultant for export compliance, or an attorney specializing in the relevant jurisdiction. These aren&rsquo;t referral links &mdash; they are structurally integrated into the deal, with defined role slots.
+          </p>
+          <p>
+            <strong>CommonContext</strong> surfaces relevant domain knowledge throughout the negotiation: regulatory requirements, standard compliance pathways, alternative certification routes, and precedent deal structures. This &ldquo;workaround knowledge&rdquo; &mdash; the non-obvious things an industry insider knows &mdash; is curated by the marketplace sponsor and grows every time the matching engine encounters a new domain gap.
+          </p>
+        </div>
+      </div>
+
+      <div class="hiw-connector"><div class="hiw-connector__arrow"></div></div>
+
+      <!-- ════════════════════════════════════════════════════════
+           STAGE 4: DEAL BRIEF
+           ════════════════════════════════════════════════════════ -->
+      <div class="hiw-stage reveal" style="border-color: rgba(245, 158, 11, 0.25);">
+        <div class="hiw-stage__num" style="color: var(--dp-amber);">Stage 4 — Platform Output</div>
+        <div class="hiw-stage__header">
+          <span class="hiw-stage__icon">📄</span>
+          <h2 class="hiw-stage__title">The Deal Brief — Handoff to Your Professionals</h2>
+        </div>
+        <div class="hiw-stage__body">
+          <p>
+            When both parties have explored the fit and reached a preliminary understanding, the platform assembles a <strong>Deal Brief</strong> &mdash; a structured, non-binding document that captures the full state of the negotiation.
+          </p>
+
+          <div class="hiw-detail-grid" style="grid-template-columns: 1fr;">
+            <div class="hiw-detail">
+              <table class="hiw-compare">
+                <tr>
+                  <th style="width: 30%;">Section</th>
+                  <th>What it captures</th>
+                </tr>
+                <tr>
+                  <td>Principals</td>
+                  <td>Who the parties are, their roles, and their verified credentials</td>
+                </tr>
+                <tr>
+                  <td>Agreed terms</td>
+                  <td>What both parties have consented to &mdash; product specification, volume, delivery window, pricing range</td>
+                </tr>
+                <tr>
+                  <td>Open items</td>
+                  <td>What remains unresolved, with each party&rsquo;s last position documented</td>
+                </tr>
+                <tr>
+                  <td>Facilitators</td>
+                  <td>Which role slots have been filled (inspector, forwarder, attorney, insurer) and which are still open</td>
+                </tr>
+                <tr>
+                  <td>Regulatory checklist</td>
+                  <td>Compliance steps required before the transaction can execute, sequenced by dependency</td>
+                </tr>
+                <tr>
+                  <td>Next steps</td>
+                  <td>Who needs to do what, in what order, with estimated timelines</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <p style="margin-top: 1rem;">
+            The Deal Brief is the document the parties hand to their own attorneys, banks, insurers, and logistics providers. It is <strong>not a contract</strong>. It is the structured input that makes contracting possible &mdash; the organized summary of mutual understanding that a professional advisor needs to draft the actual agreement.
+          </p>
+          <p>
+            <strong>The platform&rsquo;s job ends here.</strong> Execution &mdash; legal drafting, banking due diligence, insurance underwriting, export permit applications &mdash; happens offline, through the parties&rsquo; existing professional relationships.
+          </p>
+        </div>
+      </div>
+
+      <!-- Key distinction callout -->
+      <div class="hiw-callout reveal">
+        <p>
+          <strong>Why &ldquo;not a contract&rdquo; is a feature, not a limitation.</strong> In complex commercial negotiations, nothing is binding until everything is agreed &mdash; the package-deal principle. A platform that locks in individual terms prematurely misrepresents how these deals work. The Deal Brief respects this reality: it captures the full negotiation state without committing either party until their own attorneys have reviewed the complete picture. This also lowers the adoption barrier for cautious SMEs who would never surrender control to a platform &mdash; your lawyer and your bank are still in charge.
+        </p>
+      </div>
+
+      <!-- Comparison: What other platforms produce -->
+      <div class="hiw-stage reveal" style="background: rgba(99, 102, 241, 0.03); border-color: rgba(99, 102, 241, 0.15);">
+        <div class="hiw-stage__num" style="color: var(--dp-violet);">Context</div>
+        <div class="hiw-stage__header">
+          <span class="hiw-stage__icon">📊</span>
+          <h2 class="hiw-stage__title">How This Compares to Other Platforms</h2>
+        </div>
+        <div class="hiw-stage__body">
+          <table class="hiw-compare">
+            <tr>
+              <th></th>
+              <th>What it produces</th>
+              <th>Where the platform&rsquo;s job ends</th>
+              <th>Assumes the market is&hellip;</th>
+            </tr>
+            <tr>
+              <td>Supplier directories</td>
+              <td>A search result &mdash; a shortlist of names</td>
+              <td>At discovery. The buyer&rsquo;s work begins.</td>
+              <td>Thick enough that a list is useful</td>
+            </tr>
+            <tr>
+              <td>Transactional marketplaces</td>
+              <td>An enforceable contract with escrow</td>
+              <td>At transaction completion</td>
+              <td>Standardized enough for automated contracting</td>
+            </tr>
+            <tr>
+              <td style="color: var(--dp-amber);"><strong>DeeperPoint</strong></td>
+              <td><strong style="color: #fff;">A Deal Brief</strong></td>
+              <td>At the point where professionals can take over</td>
+              <td>Too complex for automated contracting &mdash; the specification emerges through negotiation</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="reveal text-center" style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg);">
+        <p style="color: var(--dp-silver); font-size: 0.9375rem; margin-bottom: 1.25rem;">
+          See the matching process in action with synthetic participants, or explore the 250+ thin market scenarios where this architecture applies.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <a href="demo.html" class="btn btn--primary">Try the Interactive Demo</a>
+          <a href="catalog/index.html" class="btn btn--outline">Browse the Catalog</a>
+          <a href="mf-cosolvent.html#deal-brief" class="btn btn--outline">Cosolvent Deal Brief →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+        <ul class="footer__links">
+          <li><a href="search.html" class="footer__link">Search</a></li>
+          <li><a href="about.html" class="footer__link">About</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+  <script src="nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

@@ -126,7 +126,7 @@ The deal is not a two-party contract. The platform identifies that this transact
 - **Photography and documentation**: the set needs professional documentation — not just for the buyer but for the provenance record. A photographer in Oaxaca City who is registered on the platform as a creative services facilitator is proposed.
 - **Pricing**: the platform's reference library includes data on comparable artisanal sets sold at international retail. The chatbot, drawing from the CommonContext, suggests a price range for the set based on the materials, labor hours, scale, and the premium that collaborative provenance commands. The artisans set their own price within that guidance.
 
-The deal structure — principals, facilitators, role assignments, pricing, timeline, quality requirements — is assembled in a **Handoff Artifact**: a structured document that captures everything a buyer would need to evaluate and purchase the set.
+The deal structure — principals, facilitators, role assignments, pricing, timeline, quality requirements — is assembled in a **Deal Brief**: a structured document that captures everything a buyer would need to evaluate and purchase the set.
 
 ## 7. The Buyer Side
 

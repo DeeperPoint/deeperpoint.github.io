@@ -116,7 +116,7 @@ When both parties indicate they're ready to proceed, the platform moves into dea
 - **Documentation**: photography and written documentation of the restoration process, required by the easement. A preservation documentation specialist in the mid-Atlantic region is surfaced as a facilitator.
 - **Pricing guidance**: the CommonContext's benchmarking data suggests that a full timber-frame bank barn restoration in the mid-Atlantic, using reclaimed species-matched lumber with full easement compliance, ranges from $140,000 to $220,000 — consistent with Catherine's budget.
 
-The deal structure — principal participants, facilitators, role assignments, conservation requirements, materials specifications, timeline, pricing — is assembled in a **Handoff Artifact** that both parties review.
+The deal structure — principal participants, facilitators, role assignments, conservation requirements, materials specifications, timeline, pricing — is assembled in a **Deal Brief** that both parties review.
 
 ## 7. What Makes This a Thin Market Story
 

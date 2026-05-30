@@ -53,9 +53,9 @@ The platform opens a secure, three-way communication channel between Elias, Cami
 
 Because the system manages trust progressively, Elias and Camille only reveal their proprietary bills of material and specific container volumes once they agree to the basic non-disclosure framework established by the platform. 
 
-The AI summarizes the arrangement into a final, structured output—a **Handoff Artifact**. It outlines the shared logistics out of Vancouver, the preliminary cost-split for Ji-Yoon’s regulatory services in Tokyo, and the joint marketing strategy.
+The AI summarizes the arrangement into a final, structured output—a **Deal Brief**. It outlines the shared logistics out of Vancouver, the preliminary cost-split for Ji-Yoon’s regulatory services in Tokyo, and the joint marketing strategy.
 
-Crucially, this Handoff Artifact is **not a contract**. It is a deeply organized summary of mutual intent. Once generated, Elias, Camille, and Ji-Yoon take the artifact off-platform to their respective attorneys, insurance providers, and chosen freight forwarders. They will likely adjust the details iteratively through bilateral offline phone calls as the deal hardens. The CFIN platform's job is not to govern the final contract, but to eliminate the discovery friction and efficiently assemble the vital details that the subsequent legal contracts will require.
+Crucially, this Deal Brief is **not a contract**. It is a deeply organized summary of mutual intent. Once generated, Elias, Camille, and Ji-Yoon take the artifact off-platform to their respective attorneys, insurance providers, and chosen freight forwarders. They will likely adjust the details iteratively through bilateral offline phone calls as the deal hardens. The CFIN platform's job is not to govern the final contract, but to eliminate the discovery friction and efficiently assemble the vital details that the subsequent legal contracts will require.
 
 For CFIN, the return on investment is transformative. By hosting a matching engine, Alex Barlow isn't just fostering "networking"; she has become the active catalyst that clustered isolated companies into a highly competitive, aggregated powerhouse capable of crossing the ocean.
 

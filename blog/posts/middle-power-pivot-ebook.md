@@ -35,7 +35,7 @@ We are at an inflection point. Artificial Intelligence provides the first plausi
 
 By building open-protocol coordination marketplaces (like the proposed Cosolvent engine), we can enforce transparent matching rules, use semantic matching to evaluate thousands of capability vectors instantly, and handle IP protection through privacy-preserving architecture. 
 
-This creates the foundation for **AI-coordinated flexible specialization**. By connecting independent SMEs at the firm level, an AI broker can assemble temporary, multi-firm consortia—a "virtual mega-factory"—capable of pursuing major contracts that no single shop could win alone. The AI explores the fit and structures a proposed agreement (a Handoff Artifact), but steps back to let the firms negotiate and execute the transaction offline. 
+This creates the foundation for **AI-coordinated flexible specialization**. By connecting independent SMEs at the firm level, an AI broker can assemble temporary, multi-firm consortia—a "virtual mega-factory"—capable of pursuing major contracts that no single shop could win alone. The AI explores the fit and structures a proposed agreement (a Deal Brief), but steps back to let the firms negotiate and execute the transaction offline. 
 
 This model allows independent shops to coordinate at Hegemon-scale while retaining their equity, intellectual property, and independence. 
 

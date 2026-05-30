@@ -142,7 +142,7 @@ When Claire and Erik agree to proceed, the platform moves into **deal structurin
 
 - **Legal counsel:** A mining law firm to structure the joint venture agreement — earn-in terms, area of interest provisions, back-in rights, and dispute resolution. The CommonContext provides standard term templates from CIM's model joint venture agreement
 
-The deal structure — exploration company, investor, QP consultant, drilling contractor, laboratory, environmental consultant, legal counsel, JV terms, budget, timeline, and regulatory compliance checklist — is assembled into a **Handoff Artifact**: a structured specification package that each participant can act on immediately. The JV term sheet specifies: Norrland earns a 60% project interest by funding the $2.8 million Phase 2 program in full. Northreach retains a 40% carry through to a Preliminary Economic Assessment. An area of interest clause covers the six claims in the Kapuskasing structural zone. The agreement is governed by Ontario law.
+The deal structure — exploration company, investor, QP consultant, drilling contractor, laboratory, environmental consultant, legal counsel, JV terms, budget, timeline, and regulatory compliance checklist — is assembled into a **Deal Brief**: a structured specification package that each participant can act on immediately. The JV term sheet specifies: Norrland earns a 60% project interest by funding the $2.8 million Phase 2 program in full. Northreach retains a 40% carry through to a Preliminary Economic Assessment. An area of interest clause covers the six claims in the Kapuskasing structural zone. The agreement is governed by Ontario law.
 
 ---
 

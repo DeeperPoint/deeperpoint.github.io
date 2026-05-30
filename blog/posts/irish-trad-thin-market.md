@@ -119,7 +119,7 @@ When both parties confirm the engagement, the platform moves into **deal structu
 - **Technical requirements**: Caitlín needs an unamplified venue with good natural reverb. The CommonContext suggests suitable venues in Buenos Aires based on previous residencies.
 - **Payment**: The platform structures the payment in tranches through the Centro's existing grant mechanism, providing the necessary documentation trail.
 
-The deal structure — principal participants, facilitators, role assignments, timeline, and fee structure — is assembled in a **Handoff Artifact** that both parties review and confirm.
+The deal structure — principal participants, facilitators, role assignments, timeline, and fee structure — is assembled in a **Deal Brief** that both parties review and confirm.
 
 ---
 
