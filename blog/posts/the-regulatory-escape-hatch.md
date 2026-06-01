@@ -7,7 +7,7 @@ tags: [thin-markets, market-design, commoncontext, regulation, shadow-capacity, 
 summary: "B2B transactions in specialized sectors are frequently blocked by rigid regulatory and certification walls designed for multinationals. But codes almost always contain 'escape hatches'—hidden, flexible workarounds that a sponsor can ingest into the Knowledge Slot to turn superficial blockers into viable trades."
 estimated-read: 9 min read
 series: shadow-capacity
-series-position: 15
+series-position: 9
 ---
 
 <figure class="blog-hero">
@@ -210,3 +210,7 @@ The platform has no rake to maximize. It does not retire, it does not hide worka
 [^ul-9540a-2025]: Underwriters Laboratories, *Standard for Test Method for Evaluating Thermal Runaway Fire Propagation in Battery Energy Storage Systems*, UL 9540A, 4th Edition, September 2025. <https://standardscatalog.ul.com>
 [^porter-clusters-1990]: Porter, M., *The Competitive Advantage of Nations*, Free Press, 1990. For foundations on geographic cluster trust and transaction friction.
 [^piore-specialization-1984]: Piore, M. J., & Sabel, C. F., *The Second Industrial Divide: Possibilities for Prosperity*, Basic Books, 1984. For historical flexible specialization and the broker extraction trap.
+
+---
+
+*This is part 9 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on how AI-driven coordination infrastructure addresses thin market failures, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*

@@ -10,7 +10,7 @@ hero-image: images/blog/machine-between-shifts-hero.png
 hero-caption: An EOS M290 powder bed fusion system mid-build — Ti-6Al-4V lattice structures forming layer by layer inside the build chamber.
 slug: additive-manufacturing-shadow-capacity
 series: shadow-capacity
-series-position: 5
+series-position: 6
 ---
 
 ## The Machine Between Shifts
@@ -216,4 +216,4 @@ The machine between shifts keeps depreciating.
 
 ---
 
-*This is part of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on how thin market coordination works, see [The Problem](https://deeperpoint.com/thin-markets.html) and [MarketForge](https://deeperpoint.com/marketforge.html).*
+*This is part 6 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on how thin market coordination works, see [The Problem](https://deeperpoint.com/thin-markets.html) and [MarketForge](https://deeperpoint.com/marketforge.html).*

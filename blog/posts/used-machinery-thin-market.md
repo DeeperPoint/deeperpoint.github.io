@@ -2,7 +2,7 @@
 series: shadow-capacity
 series-title: "Recapturing Shadow Manufacturing Capacity in Ontario"
 series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
-series-position: 7
+series-position: 8
 title: "Market Scenario: The Machine Under the Tarp"
 date: 2026-03-18
 slug: used-machinery-thin-market
@@ -127,4 +127,4 @@ The tarp comes off. But how many more machines are still under tarps across Onta
 
 ---
 
-*This is part 7 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on the structural dynamics of thin markets, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*
+*This is part 8 of the series [Recapturing Shadow Manufacturing Capacity in Ontario](https://deeperpoint.com/blog/series/shadow-capacity.html). For more on the structural dynamics of thin markets, see [The Problem](https://deeperpoint.com/thin-markets.html) and the [Intervention Matrix](https://deeperpoint.com/intervention-matrix.html).*
