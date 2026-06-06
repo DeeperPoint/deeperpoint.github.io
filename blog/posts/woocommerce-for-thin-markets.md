@@ -8,6 +8,11 @@ summary: Why standard SaaS tools fail complex B2B markets, and how an open-sourc
 estimated-read: 5 min read
 ---
 
+<figure class="blog-hero">
+  <img class="blog-hero__img" src="../images/blog/woocommerce-for-thin-markets-hero.png" alt="Cosolvent acts as the headless backend engine, allowing sponsors to vibe-code custom user interfaces on top." loading="lazy">
+  <figcaption>Cosolvent acts as the headless backend engine, allowing sponsors to vibe-code custom user interfaces on top.</figcaption>
+</figure>
+
 If you walk into any startup incubator today, you will see two very different kinds of founders trying to solve the same basic problem: launching a marketplace.
 
 Founder A is building a relatively straightforward business—perhaps matching local dog walkers with pet owners, or selling artisanal soap. They quickly turn to Shopify or a standard template builder. Their market is "thick," their items are highly standardized, and transactions are resolved with a simple, instant retail checkout. It is a solved software problem.
