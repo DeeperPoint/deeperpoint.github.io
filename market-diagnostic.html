@@ -1298,13 +1298,13 @@
                     <span style="font-size:2.25rem; font-weight:700; color:var(--dp-cyan); text-shadow:0 0 15px rgba(6,182,212,0.4);">${thinnessScore} <span style="font-size:1rem; font-weight:400; color:var(--dp-silver);">/ 56.0 Max</span></span>
                 </h3>
                 <p style="color:var(--dp-silver); font-size:1rem; line-height:1.6; margin-bottom:var(--space-lg);">
-                    This index measures structural market thinness by evaluating relationship-level barriers against macro-environmental volatility, scaled by your market's fundamental Gains from Trade ($G = ${G}$).
+                    This index measures structural market thinness by evaluating relationship-level barriers against macro-environmental volatility, scaled by your market's fundamental Gains from Trade (Market Efficiency Factor = ${G}).
                 </p>
 
                 <!-- Endogenous Frictions Scorebar -->
                 <div style="margin-bottom:var(--space-md);">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                        <strong style="color:#fff; font-size:0.9375rem;">Endogenous Relationship Frictions ($I_{f,\\text{endo}}$)</strong>
+                        <strong style="color:#fff; font-size:0.9375rem;">Endogenous Relationship Frictions (Index)</strong>
                         <span style="color:var(--dp-cyan); font-weight:600; font-size:0.9375rem;">${iEndo} / 40</span>
                     </div>
                     <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; overflow:hidden; border:1px solid rgba(255,255,255,0.03);">
@@ -1318,7 +1318,7 @@
                 <!-- Exogenous Frictions Scorebar -->
                 <div style="margin-bottom:var(--space-md);">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                        <strong style="color:#fff; font-size:0.9375rem;">Exogenous Environmental Volatility ($I_{f,\\text{emu}}$)</strong>
+                        <strong style="color:#fff; font-size:0.9375rem;">Exogenous Environmental Volatility (Index)</strong>
                         <span style="color:var(--dp-violet); font-weight:600; font-size:0.9375rem;">${iEmu} / 16</span>
                     </div>
                     <div style="height:10px; background:rgba(255,255,255,0.06); border-radius:5px; overflow:hidden; border:1px solid rgba(255,255,255,0.03);">
@@ -1341,7 +1341,7 @@
                         <span>🛡️</span> Critical Exogenous Volatility Detected
                     </h4>
                     <p style="color:var(--dp-silver); font-size:.9375rem; margin:0; line-height:1.6;">
-                        Your market shows high exposure to exogenous environmental volatility ($I_{f,\\text{emu}} = ${iEmu} \\ge 8$). Standard B2B matching tools are insufficient because counterparties are paralyzed by the <strong>Option Value of Delay</strong>.
+                        Your market shows high exposure to exogenous environmental volatility (Exogenous Volatility Index = ${iEmu}). Standard B2B matching tools are insufficient because counterparties are paralyzed by the <strong>Option Value of Delay</strong>.
                     </p>
                     <p style="color:var(--dp-silver); font-size:.9375rem; margin-top:.75rem; line-height:1.6;">
                         DeeperPoint recommends deploying the <strong>AI Risk Insulation</strong> module of the Cosolvent engine. By acting as an oracle to digest real-time compliance feeds, currency rates, and tariff indexes, it programmatically writes <strong>Dynamic Contingent Contracts</strong> with integrated currency collars and regulatory compliance escape triggers to insulate margins and unlock transaction flow.
