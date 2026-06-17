@@ -50,7 +50,7 @@
     </nav>
 
     <!-- Hero -->
-    <section class="spoke-hero" id="spoke-hero">
+    <section class="spoke-hero" id="spoke-hero" style="padding-bottom: 2rem;">
         <div class="container container--narrow">
             <div class="reveal">
                 <span class="spoke-hero__badge">📖 Background</span>
@@ -63,7 +63,7 @@
     </section>
 
     <!-- Main Content -->
-    <section class="section" id="content">
+    <section class="section" id="content" style="padding-top: 1rem;">
         <div class="container container--narrow">
 
             <!-- The Core Idea -->
@@ -87,6 +87,62 @@
                     cross-border professional services, or rare technical expertise. These markets often have
                     willing buyers and willing sellers — they just can't find each other reliably.
                 </p>
+            </div>
+
+            <!-- Table: Thick vs Thin -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Thick vs. Thin — At a
+                    Glance</h2>
+                <div style="overflow-x: auto;">
+                    <table
+                        style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.9375rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--glass-border);">
+                                <th
+                                    style="text-align: left; padding: 0.75rem 1rem; color: var(--dp-muted); font-weight: 500; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                    Characteristic</th>
+                                <th
+                                    style="text-align: left; padding: 0.75rem 1rem; color: var(--dp-emerald); font-weight: 500; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                    Thick Market</th>
+                                <th
+                                    style="text-align: left; padding: 0.75rem 1rem; color: var(--dp-violet); font-weight: 500; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                    Thin Market</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Participant density
+                                </td>
+                                <td style="padding: 0.75rem 1rem;">NYSE equities — millions daily</td>
+                                <td style="padding: 0.75rem 1rem;">Left-handed 19th-century violins — dozens globally
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Price transparency
+                                </td>
+                                <td style="padding: 0.75rem 1rem;">Crude oil — continuous public pricing</td>
+                                <td style="padding: 0.75rem 1rem;">M&A advisory — entirely opaque negotiation</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Transaction frequency
+                                </td>
+                                <td style="padding: 0.75rem 1rem;">Foreign exchange — trillions daily</td>
+                                <td style="padding: 0.75rem 1rem;">Commercial real estate — months between sales</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Matching speed</td>
+                                <td style="padding: 0.75rem 1rem;">Amazon consumer goods — seconds</td>
+                                <td style="padding: 0.75rem 1rem;">Senior executive recruitment — months</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Standardization</td>
+                                <td style="padding: 0.75rem 1rem;">Grade A wheat — fully fungible</td>
+                                <td style="padding: 0.75rem 1rem;">Custom industrial machinery — every unit unique</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- Why Markets Stay Thin -->
@@ -181,367 +237,74 @@
                     </div>
                 </div>
 
-                <p style="margin-bottom: 2rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
                     Each of these historic insights identified a constraint where participants were forced to accept a significant trade-off—such as sacrificing market flexibility, investing in wasteful signaling, or introducing heavy institutional overhead. Today, the DeeperPoint framework builds on this solid academic provenance, utilizing AI interventions to systematically relax these very constraints.
                 </p>
-
-                <!-- High-Fidelity Glassmorphic Visual Cards -->
-                <div style="display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: 2.5rem;">
-                    <!-- Green Card: Sparsity is Not the Issue -->
-                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.15); align-items: flex-start;">
-                        <div style="font-size: 1.75rem; line-height: 1; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));">🟢</div>
-                        <div>
-                            <h4 style="color: var(--dp-emerald); margin-bottom: 0.25rem; font-size: 1.0625rem;">Sparsity is a Symptom, Not the Cause</h4>
-                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">A lack of potential counterparties does not make a market thin. If transacting friction is near-zero, even a tiny pool of participants can clear deals seamlessly and achieve <strong style="color: #fff;">Bespoke Thickness</strong>.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Red Card: Frictions Block Intent -->
-                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.15); align-items: flex-start;">
-                        <div style="font-size: 1.75rem; line-height: 1; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.3));">🔴</div>
-                        <div>
-                            <h4 style="color: #f87171; margin-bottom: 0.25rem; font-size: 1.0625rem;">Friction is the Core Blockage</h4>
-                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">A market is thin when relationship-level frictions (endogenous, like trust deficits or opacity) and macro-environmental uncertainty (exogenous/EMU, like tariff or currency volatility) accumulate to block matching and freeze deal intent.</p>
-                        </div>
-                    </div>
-
-                    <!-- Blue Card: The Operational Statement -->
-                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.25); align-items: flex-start;">
-                        <div style="font-size: 1.75rem; line-height: 1; filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));">🔵</div>
-                        <div>
-                            <h4 style="color: var(--dp-blue-light); margin-bottom: 0.25rem; font-size: 1.0625rem;">The Market Engineer's Core Thesis</h4>
-                            <p style="color: var(--dp-white); font-size: 0.9375rem; line-height: 1.6; margin: 0;">The goal of a market designer is not to recruit headcount or spend on marketing. The mission is to **dissolve relationship frictions** through AI tools and **insulate transactions** from macro uncertainty.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-md);">
-                    <div
-                        style="padding: 1rem; border-radius: var(--radius-md); background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.15);">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🛡️</div>
-                        <h4 style="color: var(--dp-violet); margin-bottom: 0.25rem; font-size: 0.9375rem;">Existential Threats</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Frictions like risk and trust deficits that prevent a market from forming <em>at all</em> without platform mediation.</p>
-                    </div>
-                    <div
-                        style="padding: 1rem; border-radius: var(--radius-md); background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.15);">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">⚡</div>
-                        <h4 style="color: var(--dp-cyan); margin-bottom: 0.25rem; font-size: 0.9375rem;">Resistance Forces</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Opacity, offering complexity, geographic and temporal distance, cognitive overload, and fulfillment constraints.</p>
-                    </div>
-                    <div
-                        style="padding: 1rem; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.15);">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🌍</div>
-                        <h4 style="color: var(--dp-amber); margin-bottom: 0.25rem; font-size: 0.9375rem;">Exogenous EMU Frictions</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Externally-Imposed Market Uncertainty (Geopolitical tariffs, regulatory updates, currency shifts, tech obsolescence).</p>
-                    </div>
-                </div>
             </div>
 
             <!-- What AI Changes -->
             <div class="reveal"
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
-                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">What AI Changes About
-                    the Equation</h2>
-                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    For centuries, market engineering required a painful tradeoff: <strong
-                        style="color: #fff;">standardize</strong> (which creates thickness by destroying information) or
-                    <strong style="color: #fff;">preserve uniqueness</strong> (which keeps relevance but fragments
-                    markets). The shipping container made global trade possible — by making every shipment the same
-                    shape.
+                <h2 style="font-family: var(--font-display); margin-bottom: 1.5rem; color: #fff;">What AI Changes About the Equation</h2>
+                <p style="margin-bottom: 1.25rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    For centuries, market design was trapped in a binary choice: <strong style="color: #fff;">standardize</strong> (which aggregates volume but destroys the unique details of a trade) or <strong style="color: #fff;">preserve uniqueness</strong> (which keeps relevance but fragments the market into tiny, unmatchable pieces). Conventional ecommerce platforms force participants to fit into rigid, pre-defined catalogs—a system that completely fails in complex, non-standardized B2B transactions.
                 </p>
-                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    AI and Large Language Models dissolve this tradeoff. They can:
-                </p>
-                <ul
-                    style="list-style-type: none; margin: 0; padding: 0; color: var(--dp-silver); display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
-                    <li style="font-size: 1rem;">🔍 <strong>Match complex, unique offerings</strong> to fuzzy buyer
-                        intent — without destroying nuance</li>
-                    <li style="font-size: 1rem;">🤝 <strong>Act as trusted intermediaries</strong> — learning
-                        confidential information from both sides to find "fit" without requiring mutual disclosure</li>
-                    <li style="font-size: 1rem;">🌐 <strong>Bridge temporal distance</strong> — AI agents represent
-                        participants 24/7 while humans sleep across time zones</li>
-                    <li style="font-size: 1rem;">🧠 <strong>Serve as institutional memory</strong> — remembering why
-                        past deals failed, building evidence-based trust, anticipating needs</li>
-                    <li style="font-size: 1rem;">📱 <strong>Eliminate input barriers</strong> — accepting voice
-                        descriptions, uploaded documents, photos, and messages in any language, and extracting structured
-                        marketplace data guided by the platform's metadata schema</li>
-                </ul>
-            </div>
-
-            <!-- Table: Thick vs Thin -->
-            <div class="reveal"
-                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
-                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Thick vs. Thin — At a
-                    Glance</h2>
-                <div style="overflow-x: auto;">
-                    <table
-                        style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.9375rem;">
-                        <thead>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <th
-                                    style="text-align: left; padding: 0.75rem 1rem; color: var(--dp-muted); font-weight: 500; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;">
-                                    Characteristic</th>
-                                <th
-                                    style="text-align: left; padding: 0.75rem 1rem; color: var(--dp-emerald); font-weight: 500; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;">
-                                    Thick Market</th>
-                                <th
-                                    style="text-align: left; padding: 0.75rem 1rem; color: var(--dp-violet); font-weight: 500; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;">
-                                    Thin Market</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Participant density
-                                </td>
-                                <td style="padding: 0.75rem 1rem;">NYSE equities — millions daily</td>
-                                <td style="padding: 0.75rem 1rem;">Left-handed 19th-century violins — dozens globally
-                                </td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Price transparency
-                                </td>
-                                <td style="padding: 0.75rem 1rem;">Crude oil — continuous public pricing</td>
-                                <td style="padding: 0.75rem 1rem;">M&A advisory — entirely opaque negotiation</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Transaction frequency
-                                </td>
-                                <td style="padding: 0.75rem 1rem;">Foreign exchange — trillions daily</td>
-                                <td style="padding: 0.75rem 1rem;">Commercial real estate — months between sales</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Matching speed</td>
-                                <td style="padding: 0.75rem 1rem;">Amazon consumer goods — seconds</td>
-                                <td style="padding: 0.75rem 1rem;">Senior executive recruitment — months</td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 0.75rem 1rem; font-weight: 500; color: #fff;">Standardization</td>
-                                <td style="padding: 0.75rem 1rem;">Grade A wheat — fully fungible</td>
-                                <td style="padding: 0.75rem 1rem;">Custom industrial machinery — every unit unique</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Interactive Quadrant Model Widget -->
-            <div class="reveal"
-                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
-                <h2 style="font-family: var(--font-display); margin-bottom: 0.5rem; color: #fff;">Interactive Quadrant Model</h2>
-                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6;">
-                    Drag the sliders below to adjust <strong>Participant Density (P)</strong> and <strong>Friction Density (F)</strong>. Watch how the market's classification shifts in real-time between the four quadrants of the DeeperPoint framework.
-                </p>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; flex-wrap: wrap; margin-bottom: var(--space-md);">
-                    <!-- Controls -->
-                    <div style="display: flex; flex-direction: column; gap: var(--space-lg); width: 100%;">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9375rem;">
-                                <span style="color: #fff; font-weight: 500;">Participant Density (P)</span>
-                                <span id="val-p" style="color: var(--dp-cyan); font-weight: 600; font-family: var(--font-mono);">30%</span>
-                            </div>
-                            <input type="range" id="slider-p" min="0" max="100" value="30" style="width: 100%; cursor: pointer; accent-color: var(--dp-cyan);">
-                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--dp-muted); margin-top: 0.25rem;">
-                                <span>Sparse / Low Headcount</span>
-                                <span>Dense / High Headcount</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9375rem;">
-                                <span style="color: #fff; font-weight: 500;">Friction Density (F)</span>
-                                <span id="val-f" style="color: var(--dp-violet); font-weight: 600; font-family: var(--font-mono);">70%</span>
-                            </div>
-                            <input type="range" id="slider-f" min="0" max="100" value="70" style="width: 100%; cursor: pointer; accent-color: var(--dp-violet);">
-                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--dp-muted); margin-top: 0.25rem;">
-                                <span>Near-Zero / Frictionless</span>
-                                <span>Hyper-Dense Frictions</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Diagram Plot -->
-                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-                        <div id="quad-box" style="position: relative; width: 260px; height: 260px; border: 2px solid var(--glass-border); border-radius: var(--radius-md); background: rgba(0,0,0,0.25); overflow: hidden;">
-                            <!-- Quadrant Grid Borders -->
-                            <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.15);"></div>
-                            <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.15);"></div>
-
-                            <!-- Quadrant Labels -->
-                            <!-- Q3: Existential Thin (Top-Left) -->
-                            <div id="label-q3" style="position: absolute; left: 8px; top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); transition: color 0.2s;">Q3: Existential Thin</div>
-                            <!-- Q4: Latent Thin (Top-Right) -->
-                            <div id="label-q4" style="position: absolute; right: 8px; top: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); text-align: right; transition: color 0.2s;">Q4: Latent Thin</div>
-                            <!-- Q1: Bespoke Thick (Bottom-Left) -->
-                            <div id="label-q1" style="position: absolute; left: 8px; bottom: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); transition: color 0.2s;">Q1: Bespoke Thick</div>
-                            <!-- Q2: Liquid Thick (Bottom-Right) -->
-                            <div id="label-q2" style="position: absolute; right: 8px; bottom: 8px; font-size: 0.75rem; font-weight: 600; color: var(--dp-muted); text-align: right; transition: color 0.2s;">Q2: Liquid Thick</div>
-
-                            <!-- Coordinates labels on edges -->
-                            <div style="position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); font-size: 0.625rem; color: var(--dp-muted);">P (Density) →</div>
-                            <div style="position: absolute; left: 2px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 0.625rem; color: var(--dp-muted); transform-origin: left center;">← F (Friction)</div>
-
-                            <!-- Plotting Dot -->
-                            <div id="plot-dot" style="position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--dp-blue-light); border: 2px solid #fff; box-shadow: 0 0 12px var(--dp-blue); transform: translate(-50%, 50%); transition: left 0.1s ease-out, bottom 0.1s ease-out; left: 30%; bottom: 30%; z-index: 10;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Diagnosis Output Card -->
-                <div id="quad-diag-card" style="padding: var(--space-lg); border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); transition: border-color 0.3s, background 0.3s;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                        <h4 id="diag-title" style="color: #fff; font-size: 1.125rem; font-family: var(--font-display); margin: 0;">Evaluating Market...</h4>
-                        <span id="diag-badge" style="padding: 0.125rem 0.5rem; border-radius: 100px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Quadrant</span>
-                    </div>
-                    <p id="diag-desc" style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">Drag sliders to calculate...</p>
-                    <div style="border-top: 1px solid var(--glass-border); padding-top: 0.75rem;">
-                        <span style="font-size: 0.75rem; color: var(--dp-muted); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">Recommended Engineering Action</span>
-                        <p id="diag-rec" style="color: var(--dp-white); font-weight: 500; font-size: 0.9375rem; margin: 0;">...</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quadrant Widget Styles & Logic -->
-            <style>
-                #quad-box div.active {
-                    color: #fff !important;
-                    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-                }
-                .badge-q1 { background: rgba(16, 185, 129, 0.15); color: var(--dp-emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
-                .badge-q2 { background: rgba(6, 182, 212, 0.15); color: var(--dp-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
-                .badge-q3 { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-                .badge-q4 { background: rgba(245, 158, 11, 0.15); color: var(--dp-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
-            </style>
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const sliderP = document.getElementById('slider-p');
-                    const sliderF = document.getElementById('slider-f');
-                    const valP = document.getElementById('val-p');
-                    const valF = document.getElementById('val-f');
-                    const plotDot = document.getElementById('plot-dot');
-                    const quadCard = document.getElementById('quad-diag-card');
-                    
-                    const labels = {
-                        q1: document.getElementById('label-q1'),
-                        q2: document.getElementById('label-q2'),
-                        q3: document.getElementById('label-q3'),
-                        q4: document.getElementById('label-q4')
-                    };
-                    
-                    const diagTitle = document.getElementById('diag-title');
-                    const diagBadge = document.getElementById('diag-badge');
-                    const diagDesc = document.getElementById('diag-desc');
-                    const diagRec = document.getElementById('diag-rec');
-
-                    function updatePlot() {
-                        const p = parseInt(sliderP.value, 10);
-                        const f = parseInt(sliderF.value, 10);
-                        
-                        valP.textContent = p + '%';
-                        valF.textContent = f + '%';
-                        
-                        // Positioning dot (coordinates mapping)
-                        // Left aligns to P%
-                        // Bottom aligns to (100 - F)% (so F=100 is at the top)
-                        plotDot.style.left = p + '%';
-                        plotDot.style.bottom = (100 - f) + '%';
-                        
-                        // Determine active quadrant
-                        let activeQuad = '';
-                        if (p < 50 && f >= 50) activeQuad = 'q3'; // Low P, High F
-                        else if (p >= 50 && f >= 50) activeQuad = 'q4'; // High P, High F
-                        else if (p < 50 && f < 50) activeQuad = 'q1'; // Low P, Low F
-                        else activeQuad = 'q2'; // High P, Low F
-                        
-                        // Update grid labels highlighting
-                        Object.keys(labels).forEach(k => {
-                            if (k === activeQuad) labels[k].classList.add('active');
-                            else labels[k].classList.remove('active');
-                        });
-                        
-                        // Diagnostic summaries
-                        if (activeQuad === 'q2') {
-                            // Liquid Thick
-                            diagTitle.textContent = "Liquid Thick Market (Quadrant 2)";
-                            diagBadge.className = "badge-q2";
-                            diagBadge.textContent = "Quadrant 2";
-                            diagDesc.textContent = "A highly liquid, frictionless, and crowded marketplace (e.g. public equities, mass consumer commodities). Clearing speeds are near-instant, information asymmetry is low, and prices are fully transparent. Standard databases and conventional platforms work perfectly.";
-                            diagRec.textContent = "No heavy market engineering required. Standard SaaS platforms and payment checkouts suffice.";
-                            quadCard.style.borderColor = "rgba(6, 182, 212, 0.2)";
-                            quadCard.style.background = "rgba(6, 182, 212, 0.02)";
-                        } else if (activeQuad === 'q1') {
-                            // Bespoke Thick
-                            diagTitle.textContent = "Bespoke Thick Market (Quadrant 1)";
-                            diagBadge.className = "badge-q1";
-                            diagBadge.textContent = "Quadrant 1";
-                            diagDesc.textContent = "A market with a sparse participant pool (few buyers/sellers) but extremely low transaction friction (e.g. specialty collectors, bespoke partners). Deals take time to formulate simply because of participant sparsity, but they clear successfully without complex matching.";
-                            diagRec.textContent = "Utilize simple directory listings, search indexes, or notification feeds to signal counterparty availability.";
-                            quadCard.style.borderColor = "rgba(16, 185, 129, 0.2)";
-                            quadCard.style.background = "rgba(16, 185, 129, 0.02)";
-                        } else if (activeQuad === 'q4') {
-                            // Latent Thin
-                            diagTitle.textContent = "Latent Thin Market (Quadrant 4)";
-                            diagBadge.className = "badge-q4";
-                            diagBadge.textContent = "Quadrant 4";
-                            diagDesc.textContent = "A massive, dense pool of potential transactors, but exchange is heavily blocked by high relationship-level frictions (e.g. specialized B2B talent procurement, custom component fabricators). Information opacity and high offering complexity create destructive search paralyzing the participants.";
-                            diagRec.textContent = "Deploy AI Semantic Matching to bridge offering complexity and AI Trusted Intermediary models to overcome strategic information withholding.";
-                            quadCard.style.borderColor = "rgba(245, 158, 11, 0.2)";
-                            quadCard.style.background = "rgba(245, 158, 11, 0.02)";
-                        } else {
-                            // Existential Thin
-                            diagTitle.textContent = "Existential Thin Market (Quadrant 3)";
-                            diagBadge.className = "badge-q3";
-                            diagBadge.textContent = "Quadrant 3";
-                            diagDesc.textContent = "The most hostile market environment. Participant density is sparse, relationship frictions are elevated, and the market is highly exposed to exogenous environmental volatility (tariffs, compliance velocity, macro margins risk). Transaction intent is paralyzed by the Option Value of Delay.";
-                            diagRec.textContent = "Deploy the full Cosolvent stack: AI matching/intermediaries to dissolve relationship-level barriers, AND AI Risk Insulation to hedge macro volatility and write dynamic contingent contracts.";
-                            quadCard.style.borderColor = "rgba(239, 68, 68, 0.2)";
-                            quadCard.style.background = "rgba(239, 68, 68, 0.02)";
-                        }
-                    }
-
-                    sliderP.addEventListener('input', updatePlot);
-                    sliderF.addEventListener('input', updatePlot);
-                    
-                    // Run initial state
-                    updatePlot();
-                });
-            </script>
-
-            <!-- DeeperPoint's Approach -->
-            <div class="reveal"
-                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
-                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">What DeeperPoint Is
-                    Building</h2>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    DeeperPoint is an open research and engineering project exploring whether AI-driven market
-                    engineering can make thin markets thicker and more functional. We're building four interconnected
-                    tools:
+                    AI and Large Language Models dissolve this historic tradeoff. Rather than forcing goods, services, or capacities to be identical, AI can interpret and mediate the natural complexity of the transaction. Here is how specific AI interventions address historical thin market frictions:
                 </p>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-md);">
-                    <a href="intervention-matrix.html" class="card" style="text-decoration: none; padding: 1.25rem;">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">📊</div>
-                        <h4 style="color: var(--dp-blue); margin-bottom: 0.25rem;">Intervention Matrix</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Diagnose structural friction</p>
-                    </a>
-                    <a href="catalog/index.html" class="card" style="text-decoration: none; padding: 1.25rem;">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">📚</div>
-                        <h4 style="color: var(--dp-amber); margin-bottom: 0.25rem;">Opportunity Catalog</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Discover 250 prospective thin markets</p>
-                    </a>
-                    <a href="marketmaps.html" class="card" style="text-decoration: none; padding: 1.25rem;">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🔬</div>
-                        <h4 style="color: var(--dp-violet); margin-bottom: 0.25rem;">MarketMap Engine</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Analyze market physics forensically</p>
-                    </a>
-                    <a href="cosolvent.html" class="card" style="text-decoration: none; padding: 1.25rem;">
-                        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">⚙️</div>
-                        <h4 style="color: var(--dp-emerald); margin-bottom: 0.25rem;">Cosolvent</h4>
-                        <p style="color: var(--dp-muted); font-size: 0.875rem;">Deploy open-source matching infrastructure</p>
-                    </a>
+                
+                <div style="display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: 2rem;">
+                    <!-- Match Complex Offerings -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(6, 182, 212, 0.04); border: 1px solid rgba(6, 182, 212, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">🔍</div>
+                        <div>
+                            <h4 style="color: var(--dp-cyan); margin-bottom: 0.25rem; font-size: 1.0625rem;">AI Semantic Matching vs. Opacity</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Connects highly specific, non-standardized needs (such as niche manufacturing capabilities) to buyer requirements using semantic vector embeddings, eliminating the search cost of finding rare counterparties without forcing them into generic categories.</p>
+                        </div>
+                    </div>
+
+                    <!-- Act as Trusted Intermediaries -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">🤝</div>
+                        <div>
+                            <h4 style="color: var(--dp-emerald); margin-bottom: 0.25rem; font-size: 1.0625rem;">AI Trusted Intermediary vs. Trust Deficits</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Ingests proprietary designs, capacity limits, and pricing structures from both sides. It checks for a viable match in a secure environment without disclosing sensitive IP or strategic information until mutual compatibility is established.</p>
+                        </div>
+                    </div>
+
+                    <!-- Eliminate Input Barriers -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(139, 92, 246, 0.04); border: 1px solid rgba(139, 92, 246, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">✍️</div>
+                        <div>
+                            <h4 style="color: var(--dp-violet); margin-bottom: 0.25rem; font-size: 1.0625rem;">AI Input Translation vs. Bounded Rationality</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Translates raw, unstructured human inputs (voice descriptions, hand-drawn diagrams, email text) into structured, queryable data nodes, reducing the cognitive bandwidth required to list or update catalog data.</p>
+                        </div>
+                    </div>
+
+                    <!-- Bridge Temporal Distance -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.04); border: 1px solid rgba(245, 158, 11, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">⏱️</div>
+                        <div>
+                            <h4 style="color: var(--dp-amber); margin-bottom: 0.25rem; font-size: 1.0625rem;">AI Memory & Active Sourcing vs. Temporal Distance</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Maintains active representations of participants 24/7. It tracks historical capacity cycles and proactively "pushes" compatible match notifications when schedules align, bridging gaps across different time frames and time zones.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pool Fragmented Capacity -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.04); border: 1px solid rgba(59, 130, 246, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">📦</div>
+                        <div>
+                            <h4 style="color: var(--dp-blue-light); margin-bottom: 0.25rem; font-size: 1.0625rem;">AI Aggregation vs. Participant Fragmentation</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Dynamically pools fragmented inventories or machine capacities from multiple small-scale providers, representing them as a single cohesive supplier to meet large buyers' volume thresholds and transaction requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--glass-border); padding-top: 1.25rem; font-size: 0.9375rem; color: var(--dp-muted); line-height: 1.6;">
+                    <span style="color: #fff; font-weight: 500;">Learn More:</span> For a comprehensive analysis of these mechanisms, explore our interactive <a href="intervention-matrix.html" style="color: var(--dp-cyan); text-decoration: none; font-weight: 600;">Intervention Matrix</a> or read the full <a href="whitepaper.html" style="color: var(--dp-violet); text-decoration: none; font-weight: 600;">Market Theory Whitepaper</a>.
                 </div>
             </div>
+
 
             <!-- Go Deeper -->
             <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-lg);">
