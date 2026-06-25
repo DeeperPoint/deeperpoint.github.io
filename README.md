@@ -65,10 +65,26 @@ python -m http.server 8000
 
 ## Deployment
 
-Push to `master` → GitHub Actions builds blog → deploys to GitHub Pages → serves at `deeperpoint.com`.
+**To publish any change:** edit a file (an existing `.html` page, `styles.css`, a blog post, a catalog entry — anything), commit, and push to `master`:
 
-The CI pipeline (`.github/workflows/deploy.yml`) runs on Python 3.11 and:
+```bash
+git add <file>
+git commit -m "Describe the change"
+git push origin master
+```
+
+The push triggers GitHub Actions, which rebuilds and deploys the site to GitHub Pages at `deeperpoint.com`. No manual build is required before pushing — the Action runs the build steps for you.
+
+Watch the run under the repo's **Actions** tab on GitHub. A deploy typically takes a minute or two; if a build step fails (e.g. malformed blog frontmatter or catalog YAML), the run goes red and the site is **not** updated. Concurrent pushes queue rather than cancel each other, so a new push waits for the in-progress deploy to finish.
+
+You can also trigger a deploy manually from the Actions tab (the workflow allows `workflow_dispatch`) without pushing a commit.
+
+### What the CI pipeline does
+
+The pipeline (`.github/workflows/deploy.yml`) runs on push to `master` (Python 3.11) and:
 
 1. Installs dependencies from `requirements.txt`
-2. Runs `build_blog.py` to generate blog HTML from Markdown sources
-3. Deploys the entire repo root to GitHub Pages
+2. Runs `build_blog.py` — generates blog HTML + RSS from Markdown sources
+3. Runs `build_catalog.py` — generates catalog pages from the scenario YAML files
+4. Builds the full-text search index with Pagefind (`npx pagefind --site .`)
+5. Deploys the entire repo root to GitHub Pages
