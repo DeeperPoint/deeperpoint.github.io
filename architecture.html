@@ -1,0 +1,694 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How an Implementation Is Built — DeeperPoint</title>
+  <meta name="description"
+    content="Four progressive diagrams explaining how a thin-market exchange is built: the three roles in every implementation, how they operate, inside the matching engine, and why one engine scales across many verticals.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How an Implementation Is Built — DeeperPoint">
+  <meta property="og:description"
+    content="Four progressive diagrams: the three roles in every implementation, how they operate together, inside the matching engine, and why one engine scales across many verticals.">
+  <meta property="og:url" content="https://deeperpoint.com/architecture.html">
+  <meta property="og:site_name" content="DeeperPoint">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ═══════════════════════════════════════════
+       ARCHITECTURE — PROGRESSIVE DIAGRAM STYLING
+       ═══════════════════════════════════════════ */
+    .arch-intro { max-width: 760px; margin: 0 auto var(--space-2xl); }
+    .arch-intro p { color: var(--dp-silver); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
+    .arch-intro strong { color: #fff; }
+
+    /* Shared color legend */
+    .arch-legend {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      max-width: 760px; margin: 0 auto var(--space-2xl);
+    }
+    .arch-key {
+      flex: 1 1 220px;
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+    }
+    .arch-key__swatch { width: 14px; height: 14px; border-radius: 4px; margin-top: 0.2rem; flex-shrink: 0; }
+    .arch-key__t { font-size: 0.8125rem; color: #fff; font-weight: 600; margin: 0 0 0.15rem; }
+    .arch-key__s { font-size: 0.75rem; color: var(--dp-muted); margin: 0; line-height: 1.5; }
+
+    /* Figure block */
+    .arch-fig { margin: 0 0 var(--space-3xl); }
+    .arch-fig__num {
+      font-family: var(--font-display); font-size: 0.6875rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--dp-cyan);
+      margin-bottom: 0.4rem;
+    }
+    .arch-fig__title { font-family: var(--font-display); font-size: 1.45rem; color: #fff; margin: 0 0 0.6rem; }
+    .arch-fig__lead { color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.75; max-width: 760px; margin: 0 0 1.25rem; }
+    .arch-fig__lead strong { color: #fff; }
+    .arch-fig__frame {
+      background: #141c2e;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      overflow-x: auto;
+    }
+    .arch-fig__frame svg { width: 100%; min-width: 680px; height: auto; display: block; }
+    .arch-fig__cap { color: var(--dp-cloud); font-size: 0.9375rem; font-style: italic; margin: 1rem 0 0; line-height: 1.65; }
+
+    /* SVG text defaults (scoped to diagrams) — high contrast for readability */
+    .arch-svg text { font-family: 'Inter', sans-serif; }
+    .arch-svg .nb { fill: #ffffff; font-weight: 700; }
+    .arch-svg .nt { fill: #f8fafc; font-weight: 600; }
+    .arch-svg .ns { fill: #cbd5e1; }
+    .arch-svg .lbl { fill: #e2e8f0; font-weight: 700; letter-spacing: 0.06em; }
+    .arch-svg .cap { fill: #94a3b8; font-style: italic; }
+    .arch-svg .edge { fill: none; stroke: #8595ac; stroke-width: 2.2; }
+    .arch-svg .edge-v { fill: none; stroke: #a78bfa; stroke-width: 2.2; }
+    .arch-svg .edge-c { fill: none; stroke: #22d3ee; stroke-width: 2.2; }
+    .arch-svg .edge-d { stroke-dasharray: 6 4; }
+
+    .arch-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent); margin: var(--space-2xl) 0; }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
+        <li><a href="project.html" class="nav__link">Project</a></li>
+        <li><a href="demo.html" class="nav__link">Demo</a></li>
+        <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
+        <li><a href="architecture.html" class="nav__link nav__link--active">Architecture</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="section" style="padding-top: calc(var(--space-4xl) + 60px); padding-bottom: 0;">
+    <div class="container container--narrow">
+      <div class="text-center reveal" style="margin-bottom: var(--space-2xl);">
+        <span class="section__label">Architecture</span>
+        <h1 class="section__title">How an Implementation Is Built</h1>
+        <p class="section__desc section__desc--centered">
+          Every such marketplace is assembled from three roles &mdash; two reusable, one the sponsor&rsquo;s.
+          Read the four diagrams in order: each zooms in one level, then the last pulls back to show why the model scales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="arch-intro reveal">
+        <p>
+          A working thin-market exchange is not one monolithic product. It is a composition of <strong>three distinct
+          responsibilities</strong>. The trick that makes the economics work is that <strong>two of the three are generic</strong> &mdash;
+          built once and reused across every market vertical &mdash; while only the third is bespoke to a particular market and its sponsor.
+        </p>
+        <p>
+          The diagrams below use a single color throughout so the same components are recognizable as they reappear at each level
+          of zoom. Learn the three colors once; they carry the whole story.
+        </p>
+      </div>
+
+      <!-- Thesis (spine) -->
+      <div class="reveal" style="max-width: 820px; margin: 0 auto var(--space-2xl); padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.06); border-left: 4px solid #818cf8; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+        <p style="margin:0; color:#e2e8f0; font-size:1.0625rem; line-height:1.65;">
+          <strong style="color:#fff;">The DeeperPoint thesis:</strong> the frictions that keep markets thin are <em>common across thousands of markets</em> &mdash; so the engine that neutralizes them is built <strong style="color:#fff;">once</strong> and reused. A sponsor adds only their market&rsquo;s business logic, instead of rediscovering the same problems alone.
+        </p>
+      </div>
+
+      <!-- LEGEND -->
+      <div class="arch-legend reveal">
+        <div class="arch-key">
+          <span class="arch-key__swatch" style="background: #8b5cf6;"></span>
+          <div>
+            <p class="arch-key__t">Curatorial &amp; feeder systems</p>
+            <p class="arch-key__s">Domain knowledge wiki, reference library, and a synthetic population. Feeds real-world data into the marketplace. <em>Owned by curators / a specialist setup service.</em></p>
+          </div>
+        </div>
+        <div class="arch-key">
+          <span class="arch-key__swatch" style="background: rgba(255,255,255,0.16); border: 1.5px dashed #ffffff;"></span>
+          <div>
+            <p class="arch-key__t">Matching engine</p>
+            <p class="arch-key__s">Schema compiler, candidate matching + scoring, deal-brief assembly, precompute. <em>The reusable engine &mdash; built once, replicated per vertical.</em> Drawn <strong>white with a dotted edge</strong> in the diagrams to mark it as the shared, reused element.</p>
+          </div>
+        </div>
+        <div class="arch-key">
+          <span class="arch-key__swatch" style="background: #f59e0b;"></span>
+          <div>
+            <p class="arch-key__t">Market-vertical layer</p>
+            <p class="arch-key__s">Branded front-end UX plus auth, ads, payments, piggybacked services. <em>Owned by the market sponsor.</em></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════════
+           FIGURE 1 — THE THREE ROLES
+           ════════════════════════════════════════════ -->
+      <div class="arch-fig reveal">
+        <div class="arch-fig__num">Figure 1 &middot; 30,000 ft</div>
+        <h2 class="arch-fig__title">The anatomy of an implementation</h2>
+        <p class="arch-fig__lead">
+          Three roles, left to right. The <strong>feeder systems</strong> supply domain knowledge and a synthetic population;
+          the <strong>matching engine</strong> turns that into matches, deal briefs and a cache; the <strong>market-vertical layer</strong>
+          presents it to the people in that specific market. The middle block is identical from one vertical to the next.
+          The feeder&harr;engine link is <strong>two-way</strong>: matching results feed gaps back so the knowledge, population, and weights keep improving.
+        </p>
+        <div class="arch-fig__frame">
+          <svg class="arch-svg" viewBox="0 0 1120 360" role="img" aria-label="Three roles: feeder systems feed the matching engine, which feeds the market-vertical layer.">
+            <defs>
+              <marker id="f1a" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#8595ac"/>
+              </marker>
+              <marker id="f1c" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#22d3ee"/>
+              </marker>
+            </defs>
+
+            <!-- Column A — Feeders (violet) -->
+            <rect x="40" y="58" width="320" height="212" rx="16" fill="rgba(139,92,246,0.08)" stroke="#8b5cf6" stroke-width="2"/>
+            <text class="lbl" x="200" y="94" text-anchor="middle" font-size="16" fill="#c4b5fd">1 &middot; FEEDER SYSTEMS</text>
+            <rect x="55" y="110" width="290" height="44" rx="9" fill="rgba(139,92,246,0.16)" stroke="rgba(139,92,246,0.55)"/>
+            <text class="nt" x="200" y="138" text-anchor="middle" font-size="15.5">Domain knowledge wiki</text>
+            <rect x="55" y="162" width="290" height="44" rx="9" fill="rgba(139,92,246,0.16)" stroke="rgba(139,92,246,0.55)"/>
+            <text class="nt" x="200" y="190" text-anchor="middle" font-size="15.5">Reference knowledge library</text>
+            <rect x="55" y="214" width="290" height="48" rx="9" fill="rgba(139,92,246,0.16)" stroke="rgba(139,92,246,0.55)"/>
+            <text class="nt" x="200" y="236" text-anchor="middle" font-size="15.5">Synthetic population</text>
+            <text class="ns" x="200" y="254" text-anchor="middle" font-size="13">+ synthetic-data watermark</text>
+            <text class="cap" x="200" y="306" text-anchor="middle" font-size="14.5">Curators / forging service</text>
+
+            <!-- Column B — Matching engine (white, dotted) -->
+            <rect x="400" y="58" width="320" height="212" rx="16" fill="rgba(255,255,255,0.08)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="lbl" x="560" y="94" text-anchor="middle" font-size="16" fill="#ffffff">2 &middot; MATCHING ENGINE</text>
+            <rect x="415" y="110" width="290" height="44" rx="9" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.55)"/>
+            <text class="nt" x="560" y="138" text-anchor="middle" font-size="15.5">Schema + vocab compiler</text>
+            <rect x="415" y="162" width="290" height="44" rx="9" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.55)"/>
+            <text class="nt" x="560" y="190" text-anchor="middle" font-size="15.5">Matching engine</text>
+            <rect x="415" y="214" width="290" height="48" rx="9" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.55)"/>
+            <text class="nt" x="560" y="236" text-anchor="middle" font-size="15.5">Deal brief + precompute</text>
+            <text class="ns" x="560" y="254" text-anchor="middle" font-size="13">match story &middot; static cache</text>
+            <text class="cap" x="560" y="306" text-anchor="middle" font-size="14.5">Open-source engine &mdash; built once, replicated</text>
+
+            <!-- Column C — Vertical layer (amber) -->
+            <rect x="760" y="58" width="320" height="212" rx="16" fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="2"/>
+            <text class="lbl" x="920" y="94" text-anchor="middle" font-size="16" fill="#fcd34d">3 &middot; MARKET-VERTICAL LAYER</text>
+            <rect x="775" y="110" width="290" height="44" rx="9" fill="rgba(245,158,11,0.16)" stroke="rgba(245,158,11,0.55)"/>
+            <text class="nt" x="920" y="138" text-anchor="middle" font-size="15.5">Branded front-end UX</text>
+            <rect x="775" y="162" width="290" height="44" rx="9" fill="rgba(245,158,11,0.16)" stroke="rgba(245,158,11,0.55)"/>
+            <text class="nt" x="920" y="190" text-anchor="middle" font-size="15.5">Auth &middot; ads &middot; payments</text>
+            <rect x="775" y="214" width="290" height="48" rx="9" fill="rgba(245,158,11,0.16)" stroke="rgba(245,158,11,0.55)"/>
+            <text class="nt" x="920" y="236" text-anchor="middle" font-size="15.5">Piggybacked services</text>
+            <text class="ns" x="920" y="254" text-anchor="middle" font-size="13">market-specific logic</text>
+            <text class="cap" x="920" y="306" text-anchor="middle" font-size="14.5">Market sponsor</text>
+
+            <!-- Flow arrows: feeders <-> engine is two-way (feedback loop) -->
+            <line class="edge" x1="362" y1="150" x2="398" y2="150" marker-end="url(#f1a)"/>
+            <text class="ns" x="380" y="140" text-anchor="middle" font-size="12">data + twin</text>
+            <line class="edge-c" x1="398" y1="180" x2="362" y2="180" marker-end="url(#f1c)"/>
+            <text class="ns" x="380" y="198" text-anchor="middle" font-size="12" fill="#67e8f9">feedback</text>
+            <line class="edge" x1="722" y1="164" x2="758" y2="164" marker-end="url(#f1a)"/>
+            <text class="ns" x="740" y="150" text-anchor="middle" font-size="13">matches + briefs</text>
+          </svg>
+        </div>
+        <p class="arch-fig__cap">
+          The third role is the only one that changes between markets. A sponsor may build it themselves or buy it from a paid market-forging service &mdash;
+          either way, roles 1 and 2 are reused unchanged.
+        </p>
+      </div>
+
+      <div class="arch-divider"></div>
+
+      <!-- ════════════════════════════════════════════
+           FIGURE 2 — OPERATIONAL FLOW
+           ════════════════════════════════════════════ -->
+      <div class="arch-fig reveal">
+        <div class="arch-fig__num">Figure 2 &middot; 10,000 ft</div>
+        <h2 class="arch-fig__title">How the three roles operate together</h2>
+        <p class="arch-fig__lead">
+          The same three colors, now as <strong>swimlanes</strong> showing the operational flow for one vertical. Domain knowledge and a
+          watermarked synthetic population feed the engine; the engine matches, scores, assembles deals and writes a static cache;
+          the sponsor&rsquo;s front end reads that cache. Cross-lane arrows show where one role hands off to the next.
+        </p>
+        <div class="arch-fig__frame">
+          <svg class="arch-svg" viewBox="0 0 1120 660" role="img" aria-label="Operational swimlanes: feeder lane, matching-engine lane, and market-vertical lane, with handoff arrows.">
+            <defs>
+              <marker id="f2a" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#8595ac"/>
+              </marker>
+              <marker id="f2v" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#a78bfa"/>
+              </marker>
+              <marker id="f2c" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#22d3ee"/>
+              </marker>
+            </defs>
+
+            <!-- Lane bands -->
+            <rect x="10" y="30" width="1100" height="190" rx="14" fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.25)"/>
+            <rect x="10" y="240" width="1100" height="210" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.25)"/>
+            <rect x="10" y="470" width="1100" height="170" rx="14" fill="rgba(245,158,11,0.05)" stroke="rgba(245,158,11,0.25)"/>
+
+            <!-- Lane labels (rotated) -->
+            <text class="lbl" x="36" y="125" font-size="15" fill="#c4b5fd" text-anchor="middle" transform="rotate(-90,36,125)">CURATORIAL / FEEDER</text>
+            <text class="lbl" x="36" y="345" font-size="15" fill="#ffffff" text-anchor="middle" transform="rotate(-90,36,345)">MATCHING ENGINE</text>
+            <text class="lbl" x="36" y="555" font-size="15" fill="#fcd34d" text-anchor="middle" transform="rotate(-90,36,555)">VERTICAL LAYER</text>
+
+            <!-- VIOLET lane nodes (center y 120) -->
+            <rect x="130" y="86" width="150" height="68" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nt" x="205" y="118" text-anchor="middle" font-size="15">Domain wiki</text>
+            <text class="ns" x="205" y="138" text-anchor="middle" font-size="12.5">knowledge capture</text>
+
+            <rect x="350" y="86" width="150" height="68" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nt" x="425" y="118" text-anchor="middle" font-size="15">Reference library</text>
+            <text class="ns" x="425" y="138" text-anchor="middle" font-size="12.5">curated knowledge</text>
+
+            <rect x="570" y="86" width="150" height="68" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nt" x="645" y="114" text-anchor="middle" font-size="15">Synthetic data</text>
+            <text class="ns" x="645" y="134" text-anchor="middle" font-size="12.5">population + watermark</text>
+
+            <line class="edge-v" x1="280" y1="120" x2="346" y2="120" marker-end="url(#f2v)"/>
+
+            <!-- EMERALD lane nodes (center y 350) -->
+            <rect x="140" y="317" width="130" height="66" rx="11" fill="rgba(255,255,255,0.16)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="1.8"/>
+            <text class="nt" x="205" y="346" text-anchor="middle" font-size="15">Schema + vocab</text>
+            <text class="ns" x="205" y="366" text-anchor="middle" font-size="12.5">config &middot; field weights</text>
+
+            <rect x="300" y="317" width="130" height="66" rx="11" fill="rgba(255,255,255,0.16)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="1.8"/>
+            <text class="nt" x="365" y="346" text-anchor="middle" font-size="15">Ingest + embed</text>
+            <text class="ns" x="365" y="366" text-anchor="middle" font-size="12.5">canonical + raw</text>
+
+            <rect x="460" y="309" width="160" height="82" rx="11" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="nb" x="540" y="336" text-anchor="middle" font-size="15">Match funnel</text>
+            <text class="ns" x="540" y="357" text-anchor="middle" font-size="12.5">gate &rarr; rank</text>
+            <text class="ns" x="540" y="375" text-anchor="middle" font-size="12.5">&rarr; weighted score</text>
+
+            <rect x="655" y="317" width="130" height="66" rx="11" fill="rgba(255,255,255,0.16)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="1.8"/>
+            <text class="nt" x="720" y="346" text-anchor="middle" font-size="15">Deal assembly</text>
+            <text class="ns" x="720" y="366" text-anchor="middle" font-size="12.5">facilitator sub-deals</text>
+
+            <rect x="810" y="317" width="130" height="66" rx="11" fill="rgba(255,255,255,0.16)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="1.8"/>
+            <text class="nt" x="875" y="346" text-anchor="middle" font-size="15">Match story</text>
+            <text class="ns" x="875" y="366" text-anchor="middle" font-size="12.5">generative narrative</text>
+
+            <rect x="960" y="317" width="150" height="66" rx="11" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="nb" x="1035" y="346" text-anchor="middle" font-size="15">Precompute</text>
+            <text class="ns" x="1035" y="366" text-anchor="middle" font-size="12.5">&rarr; static cache</text>
+
+            <!-- emerald in-lane flow -->
+            <line class="edge" x1="270" y1="350" x2="298" y2="350" marker-end="url(#f2a)"/>
+            <line class="edge" x1="430" y1="350" x2="458" y2="350" marker-end="url(#f2a)"/>
+            <line class="edge" x1="620" y1="350" x2="653" y2="350" marker-end="url(#f2a)"/>
+            <line class="edge" x1="785" y1="350" x2="808" y2="350" marker-end="url(#f2a)"/>
+            <line class="edge" x1="940" y1="350" x2="958" y2="350" marker-end="url(#f2a)"/>
+
+            <!-- cross-lane feeds (violet <-> emerald): bidirectional = feedback loop -->
+            <line class="edge-v edge-d" x1="205" y1="154" x2="205" y2="315" marker-start="url(#f2v)" marker-end="url(#f2v)"/>
+            <line class="edge-v edge-d" x1="645" y1="154" x2="375" y2="315" marker-start="url(#f2v)" marker-end="url(#f2v)"/>
+            <text class="ns" x="540" y="250" text-anchor="middle" font-size="12.5" fill="#c4b5fd">synthetic profiles</text>
+            <line class="edge-v edge-d" x1="425" y1="154" x2="875" y2="307" marker-start="url(#f2v)" marker-end="url(#f2v)"/>
+            <text class="ns" x="720" y="232" text-anchor="middle" font-size="12.5" fill="#c4b5fd">grounds the story</text>
+            <text class="ns" x="300" y="205" text-anchor="middle" font-size="12" fill="#67e8f9">&#8645; data + feedback</text>
+
+            <!-- AMBER lane -->
+            <rect x="100" y="490" width="950" height="130" rx="13" fill="rgba(245,158,11,0.07)" stroke="#f59e0b" stroke-width="1.8"/>
+            <text class="lbl" x="120" y="518" font-size="13.5" fill="#fcd34d">SPONSOR FRONT END (reads the cache)</text>
+            <rect x="120" y="530" width="230" height="64" rx="10" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.6)"/>
+            <text class="nt" x="235" y="567" text-anchor="middle" font-size="15">Branded front-end UX</text>
+            <rect x="365" y="530" width="115" height="64" rx="10" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.5)"/>
+            <text class="nt" x="422" y="567" text-anchor="middle" font-size="14.5">Auth</text>
+            <rect x="495" y="530" width="115" height="64" rx="10" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.5)"/>
+            <text class="nt" x="552" y="567" text-anchor="middle" font-size="14.5">Ads</text>
+            <rect x="625" y="530" width="140" height="64" rx="10" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.5)"/>
+            <text class="nt" x="695" y="567" text-anchor="middle" font-size="14.5">Payments</text>
+            <rect x="780" y="530" width="250" height="64" rx="10" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.5)"/>
+            <text class="nt" x="905" y="567" text-anchor="middle" font-size="14.5">Piggybacked services</text>
+
+            <!-- cache → front end -->
+            <line class="edge-c" x1="1035" y1="383" x2="1035" y2="488" marker-end="url(#f2c)"/>
+            <text class="ns" x="1035" y="468" text-anchor="middle" font-size="12.5" fill="#67e8f9">reads cache</text>
+          </svg>
+        </div>
+        <p class="arch-fig__cap">
+          Everything the engine does is deterministic, which is what lets the whole run be precomputed once into a static cache &mdash; a fully precomputed deployment runs at zero per-visitor cost. (See Figure 3.)
+        </p>
+      </div>
+
+      <div class="arch-divider"></div>
+
+      <!-- ════════════════════════════════════════════
+           FIGURE 3 — INSIDE THE CORE
+           ════════════════════════════════════════════ -->
+      <div class="arch-fig reveal">
+        <div class="arch-fig__num">Figure 3 &middot; ground level</div>
+        <h2 class="arch-fig__title">Inside the matching engine</h2>
+        <p class="arch-fig__lead">
+          Zooming into the matching engine. The engine ingests the population, runs a <strong>two-stage match funnel</strong>
+          (a cheap deterministic gate, then semantic ranking and weighted per-role scoring), assembles deals with facilitator
+          sub-deals, and generates the match story. Because every step is deterministic, the run can be <strong>materialized</strong> &mdash;
+          computed once on write, then read cheap &mdash; into <strong>two projections</strong>: a <strong>match cache</strong> (the deal/story
+          experience; Mode&nbsp;1 serves it, Modes&nbsp;2&ndash;3 compute live) and a <strong>public profile / gallery cache</strong>
+          (a public-only view that powers live galleries and search).
+        </p>
+        <div class="arch-fig__frame">
+          <svg class="arch-svg" viewBox="0 0 1120 620" role="img" aria-label="Inside the matching engine: ingest, match funnel, deal assembly, match story, materialized into two projections feeding the front end.">
+            <defs>
+              <marker id="f3a" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#8595ac"/>
+              </marker>
+              <marker id="f3v" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#a78bfa"/>
+              </marker>
+              <marker id="f3c" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#22d3ee"/>
+              </marker>
+            </defs>
+
+            <!-- Inputs (violet) -->
+            <rect x="40" y="104" width="190" height="70" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nt" x="135" y="133" text-anchor="middle" font-size="15">Synthetic population</text>
+            <text class="ns" x="135" y="155" text-anchor="middle" font-size="12.5">+ watermark verify</text>
+
+            <rect x="40" y="230" width="190" height="70" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nt" x="135" y="259" text-anchor="middle" font-size="15">Schema + vocab</text>
+            <text class="ns" x="135" y="281" text-anchor="middle" font-size="12.5">fields &middot; weights</text>
+
+            <rect x="40" y="360" width="190" height="70" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nt" x="135" y="389" text-anchor="middle" font-size="15">Reference library</text>
+            <text class="ns" x="135" y="411" text-anchor="middle" font-size="12.5">domain grounding</text>
+
+            <!-- Matching-engine container (white, dotted edge) -->
+            <rect x="270" y="56" width="570" height="520" rx="16" fill="rgba(255,255,255,0.05)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="lbl" x="555" y="88" text-anchor="middle" font-size="15" fill="#ffffff">MATCHING ENGINE</text>
+
+            <!-- A. Ingest -->
+            <rect x="295" y="104" width="520" height="78" rx="11" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="1.8"/>
+            <text class="nb" x="555" y="136" text-anchor="middle" font-size="16">A &middot; Ingest</text>
+            <text class="ns" x="555" y="160" text-anchor="middle" font-size="13">validate &rarr; embed (canonical + raw) &rarr; index participants</text>
+
+            <!-- B. Match funnel -->
+            <rect x="295" y="212" width="520" height="120" rx="11" fill="rgba(255,255,255,0.16)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="nb" x="555" y="238" text-anchor="middle" font-size="16">B &middot; Match funnel</text>
+            <rect x="312" y="254" width="164" height="62" rx="9" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)"/>
+            <text class="nt" x="394" y="282" text-anchor="middle" font-size="13.5">B1 &middot; structured gate</text>
+            <text class="ns" x="394" y="302" text-anchor="middle" font-size="11.5">deterministic, cacheable</text>
+            <rect x="490" y="254" width="164" height="62" rx="9" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)"/>
+            <text class="nt" x="572" y="282" text-anchor="middle" font-size="13.5">B2 &middot; semantic rank</text>
+            <text class="ns" x="572" y="302" text-anchor="middle" font-size="11.5">vector similarity</text>
+            <rect x="666" y="254" width="136" height="62" rx="9" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)"/>
+            <text class="nt" x="734" y="282" text-anchor="middle" font-size="13.5">weighted score</text>
+            <text class="ns" x="734" y="302" text-anchor="middle" font-size="11.5">per-role + slots</text>
+            <line class="edge" x1="476" y1="285" x2="489" y2="285" marker-end="url(#f3a)"/>
+            <line class="edge" x1="654" y1="285" x2="665" y2="285" marker-end="url(#f3a)"/>
+
+            <!-- C. Deal assembly -->
+            <rect x="295" y="362" width="520" height="78" rx="11" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="1.8"/>
+            <text class="nb" x="555" y="394" text-anchor="middle" font-size="16">C &middot; Deal assembly</text>
+            <text class="ns" x="555" y="418" text-anchor="middle" font-size="13">facilitator injection &rarr; sub-deals &rarr; deal brief</text>
+
+            <!-- D. Match story -->
+            <rect x="295" y="470" width="520" height="78" rx="11" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="1.8"/>
+            <text class="nb" x="555" y="502" text-anchor="middle" font-size="16">D &middot; Match story</text>
+            <text class="ns" x="555" y="526" text-anchor="middle" font-size="13">generative narrative (privacy gate)</text>
+
+            <!-- vertical flow inside core (30px gaps) -->
+            <line class="edge" x1="555" y1="182" x2="555" y2="212" marker-end="url(#f3a)"/>
+            <line class="edge" x1="555" y1="332" x2="555" y2="362" marker-end="url(#f3a)"/>
+            <line class="edge" x1="555" y1="440" x2="555" y2="470" marker-end="url(#f3a)"/>
+
+            <!-- input arrows (bidirectional: feeders <-> core = feedback loop) -->
+            <line class="edge-v" x1="230" y1="139" x2="293" y2="142" marker-start="url(#f3v)" marker-end="url(#f3v)"/>
+            <line class="edge-v" x1="230" y1="265" x2="293" y2="166" marker-start="url(#f3v)" marker-end="url(#f3v)"/>
+            <line class="edge-v edge-d" x1="230" y1="395" x2="293" y2="500" marker-start="url(#f3v)" marker-end="url(#f3v)"/>
+            <text class="ns" x="135" y="468" text-anchor="middle" font-size="12.5" fill="#67e8f9">&#8645; feedback loop</text>
+            <text class="ns" x="135" y="488" text-anchor="middle" font-size="11">match gaps refine each feeder</text>
+
+            <!-- Materialization layer (right) — two projections of one precompute -->
+            <rect x="864" y="96" width="244" height="322" rx="13" fill="rgba(6,182,212,0.05)" stroke="rgba(6,182,212,0.4)" stroke-width="1.6"/>
+            <text class="lbl" x="986" y="122" text-anchor="middle" font-size="13" fill="#67e8f9">MATERIALIZATION LAYER</text>
+
+            <!-- Projection A: match cache -->
+            <rect x="882" y="138" width="208" height="122" rx="10" fill="rgba(6,182,212,0.16)" stroke="#06b6d4" stroke-width="1.8"/>
+            <text class="nb" x="986" y="166" text-anchor="middle" font-size="15" fill="#67e8f9">A &middot; Match cache</text>
+            <text class="ns" x="986" y="190" text-anchor="middle" font-size="12.5">full scenario JSON</text>
+            <text class="ns" x="986" y="214" text-anchor="middle" font-size="12">Mode 1 serves this cache</text>
+            <text class="ns" x="986" y="236" text-anchor="middle" font-size="12">Mode 2/3 compute live</text>
+
+            <!-- Projection B: public profile / gallery cache -->
+            <rect x="882" y="286" width="208" height="122" rx="10" fill="rgba(6,182,212,0.1)" stroke="#06b6d4" stroke-width="1.8"/>
+            <text class="nb" x="986" y="314" text-anchor="middle" font-size="14" fill="#67e8f9">B &middot; Profile / gallery cache</text>
+            <text class="ns" x="986" y="338" text-anchor="middle" font-size="12">PUBLIC-ONLY projection</text>
+            <text class="ns" x="986" y="360" text-anchor="middle" font-size="12">regenerated on write</text>
+            <text class="ns" x="986" y="382" text-anchor="middle" font-size="12">&rarr; galleries + search</text>
+
+            <!-- core → two projections -->
+            <line class="edge-c" x1="840" y1="210" x2="878" y2="190" marker-end="url(#f3c)"/>
+            <line class="edge-c" x1="840" y1="360" x2="878" y2="332" marker-end="url(#f3c)"/>
+
+            <!-- Front end (amber) — reads both projections -->
+            <rect x="864" y="440" width="244" height="84" rx="11" fill="rgba(245,158,11,0.1)" stroke="#f59e0b" stroke-width="1.8"/>
+            <text class="nb" x="986" y="470" text-anchor="middle" font-size="15">Vertical front end</text>
+            <text class="ns" x="986" y="496" text-anchor="middle" font-size="12.5">deal/story &middot; galleries + search</text>
+            <line class="edge-c edge-d" x1="986" y1="418" x2="986" y2="438" marker-end="url(#f3c)"/>
+          </svg>
+        </div>
+        <p class="arch-fig__cap">
+          Both projections share one mechanism but differ in contract: the <strong>match cache</strong> may use private fields and (in the demo)
+          is frozen synthetic data; the <strong>profile / gallery cache</strong> is a <em>public-only</em> projection of <em>real</em> profiles,
+          regenerated per record on write. Rule of thumb: <strong>precompute the gallery, compute the match.</strong>
+          The feeder&harr;engine links are <strong>two-way</strong>: match gaps feed back to improve the reference library (knowledge), the synthetic population (coverage), and the matching weights &mdash; a continuous-improvement loop.
+        </p>
+      </div>
+
+      <div class="arch-divider"></div>
+
+      <!-- ════════════════════════════════════════════
+           FIGURE 4 — PORTFOLIO / WHY IT SCALES
+           ════════════════════════════════════════════ -->
+      <div class="arch-fig reveal">
+        <div class="arch-fig__num">Figure 4 &middot; the payoff</div>
+        <h2 class="arch-fig__title">Why it scales: the same engine, replicated per vertical</h2>
+        <p class="arch-fig__lead">
+          Pull all the way back. Three different markets, side by side &mdash; and each is a <strong>complete, independent stack</strong>: its own
+          knowledge feed (violet), its <strong>own copy</strong> of the matching engine (white), and its own storefront (amber). The engines look
+          identical because they are the <strong>same open-source build, replicated</strong> &mdash; not because they share one running instance. That is
+          the economic argument: the expensive engine is written once, then cloned per vertical, so launching the next market means authoring
+          only a feed and a front end.
+        </p>
+        <div class="arch-fig__frame">
+          <svg class="arch-svg" viewBox="0 0 1120 540" role="img" aria-label="Three independent vertical stacks, each with its own feeder, its own replicated copy of the matching engine, and its own front end.">
+            <defs>
+              <marker id="f4a" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#a78bfa"/>
+              </marker>
+              <marker id="f4c" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#22d3ee"/>
+              </marker>
+            </defs>
+
+            <!-- "same build" note (top) + connectors across the three replicated engines -->
+            <text class="nt" x="560" y="38" text-anchor="middle" font-size="14" fill="#ffffff">&#8801; all three engines are one build, replicated per vertical</text>
+            <line class="edge" x1="330" y1="290" x2="430" y2="290" stroke="#ffffff" stroke-dasharray="3 3" opacity="0.7"/>
+            <line class="edge" x1="690" y1="290" x2="790" y2="290" stroke="#ffffff" stroke-dasharray="3 3" opacity="0.7"/>
+
+            <!-- ===== COLUMN 1 — Vertical A ===== -->
+            <rect x="60" y="50" width="280" height="470" rx="16" fill="none" stroke="rgba(148,163,184,0.3)" stroke-width="1.4" stroke-dasharray="7 5"/>
+            <text class="cap" x="200" y="74" text-anchor="middle" font-size="12" fill="#94a3b8" letter-spacing="0.08em">INDEPENDENT DEPLOYMENT #1</text>
+
+            <rect x="70" y="88" width="260" height="88" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nb" x="200" y="118" text-anchor="middle" font-size="14" fill="#c4b5fd">Market vertical A</text>
+            <text class="ns" x="200" y="140" text-anchor="middle" font-size="12.5">domain wiki &middot; reference library</text>
+            <text class="ns" x="200" y="160" text-anchor="middle" font-size="12.5">+ synthetic population</text>
+
+            <rect x="70" y="210" width="260" height="160" rx="13" fill="rgba(255,255,255,0.14)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="nb" x="200" y="244" text-anchor="middle" font-size="15.5">Matching engine</text>
+            <text class="ns" x="200" y="276" text-anchor="middle" font-size="13">schema &middot; matching + scoring</text>
+            <text class="ns" x="200" y="298" text-anchor="middle" font-size="13">deal brief &middot; precompute</text>
+            <text class="cap" x="200" y="332" text-anchor="middle" font-size="12.5">open source</text>
+
+            <rect x="70" y="404" width="260" height="86" rx="11" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.8"/>
+            <text class="nb" x="200" y="434" text-anchor="middle" font-size="14" fill="#fcd34d">Vertical A front-end UX</text>
+            <text class="ns" x="200" y="456" text-anchor="middle" font-size="12.5">+ auth &middot; ads &middot; services</text>
+            <text class="ns" x="200" y="475" text-anchor="middle" font-size="12.5">market sponsor #1</text>
+
+            <line class="edge-v" x1="200" y1="176" x2="200" y2="208" marker-start="url(#f4a)" marker-end="url(#f4a)"/>
+            <line class="edge-c" x1="200" y1="370" x2="200" y2="402" marker-end="url(#f4c)"/>
+            <text class="cap" x="200" y="512" text-anchor="middle" font-size="13">&#128101; vertical A participants</text>
+
+            <!-- ===== COLUMN 2 — Vertical B ===== -->
+            <rect x="420" y="50" width="280" height="470" rx="16" fill="none" stroke="rgba(148,163,184,0.3)" stroke-width="1.4" stroke-dasharray="7 5"/>
+            <text class="cap" x="560" y="74" text-anchor="middle" font-size="12" fill="#94a3b8" letter-spacing="0.08em">INDEPENDENT DEPLOYMENT #2</text>
+
+            <rect x="430" y="88" width="260" height="88" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nb" x="560" y="118" text-anchor="middle" font-size="14" fill="#c4b5fd">Market vertical B</text>
+            <text class="ns" x="560" y="140" text-anchor="middle" font-size="12.5">domain wiki &middot; reference library</text>
+            <text class="ns" x="560" y="160" text-anchor="middle" font-size="12.5">+ synthetic population</text>
+
+            <rect x="430" y="210" width="260" height="160" rx="13" fill="rgba(255,255,255,0.14)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="nb" x="560" y="244" text-anchor="middle" font-size="15.5">Matching engine</text>
+            <text class="ns" x="560" y="276" text-anchor="middle" font-size="13">schema &middot; matching + scoring</text>
+            <text class="ns" x="560" y="298" text-anchor="middle" font-size="13">deal brief &middot; precompute</text>
+            <text class="cap" x="560" y="332" text-anchor="middle" font-size="12.5">open source</text>
+
+            <rect x="430" y="404" width="260" height="86" rx="11" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.8"/>
+            <text class="nb" x="560" y="434" text-anchor="middle" font-size="14" fill="#fcd34d">Vertical B front-end UX</text>
+            <text class="ns" x="560" y="456" text-anchor="middle" font-size="12.5">+ auth &middot; ads &middot; services</text>
+            <text class="ns" x="560" y="475" text-anchor="middle" font-size="12.5">market sponsor #2</text>
+
+            <line class="edge-v" x1="560" y1="176" x2="560" y2="208" marker-start="url(#f4a)" marker-end="url(#f4a)"/>
+            <line class="edge-c" x1="560" y1="370" x2="560" y2="402" marker-end="url(#f4c)"/>
+            <text class="cap" x="560" y="512" text-anchor="middle" font-size="13">&#128101; vertical B participants</text>
+
+            <!-- ===== COLUMN 3 — Vertical C ===== -->
+            <rect x="780" y="50" width="280" height="470" rx="16" fill="none" stroke="rgba(148,163,184,0.3)" stroke-width="1.4" stroke-dasharray="7 5"/>
+            <text class="cap" x="920" y="74" text-anchor="middle" font-size="12" fill="#94a3b8" letter-spacing="0.08em">INDEPENDENT DEPLOYMENT #3</text>
+
+            <rect x="790" y="88" width="260" height="88" rx="11" fill="rgba(139,92,246,0.16)" stroke="#8b5cf6" stroke-width="1.8"/>
+            <text class="nb" x="920" y="118" text-anchor="middle" font-size="14" fill="#c4b5fd">Market vertical C</text>
+            <text class="ns" x="920" y="140" text-anchor="middle" font-size="12.5">domain wiki &middot; reference library</text>
+            <text class="ns" x="920" y="160" text-anchor="middle" font-size="12.5">+ synthetic population</text>
+
+            <rect x="790" y="210" width="260" height="160" rx="13" fill="rgba(255,255,255,0.14)" stroke="#ffffff" stroke-dasharray="3 3" stroke-width="2"/>
+            <text class="nb" x="920" y="244" text-anchor="middle" font-size="15.5">Matching engine</text>
+            <text class="ns" x="920" y="276" text-anchor="middle" font-size="13">schema &middot; matching + scoring</text>
+            <text class="ns" x="920" y="298" text-anchor="middle" font-size="13">deal brief &middot; precompute</text>
+            <text class="cap" x="920" y="332" text-anchor="middle" font-size="12.5">open source</text>
+
+            <rect x="790" y="404" width="260" height="86" rx="11" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.8"/>
+            <text class="nb" x="920" y="434" text-anchor="middle" font-size="14" fill="#fcd34d">Vertical C front-end UX</text>
+            <text class="ns" x="920" y="456" text-anchor="middle" font-size="12.5">+ auth &middot; ads &middot; services</text>
+            <text class="ns" x="920" y="475" text-anchor="middle" font-size="12.5">market sponsor #3</text>
+
+            <line class="edge-v" x1="920" y1="176" x2="920" y2="208" marker-start="url(#f4a)" marker-end="url(#f4a)"/>
+            <line class="edge-c" x1="920" y1="370" x2="920" y2="402" marker-end="url(#f4c)"/>
+            <text class="cap" x="920" y="512" text-anchor="middle" font-size="13">&#128101; vertical C participants</text>
+          </svg>
+        </div>
+        <p class="arch-fig__cap">
+          Each vertical deploys its own engine today &mdash; the same open-source components, separate instances. A single multi-tenant engine
+          serving a &ldquo;constellation&rdquo; of marketplaces is a possible future, not the starting model. The reuse is in the <em>build</em>,
+          not a shared runtime: you clone the reference implementation rather than reinvent it. Each deployment also runs its
+          own feeder&harr;engine feedback loop, so every vertical&rsquo;s knowledge, population, and matching improve independently.
+        </p>
+      </div>
+
+      <div class="arch-divider"></div>
+
+      <!-- Capstone: the choice (point 7) -->
+      <div class="arch-fig reveal">
+        <div class="arch-fig__num">The choice</div>
+        <h2 class="arch-fig__title">Two ways to build a market</h2>
+        <p class="arch-fig__lead">
+          Strip everything else away and this is the decision a market builder faces &mdash; rediscover the same frictions alone,
+          or start from a solution already grounded in the theory of why markets stay thin. The reusable engine carries any pairing
+          as far as the <strong>Deal Brief</strong> &mdash; the last step common to every market &mdash; and the sponsor&rsquo;s own layer
+          (contracting, payment, fulfillment) takes it from there.
+        </p>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1rem;">
+          <div style="border:1px solid rgba(245,158,11,0.3); background:rgba(245,158,11,0.04); border-radius: var(--radius-lg); padding: var(--space-lg);">
+            <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--dp-amber); font-weight:700; margin-bottom:0.6rem;">Build it alone &middot; trial and error</div>
+            <ul style="margin:0; padding-left:1.1rem; color:var(--dp-silver); font-size:0.9375rem; line-height:1.75;">
+              <li>Pick a vertical, build a platform from scratch.</li>
+              <li>Discover each friction only after you hit it.</li>
+              <li>See it through your own buyers and sellers &mdash; miss the pattern.</li>
+              <li>Reinvent the same wheels every other builder is reinventing.</li>
+              <li>Succeed or fail &mdash; alone.</li>
+            </ul>
+          </div>
+          <div style="border:1px solid rgba(129,140,248,0.45); background:rgba(99,102,241,0.06); border-radius: var(--radius-lg); padding: var(--space-lg);">
+            <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:#a5b4fc; font-weight:700; margin-bottom:0.6rem;">Start from the theory &middot; systematic</div>
+            <ul style="margin:0; padding-left:1.1rem; color:var(--dp-silver); font-size:0.9375rem; line-height:1.75;">
+              <li>The frictions are already named &mdash; common and Nobel-defined.</li>
+              <li>Deploy the open-source engine that neutralizes them.</li>
+              <li>Build only your market&rsquo;s business logic on top.</li>
+              <li>Improve continuously through the feeder&harr;engine loop.</li>
+              <li>Replicate a proven solution &mdash; you are not alone.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closing / CTA -->
+      <div class="reveal" style="background: rgba(99,102,241,0.04); border: 1px solid rgba(99,102,241,0.2); border-radius: var(--radius-lg); padding: var(--space-xl); margin-top: var(--space-xl);">
+        <h3 style="color:#fff; font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 0.75rem;">Where to go next</h3>
+        <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.7; margin: 0 0 1.25rem;">
+          Figures&nbsp;1&ndash;4 are the build-side view. To see what a <em>participant</em> experiences inside one of these markets &mdash;
+          from anonymous discovery to a Deal Brief &mdash; read <a href="how-it-works.html" style="color:#818cf8;">How It Works</a>, or open the live demo.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+          <a href="demo.html" class="btn btn--primary">Try the Interactive Demo</a>
+          <a href="how-it-works.html" class="btn btn--outline">The Participant Journey &rarr;</a>
+          <a href="project.html" class="btn btn--outline">Back to the Project Suite</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Continue the story (final step) -->
+  <section class="section" style="padding-top: 0; padding-bottom: var(--space-2xl);">
+    <div class="container container--narrow">
+      <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.05); border:1px solid rgba(99,102,241,0.2); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--dp-muted); margin-bottom:0.2rem;">The DeeperPoint story &middot; Step 5 of 5</div>
+          <div style="color:#fff; font-weight:600;">That&rsquo;s the logic, end to end. Now see it run.</div>
+        </div>
+        <a href="demo.html" class="btn btn--primary" style="white-space:nowrap;">See the demo &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+        <ul class="footer__links">
+          <li><a href="search.html" class="footer__link">Search</a></li>
+          <li><a href="project.html" class="footer__link">Project</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+  <script src="nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

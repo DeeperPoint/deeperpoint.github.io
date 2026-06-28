@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Project Suite — DeeperPoint</title>
     <meta name="description"
-        content="The DeeperPoint project comprises three distinct spokes: open-source matching protocols (Cosolvent & CommonContext), specialized simulation harnesses (ClientSynth), and deployable marketplace templates (MarketForge).">
+        content="The DeeperPoint project has three parts: an open-source matching engine (Cosolvent) with a curated knowledge layer (CommonContext), synthetic populations for testing (ClientSynth), and a deployment framework (MarketForge).">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,6 +39,7 @@
         <li><a href="project.html" class="nav__link nav__link--active">Project</a></li>
         <li><a href="demo.html" class="nav__link">Demo</a></li>
         <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
+        <li><a href="architecture.html" class="nav__link">Architecture</a></li>
         <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
         <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
         <li><a href="blog/index.html" class="nav__link">Blog</a></li>
@@ -63,6 +64,13 @@
 
     <section class="section" style="padding-top: 0;">
         <div class="container">
+            <!-- Thesis (spine) -->
+            <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.06); border-left: 4px solid #818cf8; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: var(--space-2xl);">
+                <p style="margin:0; color:#e2e8f0; font-size:1.0625rem; line-height:1.65;">
+                    <strong style="color:#fff;">The DeeperPoint thesis:</strong> because the frictions that keep markets thin are <em>common across thousands of markets</em>, the friction-fighting layer can be built <strong style="color:#fff;">once</strong> and open-sourced. A sponsor reuses it and adds only their market&rsquo;s business logic &mdash; instead of rediscovering the same problems alone.
+                </p>
+            </div>
+
             <!-- Three Spokes Cards Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
                 
@@ -73,7 +81,7 @@
                         <h3 class="door__title">1. The Cosolvent Suite</h3>
                         <span style="display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dp-emerald); margin-bottom: 0.75rem;">Open Source Engine Block</span>
                         <p class="door__hook" style="font-size: 0.9375rem; line-height: 1.65; color: var(--dp-silver);">
-                            Our generic headless matching stack. Combines multi-attribute similarity matches, database schemas (PostgreSQL with `pgvector`), and automated "Alternative Compliance Rule" discovery to bypass standard transaction blockers.
+                            Our generic headless matching engine. Combines multi-attribute similarity matches, database schemas (PostgreSQL with `pgvector`), and automated "Alternative Compliance Rule" discovery to bypass standard transaction blockers.
                         </p>
                     </div>
                     <a href="cosolvent.html" class="btn btn--outline" style="margin-top: 1.5rem; justify-content: center;">Explore Cosolvent Suite →</a>
@@ -110,6 +118,28 @@
 
             </div>
 
+            <!-- Spokes <-> architecture roles -->
+            <div class="card" style="padding: var(--space-xl); margin-bottom: var(--space-xl);">
+                <h3 style="color:#fff; font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 0.5rem;">How the spokes map to the three roles</h3>
+                <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.7; margin: 0 0 1rem;">
+                    The spokes above are <em>product groupings</em>. Conceptually, every implementation fills <strong style="color:#fff;">three roles</strong> &mdash; and these products supply them. (Cosolvent and CommonContext ship together as the Cosolvent Suite, but they fill different roles.)
+                </p>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 0.75rem;">
+                    <div style="border-left:3px solid #8b5cf6; background:rgba(139,92,246,0.05); border-radius:0 8px 8px 0; padding:0.85rem 1rem;">
+                        <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:#c4b5fd; font-weight:700; margin-bottom:0.25rem;">Feeder systems</div>
+                        <div style="color:var(--dp-silver); font-size:0.875rem; line-height:1.5;">CommonContext (curated knowledge) + ForgeTwin / ClientSynth (synthetic population)</div>
+                    </div>
+                    <div style="border-left:3px solid #e2e8f0; background:rgba(255,255,255,0.05); border-radius:0 8px 8px 0; padding:0.85rem 1rem;">
+                        <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:#fff; font-weight:700; margin-bottom:0.25rem;">Matching engine</div>
+                        <div style="color:var(--dp-silver); font-size:0.875rem; line-height:1.5;">Cosolvent &mdash; the reusable open-source core</div>
+                    </div>
+                    <div style="border-left:3px solid #f59e0b; background:rgba(245,158,11,0.05); border-radius:0 8px 8px 0; padding:0.85rem 1rem;">
+                        <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:#fcd34d; font-weight:700; margin-bottom:0.25rem;">Market-vertical layer</div>
+                        <div style="color:var(--dp-silver); font-size:0.875rem; line-height:1.5;">MarketForge &mdash; the sponsor&rsquo;s branded build + business logic</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Deal Brief Output Framing -->
             <div class="card" style="padding: var(--space-xl); border-color: rgba(99, 102, 241, 0.25); background: rgba(99, 102, 241, 0.03); margin-bottom: var(--space-xl);">
                 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
@@ -120,6 +150,18 @@
                     Each spoke contributes to a single outcome: a <strong style="color: #fff;">Deal Brief</strong> that captures the full deal structure &mdash; principals, facilitators, agreed terms, open items, regulatory requirements, and next steps &mdash; so that the parties&rsquo; own attorneys, banks, and logistics providers can move directly to execution. The Deal Brief is explicitly <em>not a contract</em>. It is the structured handoff document that makes contracting possible in markets where no standard contract template exists.
                 </p>
                 <a href="how-it-works.html" style="color: #818cf8; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">See the four stages — from profiles to Deal Brief &rarr;</a>
+            </div>
+
+            <!-- Architecture diagrams -->
+            <div class="card" style="padding: var(--space-xl); border-color: rgba(16, 182, 129, 0.25); background: rgba(16, 185, 129, 0.03); margin-bottom: var(--space-xl);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.25rem;">🗺️</span>
+                    <h3 style="color: #fff; font-family: var(--font-display); font-size: 1.15rem; margin: 0;">How an Implementation Is Built</h3>
+                </div>
+                <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 0.75rem;">
+                    Four progressive diagrams: the three roles, how they operate, inside the <em>matching engine</em>, and why <strong style="color:#fff;">the same open-source engine is replicated across many verticals</strong>.
+                </p>
+                <a href="architecture.html" style="color: var(--dp-emerald); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">See the architecture in four diagrams &rarr;</a>
             </div>
 
             <!-- Pipeline Diagram & Banner Section -->
@@ -152,6 +194,19 @@
                 <a href="catalog/index.html" class="btn btn--primary" style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff; white-space: nowrap;">Browse the Catalog →</a>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Continue the story -->
+    <section class="section" style="padding-top: 0; padding-bottom: var(--space-2xl);">
+        <div class="container">
+            <div class="reveal" style="max-width: 820px; margin: 0 auto; padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.05); border:1px solid rgba(99,102,241,0.2); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+                <div>
+                    <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--dp-muted); margin-bottom:0.2rem;">The DeeperPoint story &middot; Step 3 of 5</div>
+                    <div style="color:#fff; font-weight:600;">Next: the intervention matrix &mdash; frictions vs. the fixes</div>
+                </div>
+                <a href="intervention-matrix.html" class="btn btn--primary" style="white-space:nowrap;">Continue &rarr;</a>
+            </div>
         </div>
     </section>
 

@@ -7,6 +7,7 @@ new_nav_items = [
     ("Project", "project.html"),
     ("Demo", "demo.html"),
     ("Matrix", "intervention-matrix.html"),
+    ("Architecture", "architecture.html"),
     ("Catalog", "catalog/index.html"),
     ("MarketMaps", "marketmaps.html"),
     ("Blog", "blog/index.html"),
@@ -60,7 +61,8 @@ for root, dirs, files in os.walk('.'):
         continue
     for file in files:
         if file.endswith('.html'):
-            filepath = os.path.join(root, file)
+            # Normalize to forward slashes so prefix/active logic works on Windows too
+            filepath = os.path.join(root, file).replace(os.sep, '/')
             prefix = get_relative_prefix(filepath)
             
             with open(filepath, 'r', encoding='utf-8') as f:
