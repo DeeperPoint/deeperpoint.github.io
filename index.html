@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeeperPoint — Activating Thin Markets with AI</title>
   <meta name="description"
-    content="DeeperPoint is an open research and engineering project exploring how AI can make thin markets thicker and more functional. Open-source tools for marketplace builders.">
+    content="Markets don't make themselves. DeeperPoint applies decades of market-physics research and six AI interventions in a free, open-source platform that helps thin markets form and function.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -36,13 +36,12 @@
       </button>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
-        <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
-        <li><a href="project.html" class="nav__link">Project</a></li>
+        <li><a href="market-physics.html" class="nav__link">Market Physics</a></li>
+        <li><a href="platform.html" class="nav__link">Platform</a></li>
         <li><a href="demo.html" class="nav__link">Demo</a></li>
-        <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
-        <li><a href="architecture.html" class="nav__link">Architecture</a></li>
         <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
         <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="who-should-care.html" class="nav__link">Who Should Care</a></li>
         <li><a href="blog/index.html" class="nav__link">Blog</a></li>
         <li><a href="ebook.html" class="nav__link">Ebook</a></li>
         <li><a href="about.html" class="nav__link">About</a></li>
@@ -55,14 +54,17 @@
     <div class="container">
       <div class="hero__content reveal">
         <h1 class="hero__headline">
-          Activating Thin Markets <span class="hero__accent">with AI.</span>
+          Markets don't make <span class="hero__accent">themselves.</span>
         </h1>
         <p class="hero__sub">
-          Thousands of valuable markets stay thin &mdash; barren, or run by gatekeeping brokers &mdash; because the same handful of frictions blocks every deal. Most builders fight those frictions one at a time, <em>alone</em>, reinventing the same wheels in each new market. DeeperPoint takes a different path: it starts from the theory of <em>why</em> markets stay thin.
+          Economists used to believe that demand and supply would find each other on their own. Eighty years of
+          research &mdash; much of it Nobel-recognized &mdash; proved otherwise: most markets carry structural
+          frictions that keep otherwise worthy buyers and sellers from ever connecting. The result is thousands of
+          <strong>thin markets</strong>, where good deals languish or never form at all. DeeperPoint exists to change that.
         </p>
         <div class="hero__cta">
-          <a href="thin-markets.html" class="btn btn--primary">Start the story &rarr;</a>
-          <a href="#tools" class="btn btn--outline">Explore the tools ↓</a>
+          <a href="market-physics.html" class="btn btn--primary">See the science &rarr;</a>
+          <a href="platform.html" class="btn btn--outline">What we built &rarr;</a>
         </div>
       </div>
 
@@ -82,9 +84,60 @@
     </div>
   </section>
 
-  <!-- Thesis (spine) -->
+  <!-- The pattern (thin vs. thick) -->
   <section class="section" style="padding-top: var(--space-xl); padding-bottom: 0;">
     <div class="container container--narrow">
+      <div class="reveal"
+        style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
+        <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">The Thin-Market Pattern</h2>
+        <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+          Some deals are so obstructed that no one even tries. Others limp along only because human brokers, traders,
+          and salespeople will invest the effort &mdash; <em>if the deal is big enough</em>. That is the pattern that
+          defines a <strong style="color:#fff;">thin market</strong>.
+        </p>
+        <p style="margin: 0; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+          <strong style="color:#fff;">Thick markets</strong> &mdash; stock exchanges, consumer e-commerce &mdash; run
+          smoothly because their trade items are standardized in the ways that matter, so conventional software can
+          automate them. Thin markets resist that treatment: every offering is different, every counterparty is hard
+          to find, and the friction of transacting exceeds the perceived gain.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- It's not a marketing problem -->
+  <section class="section" style="padding-top: var(--space-lg); padding-bottom: 0;">
+    <div class="container container--narrow">
+      <div class="reveal"
+        style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
+        <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">It's Not a Marketing Problem</h2>
+        <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+          Countless people have good ideas for new markets. They write marketing plans and fight the good fight
+          &mdash; and are defeated by market forces they don't understand. Reaching audiences, pricing, advertising:
+          those are marketing. But beneath them sit <strong style="color:#fff;">structural frictions</strong> &mdash;
+          the &ldquo;market physics&rdquo; mapped by decades of economic research. Solving those is
+          <em>necessary, but not sufficient</em>, before any marketing tactic can work.
+        </p>
+        <a href="market-physics.html" style="color: #818cf8; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">The research behind this claim &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What DeeperPoint is (scope statement + thesis) -->
+  <section class="section" style="padding-top: var(--space-lg); padding-bottom: 0;">
+    <div class="container container--narrow">
+      <div class="reveal"
+        style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-lg);">
+        <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">What DeeperPoint Is</h2>
+        <p style="margin: 0; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+          DeeperPoint believes that, with AI, these structural frictions can now be overcome &mdash; not in one
+          market, but across hundreds of dysfunctional and latent markets at once. We identified
+          <strong style="color:#fff;">six AI interventions</strong> that collectively address most of the known and
+          documented frictions, and we are building a <strong style="color:#fff;">free, open-source platform</strong>
+          that applies them to almost any market opportunity being held back by them.
+        </p>
+      </div>
+
       <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.06); border-left: 4px solid #818cf8; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
         <p style="margin:0; color:#e2e8f0; font-size:1.0625rem; line-height:1.65;">
           <strong style="color:#fff;">The DeeperPoint thesis:</strong> the frictions that keep markets thin are <em>common across thousands of markets</em> &mdash; so the solution can be built <strong style="color:#fff;">once</strong> and reused. A market builder adds only their market&rsquo;s business logic, instead of rediscovering the same problems alone.
@@ -93,152 +146,60 @@
     </div>
   </section>
 
-  <!-- The Toolkit (4 Tools) -->
-  <section class="section" id="tools" style="padding-top: 2rem;">
+  <!-- Doorways -->
+  <section class="section" id="doorways" style="padding-top: var(--space-xl);">
     <div class="container">
-      <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
-        <span class="section__label">The Toolkit</span>
-        <h2 class="section__title">Four Ways to Engage</h2>
-        <p class="section__desc section__desc--centered">
-          Practical entry points &mdash; from diagnosing a market&rsquo;s friction to deploying the open-source engine. For how the engine itself is built, see <a href="architecture.html" style="color:#818cf8;">the architecture</a>.
-        </p>
-      </div>
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--space-md); margin-bottom: 0;">
 
-      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md); margin-bottom: 0;">
-
-        <!-- Tool 1 -->
-        <a href="intervention-matrix.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-blue); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">1. Diagnose</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0.25rem 0 0.5rem;">Intervention Matrix</h3>
+        <a href="market-physics.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">📖</div>
+          <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">The Science</span>
+          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Market Physics</h3>
           <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-            A rigorous diagnostic tool that cross-tabulates the common thin-market challenges against the AI interventions that neutralize them.
+            Eighty years of Nobel-recognized research, the frictions it mapped, and the six AI interventions.
           </p>
         </a>
 
-        <!-- Tool 2 -->
+        <a href="platform.html" class="card card--build" style="text-decoration: none; padding: var(--space-lg); border-color: rgba(16, 185, 129, 0.3);">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">⚙️</div>
+          <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">The Platform</span>
+          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">The Open-Source Engine</h3>
+          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+            Cosolvent + CommonContext, the deal pipeline, and the Deal Brief handoff.
+          </p>
+        </a>
+
+        <a href="demo.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🧭</div>
+          <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Try It</span>
+          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Live Demo</h3>
+          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+            A working digital twin of a real thin market, populated and matchable.
+          </p>
+        </a>
+
         <a href="catalog/index.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
           <div style="font-size: 2rem; margin-bottom: 1rem;">📚</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-amber); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">2. Discover</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0.25rem 0 0.5rem;">Opportunity Catalog</h3>
+          <span style="font-size: 0.6875rem; color: var(--dp-amber); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Explore</span>
+          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Opportunity Catalog</h3>
           <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-            250 prospective thin markets across 12 sectors, each tagged with binding challenges and sponsor opportunities.
-          </p>
-        </a>
-
-        <!-- Tool 3 -->
-        <a href="marketmaps.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🔬</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">3. Analyze</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0.25rem 0 0.5rem;">MarketMap Engine</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-            A multi-model AI synthesis system that forensically deconstructs the market physics of any company in ~5 minutes.
-          </p>
-        </a>
-
-        <!-- Tool 4 -->
-        <a href="cosolvent.html" class="card card--build" style="text-decoration: none; padding: var(--space-lg); border-color: rgba(16, 185, 129, 0.3);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">⚙️</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">4. Deploy (Open Source)</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0.25rem 0 0.5rem;">Cosolvent &amp; CommonContext</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-            A developing MIT-licensed headless marketplace engine and curated context manager. Admin dashboard included; participant UI is yours to build.
+            250 prospective thin markets across 12 sectors, tagged with binding challenges.
           </p>
         </a>
 
       </div>
     </div>
   </section>
-
-  <!-- The Deal Brief (what the deployed engine produces) -->
-  <section class="section" id="deal-brief" style="padding-top: var(--space-lg); padding-bottom: 0;">
-    <div class="container container--narrow">
-      <div class="reveal" style="background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: var(--radius-lg); padding: var(--space-xl);">
-        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-          <span style="font-size: 1.5rem;">📄</span>
-          <h2 style="font-family: var(--font-display); font-size: 1.35rem; color: #fff; margin: 0;">What It Produces: the Deal Brief &mdash; Not a Contract, a Handoff</h2>
-        </div>
-        <p style="color: var(--dp-silver); line-height: 1.7; margin-bottom: 1rem;">
-          Most marketplace platforms aim to close deals. DeeperPoint aims to get deals <em>ready to close</em>. The platform&rsquo;s primary output is a <strong style="color: #fff;">Deal Brief</strong> &mdash; a structured, non-binding summary of everything two parties have explored and agreed. It captures who the parties are, what they propose to exchange, what remains open, and which professional intermediaries (attorneys, banks, insurers, logistics providers) need to act next.
-        </p>
-        <p style="color: var(--dp-silver); line-height: 1.7; margin-bottom: 1rem;">
-          The Deal Brief is designed for markets where an enforceable contract <em>cannot be written yet</em> &mdash; because the product specification is still being defined, because multiple facilitators must be assembled, or because the regulatory pathway requires expert navigation. The platform does the discovery and negotiation work. Your professionals do the contracting.
-        </p>
-        <p style="color: var(--dp-silver); line-height: 1.7; margin-bottom: 1rem;">
-          That boundary is deliberate. The Deal Brief is <strong style="color:#fff;">as far as friction reduction can go while staying generic</strong> &mdash; the last step common to every market. Everything after it &mdash; the contract, the payment rails, the fulfillment terms &mdash; varies with each item of exchange and each market, so it belongs to the parties and the sponsor&rsquo;s vertical logic, not the shared engine.
-        </p>
-        <a href="how-it-works.html" style="color: #818cf8; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">See how it works — from profiles to Deal Brief &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ClientSynth Callout -->
-  <section class="section" id="clientsynth" style="border-top: 1px solid var(--glass-border); padding-top: var(--space-lg); padding-bottom: var(--space-lg);">
-    <div class="container container--narrow">
-      <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6, 182, 212, 0.05);">
-        <div class="crosslink__text">
-          <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Proprietary Testing Harness</span>
-          <h3 style="color: var(--dp-cyan); margin: 0.5rem 0;">ClientSynth: Stress-Testing the Engine</h3>
-          <p style="margin: 0; line-height: 1.6; color: var(--dp-silver);">
-            While Cosolvent and CommonContext are open source, testing a thin market requires realistic participants. <strong>ClientSynth</strong> is our proprietary simulation tool designed to flood a Cosolvent instance with synthetic, agentic buyers and sellers. It allows you to prove the market physics work before risking live participant capital.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Where it can be useful -->
-  <section class="section" id="useful" style="border-top: 1px solid var(--glass-border); background: var(--bg-secondary);">
-    <div class="container container--narrow">
-      <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
-        <span class="section__label">Applications</span>
-        <h2 class="section__title">Where it can be useful</h2>
-      </div>
-
-      <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <div style="padding: 1.5rem; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; position: relative; overflow: hidden;">
-          <h3 style="color: #fff; font-size: 1.125rem; margin-bottom: 0.5rem;">Startup Founders</h3>
-          <p style="color: var(--dp-silver); line-height: 1.6; margin: 0; margin-bottom: 0.5rem;">Use the matrix as a pre-raise market-design diagnostic, request a marketmap of your own narrative as a stress-test, and prepare to use Cosolvent as a marketplace prototyping shortcut.</p>
-          <a href="guide-founders.html" style="color: var(--dp-violet); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">Read the Founder's Guide &rarr;</a>
-        </div>
-        
-        <div style="padding: 1.5rem; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
-          <h3 style="color: #fff; font-size: 1.125rem; margin-bottom: 0.5rem;">VC Investors</h3>
-          <p style="color: var(--dp-silver); line-height: 1.6; margin: 0; margin-bottom: 0.5rem;">Use the catalog as a sourcing scaffold and portfolio-coverage map, and request marketmaps on specific deals to forensically assess thin-market challenges.</p>
-          <a href="guide-investors.html" style="color: var(--dp-blue); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">Read the Investor's Guide &rarr;</a>
-        </div>
-
-        <div style="padding: 1.5rem; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
-          <h3 style="color: #fff; font-size: 1.125rem; margin-bottom: 0.5rem;">Accelerator Managers</h3>
-          <p style="color: var(--dp-silver); line-height: 1.6; margin: 0; margin-bottom: 0.5rem;">Standardize cohort vocabulary with the matrix, seed vertical theses from the catalog, and evaluate applicants on a consistent, evidence-based rubric.</p>
-          <a href="guide-accelerators.html" style="color: var(--dp-amber); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">Read the Accelerator Guide &rarr;</a>
-        </div>
-
-        <div style="padding: 1.5rem; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
-          <h3 style="color: #fff; font-size: 1.125rem; margin-bottom: 0.5rem;">Industry Associations</h3>
-          <p style="color: var(--dp-silver); line-height: 1.6; margin: 0; margin-bottom: 0.5rem;">Provide member-owned digital infrastructure to protect your industry from outside tech disruption. Deploy confidential clearinghouses to facilitate intra-industry trade and share surplus capacity without exposing trade secrets.</p>
-          <a href="guide-associations.html" style="color: var(--dp-emerald); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">Read the Association Guide &rarr;</a>
-        </div>
-
-        <div style="padding: 1.5rem; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;">
-          <h3 style="color: #fff; font-size: 1.125rem; margin-bottom: 0.5rem;">Government Trade Organizations</h3>
-          <p style="color: var(--dp-silver); line-height: 1.6; margin: 0; margin-bottom: 0.5rem;">Execute the "Middle Power" pivot by providing Canadian exporters with sovereign, AI-driven market infrastructure. Overcome the extreme friction of international B2B trade by automating regulatory translation and confidential matchmaking.</p>
-          <a href="guide-government.html" style="color: var(--dp-cyan); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">Read the Trade Policy Guide &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <!-- Continue the story -->
   <section class="section" style="padding-top: 0; padding-bottom: var(--space-2xl);">
     <div class="container container--narrow">
       <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.05); border:1px solid rgba(99,102,241,0.2); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
         <div>
-          <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--dp-muted); margin-bottom:0.2rem;">The DeeperPoint story &middot; Step 1 of 5</div>
-          <div style="color:#fff; font-weight:600;">Next: why so many markets stay thin &mdash; the theory</div>
+          <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--dp-muted); margin-bottom:0.2rem;">The DeeperPoint story &middot; Step 1 of 3</div>
+          <div style="color:#fff; font-weight:600;">Next: the science &mdash; why markets stay thin, and what AI changes</div>
         </div>
-        <a href="thin-markets.html" class="btn btn--primary" style="white-space:nowrap;">Continue &rarr;</a>
+        <a href="market-physics.html" class="btn btn--primary" style="white-space:nowrap;">Continue &rarr;</a>
       </div>
     </div>
   </section>
@@ -250,6 +211,7 @@
         <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
         <ul class="footer__links">
           <li><a href="search.html" class="footer__link">Search</a></li>
+          <li><a href="who-should-care.html" class="footer__link">Who Should Care</a></li>
           <li><a href="about.html" class="footer__link">About</a></li>
           <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a>
           </li>

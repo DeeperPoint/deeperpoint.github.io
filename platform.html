@@ -1,0 +1,268 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Platform — DeeperPoint</title>
+    <meta name="description"
+        content="DeeperPoint's open-source marketplace engine: Cosolvent and CommonContext apply the six AI interventions generically, from ingestion to the Deal Brief — the handoff point where each market sponsor's own vertical takes over.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="market-physics.html" class="nav__link">Market Physics</a></li>
+        <li><a href="platform.html" class="nav__link nav__link--active">Platform</a></li>
+        <li><a href="demo.html" class="nav__link">Demo</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="who-should-care.html" class="nav__link">Who Should Care</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+        </div>
+    </nav>
+
+    <!-- Spoke Page Hero -->
+    <header class="spoke-hero" style="padding-top: calc(var(--space-4xl) + 60px);">
+        <div class="container container--narrow">
+            <div class="text-center">
+                <span class="spoke-hero__badge spoke-hero__badge--science">⚙️ The Platform</span>
+                <h1 class="spoke-hero__headline">A Market Engine Built Once, For Any Thin Market</h1>
+                <p class="spoke-hero__desc" style="margin: 0 auto;">
+                    DeeperPoint applies the six AI interventions in a generic, open-source marketplace engine &mdash;
+                    not tied to any vertical. A market sponsor adopts it, adds their market&rsquo;s business logic, and
+                    skips a decade of rediscovering the same problems.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container container--narrow">
+
+            <!-- Thesis (spine) -->
+            <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.06); border-left: 4px solid #818cf8; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: var(--space-xl);">
+                <p style="margin:0; color:#e2e8f0; font-size:1.0625rem; line-height:1.65;">
+                    <strong style="color:#fff;">The DeeperPoint thesis:</strong> because the frictions that keep markets thin are <em>common across thousands of markets</em>, the friction-fighting layer can be built <strong style="color:#fff;">once</strong> and open-sourced. A sponsor reuses it and adds only their market&rsquo;s business logic &mdash; instead of rediscovering the same problems alone.
+                </p>
+            </div>
+
+            <!-- What it is: free, open source, headless -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Free, Open Source, Headless</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    DeeperPoint offers the solution &mdash; <strong style="color:#fff;">Cosolvent</strong> (the matching
+                    engine) plus <strong style="color:#fff;">CommonContext</strong> (the curated knowledge layer)
+                    &mdash; as free, MIT-licensed, <em>headless</em> server functionality. It is deliberately
+                    <strong style="color:#fff;">not a shrink-wrap product</strong> for any market vertical, and probably
+                    can't become one: everything vertical-specific is exactly what the adopter must own.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--space-md);">
+                    <!-- Cosolvent -->
+                    <a href="cosolvent.html" class="card card--build" style="text-decoration: none; padding: var(--space-lg); border-color: rgba(16, 185, 129, 0.3);">
+                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">⚙️</div>
+                        <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source</span>
+                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Cosolvent</h3>
+                        <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                            Headless semantic matching engine &mdash; multi-attribute similarity, privacy-aware
+                            profiles, match-story generation.
+                        </p>
+                    </a>
+
+                    <!-- CommonContext -->
+                    <a href="mf-commoncontext.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
+                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">📚</div>
+                        <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source</span>
+                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">CommonContext</h3>
+                        <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                            Curated vertical knowledge: regulations, certifications, rates &mdash; the context that
+                            grounds matches in reality.
+                        </p>
+                    </a>
+
+                    <!-- MarketForge -->
+                    <a href="marketforge.html" class="card card--match" style="text-decoration: none; padding: var(--space-lg);">
+                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🛠️</div>
+                        <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Deployment Framework</span>
+                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">MarketForge</h3>
+                        <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                            The step-by-step path a sponsor follows to stand up a vertical on the engine.
+                            <span style="color: var(--dp-cyan);">Creation Guide PDF available.</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- How a deal forms -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">How a Deal Forms</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    The system runs the six interventions as one continuous flow, from raw inputs to a deal that is
+                    ready to hand off:
+                </p>
+                <ol style="color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7; padding-left: 1.5rem; margin: 0 0 1.5rem;">
+                    <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">Ingest.</strong> AI takes in
+                        unstructured material from deal participants, deal facilitators, and background context for the
+                        chosen vertical: documents, voice, photos, any language.</li>
+                    <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">Match.</strong> A generalized
+                        semantic matching process runs over those inputs, with careful attention to privacy and the
+                        management of participant secrets.</li>
+                    <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">The matching story.</strong> The
+                        key vehicle of the deal: an <em>anonymized</em> narrative, grounded in the participants' actual
+                        realities, showing both sides why the match works &mdash; before anyone's identity or secrets
+                        are exposed.</li>
+                    <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">Progressive revelation.</strong>
+                        Background material is disclosed step by step as the parties' confidence grows, with ongoing
+                        discussion.</li>
+                    <li><strong style="color:#fff;">The Deal Brief.</strong> When a meeting of the minds is reached,
+                        the system publishes a thorough summary of the facts and promises the parties are willing to
+                        agree on.</li>
+                </ol>
+                <a href="how-it-works.html" style="color: #818cf8; font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">See the four stages in detail &rarr;</a>
+            </div>
+
+            <!-- The Deal Brief — where DeeperPoint stops -->
+            <div class="reveal" style="background: rgba(99, 102, 241, 0.04); border: 1px solid rgba(99, 102, 241, 0.18); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <span style="font-size: 1.5rem;">📄</span>
+                    <h2 style="font-family: var(--font-display); font-size: 1.35rem; color: #fff; margin: 0;">The Deal Brief &mdash; Not a Contract, a Handoff</h2>
+                </div>
+                <p style="color: var(--dp-silver); line-height: 1.7; margin-bottom: 1rem;">
+                    Most marketplace platforms aim to close deals. DeeperPoint aims to get deals <em>ready to
+                    close</em>. The platform&rsquo;s primary output is the <strong style="color: #fff;">Deal
+                    Brief</strong> &mdash; a structured, non-binding summary of everything two parties have explored
+                    and agreed. It captures who the parties are, what they propose to exchange, what remains open, and
+                    which professional intermediaries need to act next.
+                </p>
+                <p style="color: var(--dp-silver); line-height: 1.7; margin-bottom: 1rem;">
+                    The Deal Brief is <strong style="color:#fff;">not a contract and is never intended to become
+                    one</strong>. It is the compilation of deal notes that all parties hand to their attorneys,
+                    bankers, insurers, and freight carriers &mdash; to speed the production of the real, authoritative
+                    agreement documents.
+                </p>
+                <p style="color: var(--dp-silver); line-height: 1.7; margin-bottom: 0;">
+                    <strong style="color:#fff;">That is where DeeperPoint's deal-making function is complete.</strong>
+                    The Deal Brief is as far as friction reduction can go while staying generic &mdash; the last step
+                    common to every market. Everything after it &mdash; contracts, payments, fulfillment, analytics,
+                    advertising, fee-for-service &mdash; lies within each adopting sponsor&rsquo;s span of control and
+                    beyond DeeperPoint&rsquo;s purview.
+                </p>
+            </div>
+
+            <!-- What adopters build on top -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">What Adopters Build On Top</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    The owner of a market vertical adopts the DeeperPoint suite and builds a market-specific front end
+                    on top of it: branding, participant UX, legal templates, payment rails, sponsorship services. With
+                    modern AI coding tools &mdash; Claude Code goes a long way &mdash; an adopter can produce a working
+                    <strong style="color:#fff;">digital twin</strong> of their market, and perhaps even a modest
+                    working marketplace site, in a fraction of the traditional effort.
+                </p>
+                <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+                    <a href="demo.html" class="btn btn--primary">Walk through a working twin &rarr;</a>
+                    <a href="architecture.html" class="btn btn--outline">The architecture in four diagrams &rarr;</a>
+                    <a href="marketforge.html" class="btn btn--outline">The sponsor&rsquo;s playbook &rarr;</a>
+                </div>
+            </div>
+
+            <!-- ClientSynth: proving the market before it exists -->
+            <div class="reveal">
+                <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6, 182, 212, 0.05); margin-bottom: var(--space-xl);">
+                    <div class="crosslink__text">
+                        <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Testing Harness</span>
+                        <h3 style="color: var(--dp-cyan); margin: 0.5rem 0;">ClientSynth: Proving the Market Before It Exists</h3>
+                        <p style="margin: 0 0 0.75rem; line-height: 1.6; color: var(--dp-silver);">
+                            While Cosolvent and CommonContext are open source, testing a new thin market requires
+                            realistic participants &mdash; which, by definition, a new market doesn't have yet.
+                            <strong style="color:#fff;">ClientSynth</strong> is DeeperPoint's simulation tool: it
+                            populates a Cosolvent instance with synthetic, agentic buyers and sellers whose profiles
+                            occupy the same schema positions as real ones, so the matching engine is exercised exactly
+                            as it will run live.
+                        </p>
+                        <p style="margin: 0 0 0.75rem; line-height: 1.6; color: var(--dp-silver);">
+                            This does two jobs. First, it lets a sponsor <strong style="color:#fff;">prove the market
+                            physics work</strong> &mdash; that the engine produces quality matches for their vertical
+                            &mdash; before risking real participants' capital or reputation. Second, it can help with
+                            the ubiquitous <strong style="color:#fff;">cold-start problem</strong>: every new
+                            marketplace needs buyers to attract sellers and sellers to attract buyers. A synthetic
+                            population on one side gives early real participants something credible to react to
+                            &mdash; a working demonstration instead of an empty room &mdash; until genuine liquidity
+                            takes over. Synthetic participants are always strictly segregated from real ones.
+                        </p>
+                        <a href="mf-clientsynth.html" style="color: var(--dp-cyan); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">ClientSynth details &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Continue the story (final step) -->
+    <section class="section" style="padding-top: 0; padding-bottom: var(--space-2xl);">
+        <div class="container container--narrow">
+            <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.05); border:1px solid rgba(99,102,241,0.2); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+                <div>
+                    <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--dp-muted); margin-bottom:0.2rem;">The DeeperPoint story &middot; Step 3 of 3</div>
+                    <div style="color:#fff; font-weight:600;">The story so far: frictions are common &rarr; the fixes are generic &rarr; the engine is open source. Ready to go deeper?</div>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+                    <a href="demo.html" class="btn btn--primary" style="white-space:nowrap;">Live demo &rarr;</a>
+                    <a href="catalog/index.html" class="btn btn--outline" style="white-space:nowrap;">Browse the catalog &rarr;</a>
+                    <a href="whitepaper.html" class="btn btn--outline" style="white-space:nowrap;">Read the whitepaper &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+                    <li><a href="search.html" class="footer__link">Search</a></li>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reveal.js"></script>
+    <script src="nav-mobile.js"></script>
+    <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

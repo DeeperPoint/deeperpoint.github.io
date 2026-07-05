@@ -13,6 +13,69 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .factor-card {
+      background: #111d2e;
+      border: 1px solid #1e2d42;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .factor-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+
+    .factor-card p {
+      color: #8a9bb5;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .factor-card ul {
+      color: #c0cee0;
+      font-size: 0.85rem;
+      padding-left: 20px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .factor-card li {
+      margin-bottom: 8px;
+    }
+
+    .factor-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    .ai-response {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed #2a4060;
+      color: #8aa0b8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .ai-response strong {
+      color: #4eca8b;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  </style>
 </head>
 
 <body>
@@ -34,13 +97,12 @@
       </button>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
-        <li><a href="thin-markets.html" class="nav__link">Theory</a></li>
-        <li><a href="project.html" class="nav__link">Project</a></li>
+        <li><a href="market-physics.html" class="nav__link">Market Physics</a></li>
+        <li><a href="platform.html" class="nav__link">Platform</a></li>
         <li><a href="demo.html" class="nav__link">Demo</a></li>
-        <li><a href="intervention-matrix.html" class="nav__link">Matrix</a></li>
-        <li><a href="architecture.html" class="nav__link">Architecture</a></li>
         <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
         <li><a href="marketmaps.html" class="nav__link nav__link--active">MarketMaps</a></li>
+        <li><a href="who-should-care.html" class="nav__link">Who Should Care</a></li>
         <li><a href="blog/index.html" class="nav__link">Blog</a></li>
         <li><a href="ebook.html" class="nav__link">Ebook</a></li>
         <li><a href="about.html" class="nav__link">About</a></li>
@@ -79,6 +141,79 @@
           <li style="margin-bottom: 0.5rem;"><strong>Independent Generation:</strong> The exact same diagnostic instruction is run simultaneously against three distinct AI architectures (e.g., DeepSeek, Google Gemini, and Anthropic Claude).</li>
           <li><strong>Synthesis & Integration:</strong> A final synthesis pass uses Claude Sonnet to summarize, integrate, and contrast the three independent sets of model findings into a single, cohesive consensus report.</li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessing Strategy Viability (relocated from the Intervention Matrix page) -->
+  <section class="section" id="strategy-viability" style="padding-top: var(--space-2xl); border-top: 1px solid var(--glass-border);">
+    <div class="container" style="max-width: 1100px;">
+      <div class="reveal" style="max-width: 800px; margin: 0 auto 1rem;">
+        <h2 class="section__title" style="margin-bottom: 1rem;">Assessing Strategy Viability</h2>
+        <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6;">
+          The <a href="intervention-matrix.html" style="color:#818cf8;">Intervention Matrix</a> maps structural market
+          challenges to engineering interventions. Evaluating a specific startup or market strategy &mdash; which is
+          what a MarketMap does &mdash; requires analyzing three additional dimensions of market physics, plus the
+          pre-launch engineering that can be done before a single real user joins.
+        </p>
+      </div>
+
+      <div class="factors-grid reveal">
+        <div class="factor-card">
+          <h3>1. Market Gravity</h3>
+          <p>Gravity determines what naturally pulls participants to a solution and keeps them there.</p>
+          <ul>
+            <li><strong>Supply & Demand Pull:</strong> Is the attraction structural (genuine need) or subsidized (manufactured through incentives)?</li>
+            <li><strong>Incumbent Gravity:</strong> What forces (habit, lock-in) do existing alternatives exert?</li>
+            <li><strong>Compounding:</strong> Does the platform's pull strengthen with use via data moats or network effects, or is every transaction a fresh struggle?</li>
+          </ul>
+          <div class="ai-response">
+            <strong>AI Engineering Response</strong>
+            Use <em>Pre-qualified AI Matching</em> on public data to deliver "ready-to-close" leads (substituting algorithmic push for natural market pull). Use <em>Synthetic Bootstrapping (ClientSynth)</em> to simulate a thick ecosystem, generating artificial gravity to attract early sponsors.
+          </div>
+        </div>
+
+        <div class="factor-card">
+          <h3>2. Business Model Physics</h3>
+          <p>A market can have perfect matching physics but terrible business model physics.</p>
+          <ul>
+            <li><strong>Revenue Architecture:</strong> Who pays whom, and do they have the margins to support the platform's take rate?</li>
+            <li><strong>Bootstrapping Math:</strong> Does the Annual Contract Value (ACV) justify the friction and cost of acquiring the customer?</li>
+            <li><strong>Unit Economics:</strong> Are use cases highly recurring (building lifetime value) or episodic (requiring constant re-acquisition)?</li>
+          </ul>
+          <div class="ai-response">
+            <strong>AI Engineering Response</strong>
+            Use <em>AI Input Translation</em> and <em>AI Trusted Intermediaries</em> to collapse the marginal cost of onboarding. When ACV is too low for high-touch sales, AI reduces the friction cost (the denominator) to near-zero, making previously broken bootstrapping math viable.
+          </div>
+        </div>
+
+        <div class="factor-card">
+          <h3>3. Evidence Quality & Signal</h3>
+          <p>When grading a proposed solution, the quality of Product-Market Fit (PMF) evidence matters.</p>
+          <ul>
+            <li><strong>Evidence Stack:</strong> Is the proof based on verifiable third-party adoption and real revenue, or just mockups and unverified testimonials?</li>
+            <li><strong>PMF Signal:</strong> Is adoption organic (overcoming friction naturally) or heavily reliant on sales effort and subsidies?</li>
+            <li><strong>Conversion Risk:</strong> Is there a clear path to monetization, or a massive drop-off at the paywall because the free tier is "good enough"?</li>
+          </ul>
+          <div class="ai-response">
+            <strong>AI Engineering Response</strong>
+            Use <em>AI Memory</em> to build an institutional track record of verified settlements, replacing anecdotal testimonials with systemic proof. Before launch, use <em>ClientSynth</em> to safely test PMF assumptions in a structured sandbox, avoiding the trap of subsidized demand.
+          </div>
+        </div>
+
+        <div class="factor-card">
+          <h3>4. Pre-Launch Market Engineering</h3>
+          <p>Before a single real user joins, the market's structural physics can be tested and proven using synthetic participants — bypassing the cold-start coordination failure entirely.</p>
+          <ul>
+            <li><strong>Proof of Physics:</strong> Can the matching engine produce quality results? Demonstrate it with synthetic buyers and sellers before risking real participant capital or reputation.</li>
+            <li><strong>Cold Start Seeding:</strong> Artificial liquidity on one side creates credible gravity to attract the other — replacing the empty marketplace problem with a working demonstration.</li>
+            <li><strong>PMF Sandbox:</strong> Test whether genuine supply and demand would actually transact, surfacing manufactured demand before it costs real money to discover.</li>
+          </ul>
+          <div class="ai-response">
+            <strong>AI Engineering Tool: Synthetic Bootstrapping (ClientSynth)</strong>
+            Generate realistic participant populations — buyers, sellers, intermediaries — that faithfully exercise the matching engine's actual routing logic. Synthetic profiles occupy the same schema positions as real participants, ensuring the simulation tests real market physics. Synthetic participants must always be strictly segregated from real users. <a href="mf-clientsynth.html" style="color: var(--dp-emerald);">ClientSynth details →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

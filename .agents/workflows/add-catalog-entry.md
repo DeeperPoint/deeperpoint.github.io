@@ -123,7 +123,7 @@ story:
     ## Act C - Why This Market Stays Broken Without Infrastructure
 
     [Structural argument. What the platform does that no alternative can.
-    Link to thin-markets.html and marketforge.html.]
+    Link to market-physics.html and marketforge.html.]
 
     *Characters are fictional. [Relevant domain facts] are real.
     [DeeperPoint](../../marketforge.html) is building the infrastructure

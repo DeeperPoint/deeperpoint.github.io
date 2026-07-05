@@ -3,13 +3,12 @@ import re
 
 new_nav_items = [
     ("Home", "index.html"),
-    ("Theory", "thin-markets.html"),
-    ("Project", "project.html"),
+    ("Market Physics", "market-physics.html"),
+    ("Platform", "platform.html"),
     ("Demo", "demo.html"),
-    ("Matrix", "intervention-matrix.html"),
-    ("Architecture", "architecture.html"),
     ("Catalog", "catalog/index.html"),
     ("MarketMaps", "marketmaps.html"),
+    ("Who Should Care", "who-should-care.html"),
     ("Blog", "blog/index.html"),
     ("Ebook", "ebook.html"),
     ("About", "about.html")

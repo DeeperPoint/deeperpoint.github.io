@@ -1,0 +1,400 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Market Physics of Thin Markets — DeeperPoint</title>
+    <meta name="description"
+        content="Why worthy supply and demand fail to connect: 80 years of Nobel-recognized research, the frictions it mapped, and the six AI interventions that can now engineer them away.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="market-physics.html" class="nav__link nav__link--active">Market Physics</a></li>
+        <li><a href="platform.html" class="nav__link">Platform</a></li>
+        <li><a href="demo.html" class="nav__link">Demo</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="who-should-care.html" class="nav__link">Who Should Care</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="ebook.html" class="nav__link">Ebook</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="spoke-hero" id="spoke-hero" style="padding-bottom: 1rem;">
+        <div class="container container--narrow">
+            <div class="reveal">
+                <span class="spoke-hero__badge">📖 The Science</span>
+                <h1 class="spoke-hero__headline">The Market Physics of Thin Markets</h1>
+                <p class="spoke-hero__sub">
+                    Why worthy supply and demand fail to connect &mdash; and why, for the first time, the frictions
+                    that cause it can be engineered away.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section" id="content" style="padding-top: 1rem;">
+        <div class="container container--narrow">
+
+            <!-- Thick vs. Thin -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Thick Markets, Thin Markets</h2>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    A <strong style="color: #fff;">thick market</strong> is one where buyers and sellers find each other
+                    easily, deals happen at fair prices, transactions are quick, and everyone has confidence in the
+                    outcome. The New York Stock Exchange is a thick market. So is Amazon for everyday consumer goods.
+                    Thick markets run smoothly because their trade items are standardized in the ways that matter, so
+                    conventional software can automate them.
+                </p>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    A <strong style="color: #fff;">thin market</strong> is the opposite. Transactions are infrequent.
+                    Finding the right counterparty takes months. Prices are opaque. Beneficial exchanges fail to happen
+                    &mdash; not because willing participants don't exist, but because the <em>friction</em> of
+                    transacting exceeds the perceived gains.
+                </p>
+                <p style="color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Think of the market for specialized industrial equipment, niche agricultural commodities,
+                    cross-border professional services, or rare technical expertise. These markets often have
+                    willing buyers and willing sellers &mdash; they just can't find each other reliably. Some deals are
+                    so obstructed that no one even tries. Others limp along only because human brokers, traders, and
+                    salespeople will invest the effort <em>if the deal is big enough</em>.
+                </p>
+
+                <!-- High-Fidelity Diagram Embed -->
+                <div style="text-align: center; margin-top: 2rem; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); padding: 6px;">
+                    <img src="images/what-makes-a-market-thin.png" alt="What Makes a Market Thin?" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: var(--radius-sm);" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Eighty Years of Evidence: the distillation table -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1.5rem; color: #fff;">Eighty Years of Evidence</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    These frictions are not arbitrary. Over eighty years of economic research &mdash; recognized by
+                    Nobel Prizes across multiple decades &mdash; has mapped the forces that prevent markets from
+                    behaving freely and efficiently. The table below distills that research into a single view:
+                    <strong style="color:#fff;">the finding, the friction it explains, the traditional workaround, and
+                    the AI intervention that now covers it.</strong>
+                </p>
+
+                <!-- Distillation Table -->
+                <div style="overflow-x: auto; margin-bottom: 2rem; border: 1px solid var(--glass-border); border-radius: var(--radius-md); background: rgba(0,0,0,0.15); padding: 0.5rem;">
+                    <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem; line-height: 1.5; min-width: 720px;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--glass-border);">
+                                <th style="text-align: left; padding: 0.75rem; color: var(--dp-emerald); font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; width: 27%;">The Finding (Scholar, Year)</th>
+                                <th style="text-align: left; padding: 0.75rem; color: #fff; font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; width: 20%;">The Friction It Explains</th>
+                                <th style="text-align: left; padding: 0.75rem; color: var(--dp-blue-light); font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; width: 26%;">Traditional Workaround (Cost)</th>
+                                <th style="text-align: left; padding: 0.75rem; color: var(--dp-violet); font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; width: 27%;">AI Intervention That Covers It</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Transaction costs make markets expensive <span style="color:#fff; font-weight:500;">(Coase*, 1937)</span></td>
+                                <td style="padding: 0.75rem;">Opacity; Fulfillment</td>
+                                <td style="padding: 0.75rem;">Internalize into firms (forgo the market)</td>
+                                <td style="padding: 0.75rem;">AI Matching; AI-Enabled Aggregation</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Bounded rationality prevents optimal choice <span style="color:#fff; font-weight:500;">(Simon*, 1955)</span></td>
+                                <td style="padding: 0.75rem;">Cognitive Bandwidth</td>
+                                <td style="padding: 0.75rem;">Satisfice; simplify options (lose relevance)</td>
+                                <td style="padding: 0.75rem;">AI Input Translation; AI Matching</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Information is costly to acquire <span style="color:#fff; font-weight:500;">(Stigler*, 1961)</span></td>
+                                <td style="padding: 0.75rem;">Opacity</td>
+                                <td style="padding: 0.75rem;">Invest in search; accept price dispersion</td>
+                                <td style="padding: 0.75rem;">AI Matching</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Unobservable quality drives out good sellers <span style="color:#fff; font-weight:500;">(Akerlof*, 1970)</span></td>
+                                <td style="padding: 0.75rem;">Trust; Risk</td>
+                                <td style="padding: 0.75rem;">Costly certification</td>
+                                <td style="padding: 0.75rem;">AI Trusted Intermediary; AI Memory</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Credible signals require costly investment <span style="color:#fff; font-weight:500;">(Spence*, 1973)</span></td>
+                                <td style="padding: 0.75rem;">Trust</td>
+                                <td style="padding: 0.75rem;">Accept signaling costs as necessary waste</td>
+                                <td style="padding: 0.75rem;">AI Trusted Intermediary</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Asset specificity creates hold-up risk <span style="color:#fff; font-weight:500;">(Williamson*, 1975/85)</span></td>
+                                <td style="padding: 0.75rem;">Risk; Offering Complexity</td>
+                                <td style="padding: 0.75rem;">Vertical integration; long-term contracts</td>
+                                <td style="padding: 0.75rem;">AI Trusted Intermediary; AI Risk Insulation</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Commons need governance beyond markets <span style="color:#fff; font-weight:500;">(Ostrom*, 1990)</span></td>
+                                <td style="padding: 0.75rem;">Participant Fragmentation</td>
+                                <td style="padding: 0.75rem;">Cooperatives, marketing boards (slow, heavy)</td>
+                                <td style="padding: 0.75rem;">AI-Enabled Aggregation</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Markets require active engineering <span style="color:#fff; font-weight:500;">(Roth*, 2002)</span></td>
+                                <td style="padding: 0.75rem;">Cold Start; Temporal Distance</td>
+                                <td style="padding: 0.75rem;">Matching algorithms for standardized cases</td>
+                                <td style="padding: 0.75rem;">AI Memory (synthetic bootstrapping); AI Matching</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.75rem;">Two-sided platforms face chicken-and-egg <span style="color:#fff; font-weight:500;">(Rochet &amp; Tirole*, 2003)</span></td>
+                                <td style="padding: 0.75rem;">Cold Start</td>
+                                <td style="padding: 0.75rem;">Subsidize one side (burn capital)</td>
+                                <td style="padding: 0.75rem;">AI Memory (synthetic bootstrapping)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="font-size: 0.75rem; color: var(--dp-muted); padding: 0.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                        *Nobel Laureate in Economics (Note: Jean Tirole was awarded the prize in 2014)
+                    </div>
+                </div>
+
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Taken together, these models explain why so many seemingly desirable exchanges never occur: the
+                    accumulated weight of the frictions makes success so unlikely that no one bothers to try &mdash;
+                    or even think about it.
+                </p>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Commerce fought back over the centuries &mdash; standardization to make goods comparable, human
+                    brokers to bridge information gaps, insurance to absorb risk, escrows to enforce trust, contracts
+                    to manage hold-up. These mechanisms have worked, to a degree; entire industries exist to lubricate
+                    transactions that would otherwise never happen. But they are expensive, slow, and limited in reach.
+                    They scale poorly across borders, languages, and regulatory regimes.
+                </p>
+                <p style="color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    That is why estimates of unrealized markets hover around <strong style="color: #fff;">$5 to $10
+                    trillion annually</strong> on a global basis. An immense amount of productive exchange is cut off
+                    before it can even be attempted.
+                </p>
+            </div>
+
+            <!-- How markets get built today (the status quo / antagonist) -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1.5rem; color: #fff;">How Markets Get Built Today</h2>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Faced with a thin market, the usual move is to pick a product or service and build a web platform
+                    to host the exchange. Then the real work begins: the frictions above surface
+                    <strong style="color:#fff;">one at a time</strong>, and the founder solves each as it appears
+                    &mdash; a verification step here, a brokered introduction there, a workaround for opaque pricing
+                    &mdash; discovering each problem only after hitting it.
+                </p>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Every new market is treated as a brand-new problem. The builder sees it through the lens of their
+                    own buyers, sellers, and product, so the <em>underlying pattern stays invisible</em>. They may
+                    erase enough friction to succeed, or they may not &mdash; and either way, they make the journey alone.
+                </p>
+                <p style="color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Multiply that by thousands of thin markets and you get thousands of builders independently
+                    reinventing the same wheels &mdash; never realizing that the frictions they fight are the same
+                    handful that Coase, Akerlof, Spence, and the other scholars above named decades ago.
+                </p>
+            </div>
+
+            <!-- The Six AI Interventions -->
+            <div class="reveal"
+                style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
+                <h2 style="font-family: var(--font-display); margin-bottom: 1.5rem; color: #fff;">The Six AI Interventions</h2>
+                <p style="margin-bottom: 1.25rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    For centuries, market design was trapped in a binary choice: <strong style="color: #fff;">standardize</strong>
+                    (which aggregates volume but destroys the unique details of a trade) or
+                    <strong style="color: #fff;">preserve uniqueness</strong> (which keeps relevance but fragments the
+                    market into tiny, unmatchable pieces). AI dissolves this historic tradeoff: rather than forcing
+                    goods, services, or capacities to be identical, it interprets and mediates the natural complexity
+                    of the transaction.
+                </p>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    DeeperPoint has identified <strong style="color:#fff;">six AI interventions</strong> that
+                    collectively address most of the known and documented market frictions:
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-md); margin-bottom: 2rem;">
+                    <!-- 1. AI Semantic Matching -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(6, 182, 212, 0.04); border: 1px solid rgba(6, 182, 212, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">🔍</div>
+                        <div>
+                            <h4 style="color: var(--dp-cyan); margin-bottom: 0.25rem; font-size: 1.0625rem;">1. AI Matching</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Semantic matching of buyer intent against complex, heterogeneous supply &mdash; connecting highly specific, non-standardized needs to counterparties without forcing them into generic categories. <em>Covers: Opacity, Offering Complexity, Cognitive Bandwidth.</em></p>
+                        </div>
+                    </div>
+
+                    <!-- 2. AI Trusted Intermediary -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">🤝</div>
+                        <div>
+                            <h4 style="color: var(--dp-emerald); margin-bottom: 0.25rem; font-size: 1.0625rem;">2. AI Trusted Intermediary</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Learns sensitive information from both sides &mdash; designs, capacity, pricing flexibility &mdash; without mutual disclosure, and facilitates introductions only when compatibility is established. <em>Covers: Trust, Risk, Opacity (strategic withholding).</em></p>
+                        </div>
+                    </div>
+
+                    <!-- 3. AI Input Translation -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(139, 92, 246, 0.04); border: 1px solid rgba(139, 92, 246, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">✍️</div>
+                        <div>
+                            <h4 style="color: var(--dp-violet); margin-bottom: 0.25rem; font-size: 1.0625rem;">3. AI Input Translation</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Turns raw, unstructured human inputs &mdash; voice descriptions, documents, photos, any language &mdash; into structured, queryable market data, collapsing the effort of participating. <em>Covers: Cognitive Bandwidth, participation barriers.</em></p>
+                        </div>
+                    </div>
+
+                    <!-- 4. AI Memory & Active Sourcing -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.04); border: 1px solid rgba(245, 158, 11, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">⏱️</div>
+                        <div>
+                            <h4 style="color: var(--dp-amber); margin-bottom: 0.25rem; font-size: 1.0625rem;">4. AI Memory &amp; Active Sourcing</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Maintains active, persistent representations of participants 24/7 &mdash; bridging time gaps, pushing matches when schedules align, and enabling synthetic bootstrapping of new markets. <em>Covers: Temporal Distance, Cold Start, Trust.</em></p>
+                        </div>
+                    </div>
+
+                    <!-- 5. AI-Enabled Aggregation -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(59, 130, 246, 0.04); border: 1px solid rgba(59, 130, 246, 0.15); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">📦</div>
+                        <div>
+                            <h4 style="color: var(--dp-blue-light); margin-bottom: 0.25rem; font-size: 1.0625rem;">5. AI-Enabled Aggregation</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Dynamically pools fragmented inventories or capacities from many small providers into a single cohesive supplier that meets large buyers' volume thresholds &mdash; ad hoc, without permanent structures. <em>Covers: Participant Fragmentation, Fulfillment.</em></p>
+                        </div>
+                    </div>
+
+                    <!-- 6. AI Risk Insulation -->
+                    <div style="display: flex; gap: var(--space-md); padding: var(--space-lg); border-radius: var(--radius-md); background: rgba(230, 122, 91, 0.05); border: 1px solid rgba(230, 122, 91, 0.18); align-items: flex-start;">
+                        <div style="font-size: 1.5rem; line-height: 1;">🛡️</div>
+                        <div>
+                            <h4 style="color: #e67a5b; margin-bottom: 0.25rem; font-size: 1.0625rem;">6. AI Risk Insulation</h4>
+                            <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">Dynamic hedging, escape clauses, and margin insulation against external shocks &mdash; tariffs, sanctions, FX swings &mdash; that would otherwise freeze deal intent. <em>Covers: Risk, Regulatory Friction, external market uncertainty.</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(78, 202, 139, 0.05); border-left: 3px solid #4eca8b; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 0.9375rem; line-height: 1.6; color: var(--dp-silver);">
+                    <strong style="color:#4eca8b;">The pattern:</strong> AI interventions address more challenges
+                    simultaneously than any single traditional intervention, at lower marginal cost and higher scale.
+                </div>
+            </div>
+
+            <!-- Thesis (spine) -->
+            <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.06); border-left: 4px solid #818cf8; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: var(--space-xl);">
+                <p style="margin:0; color:#e2e8f0; font-size:1.0625rem; line-height:1.65;">
+                    <strong style="color:#fff;">The DeeperPoint thesis:</strong> because these frictions are <em>common across thousands of markets</em>, the response can be built <strong style="color:#fff;">once</strong> and reused &mdash; a builder adds only their market&rsquo;s business logic, instead of rediscovering the same problems alone.
+                </p>
+            </div>
+
+            <!-- Go Deeper -->
+            <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <div class="crosslink" style="border-left-color: var(--dp-emerald); background: rgba(16, 185, 129, 0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-emerald);">Open the full Intervention Matrix</h3>
+                        <p>Every challenge &times; every intervention, cell by cell &mdash; the interactive reference
+                            version of the table above, covering both traditional and AI-powered responses.</p>
+                    </div>
+                    <a href="intervention-matrix.html" class="btn btn--primary"
+                        style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff;">Open
+                        Matrix →</a>
+                </div>
+
+                <div class="crosslink"
+                    style="border-left-color: var(--dp-violet); background: rgba(139, 92, 246, 0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-violet);">Read the full whitepaper</h3>
+                        <p>A comprehensive treatment of market physics, engineering interventions, and the AI
+                            revolution in market design. With case studies and a glossary of key terms.</p>
+                    </div>
+                    <a href="whitepaper.html" class="btn btn--primary"
+                        style="background: var(--dp-violet); border-color: var(--dp-violet); color: #fff;">Read
+                        Whitepaper →</a>
+                </div>
+
+                <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6, 182, 212, 0.05);">
+                    <div class="crosslink__text">
+                        <h3 style="color: var(--dp-cyan);">Browse the catalog of examples</h3>
+                        <p>Hundreds of searchable thin market scenarios &mdash; each analyzed through the DeeperPoint
+                            framework with market forces, sponsor opportunities, and narrative match stories.</p>
+                    </div>
+                    <a href="catalog/index.html" class="btn btn--primary"
+                        style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;">Browse
+                        the Catalog →</a>
+                </div>
+
+                <div class="crosslink">
+                    <div class="crosslink__text">
+                        <h3>Download the full whitepaper</h3>
+                        <p>The complete Market Theory whitepaper as a PDF &mdash; market physics, engineering
+                            interventions, AI capabilities, and the strategic implications for global trade.</p>
+                    </div>
+                    <a href="assets/mysitedocs/MarketTheoryWP.pdf" class="btn btn--outline" download>⬇
+                        Download Whitepaper (PDF)</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Continue the story -->
+    <section class="section" style="padding-top: 0; padding-bottom: var(--space-2xl);">
+        <div class="container container--narrow">
+            <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.05); border:1px solid rgba(99,102,241,0.2); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+                <div>
+                    <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--dp-muted); margin-bottom:0.2rem;">The DeeperPoint story &middot; Step 2 of 3</div>
+                    <div style="color:#fff; font-weight:600;">Next: the platform &mdash; what DeeperPoint actually built</div>
+                </div>
+                <a href="platform.html" class="btn btn--primary" style="white-space:nowrap;">Continue &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+                    <li><a href="search.html" class="footer__link">Search</a></li>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank"
+                            rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank"
+                            rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reveal.js"></script>
+    <script src="nav-mobile.js"></script>
+    <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
