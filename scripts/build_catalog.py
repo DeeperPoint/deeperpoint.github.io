@@ -450,10 +450,9 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       </button>
       <ul class="nav__links">
         <li><a href="__ROOT__index.html" class="nav__link">Home</a></li>
-        <li><a href="__ROOT__thin-markets.html" class="nav__link">Theory</a></li>
-        <li><a href="__ROOT__project.html" class="nav__link">Project</a></li>
+        <li><a href="__ROOT__market-physics.html" class="nav__link">Market Physics</a></li>
+        <li><a href="__ROOT__platform.html" class="nav__link">Platform</a></li>
         <li><a href="__ROOT__demo.html" class="nav__link">Demo</a></li>
-        <li><a href="__ROOT__intervention-matrix.html" class="nav__link">Matrix</a></li>
         <li><a href="__ROOT__catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
         <li><a href="__ROOT__marketmaps.html" class="nav__link">MarketMaps</a></li>
         <li><a href="__ROOT__blog/index.html" class="nav__link">Blog</a></li>

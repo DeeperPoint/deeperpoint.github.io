@@ -8,7 +8,6 @@ new_nav_items = [
     ("Demo", "demo.html"),
     ("Catalog", "catalog/index.html"),
     ("MarketMaps", "marketmaps.html"),
-    ("Who Should Care", "who-should-care.html"),
     ("Blog", "blog/index.html"),
     ("Ebook", "ebook.html"),
     ("About", "about.html")
