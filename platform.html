@@ -53,6 +53,11 @@
             <div class="text-center">
                 <span class="spoke-hero__badge spoke-hero__badge--science">⚙️ The Platform</span>
                 <h1 class="spoke-hero__headline">A Market Engine Built Once, For Any Thin Market</h1>
+                <div style="margin: 0.25rem 0 0.75rem;">
+                    <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.85rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 100px; color: var(--dp-emerald); font-size: 0.8125rem; font-weight: 600;">
+                        🔓 MIT License &middot; $0 license cost
+                    </span>
+                </div>
                 <p class="spoke-hero__desc" style="margin: 0 auto;">
                     DeeperPoint applies the six AI interventions in a generic, open-source marketplace engine &mdash;
                     not tied to any vertical. A market sponsor adopts it, adds their market&rsquo;s business logic, and
@@ -86,7 +91,7 @@
             </div>
 
             <!-- What it is: free, open source, headless -->
-            <div class="reveal"
+            <div class="reveal" id="open-source"
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
                 <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Free, Open Source, Headless</h2>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
@@ -95,6 +100,29 @@
                     &mdash; as free, MIT-licensed, <em>headless</em> server functionality. It is deliberately
                     <strong style="color:#fff;">not a shrink-wrap product</strong> for any market vertical, and probably
                     can't become one: everything vertical-specific is exactly what the adopter must own.
+                </p>
+
+                <h3 style="font-family: var(--font-display); color: var(--dp-emerald); font-size: 1.15rem; margin: 0 0 0.75rem;">Why MIT? Because adoption is a thin market too.</h3>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Getting a new market engine studied and adopted faces the very frictions this site catalogues, so the
+                    license was engineered like everything else here. <strong style="color:#fff;">Trust:</strong> the code
+                    is inspectable, and fork rights are exit rights &mdash; no vendor can raise the price after you have
+                    built on it. <strong style="color:#fff;">Opacity:</strong> there is no
+                    &ldquo;contact&nbsp;us&nbsp;for&nbsp;pricing,&rdquo; no sales process concealing the real terms.
+                    <strong style="color:#fff;">The hidden veto:</strong> inside an organization, spending money is what
+                    triggers procurement, legal, and budget review &mdash; a $0 MIT tool turns a purchase decision into an
+                    engineering experiment a single champion can run. <strong style="color:#fff;">Cold start:</strong>
+                    trying it costs nothing.
+                </p>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    To be precise about the boundaries: the <em>engine</em> is free; your vertical build and your
+                    operations are yours to fund. <strong style="color:#fff;">ClientSynth</strong>, the
+                    synthetic-population testing harness, is <strong style="color:#fff;">source-available</strong>
+                    (Business Source License 1.1, converting to MIT in 2030): free to use for testing, with two
+                    conditions &mdash; synthetic populations keep their provenance markings, and running it as a
+                    commercial service needs a written license (currently granted free on request). And because
+                    Cosolvent&rsquo;s ingest schema is open, you can generate synthetic populations with
+                    <em>any</em> tool &mdash; ClientSynth is a convenience, not a dependency.
                 </p>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--space-md);">
@@ -231,6 +259,11 @@
                             population on one side gives early real participants something credible to react to
                             &mdash; a working demonstration instead of an empty room &mdash; until genuine liquidity
                             takes over. Synthetic participants are always strictly segregated from real ones.
+                        </p>
+                        <p style="margin: 0 0 0.75rem; line-height: 1.6; color: var(--dp-silver); font-size: 0.875rem;">
+                            ClientSynth is source-available (BUSL-1.1, converting to MIT in 2030) &mdash; free for
+                            testing; commercial-service licensing granted on request. Or bring your own generator:
+                            the ingest schema is open.
                         </p>
                         <a href="mf-clientsynth.html" style="color: var(--dp-cyan); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">ClientSynth details &rarr;</a>
                     </div>
