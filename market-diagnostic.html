@@ -335,13 +335,13 @@
 
                     <h3>Participant Types</h3>
                     <div class="diag-q">
-                        <label><strong>What type of transaction is this?</strong></label>
+                        <label><strong>Who decides on each side? (Classify by who holds the veto, not who hears the pitch.)</strong></label>
                         <select id="q-participant">
                             <option value="">Select...</option>
-                            <option value="B2B">B2B (Business-to-Business)</option>
-                            <option value="B2C">B2C (Business-to-Consumer)</option>
-                            <option value="C2C">C2C (Consumer-to-Consumer)</option>
-                            <option value="C2B">C2B (Consumer-to-Business)</option>
+                            <option value="O2O">O2O — both sides are organizations (the familiar B2B; also public procurement, institutional partnerships, cooperatives, nonprofits)</option>
+                            <option value="O2I">O2I — organization to individual (the familiar B2C)</option>
+                            <option value="I2O">I2O — individual to organization (the familiar C2B)</option>
+                            <option value="I2I">I2I — both sides are individuals (the familiar C2C)</option>
                         </select>
                     </div>
                     <div class="diag-q">
@@ -1340,7 +1340,7 @@
                         <span>🛡️</span> Critical Exogenous Volatility Detected
                     </h4>
                     <p style="color:var(--dp-silver); font-size:.9375rem; margin:0; line-height:1.6;">
-                        Your market shows high exposure to exogenous environmental volatility (Exogenous Volatility Index = ${iEmu}). Standard B2B matching tools are insufficient because counterparties are paralyzed by the <strong>Option Value of Delay</strong>.
+                        Your market shows high exposure to exogenous environmental volatility (Exogenous Volatility Index = ${iEmu}). Standard matching tools are insufficient because counterparties are paralyzed by the <strong>Option Value of Delay</strong>.
                     </p>
                     <p style="color:var(--dp-silver); font-size:.9375rem; margin-top:.75rem; line-height:1.6;">
                         DeeperPoint recommends deploying the <strong>AI Risk Insulation</strong> module of the Cosolvent engine. By acting as an oracle to digest real-time compliance feeds, currency rates, and tariff indexes, it programmatically writes <strong>Dynamic Contingent Contracts</strong> with integrated currency collars and regulatory compliance escape triggers to insulate margins and unlock transaction flow.
@@ -1356,7 +1356,7 @@
             h += '</tbody></table></div>';
             
             if (dom.length) h += '<div style="margin-top:var(--space-lg);padding:1rem;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);border-radius:var(--radius-md);"><h4 style="color:#fca5a5;margin-bottom:.5rem;">\u26A0\uFE0F Dominant Challenges</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">' + dom.map(d => '<strong>' + d.label + '</strong>').join(', ') + ' \u2014 these require priority attention and likely AI-driven engineering interventions.</p></div>';
-            if (arr === 'many-to-many' && par === 'B2B') h += '<div style="margin-top:var(--space-md);padding:1rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);border-radius:var(--radius-md);"><h4 style="color:var(--dp-emerald);margin-bottom:.5rem;">\u2705 Good Fit for DeeperPoint Tools</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">Your market profile (many-to-many, B2B) aligns with DeeperPoint\u2019s primary focus. The <a href="cosolvent.html" style="color:var(--dp-emerald);">MarketForge ecosystem</a> is designed for this challenge.</p></div>';
+            if (arr === 'many-to-many' && par === 'O2O') h += '<div style="margin-top:var(--space-md);padding:1rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);border-radius:var(--radius-md);"><h4 style="color:var(--dp-emerald);margin-bottom:.5rem;">\u2705 Good Fit for DeeperPoint Tools</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">Your market profile (many-to-many, O2O) aligns with DeeperPoint\u2019s primary focus. The <a href="cosolvent.html" style="color:var(--dp-emerald);">MarketForge ecosystem</a> is designed for this challenge.</p></div>';
             h += '<div style="margin-top:var(--space-lg);padding:1rem;background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.15);border-radius:var(--radius-md);"><h4 style="color:var(--dp-violet);margin-bottom:.5rem;">\uD83D\uDCD6 Learn More</h4><p style="color:var(--dp-silver);font-size:.9375rem;margin:0;">See the <a href="whitepaper.html" style="color:var(--dp-violet);">whitepaper</a> for detailed explanations, or explore real-world applications on the <a href="testbeds.html" style="color:var(--dp-violet);">test beds</a> page.</p></div>';
             document.getElementById('summary-content').innerHTML = h;
             highestStep = TOTAL_STEPS;
