@@ -85,8 +85,9 @@
                 <ul
                     style="list-style-type: none; margin-left: 0; margin-bottom: 2rem; color: var(--dp-silver); display: flex; flex-direction: column; gap: 0.5rem;">
                     <li>✅ <strong>Matching Engine:</strong> Pre-built logic for resolving complex semantic matches.</li>
-                    <li>✅ <strong>Deal Assembly:</strong> Manage the multi-step lifecycle of thin market deal
-                        negotiations.</li>
+                    <li>🔜 <strong>Deal Assembly:</strong> Manage the multi-step lifecycle of thin market deals
+                        through the story-progression deal engine &mdash; in active development (see feature
+                        sheet).</li>
                     <li>✅ <strong>Role Permissions:</strong> Native support for multi-party structures, including
                         facilitators and intermediaries.</li>
                     <li>✅ <strong>Open Source:</strong> MIT License ensures you own and control what you build.</li>
@@ -121,9 +122,15 @@
                     style="font-family: var(--font-display); font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--dp-amber);">
                     The Deal Brief &mdash; Platform&rsquo;s Primary Deliverable</h3>
                 <p style="margin-bottom: 1rem; color: var(--dp-silver);">
-                    Every Cosolvent marketplace ends at the same point: a <strong>Deal Brief</strong>. This is a
-                    structured document assembled from profiles, matching signals, negotiation history, facilitator
-                    recommendations, and regulatory context. It captures:
+                    These are not two separate features. The Deal Brief is the <strong>finished form of the Content
+                    Match Story</strong> — the same document at a later level of refinement and completeness, matured
+                    as successive versions are read, corrected, and confirmed by the parties.
+                </p>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver);">
+                    Every Cosolvent marketplace ends at the same point: a <strong>Deal Brief</strong>. It is not
+                    generated at the end — it is the last confirmed version (the final <em>milestone</em>) of the
+                    match story, enriched along the way by profiles, matching signals, dialogue, facilitator input,
+                    and regulatory context. It captures:
                 </p>
                 <ul
                     style="list-style-type: none; margin-left: 0; margin-bottom: 1rem; color: var(--dp-silver); display: flex; flex-direction: column; gap: 0.4rem;">
@@ -234,8 +241,8 @@
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
                             <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Participant Discovery</td><td style="padding: 0.5rem;">Config-driven search with filter fields, anonymous/authenticated results, and similarity thresholds.</td></tr>
                             <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Bidirectional Matching</td><td style="padding: 0.5rem;">Mutual preference matching considering both parties' profiles.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Deal Data Model</td><td style="padding: 0.5rem;">Structured deals linking principals, facilitators, role slots, product, route, and timeline.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Deal Brief</td><td style="padding: 0.5rem;">Platform's primary deliverable — a structured, non-binding summary of agreed terms, open items, role slots, and next steps, designed as input for the parties' own attorneys and advisors.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Deal Data Model</td><td style="padding: 0.5rem;">Structured deals linking principals, facilitators, and role slots &mdash; maintained as a chain of immutable match-story versions with per-party acknowledgment, so every milestone is an account all parties have read and confirmed.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Deal Brief</td><td style="padding: 0.5rem;">Platform's primary deliverable — the rendering of the final, complete milestone of the match story: a structured, non-binding summary of agreed terms, open items, role slots, and next steps, designed as input for the parties' own attorneys and advisors.</td></tr>
                             <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Anticipatory Matching</td><td style="padding: 0.5rem;">Proactive notifications when new listings match a participant's needs.</td></tr>
                         </table>
                     </div>
@@ -243,21 +250,21 @@
 
                 <!-- AI Risk Insulation & Dynamic Contracts -->
                 <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
-                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">AI Risk Insulation &amp; Dynamic Contracts</summary>
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">AI Risk Insulation &amp; Contingency Structures</summary>
                     <div style="padding: 0 1.25rem 1.25rem;">
                         <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1rem;">
-                            The <strong>AI Risk Insulation</strong> module of the Cosolvent engine addresses externally imposed market uncertainty (EMU). By acting as a secure oracle, it ingests real-time macro-economic feeds—such as central bank daily exchange rates, tariff registries, corridor shipping logs, and commodity price indexes—to programmatically write, negotiate, and execute <strong>Dynamic Contingent Contracts</strong>.
+                            The <strong>AI Risk Insulation</strong> module addresses externally imposed market uncertainty (EMU). Monitoring real-time macro-economic feeds—central bank daily exchange rates, tariff registries, corridor shipping logs, commodity price indexes—it drafts recommended <strong>contingency structures</strong> for the deal: currency collars, tariff cost-splits, and regulatory escape triggers, carried as a structured section of the Deal Brief.
                         </p>
                         <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
-                            This directly neutralizes the <em>Option Value of Delay</em> in volatile macro environments by adapting transaction terms, currency splits, and compliance escapes within automated escrow locks.
+                            This counters the <em>Option Value of Delay</em> in volatile macro environments: instead of freezing while conditions shift, the parties arrive at their attorneys with pre-negotiated contingency terms ready to be adapted into the real agreement. Consistent with the platform's scope, Cosolvent <strong>drafts and monitors</strong>; executing any contract, escrow, or settlement mechanism belongs to the parties and their own professionals and providers.
                         </p>
 
-                        <h4 style="color: #fff; font-family: var(--font-display); margin-bottom: 0.5rem; font-size: 1rem;">Programmatic JSON Contract Schema</h4>
+                        <h4 style="color: #fff; font-family: var(--font-display); margin-bottom: 0.5rem; font-size: 1rem;">Structured Contingency Schema (a Deal Brief section)</h4>
                         <p style="color: var(--dp-muted); font-size: 0.8125rem; margin-bottom: 0.75rem;">
-                            Below is an example of a serialized Dynamic Contingent Contract managed by the Cosolvent engine, establishing a currency collar, tariff threshold split, and regulatory compliance escape trigger.
+                            Below is an example of the structured contingency section a Deal Brief can carry — a currency collar, tariff threshold split, and regulatory compliance escape trigger — ready for the parties' attorneys and settlement providers to adapt into the authoritative agreement.
                         </p>
                         <pre style="background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 1rem; border-radius: var(--radius-md); font-family: monospace; font-size: 0.8125rem; color: #a78bfa; overflow-x: auto; line-height: 1.5; margin-bottom: 1.5rem;">{
-  "contract_id": "dcc_8f3a9d2c_412e",
+  "contingency_id": "dcc_8f3a9d2c_412e",
   "principals": {
     "buyer": "buyer_firm_109",
     "seller": "seller_firm_304"
@@ -305,11 +312,11 @@
 }</pre>
 
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Oracle Feed Ingestion Pipeline</td><td style="padding: 0.5rem;">Native integrations for swallowing official central bank daily FX rates and tariff lookup APIs.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Currency Collar Structuring</td><td style="padding: 0.5rem;">Defines dynamic adjustment ranges to cushion buyer/seller margins from unexpected intraday or multi-day FX drops.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Programmatic Escrow Locks</td><td style="padding: 0.5rem;">Binds settlement funds in automated multi-sig escrows that auto-release or auto-refund based on compliance oracle status.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Tariff Cost-Splitting Engine</td><td style="padding: 0.5rem;">Apportion border cost increases fairly between transacting parties based on real-time customs database queries.</td></tr>
-                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Force Majeure Auto-Triggers</td><td style="padding: 0.5rem;">Automatically terminates pending deals and refunds escrows if crucial regulatory certificates are revoked mid-transit.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Macro Feed Ingestion Pipeline</td><td style="padding: 0.5rem;">Integrations for official central bank daily FX rates and tariff lookup APIs, feeding the contingency drafting.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Currency Collar Structuring</td><td style="padding: 0.5rem;">Drafts recommended adjustment ranges to cushion buyer/seller margins from unexpected intraday or multi-day FX drops.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Escrow-Ready Structures</td><td style="padding: 0.5rem;">Contingency terms formatted so the parties' own escrow or settlement providers can implement them directly.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Tariff Cost-Splitting Recommendations</td><td style="padding: 0.5rem;">Recommends fair apportionment of border cost increases between transacting parties based on real-time customs database queries.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Force Majeure Flagging</td><td style="padding: 0.5rem;">Flags force-majeure conditions in active deals — e.g., a crucial regulatory certificate revoked mid-transit — and recommends the corresponding escape terms for the parties to act on.</td></tr>
                         </table>
                     </div>
                 </details>
