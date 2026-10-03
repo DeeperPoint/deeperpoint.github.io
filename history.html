@@ -137,7 +137,12 @@
                 <span aria-hidden="true" style="color: var(--dp-muted);">▸</span>
                 <strong style="color: #fff;">Tip:</strong> every line item below is clickable &mdash; click a title to open
                 the detail, a picture and the story behind it, and click again to close it.
+                Or open everything at once:
             </p>
+            <div class="reveal" style="display: flex; justify-content: center; gap: var(--space-sm); margin-top: var(--space-sm);">
+                <button type="button" class="btn btn--outline" id="expand-all" style="font-size: 0.875rem;">Expand all</button>
+                <button type="button" class="btn btn--outline" id="collapse-all" style="font-size: 0.875rem;">Collapse all</button>
+            </div>
 
             <!-- Full Visual Timeline with Expandable Cards -->
             <div class="timeline reveal" style="margin-top: var(--space-3xl);">
@@ -827,6 +832,15 @@
         </div>
     </footer>
 
+    <script>
+        (function () {
+            function setAll(open) {
+                document.querySelectorAll('details.timeline__entry').forEach(function (d) { d.open = open; });
+            }
+            document.getElementById('expand-all').addEventListener('click', function () { setAll(true); });
+            document.getElementById('collapse-all').addEventListener('click', function () { setAll(false); });
+        })();
+    </script>
     <script src="reveal.js"></script>
     <script src="nav-mobile.js"></script>
 
