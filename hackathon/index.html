@@ -179,11 +179,30 @@
   .intro figure { margin: 18px 0 22px; max-width: 760px; }
   .intro figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--hair); }
   .intro figcaption { margin-top: 8px; font-size: 12.5px; color: var(--ink-soft); }
+  .whois { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin: 0 0 30px; padding: 16px 20px;
+    background: var(--surface); border: 1px solid var(--fe); border-left-width: 6px; border-radius: 12px; }
+  .whois .who { flex: 1 1 280px; font-size: 14.5px; color: var(--ink-soft); }
+  .whois .who strong { display: block; color: var(--ink); font-size: 16px; margin-bottom: 2px; }
+  .whois .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .whois a { display: block; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 700;
+    color: var(--ink); background: var(--surface-2); border: 1px solid var(--card-stroke); }
+  .whois a:hover, .whois a:focus-visible { border-color: var(--fe); color: var(--fe); }
+  .whois a small { display: block; font-weight: 500; font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
 </style>
 </head>
 <body>
 
 <div class="wrap">
+  <aside class="whois" aria-label="About the author">
+    <div class="who"><strong>Who is behind this? Vic Uzumeri, founder of DeeperPoint.</strong>
+    My identity and background are on the two pages at right. The history page is a different view from my LinkedIn
+    profile and the better place to start.</div>
+    <div class="links">
+      <a href="https://deeperpoint.com/history.html">My history — five decades of work<small>Different from my LinkedIn profile</small></a>
+      <a href="https://deeperpoint.com/about.html">About — why DeeperPoint exists<small>Mission and professional journey</small></a>
+    </div>
+  </aside>
+
   <section class="intro" aria-labelledby="intro-h">
     <p class="eyebrow">Build for Canada · AI for Economic Resilience</p>
     <h2 id="intro-h">One engine suite, a different front end for each market</h2>
