@@ -176,6 +176,9 @@
   .intro a { color: var(--fe); font-weight: 600; text-underline-offset: 2px; }
   .intro .also { margin-top: 14px; font-size: 13.5px; }
   .intro .divider { margin: 22px 0 0; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  .intro figure { margin: 18px 0 22px; max-width: 760px; }
+  .intro figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--hair); }
+  .intro figcaption { margin-top: 8px; font-size: 12.5px; color: var(--ink-soft); }
 </style>
 </head>
 <body>
@@ -184,13 +187,25 @@
   <section class="intro" aria-labelledby="intro-h">
     <p class="eyebrow">Build for Canada · AI for Economic Resilience</p>
     <h2 id="intro-h">One engine suite, a different front end for each market</h2>
-    <p>Trade disruption does not hit every sector the same way, but it hits them the same way structurally: buyers and
-    suppliers who used to find each other through established channels suddenly cannot, and the capacity, skills or
-    products that could fill the gap sit unseen on the other side of a thin market. The <strong>DeeperPoint Suite</strong>
-    is built for exactly that problem. Its engines — a domain wiki, CommonContext, ClientSynth and Cosolvent — are
-    vertical-agnostic. What changes from one market to the next is a thin <strong>market-specific front end</strong>
-    (the alignment layer described below) and a small set of YAML files, so the same suite can be pointed at many
-    different application spaces.</p>
+    <p><strong>The problem.</strong> Trade disruption does not hit every sector the same way, but it hits them the same way
+    structurally: buyers and suppliers who used to find each other through established channels suddenly cannot, and
+    the capacity, skills or products that could fill the gap sit unseen on the other side of a thin market. Willing
+    counterparties exist; frictions such as missing trust, opaque information, search costs and distance stop them
+    from connecting.</p>
+    <figure>
+      <img src="what-makes-a-market-thin.png" width="1024" height="1024" loading="lazy"
+           alt="What makes a market thin? On the left, buyers and sellers connect directly when frictions are low. On the right, frictions — lack of trust, opacity, temporal distance, search costs, geographic distance and uncertainty — sit between buyers and sellers and prevent useful deals from forming.">
+      <figcaption>A thin market is defined by the frictions between willing counterparties, not by how few of them there are.</figcaption>
+    </figure>
+    <p><strong>The intended solution.</strong> The <strong>DeeperPoint Suite</strong> is built to engineer those frictions
+    away. Its engines — a domain wiki, CommonContext, ClientSynth and Cosolvent — are vertical-agnostic. What changes
+    from one market to the next is a thin <strong>market-specific front end</strong> (the alignment layer described
+    below) and a small set of YAML files, so the same suite can be pointed at many different application spaces.</p>
+    <figure>
+      <img src="one-engine-many-markets.jpg" width="1376" height="768" loading="lazy"
+           alt="One engine, many markets: three bespoke market front ends — Manufacturing Capacity, Volunteer Skills and Specialty Crops — each plugged into the same open-source DeeperPoint headless engine (Cosolvent matching plus CommonContext knowledge) through the Deal Brief API.">
+      <figcaption>One engine, many markets — built once, dressed for each vertical.</figcaption>
+    </figure>
     <p>Examples consistent with current work:</p>
     <ul>
       <li><b>Capacity exchange</b>
