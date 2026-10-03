@@ -1,0 +1,473 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>DeeperPoint Suite — Architecture</title>
+<style>
+  :root {
+    --bg: #f4f2ee;
+    --surface: #ffffff;
+    --surface-2: #ece8e1;
+    --ink: #23201b;
+    --ink-soft: #5c564c;
+    --hair: #d8d2c7;
+    --card-stroke: #cfc8bb;
+
+    --wiki: #5a5fae;
+    --cc:   #2b8686;
+    --cs:   #9a4a82;
+    --cos:  #3f8a5b;
+    --fe:   #b0742a;
+    --gate: #bd4f2b;
+
+    --flow: #6a6255;
+    --meta: #b0742a;
+    --tie:  #9a9285;
+
+    --tint: 0.10;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16140f;
+      --surface: #211e18;
+      --surface-2: #1a1712;
+      --ink: #efe9dd;
+      --ink-soft: #ada593;
+      --hair: #35302868;
+      --card-stroke: #423c31;
+
+      --wiki: #9096e6;
+      --cc:   #52c2c2;
+      --cs:   #d079b4;
+      --cos:  #64c489;
+      --fe:   #e0a54f;
+      --gate: #e07a52;
+
+      --flow: #8f8676;
+      --meta: #e0a54f;
+      --tie:  #6f685b;
+
+      --tint: 0.16;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f2ee; --surface: #ffffff; --surface-2: #ece8e1;
+    --ink: #23201b; --ink-soft: #5c564c; --hair: #d8d2c7; --card-stroke: #cfc8bb;
+    --wiki:#5a5fae; --cc:#2b8686; --cs:#9a4a82; --cos:#3f8a5b; --fe:#b0742a; --gate:#bd4f2b;
+    --flow:#6a6255; --meta:#b0742a; --tie:#9a9285; --tint:0.10;
+  }
+  :root[data-theme="dark"] {
+    --bg:#16140f; --surface:#211e18; --surface-2:#1a1712;
+    --ink:#efe9dd; --ink-soft:#ada593; --hair:#35302868; --card-stroke:#423c31;
+    --wiki:#9096e6; --cc:#52c2c2; --cs:#d079b4; --cos:#64c489; --fe:#e0a54f; --gate:#e07a52;
+    --flow:#8f8676; --meta:#e0a54f; --tie:#6f685b; --tint:0.16;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 40px 28px 64px; }
+
+  header { margin-bottom: 22px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--fe); font-weight: 600; margin: 0 0 8px;
+  }
+  h1 {
+    font-size: clamp(24px, 3.4vw, 36px); line-height: 1.12; margin: 0 0 10px;
+    font-weight: 700; letter-spacing: -0.015em; text-wrap: balance; max-width: 30ch;
+  }
+  .lede { margin: 0; max-width: 70ch; color: var(--ink-soft); font-size: 15.5px; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center;
+    margin: 20px 0 8px; padding: 14px 16px;
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 10px;
+  }
+  .legend .grp { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+  .legend .sep { width: 1px; height: 20px; background: var(--hair); }
+  .lg { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-soft); }
+  .sw { width: 13px; height: 13px; border-radius: 3px; flex: none; }
+  .ln { width: 24px; height: 0; flex: none; }
+  .ln.flow { border-top: 2.5px solid var(--flow); }
+  .ln.meta { border-top: 2.5px solid var(--meta); }
+  .ln.tie  { width: 24px; border-top: 2px dashed var(--tie); }
+  .pilltag {
+    font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+    border: 1px solid currentColor;
+  }
+
+  .frame {
+    margin-top: 18px; padding: 8px;
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 14px;
+    overflow-x: auto;
+  }
+  svg.diagram { display: block; width: 100%; min-width: 1000px; height: auto; }
+
+  /* diagram element styling (theme-driven via CSS classes) */
+  .band { fill: var(--surface-2); stroke: var(--hair); }
+  .bandlabel { fill: var(--ink-soft); font-size: 11px; letter-spacing: 0.14em; font-weight: 600; }
+  .grouphdr { fill: var(--ink-soft); font-size: 11px; font-weight: 600; letter-spacing: 0.03em; }
+  .groupbg { fill: none; stroke: var(--hair); stroke-dasharray: 3 4; }
+  .card { fill: var(--surface); stroke: var(--card-stroke); stroke-width: 1.2; }
+  .rail-wiki { fill: var(--wiki); } .stroke-wiki { stroke: var(--wiki); }
+  .rail-cc { fill: var(--cc); }     .stroke-cc { stroke: var(--cc); }
+  .rail-cs { fill: var(--cs); }     .stroke-cs { stroke: var(--cs); }
+  .rail-cos { fill: var(--cos); }   .stroke-cos { stroke: var(--cos); }
+  .rail-fe { fill: var(--fe); }     .stroke-fe { stroke: var(--fe); }
+
+  .tint-wiki { fill: var(--wiki); fill-opacity: var(--tint); }
+  .tint-cc { fill: var(--cc); fill-opacity: var(--tint); }
+  .tint-cs { fill: var(--cs); fill-opacity: var(--tint); }
+  .tint-cos { fill: var(--cos); fill-opacity: var(--tint); }
+  .tint-fe { fill: var(--fe); fill-opacity: var(--tint); }
+
+  .t-title { fill: var(--ink); font-size: 15px; font-weight: 700; }
+  .t-sub { fill: var(--ink-soft); font-size: 11px; font-weight: 600; }
+  .t-detail { fill: var(--ink-soft); font-size: 10.8px; }
+  .t-mono { fill: var(--ink); font-size: 10.6px; font-family: "Cascadia Code","SF Mono",ui-monospace,Consolas,monospace; }
+  .t-monosub { fill: var(--ink-soft); font-size: 9.6px; }
+  .lic { font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; }
+  .lic-open { fill: var(--cos); }
+  .lic-prop { fill: var(--cs); }
+  .poppill { font-size: 9px; font-weight: 800; letter-spacing: 0.06em; }
+
+  .flow { fill: none; stroke: var(--flow); stroke-width: 2.2; }
+  .flow-cos { fill: none; stroke: var(--cos); stroke-width: 2.4; }
+  .flow-cs { fill: none; stroke: var(--cs); stroke-width: 2.4; }
+  .meta { fill: none; stroke: var(--meta); stroke-width: 2; }
+  .tie  { fill: none; stroke: var(--tie); stroke-width: 1.6; stroke-dasharray: 4 4; }
+  .elabel { fill: var(--ink-soft); font-size: 10px; font-weight: 600; }
+  .elabel-bg { fill: var(--surface); }
+  .mh-flow { fill: var(--flow); } .mh-meta { fill: var(--meta); } .mh-tie { fill: var(--tie); }
+  .mh-cos { fill: var(--cos); } .mh-cs { fill: var(--cs); }
+
+  .chip { fill: var(--surface); stroke: var(--card-stroke); stroke-width: 1; }
+  .fwbar { fill: var(--gate); fill-opacity: calc(var(--tint) + 0.06); stroke: var(--gate); stroke-width: 1.8; }
+  .fwtick { stroke: var(--gate); stroke-width: 1.2; opacity: 0.55; }
+  .fwtext { fill: var(--gate); font-size: 12.5px; font-weight: 800; letter-spacing: 0.05em; }
+  .fwsub { fill: var(--ink-soft); font-size: 10px; }
+  .glyph { fill: var(--cos); }
+
+  .notes { margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; }
+  .note { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 16px 18px; }
+  .note h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: 0.02em; }
+  .note.wiki h3 { color: var(--wiki); } .note.cc h3 { color: var(--cc); }
+  .note.cs h3 { color: var(--cs); } .note.cos h3 { color: var(--cos); } .note.fe h3 { color: var(--fe); }
+  .note p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+  .note code { font-family: "Cascadia Code","SF Mono",ui-monospace,Consolas,monospace; font-size: 11.5px; color: var(--ink); background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+  footer { margin-top: 30px; font-size: 12px; color: var(--ink-soft); border-top: 1px solid var(--hair); padding-top: 14px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">MarketForge · DeeperPoint Suite</p>
+    <h1>One engine suite, two populations, a vertical alignment layer</h1>
+    <p class="lede">The <strong>DeeperPoint Suite</strong> — a domain <strong>wiki</strong>, <strong>CommonContext</strong>,
+    <strong>ClientSynth</strong>, and <strong>Cosolvent</strong> — plus the YAML artifacts that carry schema and vocabulary
+    between them. Fill the wiki for <em>any</em> vertical and it drives the system's configuration. A
+    <strong>vertical alignment layer</strong> adapts the suite to one market, where <strong>real users</strong> sign up and
+    transact — kept strictly separate by a <strong>provenance firewall</strong> from the <strong>synthetic profiles</strong>
+    used to prepare, test, and demo the system.</p>
+  </header>
+
+  <div class="legend" aria-label="Legend">
+    <div class="grp">
+      <span class="lg"><span class="sw" style="background:var(--wiki)"></span>Domain wiki</span>
+      <span class="lg"><span class="sw" style="background:var(--cc)"></span>CommonContext</span>
+      <span class="lg"><span class="sw" style="background:var(--cs)"></span>ClientSynth · synthetic</span>
+      <span class="lg"><span class="sw" style="background:var(--cos)"></span>Cosolvent · live</span>
+      <span class="lg"><span class="sw" style="background:var(--fe)"></span>Alignment layer</span>
+      <span class="lg"><span class="sw" style="background:var(--gate)"></span>Provenance firewall</span>
+    </div>
+    <span class="sep"></span>
+    <div class="grp">
+      <span class="lg"><span class="ln flow"></span>data flow</span>
+      <span class="lg"><span class="ln meta"></span>vocab derivation</span>
+      <span class="lg"><span class="ln tie"></span>writes / reads YAML</span>
+    </div>
+    <span class="sep"></span>
+    <div class="grp">
+      <span class="lg lic-open pilltag" style="color:var(--cos)">MIT&nbsp;/&nbsp;open</span>
+      <span class="lg lic-prop pilltag" style="color:var(--cs)">Source-available</span>
+    </div>
+  </div>
+
+  <div class="frame">
+    <svg class="diagram" viewBox="0 0 1240 760" role="img"
+         aria-label="Architecture diagram of the DeeperPoint Suite, its metadata layer, and the live vs synthetic population boundary">
+      <defs>
+        <marker id="ar-flow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="mh-flow" d="M0,0 L10,5 L0,10 z"/>
+        </marker>
+        <marker id="ar-cos" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="mh-cos" d="M0,0 L10,5 L0,10 z"/>
+        </marker>
+        <marker id="ar-cs" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="mh-cs" d="M0,0 L10,5 L0,10 z"/>
+        </marker>
+        <marker id="ar-meta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path class="mh-meta" d="M0,0 L10,5 L0,10 z"/>
+        </marker>
+        <marker id="ar-tie" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+          <path class="mh-tie" d="M0,0 L10,5 L0,10 z"/>
+        </marker>
+      </defs>
+
+      <!-- ===================== BAND 1: SUITE + POPULATIONS ===================== -->
+      <rect class="band" x="16" y="36" width="1208" height="378" rx="12"/>
+      <text class="bandlabel" x="34" y="60">DEEPERPOINT SUITE  ·  VERTICAL DEPLOYMENT  ·  LIVE vs SYNTHETIC POPULATIONS</text>
+
+      <!-- group backings -->
+      <rect class="groupbg" x="30" y="90" width="662" height="218" rx="14"/>
+      <rect class="groupbg" x="712" y="90" width="500" height="218" rx="14" style="stroke:var(--fe);opacity:0.7"/>
+      <text class="grouphdr" x="40" y="84">THE DEEPERPOINT SUITE — core engines (build &amp; supply)</text>
+      <text class="grouphdr" x="722" y="84" style="fill:var(--fe)">VERTICAL DEPLOYMENT — one live market</text>
+
+      <!-- Domain Wiki -->
+      <g>
+        <rect class="card stroke-wiki" x="40" y="96" width="196" height="212" rx="11"/>
+        <rect class="rail-wiki" x="40" y="96" width="6" height="212" rx="3"/>
+        <text class="t-title" x="62" y="126">Domain Wiki</text>
+        <text class="t-sub" x="62" y="145">Generic knowledge input</text>
+        <text class="t-detail" x="62" y="172">Fill it for any vertical —</text>
+        <text class="t-detail" x="62" y="187">not just manufacturing</text>
+        <text class="t-detail" x="62" y="210">Derives controlled vocab:</text>
+        <text class="t-mono" x="62" y="226">wiki_to_vocab.py</text>
+        <text class="t-detail" x="62" y="250">Drives system configuration</text>
+        <text class="t-monosub" x="62" y="272">e.g. mfgllmwiki (manufacturing)</text>
+        <text class="lic lic-open" x="62" y="296">OPEN · DEEPERPOINT SUITE</text>
+      </g>
+
+      <!-- CommonContext -->
+      <g>
+        <rect class="card stroke-cc" x="268" y="96" width="192" height="92" rx="11"/>
+        <rect class="rail-cc" x="268" y="96" width="6" height="92" rx="3"/>
+        <text class="t-title" x="290" y="124">CommonContext</text>
+        <text class="t-sub" x="290" y="142">Shared embedding engine</text>
+        <text class="t-detail" x="290" y="165">Docs + wiki → embedded</text>
+        <text class="t-mono" x="290" y="181">reference_library</text>
+      </g>
+
+      <!-- ClientSynth -->
+      <g>
+        <rect class="card stroke-cs" x="268" y="208" width="192" height="92" rx="11"/>
+        <rect class="rail-cs" x="268" y="208" width="6" height="92" rx="3"/>
+        <text class="t-title" x="290" y="236">ClientSynth</text>
+        <text class="t-sub" x="290" y="254">Synthetic population engine</text>
+        <text class="t-detail" x="290" y="277">Coherent fake profiles →</text>
+        <text class="t-mono" x="290" y="293">population.json</text>
+        <text class="lic lic-prop" x="452" y="235" text-anchor="end">SOURCE-AVAILABLE</text>
+      </g>
+
+      <!-- Cosolvent -->
+      <g>
+        <rect class="card stroke-cos" x="492" y="96" width="192" height="212" rx="11"/>
+        <rect class="rail-cos" x="492" y="96" width="6" height="212" rx="3"/>
+        <text class="t-title" x="514" y="126">Cosolvent</text>
+        <text class="t-sub" x="514" y="145">Marketplace engine</text>
+        <text class="t-detail" x="514" y="172">Compiles the config:</text>
+        <text class="t-mono" x="514" y="188">marketplace.yaml</text>
+        <text class="t-detail" x="514" y="212">pgvector matching runtime</text>
+        <text class="t-detail" x="514" y="236">Both instances at right run</text>
+        <text class="t-detail" x="514" y="251">on this one engine + config</text>
+        <text class="lic lic-open" x="514" y="296">MIT · DEEPERPOINT SUITE</text>
+      </g>
+
+      <!-- Alignment layer -->
+      <g>
+        <rect class="card stroke-fe" x="724" y="96" width="176" height="212" rx="11"/>
+        <rect class="rail-fe" x="724" y="96" width="6" height="212" rx="3"/>
+        <text class="t-title" x="744" y="124">Alignment layer</text>
+        <text class="t-sub" x="744" y="142">Aligns suite to a vertical</text>
+        <text class="t-detail" x="744" y="168">The added layer that fits</text>
+        <text class="t-detail" x="744" y="183">the DeeperPoint Suite to a</text>
+        <text class="t-detail" x="744" y="198">specific application vertical</text>
+        <text class="t-mono" x="744" y="222">capacity-exchange-</text>
+        <text class="t-mono" x="744" y="236">demo</text>
+        <text class="t-detail" x="744" y="260">The front end users touch</text>
+        <text class="lic" x="744" y="296" style="fill:var(--fe)">SWAPPABLE PER MARKET</text>
+      </g>
+
+      <!-- LIVE population -->
+      <g>
+        <rect class="card tint-cos stroke-cos" x="932" y="96" width="272" height="92" rx="11"/>
+        <text class="t-title" x="954" y="124" style="fill:var(--cos)">Live market</text>
+        <rect x="1136" y="150" width="52" height="18" rx="9" class="tint-cos" style="stroke:var(--cos)"/>
+        <text class="poppill" x="1162" y="163" text-anchor="middle" style="fill:var(--cos)">REAL</text>
+        <text class="t-detail" x="954" y="143">Real users sign up, transact,</text>
+        <text class="t-detail" x="954" y="159">and enjoy the system</text>
+        <text class="t-detail" x="954" y="178" style="font-weight:600;fill:var(--ink)">Starts at zero synthetic users</text>
+        <!-- people glyph -->
+        <g class="glyph">
+          <circle cx="1150" cy="118" r="5"/><path d="M1141,138 a9,10 0 0 1 18,0 z"/>
+          <circle cx="1170" cy="118" r="5"/><path d="M1161,138 a9,10 0 0 1 18,0 z"/>
+          <circle cx="1130" cy="120" r="4.2" opacity="0.7"/><path d="M1122,137 a8,9 0 0 1 16,0 z" opacity="0.7"/>
+        </g>
+      </g>
+
+      <!-- SYNTHETIC population -->
+      <g>
+        <rect class="card tint-cs stroke-cs" x="932" y="208" width="272" height="92" rx="11"/>
+        <text class="t-title" x="954" y="236" style="fill:var(--cs)">Test / demo instance</text>
+        <rect x="1108" y="220" width="80" height="18" rx="9" class="tint-cs" style="stroke:var(--cs)"/>
+        <text class="poppill" x="1148" y="233" text-anchor="middle" style="fill:var(--cs)">SYNTHETIC</text>
+        <text class="t-detail" x="954" y="256">Synthetic profiles used to</text>
+        <text class="t-detail" x="954" y="272">prepare, test &amp; demo the system</text>
+        <text class="t-detail" x="954" y="291" style="font-weight:600;fill:var(--ink)">Watermarked · kept apart</text>
+      </g>
+
+      <!-- "never mix" divider between the two populations -->
+      <line class="tie" x1="944" y1="198" x2="998" y2="198" style="stroke:var(--gate)"/>
+      <line class="tie" x1="1140" y1="198" x2="1192" y2="198" style="stroke:var(--gate)"/>
+      <text class="poppill" x="1069" y="201.5" text-anchor="middle" style="fill:var(--gate)">POPULATIONS NEVER MIX</text>
+
+      <!-- ===== build flows (neutral) ===== -->
+      <path class="flow" d="M236,120 L268,120" marker-end="url(#ar-flow)"/>
+      <rect class="elabel-bg" x="240" y="100" width="34" height="13"/>
+      <text class="elabel" x="242" y="110">docs</text>
+      <path class="flow" d="M236,250 C252,250 252,254 268,254" marker-end="url(#ar-flow)"/>
+      <rect class="elabel-bg" x="238" y="230" width="70" height="13"/>
+      <text class="elabel" x="240" y="240">schema+vocab</text>
+      <path class="flow" d="M460,142 L492,142" marker-end="url(#ar-flow)"/>
+      <rect class="elabel-bg" x="452" y="122" width="84" height="13"/>
+      <text class="elabel" x="454" y="132">reference_library</text>
+
+      <!-- ===== live / real path (green) ===== -->
+      <path class="flow-cos" d="M684,150 L724,150" marker-end="url(#ar-cos)"/>
+      <rect class="elabel-bg" x="676" y="130" width="66" height="13"/>
+      <text class="elabel" x="678" y="140" style="fill:var(--cos)">runtime + UI</text>
+      <path class="flow-cos" d="M900,142 L932,142" marker-end="url(#ar-cos)"/>
+      <rect class="elabel-bg" x="898" y="122" width="46" height="13"/>
+      <text class="elabel" x="900" y="132" style="fill:var(--cos)">sign up</text>
+
+      <!-- ===== demo path: alignment layer can drive the synthetic instance ===== -->
+      <path class="tie" d="M900,268 L932,268" marker-end="url(#ar-tie)"/>
+      <rect class="elabel-bg" x="892" y="248" width="48" height="13"/>
+      <text class="elabel" x="894" y="258">demo mode</text>
+
+      <!-- ===== synthetic path (magenta) through the firewall ===== -->
+      <path class="flow-cs" d="M364,300 L364,332 L582,332" marker-end="url(#ar-cs)"/>
+      <rect class="elabel-bg" x="372" y="312" width="118" height="13"/>
+      <text class="elabel" x="374" y="322" style="fill:var(--cs)">synthetic population</text>
+      <path class="flow-cs" d="M804,332 L1068,332 L1068,300" marker-end="url(#ar-cs)"/>
+
+      <!-- PROVENANCE FIREWALL -->
+      <g>
+        <rect class="fwbar" x="586" y="311" width="222" height="42" rx="8"/>
+        <line class="fwtick" x1="606" y1="315" x2="606" y2="349"/>
+        <line class="fwtick" x1="788" y1="315" x2="788" y2="349"/>
+        <text class="fwtext" x="697" y="337" text-anchor="middle">PROVENANCE FIREWALL</text>
+      </g>
+      <text class="fwsub" x="697" y="371" text-anchor="middle">watermark verified at ingest (is_synthetic · content-hash Merkle; signatures planned) — synthetic profiles never enter a live market</text>
+
+      <!-- ===================== BAND 2: METADATA ===================== -->
+      <rect class="band" x="16" y="430" width="1208" height="310" rx="12"/>
+      <text class="bandlabel" x="34" y="456">METADATA LAYER — YAML ARTIFACTS (AUTHORED &amp; REGENERATED)</text>
+      <text class="t-monosub" x="1206" y="456" text-anchor="end">left → right = derivation order · dashed = engine writes/reads</text>
+
+      <!-- chip A -->
+      <g>
+        <rect class="chip tint-wiki" x="44" y="524" width="196" height="86" rx="9" style="stroke:var(--wiki)"/>
+        <text class="t-mono" x="56" y="546">domain_schema.yaml</text>
+        <text class="t-monosub" x="56" y="562">controlled enums + standards</text>
+        <text class="t-monosub" x="56" y="576">per vertical (e.g. mfg)</text>
+        <text class="t-mono" x="56" y="594" style="font-size:9.6px">+ metadata_schema.yaml</text>
+        <text class="t-monosub" x="56" y="606" style="fill:var(--wiki)">tag vocab for reference_library</text>
+      </g>
+      <!-- chip B -->
+      <g>
+        <rect class="chip tint-wiki" x="284" y="524" width="176" height="86" rx="9" style="stroke:var(--wiki)"/>
+        <text class="t-mono" x="296" y="546">vocab.</text>
+        <text class="t-mono" x="296" y="560">generated.yaml</text>
+        <text class="t-monosub" x="296" y="578">derived controlled vocab</text>
+        <text class="t-monosub" x="296" y="592">idempotent · hash-tagged</text>
+      </g>
+      <!-- chip C -->
+      <g>
+        <rect class="chip tint-fe" x="504" y="524" width="196" height="86" rx="9" style="stroke:var(--fe)"/>
+        <text class="t-mono" x="516" y="546">capacity_schema.yaml</text>
+        <text class="t-monosub" x="516" y="562">vertical participant schema</text>
+        <text class="t-mono" x="516" y="582" style="font-size:9.8px">capacity_vocab.generated</text>
+        <text class="t-monosub" x="516" y="600" style="fill:var(--fe)">promoted from wiki vocab</text>
+      </g>
+      <!-- chip D -->
+      <g>
+        <rect class="chip tint-cs" x="744" y="524" width="196" height="86" rx="9" style="stroke:var(--cs)"/>
+        <text class="t-mono" x="756" y="546">clientsynth_import.yaml</text>
+        <text class="t-monosub" x="756" y="562">maps schema → ClientSynth</text>
+        <text class="t-mono" x="756" y="582" style="font-size:9.8px">+ population_spec.yaml</text>
+        <text class="t-monosub" x="756" y="600">counts · distributions</text>
+      </g>
+      <!-- chip E -->
+      <g>
+        <rect class="chip tint-cos" x="984" y="524" width="196" height="86" rx="9" style="stroke:var(--cos)"/>
+        <text class="t-mono" x="996" y="546">marketplace.yaml</text>
+        <text class="t-monosub" x="996" y="562">Cosolvent deploy config</text>
+        <text class="t-monosub" x="996" y="578">types · fields · matching</text>
+        <text class="t-monosub" x="996" y="596" style="fill:var(--cos)">compiled → schema + routes</text>
+      </g>
+
+      <!-- derivation arrows -->
+      <path class="meta" d="M240,567 L284,567" marker-end="url(#ar-meta)"/>
+      <path class="meta" d="M460,567 L504,567" marker-end="url(#ar-meta)"/>
+      <path class="meta" d="M700,567 L744,567" marker-end="url(#ar-meta)"/>
+      <path class="meta" d="M602,610 L602,644 L1082,644 L1082,610" marker-end="url(#ar-meta)"/>
+
+      <!-- write / read ties (engines <-> chips) -->
+      <path class="tie" d="M120,308 L124,524" marker-end="url(#ar-tie)"/>
+      <text class="elabel" x="128" y="420">writes</text>
+      <path class="tie" d="M812,524 C812,430 470,392 428,300" marker-end="url(#ar-tie)"/>
+      <text class="elabel" x="560" y="404">read by ClientSynth</text>
+      <path class="tie" d="M1054,524 C1054,420 640,388 592,308" marker-end="url(#ar-tie)"/>
+      <text class="elabel" x="812" y="402">compiled by Cosolvent</text>
+    </svg>
+  </div>
+
+  <div class="notes">
+    <div class="note wiki">
+      <h3>Domain wiki → everything</h3>
+      <p>A generic knowledge input, not manufacturing-specific. Fill it for any vertical and it drives the whole system's configuration: <code>wiki_to_vocab.py</code> derives <code>vocab.generated.yaml</code>, which seeds CommonContext's tag vocabulary and every vertical's participant schema. <code>mfgllmwiki</code> is simply the manufacturing instance.</p>
+    </div>
+    <div class="note cc">
+      <h3>CommonContext</h3>
+      <p>Turns curated documents and wiki pages into an embedded <code>reference_library</code> (pgvector). Vertical-agnostic — the shared knowledge engine Cosolvent's AI features read from at match time.</p>
+    </div>
+    <div class="note cs">
+      <h3>ClientSynth (source-available)</h3>
+      <p>Generates coherent synthetic populations to bootstrap, test, and demo a market. Apache-2.0 with additional synthetic-data terms — its source is available, but it is not an OSI-approved open-source license. Its output is marked <code>is_synthetic</code> and only ever populates a test/demo instance.</p>
+    </div>
+    <div class="note cos">
+      <h3>Cosolvent — the shared backend</h3>
+      <p>MIT-licensed headless engine, one of the four DeeperPoint Suite tools. A deterministic compiler reads <code>marketplace.yaml</code> and emits schemas, routes and migrations; the runtime does the pgvector matching. Both the live and the test/demo instances run on this one engine and config.</p>
+    </div>
+    <div class="note fe">
+      <h3>The vertical alignment layer</h3>
+      <p>The added system layer that aligns the DeeperPoint Suite with a specific application vertical. <code>capacity-exchange-demo</code> is one instance — the market-specific front end users touch, forked from the shared <code>Marketforge_digital_twin</code> shell. Swap this layer + the vertical YAML and the same suite serves a new market.</p>
+    </div>
+    <div class="note" style="border-color:var(--gate)">
+      <h3 style="color:var(--gate)">Two populations, one firewall</h3>
+      <p><strong>Real users</strong> sign up through the alignment layer into a <strong>live market</strong> that starts at zero synthetic users. <strong>Synthetic profiles</strong> only ever reach a <strong>test/demo instance</strong>. The <strong>provenance firewall</strong> — layered watermarking (<code>is_synthetic</code> and a content-hash Merkle root today; cryptographic signatures are planned) with ingest-time verification — is what guarantees the two never mix.</p>
+    </div>
+  </div>
+
+  <footer>
+    The four core engines — wiki, CommonContext, ClientSynth, Cosolvent — are the <strong>DeeperPoint Suite</strong>; the alignment layer adapts them to one market.
+    Derivation chain: <code>domain_schema.yaml</code> → <code>vocab.generated.yaml</code> → <code>capacity_vocab.generated.yaml</code> / <code>capacity_schema.yaml</code> → <code>clientsynth_import.yaml</code> + <code>marketplace.yaml</code>.
+    Engines are separate repos; the YAML artifacts are the contract surface between them, and the provenance firewall is the boundary between synthetic and live data.
+  </footer>
+  <footer style="margin-top:12px">Status (October 2026): the capacity-exchange demo (synthetic population, full front end) is built and runnable; the live backend path is partly built.</footer>
+</div>
+</body>
+</html>
