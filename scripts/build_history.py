@@ -1,5 +1,6 @@
 # Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
-# Generates history.html with expandable timeline cards (Option B)
+# Regenerates the "Professional Journey" timeline section of about.html
+# (history.html was retired 2026-11-03; its content now lives on about.html)
 
 import json, os
 
@@ -210,7 +211,7 @@ for era_key in sorted(ERA_CONFIG.keys(), key=lambda k: ERA_CONFIG[k]["order"]):
 timeline_html = "\n".join(era_html_parts)
 
 # Read the current file as template - we'll preserve intro + gantt, replace timeline
-src = os.path.join(os.path.dirname(os.path.dirname(__file__)), "history.html")
+src = os.path.join(os.path.dirname(os.path.dirname(__file__)), "about.html")
 with open(src, "r", encoding="utf-8") as f:
     original = f.read()
 
@@ -241,4 +242,4 @@ new_html = original[:before_idx] + new_timeline_section + original[after_idx:]
 with open(src, "w", encoding="utf-8") as f:
     f.write(new_html)
 
-print(f"Generated history.html with {len(ENTRIES)} entries across {len(eras)} eras")
+print(f"Updated about.html timeline with {len(ENTRIES)} entries across {len(eras)} eras")
