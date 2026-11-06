@@ -296,6 +296,22 @@ img {
   width: 100%;
 }
 
+/* The one button in the nav: Contribute (2026-11-05) */
+.nav__link--cta {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(96, 165, 250, 0.55);
+  border-radius: 100px;
+  color: var(--dp-white);
+}
+
+.nav__link--cta:hover {
+  background: rgba(96, 165, 250, 0.12);
+}
+
+.nav__link--cta::after {
+  display: none;
+}
+
 /* --- Hero Section --- */
 .hero {
   position: relative;

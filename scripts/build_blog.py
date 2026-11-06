@@ -355,13 +355,14 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="{root}market-physics.html" class="nav__link">Why Markets Stay Thin</a></li>
-        <li><a href="{root}platform.html" class="nav__link">What We Built</a></li>
+        <li><a href="{root}market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="{root}platform.html" class="nav__link">What We&rsquo;re Building</a></li>
         <li><a href="{root}examples.html" class="nav__link">Examples</a></li>
         <li><a href="{root}who-should-care.html" class="nav__link">Who It&rsquo;s For</a></li>
         <li><a href="{root}library.html" class="nav__link">Library</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
         <li><a href="{root}about.html" class="nav__link">About</a></li>
+        <li><a href="{root}contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
       </ul>
     </div>
   </nav>
@@ -378,6 +379,7 @@ PAGE_FOOTER = """
         <ul class="footer__links">
           <li><a href="{root}search.html" class="footer__link">Search</a></li>
           <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="{root}contribute.html" class="footer__link">Contribute</a></li>
           <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </div>

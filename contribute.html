@@ -1,0 +1,124 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribute &mdash; DeeperPoint</title>
+  <meta name="description" content="DeeperPoint is a self-funded, MIT-licensed, open-source project, and anyone who wants to take part is welcome: code, domain knowledge, a market to test on, or honest critique.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="examples.html" class="nav__link">Examples</a></li>
+        <li><a href="who-should-care.html" class="nav__link">Who It&rsquo;s For</a></li>
+        <li><a href="library.html" class="nav__link">Library</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="contribute.html" class="nav__link nav__link--cta nav__link--active">Contribute</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="contribute" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container">
+      <div class="reveal text-center" style="margin-bottom: var(--space-xl);">
+        <span class="section__label">Contribute</span>
+        <h1 class="section__title">Open to Anyone Who Wants In</h1>
+        <p class="section__desc section__desc--centered">DeeperPoint is a self-funded, pay-it-forward project with no investors and no board. The engine is MIT-licensed, nobody is locked in, and the work is done in the open. If you want to take part, this is where help lands.</p>
+      </div>
+
+      <h2 class="reveal" style="font-family: var(--font-display); color: #fff; font-size: 1.35rem; margin-bottom: var(--space-md);">The code</h2>
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-xl);">
+        <a href="https://github.com/DeeperPoint/Cosolvent" class="card" style="text-decoration: none; padding: var(--space-lg);" target="_blank" rel="noopener">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🧩</div>
+          <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Code &middot; MIT</span>
+          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Cosolvent</h3>
+          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">The matching engine, in its first usable beta: profiles, semantic matching, confidential disclosure, the Content Match Story and the Deal Brief. The contributor guide is in the repo.</p>
+        </a>
+        <a href="https://github.com/DeeperPoint/CommonContext" class="card" style="text-decoration: none; padding: var(--space-lg);" target="_blank" rel="noopener">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">📚</div>
+          <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Knowledge &middot; MIT</span>
+          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">CommonContext</h3>
+          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">Turns reference documents, standards, contracts and trade guides into the domain schema and knowledge library a marketplace needs. Domain experts are as useful here as programmers.</p>
+        </a>
+        <a href="https://github.com/DeeperPoint/ClientSynth" class="card" style="text-decoration: none; padding: var(--space-lg);" target="_blank" rel="noopener">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🧫</div>
+          <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Testing &middot; source-available</span>
+          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">ClientSynth</h3>
+          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">Generates synthetic market populations so a marketplace can be exercised before real users arrive. Source-available and free to use for testing.</p>
+        </a>
+      </div>
+
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-xl);">
+        <div style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
+          <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.35rem; margin-bottom: 1rem;">Help that is not code</h2>
+          <ul style="margin: 0; padding-left: 1.25rem; color: var(--dp-silver); font-size: 1rem; line-height: 1.7;">
+            <li><strong style="color:#fff;">Knowledge of a market.</strong> A regulation, a standard, a certification route, the way deals really get done in a sector you know. That is what <a href="mf-commoncontext.html" style="color:#818cf8;">CommonContext</a> is built to hold.</li>
+            <li><strong style="color:#fff;">A market.</strong> If you work in a thin market and would let it be a test bed, say so. The <a href="testbeds.html" style="color:#818cf8;">twenty test beds</a> show the kind of market that fits.</li>
+            <li><strong style="color:#fff;">Judgment.</strong> Read a <a href="catalog/index.html" style="color:#818cf8;">catalog entry</a> or a <a href="marketmaps.html" style="color:#818cf8;">teardown</a> and say where it is wrong. Candid assessment is worth more than encouragement.</li>
+            <li><strong style="color:#fff;">Words.</strong> The <a href="cards/index.html" style="color:#818cf8;">cards</a>, the catalog and the blog all take editing, and every page on this site can be improved.</li>
+          </ul>
+        </div>
+        <div style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
+          <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.35rem; margin-bottom: 1rem;">How to start</h2>
+          <ol style="margin: 0; padding-left: 1.25rem; color: var(--dp-silver); font-size: 1rem; line-height: 1.7;">
+            <li>Read the <a href="cards/index.html" style="color:#818cf8;">fifteen cards</a> for the short version of the thesis, or the <a href="whitepaper.html" style="color:#818cf8;">whitepaper</a> for the full one.</li>
+            <li>Pick the repository and <a href="https://github.com/DeeperPoint/Cosolvent/issues" style="color:#818cf8;" target="_blank" rel="noopener">open an issue</a> describing the problem, the expected behaviour and the scope, before writing code.</li>
+            <li>Follow the <a href="https://github.com/DeeperPoint/Cosolvent/blob/main/CONTRIBUTING.md" style="color:#818cf8;" target="_blank" rel="noopener">contributor guide</a>: one change set per pull request, tests and docs with it, the quality gate passing.</li>
+            <li>For anything that is not code, or to ask before you start, write to the founder from the <a href="about.html" style="color:#818cf8;">About page</a>.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.25); border-radius: var(--radius-md);">
+        <p style="margin:0; color: var(--dp-silver); font-size:1.0625rem; line-height:1.65;">
+          <strong style="color: var(--dp-emerald);">What this page asks for</strong> is work and judgment, not money. Cosolvent and CommonContext are free to adopt, fork and build on, and they stay that way: the only costs anyone carries are their own build and operations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="search.html" class="footer__link">Search</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="contribute.html" class="footer__link">Contribute</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+  <script src="nav-mobile.js"></script>
+  <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

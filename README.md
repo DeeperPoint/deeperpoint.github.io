@@ -20,6 +20,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 ├── testbeds.html               # Thin market example summaries
 ├── examples.html               # Examples hub: catalog, test beds, MarketMaps, scenario stories, demo
 ├── library.html                # Library: whitepaper, cards deck, matrix, ebook, précis, pitch deck, mission essay
+├── contribute.html             # Contribute: the open door (nav button and footer link on every page)
 ├── market-diagnostic.html      # Interactive Market Engineer's Diagnostic Checklist
 ├── blog/
 │   ├── posts/                  # Markdown blog posts (source)
@@ -50,13 +51,14 @@ the same list in their templates and must be changed with it.
 
 | Link | Page | Answers |
 |------|------|---------|
-| **Why Markets Stay Thin** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
-| **What We Built** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, ClientSynth, architecture |
+| **Why Markets Don't Form** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
+| **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, ClientSynth, architecture |
 | **Examples** | `examples.html` | The framework applied: the catalog, the twenty test beds, MarketMaps, the scenario stories, the demo |
 | **Who It's For** | `who-should-care.html` | Which role the visitor plays, and the guide written for it |
 | **Library** | `library.html` | The documents: whitepaper, cards deck, matrix, ebook, précis, pitch deck, mission essay, search |
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |
+| **Contribute** (button) | `contribute.html` | The open door: the public repos, the help that is not code, how to start. Also linked from every footer |
 
 ## Blog Workflow
 
