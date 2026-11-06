@@ -53,9 +53,10 @@ the same list in their templates and must be changed with it.
 |------|------|---------|
 | **Why Markets Don't Form** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
 | **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, ClientSynth, architecture |
-| **Examples** | `examples.html` | The framework applied: the catalog, the twenty test beds, MarketMaps, the scenario stories, the demo |
+| **Examples** | `examples.html` | The framework applied: the catalog, the twenty test beds, MarketMaps, the scenario stories, the diagnostic checklist, the demo |
 | **Who It's For** | `who-should-care.html` | Which role the visitor plays, and the guide written for it |
 | **Library** | `library.html` | The documents: whitepaper, cards deck, matrix, ebook, précis, pitch deck, mission essay, search |
+| **Catalog** | `catalog/index.html` | The opportunity catalog, restored to the nav on 2026-11-05 at the owner's request |
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |
 | **Contribute** (button) | `contribute.html` | The open door: the public repos, the help that is not code, how to start. Also linked from every footer |
