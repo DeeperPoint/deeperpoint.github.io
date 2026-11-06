@@ -6,7 +6,11 @@ relative to the file's depth and the active item chosen from the file's path. Th
 builders carry the same nav in their own templates (scripts/build_blog.py, scripts/build_catalog.py):
 change those too when NAV changes, or the next rebuild reverts their pages.
 
-Since 2026-11-05 the nav is organised by the question a visitor arrives with. Each item is
+Since 2026-11-05 the nav is organised by the question a visitor arrives with. Who It's For and its
+five guides are hidden from the nav and the search index since 2026-11-05 (owner: duplicative of the
+catalog); the pages remain at their URLs. Who It's For and its
+five guides are hidden from the nav and the search index since 2026-11-05 (owner: duplicative of the
+catalog); the pages remain at their URLs. Each item is
 (label, target, also-active): the pages on which the item shows as current besides its target,
 given as exact paths or as a folder with a trailing slash. CTA is the one button at the end of the
 nav, styled by `.nav__link--cta` in styles.css.
@@ -20,14 +24,10 @@ NAV = [
     ("What We&rsquo;re Building", "platform.html",
      ["how-it-works.html", "demo.html", "cosolvent.html", "marketforge.html", "mf-cosolvent.html",
       "mf-commoncontext.html", "mf-clientsynth.html", "architecture.html"]),
-    ("Examples", "examples.html",
-     ["testbeds.html", "marketmaps.html", "market-diagnostic.html"]),
-    ("Who It&rsquo;s For", "who-should-care.html",
-     ["guide-founders.html", "guide-investors.html", "guide-accelerators.html", "guide-associations.html",
-      "guide-government.html"]),
-    ("Library", "library.html",
-     ["ebook.html", "precis.html", "pitch-deck.html", "search.html"]),
     ("Catalog", "catalog/index.html", ["catalog/"]),
+    ("Library", "library.html",
+     ["ebook.html", "precis.html", "pitch-deck.html", "search.html", "testbeds.html", "marketmaps.html",
+      "market-diagnostic.html", "examples.html"]),
     ("Blog", "blog/index.html", ["blog/"]),
     ("About", "about.html", ["mission.html"]),
 ]
