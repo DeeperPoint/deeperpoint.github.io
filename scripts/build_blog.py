@@ -355,6 +355,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
+        <li><a href="{root}index.html" class="nav__link">Home</a></li>
         <li><a href="{root}market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
         <li><a href="{root}platform.html" class="nav__link">What We&rsquo;re Building</a></li>
         <li><a href="{root}catalog/index.html" class="nav__link">Catalog</a></li>

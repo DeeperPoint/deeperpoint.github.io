@@ -45,12 +45,13 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 ## Navigation
 
 Since 2026-11-05 the top-level navigation is organised by the question a visitor arrives with. The
-logo is the link home. `update_nav.py` holds the list and rewrites the nav on every page (run it from
+logo is also a link home; Home sits at the far left of the nav. `update_nav.py` holds the list and rewrites the nav on every page (run it from
 the site root after editing the list); `scripts/build_blog.py` and `scripts/build_catalog.py` carry
 the same list in their templates and must be changed with it.
 
 | Link | Page | Answers |
 |------|------|---------|
+| **Home** | `index.html` | The hook, the definition of a thin market, and one tile per question below |
 | **Why Markets Don't Form** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
 | **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, ClientSynth, architecture |
 | **Catalog** | `catalog/index.html` | The opportunity catalog, restored to the nav on 2026-11-05 at the owner's request |

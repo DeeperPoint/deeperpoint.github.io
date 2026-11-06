@@ -19,6 +19,7 @@ import os
 import re
 
 NAV = [
+    ("Home", "index.html", []),  # back at the far left on 2026-11-05 (owner); the logo links home too
     ("Why Markets Don&rsquo;t Form", "market-physics.html",
      ["intervention-matrix.html", "whitepaper.html", "cards/"]),
     ("What We&rsquo;re Building", "platform.html",
