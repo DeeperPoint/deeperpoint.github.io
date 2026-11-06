@@ -107,9 +107,11 @@
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
                 <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Free, Open Source, Headless</h2>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    DeeperPoint offers the solution &mdash; <strong style="color:#fff;">Cosolvent</strong> (the matching
-                    engine) plus <strong style="color:#fff;">CommonContext</strong> (the curated knowledge layer)
-                    &mdash; as free, MIT-licensed, <em>headless</em> server functionality. It is deliberately
+                    DeeperPoint offers the solution as three peer components &mdash; <strong style="color:#fff;">Cosolvent</strong>
+                    (the matching engine), <strong style="color:#fff;">CommonContext</strong> (the curated knowledge layer)
+                    and <strong style="color:#fff;">ClientSynth</strong> (synthetic populations for testing) &mdash; as free,
+                    open-source, <em>headless</em> server functionality: MIT for the first two, Apache 2.0 with one added
+                    term for ClientSynth. It is deliberately
                     <strong style="color:#fff;">not a shrink-wrap product</strong> for any market vertical, and probably
                     can't become one: everything vertical-specific is exactly what the adopter must own.
                 </p>
@@ -128,11 +130,8 @@
                 </p>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
                     To be precise about the boundaries: the <em>engine</em> is free; your vertical build and your
-                    operations are yours to fund. <strong style="color:#fff;">ClientSynth</strong>, the
-                    synthetic-population testing harness, is <strong style="color:#fff;">source-available</strong>: Apache 2.0
-                    terms with one added condition &mdash; synthetic participants keep their provenance marks and are
-                    never mixed with, or presented as, real ones. That restriction on the field of use is the only
-                    thing that keeps it from being open source in the formal sense. And because
+                    operations are yours to fund. ClientSynth&rsquo;s one added term is that synthetic participants
+                    keep their provenance marks and are never mixed with, or presented as, real ones. And because
                     Cosolvent&rsquo;s ingest schema is open, you can generate synthetic populations with
                     <em>any</em> tool &mdash; ClientSynth is a convenience, not a dependency.
                 </p>
@@ -141,7 +140,7 @@
                     <!-- Cosolvent -->
                     <a href="cosolvent.html" class="card card--build" style="text-decoration: none; padding: var(--space-lg); border-color: rgba(16, 185, 129, 0.3);">
                         <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">⚙️</div>
-                        <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source</span>
+                        <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source &middot; MIT</span>
                         <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Cosolvent</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
                             Headless semantic matching engine &mdash; multi-attribute similarity, privacy-aware
@@ -152,7 +151,7 @@
                     <!-- CommonContext -->
                     <a href="mf-commoncontext.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
                         <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">📚</div>
-                        <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source</span>
+                        <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source &middot; MIT</span>
                         <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">CommonContext</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
                             Curated vertical knowledge: regulations, certifications, rates &mdash; the context that
@@ -163,11 +162,11 @@
                     <!-- ClientSynth -->
                     <a href="mf-clientsynth.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
                         <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🧫</div>
-                        <span style="font-size: 0.6875rem; color: var(--dp-amber); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Source-Available</span>
+                        <span style="font-size: 0.6875rem; color: var(--dp-amber); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source &middot; Apache 2.0</span>
                         <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">ClientSynth</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                            Synthetic market populations for testing, demonstration and onboarding before real
-                            users arrive. Apache 2.0 terms, with one rule: synthetic and real participants are never mixed.
+                            Synthetic market populations for testing, demonstration and the cold start, before real
+                            users arrive. Apache 2.0, with one rule: synthetic and real participants are never mixed.
                         </p>
                     </a>
 
@@ -300,40 +299,6 @@
                     <a href="demo.html" class="btn btn--primary">Walk through a working twin &rarr;</a>
                     <a href="architecture.html" class="btn btn--outline">The architecture in four diagrams &rarr;</a>
                     <a href="marketforge.html" class="btn btn--outline">The sponsor&rsquo;s playbook &rarr;</a>
-                </div>
-            </div>
-
-            <!-- ClientSynth: proving the market before it exists -->
-            <div class="reveal">
-                <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6, 182, 212, 0.05); margin-bottom: var(--space-xl);">
-                    <div class="crosslink__text">
-                        <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Testing Harness</span>
-                        <h3 style="color: var(--dp-cyan); margin: 0.5rem 0;">ClientSynth: Proving the Market Before It Exists</h3>
-                        <p style="margin: 0 0 0.75rem; line-height: 1.6; color: var(--dp-silver);">
-                            While Cosolvent and CommonContext are open source, testing a new thin market requires
-                            realistic participants &mdash; which, by definition, a new market doesn't have yet.
-                            <strong style="color:#fff;">ClientSynth</strong> is DeeperPoint's simulation tool: it
-                            populates a Cosolvent instance with synthetic, agentic buyers and sellers whose profiles
-                            occupy the same schema positions as real ones, so the matching engine is exercised exactly
-                            as it will run live.
-                        </p>
-                        <p style="margin: 0 0 0.75rem; line-height: 1.6; color: var(--dp-silver);">
-                            This does two jobs. First, it lets a sponsor <strong style="color:#fff;">prove the market
-                            physics work</strong> &mdash; that the engine produces quality matches for their vertical
-                            &mdash; before risking real participants' capital or reputation. Second, it can help with
-                            the ubiquitous <strong style="color:#fff;">cold-start problem</strong>: every new
-                            marketplace needs buyers to attract sellers and sellers to attract buyers. A synthetic
-                            population on one side gives early real participants something credible to react to
-                            &mdash; a working demonstration instead of an empty room &mdash; until genuine liquidity
-                            takes over. Synthetic participants are always strictly segregated from real ones.
-                        </p>
-                        <p style="margin: 0 0 0.75rem; line-height: 1.6; color: var(--dp-silver); font-size: 0.875rem;">
-                            ClientSynth is source-available: Apache 2.0, plus terms that forbid mixing synthetic
-                            participants with real ones or presenting them as real. Or bring your own generator:
-                            the ingest schema is open.
-                        </p>
-                        <a href="mf-clientsynth.html" style="color: var(--dp-cyan); font-weight: 600; font-size: 0.875rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">ClientSynth details &rarr;</a>
-                    </div>
                 </div>
             </div>
 

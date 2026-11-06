@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosolvent Suite — DeeperPoint</title>
     <meta name="description"
-        content="The Cosolvent Suite brings together open-source infrastructure (Cosolvent & CommonContext) and source-available testing (ClientSynth, BUSL-1.1) to turn thin market theory into working software.">
+        content="The Cosolvent Suite brings together three open-source components (Cosolvent, CommonContext and ClientSynth, the last under Apache 2.0 with one added term) to turn thin market theory into working software.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -53,7 +53,7 @@
                     style="background: rgba(16, 185, 129, 0.1); color: var(--dp-emerald); border: 1px solid rgba(16, 185, 129, 0.3);">Cosolvent Suite</span>
                 <h1 class="section__title">Where the Theory Becomes Working Software</h1>
                 <p class="section__desc section__desc--centered">
-                    To make thin markets thicker, we need infrastructure that can handle complex matching without destroying nuance. We are building the open-source tools to do exactly that, alongside the proprietary simulation engine to test them.
+                    To make thin markets thicker, we need infrastructure that can handle complex matching without destroying nuance. We are building the open-source tools to do exactly that, alongside ClientSynth, the synthetic-population harness that tests them.
                 </p>
             </div>
         </div>
@@ -63,7 +63,7 @@
             <h2 style="font-family: var(--font-display); color: #fff; margin-bottom: 1.5rem; text-align: center;" class="reveal">The Open-Source Infrastructure</h2>
             
             <!-- Open Source Cards -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);"
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);"
                 class="reveal">
 
                 <!-- Cosolvent -->
@@ -85,8 +85,20 @@
                     <span
                         style="display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dp-amber); margin-bottom: 0.75rem;">Open Source · MIT Licensed</span>
                     <p class="door__hook">
-                        The metadata utility and domain knowledge manager. Structures and maintains the industry expertise required to operate the market—from regulatory frameworks to product ontologies. (Formerly CommonContext).
+                        The metadata utility and domain knowledge manager. Structures and maintains the industry expertise required to operate the market—from regulatory frameworks to product ontologies.
                     </p>
+                </div>
+
+                <!-- ClientSynth -->
+                <div class="card" style="padding: var(--space-lg); border-color: rgba(139, 92, 246, 0.3);">
+                    <div class="door__icon door__icon--science" style="background: rgba(139, 92, 246, 0.15); color: var(--dp-violet);">👥</div>
+                    <h3 class="door__title">ClientSynth</h3>
+                    <span
+                        style="display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dp-violet); margin-bottom: 0.75rem;">Open Source &middot; Apache 2.0 + one term</span>
+                    <p class="door__hook">
+                        Synthetic populations of buyers, sellers and intermediaries, so a Cosolvent instance can be stress-tested and demonstrated before real participants risk capital or reputation.
+                    </p>
+                    <a href="mf-clientsynth.html" class="btn btn--outline" style="margin-top: 1rem;">View ClientSynth Details →</a>
                 </div>
             </div>
 
@@ -96,25 +108,6 @@
                     <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
                         The Cosolvent and CommonContext suite provides the backend matching logic and ontology mapping. However, we deliberately defer the "last mile" — frontend participant interfaces, payment processing pipelines, trust protocol enforcement, and deep domain-specific business rules — to vertical market sponsors. 
                     </p>
-                </div>
-            </div>
-
-            <h2 style="font-family: var(--font-display); color: #fff; margin-bottom: 1.5rem; text-align: center;" class="reveal">The Proprietary Testing Harness</h2>
-
-            <!-- Proprietary Card -->
-            <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-lg); margin-bottom: var(--space-2xl);"
-                class="reveal">
-                
-                <!-- ClientSynth -->
-                <div class="card" style="padding: var(--space-lg); border-color: rgba(139, 92, 246, 0.3);">
-                    <div class="door__icon door__icon--science" style="background: rgba(139, 92, 246, 0.15); color: var(--dp-violet);">👥</div>
-                    <h3 class="door__title">ClientSynth</h3>
-                    <span
-                        style="display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dp-violet); margin-bottom: 0.75rem;">Source-Available (BUSL-1.1)</span>
-                    <p class="door__hook">
-                        Generates realistic synthetic populations of marketplace participants — buyers, sellers, intermediaries — for testing and demonstration purposes. It allows us to flood an open-source Cosolvent instance with agentic actors, stress-testing the market physics and verifying match rates before risking live participant capital or reputation.
-                    </p>
-                    <a href="mf-clientsynth.html" class="btn btn--outline" style="margin-top: 1rem;">View ClientSynth Details →</a>
                 </div>
             </div>
 
