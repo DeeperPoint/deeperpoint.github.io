@@ -4,11 +4,11 @@ Edit NAV (and CTA), then run `python update_nav.py` from the site root. Every HT
 site whose nav holds a `<ul class="nav__links">` block gets the block replaced, with hrefs made
 relative to the file's depth and the active item chosen from the file's path. The blog and catalog
 builders carry the same nav in their own templates (scripts/build_blog.py, scripts/build_catalog.py):
-change those too when NAV changes, or the next rebuild reverts their pages.
+change those too when NAV changes, or the next rebuild reverts their pages. The cards viewer carries it
+too (DeeperPointComms/library/resistance-cards/build_cards.py, SITE_NAV; since 2026-11-06): change it
+there as well, or the next `--sync` reverts cards/index.html.
 
 Since 2026-11-05 the nav is organised by the question a visitor arrives with. Who It's For and its
-five guides are hidden from the nav and the search index since 2026-11-05 (owner: duplicative of the
-catalog); the pages remain at their URLs. Who It's For and its
 five guides are hidden from the nav and the search index since 2026-11-05 (owner: duplicative of the
 catalog); the pages remain at their URLs. Each item is
 (label, target, also-active): the pages on which the item shows as current besides its target,
@@ -21,10 +21,10 @@ import re
 NAV = [
     ("Home", "index.html", []),  # back at the far left on 2026-11-05 (owner); the logo links home too
     ("Why Markets Don&rsquo;t Form", "market-physics.html",
-     ["intervention-matrix.html", "whitepaper.html", "cards/"]),
+     ["intervention-matrix.html", "whitepaper.html"]),
     ("What We&rsquo;re Building", "platform.html",
      ["how-it-works.html", "demo.html", "cosolvent.html", "marketforge.html", "mf-cosolvent.html",
-      "mf-commoncontext.html", "mf-clientsynth.html", "architecture.html"]),
+      "mf-commoncontext.html", "mf-clientsynth.html", "architecture.html", "cards/"]),  # cards/ moved here 2026-11-06
     ("Catalog", "catalog/index.html", ["catalog/"]),
     ("Library", "library.html",
      ["ebook.html", "precis.html", "pitch-deck.html", "search.html", "testbeds.html", "marketmaps.html",

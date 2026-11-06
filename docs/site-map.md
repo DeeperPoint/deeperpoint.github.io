@@ -2,6 +2,8 @@
 
 Snapshot of the site as it stands in the repository on 2026-11-06 (commit c7784d6), read from the HTML, YAML and Markdown on disk rather than from the live site. It exists to make overlaps, duplications and breaks in the logic flow visible in one place. Section 8 lists the candidates noticed while building the map; the judgement on each is the owner's.
 
+**Updated 2026-11-06:** the fifteen cards moved under What We're Building (owner's decision). The viewer was rebuilt as one card at a time with arrows and a menu, the doorway moved from Market Physics to platform.html, and the two Library tiles (cards, slides) were removed. The entries below reflect that move; everything else is as at c7784d6.
+
 How to read it:
 
 - **Path** is the file under the site root; the live URL is `https://deeperpoint.com/<path>`.
@@ -19,7 +21,7 @@ How to read it:
 | Hidden pages (noindex, out of nav) | 6 | Who It's For and its five guides |
 | Redirect stubs | 5 | examples, project, thin-markets, mf-curation, blog/knowledgeslot-schema-scoped-rag |
 | Unlinked side pages | 3 | hackathon/, tools/blackwidow-simulator, assets/business-card |
-| Cards | 16 | Gallery plus 15 standalone cards, synced from DeeperPointComms |
+| Cards | 16 | Viewer (one card at a time, arrows and menu) plus 15 standalone cards, synced from DeeperPointComms |
 | Catalog | 1 + 313 | 254 entries built from YAML, plus 59 orphan pages from retired sectors |
 | Blog | 1 + 78 + 7 | 56 posts with Markdown sources, 22 orphan posts, 7 series pages (1 current) |
 | PDFs | 16 | 8 under assets/mysitedocs (2 unlinked), 8 MarketMap reports |
@@ -29,8 +31,8 @@ Navigation, as set in `update_nav.py` and mirrored in the blog and catalog build
 | Nav item | Target | Also shown as current on |
 |---|---|---|
 | Home | index.html | |
-| Why Markets Don't Form | market-physics.html | intervention-matrix, whitepaper, cards/ |
-| What We're Building | platform.html | how-it-works, demo, cosolvent, marketforge, mf-cosolvent, mf-commoncontext, mf-clientsynth, architecture |
+| Why Markets Don't Form | market-physics.html | intervention-matrix, whitepaper |
+| What We're Building | platform.html | how-it-works, demo, cosolvent, marketforge, mf-cosolvent, mf-commoncontext, mf-clientsynth, architecture, cards/ |
 | Catalog | catalog/index.html | catalog/ |
 | Library | library.html | ebook, precis, pitch-deck, search, testbeds, marketmaps, market-diagnostic, examples |
 | Blog | blog/index.html | blog/ |
@@ -46,12 +48,12 @@ Indentation shows how a visitor reaches a page from the nav. A page shown under 
 ```
 Home                                   index.html
 ├─ Why Markets Don't Form              market-physics.html
-│  ├─ The fifteen cards                cards/index.html  →  cards/<slug>.html ×15
 │  ├─ The Intervention Matrix          intervention-matrix.html
 │  ├─ Whitepaper                       whitepaper.html   (+ MarketTheoryWP.pdf)
 │  └─ How It Works                     how-it-works.html
 ├─ What We're Building                 platform.html
 │  ├─ How It Works                     how-it-works.html
+│  ├─ The fifteen cards                cards/index.html  →  cards/<slug>.html ×15 (+ resistance-cards.pptx)
 │  ├─ *How an Implementation Is Built* architecture.html
 │  ├─ Live demo (ForgeTwin)            demo.html  →  external Vercel app
 │  ├─ Cosolvent Suite hub              cosolvent.html
@@ -63,8 +65,6 @@ Home                                   index.html
 ├─ Catalog                             catalog/index.html  →  catalog/<slug>.html ×254
 ├─ Library                             library.html
 │  ├─ Whitepaper                       whitepaper.html
-│  ├─ The fifteen cards                cards/index.html
-│  ├─ The cards as slides              cards/resistance-cards.pptx
 │  ├─ The Intervention Matrix          intervention-matrix.html
 │  ├─ The Middle Power Pivot           ebook.html (+ TheMiddlePowerPivot.pdf)
 │  │  ├─ Executive précis              precis.html
@@ -110,29 +110,29 @@ Redirects
 
 ### 3.1 Home
 
-**index.html** · *DeeperPoint — Activating Thin Markets with AI* · Revised: Nov 2026 (rewritten) · In: pitch-deck, cards/index, catalog/index, one blog post · Out: market-physics, platform, cards (gallery, trust, opacity, cold-start), catalog, library, contribute, about
+**index.html** · *DeeperPoint — Activating Thin Markets with AI* · Revised: Nov 2026 (rewritten) · In: pitch-deck, catalog/index, one blog post · Out: market-physics, platform, cards (gallery, trust, opacity, cold-start), catalog, library, contribute, about
 
 - **Markets don't make themselves.** (h1) Hero: thousands of markets never form; "we call them thin markets"; eighty years of economics explains why; the frictions can now be engineered away. Buttons to Why markets don't form and What we're building; pill "Open source · MIT · contributors welcome".
-- Three card thumbnails (Trust, Opacity, Cold Start) and "See all fifteen cards".
+- Three card thumbnails (Trust, Opacity, Cold Start), each opening the viewer on that card, and "See all fifteen cards".
 - Six question tiles: Why don't some markets form? · What are you building? · Show me the markets ("Hundreds of prospective thin markets across 29 sectors") · What should I read, and where does it apply? · Can I help? · Who is behind this?
 - **Built in the Open.** The friction-fighting layer is built once and reused; free, MIT-licensed; links to How to contribute and to the MIT rationale on the platform page.
 
 ### 3.2 Why Markets Don't Form
 
-**market-physics.html** · *The Market Physics of Thin Markets* · Revised: 2026-07-10, strip and seventh intervention added Nov 2026 · In: index, intervention-matrix, mission, testbeds, whitepaper, 54 blog posts, cards gallery · Out: cards (gallery and four cards), intervention-matrix, whitepaper (page and PDF), catalog, how-it-works, platform
+**market-physics.html** · *The Market Physics of Thin Markets* · Revised: 2026-07-10, strip and seventh intervention added Nov 2026 · In: index, intervention-matrix, mission, testbeds, whitepaper, 54 blog posts · Out: cards (gallery and four cards), intervention-matrix, whitepaper (page and PDF), catalog, how-it-works, platform
 
 - **Thick Markets, Thin Markets.** Defines thick (easy discovery, fair prices, quick, confident) and thin as its opposite.
-- **Why Markets Stay Thin, in Fifteen Cards.** 2×2 strip of card thumbnails; buttons to the gallery and the matrix.
 - **Eighty Years of Evidence.** Nobel-recognised research mapped the forces.
 - **How Markets Get Built Today.** Pick a product, build a web platform, then the real work begins.
 - **The Seven AI Interventions.** 1 AI Matching · 2 AI Trusted Intermediary · 3 AI Input Translation · 4 AI Memory & Active Sourcing · 5 AI-Enabled Aggregation · 6 AI Risk Insulation · 7 AI Synthetic Bootstrapping, each with "Covers:" challenges.
 - **Where the Interventions Become Visible: the Content Match Story.** Participants see a document, not a capability; the story becomes the Deal Brief.
 - Four closing tiles: Open the full Intervention Matrix · Read the full whitepaper · Browse the catalog ("Hundreds of searchable scenarios") · Download the whitepaper PDF. "Continue →" goes to platform.
 
-**cards/index.html** · *Thin-Market Resistances* · Synced 2026-11-05 from DeeperPointComms/library/resistance-cards · In: index, market-physics, intervention-matrix, library, contribute · Out: index, market-physics, intervention-matrix, 15 blog posts (one scenario per card)
+**cards/index.html** · *Thin-Market Resistances* · Synced 2026-11-06 from DeeperPointComms/library/resistance-cards (viewer rebuilt that day) · In: index, platform, intervention-matrix, contribute, plus one-line cross-references on market-physics and library · Out: platform, intervention-matrix, the scenario post behind each card, the deck and the PNGs
 
-- Header: "15 reasons a market stays thin, one per card"; the matrix is the exhaustive crossing. Links: deeperpoint.com · Why markets don't form · Intervention matrix.
-- One flip card per resistance; each has What it looks like (an illustrative scenario linked to a blog post), How an AI intervention works, How traditional markets cope, and on six cards "What's new here". The card list is in section 4.1.
+- Carries the site navigation with What We're Building active; crumb to What we're building and the Intervention matrix. "15 reasons a market stays thin, one per card"; the matrix is the exhaustive crossing.
+- One card on stage at a time: arrows either side, ← → keys, swipe, a menu of the fifteen grouped as existential gates and resistances, Full screen, and `#<slug>` deep links (cards/index.html#trust). Under the stage: Open card alone, PNG, Deck (.pptx).
+- Each card has What it looks like (an illustrative scenario linked to a blog post), How an AI intervention works, How traditional markets cope, and on six cards "What's new here". The card list is in section 4.1.
 
 **intervention-matrix.html** · *The Intervention Matrix* · Revised: 2026-07-09, regenerated 14×7 from canon Nov 2026 · In: library, market-physics, marketmaps, mission, whitepaper, 9 blog posts, cards gallery · Out: cards, market-physics, platform
 
@@ -158,11 +158,12 @@ Redirects
 
 ### 3.3 What We're Building
 
-**platform.html** · *The Platform* · Revised: 2026-07-10, licence and component grid revised Nov 2026 · In: index, architecture, intervention-matrix, market-physics, project (redirect) · Out: how-it-works, demo, architecture, marketforge, cosolvent, mf-commoncontext, mf-clientsynth, catalog, whitepaper
+**platform.html** · *The Platform* · Revised: 2026-07-10, licence and component grid revised Nov 2026 · In: index, architecture, intervention-matrix, market-physics, project (redirect) · Out: cards, how-it-works, demo, architecture, marketforge, cosolvent, mf-commoncontext, mf-clientsynth, catalog, whitepaper
 
 - **A Market Engine Built Once, For Any Thin Market.** (h1) "MIT License · $0 license cost"; the seven interventions in a generic engine; a sponsor adds the vertical.
 - Doorway pills: How it works · Live demo · Cosolvent · CommonContext · MarketForge · ClientSynth · How an implementation is built.
 - **Free, Open Source, Headless.** Cosolvent plus CommonContext as free, MIT, headless server functionality. *Why MIT? Because adoption is a thin market too.* Component tiles: Cosolvent · CommonContext · ClientSynth (source-available, Apache 2.0 terms, never mixed) · MarketForge.
+- **Fifteen Resistances, and What the Engine Does About Each.** (added 2026-11-06, moved from Market Physics) Four card thumbnails (Trust, Decision-Process Opacity, Temporal Distance, Cold Start); buttons to the viewer, the deck and the matrix. "Fifteen cards" is also the last doorway chip.
 - **How a Deal Forms.** Ingest → … → a deal ready to hand off, as one continuous flow.
 - **The Deal Brief — Not a Contract, a Handoff.** The platform's primary output.
 - **What Adopters Build On Top.** Branding, UX, legal templates, payment rails. *ClientSynth: Proving the Market Before It Exists.*
@@ -233,9 +234,9 @@ Redirects
 
 ### 3.5 Library
 
-**library.html** · *Library* · Nov 2026 (new; absorbed examples.html) · In: index, examples (redirect) · Out: whitepaper, cards, cards/resistance-cards.pptx, intervention-matrix, ebook, precis, pitch-deck, mission, search, catalog, testbeds, marketmaps, blog, market-diagnostic, demo
+**library.html** · *Library* · Nov 2026 (new; absorbed examples.html) · In: index, examples (redirect) · Out: whitepaper, cards (one cross-reference), intervention-matrix, ebook, precis, pitch-deck, mission, search, catalog, testbeds, marketmaps, blog, market-diagnostic, demo
 
-- **The documents.** Whitepaper · Why Markets Stay Thin (the cards) · The Cards as Slides · The Intervention Matrix · The Middle Power Pivot (with Executive précis and Pitch deck links beneath it) · The Mission · Search the Site.
+- **The documents.** Whitepaper · The Intervention Matrix · The Middle Power Pivot (with Executive précis and Pitch deck links beneath it) · The Mission · Search the Site.
 - **Worked examples.** Opportunity Catalog ("29 sectors") · Thin-Market Test Beds ("Twenty markets") · MarketMaps · Market Scenarios (blog stream) · Market Engineer's Diagnostic · Live Demo. Closing note on how to read an example.
 
 **ebook.html** · *The Middle Power Pivot — Free Ebook* · Revised: 2026-07-05 · In: library, pitch-deck, precis, one blog post · Out: TheMiddlePowerPivot.pdf, precis, pitch-deck
@@ -360,7 +361,7 @@ Each guide is about 600–800 words, links to `../contact/index.html` (a page th
 | 14 | Participant Fragmentation | Aggregation | yes | yes |
 | 15 | Technological Obsolescence | Risk Insulation · Memory | | yes |
 
-Source of truth: `DeeperPointComms/library/resistance-cards/content/*.yaml`; the site copy is never edited by hand.
+Source of truth: `DeeperPointComms/library/resistance-cards/content/*.yaml`; the site copy is never edited by hand. Since 2026-11-06 the cards live under What We're Building: the viewer carries the site nav with that item active, the doorway is on platform.html, and the Library no longer lists them or the deck.
 
 ### 4.2 The catalog (catalog/)
 
@@ -485,7 +486,7 @@ The "In-Depth View" button promises each test bed in detail but opens the catalo
 | assets/mysitedocs/DeeperPointPlan.pdf | nothing |
 | assets/mysitedocs/webforgeroadmap.pdf | nothing |
 | assets/marketmaps/convoy-2023/*.pdf (4), convoy-dat/*.pdf (4) | marketmaps |
-| cards/resistance-cards.pptx | library |
+| cards/resistance-cards.pptx | platform, cards viewer |
 
 ---
 
@@ -534,7 +535,7 @@ Three pages define a thin market in their own words: Home ("willing buyers and s
 | AI interventions | seven | index, market-physics, intervention-matrix, platform |
 | | eight, under different names (Input Friction Reduction, User Aggregation, AI-Driven Matching, AI as Institutional Memory, Dynamic Pricing and Valuation, Asynchronous Brokerage, Trusted Intermediation, Synthetic Market Bootstrapping) | whitepaper Part V |
 | Challenges / frictions | fourteen | intervention-matrix, mission |
-| | fifteen cards (fourteen plus Decision-Process Opacity) | cards, index, library, market-physics, contribute |
+| | fifteen cards (fourteen plus Decision-Process Opacity) | cards, index, platform, contribute |
 | | twelve | pitch-deck ("Twelve Frictions"), precis |
 | | eleven | marketmaps ("11-challenge framework") |
 | | nine named plus Friction Multipliers (3 existential, 6 resistance) | whitepaper Part II |
