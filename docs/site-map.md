@@ -1,13 +1,19 @@
 # deeperpoint.github.io: site map and table of contents
 
-Snapshot of the site as it stands in the repository on 2026-11-06 (commit c7784d6), read from the HTML, YAML and Markdown on disk rather than from the live site. It exists to make overlaps, duplications and breaks in the logic flow visible in one place. Section 8 lists the candidates noticed while building the map; the judgement on each is the owner's.
+Snapshot of the site as it stands in the repository on 2026-11-06 (commit e7f7518; first built at c7784d6 the same morning and refreshed after the day's changes), read from the HTML, YAML and Markdown on disk rather than from the live site. It exists to make overlaps, duplications and breaks in the logic flow visible in one place. Section 8 lists the candidates noticed while building the map; the judgement on each is the owner's.
 
-**Updated 2026-11-06:** the fifteen cards moved under What We're Building (owner's decision). The viewer was rebuilt as one card at a time with arrows and a menu, the doorway moved from Market Physics to platform.html, and the two Library tiles (cards, slides) were removed. ClientSynth became a peer of Cosolvent and CommonContext the same day on platform.html and cosolvent.html: one tile, no separate block, licence named as "Apache 2.0 with one condition" and no open-source claim for ClientSynth, since its LICENSE file disclaims the term. The entries below reflect both changes; everything else is as at c7784d6.
+**Changes between the two snapshots (all 2026-11-06, owner's decisions):**
+
+- The fifteen cards moved under What We're Building. cards/index.html is now a viewer (one card on stage, arrows, keys, swipe, a menu of all fifteen, full screen, `#<slug>` deep links) that carries the site nav; the doorway block moved from Market Physics to platform.html; the Library's cards and slides tiles are gone; Home's three thumbnails open the viewer on their card. One-line cross-references remain on Market Physics and the Library.
+- ClientSynth is presented as a peer of Cosolvent and CommonContext: one tile on platform.html (the separate block at the foot of the page is gone; its two-jobs paragraph moved to mf-clientsynth.html) and the same grid on cosolvent.html (the "Proprietary Testing Harness" section and its BUSL-1.1 label are gone).
+- ClientSynth's licence reads "Apache 2.0 with one condition" everywhere, with the condition stated beside it. The site no longer calls ClientSynth open source, because `ClientSynth/LICENSE` says it is not open source under the Open Source Definition; nor does it say source-available, except on the hackathon page.
+
+Sections 7 and 8 end with what those changes resolved and what they did not.
 
 How to read it:
 
 - **Path** is the file under the site root; the live URL is `https://deeperpoint.com/<path>`.
-- **Revised** is the last commit that changed the page's content before the November 2026 reorganisation of the navigation. Pages marked *Nov 2026* were rewritten or materially changed in that reorganisation (2026-11-03 to 2026-11-05).
+- **Revised** is the last commit that changed the page's content before the November 2026 reorganisation of the navigation. Pages marked *Nov 2026* were rewritten or materially changed in that reorganisation (2026-11-03 to 2026-11-06).
 - **In** lists the pages whose body text links to this page (navigation and footer links are excluded, so this shows editorial reachability). **Out** lists what the page's body links to.
 - Section headings are given as they appear on the page, each with a one-line gist.
 
@@ -110,7 +116,7 @@ Redirects
 
 ### 3.1 Home
 
-**index.html** · *DeeperPoint — Activating Thin Markets with AI* · Revised: Nov 2026 (rewritten) · In: pitch-deck, catalog/index, one blog post · Out: market-physics, platform, cards (gallery, trust, opacity, cold-start), catalog, library, contribute, about
+**index.html** · *DeeperPoint — Activating Thin Markets with AI* · Revised: Nov 2026 (rewritten) · In: pitch-deck, catalog/index, one blog post · Out: market-physics, platform, cards (the viewer, opened on trust, opacity and cold-start), catalog, library, contribute, about
 
 - **Markets don't make themselves.** (h1) Hero: thousands of markets never form; "we call them thin markets"; eighty years of economics explains why; the frictions can now be engineered away. Buttons to Why markets don't form and What we're building; pill "Open source · MIT · contributors welcome".
 - Three card thumbnails (Trust, Opacity, Cold Start), each opening the viewer on that card, and "See all fifteen cards".
@@ -119,22 +125,23 @@ Redirects
 
 ### 3.2 Why Markets Don't Form
 
-**market-physics.html** · *The Market Physics of Thin Markets* · Revised: 2026-07-10, strip and seventh intervention added Nov 2026 · In: index, intervention-matrix, mission, testbeds, whitepaper, 54 blog posts · Out: cards (gallery and four cards), intervention-matrix, whitepaper (page and PDF), catalog, how-it-works, platform
+**market-physics.html** · *The Market Physics of Thin Markets* · Revised: 2026-07-10, seventh intervention added Nov 2026; the card strip added 2026-11-05 moved to platform 2026-11-06 · In: index, intervention-matrix, mission, testbeds, whitepaper, 54 blog posts · Out: cards (one cross-reference), intervention-matrix, whitepaper (page and PDF), catalog, how-it-works, platform
 
 - **Thick Markets, Thin Markets.** Defines thick (easy discovery, fair prices, quick, confident) and thin as its opposite.
 - **Eighty Years of Evidence.** Nobel-recognised research mapped the forces.
 - **How Markets Get Built Today.** Pick a product, build a web platform, then the real work begins.
 - **The Seven AI Interventions.** 1 AI Matching · 2 AI Trusted Intermediary · 3 AI Input Translation · 4 AI Memory & Active Sourcing · 5 AI-Enabled Aggregation · 6 AI Risk Insulation · 7 AI Synthetic Bootstrapping, each with "Covers:" challenges.
 - **Where the Interventions Become Visible: the Content Match Story.** Participants see a document, not a capability; the story becomes the Deal Brief.
-- Four closing tiles: Open the full Intervention Matrix · Read the full whitepaper · Browse the catalog ("Hundreds of searchable scenarios") · Download the whitepaper PDF. "Continue →" goes to platform.
+- Four closing tiles: Open the full Intervention Matrix (with the one-line pointer to the cards) · Read the full whitepaper · Browse the catalog ("Hundreds of searchable scenarios") · Download the whitepaper PDF. "Continue →" goes to platform.
 
 **cards/index.html** · *Thin-Market Resistances* · Synced 2026-11-06 from DeeperPointComms/library/resistance-cards (viewer rebuilt that day) · In: index, platform, intervention-matrix, contribute, plus one-line cross-references on market-physics and library · Out: platform, intervention-matrix, the scenario post behind each card, the deck and the PNGs
 
 - Carries the site navigation with What We're Building active; crumb to What we're building and the Intervention matrix. "15 reasons a market stays thin, one per card"; the matrix is the exhaustive crossing.
 - One card on stage at a time: arrows either side, ← → keys, swipe, a menu of the fifteen grouped as existential gates and resistances, Full screen, and `#<slug>` deep links (cards/index.html#trust). Under the stage: Open card alone, PNG, Deck (.pptx).
 - Each card has What it looks like (an illustrative scenario linked to a blog post), How an AI intervention works, How traditional markets cope, and on six cards "What's new here". The card list is in section 4.1.
+- In the static HTML only the first card's Open card alone and PNG links exist; the script rewrites them for the card on stage. The other fourteen standalone pages are therefore reached only through the viewer's script, or from each other's previous and next links (section 7).
 
-**intervention-matrix.html** · *The Intervention Matrix* · Revised: 2026-07-09, regenerated 14×7 from canon Nov 2026 · In: library, market-physics, marketmaps, mission, whitepaper, 9 blog posts, cards gallery · Out: cards, market-physics, platform
+**intervention-matrix.html** · *The Intervention Matrix* · Revised: 2026-07-09, regenerated 14×7 from canon Nov 2026 · In: library, market-physics, marketmaps, mission, platform, whitepaper, 9 blog posts, cards viewer · Out: cards, market-physics, platform
 
 - Banner: this is the reference view; the cards are the one-reason-at-a-time view.
 - **Traditional Responses.** Standardization, human broker, market maker, storage and futures, co-location, clearinghouse, against fourteen challenges.
@@ -158,12 +165,12 @@ Redirects
 
 ### 3.3 What We're Building
 
-**platform.html** · *The Platform* · Revised: 2026-07-10, licence and component grid revised Nov 2026 · In: index, architecture, intervention-matrix, market-physics, project (redirect) · Out: cards, how-it-works, demo, architecture, marketforge, cosolvent, mf-commoncontext, mf-clientsynth, catalog, whitepaper
+**platform.html** · *The Platform* · Revised: 2026-07-10; licence wording, component grid and the cards block revised 2026-11-05 and 2026-11-06 · In: index, architecture, intervention-matrix, market-physics, cards viewer, project (redirect) · Out: cards (viewer, four cards, deck), intervention-matrix, how-it-works, demo, architecture, marketforge, cosolvent, mf-commoncontext, mf-clientsynth, catalog, whitepaper
 
 - **A Market Engine Built Once, For Any Thin Market.** (h1) "MIT License · $0 license cost"; the seven interventions in a generic engine; a sponsor adds the vertical.
-- Doorway pills: How it works · Live demo · Cosolvent · CommonContext · MarketForge · ClientSynth · How an implementation is built.
-- **Free, Open Source, Headless.** Cosolvent, CommonContext and ClientSynth as free, headless server functionality (MIT, MIT, Apache 2.0 with one condition). *Why MIT? Because adoption is a thin market too.* Component tiles: Cosolvent · CommonContext · ClientSynth (Apache 2.0 with one condition) · MarketForge.
-- **Fifteen Resistances, and What the Engine Does About Each.** (added 2026-11-06, moved from Market Physics) Four card thumbnails (Trust, Decision-Process Opacity, Temporal Distance, Cold Start); buttons to the viewer, the deck and the matrix. "Fifteen cards" is also the last doorway chip.
+- Doorway pills: How it works · Live demo · Cosolvent · CommonContext · MarketForge · ClientSynth · How an implementation is built · Fifteen cards.
+- **Free, Open Source, Headless.** Three peer components as free, headless server functionality: Cosolvent and CommonContext under MIT, ClientSynth under Apache 2.0 with one condition (the condition is stated in the boundaries paragraph). *Why MIT? Because adoption is a thin market too.* Tiles labelled by licence: Cosolvent (Open Source · MIT) · CommonContext (Open Source · MIT) · ClientSynth (Apache 2.0 with one condition) · MarketForge (Deployment Framework). The heading still says Open Source over all four.
+- **Fifteen Resistances, and What the Engine Does About Each.** (added 2026-11-06, moved from Market Physics) Four card thumbnails (Trust, Decision-Process Opacity, Temporal Distance, Cold Start); buttons to the viewer, the deck and the matrix.
 - **How a Deal Forms.** Ingest → … → a deal ready to hand off, as one continuous flow.
 - **The Deal Brief — Not a Contract, a Handoff.** The platform's primary output.
 - **What Adopters Build On Top.** Branding, UX, legal templates, payment rails.
@@ -190,11 +197,10 @@ Redirects
 
 - **ForgeTwin Simulation Sandbox.** (h1) Three personas (machine shop, aerospace buyer, lab inspector). *Sandbox Simulation Notice*: pre-compiled client-side simulation, no live LLM calls.
 
-**cosolvent.html** · *Cosolvent Suite* · Revised: 2026-07-07 · In: guide-founders, guide-investors, market-diagnostic, marketforge, mf-clientsynth, mf-commoncontext, mf-cosolvent, mission, platform, 12 blog posts · Out: mf-cosolvent, mf-clientsynth, catalog
+**cosolvent.html** · *Cosolvent Suite* · Revised: 2026-07-07; ClientSynth made a peer and relabelled 2026-11-06 · In: guide-founders, guide-investors, market-diagnostic, marketforge, mf-clientsynth, mf-commoncontext, mf-cosolvent, mission, platform, 12 blog posts · Out: mf-cosolvent, mf-clientsynth, catalog
 
-- **Where the Theory Becomes Working Software.** (h1) Open-source tools "alongside ClientSynth, the synthetic-population harness that tests them" (reworded 2026-11-06).
-- **The Three Components.** (renamed 2026-11-06 from The Open-Source Infrastructure) Cosolvent (MIT) · CommonContext (MIT) · *The Customization Boundary* (front end, payments and trust workflows deferred to the sponsor).
-- ClientSynth sits in the same grid as Cosolvent and CommonContext, "Apache 2.0 with one condition" (2026-11-06; until then a separate "Proprietary Testing Harness" section labelled BUSL-1.1).
+- **Where the Theory Becomes Working Software.** (h1) "We are building the open-source tools to do exactly that, alongside ClientSynth, the synthetic-population harness that tests them."
+- **The Three Components.** (until 2026-11-06 "The Open-Source Infrastructure" plus a separate "Proprietary Testing Harness" section) One grid: Cosolvent (Open Source · MIT Licensed) · CommonContext (Open Source · MIT Licensed) · ClientSynth (Apache 2.0 with one condition). *The Customization Boundary* (front end, payments and trust workflows deferred to the sponsor).
 - **Browse the catalog of examples.** "Over 250 searchable thin market scenarios."
 
 **mf-cosolvent.html** · *Cosolvent — Headless Marketplace Engine* · Revised: 2026-07-10 · In: cosolvent, how-it-works, one blog post · Out: cosolvent, Coswebroadmap.pdf, GitHub cosolvent-beta
@@ -208,10 +214,10 @@ Redirects
 - **Make The Unmatchable, Matchable.** Semantic "Knowledge Slots"; "the proprietary data-refinement wing of the MarketForge ensemble". *How It Integrates*: extraction, normalization, feeding Cosolvent.
 - **CommonContext Feature Overview.** Document ingestion, semantic chunking, and so on.
 
-**mf-clientsynth.html** · *ClientSynthAI — MarketForge Ecosystem* · Revised: 2026-07-07, licence box rewritten Nov 2026 · In: cosolvent, marketmaps, mission, platform · Out: cosolvent, ClientSwebroadmap.pdf
+**mf-clientsynth.html** · *ClientSynthAI — MarketForge Ecosystem* · Revised: 2026-07-07; licence box rewritten 2026-11-05 and 2026-11-06, two-jobs paragraph added 2026-11-06 · In: cosolvent, marketmaps, mission, platform · Out: cosolvent, ClientSwebroadmap.pdf
 
-- Badge "Apache 2.0 with one condition".
-- **Safely Test Your Theories.** Licensing paragraph (Apache 2.0 with ClientSynth Additional Terms; no mixing; provenance marks). *Ethical Usage Policy* box. *Core Advantages*.
+- Badge "MarketForge • Apache 2.0 with one condition".
+- **Safely Test Your Theories.** Two jobs (prove the market physics work; seed the cold start with a visibly synthetic population). Licensing paragraph: Apache License 2.0 with one condition, set out in the ClientSynth Additional Terms (never mixed with real participants, never presented as real, provenance marks kept). *Ethical Usage Policy* box. *Core Advantages*.
 - **ClientSynth Feature Overview.** Feature table.
 
 **marketforge.html** · *MarketForge Platform* · Revised: 2026-07-05 · In: mission, platform, 30 blog posts · Out: cosolvent, demo, MarketForgeCreationGuide.pdf
@@ -234,7 +240,7 @@ Redirects
 
 ### 3.5 Library
 
-**library.html** · *Library* · Nov 2026 (new; absorbed examples.html) · In: index, examples (redirect) · Out: whitepaper, cards (one cross-reference), intervention-matrix, ebook, precis, pitch-deck, mission, search, catalog, testbeds, marketmaps, blog, market-diagnostic, demo
+**library.html** · *Library* · Nov 2026 (new; absorbed examples.html; cards and slides tiles removed 2026-11-06) · In: index, examples (redirect) · Out: whitepaper, cards (one cross-reference), intervention-matrix, ebook, precis, pitch-deck, mission, search, catalog, testbeds, marketmaps, blog, market-diagnostic, demo
 
 - **The documents.** Whitepaper · The Intervention Matrix · The Middle Power Pivot (with Executive précis and Pitch deck links beneath it) · The Mission · Search the Site.
 - **Worked examples.** Opportunity Catalog ("29 sectors") · Thin-Market Test Beds ("Twenty markets") · MarketMaps · Market Scenarios (blog stream) · Market Engineer's Diagnostic · Live Demo. Closing note on how to read an example.
@@ -315,7 +321,7 @@ Redirects
 **contribute.html** · *Contribute* · Nov 2026 (new) · In: index (and every nav bar and footer) · Out: about, cards, catalog, marketmaps, mf-commoncontext, whitepaper, GitHub (three repos, issues, CONTRIBUTING)
 
 - **Open to Anyone Who Wants In.** (h1) Self-funded, no investors, no board; MIT engine.
-- **The code.** Cosolvent (MIT) · CommonContext (MIT) · ClientSynth (Apache 2.0 terms, one rule).
+- **The code.** Cosolvent (MIT) · CommonContext (MIT) · ClientSynth (Apache 2.0 with one condition).
 - **Help that is not code.** Knowledge of a market · a market to test on · judgment on the catalog and MarketMaps · words on the cards.
 - **How to start.** Read the cards or the whitepaper; open an issue; contributor guide; write via About. Closing box: "work and judgment, not money".
 
@@ -501,14 +507,14 @@ The "In-Depth View" button promises each test bed in detail but opens the catalo
 | cards/ | ● | ○ | ○ | ○ | | | | | ○ | ○ | ○ | |
 | intervention-matrix | ● | | | | | | | | | ○ | | |
 | whitepaper | ● (eight, older names) | | | ○ | ○ | ○ | ○ | | ○ | ● | ● | |
-| platform | ○ | ○ | ● | ● | ● | ● | ○ | | ● | ○ | | MIT + Apache |
+| platform | ○ | ○ | ● | ● | ● | ● | ○ | | ● | ○ | | MIT; Apache 2.0 + one condition |
 | how-it-works | | ● | ● | ○ | ○ | | | | ○ | | | |
 | architecture | | ● | ● | | | | | | ● | | | |
 | demo | | | | ○ | | | ○ | | | | | |
-| cosolvent | ○ | | | ● | ○ | ○ | | | ○ | | | MIT + Apache 2.0 |
+| cosolvent | ○ | | | ● | ○ | ○ | | | ○ | | | MIT; Apache 2.0 + one condition |
 | mf-cosolvent | ○ | ● | ● | ● | ○ | ○ | ○ | | ● | | | MIT |
 | mf-commoncontext | | ○ | | ● | ● | | ○ | | ○ | | | "Proprietary" |
-| mf-clientsynth | | | | ● | | ● | ○ | | ○ | | | Apache |
+| mf-clientsynth | | | | ● | | ● | ○ | | ○ | | | Apache 2.0 + one condition |
 | marketforge | | | | ○ | ○ | | ○ | | ○ | | | MIT |
 | catalog/ | ○ | ○ | | ● | ● | | ● | | ● | | ● | |
 | library | | | | | | | | ○ | | | ○ | |
@@ -520,9 +526,9 @@ The "In-Depth View" button promises each test bed in detail but opens the catalo
 | marketmaps | ○ | | | | | ● | | ● | ○ | ○ | | |
 | market-diagnostic | ○ | | | | | ○ | | | | ● | | |
 | about | ○ | | | ○ | | | | | | | ○ | MIT |
-| contribute | ○ | ○ | ○ | ○ | ○ | ○ | | | | | | MIT + Apache |
+| contribute | ○ | ○ | ○ | ○ | ○ | ○ | | | | | | MIT; Apache 2.0 + one condition |
 | guides (5) | ○ | | | ● | | ○ | | ○ | ○ | ○ | ○ | MIT |
-| hackathon | | | | ● | ● | ● | ○ | | | | ○ | MIT + Apache |
+| hackathon | | | | ● | ● | ● | ○ | | | | ○ | MIT; source-available |
 
 Three pages define a thin market in their own words: Home ("willing buyers and sellers who cannot find each other, trust each other, or close a deal"), Market Physics ("the opposite" of a thick market), Mission ("willing buyers and willing sellers exist and a transaction would genuinely benefit both but the transaction doesn't happen"); the hackathon page has a fourth ("defined by the frictions between willing counterparties, not by how few of them there are"). The whitepaper's definition is friction, not volume.
 
@@ -554,8 +560,8 @@ Three pages define a thin market in their own words: Home ("willing buyers and s
 | | four: domain wiki, CommonContext, ClientSynth, Cosolvent | hackathon |
 | | "four layers", Cosolvent the open core, "upper layers proprietary" | mission |
 | Cosolvent licence | MIT | everywhere it is named |
-| ClientSynth licence | Apache 2.0 with synthetic-data terms; no mixing | platform, mf-clientsynth, contribute, hackathon |
-| | ClientSynth "Apache 2.0 with one condition" since 2026-11-06 (was BUSL-1.1 and "proprietary") | cosolvent |
+| ClientSynth licence | "Apache 2.0 with one condition" (never mixed with real participants, never presented as real, provenance marks kept); not called open source | platform, cosolvent, mf-clientsynth, contribute (since 2026-11-06; cosolvent said BUSL-1.1 and "proprietary" until then) |
+| | "source-available" | hackathon; also what the LICENSE file calls itself |
 | | "open-source on GitHub under the MIT licence" (all four components) | pitch-deck |
 | CommonContext licence | MIT | contribute, cosolvent, platform |
 | | "Proprietary" badge; "the proprietary data-refinement wing" | mf-commoncontext |
@@ -587,6 +593,7 @@ Three pages define a thin market in their own words: Home ("willing buyers and s
 **Reachability**
 
 - Only one body link reaches architecture.html (from platform), testbeds.html (from library) and market-diagnostic.html (from library).
+- The fifteen standalone card pages (cards/<slug>.html) are reached only through the viewer, whose Open card alone and PNG links are rewritten by script for the card on stage; in the static HTML only Trust's are present. Nothing else on the site links them since Home and Market Physics switched to viewer deep links (2026-11-06).
 - who-should-care.html is hidden from nav and search, but 20 blog posts still call it ("Who should build this? →").
 - mission.html links to the orphan post *Thin Markets Are Why Canada Can't Diversify Its Trade*, which has no Markdown source and survives only because the HTML is committed.
 - The search index (Pagefind) is built over every HTML file deployed, so the 59 orphan catalog pages, the 22 orphan posts and the 6 retired series pages all appear in search results. Pages carrying a noindex meta (the hackathon page, Who It's For, the guides and the redirect stubs) are the only ones it skips.
@@ -595,11 +602,11 @@ Three pages define a thin market in their own words: Home ("willing buyers and s
 
 | Footer links | Pages |
 |---|---|
-| Home · Search · Contribute · GitHub | 19 pages, including the blog index and the hidden pages |
+| Home · Search · Contribute · GitHub | 20 pages, including the blog index, the hidden pages and, since 2026-11-06, the cards viewer |
 | Home · Search · About · Contribute · GitHub | index, how-it-works, ebook, precis, marketmaps, search |
 | Home · Search · Platform · Contribute · GitHub | architecture |
 | Home · Search · Cosolvent Suite | mf-cosolvent, mf-commoncontext, mf-clientsynth |
-| none | catalog index and entries, demo, pitch-deck, hackathon, redirects |
+| none | catalog index and entries, demo, pitch-deck, hackathon, redirects, the 15 standalone cards (their only footer is the card face's matrix link) |
 
 ---
 
@@ -610,7 +617,7 @@ Noticed while building the map. Each is a candidate, not a verdict.
 **Overlaps (the same thing told in more than one place)**
 
 1. **The Content Match Story → Deal Brief progression** is told at length four times: market-physics ("Where the Interventions Become Visible"), how-it-works (the whole page), mf-cosolvent (two sections), platform ("How a Deal Forms", "The Deal Brief"). The blog post *The Match Argument* is a fifth.
-2. **The component roster** is listed on nine pages with three different rosters (section 6). platform.html and cosolvent.html do the same job: roster, licence, customization boundary. cosolvent.html is the hub the three mf-* pages return to ("Back to Ecosystem", footer), while the nav sends visitors to platform.html. Two hubs for one question.
+2. **The component roster** is listed on nine pages with three different rosters (section 6). platform.html and cosolvent.html do the same job: roster, licence, customization boundary. cosolvent.html is the hub the three mf-* pages return to ("Back to Ecosystem", footer), while the nav sends visitors to platform.html. Two hubs for one question. ClientSynth is now treated the same on both (2026-11-06), which removes one difference between them, not the duplication.
 3. **How a vertical is built** is described three ways: architecture.html (four diagrams), marketforge.html (five phases, twelve steps, digital twin, curation loops) and mf-commoncontext.html (How It Integrates). The hackathon page is a fourth and the most current, but unlinked.
 4. **The Middle Power Pivot material** exists as the ebook, précis and pitch deck; as whitepaper Part X; as guide-government; and as 22 orphan posts and 6 retired series pages on flexible specialization, the Ontario roadmap and Middle Power strategy that are still served and searchable.
 5. **Test beds, catalog and scenario stories** are three samplings of the same idea at three dates (20 → 254 → 22 stories). testbeds.html predates the catalog, counts it as "over 100", and its "In-Depth View" button leads to the catalog index.
@@ -619,7 +626,7 @@ Noticed while building the map. Each is a candidate, not a verdict.
 
 **Contradictions**
 
-8. **Licensing** is inconsistent across cosolvent.html (fixed 2026-11-06), mf-commoncontext.html ("Proprietary"), pitch-deck.html (all four MIT) and mission.html ("upper layers are proprietary"), against platform, contribute, mf-clientsynth and hackathon (MIT engine; ClientSynth Apache 2.0 with synthetic-data terms).
+8. **Licensing** was inconsistent across the site. Since 2026-11-06 platform, cosolvent, contribute and mf-clientsynth agree: Cosolvent and CommonContext MIT, ClientSynth "Apache 2.0 with one condition". Still differing: mf-commoncontext.html ("Proprietary" badge, "the proprietary data-refinement wing"), pitch-deck.html (all four components MIT), mission.html ("the upper layers are proprietary"), and the hackathon page ("source-available", which is what the LICENSE file calls itself but not what the site now says).
 9. **Challenge taxonomy** differs between the whitepaper (nine plus multipliers), the diagnostic (thirteen), the matrix (fourteen), the cards (fifteen), the précis and deck (twelve) and MarketMaps (eleven). The whitepaper is offered as "the full version" of the argument but uses the oldest taxonomy and eight interventions under names the rest of the site no longer uses.
 10. **MarketForge** is a roadmap on platform.html and marketforge.html, an "orchestration layer" component in the deck and précis, and an ecosystem brand in the mf-* page titles.
 11. **Repository** names differ: DeeperPoint/Cosolvent (contribute, mission) and DeeperPoint/cosolvent-beta (mf-cosolvent).
@@ -633,3 +640,10 @@ Noticed while building the map. Each is a candidate, not a verdict.
 16. **The blog** shows 12 of 51 public posts as "other" because they carry no stream, including one titled "Workshop Notes".
 17. **The hackathon page** is the only place the domain wiki is named and the clearest statement of the real/synthetic firewall; it is unlinked and noindexed.
 18. **Two unlinked PDFs** (DeeperPointPlan.pdf, webforgeroadmap.pdf) and the Black Widow simulator are deployed with no page pointing at them.
+
+**Resolved between the two snapshots (2026-11-06)**
+
+- The cards were listed in three places (Home strip, Market Physics block, two Library tiles) with no single home. They now have one, under What We're Building; Home's strip and two one-line cross-references point at it.
+- ClientSynth was told three times on platform.html (an exception clause in the licence paragraph, a tile labelled differently from its peers, a full block at the foot of the page) and sat in a separate "proprietary" section on cosolvent.html. It is now one tile among peers on both pages.
+- cosolvent.html's BUSL-1.1 label and "proprietary simulation engine" wording, and a stale "(Formerly CommonContext)" note on its CommonContext card.
+- Direct links to the standalone card pages on Home and Market Physics became viewer deep links, so the standalone pages are now viewer-only (section 7).
