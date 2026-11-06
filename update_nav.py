@@ -1,77 +1,80 @@
+"""Rewrite the site navigation on every page that carries one.
+
+Edit NAV, then run `python update_nav.py` from the site root. Every HTML file under the site whose
+nav holds a `<ul class="nav__links">` block gets the block replaced, with hrefs made relative to the
+file's depth and the active item chosen from the file's path. The blog and catalog builders carry
+the same nav in their own templates (scripts/build_blog.py, scripts/build_catalog.py): change those
+too when NAV changes, or the next rebuild reverts their pages.
+
+Since 2026-11-05 the nav is organised by the question a visitor arrives with. Each item is
+(label, target, also-active): the pages on which the item shows as current besides its target,
+given as exact paths or as a folder with a trailing slash.
+"""
 import os
 import re
 
-new_nav_items = [
-    ("Home", "index.html"),
-    ("Market Physics", "market-physics.html"),
-    ("Platform", "platform.html"),
-    ("Demo", "demo.html"),
-    ("Catalog", "catalog/index.html"),
-    ("MarketMaps", "marketmaps.html"),
-    ("Blog", "blog/index.html"),
-    ("Ebook", "ebook.html"),
-    ("About", "about.html")
+NAV = [
+    ("Why Markets Stay Thin", "market-physics.html",
+     ["intervention-matrix.html", "whitepaper.html", "cards/"]),
+    ("What We Built", "platform.html",
+     ["how-it-works.html", "demo.html", "cosolvent.html", "marketforge.html", "mf-cosolvent.html",
+      "mf-commoncontext.html", "mf-clientsynth.html", "architecture.html"]),
+    ("Examples", "examples.html",
+     ["catalog/", "testbeds.html", "marketmaps.html"]),
+    ("Who It&rsquo;s For", "who-should-care.html",
+     ["guide-founders.html", "guide-investors.html", "guide-accelerators.html", "guide-associations.html",
+      "guide-government.html"]),
+    ("Library", "library.html",
+     ["ebook.html", "precis.html", "pitch-deck.html", "search.html"]),
+    ("Blog", "blog/index.html", ["blog/"]),
+    ("About", "about.html", ["mission.html"]),
 ]
 
-def get_relative_prefix(filepath):
-    parts = filepath.split('/')
-    if parts[0] == '.':
-        parts = parts[1:]
-    depth = len(parts) - 1
-    if depth == 0:
-        return ""
-    return "../" * depth
+NAV_RE = re.compile(r'^[ \t]*<ul class="nav__links">.*?</ul>', re.MULTILINE | re.DOTALL)
 
-def build_nav_html(prefix, current_filepath):
-    parts = current_filepath.split('/')
-    if parts[0] == '.':
-        parts = parts[1:]
-    normalized_current = "/".join(parts)
-    
+
+def is_active(current: str, target: str, also: list[str]) -> bool:
+    for a in [target] + list(also):
+        if a.endswith("/"):
+            if current.startswith(a):
+                return True
+        elif current == a:
+            return True
+    return False
+
+
+def build_nav(current: str) -> str:
+    depth = current.count("/")
+    prefix = "../" * depth
     lines = ['      <ul class="nav__links">']
-    for label, target in new_nav_items:
-        is_external = target.startswith('http://') or target.startswith('https://')
-        href = target
-        if not is_external and prefix:
-            href = prefix + target
-            
-        is_active = False
-        if not is_external:
-            # If the target is an exact match for the current file
-            if normalized_current == target:
-                is_active = True
-            # For directories like blog/ or catalog/, if we are inside them, maybe mark as active
-            elif target.endswith('index.html') and target != 'index.html' and normalized_current.startswith(target.replace('index.html', '')):
-                is_active = True
-            
-        active_class = ' nav__link--active' if is_active else ''
-        target_attr = ' target="_blank" rel="noopener"' if is_external else ''
-        lines.append(f'        <li><a href="{href}" class="nav__link{active_class}"{target_attr}>{label}</a></li>')
-    lines.append('      </ul>')
-    return '\n'.join(lines)
+    for label, target, also in NAV:
+        active = " nav__link--active" if is_active(current, target, also) else ""
+        lines.append(f'        <li><a href="{prefix}{target}" class="nav__link{active}">{label}</a></li>')
+    lines.append("      </ul>")
+    return "\n".join(lines)
 
-nav_regex = re.compile(r'^[ \t]*<ul class="nav__links">.*?</ul>', re.MULTILINE | re.DOTALL)
 
-updated_count = 0
-for root, dirs, files in os.walk('.'):
-    # skip .git or node_modules or something if they exist
-    if '.git' in root:
-        continue
-    for file in files:
-        if file.endswith('.html'):
-            # Normalize to forward slashes so prefix/active logic works on Windows too
-            filepath = os.path.join(root, file).replace(os.sep, '/')
-            prefix = get_relative_prefix(filepath)
-            
-            with open(filepath, 'r', encoding='utf-8') as f:
-                content = f.read()
-                
-            new_nav = build_nav_html(prefix, filepath)
-            new_content = nav_regex.sub(new_nav, content)
-            
+def main() -> None:
+    updated = 0
+    for root, dirs, files in os.walk("."):
+        dirs[:] = [d for d in dirs if d not in (".git", "node_modules")]
+        for name in files:
+            if not name.endswith(".html"):
+                continue
+            path = os.path.join(root, name).replace(os.sep, "/").removeprefix("./")
+            with open(path, encoding="utf-8", newline="") as fh:
+                content = fh.read()
+            if 'class="nav__links"' not in content:
+                continue
+            nl = "\r\n" if "\r\n" in content else "\n"
+            new_nav = build_nav(path).replace("\n", nl)
+            new_content = NAV_RE.sub(lambda _m: new_nav, content)
             if new_content != content:
-                with open(filepath, 'w', encoding='utf-8') as f:
-                    f.write(new_content)
-                updated_count += 1
+                with open(path, "w", encoding="utf-8", newline="") as fh:
+                    fh.write(new_content)
+                updated += 1
+    print(f"Updated {updated} files.")
 
-print(f"Updated {updated_count} files.")
+
+if __name__ == "__main__":
+    main()

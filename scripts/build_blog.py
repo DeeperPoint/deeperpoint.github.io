@@ -355,14 +355,12 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="{root}index.html" class="nav__link">Home</a></li>
-        <li><a href="{root}market-physics.html" class="nav__link">Market Physics</a></li>
-        <li><a href="{root}platform.html" class="nav__link">Platform</a></li>
-        <li><a href="{root}demo.html" class="nav__link">Demo</a></li>
-        <li><a href="{root}catalog/index.html" class="nav__link">Catalog</a></li>
-        <li><a href="{root}marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="{root}market-physics.html" class="nav__link">Why Markets Stay Thin</a></li>
+        <li><a href="{root}platform.html" class="nav__link">What We Built</a></li>
+        <li><a href="{root}examples.html" class="nav__link">Examples</a></li>
+        <li><a href="{root}who-should-care.html" class="nav__link">Who It&rsquo;s For</a></li>
+        <li><a href="{root}library.html" class="nav__link">Library</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
-        <li><a href="{root}ebook.html" class="nav__link">Ebook</a></li>
         <li><a href="{root}about.html" class="nav__link">About</a></li>
       </ul>
     </div>

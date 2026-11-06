@@ -449,14 +449,12 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="__ROOT__index.html" class="nav__link">Home</a></li>
-        <li><a href="__ROOT__market-physics.html" class="nav__link">Market Physics</a></li>
-        <li><a href="__ROOT__platform.html" class="nav__link">Platform</a></li>
-        <li><a href="__ROOT__demo.html" class="nav__link">Demo</a></li>
-        <li><a href="__ROOT__catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="__ROOT__marketmaps.html" class="nav__link">MarketMaps</a></li>
+        <li><a href="__ROOT__market-physics.html" class="nav__link">Why Markets Stay Thin</a></li>
+        <li><a href="__ROOT__platform.html" class="nav__link">What We Built</a></li>
+        <li><a href="__ROOT__examples.html" class="nav__link nav__link--active">Examples</a></li>
+        <li><a href="__ROOT__who-should-care.html" class="nav__link">Who It&rsquo;s For</a></li>
+        <li><a href="__ROOT__library.html" class="nav__link">Library</a></li>
         <li><a href="__ROOT__blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="__ROOT__ebook.html" class="nav__link">Ebook</a></li>
         <li><a href="__ROOT__about.html" class="nav__link">About</a></li>
       </ul>
     </div>

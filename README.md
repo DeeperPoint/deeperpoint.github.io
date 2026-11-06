@@ -3,13 +3,14 @@
 
 The public website for [DeeperPoint](https://deeperpoint.com) — engineering markets that work.
 
-DeeperPoint is a self-funded, open research and engineering project exploring how AI can make thin markets thicker and more functional. The site follows a **Problem → Project → Evidence → About** narrative flow.
+DeeperPoint is a self-funded, open research and engineering project exploring how AI can make thin markets thicker and more functional. The site is organised by the question a visitor arrives with: why markets stay thin, what we built, examples, who it's for, the library, the blog, about.
 
 ## Site Map
 
 ```
 ├── index.html                  # Landing page (hero + overview narrative)
-├── market-physics.html         # Market Physics — thin market theory + the six AI interventions
+├── market-physics.html         # Why Markets Stay Thin — thin market theory, a strip of the cards, the AI interventions
+├── cards/                      # The fifteen resistance cards: synced from DeeperPointComms/library/resistance-cards, never edited here
 ├── platform.html               # Platform — the open-source engine, deal pipeline, Deal Brief
 ├── marketforge.html            # The Project — MarketForge integration overview
 │   ├── mf-cosolvent.html       # Cosolvent — headless marketplace engine (MIT)
@@ -17,7 +18,8 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 │   └── mf-commoncontext.html        # CommonContext — AI-curated domain knowledge
 ├── whitepaper.html             # Full whitepaper on thin market theory
 ├── testbeds.html               # Thin market example summaries
-├── examples.html               # 20 detailed thin market analyses
+├── examples.html               # Examples hub: catalog, test beds, MarketMaps, scenario stories, demo
+├── library.html                # Library: whitepaper, cards deck, matrix, ebook, précis, pitch deck, mission essay
 ├── market-diagnostic.html      # Interactive Market Engineer's Diagnostic Checklist
 ├── blog/
 │   ├── posts/                  # Markdown blog posts (source)
@@ -41,13 +43,18 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 
 ## Navigation
 
-The top-level navigation follows a guided narrative:
+Since 2026-11-05 the top-level navigation is organised by the question a visitor arrives with. The
+logo is the link home. `update_nav.py` holds the list and rewrites the nav on every page (run it from
+the site root after editing the list); `scripts/build_blog.py` and `scripts/build_catalog.py` carry
+the same list in their templates and must be changed with it.
 
-| Link | Page | Purpose |
+| Link | Page | Answers |
 |------|------|---------|
-| **Market Physics** | `market-physics.html` | Explain thin market theory, the forces that prevent markets from working, and the six AI interventions |
-| **Platform** | `platform.html` | The open-source engine (Cosolvent + CommonContext), the deal pipeline, and the Deal Brief handoff |
-| **The Project** | `marketforge.html` | Introduce MarketForge and its component tools (Cosolvent, ClientSynth, CommonContext) |
+| **Why Markets Stay Thin** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
+| **What We Built** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, ClientSynth, architecture |
+| **Examples** | `examples.html` | The framework applied: the catalog, the twenty test beds, MarketMaps, the scenario stories, the demo |
+| **Who It's For** | `who-should-care.html` | Which role the visitor plays, and the guide written for it |
+| **Library** | `library.html` | The documents: whitepaper, cards deck, matrix, ebook, précis, pitch deck, mission essay, search |
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |
 
