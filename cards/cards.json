@@ -1,0 +1,677 @@
+{
+ "title": "Thin-Market Resistances",
+ "built": "2026-11-05",
+ "source": "DeeperPointWiki/canonical/InterventionMatrix.md v4.0",
+ "matrix_url": "https://deeperpoint.com/intervention-matrix.html",
+ "deck": "resistance-cards.pptx",
+ "cards": [
+  {
+   "number": 1,
+   "slug": "trust",
+   "title": "Trust",
+   "kind": "existential",
+   "layer": "endogenous",
+   "definition": "Whether participants feel secure enough to engage at all.",
+   "scene": "A Toronto professional owns a rental flat in Addis Ababa that needs ten thousand dollars of work. Her cousins can open the door for a contractor, but nobody on her side can judge the wiring or the invoice. She does nothing, and the flat decays.",
+   "scene_link": {
+    "label": "The House You Can't Visit",
+    "url": "https://deeperpoint.com/blog/diaspora-property-thin-market.html"
+   },
+   "lead": [
+    "AI Trusted Intermediary",
+    "AI Memory"
+   ],
+   "mechanism": "Thin markets never reach the repeated dealings that build trust, so the **trusted intermediary** supplies it structurally. Both sides disclose to the AI, not to each other: the owner her budget and her fears, the contractor his past jobs and prices. The AI confirms fit and brokers the introduction only then. Every completed job becomes verified history, so a tradesperson with twenty tracked jobs carries evidence a stranger can rely on.",
+   "traditional": [
+    {
+     "tool": "Broker who knows both sides",
+     "limit": "until the broker retires and the knowledge goes too"
+    },
+    {
+     "tool": "Letter of credit or escrow",
+     "limit": "until the deal is too small to carry a bank's fee"
+    },
+    {
+     "tool": "Repeated dealing in one place",
+     "limit": "until the parties will never meet twice"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Trusted Intermediary",
+     "AI Memory"
+    ]
+   },
+   "originality": {
+    "verdict": "no-precedent",
+    "status": "Disclosure gating built; mutual matching planned",
+    "note": "Both sides author profiles and neither is identified until both consent, in stages from anonymous narrative to named introduction. No B2B platform documents that model.",
+    "label": "No documented precedent"
+   },
+   "files": {
+    "html": "trust.html",
+    "png": "png/trust.png",
+    "thumb": "thumb/trust.jpg"
+   }
+  },
+  {
+   "number": 2,
+   "slug": "risk",
+   "title": "Risk",
+   "kind": "existential",
+   "layer": "endogenous",
+   "definition": "The chance that a transaction ends in loss rather than gain.",
+   "scene": "A Rimouski startup makes seaweed insulation with code certification and no completed installations. A Hamilton heritage retrofit has a moisture problem that standard insulation cannot solve. The retrofit's owner would be the first to put it in a wall, and the first to pay if it fails.",
+   "scene_link": {
+    "label": "The First Wall",
+    "url": "https://deeperpoint.com/blog/the-first-wall.html"
+   },
+   "lead": [
+    "AI Risk Insulation",
+    "AI Memory"
+   ],
+   "mechanism": "With few comparable deals and no quick exit, a thin market prices every transaction as if it could be the bad one. **Risk insulation** writes the contract around that: a programmable escrow that releases on verified milestones, a performance holdback, and fallback clauses triggered by inspection results rather than by argument. **Memory** supplies the other half, a verified dossier of how each counterparty has actually performed, so the first installation is not the only evidence.",
+   "traditional": [
+    {
+     "tool": "Grades, brands and warranties",
+     "limit": "until the product is too new to have a grade"
+    },
+    {
+     "tool": "Clearinghouse or escrow",
+     "limit": "until performance cannot be verified at delivery"
+    },
+    {
+     "tool": "Cooperative shared risk",
+     "limit": "until there is no cooperative for a one-off"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Risk Insulation"
+    ]
+   },
+   "files": {
+    "html": "risk.html",
+    "png": "png/risk.png",
+    "thumb": "thumb/risk.jpg"
+   }
+  },
+  {
+   "number": 3,
+   "slug": "regulatory-friction",
+   "title": "Regulatory Friction",
+   "kind": "existential",
+   "layer": "exogenous",
+   "definition": "Rules that fragment a market or stop it forming at all.",
+   "scene": "A graphene supercapacitor startup has working units and cannot sell one without a safety certification priced at four hundred thousand dollars, a process written for firms a hundred times its size. The buyers exist. The certifier's timetable, not the technology, decides whether the market exists.",
+   "scene_link": {
+    "label": "The Certification Bridge",
+    "url": "https://deeperpoint.com/blog/certification-bridge-thin-market.html"
+   },
+   "lead": [
+    "AI Risk Insulation",
+    "AI Input Translation"
+   ],
+   "mechanism": "Regulation rarely says no outright. It says not in this form, not in that jurisdiction, not without this document. The interventions read the rulebook as data: **input translation** extracts the compliance attributes a deal needs from the parties' own documents, **semantic matching** applies only the rules that hold where each side sits, and **risk insulation** watches the registries so a contract can carry a compliant exit or fallback when a permit or standard changes mid-deal. The rule stays. The paralysis goes.",
+   "traditional": [
+    {
+     "tool": "Specialist who knows the code",
+     "limit": "until the specialist's fee exceeds the deal"
+    },
+    {
+     "tool": "Certification bodies and standards",
+     "limit": "until the standard was written for firms a hundred times larger"
+    },
+    {
+     "tool": "Trading inside one jurisdiction",
+     "limit": "until the buyer is across the border"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Risk Insulation"
+    ]
+   },
+   "files": {
+    "html": "regulatory-friction.html",
+    "png": "png/regulatory-friction.png",
+    "thumb": "thumb/regulatory-friction.jpg"
+   }
+  },
+  {
+   "number": 4,
+   "slug": "geopolitical-trade-volatility",
+   "title": "Geopolitical & Trade Volatility",
+   "kind": "existential",
+   "layer": "exogenous",
+   "definition": "Sudden, systemic disruption of a specific trade corridor.",
+   "scene": "A Saskatchewan farmer and a Cebu brewmaster agree on one container of premium malting barley. Between signing and sailing, a tariff notice and a port slowdown land on the corridor between them. Neither price nor fit has changed. Both now prefer to wait, and waiting kills the deal.",
+   "scene_link": {
+    "label": "One Container of Barley",
+    "url": "https://deeperpoint.com/blog/malting-barley-thin-market.html"
+   },
+   "lead": [
+    "AI Risk Insulation"
+   ],
+   "mechanism": "The damage is not the shock itself but the option value of delay: when a corridor might close, holding cash beats committing it. **Risk insulation** makes the commitment survivable. The contract is written against live feeds from customs registries and freight indices, and carries formulas agreed in advance: who absorbs a tariff step, when cargo is re-routed, what triggers a clean exit. **Semantic matching** adds a quieter effect, steering new pairings away from corridors that are already volatile.",
+   "traditional": [
+    {
+     "tool": "Futures and price hedges",
+     "limit": "until the risk is the route, not the price"
+    },
+    {
+     "tool": "Trading houses with many routes",
+     "limit": "until they blend your specialty into commodity"
+    },
+    {
+     "tool": "Letter of credit",
+     "limit": "until the documents cannot be presented because the cargo never moved"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Risk Insulation"
+    ]
+   },
+   "files": {
+    "html": "geopolitical-trade-volatility.html",
+    "png": "png/geopolitical-trade-volatility.png",
+    "thumb": "thumb/geopolitical-trade-volatility.jpg"
+   }
+  },
+  {
+   "number": 5,
+   "slug": "macro-fx-exposure",
+   "title": "Macro & FX Exposure",
+   "kind": "existential",
+   "layer": "exogenous",
+   "definition": "Margins eroded by currency and input-cost moves before settlement.",
+   "scene": "A Prairie pulse exporter prices a container of identity-preserved lentils in US dollars at planting. By the time it ships, the Canadian dollar has moved six percent and freight has repriced twice. The premium that justified the whole exercise has gone, and the next quote never gets written.",
+   "scene_link": {
+    "label": "Markets for Premium Grain from Western Canada",
+    "url": "https://deeperpoint.com/blog/markets-premium-grain-western-canada.html"
+   },
+   "lead": [
+    "AI Risk Insulation"
+   ],
+   "mechanism": "Long fulfilment windows turn every quote into an unhedged bet. **Risk insulation** hedges inside the contract instead of around it. The AI acts as a semantic oracle for exchange rates and input prices and structures a dynamic contingent contract: price indexed to the inputs that matter, a currency collar that caps what either side can lose, and a programmatic escrow that settles on the formula rather than on a renegotiation. **Aggregation** also lets buyers pool volume to reach hedging terms a bank will not offer one small firm.",
+   "traditional": [
+    {
+     "tool": "Commodity futures",
+     "limit": "until the lot is too small or too specialized to have a contract"
+    },
+    {
+     "tool": "Bank FX forwards",
+     "limit": "until the small exporter lacks the credit line"
+    },
+    {
+     "tool": "Escalation clauses",
+     "limit": "until the counterparty refuses to sign them"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Risk Insulation"
+    ]
+   },
+   "files": {
+    "html": "macro-fx-exposure.html",
+    "png": "png/macro-fx-exposure.png",
+    "thumb": "thumb/macro-fx-exposure.jpg"
+   }
+  },
+  {
+   "number": 6,
+   "slug": "opacity",
+   "title": "Opacity",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "Information that is hidden, distorted, or costly to obtain.",
+   "scene": "A hundred-and-forty-thousand-dollar machining centre sits under a tarp in Stratford with full inspection data proving what it can do. A Windsor manufacturer is about to pay three hundred and fifty thousand for a new one. No listing can read the technical record, so the machine stays invisible.",
+   "scene_link": {
+    "label": "The Machine Under the Tarp",
+    "url": "https://deeperpoint.com/blog/used-machinery-thin-market.html"
+   },
+   "lead": [
+    "AI Matching",
+    "AI Trusted Intermediary"
+   ],
+   "mechanism": "Opacity has two faces: what nobody can find, and what nobody will say. **Semantic matching** answers the first. The buyer describes the job in their own words and the engine matches against the full technical record, so the market's taxonomy stops being a barrier. The **trusted intermediary** answers the second. Budgets, spare capacity and pricing flexibility are disclosed to the AI alone, which reports fit without revealing either side's position. The lemons problem loses its fuel.",
+   "traditional": [
+    {
+     "tool": "Broker who knows the stock",
+     "limit": "until the broker retires with the knowledge"
+    },
+    {
+     "tool": "Grading and standards",
+     "limit": "until the detail that matters is not in the grade"
+    },
+    {
+     "tool": "Trade fairs and co-location",
+     "limit": "until the machine is under a tarp two hundred kilometres away"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Matching",
+     "AI Trusted Intermediary"
+    ]
+   },
+   "originality": {
+    "verdict": "partial",
+    "status": "Built, under test",
+    "note": "Semantic supplier search is a crowded field, and the first face is no breakthrough. Disclosure to a neutral AI that reports fit without revealing either side's position is where this departs.",
+    "label": "Partially original"
+   },
+   "files": {
+    "html": "opacity.html",
+    "png": "png/opacity.png",
+    "thumb": "thumb/opacity.jpg"
+   }
+  },
+  {
+   "number": 7,
+   "slug": "decision-process-opacity",
+   "title": "Decision-Process Opacity",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "facet_of": "Opacity",
+   "definition": "The counterparty you can see fronts a coalition you cannot.",
+   "scene": "The plant manager said yes in the meeting and meant it. The deal then died in a room the platform never saw: a controller with a question nobody answered, a quality lead who heard about it third-hand. Nobody argued against it. Someone simply did not sign.",
+   "scene_link": {
+    "label": "The Match Argument",
+    "url": "https://deeperpoint.com/blog/content-match-story.html"
+   },
+   "lead": [
+    "AI Trusted Intermediary",
+    "Content Match Story"
+   ],
+   "mechanism": "Veto is cheaper than advocacy: a sceptic stalls by withholding assent, while a champion spends credibility to advance, and hidden influencers judge on second-hand, distorted information. The remedy is not to map the coalition. It is to route disclosure through a **trusted intermediary** both organizations accept, and to arm the champion with a **Content Match Story**: an evidence-weighted, sceptic-addressed document built to be forwarded, so the controller and every potential veto-holder read the case first-hand. The more portable it is, the less the deal is left to chance.",
+   "traditional": [
+    {
+     "tool": "The salesperson's relationship map",
+     "limit": "until the org chart changes"
+    },
+    {
+     "tool": "An executive sponsor",
+     "limit": "until the sponsor moves on"
+    },
+    {
+     "tool": "Site visits and references",
+     "limit": "until the person who matters never attends"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Trusted Intermediary"
+    ]
+   },
+   "originality": {
+    "verdict": "no-precedent",
+    "status": "Built, under test",
+    "note": "Quote tools and search engines serve one side. A narrative written for both parties at once, released only on mutual consent, has no documented equivalent.",
+    "label": "No documented precedent"
+   },
+   "files": {
+    "html": "decision-process-opacity.html",
+    "png": "png/decision-process-opacity.png",
+    "thumb": "thumb/decision-process-opacity.jpg"
+   }
+  },
+  {
+   "number": 8,
+   "slug": "geographic-distance",
+   "title": "Geographic Distance",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "How far apart counterparties are, in space or in systems.",
+   "scene": "A couple in northern Ontario is separating. Custody, a lawyer in town can handle. The family's mineral claims and the outfitting business cannot be divided by anyone within six hundred kilometres. The specialist is in Toronto, with idle hours, a day's drive away and outside every local referral network.",
+   "scene_link": {
+    "label": "Six Hundred Kilometres from a Family Lawyer",
+    "url": "https://deeperpoint.com/blog/rural-legal-thin-market.html"
+   },
+   "lead": [
+    "AI Matching",
+    "AI Input Translation"
+   ],
+   "mechanism": "Distance survives digital delivery because it travels with language, custom and jurisdiction. **Semantic matching**, on meaning rather than membership, finds the one specialist who has done this before, whatever network they sit in, and weighs logistics where delivery is physical. **Input translation** removes the second barrier: a voice note, a photo or a document in any language becomes structured market data, so a participant need not speak the platform's language or fill its forms to be found.",
+   "traditional": [
+    {
+     "tool": "Clusters, bazaars and trade fairs",
+     "limit": "until the participants cannot travel"
+    },
+    {
+     "tool": "Transport infrastructure",
+     "limit": "until the thing traded is a person's time"
+    },
+    {
+     "tool": "Regional broker networks",
+     "limit": "until the need crosses the region"
+    }
+   ],
+   "matrix": {
+    "lowers": [
+     "AI Matching",
+     "AI Input Translation",
+     "AI Trusted Intermediary",
+     "AI-Enabled Aggregation"
+    ]
+   },
+   "files": {
+    "html": "geographic-distance.html",
+    "png": "png/geographic-distance.png",
+    "thumb": "thumb/geographic-distance.jpg"
+   }
+  },
+  {
+   "number": 9,
+   "slug": "temporal-distance",
+   "title": "Temporal Distance",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "The gap between when one side is ready and the other is available.",
+   "scene": "Two five-axis machining centres sit idle sixteen hours a day. Sixty kilometres away a robotics integrator needs exactly that capacity, but needs it this week, and the shop's window opens next week. Neither side says so aloud, and idle hours cannot be stored.",
+   "scene_link": {
+    "label": "The Idle Shift",
+    "url": "https://deeperpoint.com/blog/manufacturing-scenarios-capacity.html"
+   },
+   "lead": [
+    "AI Memory",
+    "AI Matching"
+   ],
+   "mechanism": "Capacity for a service is consumed at delivery and cannot be stockpiled, so the only bridge across time is a market that remembers. **Memory** holds intent: the integrator's requirement stays live after the first search fails, and the platform reconnects the two the moment the shop's window opens, without either having to search again. **Semantic matching** keeps the search running at all hours through agents that represent each side, so a deal progresses while its principals are asleep or on the floor.",
+   "traditional": [
+    {
+     "tool": "Storage and inventory",
+     "limit": "until the good is a service that cannot be stockpiled"
+    },
+    {
+     "tool": "Forward contracts and futures",
+     "limit": "until nobody will write one for a one-off job"
+    },
+    {
+     "tool": "Market makers holding stock",
+     "limit": "until no maker will carry a unique item"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Memory"
+    ]
+   },
+   "originality": {
+    "verdict": "no-precedent",
+    "status": "Planned",
+    "note": "CRM tools track stages; none revives a stalled deal when the market changes. A memory that re-engages both parties once a new carrier or window removes the old blocker is planned.",
+    "label": "No documented precedent"
+   },
+   "files": {
+    "html": "temporal-distance.html",
+    "png": "png/temporal-distance.png",
+    "thumb": "thumb/temporal-distance.jpg"
+   }
+  },
+  {
+   "number": 10,
+   "slug": "offering-complexity",
+   "title": "Offering Complexity",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "How many distinct details matter for each offering.",
+   "scene": "A production supervisor at a machining shop spent eight years in cybersecurity before this career. He has hardened his own plant's control network and has expertise to spare. A hydraulic-cylinder maker three hundred kilometres away needs exactly that mix, and no job category describes it.",
+   "scene_link": {
+    "label": "The Welder Who Wrote Firewalls",
+    "url": "https://deeperpoint.com/blog/manufacturing-scenarios-skills.html"
+   },
+   "lead": [
+    "AI Matching"
+   ],
+   "mechanism": "For centuries the only way to pool liquidity was to standardize, which strips out the nuance a specific buyer is paying for. **Semantic matching** dissolves the trade-off. Buyer intent, stated in plain language, is embedded and matched against the full heterogeneous description of each offering, so uniqueness becomes a matching advantage rather than a market-fragmenting defect. Where a buyer cannot yet articulate the need, the engine elicits it in conversation instead of through a thirty-field form.",
+   "traditional": [
+    {
+     "tool": "Standard grades and categories",
+     "limit": "until the stripped-out detail was the point"
+    },
+    {
+     "tool": "Broker who interprets",
+     "limit": "until there are more variants than one head can hold"
+    },
+    {
+     "tool": "Catalogues and spec sheets",
+     "limit": "until nobody reads two hundred pages"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Matching"
+    ]
+   },
+   "files": {
+    "html": "offering-complexity.html",
+    "png": "png/offering-complexity.png",
+    "thumb": "thumb/offering-complexity.jpg"
+   }
+  },
+  {
+   "number": 11,
+   "slug": "cold-start",
+   "title": "Cold Start",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "Buyers wait for sellers, sellers wait for buyers, nobody arrives first.",
+   "scene": "A founder launches a marketplace for a specialty trade with thirty sellers signed up on promises. The first buyers find thin listings and leave. The sellers, seeing no buyers, stop updating. By month four the platform is a directory of people who have stopped checking it.",
+   "scene_link": {
+    "label": "When Your Market Barely Exists",
+    "url": "https://deeperpoint.com/blog/when-your-market-barely-exists.html"
+   },
+   "lead": [
+    "AI Synthetic Bootstrapping"
+   ],
+   "mechanism": "Nobody arrives first, so **synthetic bootstrapping** populates the market before anyone real joins. Its personas, built from public data and domain schemas, do three jobs: stress-test the **semantic matching** engine during development; show sponsors what a working market looks like before capital is committed; and recruit and train the first real users, who meet a live market, not an empty one. Then comes a hard changeover: synthetic personas are retired and never mixed with real participants; the trust signals that follow are earned by real transactions only.",
+   "traditional": [
+    {
+     "tool": "Subsidize one side",
+     "limit": "until the money runs out before the other side arrives"
+    },
+    {
+     "tool": "Launch at a trade fair",
+     "limit": "until the fair ends"
+    },
+    {
+     "tool": "Build on an association's membership",
+     "limit": "until the association has no way to transact"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Synthetic Bootstrapping",
+     "AI Memory"
+    ]
+   },
+   "files": {
+    "html": "cold-start.html",
+    "png": "png/cold-start.png",
+    "thumb": "thumb/cold-start.jpg"
+   }
+  },
+  {
+   "number": 12,
+   "slug": "cognitive-bandwidth",
+   "title": "Cognitive Bandwidth",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "The human limit on how much choice a decision can absorb.",
+   "scene": "A procurement lead at a mid-sized plant needs one specialized coating supplier. The search returns four hundred, each with a datasheet, a certification list and a different way of describing the same process. She shortlists the three she already knows. The best fit was number ninety-one.",
+   "scene_link": {
+    "label": "Everything Is Getting Harder to Buy",
+    "url": "https://deeperpoint.com/blog/everything-is-getting-harder-to-buy.html"
+   },
+   "lead": [
+    "AI Matching",
+    "AI Input Translation"
+   ],
+   "mechanism": "Too much apparent thickness fails a market as surely as too little; a shelf of fifty jams can paralyze the buyer. **Semantic matching** does the curation: it returns a short list with the reasons each candidate fits, and builds the buyer's preference model through conversation rather than a filter form. **Input translation** lightens the other end, so \"tell me what you need\" or \"upload your spec\" replaces data entry. **Memory** closes the loop by bringing the market to the buyer when something relevant appears.",
+   "traditional": [
+    {
+     "tool": "Approved-vendor lists",
+     "limit": "until the list excludes the right supplier"
+    },
+    {
+     "tool": "Broker who pre-filters",
+     "limit": "until the broker's shortlist is the broker's friends"
+    },
+    {
+     "tool": "Standard categories",
+     "limit": "until nuance is what was lost"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Matching"
+    ]
+   },
+   "files": {
+    "html": "cognitive-bandwidth.html",
+    "png": "png/cognitive-bandwidth.png",
+    "thumb": "thumb/cognitive-bandwidth.jpg"
+   }
+  },
+  {
+   "number": 13,
+   "slug": "fulfillment",
+   "title": "Fulfillment",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "Getting the goods or the service delivered once the match is made.",
+   "scene": "A smallholder in the Rift Valley and a hotel chef in Addis Ababa are a hundred and sixty kilometres apart. Between them sit five intermediaries, no cold chain, and a system that wastes a third of everything it touches. The match is easy. The tomatoes are not.",
+   "scene_link": {
+    "label": "Tomatoes in the Sun",
+    "url": "https://deeperpoint.com/blog/ethiopia-produce-thin-market.html"
+   },
+   "lead": [
+    "AI-Enabled Aggregation",
+    "AI Matching"
+   ],
+   "mechanism": "Fulfilment sets the natural boundary of a market: the economic shipping radius, the cold-chain window, the minimum load a carrier will touch. **Aggregation** moves the boundary by fluidly grouping small producers into a counterparty large enough to fill a truck, hit a minimum order, or justify a refrigerated run, clustered by geography and timing rather than by permanent membership. **Semantic matching** then treats logistics as a matching variable, weighing freight, perishability and customs before proposing a pairing rather than discovering them afterwards.",
+   "traditional": [
+    {
+     "tool": "Storage and cold-chain infrastructure",
+     "limit": "until no one can fund it for a thin flow"
+    },
+    {
+     "tool": "Central wholesale markets",
+     "limit": "until the farm is a hundred and sixty kilometres away"
+    },
+    {
+     "tool": "Freight consolidators",
+     "limit": "until the lot is too small to consolidate"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI-Enabled Aggregation"
+    ]
+   },
+   "originality": {
+    "verdict": "no-precedent",
+    "status": "Built, under test",
+    "note": "The parties leave with a **Deal Brief**: a non-binding summary of everything explored and agreed, written for their own carriers, banks and export agencies. No platform synthesizes one.",
+    "label": "No documented precedent"
+   },
+   "files": {
+    "html": "fulfillment.html",
+    "png": "png/fulfillment.png",
+    "thumb": "thumb/fulfillment.jpg"
+   }
+  },
+  {
+   "number": 14,
+   "slug": "participant-fragmentation",
+   "title": "Participant Fragmentation",
+   "kind": "resistance",
+   "layer": "endogenous",
+   "definition": "Willing traders too small, one by one, to clear the commercial threshold.",
+   "scene": "No single Ontario machine shop can bid on a global clean-energy contract. The work needs manufacturing, testing, programme management, trade compliance and export finance, and each of those exists in a firm of twenty people that has never met the others. The prime goes to a conglomerate.",
+   "scene_link": {
+    "label": "The Virtual Tier-One",
+    "url": "https://deeperpoint.com/blog/ontario-roadmap-part3-pocket.html"
+   },
+   "lead": [
+    "AI-Enabled Aggregation"
+   ],
+   "mechanism": "Willingness and ability are present; scale is not, and the gap is where middlemen live. **Aggregation** fabricates the missing scale on demand: it identifies the small participants whose capabilities, geography and timing fit a specific requirement and assembles them into a virtual collective counterparty for that bid, without the permanent overhead of a cooperative. The **trusted intermediary** lets the members negotiate their shares confidentially, so a syndicate can form without anyone revealing their cost base to a future competitor.",
+   "traditional": [
+    {
+     "tool": "Cooperatives and consortia",
+     "limit": "until the opportunity is gone before the bylaws are drafted"
+    },
+    {
+     "tool": "A middleman who buys small lots",
+     "limit": "until the middleman keeps the margin"
+    },
+    {
+     "tool": "Broker piecing orders together",
+     "limit": "until the transaction cost exceeds the order"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI-Enabled Aggregation"
+    ]
+   },
+   "originality": {
+    "verdict": "partial",
+    "status": "Planned",
+    "note": "Idle capacity is a familiar plant-level problem. Treating an industry's scattered capacity as one invisible pool, assembled into a bidder on demand, is the new move; aggregation itself is not yet built.",
+    "label": "Partially original"
+   },
+   "files": {
+    "html": "participant-fragmentation.html",
+    "png": "png/participant-fragmentation.png",
+    "thumb": "thumb/participant-fragmentation.jpg"
+   }
+  },
+  {
+   "number": 15,
+   "slug": "technological-obsolescence",
+   "title": "Technological Obsolescence",
+   "kind": "resistance",
+   "layer": "exogenous",
+   "definition": "An asset made obsolete before its cost is recovered.",
+   "scene": "An independent shop quotes a five-axis cell with a seven-year payback. The next generation ships in three. The shop declines, the customer who needed that capability goes offshore, and the machine the region needed is never bought by anyone.",
+   "scene_link": {
+    "label": "A Cosolvent-Powered Marketplace",
+    "url": "https://deeperpoint.com/blog/ontario-roadmap-part1-fractional.html"
+   },
+   "lead": [
+    "AI Risk Insulation",
+    "AI Memory"
+   ],
+   "mechanism": "Fast technology cycles stop buyers making relationship-specific investments, which freezes long-horizon procurement. **Risk insulation** writes the obsolescence into the contract: options priced on salvage value and depreciation curves, buy-back or upgrade triggers, and terms that let a buyer commit without betting the whole cycle. **Memory** supplies the curves, tracking how assets of this class have actually depreciated and performed. And where the asset need not be owned at all, the matched market lets a shop buy hours on someone else's machine instead.",
+   "traditional": [
+    {
+     "tool": "Leasing and vendor financing",
+     "limit": "until the lessor prices the same obsolescence in"
+    },
+    {
+     "tool": "Buying the proven generation late",
+     "limit": "until the customer wants the new one"
+    },
+    {
+     "tool": "Waiting",
+     "limit": "until the customer goes elsewhere"
+    }
+   ],
+   "matrix": {
+    "strongest": [
+     "AI Risk Insulation"
+    ]
+   },
+   "files": {
+    "html": "technological-obsolescence.html",
+    "png": "png/technological-obsolescence.png",
+    "thumb": "thumb/technological-obsolescence.jpg"
+   }
+  }
+ ]
+}
