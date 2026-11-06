@@ -19,7 +19,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 ├── whitepaper.html             # Full whitepaper on thin market theory
 ├── testbeds.html               # Thin market example summaries
 ├── examples.html               # Examples hub: catalog, test beds, MarketMaps, scenario stories, demo
-├── library.html                # Library: whitepaper, cards deck, matrix, ebook, précis, pitch deck, mission essay
+├── library.html                # Library: whitepaper, cards deck, matrix, ebook (with its précis and pitch deck), mission essay
 ├── contribute.html             # Contribute: the open door (nav button and footer link on every page)
 ├── market-diagnostic.html      # Interactive Market Engineer's Diagnostic Checklist
 ├── blog/
@@ -55,7 +55,7 @@ the same list in their templates and must be changed with it.
 | **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, ClientSynth, architecture |
 | **Examples** | `examples.html` | The framework applied: the catalog, the twenty test beds, MarketMaps, the scenario stories, the diagnostic checklist, the demo |
 | **Who It's For** | `who-should-care.html` | Which role the visitor plays, and the guide written for it |
-| **Library** | `library.html` | The documents: whitepaper, cards deck, matrix, ebook, précis, pitch deck, mission essay, search |
+| **Library** | `library.html` | The documents: whitepaper, cards deck, matrix, ebook (with its précis and pitch deck beneath it), mission essay, search |
 | **Catalog** | `catalog/index.html` | The opportunity catalog, restored to the nav on 2026-11-05 at the owner's request |
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |
