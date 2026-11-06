@@ -2,7 +2,7 @@
 
 Snapshot of the site as it stands in the repository on 2026-11-06 (commit c7784d6), read from the HTML, YAML and Markdown on disk rather than from the live site. It exists to make overlaps, duplications and breaks in the logic flow visible in one place. Section 8 lists the candidates noticed while building the map; the judgement on each is the owner's.
 
-**Updated 2026-11-06:** the fifteen cards moved under What We're Building (owner's decision). The viewer was rebuilt as one card at a time with arrows and a menu, the doorway moved from Market Physics to platform.html, and the two Library tiles (cards, slides) were removed. ClientSynth became a peer of Cosolvent and CommonContext the same day on platform.html and cosolvent.html: one tile, no separate block, licence named as Apache 2.0 with one added term. The entries below reflect both changes; everything else is as at c7784d6.
+**Updated 2026-11-06:** the fifteen cards moved under What We're Building (owner's decision). The viewer was rebuilt as one card at a time with arrows and a menu, the doorway moved from Market Physics to platform.html, and the two Library tiles (cards, slides) were removed. ClientSynth became a peer of Cosolvent and CommonContext the same day on platform.html and cosolvent.html: one tile, no separate block, licence named as "Apache 2.0 with one condition" and no open-source claim for ClientSynth, since its LICENSE file disclaims the term. The entries below reflect both changes; everything else is as at c7784d6.
 
 How to read it:
 
@@ -162,7 +162,7 @@ Redirects
 
 - **A Market Engine Built Once, For Any Thin Market.** (h1) "MIT License · $0 license cost"; the seven interventions in a generic engine; a sponsor adds the vertical.
 - Doorway pills: How it works · Live demo · Cosolvent · CommonContext · MarketForge · ClientSynth · How an implementation is built.
-- **Free, Open Source, Headless.** Cosolvent, CommonContext and ClientSynth as free, open-source, headless server functionality (MIT, MIT, Apache 2.0 with one term). *Why MIT? Because adoption is a thin market too.* Component tiles: Cosolvent · CommonContext · ClientSynth (open source, Apache 2.0 with one added term) · MarketForge.
+- **Free, Open Source, Headless.** Cosolvent, CommonContext and ClientSynth as free, headless server functionality (MIT, MIT, Apache 2.0 with one condition). *Why MIT? Because adoption is a thin market too.* Component tiles: Cosolvent · CommonContext · ClientSynth (Apache 2.0 with one condition) · MarketForge.
 - **Fifteen Resistances, and What the Engine Does About Each.** (added 2026-11-06, moved from Market Physics) Four card thumbnails (Trust, Decision-Process Opacity, Temporal Distance, Cold Start); buttons to the viewer, the deck and the matrix. "Fifteen cards" is also the last doorway chip.
 - **How a Deal Forms.** Ingest → … → a deal ready to hand off, as one continuous flow.
 - **The Deal Brief — Not a Contract, a Handoff.** The platform's primary output.
@@ -193,8 +193,8 @@ Redirects
 **cosolvent.html** · *Cosolvent Suite* · Revised: 2026-07-07 · In: guide-founders, guide-investors, market-diagnostic, marketforge, mf-clientsynth, mf-commoncontext, mf-cosolvent, mission, platform, 12 blog posts · Out: mf-cosolvent, mf-clientsynth, catalog
 
 - **Where the Theory Becomes Working Software.** (h1) Open-source tools "alongside ClientSynth, the synthetic-population harness that tests them" (reworded 2026-11-06).
-- **The Open-Source Infrastructure.** Cosolvent (MIT) · CommonContext (MIT) · *The Customization Boundary* (front end, payments and trust workflows deferred to the sponsor).
-- ClientSynth sits in the same grid as Cosolvent and CommonContext, "Open Source · Apache 2.0 + one term" (2026-11-06; until then a separate "Proprietary Testing Harness" section labelled BUSL-1.1).
+- **The Three Components.** (renamed 2026-11-06 from The Open-Source Infrastructure) Cosolvent (MIT) · CommonContext (MIT) · *The Customization Boundary* (front end, payments and trust workflows deferred to the sponsor).
+- ClientSynth sits in the same grid as Cosolvent and CommonContext, "Apache 2.0 with one condition" (2026-11-06; until then a separate "Proprietary Testing Harness" section labelled BUSL-1.1).
 - **Browse the catalog of examples.** "Over 250 searchable thin market scenarios."
 
 **mf-cosolvent.html** · *Cosolvent — Headless Marketplace Engine* · Revised: 2026-07-10 · In: cosolvent, how-it-works, one blog post · Out: cosolvent, Coswebroadmap.pdf, GitHub cosolvent-beta
@@ -210,7 +210,7 @@ Redirects
 
 **mf-clientsynth.html** · *ClientSynthAI — MarketForge Ecosystem* · Revised: 2026-07-07, licence box rewritten Nov 2026 · In: cosolvent, marketmaps, mission, platform · Out: cosolvent, ClientSwebroadmap.pdf
 
-- Badge "Open Source (Apache 2.0 + synthetic-data terms)".
+- Badge "Apache 2.0 with one condition".
 - **Safely Test Your Theories.** Licensing paragraph (Apache 2.0 with ClientSynth Additional Terms; no mixing; provenance marks). *Ethical Usage Policy* box. *Core Advantages*.
 - **ClientSynth Feature Overview.** Feature table.
 
@@ -555,7 +555,7 @@ Three pages define a thin market in their own words: Home ("willing buyers and s
 | | "four layers", Cosolvent the open core, "upper layers proprietary" | mission |
 | Cosolvent licence | MIT | everywhere it is named |
 | ClientSynth licence | Apache 2.0 with synthetic-data terms; no mixing | platform, mf-clientsynth, contribute, hackathon |
-| | ClientSynth "Open Source · Apache 2.0 + one term" since 2026-11-06 (was BUSL-1.1 and "proprietary") | cosolvent |
+| | ClientSynth "Apache 2.0 with one condition" since 2026-11-06 (was BUSL-1.1 and "proprietary") | cosolvent |
 | | "open-source on GitHub under the MIT licence" (all four components) | pitch-deck |
 | CommonContext licence | MIT | contribute, cosolvent, platform |
 | | "Proprietary" badge; "the proprietary data-refinement wing" | mf-commoncontext |
