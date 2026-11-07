@@ -23,16 +23,21 @@ NAV = [
     ("Why Markets Don&rsquo;t Form", "market-physics.html",
      ["intervention-matrix.html", "whitepaper.html"]),
     ("What We&rsquo;re Building", "platform.html",
-     ["how-it-works.html", "demo.html", "cosolvent.html", "marketforge.html", "mf-cosolvent.html",
+     ["how-it-works.html", "cosolvent.html", "marketforge.html", "mf-cosolvent.html",
       "mf-commoncontext.html", "mf-clientsynth.html", "architecture.html", "cards/"]),  # cards/ moved here 2026-11-06
     ("Catalog", "catalog/index.html", ["catalog/"]),
-    ("Library", "library.html",
-     ["ebook.html", "precis.html", "pitch-deck.html", "search.html", "testbeds.html", "marketmaps.html",
-      "market-diagnostic.html", "examples.html"]),
+    ("Demo", "demo.html", []),  # own top-level nav item since 2026-11-07 (owner); no longer also-active under What We're Building
     ("Blog", "blog/index.html", ["blog/"]),
+    ("Library", "library.html",
+     ["ebook.html", "precis.html", "pitch-deck.html", "testbeds.html", "marketmaps.html",
+      "market-diagnostic.html", "examples.html"]),
     ("About", "about.html", ["mission.html"]),
 ]
 CTA = ("Contribute", "contribute.html", [])
+# Icon-only links at the far right of the nav, after CTA. (target, icon, aria-label).
+ICON_LINKS = [
+    ("search.html", "\U0001f50d", "Search the site"),  # moved off the Library page card, 2026-11-07 (owner)
+]
 
 NAV_RE = re.compile(r'^[ \t]*<ul class="nav__links">.*?</ul>', re.MULTILINE | re.DOTALL)
 
@@ -57,6 +62,8 @@ def build_nav(current: str) -> str:
     label, target, also = CTA
     active = " nav__link--active" if is_active(current, target, also) else ""
     lines.append(f'        <li><a href="{prefix}{target}" class="nav__link nav__link--cta{active}">{label}</a></li>')
+    for target, icon, aria_label in ICON_LINKS:
+        lines.append(f'        <li><a href="{prefix}{target}" class="nav__link nav__link--icon" aria-label="{aria_label}">{icon}</a></li>')
     lines.append("      </ul>")
     return "\n".join(lines)
 

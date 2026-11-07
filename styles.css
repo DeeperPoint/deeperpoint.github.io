@@ -312,6 +312,16 @@ img {
   display: none;
 }
 
+/* The icon-only link at the far right of the nav, after Contribute: Search (2026-11-07) */
+.nav__link--icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.nav__link--icon::after {
+  display: none;
+}
+
 /* --- Hero Section --- */
 .hero {
   position: relative;
@@ -2426,6 +2436,14 @@ body.nav-open {
 
   .nav__links--open li:nth-child(8) {
     animation-delay: 400ms;
+  }
+
+  .nav__links--open li:nth-child(9) {
+    animation-delay: 450ms;
+  }
+
+  .nav__links--open li:nth-child(10) {
+    animation-delay: 500ms;
   }
 
   @keyframes navSlideIn {
