@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarketForge Platform — DeeperPoint</title>
+    <title>MarketForge: the map and the method | DeeperPoint</title>
     <meta name="description"
-        content="The MarketForge Platform provides a step-by-step roadmap to establish a local digital twin simulation, curating industry knowledge and validating matching physics.">
+        content="MarketForge is the public design map for building a marketplace in a thin market: the path from a domain wiki to a twin to a marketplace, the toolkit part by part, and the guides for sponsors and developers.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -160,6 +160,19 @@
                 margin-bottom: 0.5rem;
             }
         }
+
+        /* ── Toolkit and status rows ── */
+        .step-row--part { grid-template-columns: 190px 1fr 230px; align-items: start; }
+        .step-row--state { grid-template-columns: 220px 1fr; align-items: start; }
+        .step-row__where { font-size: 0.8125rem; color: var(--dp-silver); line-height: 1.5; }
+        .step-row__where a, .mf-prose a { color: var(--dp-cyan); }
+        .mf-prose { color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.65; }
+        .mf-h2 { color: #fff; font-family: var(--font-display); font-size: 2rem; text-align: center; margin-bottom: var(--space-md); }
+        .mf-lede { color: var(--dp-silver); text-align: center; max-width: 720px; margin: 0 auto var(--space-xl); line-height: 1.65; }
+        .mf-doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl); }
+        @media (max-width: 768px) {
+            .step-row--part, .step-row--state { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
@@ -200,14 +213,14 @@
         <div class="container container--narrow">
             <div class="text-center">
                 <span class="spoke-hero__badge spoke-hero__badge--match">MarketForge</span>
-                <h1 class="spoke-hero__headline">The Procedural Marketplace Creation Roadmap</h1>
+                <h1 class="spoke-hero__headline">The map and the method for building a marketplace in a thin market</h1>
                 <p class="spoke-hero__desc" style="margin: 0 auto; margin-bottom: var(--space-md);">
-                    Building a successful coordination marketplace requires a clean architectural split. MarketForge provides the structured, step-by-step engineering roadmap that takes a target vertical from diagnostic scoping through local simulation and launch.
+                    MarketForge is not another engine. It is the public design map of the toolkit: what the parts are, the order in which they are used, how far each has got, and where to read the detail. It is written for two readers: a sponsor who knows a market, and a developer who will stand one up.
                 </p>
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: var(--space-md);">
-                    <a href="assets/mysitedocs/MarketForgeCreationGuide.pdf" class="btn btn--primary"
-                        style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;" download>⬇ Download Creation Guide (PDF)</a>
-                    <a href="demo.html" class="btn btn--outline">Explore ForgeTwin Sandbox Demo →</a>
+                    <a href="https://github.com/DeeperPoint/MarketForge" class="btn btn--primary"
+                        style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;" target="_blank" rel="noopener">Open MarketForge on GitHub →</a>
+                    <a href="#doors" class="btn btn--outline">Where to start</a>
                 </div>
             </div>
         </div>
@@ -216,307 +229,175 @@
     <section class="section" style="padding-top: 0;">
         <div class="container">
 
-            <!-- Section 1: The Reorganization Matrix Intro -->
-            <div class="card"
-                style="padding: var(--space-2xl); margin-bottom: var(--space-3xl); border-color: rgba(16, 185, 129, 0.2);">
-                <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-2xl); align-items: center;">
-                    <div>
-                        <h2 style="color: #fff; font-family: var(--font-display); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem;">
-                            Core Platform vs. Market Vertical: Dividing the Work
-                        </h2>
-                        <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 1rem;">
-                            To ensure scalable and rapid deployments, DeeperPoint divides the building blocks of a vertical marketplace into two clear layers:
-                        </p>
-                        <div style="margin-bottom: 1rem;">
-                            <strong style="color: var(--dp-emerald); font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">🛠️ Core Platform Layer (DeeperPoint Open-Source Project)</strong>
-                            <span style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.5; display: block;">
-                                Responsible for providing the underlying matching software, the file analysis tools, the security mechanisms, and the automatic story-generation code.
-                            </span>
-                        </div>
-                        <div>
-                            <strong style="color: var(--dp-amber); font-size: 0.9375rem; display: block; margin-bottom: 0.25rem;">👤 Market Vertical Layer (The Founder / Sponsor)</strong>
-                            <span style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.5; display: block;">
-                                Responsible for picking the specific industry, uploading regional legal and trade files, building the user-friendly website pages, and managing the local business operations.
-                            </span>
-                        </div>
-                    </div>
-                    <div style="background: rgba(10, 14, 26, 0.5); border: 1px solid var(--glass-border); padding: var(--space-xl); border-radius: var(--radius-md);">
-                        <h3 style="color: #fff; font-size: 1.15rem; margin-top: 0; margin-bottom: 0.75rem; font-family: var(--font-display);">Generic Participant Roles</h3>
-                        <p style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 0.75rem;">
-                            DeeperPoint operates on a highly generic, extensible role schema designed to fit any complex transaction corridor:
-                        </p>
-                        <ul style="color: var(--dp-silver); font-size: 0.8125rem; line-height: 1.6; padding-left: 1.25rem;">
-                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Supply:</strong> The side offering services, products, capabilities, or craft (e.g., machine shops, independent contractors).</li>
-                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Demand:</strong> The side looking for or buying those services and products (e.g., specialized buyers, local clients).</li>
-                            <li style="margin-bottom: 0.4rem;"><strong style="color: #fff;">Facilitators:</strong> Trusted third parties who help make the trade happen safely (e.g., quality inspectors, transport handlers, local verifiers).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 2: The 5-Phase Timeline -->
-            <h2 style="color: #fff; font-family: var(--font-display); font-size: 2rem; text-align: center; margin-bottom: var(--space-xl);">
-                The 5-Phase Creation Timeline
-            </h2>
+            <!-- The path -->
+            <h2 class="mf-h2">The path</h2>
+            <p class="mf-lede">A market is built in one direction, and it starts with what the market knows. Each later stage sends what it could not answer back to the first.</p>
 
             <div class="timeline">
-
-                <!-- Phase 1 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 1: Setting Up the Basics
-                        <span class="timeline__badge">Infrastructure</span>
+                        1. The wiki
+                        <span class="timeline__badge">Knowledge</span>
                     </div>
-
-                    <div class="step-list">
-                        <!-- Step 1 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 01</span>
-                            <span class="step-row__badge step-row__badge--core">🛠️ Core Platform</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Setting up the server environment</h4>
-                                <p class="step-row__desc">The open-source project provides pre-packaged server building blocks (software containers) that configure the matching engine and search database automatically.</p>
-                            </div>
-                        </div>
-                        <!-- Step 2 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 02</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Defining your market rules</h4>
-                                <p class="step-row__desc">The founder configures a simple settings file to define the unique traits, qualifications, and questions required for their specific market.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="mf-prose" style="margin: 0 0 0.5rem 0;">The engine is generic; the knowledge is not. What a certificate means in one trade, which requirement has a lawful alternative, how the two sides describe the same thing in different words: only people in the market know these. That knowledge is kept as a wiki of plain-text pages, each tied to its sources, drafted with an AI model and ruled on by a person.</p>
+                    <p class="mf-prose" style="margin: 0; font-size: 0.875rem; color: var(--dp-muted);">Only the sponsor can supply it. It comes first, and it is never finished.</p>
                 </div>
-
-                <!-- Phase 2 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 2: Building the Sector Reference Library
-                        <span class="timeline__badge" style="color: var(--dp-amber); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.05);">Curation</span>
+                        2. Ask
+                        <span class="timeline__badge" style="color: var(--dp-amber); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.05);">Check, or service</span>
                     </div>
-
-                    <div class="step-list">
-                        <!-- Step 3 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 03</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Collecting industry documents</h4>
-                                <p class="step-row__desc">The founder gathers standard contracts, government regulations, and industry guidelines and loads them into the reference library.</p>
-                            </div>
-                        </div>
-                        <!-- Step 4 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 04</span>
-                            <span class="step-row__badge step-row__badge--joint">🤝 Joint Effort</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Aligning industry terms</h4>
-                                <p class="step-row__desc">The core software analyzes the loaded documents, and the founder reviews the results to ensure the system understands precise local industry terms.</p>
-                            </div>
-                        </div>
-                        <!-- Step 5 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 05</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Extracting legal workarounds</h4>
-                                <p class="step-row__desc">The founder finds and maps the alternative paths or "escape hatches" in regulations that allow smaller businesses to qualify.</p>
-                            </div>
-                        </div>
-                        <!-- Step 6 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 06</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Saving compliance settings</h4>
-                                <p class="step-row__desc">The founder locks these workaround options directly into the market's settings file so they can be triggered automatically.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="mf-prose" style="margin: 0 0 0.5rem 0;">A question page over the wiki lets a sponsor, a tester or anyone who needs to be informed ask it. The answers come only from the wiki, with citations. It is the early quality check on the wiki, and in some settings it is a service in its own right: a broker answering for clients, a software marketplace helping its users, a person finding their own way, or any setting whose purpose is to educate.</p>
+                    <p class="mf-prose" style="margin: 0; font-size: 0.875rem; color: var(--dp-muted);">Back to the wiki: the questions it could not answer become the next research.</p>
                 </div>
-
-                <!-- Phase 3 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 3: Stress-Testing the Marketplace
+                        3. The twin
                         <span class="timeline__badge" style="color: var(--dp-violet); border-color: rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05);">Simulation</span>
                     </div>
-
-                    <div class="step-list">
-                        <!-- Step 7 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 07</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Creating simulated users</h4>
-                                <p class="step-row__desc">The founder designs a diverse group of mock participants (mock buyers, sellers, and inspectors) to test how they interact under different conditions.</p>
-                            </div>
-                        </div>
-                        <!-- Step 8 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 08</span>
-                            <span class="step-row__badge step-row__badge--core">🛠️ Core Platform</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Running sandbox matching tests</h4>
-                                <p class="step-row__desc">The core engine runs simulated trades and matches between the mock participants to prove the marketplace arithmetic works before launching to real users.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="mf-prose" style="margin: 0 0 0.5rem 0;">The marketplace engine configured for the market and filled with synthetic, marked participants, so a sponsor can watch the market behave before any real person joins. Casual interest is satisfied by Ask; actual matching is demonstrated in the twin.</p>
+                    <p class="mf-prose" style="margin: 0; font-size: 0.875rem; color: var(--dp-muted);">Back to the wiki: values and requirements that no page backs.</p>
                 </div>
-
-                <!-- Phase 4 -->
                 <div class="timeline__phase">
                     <div class="timeline__title">
-                        Phase 4: Designing the Screen & Writing Stories
-                        <span class="timeline__badge">UI UX</span>
+                        4. The marketplace
+                        <span class="timeline__badge" style="color: var(--dp-emerald); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05);">Real participants</span>
                     </div>
-
-                    <div class="step-list">
-                        <!-- Step 9 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 09</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Building the user screens</h4>
-                                <p class="step-row__desc">The founder builds a clean, lightweight web page or mobile screen tailored to their users, connecting it directly to the matching engine.</p>
-                            </div>
-                        </div>
-                        <!-- Step 10 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 10</span>
-                            <span class="step-row__badge step-row__badge--joint">🤝 Joint Effort</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Writing the match stories</h4>
-                                <p class="step-row__desc">The core software translates complex matching scores into simple, step-by-step plain English stories that explain to both sides why they are a great fit.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phase 5 -->
-                <div class="timeline__phase">
-                    <div class="timeline__title">
-                        Phase 5: Launching & Continuous Curation
-                        <span class="timeline__badge" style="color: var(--dp-emerald); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05);">Launch</span>
-                    </div>
-
-                    <div class="step-list">
-                        <!-- Step 11 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 11</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Welcoming new users</h4>
-                                <p class="step-row__desc">The founder creates simple guidebooks, manuals, and value explanations to help real-world businesses sign up easily.</p>
-                            </div>
-                        </div>
-                        <!-- Step 12 -->
-                        <div class="step-row">
-                            <span class="step-row__num">Step 12</span>
-                            <span class="step-row__badge step-row__badge--founder">👤 Market Vertical</span>
-                            <div class="step-row__content">
-                                <h4 class="step-row__title">Updating the library</h4>
-                                <p class="step-row__desc">The founder sets up alert channels so when a match is blocked by a missing rule, they can quickly update the library with a new workaround.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Custom Sandbox Pipeline Diagram -->
-            <div class="card"
-                style="padding: var(--space-2xl); border-color: rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.02); margin-bottom: var(--space-3xl);">
-                <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-2xl); align-items: center;">
-                    <div
-                        style="display: flex; justify-content: center; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
-                        <img src="assets/myimages/marketforge-creation-flow.png"
-                            alt="DeeperPoint Digital Twin Sandbox Pipeline"
-                            style="max-width: 100%; height: auto; object-fit: contain;" loading="lazy">
-                    </div>
-                    <div>
-                        <span class="section__label" style="color: var(--dp-violet);">Validation Sandbox</span>
-                        <h2 style="color: #fff; font-family: var(--font-display); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem;">
-                            The Digital Twin Architecture
-                        </h2>
-                        <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 1.25rem;">
-                            Before launching to real businesses, the founder sets up a **Digital Twin** (a local computer simulation) to test their marketplace. They create three groups of simulated users:
-                        </p>
-                        <ul style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.7; padding-left: 1.25rem; margin-bottom: 0;">
-                            <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Group A (Fully Compliant):</strong> Confirms that users who clear every standard match immediately.</li>
-                            <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Group B (Has Workarounds):</strong> Proves that users who carry alternative qualifications (workarounds) successfully match instead of getting blocked.</li>
-                            <li style="margin-bottom: 0.5rem;"><strong style="color: #fff;">Group C (Unqualified):</strong> Verifies that unqualified users are safely blocked and guided on how to improve.</li>
-                        </ul>
-                    </div>
+                    <p class="mf-prose" style="margin: 0 0 0.5rem 0;">The twin with real participants and a sponsor. Synthetic profiles never enter it. The wiki stays, and keeping it current is the sponsor's standing job.</p>
+                    <p class="mf-prose" style="margin: 0; font-size: 0.875rem; color: var(--dp-muted);">Back to the wiki: blocked matches and unanswered questions.</p>
                 </div>
             </div>
 
-            <!-- Section 3: Curation Learning Loops -->
-            <h2 style="color: #fff; font-family: var(--font-display); font-size: 2rem; text-align: center; margin-bottom: var(--space-xl);">
-                CommonContext Continuous Curation Loops
-            </h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl);">
-
-                <!-- Loop 1 -->
-                <div class="card"
-                    style="padding: var(--space-xl); border-color: rgba(6, 182, 212, 0.2); background: rgba(6, 182, 212, 0.01);">
-                    <h3 style="color: var(--dp-cyan); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">
-                        Loop 1: Preparing the Ground
-                    </h3>
-                    <p style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">
-                        Before launch, the founder uploads industry rulebooks to teach the software the baseline terminology and workarounds.
-                    </p>
-                    <span style="font-size: 0.75rem; color: var(--dp-muted); display: block; border-top: 1px solid var(--glass-border); padding-top: 0.5rem;">
-                        <strong>Result:</strong> Calibrates matching models to regional industrial realities.
-                    </span>
-                </div>
-
-                <!-- Loop 2 -->
-                <div class="card"
-                    style="padding: var(--space-xl); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.01);">
-                    <h3 style="color: var(--dp-emerald); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">
-                        Loop 2: Automatic Profile Helping
-                    </h3>
-                    <p style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">
-                        If a business gets blocked during matching because of a missing qualification, the software automatically messages them to ask for their workaround and updates their profile instantly.
-                    </p>
-                    <span style="font-size: 0.75rem; color: var(--dp-muted); display: block; border-top: 1px solid var(--glass-border); padding-top: 0.5rem;">
-                        <strong>Result:</strong> Unlocks blocked matches in minutes without manual support.
-                    </span>
-                </div>
-
-                <!-- Loop 3 -->
-                <div class="card"
-                    style="padding: var(--space-xl); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.01);">
-                    <h3 style="color: var(--dp-amber); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">
-                        Loop 3: Closing the Curation Gaps
-                    </h3>
-                    <p style="color: var(--dp-silver); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem;">
-                        If a transaction is blocked by a brand new regulatory barrier, the system alerts the founder, who quickly uploads the appropriate workaround to make the market smarter.
-                    </p>
-                    <span style="font-size: 0.75rem; color: var(--dp-muted); display: block; border-top: 1px solid var(--glass-border); padding-top: 0.5rem;">
-                        <strong>Result:</strong> System gets progressively smarter with every match.
-                    </span>
-                </div>
-
+            <!-- More than one way through -->
+            <div class="card" style="padding: var(--space-2xl); margin-bottom: var(--space-3xl); border-color: rgba(245, 158, 11, 0.2);">
+                <span class="section__label" style="color: var(--dp-amber);">Tracked at every stage</span>
+                <h2 style="color: #fff; font-family: var(--font-display); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem;">More than one way through</h2>
+                <p class="mf-prose" style="margin-bottom: 1rem;">
+                    Most tasks a participant must get through have more than one way through them, and the people a thin market fails are often the ones who know only the obvious way. A requirement written as "certificate required" can silently refuse people who could lawfully be hired another way.
+                </p>
+                <p class="mf-prose" style="margin: 0;">
+                    So the wiki records, for each task, the ways through it: who grants each, what it confers, what it still requires. It says a path exists. It never says a person qualifies, and it never invents a path.
+                </p>
             </div>
 
-            <!-- Cross-links / Spoke Banner -->
+            <!-- The toolkit -->
+            <h2 class="mf-h2" id="toolkit">The toolkit, part by part</h2>
+            <p class="mf-lede">The first three diagnose. The wiki engine and the question page hold a market's knowledge and let people ask it. CommonContext, ClientSynth and Cosolvent build the twin and the marketplace on that knowledge. MarketForge is the order in which it is all done.</p>
+
+            <div class="step-list" style="margin-bottom: var(--space-3xl);">
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">Intervention matrix</h4>
+                    <p class="step-row__desc">Names the fourteen challenges that keep a market thin and the seven AI interventions that answer them.</p>
+                    <span class="step-row__where"><a href="intervention-matrix.html">On this site</a></span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">Opportunity catalog</h4>
+                    <p class="step-row__desc">Prospective thin markets, each read through the matrix.</p>
+                    <span class="step-row__where"><a href="catalog/index.html">On this site</a></span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">MarketMap engine</h4>
+                    <p class="step-row__desc">Diagnoses one company or venture against the matrix.</p>
+                    <span class="step-row__where"><a href="marketmaps.html">Examples on this site</a>. The code is not public</span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">Wiki engine</h4>
+                    <p class="step-row__desc">Builds and keeps a market's wiki: ingest, lint and query tools, a validator, and one configuration file per wiki.</p>
+                    <span class="step-row__where"><a href="https://github.com/DeeperPoint/MarketForge/tree/main/plugins/deeperpoint-wiki" target="_blank" rel="noopener">Inside MarketForge</a>, MIT. Installed as a Claude Code plugin</span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">Question page</h4>
+                    <p class="step-row__desc">Lets people ask a wiki, with answers made only from its shared pages.</p>
+                    <span class="step-row__where">Built over one wiki. Not yet separable from it, and not yet public</span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">CommonContext</h4>
+                    <p class="step-row__desc">Turns curated documents, wiki pages among them, into a marketplace's reference library, and can propose a domain schema.</p>
+                    <span class="step-row__where"><a href="mf-commoncontext.html">About</a> · <a href="https://github.com/DeeperPoint/CommonContext" target="_blank" rel="noopener">Repository</a>, MIT</span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">ClientSynth</h4>
+                    <p class="step-row__desc">Generates synthetic, marked populations so a market can be exercised before real participants arrive.</p>
+                    <span class="step-row__where"><a href="mf-clientsynth.html">About</a> · <a href="https://github.com/DeeperPoint/ClientSynth" target="_blank" rel="noopener">Repository</a>. Apache 2.0 with one condition: synthetic and real participants are never mixed</span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">Cosolvent</h4>
+                    <p class="step-row__desc">The marketplace engine: matching, confidential intermediation, input translation, the Content Match Story and the Deal Brief.</p>
+                    <span class="step-row__where"><a href="cosolvent.html">About</a> · <a href="https://github.com/DeeperPoint/Cosolvent" target="_blank" rel="noopener">Repository</a>, MIT</span>
+                </div>
+                <div class="step-row step-row--part">
+                    <h4 class="step-row__title">MarketForge</h4>
+                    <p class="step-row__desc">The method that joins the parts.</p>
+                    <span class="step-row__where"><a href="https://github.com/DeeperPoint/MarketForge" target="_blank" rel="noopener">Repository</a>. Documents CC BY 4.0, code MIT</span>
+                </div>
+            </div>
+
+            <!-- Two doors -->
+            <h2 class="mf-h2" id="doors">Where to start</h2>
+            <p class="mf-lede">Each door opens onto a guide in the public repository.</p>
+
+            <div class="mf-doors">
+                <div class="card" style="padding: var(--space-xl); border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.01);">
+                    <h3 style="color: var(--dp-amber); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">A sponsor who knows a market</h3>
+                    <p class="mf-prose" style="font-size: 0.875rem; margin-bottom: 1rem;">The half of the work only you can do: what to gather, how to judge it, and how to know when you are ready.</p>
+                    <a href="https://github.com/DeeperPoint/MarketForge/blob/main/framework/manuals/sponsor-wiki-guide.md" class="btn btn--outline" target="_blank" rel="noopener">The sponsor's guide →</a>
+                </div>
+                <div class="card" style="padding: var(--space-xl); border-color: rgba(6, 182, 212, 0.2); background: rgba(6, 182, 212, 0.01);">
+                    <h3 style="color: var(--dp-cyan); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">A developer standing a market up</h3>
+                    <p class="mf-prose" style="font-size: 0.875rem; margin-bottom: 1rem;">The build procedure, stage by stage, starting with the wiki. Each stage says what is proven, what is built but not measured, and what is not written yet.</p>
+                    <a href="https://github.com/DeeperPoint/MarketForge/blob/main/framework/manuals/wiki-to-twin-recipe.md" class="btn btn--outline" target="_blank" rel="noopener">The wiki-to-twin recipe →</a>
+                </div>
+                <div class="card" style="padding: var(--space-xl); border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.01);">
+                    <h3 style="color: var(--dp-emerald); font-family: var(--font-display); margin-top: 0; margin-bottom: 0.75rem; font-size: 1.2rem;">Either, wanting the whole set</h3>
+                    <p class="mf-prose" style="font-size: 0.875rem; margin-bottom: 1rem;">The reading path over the guides, the specifications and the contracts between the engines, with an index of every document.</p>
+                    <a href="https://github.com/DeeperPoint/MarketForge/blob/main/BUILDING-A-TWIN.md" class="btn btn--outline" target="_blank" rel="noopener">The reading path →</a>
+                </div>
+            </div>
+
+            <!-- Where it stands -->
+            <h2 class="mf-h2" id="state">Where it stands</h2>
+            <p class="mf-lede">Said plainly, because a guide that claims more than it has earned is worse than none.</p>
+
+            <div class="step-list" style="margin-bottom: var(--space-3xl);">
+                <div class="step-row step-row--state">
+                    <h4 class="step-row__title">The wiki method</h4>
+                    <p class="step-row__desc">Done in one wiki. One example is a candidate method, not a proven one.</p>
+                </div>
+                <div class="step-row step-row--state">
+                    <h4 class="step-row__title">Ask</h4>
+                    <p class="step-row__desc">Built over one wiki. That testers' questions improve the wiki is the design; the evidence is not in yet.</p>
+                </div>
+                <div class="step-row step-row--state">
+                    <h4 class="step-row__title">Alternative paths</h4>
+                    <p class="step-row__desc">Written into wiki pages as sourced prose. Nothing counts them yet.</p>
+                </div>
+                <div class="step-row step-row--state">
+                    <h4 class="step-row__title">The twin</h4>
+                    <p class="step-row__desc">Two twins have been built: a manufacturing capacity exchange and a job-matching market. Both schemas were written by hand; the wiki backs and checks them.</p>
+                </div>
+                <div class="step-row step-row--state">
+                    <h4 class="step-row__title">The written procedure</h4>
+                    <p class="step-row__desc">The recipe covers the wiki and Ask. Its twin half is not yet written, and three older guides for that half are being corrected before they are published.</p>
+                </div>
+                <div class="step-row step-row--state">
+                    <h4 class="step-row__title">A sponsored marketplace</h4>
+                    <p class="step-row__desc">None yet. That stage is a design, not a result.</p>
+                </div>
+            </div>
+
+            <!-- Cross-link -->
             <div class="crosslink"
                 style="border-left: 4px solid var(--dp-emerald); background: rgba(16, 185, 129, 0.05); padding: var(--space-xl);">
                 <div class="crosslink__text">
                     <h3 style="color: var(--dp-emerald); margin: 0 0 0.5rem 0; font-family: var(--font-display);">
-                        Ready to review the software?
+                        Where help is wanted
                     </h3>
                     <p style="margin: 0; color: var(--dp-silver); font-size: 0.9375rem;">
-                        Explore the core Cosolvent suite and download the MIT licensed transaction database blocks.
+                        Nine tasks, each small enough for one person to pick up, and help that is not code: knowledge of a market, a market to test on, or a candid reading of a guide.
                     </p>
                 </div>
-                <a href="cosolvent.html" class="btn btn--primary"
-                    style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff; white-space: nowrap;">Explore Cosolvent →</a>
+                <a href="contribute.html#help-wanted" class="btn btn--primary"
+                    style="background: var(--dp-emerald); border-color: var(--dp-emerald); color: #fff; white-space: nowrap;">See the list →</a>
             </div>
 
         </div>
