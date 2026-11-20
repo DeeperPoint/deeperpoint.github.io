@@ -61,8 +61,8 @@
                 </div>
                 <p class="spoke-hero__desc" style="margin: 0 auto;">
                     DeeperPoint applies the seven AI interventions in a generic, open-source marketplace engine &mdash;
-                    not tied to any vertical. A market sponsor adopts it, adds their market&rsquo;s business logic, and
-                    skips a decade of rediscovering the same problems.
+                    not tied to any vertical. A market sponsor adopts it, adds their market&rsquo;s knowledge and its
+                    front end, and skips a decade of rediscovering the same problems.
                 </p>
             </div>
 
@@ -87,7 +87,7 @@
             <!-- Thesis (spine) -->
             <div class="reveal" style="padding: 1.25rem 1.5rem; background: rgba(99,102,241,0.06); border-left: 4px solid #818cf8; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: var(--space-xl);">
                 <p style="margin:0; color:#e2e8f0; font-size:1.0625rem; line-height:1.65;">
-                    <strong style="color:#fff;">The DeeperPoint thesis:</strong> because the frictions that keep markets thin are <em>common across thousands of markets</em>, the friction-fighting layer can be built <strong style="color:#fff;">once</strong> and open-sourced. A sponsor reuses it and adds only their market&rsquo;s business logic &mdash; instead of rediscovering the same problems alone.
+                    <strong style="color:#fff;">The DeeperPoint thesis:</strong> because the frictions that keep markets thin are <em>common across thousands of markets</em>, the friction-fighting layer can be built <strong style="color:#fff;">once</strong> and open-sourced. A sponsor reuses it and adds only their market&rsquo;s knowledge and its front end &mdash; instead of rediscovering the same problems alone.
                 </p>
             </div>
 
@@ -126,12 +126,12 @@
             <!-- Doorways: everything under What We Built, since the nav names only this page (2026-11-05) -->
             <div class="reveal" style="display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: var(--space-xl);">
                 <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin-right: 0.25rem;">What we&rsquo;re building</span>
+                <a href="marketforge.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">MarketForge</a>
+                <a href="mf-commoncontext.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">CommonContext</a>
+                <a href="mf-clientsynth.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">ClientSynth</a>
+                <a href="cosolvent.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">Cosolvent</a>
                 <a href="how-it-works.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">How it works</a>
                 <a href="demo.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">Live demo</a>
-                <a href="cosolvent.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">Cosolvent</a>
-                <a href="mf-commoncontext.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">CommonContext</a>
-                <a href="marketforge.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">MarketForge</a>
-                <a href="mf-clientsynth.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">ClientSynth</a>
                 <a href="architecture.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">How an implementation is built</a>
                 <a href="cards/index.html" style="display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--dp-silver); font-size: 0.875rem; font-weight: 600; text-decoration: none;">Fifteen cards</a>
             </div>
@@ -141,13 +141,15 @@
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
                 <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Free, Open Source, Headless</h2>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    DeeperPoint offers the solution as three peer components &mdash; <strong style="color:#fff;">Cosolvent</strong>
+                    DeeperPoint offers the engine as three components &mdash; <strong style="color:#fff;">Cosolvent</strong>
                     (the matching engine), <strong style="color:#fff;">CommonContext</strong> (the curated knowledge layer)
                     and <strong style="color:#fff;">ClientSynth</strong> (synthetic populations for testing) &mdash; as free,
                     <em>headless</em> server functionality: Cosolvent and CommonContext under MIT, ClientSynth under
                     Apache 2.0 with one condition. It is deliberately
                     <strong style="color:#fff;">not a shrink-wrap product</strong> for any market vertical, and probably
                     can't become one: everything vertical-specific is exactly what the adopter must own.
+                    <a href="marketforge.html" style="color: var(--dp-cyan);">MarketForge</a> is the order in which
+                    they are used, starting with the market&rsquo;s own knowledge.
                 </p>
 
                 <h3 style="font-family: var(--font-display); color: var(--dp-emerald); font-size: 1.15rem; margin: 0 0 0.75rem;">Why MIT? Because adoption is a thin market too.</h3>
@@ -172,14 +174,14 @@
                 </p>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--space-md);">
-                    <!-- Cosolvent -->
-                    <a href="cosolvent.html" class="card card--build" style="text-decoration: none; padding: var(--space-lg); border-color: rgba(16, 185, 129, 0.3);">
-                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">⚙️</div>
-                        <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source &middot; MIT</span>
-                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Cosolvent</h3>
+                    <!-- MarketForge -->
+                    <a href="marketforge.html" class="card card--match" style="text-decoration: none; padding: var(--space-lg);">
+                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🛠️</div>
+                        <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Map and method</span>
+                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">MarketForge</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                            Headless semantic matching engine &mdash; multi-attribute similarity, privacy-aware
-                            profiles, match-story generation.
+                            The map and the method that join the parts: the path from a domain wiki to a twin to a marketplace.
+                            <span style="color: var(--dp-cyan);">Now a public repository of guides.</span>
                         </p>
                     </a>
 
@@ -206,14 +208,14 @@
                         </p>
                     </a>
 
-                    <!-- MarketForge -->
-                    <a href="marketforge.html" class="card card--match" style="text-decoration: none; padding: var(--space-lg);">
-                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">🛠️</div>
-                        <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Map and method</span>
-                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">MarketForge</h3>
+                    <!-- Cosolvent -->
+                    <a href="cosolvent.html" class="card card--build" style="text-decoration: none; padding: var(--space-lg); border-color: rgba(16, 185, 129, 0.3);">
+                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">⚙️</div>
+                        <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source &middot; MIT</span>
+                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Cosolvent</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                            The map and the method that join the parts: the path from a domain wiki to a twin to a marketplace.
-                            <span style="color: var(--dp-cyan);">Now a public repository of guides.</span>
+                            Headless semantic matching engine &mdash; multi-attribute similarity, privacy-aware
+                            profiles, match-story generation.
                         </p>
                     </a>
                 </div>
@@ -306,8 +308,10 @@
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
                 <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">What Adopters Build On Top</h2>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    The owner of a market vertical adopts the DeeperPoint suite and builds a market-specific front end
-                    on top of it: branding, participant UX, legal templates, payment rails, sponsorship services. With
+                    The owner of a market vertical adopts the DeeperPoint suite and supplies two things. The first is
+                    the market&rsquo;s knowledge, kept as a wiki of sourced pages that only people in the market can
+                    write. The second is a market-specific front end: branding, participant UX, legal templates,
+                    payment rails, sponsorship services. With
                     modern AI coding tools &mdash; Claude Code goes a long way &mdash; an adopter can produce a working
                     <strong style="color:#fff;">digital twin</strong> of their market, and perhaps even a modest
                     working marketplace site, in a fraction of the traditional effort.
