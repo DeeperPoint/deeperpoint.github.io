@@ -233,6 +233,71 @@
             <h2 class="mf-h2">The path</h2>
             <p class="mf-lede">A market is built in one direction, and it starts with what the market knows. Each later stage sends what it could not answer back to the first.</p>
 
+            <figure class="path-fig">
+                <div class="path-fig__frame">
+                    <svg class="path-svg" viewBox="0 0 1120 410" role="img" aria-label="The path: the wiki, then Ask, then the twin, then the marketplace. Ask, the twin and the marketplace each send what they could not answer back to the wiki.">
+                        <defs>
+                            <marker id="mfp-f" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L7,3 L0,6 Z" fill="#8595ac"/>
+                            </marker>
+                            <marker id="mfp-b" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L7,3 L0,6 Z" fill="#22d3ee"/>
+                            </marker>
+                        </defs>
+
+                        <!-- 1 · The wiki (cyan) -->
+                        <rect x="40" y="40" width="220" height="180" rx="16" fill="rgba(6,182,212,0.10)" stroke="#06b6d4" stroke-width="2"/>
+                        <text class="lbl" x="150" y="74" text-anchor="middle" font-size="14" fill="#67e8f9">1 &middot; THE WIKI</text>
+                        <text class="nt" x="150" y="108" text-anchor="middle" font-size="16">What the market knows</text>
+                        <text class="ns" x="150" y="136" text-anchor="middle" font-size="13">Sourced pages, drafted with an</text>
+                        <text class="ns" x="150" y="154" text-anchor="middle" font-size="13">AI model, ruled on by a person</text>
+                        <text class="who" x="150" y="196" text-anchor="middle" font-size="13">Only the sponsor can supply it</text>
+
+                        <!-- 2 · Ask (amber) -->
+                        <rect x="320" y="40" width="220" height="180" rx="16" fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="2"/>
+                        <text class="lbl" x="430" y="74" text-anchor="middle" font-size="14" fill="#fcd34d">2 &middot; ASK</text>
+                        <text class="nt" x="430" y="108" text-anchor="middle" font-size="16">Questions put to the wiki</text>
+                        <text class="ns" x="430" y="136" text-anchor="middle" font-size="13">Answers come only from the</text>
+                        <text class="ns" x="430" y="154" text-anchor="middle" font-size="13">wiki, with citations</text>
+                        <text class="who" x="430" y="196" text-anchor="middle" font-size="13">Sponsor and testers ask</text>
+
+                        <!-- 3 · The twin (violet) -->
+                        <rect x="600" y="40" width="220" height="180" rx="16" fill="rgba(139,92,246,0.08)" stroke="#8b5cf6" stroke-width="2"/>
+                        <text class="lbl" x="710" y="74" text-anchor="middle" font-size="14" fill="#c4b5fd">3 &middot; THE TWIN</text>
+                        <text class="nt" x="710" y="108" text-anchor="middle" font-size="16">The engine, configured</text>
+                        <text class="ns" x="710" y="136" text-anchor="middle" font-size="13">Synthetic, marked participants</text>
+                        <text class="ns" x="710" y="154" text-anchor="middle" font-size="13">show how the market behaves</text>
+                        <text class="who" x="710" y="196" text-anchor="middle" font-size="13">Developers build it</text>
+
+                        <!-- 4 · The marketplace (emerald) -->
+                        <rect x="880" y="40" width="220" height="180" rx="16" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="2"/>
+                        <text class="lbl" x="990" y="74" text-anchor="middle" font-size="14" fill="#6ee7b7">4 &middot; THE MARKETPLACE</text>
+                        <text class="nt" x="990" y="108" text-anchor="middle" font-size="16">Real participants</text>
+                        <text class="ns" x="990" y="136" text-anchor="middle" font-size="13">A sponsor runs it. Synthetic</text>
+                        <text class="ns" x="990" y="154" text-anchor="middle" font-size="13">profiles never enter</text>
+                        <text class="who" x="990" y="196" text-anchor="middle" font-size="13">The sponsor keeps the wiki</text>
+
+                        <!-- The build goes one way -->
+                        <line class="fwd" x1="264" y1="130" x2="314" y2="130" marker-end="url(#mfp-f)"/>
+                        <line class="fwd" x1="544" y1="130" x2="594" y2="130" marker-end="url(#mfp-f)"/>
+                        <line class="fwd" x1="824" y1="130" x2="874" y2="130" marker-end="url(#mfp-f)"/>
+
+                        <!-- What each stage could not answer goes back to the wiki -->
+                        <path class="back" d="M430,222 V270 H190 V226" marker-end="url(#mfp-b)"/>
+                        <text class="backlbl" x="310" y="262" text-anchor="middle" font-size="13">questions it could not answer</text>
+
+                        <path class="back" d="M710,222 V316 H150 V226" marker-end="url(#mfp-b)"/>
+                        <text class="backlbl" x="570" y="308" text-anchor="middle" font-size="13">values and requirements no page backs</text>
+
+                        <path class="back" d="M990,222 V362 H110 V226" marker-end="url(#mfp-b)"/>
+                        <text class="backlbl" x="850" y="354" text-anchor="middle" font-size="13">blocked matches, unanswered questions</text>
+
+                        <text class="who" x="40" y="394" font-size="13">Dashed lines: back to the wiki, as the next research.</text>
+                    </svg>
+                </div>
+                <figcaption class="path-fig__cap">The build runs left to right. Whatever a later stage cannot answer returns to the wiki, so the wiki is never finished.</figcaption>
+            </figure>
+
             <div class="timeline">
                 <div class="timeline__phase">
                     <div class="timeline__title">

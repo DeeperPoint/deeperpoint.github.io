@@ -2499,3 +2499,27 @@ body.nav-open {
     gap: var(--space-md);
   }
 }
+
+/* ── The path diagram (marketforge.html in full; platform.html and index.html compact) ── */
+.path-fig { margin: 0 0 var(--space-2xl); }
+.path-fig__frame {
+    background: #141c2e;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    overflow-x: auto;
+}
+.path-fig__frame svg { width: 100%; min-width: 760px; height: auto; display: block; }
+.path-fig__cap { color: var(--dp-cloud); font-size: 0.9375rem; font-style: italic; margin: 1rem 0 0; line-height: 1.65; text-align: center; }
+.path-svg text { font-family: 'Inter', sans-serif; }
+.path-svg .lbl { font-weight: 700; letter-spacing: 0.06em; }
+.path-svg .nt { fill: #f8fafc; font-weight: 600; }
+.path-svg .ns { fill: #cbd5e1; }
+.path-svg .who { fill: #94a3b8; font-style: italic; }
+.path-svg .fwd { fill: none; stroke: #8595ac; stroke-width: 2.4; }
+.path-svg .back { fill: none; stroke: #22d3ee; stroke-width: 2; stroke-dasharray: 6 4; }
+.path-svg .backlbl { fill: #67e8f9; }
+.path-fig--compact .path-fig__frame { padding: 1rem; }
+.path-fig--compact .path-fig__frame svg { min-width: 560px; }
+.path-fig--compact .path-fig__cap { font-size: 0.875rem; font-style: normal; color: var(--dp-silver); }
+.path-fig--compact .path-fig__cap a { color: var(--dp-cyan); }
