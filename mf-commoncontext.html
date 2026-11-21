@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI CommonContext Curation — MarketForge Ecosystem — DeeperPoint</title>
+    <title>CommonContext | DeeperPoint</title>
     <meta name="description"
-        content="AI CommonContext Curation standardizes messy, real-world data into matchable CommonContexts for thin markets.">
+        content="CommonContext turns a market&rsquo;s wiki pages and reference documents into the embedded reference library the Cosolvent engine loads, and can propose the market&rsquo;s schema. Open source, MIT.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -54,40 +54,47 @@
                 <span class="section__label"
                     style="background: rgba(245, 158, 11, 0.1); color: var(--dp-amber); border: 1px solid rgba(245, 158, 11, 0.3);">MarketForge
                     • Open Source</span>
-                <h1 class="section__title">AI CommonContext Curation</h1>
+                <h1 class="section__title">CommonContext</h1>
                 <p class="section__desc section__desc--centered">
-                    Transform unstructured complexity into highly reliable, semantically matchable data structures.
+                    Prepares a market&rsquo;s sourced documents for the engine: an embedded reference library, and a proposed schema.
                 </p>
             </div>
 
             <div class="reveal"
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
-                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Make The Unmatchable,
-                    Matchable</h2>
+                <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">From a Market&rsquo;s Wiki to the Engine&rsquo;s Reference Library</h2>
                 <p style="margin-bottom: 1rem; color: var(--dp-silver);">
-                    Thin markets fail primarily due to information gaps. Buyers and sellers express their needs in
-                    drastically different semantics. CommonContext closes that gap from the market's own sources: the domain wiki
-                    pages and reference documents that say what a market's terms mean.
+                    A market&rsquo;s knowledge is held in its <a href="domain-wiki.html" style="color: var(--dp-cyan);">domain wiki</a>,
+                    which the sponsor writes and keeps. The engine cannot read a wiki as it stands. It needs the text
+                    split into passages and embedded, and it needs a schema that says who takes part and what a
+                    profile contains.
                 </p>
                 <p style="margin-bottom: 1rem; color: var(--dp-silver);">
-                    The open-source (MIT) curation companion to the Cosolvent engine, <strong>CommonContext</strong>
-                    (formerly KnowledgeSlot) reads a market's curated sources (wiki pages, contracts, standards,
-                    trade guides, PDFs and spreadsheets) and turns them into two things: a <strong>domain
-                    schema</strong>, the participant roles and profile fields a marketplace is configured from, and
-                    an embedded <strong>reference library</strong> that grounds cited answers.
+                    <strong>CommonContext</strong> (formerly KnowledgeSlot) is the open-source (MIT) tool that does
+                    that preparation. It reads a market&rsquo;s curated sources (wiki pages, contracts, standards,
+                    trade guides, PDFs and spreadsheets) and produces two things: an embedded <strong>reference
+                    library</strong> that the Cosolvent engine loads and cites from, and a proposed <strong>domain
+                    schema</strong>, the participant roles and profile fields a marketplace is configured from.
+                </p>
+                <p style="margin-bottom: 1rem; color: var(--dp-silver);">
+                    It is a build tool, not a running service. It holds no knowledge of its own and does nothing at
+                    match time: searching the library, answering questions with citations and recording what the
+                    library could not answer are all done by Cosolvent.
                 </p>
 
                 <h3
                     style="font-family: var(--font-display); font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--dp-amber);">
-                    How It Integrates</h3>
+                    What It Does</h3>
                 <ul
                     style="list-style-type: none; margin-left: 0; margin-bottom: 2rem; color: var(--dp-silver); display: flex; flex-direction: column; gap: 0.5rem;">
-                    <li>✅ <strong>Extraction:</strong> Pulls strict entities, specs, and criteria out of unstructured
-                        noise.</li>
-                    <li>✅ <strong>Normalization:</strong> Translates diverse expressions into a universally understood
-                        schema.</li>
-                    <li>✅ <strong>Feeding Cosolvent:</strong> The schema configures the marketplace; the reference
-                        library loads into Cosolvent for grounded, cited answers.</li>
+                    <li>✅ <strong>Conversion:</strong> PDF, HTML, CSV, XLSX and web pages become Markdown, each with a
+                        record of where it came from.</li>
+                    <li>✅ <strong>Reference library:</strong> the text is split at its headings, tagged by topic and
+                        embedded.</li>
+                    <li>✅ <strong>Schema proposal:</strong> an AI model drafts participant roles and profile fields
+                        from the documents, for a person to review.</li>
+                    <li>✅ <strong>Feeding Cosolvent:</strong> the schema configures the marketplace; the reference
+                        library is exported as a file that Cosolvent loads.</li>
                 </ul>
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
@@ -105,72 +112,75 @@
             <div class="text-center reveal" style="margin-bottom: var(--space-xl);">
                 <span class="section__label" style="background: rgba(245, 158, 11, 0.1); color: var(--dp-amber); border: 1px solid rgba(245, 158, 11, 0.3);">Feature Sheet</span>
                 <h2 class="section__title">CommonContext Feature Overview</h2>
-                <p class="section__desc section__desc--centered">✅ Implemented &nbsp;&nbsp; 🔜 Planned</p>
+                <p class="section__desc section__desc--centered">✅ Implemented &nbsp;&nbsp; 🔜 Planned &nbsp;&nbsp; ➡️ Done by Cosolvent</p>
             </div>
 
             <div class="reveal" style="display: flex; flex-direction: column; gap: var(--space-md);">
 
-                <!-- Document Ingestion -->
                 <details open style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
-                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-amber); font-size: 1.1rem;">Document Ingestion</summary>
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-amber); font-size: 1.1rem;">Inputs and Conversion</summary>
                     <div style="padding: 0 1.25rem 1.25rem;">
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Multi-Format Parsing</td><td style="padding: 0.5rem;">PDF (pymupdf4llm), DOCX, PPTX, Markdown, and plain text ingestion with metadata extraction.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Semantic Chunking</td><td style="padding: 0.5rem;">LLM-driven segmentation into self-contained knowledge units with titles and summaries.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Vector Embedding</td><td style="padding: 0.5rem;">OpenAI text-embedding-3-small with pgvector storage and cosine-distance search.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Duplicate Detection</td><td style="padding: 0.5rem;">SHA-256 content hashing with similarity thresholds prevents redundant ingestion.</td></tr>
-                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">URL Scraping</td><td style="padding: 0.5rem;">Ingest directly from web pages, government databases, and industry portals.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Document conversion</td><td style="padding: 0.5rem;">PDF (pymupdf4llm, or marker-pdf where OCR is needed), HTML, CSV and XLSX are converted to Markdown.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Fetch by URL</td><td style="padding: 0.5rem;">A web page, or a PDF it links to, is fetched and converted.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Markdown and wiki pages</td><td style="padding: 0.5rem;">Markdown is accepted as it is. Wiki pages are embedded through a separate step today; the one-command build does not read them yet.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Metadata extraction</td><td style="padding: 0.5rem;">An AI model reads each document and fills in its record: type, jurisdiction, standard body and similar fields.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">DOCX and images</td><td style="padding: 0.5rem;">Word documents, and images through OCR.</td></tr>
                         </table>
                     </div>
                 </details>
 
-                <!-- Schema Intelligence -->
                 <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
-                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-amber); font-size: 1.1rem;">Schema Intelligence</summary>
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-amber); font-size: 1.1rem;">Reference Library</summary>
                     <div style="padding: 0 1.25rem 1.25rem;">
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Vertical-Specific Metadata</td><td style="padding: 0.5rem;">Tag documents with vertical, region, and topic for filtered retrieval.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Topic Taxonomy</td><td style="padding: 0.5rem;">Hierarchical topic trees for organized domain knowledge browsing.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Authority Grading</td><td style="padding: 0.5rem;">Rank sources by reliability — peer-reviewed journals, government data, vs. general web.</td></tr>
-                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Schema Auto-Discovery</td><td style="padding: 0.5rem;">Analyze ingested documents to suggest new metadata fields and taxonomies.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Heading-based chunking</td><td style="padding: 0.5rem;">One passage per section of the document, with its heading path attached.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Topic tagging</td><td style="padding: 0.5rem;">Each passage gets one topic from a fixed list. Tag lists exist for two verticals so far, grain and manufacturing.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Embedding</td><td style="padding: 0.5rem;">text-embedding-3-small at 1536 dimensions, the same model and size as Cosolvent&rsquo;s own store.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Export for Cosolvent</td><td style="padding: 0.5rem;">The library is written as a JSONL file, which Cosolvent&rsquo;s load-references command loads into its database.</td></tr>
                         </table>
                     </div>
                 </details>
 
-                <!-- Retrieval & Integration -->
                 <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
-                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Retrieval &amp; Integration</summary>
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Schema</summary>
                     <div style="padding: 0 1.25rem 1.25rem;">
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Hybrid Search</td><td style="padding: 0.5rem;">Combined vector similarity + keyword search with metadata filters.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Domain Q&amp;A</td><td style="padding: 0.5rem;">RAG-powered question answering grounded in curated reference library.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Cosolvent Integration</td><td style="padding: 0.5rem;">Feed curated knowledge directly into Cosolvent's matching and Content Match Story pipelines.</td></tr>
-                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Cross-Vertical Linking</td><td style="padding: 0.5rem;">Discover connections between knowledge in different verticals for multi-market insights.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Schema proposal</td><td style="padding: 0.5rem;">An AI model drafts a complete domain schema, participant roles and profile fields, from the documents in one step. The tool has no review step; a person should read the draft before using it.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Schema analysis</td><td style="padding: 0.5rem;">For an existing schema, proposes additions document by document. A person reviews the proposals and merges them by hand.</td></tr>
                         </table>
                     </div>
                 </details>
 
-                <!-- Curation Workflow -->
                 <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
-                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Curation Workflow</summary>
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-cyan); font-size: 1.1rem;">Curation Tool</summary>
                     <div style="padding: 0 1.25rem 1.25rem;">
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Sponsor Dashboard</td><td style="padding: 0.5rem;">Web UI for browsing, searching, and managing the reference library.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Chunk Review Interface</td><td style="padding: 0.5rem;">Inspect individual chunks, edit metadata, and verify extracted knowledge units.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Staleness Detection</td><td style="padding: 0.5rem;">Flag documents past their review date or with superseded source data.</td></tr>
-                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Curatorial Pull Signal</td><td style="padding: 0.5rem;">Identify knowledge gaps from failed matches and prompt sponsors to add missing references.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Local web tool</td><td style="padding: 0.5rem;">Upload or fetch documents, convert them, view each result with its provenance, and run schema analysis and metadata extraction.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Passage review</td><td style="padding: 0.5rem;">Inspect individual passages and edit their tags.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Staleness detection</td><td style="padding: 0.5rem;">Flag documents past their review date or with superseded sources.</td></tr>
                         </table>
                     </div>
                 </details>
 
-                <!-- Provenance -->
                 <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
-                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-emerald); font-size: 1.1rem;">Provenance &amp; Trust</summary>
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-emerald); font-size: 1.1rem;">Provenance</summary>
                     <div style="padding: 0 1.25rem 1.25rem;">
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Source Tracking</td><td style="padding: 0.5rem;">Every chunk traces back to its source document, page, and upload context.</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Content Hashing</td><td style="padding: 0.5rem;">SHA-256 hashing prevents re-ingestion of identical content.</td></tr>
-                            <tr><td style="padding: 0.5rem 0; text-align: center;">🔜</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Citation Generation</td><td style="padding: 0.5rem;">Auto-generate citations when knowledge is used in Content Match Stories.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Document record</td><td style="padding: 0.5rem;">Every document carries a record of its source address, title, fetch date and conversion method.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">✅</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Passage to document</td><td style="padding: 0.5rem;">Every passage names the document it came from. Page numbers are not recorded.</td></tr>
+                        </table>
+                    </div>
+                </details>
+
+                <details style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden;">
+                    <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-silver); font-size: 1.1rem;">Done by Cosolvent, Not Here</summary>
+                    <div style="padding: 0 1.25rem 1.25rem;">
+                        <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">➡️</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Search</td><td style="padding: 0.5rem;">Cosolvent searches the loaded library at match time.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">➡️</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Answers with citations</td><td style="padding: 0.5rem;">Cosolvent answers questions only from the library and cites the passages it used.</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">➡️</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Duplicates</td><td style="padding: 0.5rem;">Cosolvent skips identical passages when it loads the file.</td></tr>
+                            <tr><td style="padding: 0.5rem 0; width: 2rem; text-align: center;">➡️</td><td style="padding: 0.5rem; font-weight: 600; white-space: nowrap;">Gap signals</td><td style="padding: 0.5rem;">Cosolvent records the questions the library could not answer. Turning those into new sources is the sponsor&rsquo;s work, in the wiki.</td></tr>
                         </table>
                     </div>
                 </details>
@@ -180,11 +190,11 @@
                     <summary style="padding: 1rem 1.25rem; cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--dp-silver); font-size: 1.1rem;">Architecture</summary>
                     <div style="padding: 0 1.25rem 1.25rem;">
                         <table style="width: 100%; border-collapse: collapse; color: var(--dp-silver); font-size: 0.875rem;">
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Language</td><td style="padding: 0.5rem;">Python 3.11+</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Framework</td><td style="padding: 0.5rem;">FastAPI + Jinja2</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Database</td><td style="padding: 0.5rem;">PostgreSQL + pgvector</td></tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">AI Providers</td><td style="padding: 0.5rem;">OpenAI (embedding + chunking)</td></tr>
-                            <tr><td style="padding: 0.5rem; font-weight: 600;">Integration</td><td style="padding: 0.5rem;">Native Cosolvent pipeline feed</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Language</td><td style="padding: 0.5rem;">Python 3.10+</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Framework</td><td style="padding: 0.5rem;">FastAPI, with a single static page as the tool&rsquo;s interface</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">Database</td><td style="padding: 0.5rem;">None of its own. Its output is files; Cosolvent holds the database</td></tr>
+                            <tr style="border-bottom: 1px solid var(--glass-border);"><td style="padding: 0.5rem; font-weight: 600;">AI Providers</td><td style="padding: 0.5rem;">OpenRouter for schema drafting, tagging and embeddings; OpenAI as the embedding fallback</td></tr>
+                            <tr><td style="padding: 0.5rem; font-weight: 600;">Integration</td><td style="padding: 0.5rem;">A schema file and a JSONL export, both loaded by Cosolvent</td></tr>
                         </table>
                     </div>
                 </details>
