@@ -13,7 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261120">
+  <link rel="stylesheet" href="styles.css?v=20261121">
 </head>
 
 <body>
@@ -41,6 +41,7 @@
         <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
         <li><a href="demo.html" class="nav__link">Demo</a></li>
         <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="cost-model.html" class="nav__link">Cost</a></li>
         <li><a href="library.html" class="nav__link">Library</a></li>
         <li><a href="about.html" class="nav__link">About</a></li>
         <li><a href="contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
@@ -49,7 +50,7 @@
     </div>
   </nav>
 
-  <!-- Hero: the hook, the definition, the two doors, the open door -->
+  <!-- Hero: the hook, the definition, and the five steps the page takes -->
   <section class="hero" id="hero" style="min-height: auto; padding-top: var(--space-4xl); padding-bottom: var(--space-2xl);">
     <div class="container">
       <div class="hero__content reveal" style="margin: 0 auto;">
@@ -61,10 +62,13 @@
           or close a deal. We call them <strong>thin markets</strong>. Eighty years of economics explains why they
           stay that way, and the frictions that keep them thin can now be engineered away.
         </p>
-        <div class="hero__cta">
-          <a href="market-physics.html" class="btn btn--primary">Why markets don't form &rarr;</a>
-          <a href="platform.html" class="btn btn--outline">What we're building &rarr;</a>
-        </div>
+        <ol class="steps" aria-label="What this page covers, in order">
+          <li><a href="#problem"><b>1</b> The problem</a></li>
+          <li><a href="#solution"><b>2</b> The solution</a></li>
+          <li><a href="#examples"><b>3</b> Examples</a></li>
+          <li><a href="#cost"><b>4</b> Cost</a></li>
+          <li><a href="#documentation"><b>5</b> Documentation</a></li>
+        </ol>
         <div style="margin-top: 1.25rem;">
           <a href="contribute.html"
             style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 100px; color: var(--dp-emerald); font-size: 0.8125rem; font-weight: 600; text-decoration: none;">
@@ -75,94 +79,222 @@
     </div>
   </section>
 
-  <!-- The questions a visitor arrives with, one tile each, in the order of the nav -->
-  <section class="section" id="questions" style="padding-top: var(--space-xl); padding-bottom: 0;">
-    <div class="container">
-      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-md);">
-        <a href="market-physics.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🧲</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Why Markets Don&rsquo;t Form</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Why don&rsquo;t some markets form?</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">Buyers and sellers who cannot find, trust or deal with each other. The frictions are known, documented over eighty years, and they repeat across thousands of markets.</p>
-        </a>
-        <a href="platform.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">⚙️</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">What We&rsquo;re Building</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">What are you building?</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">A free, open-source market engine, built once and dressed for each market: semantic matching, confidential disclosure, and a Deal Brief that hands off to the parties&rsquo; own professionals. Fifteen cards show what it does about each resistance, and the public MarketForge guides show how a market is built on it.</p>
-        </a>
-        <a href="catalog/index.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">📚</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-amber); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Catalog</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Show me the markets</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">Hundreds of prospective thin markets across 29 sectors, each tagged with the challenges that bind it and the interventions that would release it.</p>
-        </a>
-        <a href="demo.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🖥️</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-blue-light); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Demo</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Can I see it work?</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">A sandbox simulation of the matching engine on a three-sided precision-machining market, populated and matchable.</p>
-        </a>
-        <a href="blog/index.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">📰</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Blog</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">What does a deal look like?</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">Narrative scenarios, one market at a time, showing what it looks like once the friction is engineered away.</p>
-        </a>
-        <a href="library.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">📖</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Library</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">What should I read, and where does it apply?</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">The whitepaper for the argument, the matrix for reference, the ebook for the Canadian case, and the worked examples: teardowns of real ventures, scenario stories, a diagnostic checklist and a demo you can drive.</p>
-        </a>
-        <a href="about.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🧭</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">About</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Who is behind this?</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">A self-funded, pay-it-forward project by a founder with five decades of professional work behind it, with no investors and no board.</p>
-        </a>
-        <a href="contribute.html" class="card" style="text-decoration: none; padding: var(--space-lg);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🔓</div>
-          <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Contribute</span>
-          <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Can I help?</h3>
-          <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">Yes. The engine is MIT-licensed and the project is self-funded. Code, domain knowledge, a market to test on, and honest critique all have a place to land.</p>
-        </a>
+  <!-- 1 · The problem — nav: Why Markets Don't Form -->
+  <section class="band band--violet" id="problem">
+    <div class="band__inner reveal">
+      <figure class="band__media">
+        <img src="images/home/problem.jpg" width="1200" height="800"
+          alt="The owner of a small machine shop stands beside an idle milling machine, looking out at an empty yard.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">1 &middot; The problem <span>&middot; Why Markets Don&rsquo;t Form</span></span>
+        <h2 class="band__title">Why don&rsquo;t some markets form?</h2>
+        <p>
+          Buyers and sellers who cannot find, trust or deal with each other. A capable shop with an idle machine and
+          a buyer who needs exactly that machine can sit an hour apart and never meet.
+        </p>
+        <p>
+          The frictions are known, documented over eighty years, and they repeat across thousands of markets.
+        </p>
+        <div class="band__cta">
+          <a href="market-physics.html" class="btn btn--primary">Why markets don&rsquo;t form &rarr;</a>
+          <a href="whitepaper.html" class="btn btn--outline">The whitepaper &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- The path, compact (full version on marketforge.html) -->
-  <section class="section" style="padding-top: var(--space-xl); padding-bottom: 0;">
-    <div class="container container--narrow">
-      <h2 class="reveal" style="font-family: var(--font-display); color: #fff; font-size: 1.5rem; text-align: center; margin-bottom: 1rem;">How a market gets built</h2>
-      <figure class="path-fig path-fig--compact reveal">
-       <div class="path-fig__frame">
-        <svg class="path-svg" width="100%" font-family="Inter, sans-serif" viewBox="0 0 760 216" role="img" aria-label="How a market is built: the wiki, then the twin, then the marketplace, with what a later stage cannot answer going back to the wiki. Asking the wiki is an optional service beside the path."><defs><marker id="g2" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#8595ac"/></marker><marker id="c2" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#22d3ee"/></marker><marker id="a2" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#f59e0b"/></marker></defs><rect x="6" y="40" width="160" height="76" rx="12" fill="rgba(6,182,212,0.09)" stroke="#06b6d4" stroke-width="2"/><text x="86" y="70" text-anchor="middle" font-size="12.5" fill="#67e8f9" font-weight="700" letter-spacing="0.06em">1 &middot; WIKI</text><text x="86" y="95" text-anchor="middle" font-size="12" fill="#f8fafc" font-weight="600">What the market knows</text><rect x="300" y="40" width="160" height="76" rx="12" fill="rgba(139,92,246,0.09)" stroke="#8b5cf6" stroke-width="2"/><text x="380" y="70" text-anchor="middle" font-size="12.5" fill="#c4b5fd" font-weight="700" letter-spacing="0.06em">2 &middot; TWIN</text><text x="380" y="95" text-anchor="middle" font-size="12" fill="#f8fafc" font-weight="600">The engine, configured</text><rect x="594" y="40" width="160" height="76" rx="12" fill="rgba(16,185,129,0.09)" stroke="#10b981" stroke-width="2"/><text x="674" y="70" text-anchor="middle" font-size="12.5" fill="#6ee7b7" font-weight="700" letter-spacing="0.06em">3 &middot; MARKETPLACE</text><text x="674" y="95" text-anchor="middle" font-size="12" fill="#f8fafc" font-weight="600">Real participants</text><path d="M170,78 H294" fill="none" stroke="#8595ac" stroke-width="2.4" marker-end="url(#g2)"/><path d="M464,78 H588" fill="none" stroke="#8595ac" stroke-width="2.4" marker-end="url(#g2)"/><path d="M674,37 V16 H86 V36" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#c2)"/><path d="M380,37 V16" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="6 4"/><text x="380" y="10" text-anchor="middle" font-size="12" fill="#67e8f9">what a later stage cannot answer goes back to the wiki</text><rect x="6" y="158" width="160" height="50" rx="20" fill="rgba(245,158,11,0.07)" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/><text x="86" y="180" text-anchor="middle" font-size="12" fill="#fcd34d" font-weight="700" letter-spacing="0.06em">ASK &middot; OPTIONAL</text><text x="86" y="197" text-anchor="middle" font-size="11.5" fill="#f8fafc" font-weight="600">Questions put to the wiki</text><path d="M86,122 V152" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#a2)" marker-start="url(#a2)"/><path d="M170,183 H380 V121" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="2 5" marker-end="url(#a2)"/><path d="M380,183 H674 V121" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="2 5" marker-end="url(#a2)"/><text x="527" y="175" text-anchor="middle" font-size="12" fill="#fcd34d">also offered inside twin and marketplace</text></svg>
-       </div>
-       <figcaption class="path-fig__cap">A market is built in one direction, and it starts with what the market knows. <a href="marketforge.html">See the path &rarr;</a></figcaption>
+  <!-- 2 · The solution — nav: What We're Building -->
+  <section class="band band--emerald" id="solution">
+    <div class="band__inner band__inner--flip reveal">
+      <figure class="band__media">
+        <img src="images/home/solution.jpg" width="1200" height="800" loading="lazy"
+          alt="A domain expert marks a printed page while a developer beside him works at a laptop.">
+        <figcaption>AI-generated illustration</figcaption>
       </figure>
+      <div class="band__text">
+        <span class="band__stage">2 &middot; The solution <span>&middot; What We&rsquo;re Building</span></span>
+        <h2 class="band__title">What are you building?</h2>
+        <p>
+          A free, open-source market engine, built once and dressed for each market: semantic matching, confidential
+          disclosure, and a Deal Brief that hands off to the parties&rsquo; own professionals.
+        </p>
+        <p>
+          A market is built on it in one direction. First a wiki of what the market knows, written with someone who
+          knows it. Then a twin, filled with synthetic participants, to watch the market behave. Then the marketplace
+          itself.
+        </p>
+        <div class="band__cta">
+          <a href="platform.html" class="btn btn--primary">What we&rsquo;re building &rarr;</a>
+          <a href="marketforge.html" class="btn btn--outline">The path, stage by stage &rarr;</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Built in the open -->
-  <section class="section" style="padding-top: var(--space-xl); padding-bottom: var(--space-2xl);">
-    <div class="container container--narrow">
-      <div class="reveal"
-        style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border);">
-        <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Built in the Open</h2>
-        <p style="margin-bottom: 1rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-          The frictions that keep markets thin are common across thousands of markets, so the layer that fights them
-          can be built <strong style="color:#fff;">once</strong> and reused. DeeperPoint is building that layer as
-          <strong style="color:#fff;">free, MIT-licensed, open-source software</strong>: adopt it, fork it, build on
-          it, and nobody can raise the price or lock you in. There is no license fee, no usage tier, and no upsell
-          behind the demo. Getting a new market engine adopted is a thin-market problem too, and price, procurement
-          and lock-in are its biggest frictions.
+  <!-- 3 · Examples — nav: Catalog -->
+  <section class="band band--amber" id="examples">
+    <div class="band__inner reveal">
+      <figure class="band__media">
+        <img src="images/home/catalog.jpg" width="1200" height="800" loading="lazy"
+          alt="A regional landscape with a harbour, a grain elevator, a factory, glasshouses and a timber yard.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">3 &middot; Examples <span>&middot; Catalog</span></span>
+        <h2 class="band__title">Show me the markets</h2>
+        <p>
+          Hundreds of prospective thin markets across 29 sectors, each tagged with the challenges that bind it and
+          the interventions that would release it.
         </p>
-        <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-          The project is self-funded, with no investors and no board, and it is open to anyone who wants to take
-          part: with code, with knowledge of a market, with a market to test on, or with a hard question.
+        <div class="band__cta">
+          <a href="catalog/index.html" class="btn btn--primary">Browse the catalog &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Examples — nav: Demo -->
+  <section class="band band--blue" id="demo">
+    <div class="band__inner band__inner--flip reveal">
+      <figure class="band__media">
+        <img src="images/home/demo.jpg" width="1200" height="800" loading="lazy"
+          alt="A shop supervisor studies a grid of cards on a laptop, with machines running behind a glass wall.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">3 &middot; Examples <span>&middot; Demo</span></span>
+        <h2 class="band__title">Can I see it work?</h2>
+        <p>
+          A sandbox simulation of the matching engine on a three-sided precision-machining market, populated and
+          matchable.
         </p>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+        <div class="band__cta">
+          <a href="demo.html" class="btn btn--primary">Open the demo &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Examples — nav: Blog -->
+  <section class="band band--violet" id="stories">
+    <div class="band__inner reveal">
+      <figure class="band__media">
+        <img src="images/home/blog.jpg" width="1200" height="800" loading="lazy"
+          alt="Two business owners shake hands over a crate of machined parts at a loading dock while an adviser looks on.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">3 &middot; Examples <span>&middot; Blog</span></span>
+        <h2 class="band__title">What does a deal look like?</h2>
+        <p>
+          Narrative scenarios, one market at a time, showing what it looks like once the friction is engineered away.
+        </p>
+        <div class="band__cta">
+          <a href="blog/index.html" class="btn btn--primary">Read the scenarios &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Cost — nav: Cost -->
+  <section class="band band--cyan" id="cost">
+    <div class="band__inner band__inner--flip reveal">
+      <figure class="band__media">
+        <img src="images/home/cost.jpg" width="1200" height="800" loading="lazy"
+          alt="A planner arranges a row of blank sticky notes into a timeline on an office wall.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">4 &middot; Cost</span>
+        <h2 class="band__title">What does a build cost?</h2>
+        <p>
+          <strong>The software is free.</strong> The cost is people&rsquo;s time, and most of that is the judgment of
+          someone who knows the market.
+        </p>
+        <p>
+          For a market of moderate complexity, a new wiki and a first demonstration twin come to roughly 215 to 355
+          hours of skilled work, and about $100 to $1,200 in AI fees and tools.
+        </p>
+        <p class="band__small">First estimates, from a small number of builds. The page says how small.</p>
+        <div class="band__cta">
+          <a href="cost-model.html" class="btn btn--primary">What a build costs &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Documentation — nav: Library -->
+  <section class="band band--emerald" id="documentation">
+    <div class="band__inner reveal">
+      <figure class="band__media">
+        <img src="images/home/library.jpg" width="1200" height="800" loading="lazy"
+          alt="A reader works through a bound report at a table stacked with reports and binders.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">5 &middot; Documentation <span>&middot; Library</span></span>
+        <h2 class="band__title">What should I read, and where does it apply?</h2>
+        <p>
+          The whitepaper for the argument, the matrix for reference, the ebook for the Canadian case, and the worked
+          examples: teardowns of real ventures, scenario stories and a diagnostic checklist.
+        </p>
+        <p>
+          The build guides are public too: the sponsor&rsquo;s guide and the wiki-to-twin recipe, in the MarketForge
+          repository.
+        </p>
+        <div class="band__cta">
+          <a href="library.html" class="btn btn--primary">The library &rarr;</a>
+          <a href="https://github.com/DeeperPoint/MarketForge" class="btn btn--outline" target="_blank" rel="noopener">The build guides &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who — nav: About -->
+  <section class="band band--amber" id="about">
+    <div class="band__inner band__inner--flip reveal">
+      <figure class="band__media">
+        <img src="images/home/about.jpg" width="1200" height="800" loading="lazy"
+          alt="A well-used desk with old notebooks, an engineering drawing, a slide rule and an open laptop.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">Who <span>&middot; About</span></span>
+        <h2 class="band__title">Who is behind this?</h2>
+        <p>
+          A self-funded, pay-it-forward project by a founder with five decades of professional work behind it, with
+          no investors and no board.
+        </p>
+        <div class="band__cta">
+          <a href="about.html" class="btn btn--primary">About DeeperPoint &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Take part — nav: Contribute -->
+  <section class="band band--emerald" id="contribute">
+    <div class="band__inner reveal">
+      <figure class="band__media">
+        <img src="images/home/contribute.jpg" width="1200" height="800" loading="lazy"
+          alt="Five people of different ages work around a table in a room whose door stands open; one chair is empty.">
+        <figcaption>AI-generated illustration</figcaption>
+      </figure>
+      <div class="band__text">
+        <span class="band__stage">Take part <span>&middot; Contribute</span></span>
+        <h2 class="band__title">Can I help?</h2>
+        <p>
+          Yes. The frictions that keep markets thin are common across thousands of markets, so the layer that fights
+          them can be built <strong>once</strong> and reused. DeeperPoint is building that layer as
+          <strong>free, MIT-licensed, open-source software</strong>: no licence fee, no usage tier, and no upsell
+          behind the demo.
+        </p>
+        <p>
+          Code, knowledge of a market, a market to test on, and honest critique all have a place to land.
+        </p>
+        <div class="band__cta">
           <a href="contribute.html" class="btn btn--primary">How to contribute &rarr;</a>
           <a href="platform.html#open-source" class="btn btn--outline">Why open source is part of the design &rarr;</a>
         </div>

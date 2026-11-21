@@ -8,7 +8,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 ## Site Map
 
 ```
-├── index.html                  # Landing page (hero + overview narrative)
+├── index.html                  # Landing page: hero, then one full-width band per nav link, in the order problem, solution, examples, cost, documentation (images in images/home/)
 ├── market-physics.html         # Why Markets Stay Thin — thin market theory, a strip of the cards, the AI interventions
 ├── cards/                      # The fifteen resistance cards: synced from DeeperPointComms/library/resistance-cards, never edited here
 ├── platform.html               # Platform — the open-source engine, deal pipeline, Deal Brief
@@ -57,6 +57,7 @@ the same list in their templates and must be changed with it.
 | **Why Markets Don't Form** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
 | **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, the domain wiki, ClientSynth |
 | **Catalog** | `catalog/index.html` | The opportunity catalog, restored to the nav on 2026-11-05 at the owner's request |
+| **Cost** | `cost-model.html` | What a build costs: the cost structure, hour ranges, the AI fee per session by mode, an estimator. In the nav since 2026-11-21 |
 | **Library** | `library.html` | The documents (whitepaper, cards and deck, matrix, ebook with its précis and pitch deck beneath it, mission essay, search) and the worked examples (test beds, MarketMaps, scenario stories, diagnostic, demo); Examples merged in on 2026-11-05 |
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |

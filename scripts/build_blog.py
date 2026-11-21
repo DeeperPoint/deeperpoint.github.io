@@ -361,6 +361,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <li><a href="{root}catalog/index.html" class="nav__link">Catalog</a></li>
         <li><a href="{root}demo.html" class="nav__link">Demo</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
+        <li><a href="{root}cost-model.html" class="nav__link">Cost</a></li>
         <li><a href="{root}library.html" class="nav__link">Library</a></li>
         <li><a href="{root}about.html" class="nav__link">About</a></li>
         <li><a href="{root}contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
