@@ -14,6 +14,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 ├── platform.html               # Platform — the open-source engine, deal pipeline, Deal Brief
 ├── marketforge.html            # The Project — MarketForge integration overview
 ├── domain-wiki.html            # The Knowledge a Market Runs On: the domain wiki, what it feeds
+├── cost-model.html             # What a Build Costs: cost structure, hour ranges, AI fee per session by mode, an estimator
 │   ├── mf-cosolvent.html       # Cosolvent — headless marketplace engine (MIT)
 │   ├── mf-clientsynth.html     # ClientSynth — synthetic user populations for testing
 │   └── mf-commoncontext.html        # CommonContext — AI-curated domain knowledge
