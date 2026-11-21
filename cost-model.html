@@ -98,12 +98,13 @@
                 <ul>
                     <li><strong>Nothing to license.</strong> The engines and the guides are open. There is no fee to DeeperPoint for using them.</li>
                     <li><strong>A few hundred hours of skilled work.</strong> For a market of moderate complexity, a new knowledge base and a first demonstration come to roughly 215 to 355 hours.</li>
-                    <li><strong>Very little cash.</strong> AI fees and tools for that build run from about $100 to $1,200. The demonstration needs no server.</li>
+                    <li><strong>Very little cash.</strong> AI fees and tools for that build run from about US$100 to US$1,200. The demonstration needs no server.</li>
                     <li><strong>The costly part cannot be handed off.</strong> A developer can stand up the software knowing nothing about your industry. Only someone who knows the market can say where its deals fail and why.</li>
                 </ul>
                 <p>
                     These are costs to whoever does the build. They are not prices, and they come from a small
-                    number of builds. The last section says how small.
+                    number of builds. The last section says how small. Cash amounts on this page are in US
+                    dollars, because that is how the AI services bill.
                 </p>
             </div>
 
@@ -166,7 +167,7 @@
                 <div class="cm-scroll">
                     <table class="cm-table">
                         <thead>
-                            <tr><th>Mode</th><th>What the visitor gets</th><th class="num">AI fees per session</th><th>Hosting</th></tr>
+                            <tr><th>Mode</th><th>What the visitor gets</th><th class="num">AI fees per session (US$)</th><th>Hosting</th></tr>
                         </thead>
                         <tbody>
                             <tr><td><strong>Showcase</strong></td><td>Matches and deal briefs worked out in advance. The same results every time; nothing can be changed</td><td class="num">$0</td><td>None. Static files, on any free web host or a disk</td></tr>
@@ -177,8 +178,8 @@
                 </div>
                 <p>
                     Showcase costs nothing per visit because the AI work was done once, when the twin was built,
-                    for $5 to $50 in total. A thousand sessions therefore cost nothing in Showcase, $100 to $170
-                    in Live, and $500 to $1,000 in Full.
+                    for US$5 to US$50 in total. A thousand sessions therefore cost nothing in Showcase, US$100 to US$170
+                    in Live, and US$500 to US$1,000 in Full.
                 </p>
                 <p class="cm-note">
                     The per-session figures are design estimates, not yet measured. In Live and Full a visitor can
@@ -193,7 +194,7 @@
                 <div class="cm-scroll">
                     <table class="cm-table">
                         <thead>
-                            <tr><th>What is built</th><th class="num">Hours</th><th class="num">Weeks at 20 hours a week</th><th class="num">Cash</th></tr>
+                            <tr><th>What is built</th><th class="num">Hours</th><th class="num">Weeks at 20 hours a week</th><th class="num">Cash (US$)</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>The wiki alone</td><td class="num">55 to 110</td><td class="num">3 to 6</td><td class="num">$40 to $500</td></tr>
@@ -207,7 +208,7 @@
                     For a market of moderate complexity: three or four kinds of participant, two or three
                     jurisdictions, deals with five to eight negotiable terms. A simple market is about 0.4 times
                     these hours. A complex one is about 2.2 to 2.5 times. The weeks are a floor; waiting for
-                    decisions and reviews adds to them.
+                    decisions and reviews adds to them. Cash is in US dollars.
                 </p>
             </div>
 
@@ -255,19 +256,20 @@
                         <input id="cm-hpw" type="number" min="1" max="80" step="1" value="20" inputmode="numeric">
                     </div>
                     <div>
-                        <label for="cm-rate">Your hourly rate for skilled time (optional)</label>
+                        <label for="cm-rate">Your hourly rate, in your own currency (optional)</label>
                         <input id="cm-rate" type="number" min="0" step="5" placeholder="your own figure" inputmode="decimal">
                     </div>
                 </div>
                 <div class="cm-out" aria-live="polite">
                     <div><span>Skilled work</span><strong id="cm-o-hours"></strong></div>
                     <div><span>Calendar time, at least</span><strong id="cm-o-weeks"></strong></div>
-                    <div><span>Cash for AI and tools</span><strong id="cm-o-cash"></strong></div>
-                    <div><span>People&rsquo;s time at your rate</span><strong id="cm-o-labour"></strong></div>
+                    <div><span>Cash for AI and tools, in US dollars</span><strong id="cm-o-cash"></strong></div>
+                    <div><span>People&rsquo;s time, in your currency</span><strong id="cm-o-labour"></strong></div>
                 </div>
                 <p class="cm-note" id="cm-o-note"></p>
                 <p class="cm-note">
-                    The rate is yours to supply. DeeperPoint does not quote one here, and this is not an offer.
+                    The rate is yours to supply, in whatever currency you work in. DeeperPoint does not quote one here, and
+                    this is not an offer.
                 </p>
             </div>
 
@@ -420,13 +422,13 @@
                 });
                 el('cm-o-hours').textContent = range(h[0], h[1], '', ' hours');
                 el('cm-o-weeks').textContent = range(Math.max(1, w[0]), Math.max(1, w[1]), '', ' weeks');
-                el('cm-o-cash').textContent = range(cash[0], cash[1], '$');
+                el('cm-o-cash').textContent = range(cash[0], cash[1], 'US$');
                 if (rate > 0) {
                     var lab = h.map(function (x) { return x * rate; });
-                    el('cm-o-labour').textContent = range(lab[0], lab[1], '$');
+                    el('cm-o-labour').textContent = range(lab[0], lab[1]);
                     var share = [cash[0] / (cash[0] + lab[0]), cash[1] / (cash[1] + lab[1])].map(function (x) { return x * 100; });
                     var top = Math.max(share[0], share[1]);
-                    note = 'Cash is ' + (top < 1 ? 'under 1' : 'about ' + n(top)) + ' percent of the total at most. The rest is people’s time. ';
+                    note = 'Cash is ' + (top < 1 ? 'under 1' : 'about ' + n(top)) + ' percent of the total at most, if your rate is in US dollars, and close to that in any other currency. The rest is people’s time. ';
                 } else {
                     el('cm-o-labour').textContent = 'Enter a rate';
                 }
