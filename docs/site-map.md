@@ -38,7 +38,7 @@ Navigation, as set in `update_nav.py` and mirrored in the blog and catalog build
 |---|---|---|
 | Home | index.html | |
 | Why Markets Don't Form | market-physics.html | intervention-matrix, whitepaper |
-| What We're Building | platform.html | how-it-works, demo, cosolvent, marketforge, mf-cosolvent, mf-commoncontext, mf-clientsynth, architecture, cards/ |
+| What We're Building | platform.html | how-it-works, demo, cosolvent, marketforge, domain-wiki (added 2026-11-20), mf-cosolvent, mf-commoncontext, mf-clientsynth, architecture, cards/ |
 | Catalog | catalog/index.html | catalog/ |
 | Library | library.html | ebook, precis, pitch-deck, search, testbeds, marketmaps, market-diagnostic, examples |
 | Blog | blog/index.html | blog/ |

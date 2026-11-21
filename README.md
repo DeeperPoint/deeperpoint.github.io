@@ -13,6 +13,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 ├── cards/                      # The fifteen resistance cards: synced from DeeperPointComms/library/resistance-cards, never edited here
 ├── platform.html               # Platform — the open-source engine, deal pipeline, Deal Brief
 ├── marketforge.html            # The Project — MarketForge integration overview
+├── domain-wiki.html            # The Knowledge a Market Runs On: the domain wiki, what it feeds
 │   ├── mf-cosolvent.html       # Cosolvent — headless marketplace engine (MIT)
 │   ├── mf-clientsynth.html     # ClientSynth — synthetic user populations for testing
 │   └── mf-commoncontext.html        # CommonContext — AI-curated domain knowledge
