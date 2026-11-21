@@ -24,14 +24,14 @@ NAV = [
      ["intervention-matrix.html", "whitepaper.html"]),
     ("What We&rsquo;re Building", "platform.html",
      ["how-it-works.html", "cosolvent.html", "marketforge.html", "domain-wiki.html", "mf-cosolvent.html",
-      "mf-commoncontext.html", "mf-clientsynth.html", "architecture.html", "cards/"]),  # cards/ moved here 2026-11-06
+      "mf-commoncontext.html", "mf-clientsynth.html", "cards/"]),  # cards/ moved here 2026-11-06
     ("Catalog", "catalog/index.html", ["catalog/"]),
     ("Demo", "demo.html", []),  # own top-level nav item since 2026-11-07 (owner); no longer also-active under What We're Building
     ("Blog", "blog/index.html", ["blog/"]),
     ("Library", "library.html",
      ["ebook.html", "precis.html", "pitch-deck.html", "testbeds.html", "marketmaps.html",
       "market-diagnostic.html", "examples.html"]),
-    ("About", "about.html", ["mission.html"]),
+    ("About", "about.html", []),
 ]
 CTA = ("Contribute", "contribute.html", [])
 # Icon-only links at the far right of the nav, after CTA. (target, icon, aria-label).

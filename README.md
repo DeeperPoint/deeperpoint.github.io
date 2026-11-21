@@ -54,7 +54,7 @@ the same list in their templates and must be changed with it.
 |------|------|---------|
 | **Home** | `index.html` | The hook, the definition of a thin market, and one tile per question below |
 | **Why Markets Don't Form** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
-| **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, ClientSynth, architecture |
+| **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, the domain wiki, ClientSynth |
 | **Catalog** | `catalog/index.html` | The opportunity catalog, restored to the nav on 2026-11-05 at the owner's request |
 | **Library** | `library.html` | The documents (whitepaper, cards and deck, matrix, ebook with its précis and pitch deck beneath it, mission essay, search) and the worked examples (test beds, MarketMaps, scenario stories, diagnostic, demo); Examples merged in on 2026-11-05 |
 | **Blog** | `blog/index.html` | Updates and articles |
