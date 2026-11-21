@@ -1,0 +1,448 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What a Build Costs | DeeperPoint</title>
+    <meta name="description"
+        content="The software is free. The cost of building a market with DeeperPoint&rsquo;s toolkit is people&rsquo;s time, and most of that is the judgment of someone who knows the market. What the cost is made of, what moves it, and how far the figures can be trusted.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20261120">
+    <style>
+        .dw-card { background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl); }
+        .dw-card h2 { font-family: var(--font-display); color: #fff; margin: 0 0 1rem; font-size: 1.5rem; }
+        .dw-card p, .dw-card li { color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7; }
+        .dw-card p { margin: 0 0 1rem; }
+        .dw-card p:last-child { margin-bottom: 0; }
+        .dw-card ol, .dw-card ul { padding-left: 1.5rem; margin: 0 0 1rem; }
+        .dw-card ul:last-child, .dw-card ol:last-child { margin-bottom: 0; }
+        .dw-card li { margin-bottom: 0.6rem; }
+        .dw-card strong { color: #fff; }
+        .dw-card a:not(.btn) { color: var(--dp-cyan); }
+        .cm-scroll { overflow-x: auto; margin: 0 0 1rem; }
+        .cm-table { width: 100%; border-collapse: collapse; min-width: 520px; }
+        .cm-table th, .cm-table td { text-align: left; vertical-align: top; padding: 0.7rem 0.8rem; border-bottom: 1px solid rgba(148,163,184,0.2); color: var(--dp-silver); font-size: 0.975rem; line-height: 1.55; }
+        .cm-table th { color: #fff; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .cm-table td.num, .cm-table th.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .cm-table tr.cm-key td { color: #fff; font-weight: 600; }
+        .cm-note { font-size: 0.9375rem !important; color: var(--dp-cloud, #94a3b8) !important; }
+        .cm-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem 1.25rem; margin: 0 0 1.5rem; }
+        .cm-form label { display: block; color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
+        .cm-form select, .cm-form input { width: 100%; box-sizing: border-box; padding: 0.6rem 0.7rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.4); background: #0f172a; color: #f8fafc; font: inherit; font-size: 0.975rem; }
+        .cm-form select:focus, .cm-form input:focus { outline: 2px solid var(--dp-cyan); outline-offset: 1px; }
+        .cm-out { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin: 0 0 1rem; }
+        .cm-out > div { background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.35); border-radius: 12px; padding: 1rem 1.1rem; }
+        .cm-out span { display: block; color: var(--dp-silver); font-size: 0.85rem; margin-bottom: 0.3rem; }
+        .cm-out strong { font-family: var(--font-display); font-size: 1.35rem; color: #fff; font-variant-numeric: tabular-nums; }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="platform.html" class="nav__link nav__link--active">What We&rsquo;re Building</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="demo.html" class="nav__link">Demo</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="library.html" class="nav__link">Library</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+        </div>
+    </nav>
+
+    <header class="spoke-hero" style="padding-top: calc(var(--space-4xl) + 60px);">
+        <div class="container container--narrow">
+            <div class="text-center">
+                <span class="spoke-hero__badge spoke-hero__badge--match">Cost and planning</span>
+                <h1 class="spoke-hero__headline">What a Build Costs</h1>
+                <p class="spoke-hero__desc" style="margin: 0 auto;">
+                    The software is free. The cost is people&rsquo;s time, and most of that is the judgment of
+                    someone who knows the market. This page says what the cost is made of, what moves it, and how
+                    far the figures can be trusted.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container container--narrow">
+
+            <div class="reveal dw-card">
+                <h2>The short answer</h2>
+                <ul>
+                    <li><strong>Nothing to license.</strong> The engines and the guides are open. There is no fee to DeeperPoint for using them.</li>
+                    <li><strong>A few hundred hours of skilled work.</strong> For a market of moderate complexity, a new knowledge base and a first demonstration come to roughly 215 to 355 hours.</li>
+                    <li><strong>Very little cash.</strong> AI fees and tools for that build run from about $100 to $1,200. The demonstration needs no server.</li>
+                    <li><strong>The costly part cannot be handed off.</strong> A developer can stand up the software knowing nothing about your industry. Only someone who knows the market can say where its deals fail and why.</li>
+                </ul>
+                <p>
+                    These are costs to whoever does the build. They are not prices, and they come from a small
+                    number of builds. The last section says how small.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>What is being built</h2>
+                <p>
+                    A thin market is one where willing buyers and sellers exist and the deal still does not happen.
+                    DeeperPoint&rsquo;s toolkit builds a marketplace for such a market in three stages, and a build
+                    can stop after any of them.
+                </p>
+                <ol>
+                    <li><strong>The wiki.</strong> What the market knows, written as pages tied to their sources: what a certificate means, which requirement has a lawful alternative, how the two sides describe the same thing in different words. An AI model drafts; a person who knows the market rules on what stands.</li>
+                    <li><strong>The twin.</strong> The marketplace software configured for the market and filled with invented, clearly marked participants, so a sponsor can watch the market behave before any real person joins.</li>
+                    <li><strong>The marketplace.</strong> The twin with real participants and a sponsor who runs it.</li>
+                </ol>
+                <p>
+                    Beside these sits an optional question page, called Ask, where people put questions to the wiki
+                    and get answers with citations. <a href="marketforge.html">See the whole path &rarr;</a>
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>Where the cost is</h2>
+                <div class="cm-scroll">
+                    <table class="cm-table">
+                        <thead>
+                            <tr><th>Kind of cost</th><th>What it pays for</th><th>Who bears it</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Expert attention</strong></td><td>Setting the scope, listing where deals fail, ruling on each batch of research, judging whether a claimed alternative is real, checking that the invented participants are plausible</td><td>The sponsor, or a domain expert the sponsor trusts</td></tr>
+                            <tr><td><strong>Builder&rsquo;s time</strong></td><td>Running the research with an AI agent, configuring the software, generating the participants, assembling the screens</td><td>A developer. No industry knowledge needed</td></tr>
+                            <tr><td><strong>Outside review</strong></td><td>Reviewers for sensitive pages, and people who test the question page</td><td>Whoever the sponsor names</td></tr>
+                            <tr><td><strong>Cash</strong></td><td>AI fees, an AI coding agent, hosting for a live instance, any standards that must be bought</td><td>Whoever runs the build</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    People&rsquo;s time is nearly all of it. Cash is a few percent. Sponsors often expect the
+                    screens to be the expensive part and the knowledge to be a matter of uploading documents. It is
+                    the other way round: the screens already exist, and the knowledge is yours alone.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>What costs nothing</h2>
+                <ul>
+                    <li><strong>The software.</strong> The three engines and the wiki engine are open source.</li>
+                    <li><strong>The method.</strong> The guides and the build recipe are free to use and adapt.</li>
+                    <li><strong>The screens.</strong> The twin&rsquo;s seven screens come with the framework and are configured, not written.</li>
+                    <li><strong>Hosting a first demonstration.</strong> A first twin is a folder of files that opens from a disk. No server, no database, no account.</li>
+                </ul>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>What each visit costs</h2>
+                <p>
+                    A twin can run in three modes. They differ in what a visitor can do, and in what each visit
+                    costs in AI fees.
+                </p>
+                <div class="cm-scroll">
+                    <table class="cm-table">
+                        <thead>
+                            <tr><th>Mode</th><th>What the visitor gets</th><th class="num">AI fees per session</th><th>Hosting</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Showcase</strong></td><td>Matches and deal briefs worked out in advance. The same results every time; nothing can be changed</td><td class="num">$0</td><td>None. Static files, on any free web host or a disk</td></tr>
+                            <tr><td><strong>Live</strong></td><td>Matching and deal briefs produced as the visitor explores. Every visit is different; nothing is kept afterwards</td><td class="num">$0.10 to $0.17</td><td>One modest server, no graphics processor</td></tr>
+                            <tr><td><strong>Full</strong></td><td>Everything working, with histories kept between sessions. A guided presentation, not self-service</td><td class="num">$0.50 to $1.00</td><td>The same server, plus analytics</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    Showcase costs nothing per visit because the AI work was done once, when the twin was built,
+                    for $5 to $50 in total. A thousand sessions therefore cost nothing in Showcase, $100 to $170
+                    in Live, and $500 to $1,000 in Full.
+                </p>
+                <p class="cm-note">
+                    The per-session figures are design estimates, not yet measured. In Live and Full a visitor can
+                    supply their own AI account, and then the fees are theirs. A marketplace with real participants
+                    has not been run yet, so its cost per session is not known.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>The figures</h2>
+                <p>Hours of skilled work, for one builder working with an AI agent and a domain expert who rules on the results.</p>
+                <div class="cm-scroll">
+                    <table class="cm-table">
+                        <thead>
+                            <tr><th>What is built</th><th class="num">Hours</th><th class="num">Weeks at 20 hours a week</th><th class="num">Cash</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>The wiki alone</td><td class="num">55 to 110</td><td class="num">3 to 6</td><td class="num">$40 to $500</td></tr>
+                            <tr><td>The wiki and a question page</td><td class="num">85 to 160</td><td class="num">4 to 8</td><td class="num">$44 to $550</td></tr>
+                            <tr><td>A twin, where the industry already has a wiki</td><td class="num">160 to 245</td><td class="num">8 to 12</td><td class="num">$65 to $750</td></tr>
+                            <tr class="cm-key"><td>A new wiki and a first twin</td><td class="num">215 to 355</td><td class="num">11 to 18</td><td class="num">$85 to $1,150</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="cm-note">
+                    For a market of moderate complexity: three or four kinds of participant, two or three
+                    jurisdictions, deals with five to eight negotiable terms. A simple market is about 0.4 times
+                    these hours. A complex one is about 2.2 to 2.5 times. The weeks are a floor; waiting for
+                    decisions and reviews adds to them.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>Estimate your own</h2>
+                <div class="cm-form">
+                    <div>
+                        <label for="cm-wiki">The wiki</label>
+                        <select id="cm-wiki">
+                            <option value="new">We would build a new one</option>
+                            <option value="exists">Our industry already has one</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cm-twin">The twin</label>
+                        <select id="cm-twin">
+                            <option value="yes">Build a demonstration twin</option>
+                            <option value="no">Wiki only, for now</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cm-cx">The market</label>
+                        <select id="cm-cx">
+                            <option value="simple">Simple</option>
+                            <option value="moderate" selected>Moderate</option>
+                            <option value="complex">Complex</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cm-ui">The screens</label>
+                        <select id="cm-ui">
+                            <option value="inherited">Use the ones provided</option>
+                            <option value="bespoke">Design our own</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cm-ask">A question page</label>
+                        <select id="cm-ask">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cm-hpw">Hours a week available</label>
+                        <input id="cm-hpw" type="number" min="1" max="80" step="1" value="20" inputmode="numeric">
+                    </div>
+                    <div>
+                        <label for="cm-rate">Your hourly rate for skilled time (optional)</label>
+                        <input id="cm-rate" type="number" min="0" step="5" placeholder="your own figure" inputmode="decimal">
+                    </div>
+                </div>
+                <div class="cm-out" aria-live="polite">
+                    <div><span>Skilled work</span><strong id="cm-o-hours"></strong></div>
+                    <div><span>Calendar time, at least</span><strong id="cm-o-weeks"></strong></div>
+                    <div><span>Cash for AI and tools</span><strong id="cm-o-cash"></strong></div>
+                    <div><span>People&rsquo;s time at your rate</span><strong id="cm-o-labour"></strong></div>
+                </div>
+                <p class="cm-note" id="cm-o-note"></p>
+                <p class="cm-note">
+                    The rate is yours to supply. DeeperPoint does not quote one here, and this is not an offer.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>What moves the cost</h2>
+                <ol>
+                    <li><strong>Whether your industry already has a wiki.</strong> Knowledge that is true across an industry is built once and read by every market in it. If it exists, the first 55 to 110 hours are already spent by someone else.</li>
+                    <li><strong>How complex the market is.</strong> Each kind of participant, each jurisdiction and each negotiable term adds vocabulary to define and requirements to research.</li>
+                    <li><strong>How many hard requirements there are.</strong> The method works through the market&rsquo;s requirements one by one and records the ways through each. More requirements, more research. This is also what makes the work finite.</li>
+                    <li><strong>The state of the sources.</strong> Public documents are cheap to work from. Paywalled standards can only be cited. Knowledge nobody wrote down has to come from the expert directly.</li>
+                    <li><strong>How quickly the expert can answer.</strong> Every stage stops for a decision. This does not change the hours much, and it changes the calendar more than anything else.</li>
+                    <li><strong>How much review the material needs.</strong> Sensitive content, outside reviewers and community rules about data each add a step.</li>
+                    <li><strong>Whether you design your own screens.</strong> The provided screens take days to configure. A custom design adds 80 to 200 hours.</li>
+                    <li><strong>Which mode the twin runs in.</strong> Showcase needs no hosting and costs nothing per visit. Live and Full need a server and pay AI fees on every session, as the table above shows.</li>
+                </ol>
+                <p>
+                    Some things do not move it: the number of people who view a demonstration, the choice of AI
+                    model, and software licences.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>The order of work</h2>
+                <div class="cm-scroll">
+                    <table class="cm-table">
+                        <thead>
+                            <tr><th>Step</th><th>Who is needed</th><th class="num">Hours</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Charter: the market, its tasks, who will ask</td><td>Expert and builder</td><td class="num" rowspan="4">55 to 110</td></tr>
+                            <tr><td>Rules: what may be cited, what is sensitive, what may be shared</td><td>Expert decides</td></tr>
+                            <tr><td>Research in batches, each ruled on by the expert</td><td>Builder; expert on every batch</td></tr>
+                            <tr><td>Publish for invited readers, then one full review</td><td>Builder and an independent reviewer</td></tr>
+                            <tr><td>Market description and an anchor story</td><td>Expert and builder</td><td class="num">16 to 26</td></tr>
+                            <tr><td>Market-specific knowledge: routes, vocabulary, reference library</td><td>Builder; expert on routes</td><td class="num">34 to 50</td></tr>
+                            <tr><td>Schema and configuration</td><td>Builder and expert</td><td class="num">25 to 40</td></tr>
+                            <tr><td>Synthetic participants, and a plausibility check</td><td>Builder; a domain expert checks</td><td class="num">22 to 32</td></tr>
+                            <tr><td>Assembly</td><td>Builder</td><td class="num">39 to 62</td></tr>
+                            <tr><td>Measurements and a private showing</td><td>Both</td><td class="num">16 to 24</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    Two points in this order are fixed. The wiki is reviewed and closed before anything is built on
+                    it. And the schema is frozen before the participants are generated, because they are generated
+                    once: a renamed field is free before that point and costly after it.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>What these figures leave out</h2>
+                <ul>
+                    <li><strong>Launching a real marketplace.</strong> Recruiting participants, legal review, support and operations belong to the sponsor and run for months. They depend on the sponsor&rsquo;s standing in the industry, not on anything measured here.</li>
+                    <li><strong>Keeping the wiki current.</strong> It is the sponsor&rsquo;s standing job once the market runs. No figure exists yet.</li>
+                    <li><strong>A live instance.</strong> The hosting requirement is known. The hours to stand one up are not yet measured.</li>
+                    <li><strong>Reviewers&rsquo; and testers&rsquo; time.</strong></li>
+                    <li><strong>Changes to the engines.</strong> The figures assume the market can be handled by configuration.</li>
+                </ul>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>How good these numbers are</h2>
+                <p>
+                    Not very, yet, and it is better to say so. One wiki has been built by this method and two
+                    twins. No sponsored marketplace exists. Nobody logged hours on any of them.
+                </p>
+                <ul>
+                    <li>The wiki figure is inferred from the working record of one wiki: about 45 batches of research over five weeks, producing some 450 shared pages.</li>
+                    <li>The twin figure is the written plan for the second twin, step by step. That twin is still being built.</li>
+                    <li>The multipliers for simple and complex markets are estimates. Both twins so far are of moderate complexity.</li>
+                    <li>An earlier estimate expected a second build to cost about two-thirds of the first. The second twin&rsquo;s plan came out higher instead, for reasons it names. The saving from experience has not been seen yet.</li>
+                </ul>
+                <p>
+                    This page will be revised as the builds under way record the time they take.
+                </p>
+            </div>
+
+            <div class="reveal dw-card">
+                <h2>Where to read more</h2>
+                <p>
+                    <a href="https://github.com/DeeperPoint/MarketForge/blob/main/framework/manuals/sponsor-wiki-guide.md" target="_blank" rel="noopener">The sponsor&rsquo;s guide</a>
+                    covers the half of the work only a sponsor can do.
+                    <a href="https://github.com/DeeperPoint/MarketForge/blob/main/framework/manuals/wiki-to-twin-recipe.md" target="_blank" rel="noopener">The wiki-to-twin recipe</a>
+                    is the build procedure, with the time each stage took.
+                    <a href="https://github.com/DeeperPoint/MarketForge/blob/main/framework/reference/deployment-requirements.md" target="_blank" rel="noopener">The deployment requirements</a>
+                    say what a host needs.
+                </p>
+                <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+                    <a href="marketforge.html" class="btn btn--primary">MarketForge: the map and the method &rarr;</a>
+                    <a href="domain-wiki.html" class="btn btn--outline">The domain wiki &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+                    <li><a href="search.html" class="footer__link">Search</a></li>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="contribute.html" class="footer__link">Contribute</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Figures: cost and planning model, version 0.2 (2026-11-21).
+        (function () {
+            var BASE = { wiki: [55, 110], twin: [160, 245], ui: [80, 200], ask: [30, 50] };
+            var CX = { simple: [0.4, 0.4], moderate: [1, 1], complex: [2.2, 2.5] };
+            var CASH = { agent: [20, 200], api: [20, 100], precompute: [5, 50], ask: [4, 50] };
+            var ids = ['cm-wiki', 'cm-twin', 'cm-cx', 'cm-ui', 'cm-ask', 'cm-hpw', 'cm-rate'];
+            function el(id) { return document.getElementById(id); }
+            function n(x) { return Math.round(x).toLocaleString('en-US'); }
+            function range(lo, hi, pre, post) {
+                pre = pre || ''; post = post || '';
+                return lo === hi ? pre + n(lo) + post : pre + n(lo) + ' to ' + pre + n(hi) + post;
+            }
+            function update() {
+                var wiki = el('cm-wiki').value === 'new';
+                var twin = el('cm-twin').value === 'yes';
+                var ask = el('cm-ask').value === 'yes';
+                var bespoke = twin && el('cm-ui').value === 'bespoke';
+                var cx = CX[el('cm-cx').value];
+                el('cm-ui').disabled = !twin;
+                var h = [0, 1].map(function (i) {
+                    var core = (wiki ? BASE.wiki[i] : 0) + (twin ? BASE.twin[i] : 0);
+                    return core * cx[i] + (bespoke ? BASE.ui[i] : 0) + (ask ? BASE.ask[i] : 0);
+                });
+                var hpw = Math.min(80, Math.max(1, parseFloat(el('cm-hpw').value) || 20));
+                var rate = parseFloat(el('cm-rate').value);
+                var note = '';
+                if (h[1] === 0) {
+                    el('cm-o-hours').textContent = 'Nothing to build';
+                    el('cm-o-weeks').textContent = '';
+                    el('cm-o-cash').textContent = '';
+                    el('cm-o-labour').textContent = '';
+                    el('cm-o-note').textContent = 'With a wiki already in place and no twin, there is no build. A question page can still be put over the existing wiki.';
+                    return;
+                }
+                var w = h.map(function (x) { return x / hpw; });
+                var m = w.map(function (x) { return Math.max(1, Math.ceil(x / 4.33)); });
+                var cash = [0, 1].map(function (i) {
+                    return CASH.agent[i] * m[i] + CASH.api[i] + (twin ? CASH.precompute[i] : 0) + (ask ? CASH.ask[i] : 0);
+                });
+                el('cm-o-hours').textContent = range(h[0], h[1], '', ' hours');
+                el('cm-o-weeks').textContent = range(Math.max(1, w[0]), Math.max(1, w[1]), '', ' weeks');
+                el('cm-o-cash').textContent = range(cash[0], cash[1], '$');
+                if (rate > 0) {
+                    var lab = h.map(function (x) { return x * rate; });
+                    el('cm-o-labour').textContent = range(lab[0], lab[1], '$');
+                    var share = [cash[0] / (cash[0] + lab[0]), cash[1] / (cash[1] + lab[1])].map(function (x) { return x * 100; });
+                    var top = Math.max(share[0], share[1]);
+                    note = 'Cash is ' + (top < 1 ? 'under 1' : 'about ' + n(top)) + ' percent of the total at most. The rest is people’s time. ';
+                } else {
+                    el('cm-o-labour').textContent = 'Enter a rate';
+                }
+                if (!wiki && twin) { note += 'The twin figure includes 34 to 50 hours of knowledge work specific to your market, on top of the industry’s wiki. '; }
+                if (el('cm-cx').value !== 'moderate') { note += 'Simple and complex markets are extrapolated; both twins built so far are moderate. '; }
+                el('cm-o-note').textContent = note;
+            }
+            ids.forEach(function (id) {
+                el(id).addEventListener('input', update);
+                el(id).addEventListener('change', update);
+            });
+            update();
+        })();
+    </script>
+    <script src="reveal.js"></script>
+    <script src="nav-mobile.js"></script>
+    <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
