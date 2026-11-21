@@ -234,6 +234,10 @@ The top-level `status: published` controls whether the catalog entry appears.
 `story.status: draft` is fine — it just means the story hasn't been promoted
 to the blog yet.
 
+Since 2026-11-21 the site does not display `story.status`. The card label is
+derived from content: "Full story on the blog" when `blog_slug` names a post,
+"Short story included" when there is a `body`, and nothing otherwise.
+
 ---
 
 ## Notes

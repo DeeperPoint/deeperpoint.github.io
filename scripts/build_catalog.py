@@ -590,12 +590,20 @@ def tierBadge(tier):
 
 
 def storyDot(story):
-    """Return coloured dot + label for story status."""
-    status = story.get("status", "none") if story else "none"
-    colors = {"published": "#4ade80", "draft": "#f59e0b", "none": "#475569"}
-    labels = {"published": "Story included", "draft": "Story in draft", "none": "No story yet"}
-    color = colors.get(status, "#475569")
-    label = labels.get(status, "Unknown")
+    """Return coloured dot + label saying where the idea's story can be read.
+
+    Derived from content, not from story.status: that field recorded whether a
+    story had been promoted to the blog, drifted out of step with the facts, and
+    read to visitors as "unfinished". It is no longer displayed (2026-11-21).
+    """
+    story = story or {}
+    blog_slug = story.get("blog_slug", "")
+    if blog_slug and (BLOG_POSTS_DIR / f"{blog_slug}.md").exists():
+        color, label = "#818cf8", "Full story on the blog"
+    elif story.get("body"):
+        color, label = "#4ade80", "Short story included"
+    else:
+        return ""
     return (
         f'<span class="scenario-card__story-dot" style="background:{color};" title="{html.escape(label)}"></span>'
         f"<span>{label}</span>"
@@ -1189,8 +1197,6 @@ def buildDetailPage(s):
         story_html_body = markdownToHtml(story_body_md)
         blog_link = ""
         draft_banner = ""
-        if story_status == "draft":
-            draft_banner = '<p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>'
         tab3 = f"""
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
