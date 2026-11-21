@@ -100,7 +100,7 @@ The platform's AI extracts the structured requirements:
 - **Company resources**: No in-house compliance; limited budget; strong technical depth in power electronics
 - **Urgency**: As fast as funding permits
 
-The AI also flags something Nadia didn't mention: because VoltaicEdge's technology is electrostatic rather than electrochemical, the UL 9540A thermal runaway testing may be significantly simplified — supercapacitors have no exothermic chain reaction to propagate. This could reduce the scope (and cost) of the fire testing substantially. The platform's [CommonContext](https://deeperpoint.com/commoncontext.html) domain library surfaces a reference: *UL 9540A Edition 4 includes provisions for testing technologies with inherently low thermal runaway risk. A pre-submission consultation with the NRTL can establish a reduced test protocol for non-lithium chemistries.*
+The AI also flags something Nadia didn't mention: because VoltaicEdge's technology is electrostatic rather than electrochemical, the UL 9540A thermal runaway testing may be significantly simplified — supercapacitors have no exothermic chain reaction to propagate. This could reduce the scope (and cost) of the fire testing substantially. The platform's [CommonContext](https://deeperpoint.com/mf-commoncontext.html) domain library surfaces a reference: *UL 9540A Edition 4 includes provisions for testing technologies with inherently low thermal runaway risk. A pre-submission consultation with the NRTL can establish a reduced test protocol for non-lithium chemistries.*
 
 This is information that Nadia's Google searches did not surface. It changes the economics.
 

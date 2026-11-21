@@ -30,6 +30,7 @@ Usage:
 """
 
 import html
+import re
 from pathlib import Path
 
 import markdown as mdlib
@@ -43,6 +44,8 @@ SITE_ROOT = Path(__file__).resolve().parent.parent
 SCENARIOS_DIR = SITE_ROOT / "catalog" / "scenarios"
 CATALOG_OUT = SITE_ROOT / "catalog"
 SITE_URL = "https://deeperpoint.com"
+BLOG_POSTS_DIR = SITE_ROOT / "blog" / "posts"
+REDIRECTS_FILE = CATALOG_OUT / "redirects.yaml"
 
 FORGE_TIER_COLORS = {1: "#22c55e", 2: "#f59e0b", 3: "#ec4899"}
 FORGE_TIER_LABELS = {1: "Easy", 2: "Moderate", 3: "Complex"}
@@ -368,6 +371,12 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -859,8 +868,8 @@ def buildIndexPage(scenarios):
   </script>"""
 
     head = renderHead(
-        title="Startup-Ready Markets in Waiting \u2014 Scenarios for the MarketForge Opportunity Catalog",
-        description="One hundred speculative thin market scenarios analyzed through the DeeperPoint framework. Each describes a market that could exist if the right matching infrastructure were built \u2014 with a market analysis, sponsor revenue model, and a narrative story illustrating how a match would work.",
+        title="Catalog of Market Ideas \u2014 Thin Markets Waiting to Be Built",
+        description=f"{total} ideas for thin markets that could exist if the right matching infrastructure were built. None has been built. Each idea has a market analysis, sponsor revenue models and a short fictional story showing how a match would work.",
         css_path="../styles.css",
         root="../",
     )
@@ -868,14 +877,19 @@ def buildIndexPage(scenarios):
     content = f"""
   <section class="section cat-header" id="catalog-index">
     <div class="container">
-      <h1 class="cat-title">Startup-Ready Markets in Waiting</h1>
+      <h1 class="cat-title">Catalog of Market Ideas</h1>
       <p class="cat-desc">
-        Each entry describes a thin market that could be transformed by the right matching
-        infrastructure &#8212; but has not been yet. Individual scenarios are speculative and
+        Each entry is an idea: a thin market that could be transformed by the right matching
+        infrastructure &#8212; but has not been yet. Individual ideas are speculative and
         details can always be argued. The point is not any single entry: it is the sheer
         number of plausible opportunities across entirely different sectors, geographies, and
-        participant types. That pattern is harder to dismiss than any one example. Browse by
+        participant types. That pattern is harder to dismiss than any one idea. Browse by
         sector, tag, or build complexity, and see how many you find compelling.
+      </p>
+      <p class="idea-note" style="max-width: 60rem;">
+        <strong>These are ideas, not built markets.</strong> None of the marketplaces described here
+        exists yet. The story attached to each idea is fiction: its people and firms are invented to
+        show how a match could work, and the market figures are estimates.
       </p>
 
       <!-- Curated Collections -->
@@ -888,7 +902,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#9935;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Resources &amp; Energy</span>
-              <span class="col-card__count">24 scenarios</span>
+              <span class="col-card__count">24 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-manufacturing"
@@ -897,7 +911,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#9881;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Manufacturing &amp; Build</span>
-              <span class="col-card__count">11 scenarios</span>
+              <span class="col-card__count">11 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-finance"
@@ -906,7 +920,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#128176;</span>
             <span class="col-card__body">
               <span class="col-card__name">Finance &amp; Risk</span>
-              <span class="col-card__count">20 scenarios</span>
+              <span class="col-card__count">20 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-justice"
@@ -915,7 +929,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#9878;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Justice &amp; Social</span>
-              <span class="col-card__count">21 scenarios</span>
+              <span class="col-card__count">21 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-agfood"
@@ -924,7 +938,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#127806;</span>
             <span class="col-card__body">
               <span class="col-card__name">Agriculture &amp; Food</span>
-              <span class="col-card__count">18 scenarios</span>
+              <span class="col-card__count">18 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-northern"
@@ -933,7 +947,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#127956;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Northern &amp; Municipal</span>
-              <span class="col-card__count">23 scenarios</span>
+              <span class="col-card__count">23 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-talent"
@@ -942,7 +956,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#129489;</span>
             <span class="col-card__body">
               <span class="col-card__name">Talent &amp; Professional</span>
-              <span class="col-card__count">22 scenarios</span>
+              <span class="col-card__count">22 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-health"
@@ -951,7 +965,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#129657;</span>
             <span class="col-card__body">
               <span class="col-card__name">Healthcare &amp; Pharma</span>
-              <span class="col-card__count">14 scenarios</span>
+              <span class="col-card__count">14 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-culture"
@@ -960,7 +974,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#127891;</span>
             <span class="col-card__body">
               <span class="col-card__name">Arts, Sport &amp; Education</span>
-              <span class="col-card__count">32 scenarios</span>
+              <span class="col-card__count">32 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-govdef"
@@ -969,7 +983,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#128737;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Defence, Gov &amp; Export</span>
-              <span class="col-card__count">25 scenarios</span>
+              <span class="col-card__count">25 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-global"
@@ -978,7 +992,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#127758;</span>
             <span class="col-card__body">
               <span class="col-card__name">Global &amp; Diaspora</span>
-              <span class="col-card__count">30 scenarios</span>
+              <span class="col-card__count">30 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-research"
@@ -987,7 +1001,7 @@ def buildIndexPage(scenarios):
             <span class="col-card__icon">&#128300;</span>
             <span class="col-card__body">
               <span class="col-card__name">Research &amp; Environment</span>
-              <span class="col-card__count">20 scenarios</span>
+              <span class="col-card__count">20 ideas</span>
             </span>
           </button>
         </div>
@@ -1054,13 +1068,13 @@ def buildIndexPage(scenarios):
 
       <!-- Count -->
       <div class="cat-count">
-        Showing <span id="visible-count">{total}</span> of <span id="total-count">{total}</span> scenarios
+        Showing <span id="visible-count">{total}</span> of <span id="total-count">{total}</span> ideas
       </div>
 
       <!-- Grid -->
       <div class="cat-grid">
         {cards_html}
-        <div class="cat-grid--empty" id="no-results" style="display:none">No scenarios match your filters.</div>
+        <div class="cat-grid--empty" id="no-results" style="display:none">No ideas match your filters.</div>
       </div>
     </div>
   </section>
@@ -1072,6 +1086,24 @@ def buildIndexPage(scenarios):
 # ---------------------------------------------------------------------------
 # Detail Page
 # ---------------------------------------------------------------------------
+
+
+def loadBlogStory(blog_slug):
+    """Return (title, summary) from a blog post's frontmatter, or None if there is no such post.
+
+    Used when a catalog idea's story lives on the blog: the catalog then shows the
+    blog story's own title and summary, since the two versions can differ in
+    characters and setting.
+    """
+    path = BLOG_POSTS_DIR / f"{blog_slug}.md"
+    if not path.exists():
+        return None
+    match = re.search(r"^---\s*\n(.*?)\n---\s*\n", path.read_text(encoding="utf-8"), flags=re.DOTALL | re.MULTILINE)
+    if not match:
+        return None
+    meta = yaml.safe_load(match.group(1)) or {}
+    title = re.sub(r"^(?:Market Scenario|Workshop Notes)\s*[:\-\u2013\u2014]\s*", "", str(meta.get("title", "")))
+    return title, str(meta.get("summary", ""))
 
 
 def buildDetailPage(s):
@@ -1132,13 +1164,30 @@ def buildDetailPage(s):
     chars = story.get("characters", []) if story else []
     chars_html = f"<p><strong>Characters:</strong> {escHtml(', '.join(chars))}</p>" if chars else ""
 
-    if story_body_md:
+    blog_story = loadBlogStory(story_blog_slug) if story_blog_slug else None
+    if story_blog_slug and not blog_story:
+        print(f"  WARNING {sid}: story.blog_slug '{story_blog_slug}' has no blog post; showing the inline story")
+        story_blog_slug = ""
+
+    if story_blog_slug:
+        # The blog carries the full story, so the catalog does not repeat it
+        # (owner's rule, 2026-11-21: blog stories take precedence over catalog stories).
+        blog_url = f"../blog/{story_blog_slug}.html"
+        blog_title, blog_summary = blog_story
+        summary_html = f"<p>{escHtml(blog_summary)}</p>" if blog_summary else ""
+        tab3 = f"""
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">{escHtml(blog_title or story.get('title', ''))}</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        {summary_html}
+        <p>The full story for this idea is told on the blog.</p>
+        <p><a href="{blog_url}" class="story-blog-link">Read the full story on the blog &rarr;</a></p>
+      </div>"""
+    elif story_body_md:
         # Render inline markdown story
         story_html_body = markdownToHtml(story_body_md)
         blog_link = ""
-        if story_blog_slug:
-            blog_url = f"../../blog/{story_blog_slug}.html"
-            blog_link = f'<p style="margin-top:1.5rem"><a href="{blog_url}" class="story-blog-link">Also published on the blog &rarr;</a></p>'
         draft_banner = ""
         if story_status == "draft":
             draft_banner = '<p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>'
@@ -1146,6 +1195,7 @@ def buildDetailPage(s):
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">{escHtml(story.get('title', ''))}</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
         {chars_html}
         {draft_banner}
         <div class="story-body">
@@ -1164,7 +1214,7 @@ def buildDetailPage(s):
         tab3 = """
       <div class="story-placeholder">
         <div class="story-placeholder__icon">&#128221;</div>
-        <p>No story written yet for this scenario.</p>
+        <p>No story written yet for this idea.</p>
         <p style="font-size:.8rem;">Add a <code>story.body</code> field to the scenario YAML to include a narrative.</p>
         <a href="../index.html" class="story-cta">&larr; Back to catalog</a>
       </div>"""
@@ -1186,6 +1236,7 @@ def buildDetailPage(s):
         {tierBadge(tier)}
         {tags_html}
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -1212,6 +1263,70 @@ def buildDetailPage(s):
   </script>
 """
     return head + content + renderFooter(root="../../")
+
+
+# ---------------------------------------------------------------------------
+# Redirect stubs for retired entries
+# ---------------------------------------------------------------------------
+
+REDIRECT_STUB = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moved &mdash; DeeperPoint</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url=__TARGET__">
+  <link rel="canonical" href="__CANONICAL__">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body data-pagefind-ignore>
+  <section class="section" style="padding-top: calc(var(--space-4xl, 4rem) + 60px); text-align: center;">
+    <div class="container container--narrow">
+      <p style="color: var(--color-text-secondary, #cbd5e1); font-size: 1rem;">
+        This catalog idea has been retired&hellip;
+        <br><br>
+        <a href="__TARGET__" style="color: #818cf8;">Click here if you are not redirected automatically.</a>
+      </p>
+    </div>
+  </section>
+  <script>window.location.replace("__TARGET__");</script>
+</body>
+
+</html>
+"""
+
+
+def buildRedirects(live_ids):
+    """Write a redirect stub for every retired entry listed in catalog/redirects.yaml.
+
+    The file maps an old entry id to a target path relative to catalog/. An id that
+    is live again (its YAML is back in catalog/scenarios/) is skipped, so restoring
+    an entry never fights its redirect.
+    """
+    if not REDIRECTS_FILE.exists():
+        return 0
+    mapping = yaml.safe_load(REDIRECTS_FILE.read_text(encoding="utf-8")) or {}
+    written = 0
+    for old_id, target in sorted(mapping.items()):
+        if old_id in live_ids:
+            print(f"  Redirect skipped (entry is live): {old_id}")
+            continue
+        target_path = (CATALOG_OUT / target).resolve()
+        if not target_path.exists():
+            print(f"  WARNING redirect {old_id}: target {target} does not exist")
+        canonical = SITE_URL + "/" + target_path.relative_to(SITE_ROOT).as_posix()
+        page = (
+            REDIRECT_STUB
+            .replace("__TARGET__", html.escape(target, quote=True))
+            .replace("__CANONICAL__", canonical)
+        )
+        (CATALOG_OUT / f"{old_id}.html").write_text(page, encoding="utf-8")
+        written += 1
+    return written
 
 
 # ---------------------------------------------------------------------------
@@ -1243,7 +1358,11 @@ def main():
         (CATALOG_OUT / f"{sid}.html").write_text(page_html, encoding="utf-8")
         print(f"  Wrote: catalog/{sid}.html")
 
-    print(f"Catalog build complete. {len(scenarios)} scenarios published.")
+    redirect_count = buildRedirects({s.get("id") for s in scenarios})
+    if redirect_count:
+        print(f"  Wrote: {redirect_count} redirect stubs from catalog/redirects.yaml")
+
+    print(f"Catalog build complete. {len(scenarios)} ideas published.")
     print(f"  Access at: {SITE_URL}/catalog/")
 
 

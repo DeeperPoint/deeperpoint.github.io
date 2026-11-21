@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
         <span class="blog-tag">manufacturing</span><span class="blog-tag">cnc</span><span class="blog-tag">capacity</span><span class="blog-tag">ontario</span><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span><span class="blog-tag">market-design</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -445,34 +452,10 @@
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">The Idle Shift</div>
-        <p><strong>Characters:</strong> Priya Anand - operations director, Meridian Precision, Hamilton ON, Jonas Tremblay - co-founder, AxionTech robotics integration, Kitchener ON</p>
-        
-        <div class="story-body">
-          <h2>Act A - The Strategic Concealment Problem</h2>
-<p>In manufacturing, admitting you have idle machines is like admitting you're losing customers. The Kitchener integrator will never publicly announce that they can't fill their own order. Both sides are deliberately hiding.</p>
-<p>This is not passive opacity — it is active strategic concealment, and the intervention must be confidential intermediation, not a listing platform.</p>
-<p>Priya Anand runs Meridian Precision in Hamilton. Two Makino five-axis machining centers run one shift instead of two since she lost a helicopter component program to Mexico. The carrying cost: $14,500 per machine per month. She would gladly rent the second shift to another manufacturer — the way an airline leases gate space during off-peak hours. But she cannot post: "Meridian has surplus five-axis capacity available." Her bank, her customers, and her competitors would all read the wrong thing.</p>
-<p>Jonas Tremblay just signed the biggest contract in AxionTech's history: a $480,000 robotic deburring cell requiring four titanium mandrels with five-axis contouring at ±0.025 mm. AxionTech does not own a five-axis machine. Buying one for six weeks of work is a $400,000 capital commitment. His options: word of mouth (three calls, no match), directories (seventeen cold calls), or offshore (twelve time zones of risk on his first major contract).</p>
-<p>Priya has exactly what Jonas needs, sixty kilometres away. Jonas has exactly the kind of work Priya's idle Makinos were built for. Neither knows the other exists.</p>
-<hr />
-<h2>Act B - The Story</h2>
-<p><strong>CME — Canadian Manufacturers &amp; Exporters</strong> has deployed a capacity exchange on MarketForge infrastructure. The design principle is the baseball trade desk, not the stock exchange. Participants confide in an intermediary; they do not list on an open marketplace.</p>
-<p>Priya registers her surplus confidentially: machine specs, certifications (AS9100D, ISO 13485), materials experience (Ti-6Al-4V, Inconel, 7075-T6), demonstrated tolerance (±0.01 mm), operator availability (second shift, immediate). None of this is visible to any other participant, competitor, or CME staff. It enters a confidential matching layer accessible only to the AI.</p>
-<p>Jonas registers his requirement: five-axis titanium machining, ±0.025 mm, 40–50 machine hours, Kitchener-Waterloo proximity, automotive Tier 1 quality system, two-week start window.</p>
-<p>The match is structural. Priya's documented Ti-6Al-4V experience exceeds Jonas's tolerance requirement. Her location is 65 km. Her operator is available starting immediately.</p>
-<p>The platform does not reveal identities. It sends both parties anonymous match notifications: Priya sees a robotics integrator needing 40–50 hours of five-axis titanium machining. Jonas sees a Hamilton facility with documented Ti-6Al-4V experience exceeding his requirements. Neither knows the other's name.</p>
-<hr />
-<p>Only after mutual opt-in and technical scope exchange — Jonas uploading 3D models into a secure data room, Priya's operator confirming machinability — does the platform reveal identities.</p>
-<p>The deal: 45 hours of second-shift Makino time, Tomasz operating. AxionTech provides 3D models, GD&amp;T drawings, and raw material. Total: $11,400. Priya's net overhead recovery: $7,200. For Jonas: titanium machining 65 km away at a fraction of new-machine capital.</p>
-<p>The contract includes a future capacity reciprocity provision. Over time, the anonymous capacity exchange becomes a durable manufacturing alliance.</p>
-<hr />
-<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
-<p>Generic listing platforms cannot solve the strategic concealment problem. The moment capacity appears publicly listed, the strategic cost of disclosure destroys the transaction. The platform must protect secrets as its primary function — not reduce search friction.</p>
-<p>The confidentiality architecture is not a feature. It is the product.</p>
-<p><a href="../../market-physics.html">Thin market infrastructure</a> enables disclosure to a trusted intermediary without disclosure to competitors, customers, or lenders. That is a fundamentally different market design from anything a listing platform can provide.</p>
-<p><em>Characters are fictional. The manufacturing dynamics and market forces are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
-        </div>
-        <p style="margin-top:1.5rem"><a href="../../blog/manufacturing-scenarios-capacity.html" class="story-blog-link">Also published on the blog &rarr;</a></p>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p>Two Makino five-axis machining centres sit idle sixteen hours a day — $522,000 in carrying costs over eighteen months. Sixty kilometres away, a robotics integrator needs exactly that capacity. Neither side will say so out loud. This is shadow capacity at its most deliberately hidden.</p>
+        <p>The full story for this idea is told on the blog.</p>
+        <p><a href="../blog/manufacturing-scenarios-capacity.html" class="story-blog-link">Read the full story on the blog &rarr;</a></p>
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

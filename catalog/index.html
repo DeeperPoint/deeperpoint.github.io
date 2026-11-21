@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Startup-Ready Markets in Waiting — Scenarios for the MarketForge Opportunity Catalog — DeeperPoint</title>
-  <meta name="description" content="One hundred speculative thin market scenarios analyzed through the DeeperPoint framework. Each describes a market that could exist if the right matching infrastructure were built — with a market analysis, sponsor revenue model, and a narrative story illustrating how a match would work.">
+  <title>Catalog of Market Ideas — Thin Markets Waiting to Be Built — DeeperPoint</title>
+  <meta name="description" content="254 ideas for thin markets that could exist if the right matching infrastructure were built. None has been built. Each idea has a market analysis, sponsor revenue models and a short fictional story showing how a match would work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -405,21 +411,26 @@
         <li><a href="../library.html" class="nav__link">Library</a></li>
         <li><a href="../about.html" class="nav__link">About</a></li>
         <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
 
   <section class="section cat-header" id="catalog-index">
     <div class="container">
-      <h1 class="cat-title">Startup-Ready Markets in Waiting</h1>
+      <h1 class="cat-title">Catalog of Market Ideas</h1>
       <p class="cat-desc">
-        Each entry describes a thin market that could be transformed by the right matching
-        infrastructure &#8212; but has not been yet. Individual scenarios are speculative and
+        Each entry is an idea: a thin market that could be transformed by the right matching
+        infrastructure &#8212; but has not been yet. Individual ideas are speculative and
         details can always be argued. The point is not any single entry: it is the sheer
         number of plausible opportunities across entirely different sectors, geographies, and
-        participant types. That pattern is harder to dismiss than any one example. Browse by
+        participant types. That pattern is harder to dismiss than any one idea. Browse by
         sector, tag, or build complexity, and see how many you find compelling.
+      </p>
+      <p class="idea-note" style="max-width: 60rem;">
+        <strong>These are ideas, not built markets.</strong> None of the marketplaces described here
+        exists yet. The story attached to each idea is fiction: its people and firms are invented to
+        show how a match could work, and the market figures are estimates.
       </p>
 
       <!-- Curated Collections -->
@@ -432,7 +443,7 @@
             <span class="col-card__icon">&#9935;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Resources &amp; Energy</span>
-              <span class="col-card__count">24 scenarios</span>
+              <span class="col-card__count">24 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-manufacturing"
@@ -441,7 +452,7 @@
             <span class="col-card__icon">&#9881;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Manufacturing &amp; Build</span>
-              <span class="col-card__count">11 scenarios</span>
+              <span class="col-card__count">11 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-finance"
@@ -450,7 +461,7 @@
             <span class="col-card__icon">&#128176;</span>
             <span class="col-card__body">
               <span class="col-card__name">Finance &amp; Risk</span>
-              <span class="col-card__count">20 scenarios</span>
+              <span class="col-card__count">20 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-justice"
@@ -459,7 +470,7 @@
             <span class="col-card__icon">&#9878;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Justice &amp; Social</span>
-              <span class="col-card__count">21 scenarios</span>
+              <span class="col-card__count">21 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-agfood"
@@ -468,7 +479,7 @@
             <span class="col-card__icon">&#127806;</span>
             <span class="col-card__body">
               <span class="col-card__name">Agriculture &amp; Food</span>
-              <span class="col-card__count">18 scenarios</span>
+              <span class="col-card__count">18 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-northern"
@@ -477,7 +488,7 @@
             <span class="col-card__icon">&#127956;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Northern &amp; Municipal</span>
-              <span class="col-card__count">23 scenarios</span>
+              <span class="col-card__count">23 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-talent"
@@ -486,7 +497,7 @@
             <span class="col-card__icon">&#129489;</span>
             <span class="col-card__body">
               <span class="col-card__name">Talent &amp; Professional</span>
-              <span class="col-card__count">22 scenarios</span>
+              <span class="col-card__count">22 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-health"
@@ -495,7 +506,7 @@
             <span class="col-card__icon">&#129657;</span>
             <span class="col-card__body">
               <span class="col-card__name">Healthcare &amp; Pharma</span>
-              <span class="col-card__count">14 scenarios</span>
+              <span class="col-card__count">14 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-culture"
@@ -504,7 +515,7 @@
             <span class="col-card__icon">&#127891;</span>
             <span class="col-card__body">
               <span class="col-card__name">Arts, Sport &amp; Education</span>
-              <span class="col-card__count">32 scenarios</span>
+              <span class="col-card__count">32 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-govdef"
@@ -513,7 +524,7 @@
             <span class="col-card__icon">&#128737;&#65039;</span>
             <span class="col-card__body">
               <span class="col-card__name">Defence, Gov &amp; Export</span>
-              <span class="col-card__count">25 scenarios</span>
+              <span class="col-card__count">25 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-global"
@@ -522,7 +533,7 @@
             <span class="col-card__icon">&#127758;</span>
             <span class="col-card__body">
               <span class="col-card__name">Global &amp; Diaspora</span>
-              <span class="col-card__count">30 scenarios</span>
+              <span class="col-card__count">30 ideas</span>
             </span>
           </button>
           <button class="col-card" id="col-research"
@@ -531,7 +542,7 @@
             <span class="col-card__icon">&#128300;</span>
             <span class="col-card__body">
               <span class="col-card__name">Research &amp; Environment</span>
-              <span class="col-card__count">20 scenarios</span>
+              <span class="col-card__count">20 ideas</span>
             </span>
           </button>
         </div>
@@ -1655,7 +1666,7 @@
 
       <!-- Count -->
       <div class="cat-count">
-        Showing <span id="visible-count">254</span> of <span id="total-count">254</span> scenarios
+        Showing <span id="visible-count">254</span> of <span id="total-count">254</span> ideas
       </div>
 
       <!-- Grid -->
@@ -5979,7 +5990,7 @@
             <span style="margin-left:auto">3 sponsor/investor opps</span>
           </div>
         </a>
-        <div class="cat-grid--empty" id="no-results" style="display:none">No scenarios match your filters.</div>
+        <div class="cat-grid--empty" id="no-results" style="display:none">No ideas match your filters.</div>
       </div>
     </div>
   </section>

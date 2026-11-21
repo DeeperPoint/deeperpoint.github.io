@@ -9,7 +9,7 @@ series-position: 1
 pinned: true
 pin-weight: 2
 pin-label: "&#9733; Featured Series"
-series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This 18-part series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
+series-description: "Shadow capacity is the productive capability that exists inside an industrial ecosystem but is invisible, inaccessible, or strategically concealed. This series maps the structural waste in Ontario's manufacturing sector and explains the market physics of surfacing it."
 stream: workshop-notes
 tags: [thin-markets, market-design, ai, manufacturing, explainer]
 summary: Ontario's manufacturing ecosystem is operating at a fraction of its productive potential — not because the capabilities don't exist, but because they can't see each other. Shadow capacity is the name for everything that's there but invisible.
@@ -100,6 +100,6 @@ The capability exists. The demand exists. The only thing missing is the device t
 
 ---
 
-*This is the first in a series on shadow capacity in manufacturing. Next: [The Portfolio Effect](../portfolio-effect.html) — the proven arithmetic behind pooling variable capacity, and why the math that powers portfolio theory and distribution centres applies directly to Ontario's manufacturing ecosystem.*
+*This is the first in a series on shadow capacity in manufacturing. Next: [The Portfolio Effect](portfolio-effect.html) — the proven arithmetic behind pooling variable capacity, and why the math that powers portfolio theory and distribution centres applies directly to Ontario's manufacturing ecosystem.*
 
 *For more on the structural dynamics of thin markets, see [The Problem](../thin-markets.html) and the [Intervention Matrix](../intervention-matrix.html).*

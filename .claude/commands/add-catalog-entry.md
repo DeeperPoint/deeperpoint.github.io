@@ -100,7 +100,7 @@ sponsor_opportunities:
 story:
   title: "Story Title"
   status: draft                           # none | draft | published
-  blog_slug: ""                           # only set if promoted to blog
+  blog_slug: ""                           # only set if promoted to blog; the entry page then links to the post and does not print this body
   characters:
     - "Name - role, location"
     - "Name - role, location"

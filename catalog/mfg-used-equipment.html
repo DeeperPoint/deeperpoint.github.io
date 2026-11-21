@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
         <span class="blog-tag">manufacturing</span><span class="blog-tag">cnc</span><span class="blog-tag">equipment</span><span class="blog-tag">ontario</span><span class="blog-tag">thin-markets</span><span class="blog-tag">market-design</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -445,32 +452,10 @@
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">The Machine Under the Tarp</div>
-        <p><strong>Characters:</strong> Frank Kowalski - plant manager, precision parts manufacturer, Stratford ON, Sofia Herrera - production engineer, automotive parts manufacturer, Windsor ON</p>
-        
-        <div class="story-body">
-          <h2>Act A - The Machine That Couldn't Be Sold</h2>
-<p>If you've ever managed a manufacturing plant, you know the machine. It's the one at the back of the floor, pushed against the wall after the last retooling, covered with a tarp that's been gathering dust for fourteen months. It works. There's nothing wrong with it. It just doesn't fit the new process.</p>
-<p>Frank Kowalski's machine is a Mazak Variaxis i-700 — a five-axis CNC machining center worth $130,000–$150,000 on the secondary market. He listed it on Machinio eight months ago. Three inquiries — two brokers, one buyer in Turkey who disappeared after asking for the manual. Nobody who actually needed a five-axis machine for their production process.</p>
-<p>The problem isn't demand. The problem is that the secondary market for CNC equipment matches on category and keyword. It cannot determine whether Frank's machine fits Sofia's requirement. For that, you'd need to read 184 pages of technical documentation, cross-reference it against a specific production process, and then trust the seller's condition claims. Nobody does that speculatively.</p>
-<p>So the machine stays under the tarp.</p>
-<hr />
-<h2>Act B - The Story</h2>
-<p><strong>Frank</strong> agrees to try the AMT-sponsored platform. The onboarding asks him a question no listing has ever asked: <em>What has this machine actually made?</em> He uploads the technical manual, maintenance logs, CMM inspection reports from six years of production runs, and finished-part photos. The platform builds a profile that captures not just what the machine was designed to do, but what it has proven it can do: ±0.015 mm on complex aluminum aerospace parts, documented and traceable.</p>
-<p><strong>Sofia</strong> in Windsor has a new turbocharger housing contract — five-axis aluminum at ±0.02 mm. She needs a machine in three months. New is $300,000–$400,000 with a six-month lead time. She has a spreadsheet with fourteen used-machine listings she cannot evaluate from the information provided.</p>
-<p>Her platform profile encodes her actual production requirements: spindle speed ≥ 20,000 RPM, work envelope ≥ 650mm, tool capacity ≥ 30, Mazatrol-compatible control, tolerance ±0.02 mm with documented service history.</p>
-<p>The semantic matching engine compares Frank's extracted technical profile against Sofia's requirements profile. Every parameter meets or exceeds. Match confidence: high.</p>
-<hr />
-<p>Sofia receives a capability match report — not a listing, but a side-by-side comparison of the machine's documented capabilities against her production requirements, with match/exceed/gap indicators for each parameter. Frank's CMM data shows ±0.015 mm on comparable aluminum geometry — tighter than Sofia's ±0.02 mm requirement. A new machine arrives with promises. Frank's Variaxis arrives with proof.</p>
-<p>Over five days: a ballbar circularity test (4.2 microns), coolant system verification, control software confirmation. The platform assembles the transaction structure — independent inspector in Stratford, rigging company, air-ride carrier, pricing guidance from the Knowledge Slot's valuation benchmarks ($120,000–$155,000 for a Variaxis at this condition).</p>
-<p>Frank sells for $138,000 — $98,000 more than the broker offered. Sofia has the machine on her floor and producing turbocharger housings within two weeks of arrival, three months ahead of new-machine lead time at 60% of the cost.</p>
-<hr />
-<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
-<p>The documentation that makes a used machine valuable — CMM data, maintenance records, production history — exists in every well-run manufacturing operation. The buyer who would pay a premium for certainty exists too. The bottleneck is not condition; it is structured information exchange.</p>
-<p>Generic listing platforms match on category. They cannot ingest a 184-page technical manual and extract the parameters that determine whether a specific machine fits a specific production process. They cannot match on demonstrated tolerance capability. They cannot facilitate the inspection and logistics coordination that transforms a match into a completed transaction.</p>
-<p><a href="../../market-physics.html">Thin market infrastructure</a> doesn't create more used CNC machines. It makes the ones that exist findable — and it makes their documented operational history legible to buyers who would otherwise never know they existed.</p>
-<p><em>Characters are fictional. The machines, platforms referenced, and market dynamics are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
-        </div>
-        <p style="margin-top:1.5rem"><a href="../../blog/used-machinery-thin-market.html" class="story-blog-link">Also published on the blog &rarr;</a></p>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p>A $140,000 CNC machining centre sits under a tarp in Stratford with full CMM data proving what it can do. A manufacturer in Windsor is about to spend $350,000 on a new one. Shadow capacity trapped under polytarp because no marketplace can read a technical manual.</p>
+        <p>The full story for this idea is told on the blog.</p>
+        <p><a href="../blog/used-machinery-thin-market.html" class="story-blog-link">Read the full story on the blog &rarr;</a></p>
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

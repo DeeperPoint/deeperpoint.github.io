@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
         <span class="blog-tag">manufacturing</span><span class="blog-tag">skills</span><span class="blog-tag">labour</span><span class="blog-tag">cybersecurity</span><span class="blog-tag">ontario</span><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -445,31 +452,10 @@
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">The Welder Who Wrote Firewalls</div>
-        <p><strong>Characters:</strong> Elena Petrov - operations manager, precision sheet metal fabricator, Barrie ON, Darnell Washington - production supervisor, tool-and-die shop, Thunder Bay ON</p>
-        
-        <div class="story-body">
-          <h2>Act A - The Skill That Disappeared Into a Production Role</h2>
-<p>When Darnell Washington shifted from industrial IT security into manufacturing operations eight years ago, his cybersecurity expertise did not disappear. It became invisible.</p>
-<p>He still knows ICS network segmentation, NIST SP 800-82, Purdue model OT architecture, and the specific failure modes of connected machine tools. He just doesn't use this knowledge in his current role as a production supervisor — and nobody outside his employer has any idea he has it.</p>
-<p>Elena Petrov, 350 km to the south in Barrie, has just received conditional approval for a defence subcontract: precision sheet metal enclosures for a communications equipment program. The condition: CMMC Level 2 compliance within 90 days. Elena has never encountered CMMC. She doesn't know what an OT/ICS network assessment involves. She can't find anyone to help her — the cybersecurity consultants she's talked to don't understand manufacturing operations, and the manufacturing consultants don't know cybersecurity.</p>
-<hr />
-<h2>Act B - The Story</h2>
-<p><strong>Elena</strong> registers her compliance gap on a CME-sponsored MarketForge platform. She describes what she knows: she needs CMMC Level 2, her shop has networked CNC equipment and a production management system, she has 90 days, she's a 45-person operation in Barrie. The platform's CommonContext layer processes this against the CMMC Level 2 requirements framework and the NIST SP 800-82 OT security profile — producing a structured competency requirement: OT/ICS network assessment, CUI data handling protocols, incident response planning, supply chain risk documentation.</p>
-<p><strong>Darnell</strong> registered his profile six months earlier through a CME member invitation. His profile includes his current role, his prior career history (12 years industrial IT security, including OT/ICS network hardening for two Ontario utilities), his GIAC GICSP certification, and his availability for fractional engagement on weekends and holidays. His employer knows. His profile is visible only to the matching engine until a match is initiated.</p>
-<p>The semantic match is precise: Darnell's GICSP certification confirms OT/ICS competency; his manufacturing operations experience confirms he can work within a production environment without disrupting output; his Ontario location makes a site visit feasible.</p>
-<p>The platform sends both parties anonymous match notifications. Elena sees a Thunder Bay-based specialist with OT/ICS security certification and manufacturing operations background. Darnell sees a Barrie sheet metal shop with a CMMC Level 2 requirement and networked CNC environment.</p>
-<p>Both opt in. Identities revealed. An NDA is executed through the platform's standard engagement documentation service.</p>
-<hr />
-<p>Darnell conducts a remote OT network assessment over two weekends and one on-site visit. He produces a gap assessment, a network architecture diagram, a remediation priority list, and a CMMC Level 2 compliance roadmap. Elena's team implements the technical controls under his guidance over eight weeks.</p>
-<p>CMMC Level 2 assessment is scheduled. The defence subcontract proceeds.</p>
-<hr />
-<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
-<p>Darnell's capability is real, deeply relevant, and completely invisible. No staffing platform, no LinkedIn search, no industry directory would surface a production supervisor in Thunder Bay as the answer to an OT cybersecurity compliance problem in Barrie.</p>
-<p>The match requires knowing that manufacturing operational experience and OT/ICS security certification coexist in the same person — and that this combination is exactly what an SMB manufacturer needs: not a pure cybersecurity consultant who has never been on a production floor, but someone who understands both domains simultaneously.</p>
-<p><a href="../../market-physics.html">Thin market infrastructure</a> makes invisible skills visible — to the specific buyers who need them, at the moment they need them, with the trust architecture that makes engagement possible.</p>
-<p><em>Characters are fictional. The CMMC requirements and OT/ICS security market dynamics are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
-        </div>
-        <p style="margin-top:1.5rem"><a href="../../blog/manufacturing-scenarios-skills.html" class="story-blog-link">Also published on the blog &rarr;</a></p>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p>A production supervisor at a machining shop did cybersecurity for eight years in a previous career. He has hardened his own shop&#x27;s OT network and has surplus expertise sitting idle. A hydraulic cylinder manufacturer 300 km away desperately needs exactly that skill. Shadow capacity locked inside people, not machines.</p>
+        <p>The full story for this idea is told on the blog.</p>
+        <p><a href="../blog/manufacturing-scenarios-skills.html" class="story-blog-link">Read the full story on the blog &rarr;</a></p>
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

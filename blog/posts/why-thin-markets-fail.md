@@ -45,4 +45,4 @@ The framework is designed to be deployed across different market verticals — t
 
 This blog will document the journey — the science, the engineering decisions, the lessons learned. If you're working in a market that's too thin to function, you're not alone. And for the first time, there's a systematic approach to fixing it.
 
-*[Explore the science →](../spoke-science.html) · [See how matching works →](../spoke-matching.html)*
+*[Explore the science →](../market-physics.html) · [See how matching works →](../how-it-works.html)*

@@ -18,6 +18,7 @@ Usage:
 Posts must have YAML frontmatter with: title, date, tags, summary, author, slug.
 """
 
+import html
 import re
 from collections import Counter
 from datetime import datetime
@@ -34,6 +35,8 @@ import yaml
 SITE_ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = SITE_ROOT / "blog" / "posts"
 BLOG_OUT = SITE_ROOT / "blog"
+CATALOG_SCENARIOS_DIR = SITE_ROOT / "catalog" / "scenarios"
+REDIRECTS_FILE = BLOG_OUT / "redirects.yaml"
 SITE_URL = "https://deeperpoint.com"
 FEED_TITLE = "DeeperPoint Blog"
 FEED_DESC = "Thin market science, engineering, and the DeeperPoint ecosystem."
@@ -676,8 +679,125 @@ def buildSeriesPage(series_slug, series_data):
 # ---------------------------------------------------------------------------
 
 
-def buildPostPage(meta, body_html, series_posts=None):
+FICTION_NOTE_STYLE = (
+    "border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07); "
+    "padding: .8rem 1.1rem; margin: 0 0 2rem; border-radius: 0 8px 8px 0; "
+    "font-size: .9rem; line-height: 1.6; color: var(--color-text-secondary, #cbd5e1);"
+)
+
+
+def loadCatalogIdeas():
+    """Map blog slug -> (catalog id, title) for catalog ideas whose story lives on the blog.
+
+    A catalog entry names its blog story in story.blog_slug. Reading that here lets
+    the story link back to the idea it dramatises.
+    """
+    ideas = {}
+    if not CATALOG_SCENARIOS_DIR.exists():
+        return ideas
+    for f in sorted(CATALOG_SCENARIOS_DIR.glob("*.yaml")):
+        try:
+            data = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+        except Exception as e:
+            print(f"  WARNING could not read {f.name}: {e}")
+            continue
+        if data.get("hidden") is True or data.get("status") != "published":
+            continue
+        blog_slug = (data.get("story") or {}).get("blog_slug") or ""
+        if blog_slug:
+            ideas[blog_slug] = (data.get("id", f.stem), data.get("card_title") or data.get("title", ""))
+    return ideas
+
+
+def buildFictionNoteHtml(meta, catalog_ideas):
+    """Return the standing fiction notice for a Market Scenario post, or '' for other streams."""
+    if detectStream(meta) != "market-scenario":
+        return ""
+    idea_html = ""
+    idea = (catalog_ideas or {}).get(meta["slug"])
+    if idea:
+        idea_id, idea_title = idea
+        idea_html = (
+            f' The idea behind it is in the catalog: '
+            f'<a href="../catalog/{idea_id}.html">{html.escape(idea_title)}</a>.'
+        )
+    return f"""
+      <aside class="fiction-note" style="{FICTION_NOTE_STYLE}">
+        <strong style="color:#fbbf24;">Market Scenarios are fiction.</strong>
+        The people, firms and events in this story are invented to show how a thin market could work.
+        Where a real organisation is named, its part in the story is imagined.
+        The marketplace described has not been built.{idea_html}
+      </aside>"""
+
+
+REDIRECT_STUB = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moved &mdash; DeeperPoint</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url=__TARGET__">
+  <link rel="canonical" href="__CANONICAL__">
+  <link rel="stylesheet" href="__ROOT__styles.css">
+</head>
+
+<body data-pagefind-ignore>
+  <section class="section" style="padding-top: calc(var(--space-4xl, 4rem) + 60px); text-align: center;">
+    <div class="container container--narrow">
+      <p style="color: var(--color-text-secondary, #cbd5e1); font-size: 1rem;">
+        This page has moved&hellip;
+        <br><br>
+        <a href="__TARGET__" style="color: #818cf8;">Click here if you are not redirected automatically.</a>
+      </p>
+    </div>
+  </section>
+  <script>window.location.replace("__TARGET__");</script>
+</body>
+
+</html>
+"""
+
+
+def buildRedirects(live_paths):
+    """Write a redirect stub for every retired page listed in blog/redirects.yaml.
+
+    The file maps an old path (relative to blog/, no extension, e.g.
+    "fractional-testing-thin-market" or "series/ontario-roadmap") to a target
+    relative to the old page. A path the build has just generated is skipped,
+    so a restored post or a live series never fights its redirect.
+    """
+    if not REDIRECTS_FILE.exists():
+        return 0
+    mapping = yaml.safe_load(REDIRECTS_FILE.read_text(encoding="utf-8")) or {}
+    written = 0
+    for old, target in sorted(mapping.items()):
+        if old in live_paths:
+            print(f"  Redirect skipped (page is live): {old}")
+            continue
+        out_path = BLOG_OUT / f"{old}.html"
+        target_path = (out_path.parent / target).resolve()
+        if not target_path.exists():
+            print(f"  WARNING redirect {old}: target {target} does not exist")
+        canonical = SITE_URL + "/" + target_path.relative_to(SITE_ROOT).as_posix()
+        root = "../" * (old.count("/") + 1)
+        page = (
+            REDIRECT_STUB
+            .replace("__TARGET__", html.escape(target, quote=True))
+            .replace("__CANONICAL__", canonical)
+            .replace("__ROOT__", root)
+        )
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(page, encoding="utf-8")
+        written += 1
+    return written
+
+
+def buildPostPage(meta, body_html, series_posts=None, catalog_ideas=None):
     """Generate a full HTML page for a single blog post."""
+    fiction_note_html = buildFictionNoteHtml(meta, catalog_ideas)
     date_str = meta["date"].strftime("%B %d, %Y")
     tags_html = "".join(
         f'<span class="blog-tag">{tag}</span>' for tag in meta["tags"]
@@ -718,7 +838,7 @@ def buildPostPage(meta, body_html, series_posts=None):
           {tags_html}
         </div>
       </div>
-      {series_nav_html}
+      {series_nav_html}{fiction_note_html}
       <article class="blog-post">
         {body_html}
       </article>
@@ -1125,6 +1245,13 @@ def main():
         for slug, data in series_index.items():
             print(f"  Series '{slug}': {len(data['posts'])} posts")
 
+    # Catalog ideas whose story is one of these posts (for the link back to the idea)
+    catalog_ideas = loadCatalogIdeas()
+    known_slugs = {p["slug"] for p in posts}
+    for blog_slug, (idea_id, _) in sorted(catalog_ideas.items()):
+        if blog_slug not in known_slugs:
+            print(f"  WARNING catalog idea {idea_id} names blog story '{blog_slug}', which has no post")
+
     # Generate individual post pages
     BLOG_OUT.mkdir(parents=True, exist_ok=True)
     for meta in posts:
@@ -1132,7 +1259,7 @@ def main():
         series_posts = None
         if meta.get("series"):
             series_posts = series_index.get(meta["series"], {}).get("posts", [])
-        page = buildPostPage(meta, body_html, series_posts)
+        page = buildPostPage(meta, body_html, series_posts, catalog_ideas)
         out_path = BLOG_OUT / f"{meta['slug']}.html"
         out_path.write_text(page, encoding="utf-8")
         print(f"  Wrote: {out_path.name}")
@@ -1158,6 +1285,12 @@ def main():
     feed_path = BLOG_OUT / "feed.xml"
     feed_path.write_text(feed_xml, encoding="utf-8")
     print("  Wrote: feed.xml")
+
+    # Redirect stubs for retired posts and series pages
+    live_paths = {p["slug"] for p in posts} | {f"series/{slug}" for slug in series_index}
+    redirect_count = buildRedirects(live_paths)
+    if redirect_count:
+        print(f"  Wrote: {redirect_count} redirect stubs from blog/redirects.yaml")
 
     print(f"Blog build complete. {len(public_posts)} public posts published, {len(posts) - len(public_posts)} unlisted.")
 

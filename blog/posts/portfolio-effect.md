@@ -64,6 +64,6 @@ That is what this series is about.
 
 ---
 
-*This is the second article in the [Shadow Capacity](shadow-capacity.html) series. Next: [The Certification Shadow](certification-shadow.html) — why every capability a startup needs to get certified already exists in Ontario, scattered across institutions that don't know each other.*
+*This is the second article in the [Shadow Capacity](shadow-capacity.html) series. Next: [The Certification Bridge](certification-bridge-thin-market.html) — why every capability a startup needs to get certified already exists in Ontario, scattered across institutions that don't know each other.*
 
 *For more on the structural dynamics of thin markets, see [The Problem](../thin-markets.html) and the [Intervention Matrix](../intervention-matrix.html).*

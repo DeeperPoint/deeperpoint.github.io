@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
         <span class="blog-tag">mining</span><span class="blog-tag">exploration</span><span class="blog-tag">critical-minerals</span><span class="blog-tag">investment</span><span class="blog-tag">ni-43-101</span><span class="blog-tag">junior-mining</span><span class="blog-tag">tsxv</span><span class="blog-tag">capital-markets</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -444,55 +451,11 @@
       <div id="tab-story" class="tab-panel">
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
-        <div class="panel-section__title">Drill Core and Deal Flow</div>
-        <p><strong>Characters:</strong> Claire Bouchard - Project Geologist, Northreach Minerals, Kapuskasing, Ontario, Erik Lindqvist - Portfolio Manager, Norrland Strategic Metals, Stockholm</p>
-        <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
-        <div class="story-body">
-          <h2>Act A - The Market Structure</h2>
-<p>There are roughly 1,200 junior exploration companies on the TSX Venture Exchange.
-Their geological datasets—drill databases, geophysical surveys, NI 43-101 technical
-reports filed on SEDAR+—contain more information about Canada's mineral endowment than
-any other public dataset on earth. And none of it is searchable by the criteria that
-actually matter for investment matching: deposit style, commodity combination, grade
-profile, intersection geometry, geological model analogue.</p>
-<p>SEDAR+ is a regulatory archive. PDAC is a promotional event. Neither was designed to
-match geologically excellent but promotionally invisible companies with the specialist
-investors whose mandates they would satisfy exactly.</p>
-<hr />
-<h2>Act B - The Story</h2>
-<p><strong>Claire</strong> has spent five years supervising drilling on a copper-gold target in the
-Kapuskasing structural zone of northern Ontario. The Phase 1 program returned intersections
-of 0.8–2.4 g/t Au and 0.6–1.1% Cu over 12–28 metres in a magnetite-bearing gabbro—a
-magmatic sulphide system with 3.2 kilometres of strike extent visible on ground magnetics.
-Northreach filed the NI 43-101 report. The company's CEO attended PDAC, didn't get a
-Core Shack slot, had 340 conversations with other juniors in the same situation, and met
-two institutional investors who never followed up. The company will run out of cash in September.</p>
-<p><strong>Erik</strong> manages a Nordic critical minerals fund with a specific mandate: copper-gold projects
-in Tier 1 jurisdictions, at the post-Phase-1 exploration stage, with NI 43-101 compliance,
-preferring magmatic sulphide or IOCG deposit styles—not porphyry, of which the fund already
-has BC and Chile exposure. Last year he reviewed 280 projects. Fourteen met his basic criteria.
-He funded one. The other 266 were projects that reached him through existing channels—not
-the universe of projects that would actually match his mandate.</p>
-<p>The Ontario Prospectors Association deploys the platform. Claire uploads the NI 43-101
-report and drill database. The system extracts the structured geological profile: Cu-Au,
-magmatic sulphide, Ontario, post-Phase-1, $2.8M capital requirement, JV preferred. Erik
-uploads his fund's 14-page screening criteria document. The match is structural, not
-categorical. The platform generates a Generative Match Story—a hypothetical JV term model
-aligned to Ontario conventions and CIM standards—giving Claire the vocabulary to engage
-Erik's term sheet before the first call.</p>
-<p>They connect in September. Drills are on the ground the following January.</p>
-<hr />
-<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
-<p>The conference circuit cannot be the primary discovery mechanism for the industry that
-supplies the planet's critical minerals. Geological merit and promotional capacity are
-not the same thing, and systematically confusing them has left billions in exploration
-capital sitting undeployed while geologically excellent projects run out of cash.</p>
-<p>DeeperPoint builds the matching infrastructure that reads the geology, not the pitch deck.</p>
-<p><em>Claire and Erik are fictional. The junior mining exploration dynamics, NI 43-101
-framework, and conference-dependent matching infrastructure described are real.
-<a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
-        </div>
-        <p style="margin-top:1.5rem"><a href="../../blog/junior-mining-thin-market.html" class="story-blog-link">Also published on the blog &rarr;</a></p>
+        <div class="panel-section__title">Drill Core and Deal Flow — How a Geologist in Northern Ontario and a Copper Fund in Stockholm Found Each Other Without a Conference Badge</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p>A junior exploration geologist in a bush camp near Kapuskasing has drill core that tells a compelling copper-gold story. A critical minerals investment fund in Stockholm has a mandate to deploy capital into exactly that kind of project. Neither knows the other exists — because the mining industry&#x27;s discovery infrastructure runs on conference circuits and personal networks that systematically exclude the geologically excellent but promotionally invisible.</p>
+        <p>The full story for this idea is told on the blog.</p>
+        <p><a href="../blog/junior-mining-thin-market.html" class="story-blog-link">Read the full story on the blog &rarr;</a></p>
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

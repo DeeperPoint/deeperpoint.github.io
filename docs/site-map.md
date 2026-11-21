@@ -10,6 +10,16 @@ Snapshot of the site as it stands in the repository on 2026-11-06 (commit e7f751
 
 Sections 7 and 8 end with what those changes resolved and what they did not.
 
+**Changes on 2026-11-21 (owner's decisions; the sections below still describe the 2026-11-06 state):**
+
+- The catalog is the Catalog of Market Ideas. An entry is an idea, none is built, and the index and every entry page say so. A blog Market Scenario is a story, and the blog builder puts a fiction notice above each one.
+- Blog stories take precedence over catalog stories. Eight entries name a blog story in `story.blog_slug` (the seven that already did, plus cjs-indigenous-corrections-elder for The Empty Lodge); their pages link to the post and no longer print the YAML story, and the post links back to the idea.
+- Of the 59 orphan catalog pages (4.2), 52 are now redirect stubs written from `catalog/redirects.yaml`. Six rof- pages stay as they were because *The Hub Before the Road* and the hackathon page link to them. dev-postharevst-cold-chain-access is not an orphan: the YAML file is spelled correctly but its `id` is not, so the misspelled URL is the live one.
+- Of the 22 orphan posts (4.3), the three "fractional" scenarios redirect to their Ontario versions (`blog/redirects.yaml`). The other orphan posts are unchanged.
+- Of the six retired series pages, Fractional Manufacturing redirects to Shadow Capacity and The Ontario Roadmap to AI Powered Flexible Specialization for Ontario?. The other four are labelled "Archived series", describe what they actually list, and point to the ebook.
+- Shadow Capacity no longer calls itself an 18-part series, and three dead links inside it are fixed.
+- Not done: the ebook is untouched, and testbeds.html, the guides and the remaining orphan posts still use the old wording.
+
 How to read it:
 
 - **Path** is the file under the site root; the live URL is `https://deeperpoint.com/<path>`.

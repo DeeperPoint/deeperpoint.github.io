@@ -1,0 +1,19 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+#
+# Retired blog pages. scripts/build_blog.py writes a redirect stub for each line.
+# Key: the old page, relative to blog/, without ".html".
+# Value: the target, relative to the old page.
+#
+# The three "fractional" scenarios were the earlier British Columbia versions of
+# stories that now run, set in Ontario, in the Shadow Capacity series and in the
+# ebook. The Ontario versions are the canonical ones (owner's decision, 2026-11-21).
+
+fractional-testing-thin-market: manufacturing-scenarios-testing.html
+fractional-capacity-thin-market: manufacturing-scenarios-capacity.html
+fractional-skills-thin-market: manufacturing-scenarios-skills.html
+
+# Series pages. Fractional Manufacturing's four stories are all in Shadow Capacity.
+# The Ontario Roadmap was renamed AI Powered Flexible Specialization for Ontario?;
+# the old page's four links were dead.
+series/manufacturing-fractional: shadow-capacity.html
+series/ontario-roadmap: ai-flex-spec-manufacturing.html

@@ -56,13 +56,23 @@ the same list in their templates and must be changed with it.
 | **Home** | `index.html` | The hook, the definition of a thin market, and one tile per question below |
 | **Why Markets Don't Form** | `market-physics.html` | What a thin market is and why it stays thin: the theory, the fifteen cards (`cards/`), the intervention matrix, the whitepaper |
 | **What We're Building** | `platform.html` | The open-source engine and everything under it: how it works, the demo, Cosolvent, CommonContext, MarketForge, the domain wiki, ClientSynth |
-| **Catalog** | `catalog/index.html` | The opportunity catalog, restored to the nav on 2026-11-05 at the owner's request |
+| **Catalog** | `catalog/index.html` | The Catalog of Market Ideas (called the opportunity catalog until 2026-11-21): ideas for thin markets, none built; restored to the nav on 2026-11-05 at the owner's request |
 | **Cost** | `cost-model.html` | What a build costs: the cost structure, hour ranges, the AI fee per session by mode, an estimator. In the nav since 2026-11-21 |
 | **Library** | `library.html` | The documents (whitepaper, cards and deck, matrix, ebook with its précis and pitch deck beneath it, mission essay, search) and the worked examples (test beds, MarketMaps, scenario stories, diagnostic, demo); Examples merged in on 2026-11-05 |
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |
 | *(hidden)* | `who-should-care.html`, `guide-*.html` | Who It's For and its five guides: out of the nav and the search index since 2026-11-05 as duplicative of the catalog; the pages remain |
 | **Contribute** (button) | `contribute.html` | The open door: the public repos, the help that is not code, how to start. Also linked from every footer |
+
+## Ideas, stories and redirects
+
+Vocabulary set by the owner on 2026-11-21:
+
+- An **idea** is a catalog entry (`catalog/scenarios/*.yaml`). None is built. Every entry page says so, and labels its story as fiction.
+- A **story** is a Market Scenario post on the blog. The blog builder puts a standing fiction notice above every post in that stream.
+- **Blog stories take precedence over catalog stories.** When an entry sets `story.blog_slug`, its page shows the blog post's title and summary with a link, and does not print the YAML story. The blog post links back to the idea.
+- **Retired pages redirect.** `catalog/redirects.yaml` and `blog/redirects.yaml` map an old page to its target; each builder writes the stubs. A page that is live again is skipped.
+- For the manufacturing stories the Ontario versions are canonical; they are the ones in the Shadow Capacity series and the ebook.
 
 ## Blog Workflow
 

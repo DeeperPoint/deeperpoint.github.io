@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
         <span class="blog-tag">precision-agriculture</span><span class="blog-tag">agri-data</span><span class="blog-tag">data-marketplace</span><span class="blog-tag">yield-data</span><span class="blog-tag">soil-data</span><span class="blog-tag">agronomy</span><span class="blog-tag">agtech</span><span class="blog-tag">canada</span><span class="blog-tag">data-sovereignty</span><span class="blog-tag">research</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -445,6 +452,7 @@
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">Twenty Years of Yield Maps</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
         <p><strong>Characters:</strong> Dale — fourth-generation grain farmer, near Weyburn, Saskatchewan; 4,200 acres with 22 years of yield map records, Dr. Yarra — crop science researcher, University of Saskatchewan; building a Saskatchewan wheat yield response model requiring multi-farm multi-decade production data</p>
         <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
         <div class="story-body">
@@ -469,7 +477,7 @@
 <h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
 <p>The data Dale held had research value that he did not know existed. The research value that Dr. Yarra needed was held by farmers she had no mechanism to find at scale. The consent framework and format normalization problem that made the data transfer technically prohibitive was solvable — but it required infrastructure that neither party could build individually.</p>
 <p>Farm management software companies have access to aggregated farm data. They do not share it with academic researchers. Academic researchers cannot access it. Farmers do not know they could be compensated for sharing it. The value is trapped between three parties who have no mechanism to transact it ethically.</p>
-<p><a href="../../market-physics.html">Thin market infrastructure</a> creates the consent framework, the format normalization, and the matching mechanism that converts a trapped asset into a functioning data market — where farmers receive income from data they already own, researchers access the commercial-production datasets their models require, and the data transfers under governance that respects the farmer's sovereignty over their own information.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> creates the consent framework, the format normalization, and the matching mechanism that converts a trapped asset into a functioning data market — where farmers receive income from data they already own, researchers access the commercial-production datasets their models require, and the data transfers under governance that respects the farmer's sovereignty over their own information.</p>
 <p><em>Characters are fictional. Canadian precision agriculture adoption rates, Saskatchewan wheat yield model development programs, Saskatchewan Crop Insurance Corporation actuarial methodology, and farm data format fragmentation across John Deere, Climate FieldView, and Trimble systems are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
         </div>
         

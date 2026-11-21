@@ -1,0 +1,64 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+#
+# Retired catalog entries. scripts/build_catalog.py writes a redirect stub at
+# catalog/<id>.html for each line, pointing at the target (a path relative to
+# catalog/). Sectors retired by the owner: canadian-gov-expert-networks (cgov-),
+# canadian-startup-ecosystem (cstartup-), real-estate-assembly (rea-),
+# sme-service-consortium (sme-), diaspora-connections (dia-), ring-of-fire-hub (rof-).
+#
+# Not listed, so still served as they were: six rof- pages that the blog post
+# The Hub Before the Road links to. To bring an entry back, restore its YAML to
+# catalog/scenarios/; the builder then skips its redirect.
+
+cgov-critical-infrastructure-cyber: index.html
+cgov-environmental-assessment: index.html
+cgov-forensic-accounting: index.html
+cgov-heritage-conservation: index.html
+cgov-immigration-tribunal: index.html
+cgov-indigenous-consultation: index.html
+cgov-municipal-climate-adaptation: index.html
+cgov-northern-infrastructure: index.html
+cgov-public-health-surge: index.html
+cgov-regulatory-science: index.html
+cstartup-accelerator-matching: index.html
+cstartup-angel-discovery: index.html
+cstartup-cofounder-matching: index.html
+cstartup-immigrant-talent: index.html
+cstartup-indigenous-entrepreneur: index.html
+cstartup-pilot-customer: index.html
+cstartup-professional-services: index.html
+cstartup-remote-mentorship: index.html
+cstartup-research-commercialization: index.html
+cstartup-small-batch-manufacturing: index.html
+dia-bilateral-trade-sourcing: index.html
+dia-cultural-import-sourcing: index.html
+dia-elder-care-verification: index.html
+dia-estate-legal-navigation: index.html
+dia-hometown-investment-nav: index.html
+dia-newcomer-credential-bridge: index.html
+dia-professional-skills-transfer: index.html
+dia-property-remote-oversight: ../blog/diaspora-property-thin-market.html
+dia-refugee-peer-support: index.html
+rea-commercial-tenant-improvement: index.html
+rea-density-bonus-application: index.html
+rea-development-site-diligence: index.html
+rea-distressed-property-turnaround: index.html
+rea-industrial-tenant-buildout: index.html
+rea-multifamily-capital-renewal: index.html
+rea-pre-sales-launch-package: index.html
+rea-retail-plaza-leasing: index.html
+rea-rural-land-subdivision: index.html
+rea-str-portfolio-launch: index.html
+rof-greenstone-hub-marketplace: ../blog/greenstone-hub-before-the-road.html
+rof-logistics-charter-coordination: ../blog/greenstone-hub-before-the-road.html
+rof-occupational-health-rotation: ../blog/greenstone-hub-before-the-road.html
+sme-after-school-consortium: index.html
+sme-corporate-event-consortium: index.html
+sme-corporate-incentive-travel: index.html
+sme-corporate-wellness-consortium: index.html
+sme-destination-wedding-package: index.html
+sme-digital-marketing-consortium: index.html
+sme-film-production-consortium: index.html
+sme-home-deep-retrofit: index.html
+sme-property-services-bundle: index.html
+sme-senior-transition-consortium: index.html

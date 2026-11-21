@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
         <span class="blog-tag">manufacturing</span><span class="blog-tag">consortium</span><span class="blog-tag">ontario</span><span class="blog-tag">clean-energy</span><span class="blog-tag">automotive</span><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">cosolvent</span><span class="blog-tag">market-design</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -445,34 +452,10 @@
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">The Virtual Tier-One</div>
-        <p><strong>Characters:</strong> Mae Chen - business development manager, precision machining shop, Mississauga ON, Carlos Reyes - owner, custom electrical enclosure fabricator, Hamilton ON, Ingrid Larsson - structural steel fabrication manager, Cambridge ON</p>
-        
-        <div class="story-body">
-          <h2>Act A - The Contract Nobody Small Can Win Alone</h2>
-<p>The RFP lands on Mae Chen's desk on a Tuesday morning. Battery storage enclosure systems for a provincial clean-energy infrastructure program. 500 units over 18 months. Precision machined mounting hardware, custom electrical enclosures, structural steel subframes, AAMA 2605 powder coating. ISO 9001 required. Single-source accountability. $40M contract.</p>
-<p>Mae's shop does the precision machining. She cannot do the enclosures, the structural steel, or the coating. She cannot provide single-source accountability across five capability domains. She cannot write a unified QMS for capabilities she doesn't have.</p>
-<p>She has thirty days. The last time she tried to assemble a consortium, it took eight weeks to verify capabilities, negotiate teaming terms, and align quality systems — and the RFP had already closed.</p>
-<p>This time, she logs into the CME Consortium Assembly platform.</p>
-<hr />
-<h2>Act B - The Story</h2>
-<p><strong>Mae</strong> uploads the RFP and enters her shop's capability profile: five-axis machining, aerospace aluminum and stainless steel, AS9100D certification, Mississauga. The platform extracts the contract's full capability requirements from the RFP document and maps them against her shop's coverage. Gap: electrical enclosure fabrication, structural steel, AAMA 2605 coating.</p>
-<p>The platform initiates a consortium search. It has the capability profiles of 340 registered Ontario manufacturing shops — certifications, equipment, process capabilities, quality system status, and consortium availability flags.</p>
-<p><strong>Carlos Reyes</strong> in Hamilton registered his custom electrical enclosure shop six months ago: UL 508A panel shop certification, NEMA enclosure ratings, sheet metal fabrication, powder coating in-house. His consortium availability flag is active.</p>
-<p><strong>Ingrid Larsson</strong> in Cambridge manages structural steel fabrication for a mid-size shop: CSA W47.1 fusion welding certification, structural steel fabrication to CSA S16, heavy steel forming. Consortium: available.</p>
-<p>The platform matches capability gaps against registered profiles. In 72 hours, a capability-complete three-shop consortium is assembled and all parties have confirmed participation. The platform generates a consortium teaming agreement (standard CME template, pre-reviewed by legal counsel), an integrated project schedule mapping each shop's work package to the contract deliverables, and a Virtual Tier-One capability brief presenting the assembled team as a unified manufacturing entity.</p>
-<hr />
-<p>The capability brief is the critical document. It does not present three separate shops. It presents a single manufacturing operation with integrated quality management, unified project oversight, and demonstrated combined capability for every specification in the RFP. Mae's shop is the prime. Carlos and Ingrid are named teaming partners with verified capability profiles attached.</p>
-<p>The consortium submits the bid on day 28.</p>
-<p>Three weeks later, the evaluation committee shortlists two bids: a vertically integrated prime from Quebec and Mae's consortium. The committee's evaluation notes that the consortium's combined capability profile and integrated QMS documentation match the prime's offering at lower total cost.</p>
-<p>The consortium is awarded the contract.</p>
-<hr />
-<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
-<p>The capability to win this contract existed in Ontario before the platform. Mae, Carlos, and Ingrid collectively had everything the RFP required. The bottleneck was not capability — it was coordination speed.</p>
-<p>Without a platform that holds verified capability profiles, assembles capability-complete matches, generates teaming documentation, and produces a unified bid package, the coordination problem takes longer than the RFP window. Large integrators win by default.</p>
-<p><a href="../../market-physics.html">Thin market infrastructure</a> does not create manufacturing capability that doesn't exist. It assembles the capability that exists into configurations that can compete — within windows that previously made competition impossible.</p>
-<p><em>Characters are fictional. The Ontario clean-energy procurement landscape and SMB capability dynamics are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
-        </div>
-        <p style="margin-top:1.5rem"><a href="../../blog/ontario-roadmap-part3-pocket.html" class="story-blog-link">Also published on the blog &rarr;</a></p>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p>No single Ontario SME can bid on a global clean-energy contract. But a coordination platform can assemble an eight-node consortium in three minutes — manufacturing, testing, program management, trade compliance, export finance — that collectively delivers Tier-One capability without any firm surrendering its independence.</p>
+        <p>The full story for this idea is told on the blog.</p>
+        <p><a href="../blog/ontario-roadmap-part3-pocket.html" class="story-blog-link">Read the full story on the blog &rarr;</a></p>
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">

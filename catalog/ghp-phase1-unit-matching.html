@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
         <span class="blog-tag">phase-1</span><span class="blog-tag">clinical-trials</span><span class="blog-tag">first-in-human</span><span class="blog-tag">clinical-pharmacology</span><span class="blog-tag">drug-development</span><span class="blog-tag">participant-scarcity</span><span class="blog-tag">offering-complexity</span><span class="blog-tag">oncology</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -445,6 +452,7 @@
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">The eGFR Band</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
         <p><strong>Characters:</strong> Serena — clinical development operations lead, mid-size biotech, San Francisco; planning renal impairment PK study for a novel kinase inhibitor primarily eliminated renally, Dr. Paulo — Phase I unit medical director, academic teaching hospital, Toronto; 22 completed renal impairment studies including 8 with CKD Stage 4 severe impairment group</p>
         <p style="color:#f59e0b;font-size:.82rem;margin-bottom:1.25rem;">&#9998; This story is in draft.</p>
         <div class="story-body">
@@ -468,7 +476,7 @@
 <h2>Act C — Why This Market Stays Broken Without Infrastructure</h2>
 <p>Dr. Paulo's twenty-two renal impairment studies and CKD Stage 4 pre-dialysis clinic relationship were not secret. They were published in study reports at his institution, documented in his unit's capabilities brochure, and known to every academic medical centre nephrology program in Toronto.</p>
 <p>They were not known to Serena's clinical operations team in San Francisco because CRO capability databases list "renal impairment studies" as a binary capability — yes or no — without recording number of completed studies, CKD Stage 4 patient access, or pre-dialysis clinic affiliations.</p>
-<p><a href="../../market-physics.html">Thin market infrastructure</a> encodes the completed study count, the population access depth, and the eGFR band recruitment track record that distinguish a Phase I unit capable of delivering a severe impairment cohort on schedule from a unit that will discover the recruitment gap six months after FPFV.</p>
+<p><a href="../../thin-markets.html">Thin market infrastructure</a> encodes the completed study count, the population access depth, and the eGFR band recruitment track record that distinguish a Phase I unit capable of delivering a severe impairment cohort on schedule from a unit that will discover the recruitment gap six months after FPFV.</p>
 <p><em>Characters are fictional. FDA renal impairment pharmacokinetic study guidance (2020), eGFR banding requirements for renal impairment PK studies, and CKD Stage 4 patient recruitment challenges in Phase I units are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
         </div>
         

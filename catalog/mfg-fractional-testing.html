@@ -314,6 +314,12 @@
       font-weight: 600; transition: background .15s;
     }
     .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
 
     /* --- Curated collections panel --- */
     .collections-panel {
@@ -395,17 +401,17 @@
         <span class="nav__toggle-bar"></span>
       </button>
       <ul class="nav__links">
-        <li><a href="../index.html" class="nav__link">Home</a></li>
-        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
-        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
-        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
-        <li><a href="../demo.html" class="nav__link">Demo</a></li>
-        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
-        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
-        <li><a href="../library.html" class="nav__link">Library</a></li>
-        <li><a href="../about.html" class="nav__link">About</a></li>
-        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
-        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+        <li><a href="../../index.html" class="nav__link">Home</a></li>
+        <li><a href="../../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../../demo.html" class="nav__link">Demo</a></li>
+        <li><a href="../../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../../library.html" class="nav__link">Library</a></li>
+        <li><a href="../../about.html" class="nav__link">About</a></li>
+        <li><a href="../../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../../search.html" class="nav__link nav__link--icon" aria-label="Search the site">&#x1f50d;</a></li>
       </ul>
     </div>
   </nav>
@@ -419,6 +425,7 @@
         <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
         <span class="blog-tag">manufacturing</span><span class="blog-tag">testing</span><span class="blog-tag">certification</span><span class="blog-tag">welding</span><span class="blog-tag">ontario</span><span class="blog-tag">thin-markets</span><span class="blog-tag">ai</span><span class="blog-tag">market-design</span>
       </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
       <nav class="tab-nav" role="tablist">
         <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
         <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
@@ -445,32 +452,10 @@
       <div class="panel-section">
         <div class="panel-section__label">Narrative Story</div>
         <div class="panel-section__title">The Tensile Test That Almost Didn&#x27;t Happen</div>
-        <p><strong>Characters:</strong> Marcus Webb - quality manager, steel fabrication shop, Sudbury ON, Dr. Anita Sousa - materials lab coordinator, college engineering department, North Bay ON</p>
-        
-        <div class="story-body">
-          <h2>Act A - The Certification Bottleneck</h2>
-<p>Weld procedure qualification is not optional. Before a CWB-certified shop can weld a structural component to a new specification, they must develop a Welding Procedure Specification and qualify it through destructive testing — tensile tests, bend tests, sometimes Charpy impact tests — conducted in a certified laboratory and witnessed by a CWB inspector.</p>
-<p>The labs that can do this work exist. Most of them are running their testing equipment at a fraction of capacity. The shops that need this work done cannot find the labs — because institutional labs do not advertise testing availability in channels that fabricators monitor.</p>
-<hr />
-<h2>Act B - The Story</h2>
-<p><strong>Marcus Webb</strong> manages quality at a structural steel fabrication shop in Sudbury. He's landed a contract to fabricate rail car underframe components — his largest project in three years. The contract is conditional on completing a CWB weld procedure qualification for Gr. 350W plate in the 1G and 2G positions before work begins.</p>
-<p>His usual testing lab in Sudbury has a six-week wait. The contract closes in three weeks. He spends two days calling every testing lab he can find listed. One has the capacity but is not CWB-accredited for the specific procedure scope. One has the accreditation but won't schedule external clients.</p>
-<p>He enters his requirement on a CWB Group-sponsored MarketForge platform: material grade (Gr. 350W, CSA W59), joint design, welding positions (1G, 2G), test types required (tensile, root bend, face bend), required accreditation (CWB-recognized test facility), available window (current week or next).</p>
-<hr />
-<p><strong>Dr. Anita Sousa</strong> coordinates the materials testing lab at a Northern Ontario college engineering department. The lab holds ISO 17025 accreditation and is a CWB-recognized test facility for structural steel procedure qualification. Their 200 kN universal testing machine and bend test fixture are booked two days this month. The other eighteen working days are available.</p>
-<p>The lab registered its accreditation scope, fixture inventory, and available calendar on the same platform six weeks ago. They haven't had an inquiry yet.</p>
-<p>The platform matches Marcus's test requirements against the lab's accreditation scope and available schedule. ISO 17025 accreditation: confirmed for the required test types. CWB recognition: confirmed. Available window: Thursday and Friday of this week. Location: 90 km south of Marcus's shop.</p>
-<p>Both parties receive the match. Marcus gets a capability brief including the lab's accreditation certificate reference, available time slots, and an outline of the documentation package the lab will produce. Dr. Sousa receives a test requirement summary and a request to confirm the Thursday slot.</p>
-<p>The qualification testing is completed Thursday. The documentation package — tensile test reports, bend test photographs, inspector sign-off — is assembled by Friday afternoon.</p>
-<p>Marcus submits the qualification dossier Monday. The contract proceeds.</p>
-<hr />
-<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
-<p>The testing lab and the fabrication shop are 90 km apart. The accreditation the shop needs is exactly what the lab holds. The schedule window the shop needs is exactly when the lab is available. This is a matching problem, not a supply problem.</p>
-<p>Without a platform that indexes accreditation scope, available schedule, and geographic accessibility together, the match does not happen. Marcus extends his search, the contract is delayed, and the college lab runs its equipment at 20% utilization for another month.</p>
-<p><a href="../../market-physics.html">Thin market infrastructure</a> does not create more certified labs. It makes the ones that exist findable to the shops that need them — before the contract window closes.</p>
-<p><em>Characters are fictional. The CWB qualification requirements and testing market dynamics are real. <a href="../../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
-        </div>
-        <p style="margin-top:1.5rem"><a href="../../blog/manufacturing-scenarios-testing.html" class="story-blog-link">Also published on the blog &rarr;</a></p>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p>A college metallurgy lab has a calibrated tensile testing machine sitting idle most of the week. A fabrication shop 300 km away ships test coupons to Toronto because it can&#x27;t see the capacity three hours south. This is shadow capacity — not broken equipment, but invisible equipment.</p>
+        <p>The full story for this idea is told on the blog.</p>
+        <p><a href="../blog/manufacturing-scenarios-testing.html" class="story-blog-link">Read the full story on the blog &rarr;</a></p>
       </div></div>
       <div id="tab-sponsor" class="tab-panel">
       <div class="opp-card">
