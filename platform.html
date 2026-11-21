@@ -141,15 +141,23 @@
                 style="background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl);">
                 <h2 style="font-family: var(--font-display); margin-bottom: 1rem; color: #fff;">Free, Open Source, Headless</h2>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    DeeperPoint offers the engine as three components &mdash; <strong style="color:#fff;">Cosolvent</strong>
-                    (the matching engine), <strong style="color:#fff;">CommonContext</strong> (the curated knowledge layer)
-                    and <strong style="color:#fff;">ClientSynth</strong> (synthetic populations for testing) &mdash; as free,
-                    <em>headless</em> server functionality: Cosolvent and CommonContext under MIT, ClientSynth under
-                    Apache 2.0 with one condition. It is deliberately
-                    <strong style="color:#fff;">not a shrink-wrap product</strong> for any market vertical, and probably
-                    can't become one: everything vertical-specific is exactly what the adopter must own.
+                    A market built this way runs on two things: its own knowledge, and a shared engine.
+                    The knowledge is a <strong style="color:#fff;">domain wiki</strong>: sourced pages that the market&rsquo;s sponsor
+                    writes and keeps, built with an open wiki engine. The engine is three components, offered as
+                    free, <em>headless</em> server functionality. <strong style="color:#fff;">CommonContext</strong> prepares the
+                    wiki&rsquo;s pages and other curated documents for the engine: it splits and embeds them into
+                    the reference library that answers are cited from, and it can propose the market&rsquo;s
+                    schema. <strong style="color:#fff;">ClientSynth</strong> generates synthetic, marked participants, so the market
+                    can be exercised before real ones arrive. <strong style="color:#fff;">Cosolvent</strong> does the matching, the
+                    confidential disclosure, the Content Match Story and the Deal Brief.
+                </p>
+                <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
+                    Cosolvent, CommonContext and the wiki engine are under MIT; ClientSynth is under Apache 2.0
+                    with one condition. The suite is deliberately <strong style="color:#fff;">not a shrink-wrap product</strong> for
+                    any market vertical, and probably can't become one: everything vertical-specific, the wiki
+                    first of all, is exactly what the adopter must own.
                     <a href="marketforge.html" style="color: var(--dp-cyan);">MarketForge</a> is the order in which
-                    they are used, starting with the market&rsquo;s own knowledge.
+                    the parts are used, starting with the wiki.
                 </p>
 
                 <h3 style="font-family: var(--font-display); color: var(--dp-emerald); font-size: 1.15rem; margin: 0 0 0.75rem;">Why MIT? Because adoption is a thin market too.</h3>
@@ -165,8 +173,8 @@
                     trying it costs nothing.
                 </p>
                 <p style="margin-bottom: 1.5rem; color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7;">
-                    To be precise about the boundaries: the <em>engine</em> is free; your vertical build and your
-                    operations are yours to fund. ClientSynth&rsquo;s one condition is that synthetic participants stay
+                    To be precise about the boundaries: the <em>engine</em> is free; your wiki, your vertical build
+                    and your operations are yours to build and fund. ClientSynth&rsquo;s one condition is that synthetic participants stay
                     marked as synthetic, are never presented as real, and never enter a market that serves real ones.
                     And because
                     Cosolvent&rsquo;s ingest schema is open, you can generate synthetic populations with
@@ -180,8 +188,19 @@
                         <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Map and method</span>
                         <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">MarketForge</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                            The map and the method that join the parts: the path from a domain wiki to a twin to a marketplace.
+                            The map and the method that join the parts: the path from a domain wiki, through a twin, to a marketplace.
                             <span style="color: var(--dp-cyan);">Now a public repository of guides.</span>
+                        </p>
+                    </a>
+
+                    <!-- Domain wiki -->
+                    <a href="marketforge.html#toolkit" class="card" style="text-decoration: none; padding: var(--space-lg);">
+                        <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">📝</div>
+                        <span style="font-size: 0.6875rem; color: var(--dp-cyan); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Wiki engine &middot; MIT</span>
+                        <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">The domain wiki</h3>
+                        <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                            What the market knows, as sourced pages drafted with an AI model and ruled on by a
+                            person. The sponsor&rsquo;s own; the tools that build and check it are open.
                         </p>
                     </a>
 
@@ -191,8 +210,8 @@
                         <span style="font-size: 0.6875rem; color: var(--dp-violet); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source &middot; MIT</span>
                         <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">CommonContext</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                            Curated vertical knowledge: regulations, certifications, rates &mdash; the context that
-                            grounds matches in reality.
+                            Turns wiki pages and other curated documents into the embedded reference library the
+                            engine cites, and can propose the market&rsquo;s schema.
                         </p>
                     </a>
 
@@ -214,8 +233,8 @@
                         <span style="font-size: 0.6875rem; color: var(--dp-emerald); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">Open Source &middot; MIT</span>
                         <h3 style="font-family: var(--font-display); color: #fff; font-size: 1.15rem; margin: 0.25rem 0 0.5rem;">Cosolvent</h3>
                         <p style="color: var(--dp-silver); font-size: 0.9rem; line-height: 1.5; margin: 0;">
-                            Headless semantic matching engine &mdash; multi-attribute similarity, privacy-aware
-                            profiles, match-story generation.
+                            The headless marketplace engine: semantic matching, confidential disclosure, the
+                            Content Match Story and the Deal Brief.
                         </p>
                     </a>
                 </div>
@@ -253,14 +272,15 @@
                 </p>
                 <ol style="color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7; padding-left: 1.5rem; margin: 0 0 1.5rem;">
                     <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">Ingest.</strong> AI takes in
-                        unstructured material from deal participants, deal facilitators, and background context for the
-                        chosen vertical: documents, voice, photos, any language.</li>
+                        unstructured material from deal participants and deal facilitators: documents, voice, photos, any
+                        language. The market&rsquo;s own background is already in place, in the reference library
+                        built from its wiki.</li>
                     <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">Match.</strong> A generalized
                         semantic matching process runs over those inputs, with careful attention to privacy and the
                         management of participant secrets.</li>
                     <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">The Content Match Story.</strong> The
                         key vehicle of the deal: an <em>anonymized</em> narrative, grounded in the participants' actual
-                        realities, showing both sides why the match works &mdash; before anyone's identity or secrets
+                        realities and in the market&rsquo;s reference library, showing both sides why the match works &mdash; before anyone's identity or secrets
                         are exposed. It is the first draft of what will become the Deal Brief.</li>
                     <li style="margin-bottom: 0.85rem;"><strong style="color:#fff;">Progressive revelation.</strong>
                         Background material is disclosed step by step as the parties' confidence grows. Each round of
