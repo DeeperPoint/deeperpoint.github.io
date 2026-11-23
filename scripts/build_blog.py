@@ -362,7 +362,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
         <li><a href="{root}market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
         <li><a href="{root}platform.html" class="nav__link">What We&rsquo;re Building</a></li>
         <li><a href="{root}catalog/index.html" class="nav__link">Catalog</a></li>
-        <li><a href="{root}demo.html" class="nav__link">Demo</a></li>
+        <li><a href="{root}demos.html" class="nav__link">Demos</a></li>
         <li><a href="{root}blog/index.html" class="nav__link{blog_active}">Blog</a></li>
         <li><a href="{root}cost-model.html" class="nav__link">Cost</a></li>
         <li><a href="{root}library.html" class="nav__link">Library</a></li>

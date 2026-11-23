@@ -26,7 +26,7 @@ NAV = [
      ["how-it-works.html", "cosolvent.html", "marketforge.html", "domain-wiki.html", "mf-cosolvent.html",
       "mf-commoncontext.html", "mf-clientsynth.html", "cards/"]),  # cards/ moved here 2026-11-06
     ("Catalog", "catalog/index.html", ["catalog/"]),
-    ("Demo", "demo.html", []),  # own top-level nav item since 2026-11-07 (owner); no longer also-active under What We're Building
+    ("Demos", "demos.html", ["demo.html"]),  # the demos hub since 2026-11-22 (owner); demo.html, the scripted walkthrough, sits under it
     ("Blog", "blog/index.html", ["blog/"]),
     ("Cost", "cost-model.html", []),  # own nav item since 2026-11-21 (owner), between Blog and Library to match the home page bands
     ("Library", "library.html",
