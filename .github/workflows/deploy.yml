@@ -49,6 +49,11 @@ jobs:
         with:
           path: '.'
 
+      # The deploy step asks GitHub for the bundle just uploaded. On 2026-11-23 it
+      # asked within a second, was told there was none, and failed four times.
+      - name: Wait for the artifact to be listed
+        run: sleep 20
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
