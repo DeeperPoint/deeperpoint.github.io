@@ -1,0 +1,238 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!-- DRAFT 2026-11-22. Not linked from any other page. The nav on this page shows the proposed
+     "Demos" item; every other page still says "Demo". Open decisions are marked DECISION below. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demos &mdash; DeeperPoint</title>
+  <meta name="description" content="Working pieces of the DeeperPoint toolkit you can operate: a MarketMap, one market followed from its wiki and question page to its twin, and a scripted walkthrough and precomputed twin of a second market.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261121">
+  <style>
+    .demo-stage { font-family: var(--font-display); color: #fff; font-size: 1.35rem; margin: var(--space-2xl) 0 0.35rem; }
+    .demo-stage span { color: var(--dp-muted); font-weight: 500; font-size: 0.95rem; margin-left: 0.5rem; }
+    .demo-stage__note { color: var(--dp-silver); font-size: 0.95rem; line-height: 1.6; margin: 0 0 var(--space-md); max-width: 62ch; }
+    .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-md); }
+    .demo-card { padding: var(--space-lg); display: flex; flex-direction: column; }
+    .demo-card h3 { font-family: var(--font-display); color: #fff; font-size: 1.2rem; margin: 0.5rem 0 0.5rem; }
+    .demo-card p { color: var(--dp-silver); font-size: 0.9rem; line-height: 1.55; margin: 0 0 0.75rem; }
+    .demo-card dl { margin: 0 0 1rem; font-size: 0.85rem; line-height: 1.5; }
+    .demo-card dt { color: var(--dp-muted); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.6875rem; font-weight: 700; margin-top: 0.6rem; }
+    .demo-card dd { color: var(--dp-silver); margin: 0.1rem 0 0; }
+    .demo-card .band__cta { margin-top: auto; }
+    .demo-access { display: inline-block; align-self: flex-start; padding: 0.2rem 0.65rem; border-radius: 100px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .demo-access--open { color: var(--dp-emerald); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); }
+    .demo-access--invite { color: var(--dp-amber); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); }
+    .demo-access--soon { color: var(--dp-muted); background: rgba(148, 163, 184, 0.08); border: 1px solid rgba(148, 163, 184, 0.3); }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="demos.html" class="nav__link nav__link--active">Demos</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="library.html" class="nav__link">Library</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="demos" style="padding-top: calc(var(--space-4xl) + 60px);">
+    <div class="container">
+      <div class="reveal text-center" style="margin-bottom: var(--space-lg);">
+        <span class="section__label">Demos</span>
+        <h1 class="section__title">Things you can operate</h1>
+        <p class="section__desc section__desc--centered">
+          The catalog and the blog describe markets that do not exist yet. These are working pieces of the toolkit,
+          shown on two markets: a diagnosis that applies to any market, one market followed from its wiki to its
+          twin, and a closer look at a second twin. Each one says what is real, what is staged and who can open it
+          today.
+        </p>
+      </div>
+
+      <!-- 1 · Diagnose -->
+      <h2 class="demo-stage reveal">1 &middot; Diagnose <span>before anything is built</span></h2>
+      <p class="demo-stage__note reveal">Which frictions keep this market thin, and which interventions could release them?</p>
+      <div class="demo-grid reveal">
+        <div class="card demo-card">
+          <span class="demo-access demo-access--invite">Examples open &middot; running one is by invitation</span>
+          <h3>MarketMap</h3>
+          <p>
+            Reads a company&rsquo;s public web page, and any documents you add, and sets the venture against the
+            fourteen challenges and seven interventions.
+          </p>
+          <dl>
+            <dt>What is real</dt>
+            <dd>The analysis runs live on AI models against the material you give it.</dd>
+            <dt>What to keep in mind</dt>
+            <dd>It is an AI reading of public material. Check it against what you know.</dd>
+            <dt>Try this</dt>
+            <dd>Read one worked map first, then compare its verdict with your own view of that company.</dd>
+          </dl>
+          <div class="band__cta">
+            <a href="marketmaps.html" class="btn btn--primary">See worked MarketMaps &rarr;</a>
+            <a href="about.html" class="btn btn--outline">Ask for an invite code &rarr;</a>
+            <a href="https://teardown.deeperpoint.com/" class="btn btn--outline" target="_blank" rel="noopener">I have a code &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 · One market along the whole path: job matching -->
+      <!-- DECISION: this section names an Indigenous job market on the public site. Hold the page's
+           launch until the wiki's Indigenous reviewer has agreed to that. -->
+      <h2 class="demo-stage reveal">2 &middot; One market, along the path <span>Indigenous job matching</span></h2>
+      <p class="demo-stage__note reveal">
+        A market is built in one direction: first a wiki of what the market knows, then a twin filled with synthetic
+        participants. Here are both stages for the same market, so you can see what the second takes from the first.
+      </p>
+      <div class="demo-grid reveal">
+        <div class="card demo-card">
+          <!-- DECISION: Ask sits behind an email allowlist on workplace.cosolvent.com. Either keep it
+               "by invitation" as below, or stand up a public instance before this page goes live. -->
+          <span class="demo-access demo-access--invite">By invitation</span>
+          <h3>The wiki, and Ask</h3>
+          <p>
+            A wiki on workplace cultures and what stands between Indigenous job seekers and employers, with a
+            question page over it. The answers come only from the wiki&rsquo;s shared pages, with citations, and it
+            says so when the wiki cannot answer.
+          </p>
+          <dl>
+            <dt>What is real</dt>
+            <dd>A live wiki of sourced pages, and live answers drawn from it.</dd>
+            <dt>What to keep in mind</dt>
+            <dd>It is built over one wiki so far. That testers&rsquo; questions improve the wiki is the design; the evidence is not in yet.</dd>
+            <dt>Try this</dt>
+            <dd>Ask something you know the answer to, then follow the citations and see whether they hold.</dd>
+          </dl>
+          <div class="band__cta">
+            <a href="marketforge.html#ask" class="btn btn--primary">How Ask works &rarr;</a>
+            <a href="about.html" class="btn btn--outline">Ask for access &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card demo-card">
+          <!-- DECISION, three parts before this card gets a link:
+               (a) access: today the twin is reachable only by DeeperPoint org members;
+               (b) mode: confirm with the developer whether matching runs live or is precomputed,
+                   then correct "What is real" below, which is written without claiming either;
+               (c) population: drop the stand-in sentence once the ClientSynth population is in. -->
+          <span class="demo-access demo-access--invite">By invitation</span>
+          <h3>The job-matching twin</h3>
+          <p>
+            The marketplace engine configured for this market and filled with synthetic job seekers and employers,
+            so the market can be watched before any real person joins.
+          </p>
+          <dl>
+            <dt>What is real</dt>
+            <dd>The engine&rsquo;s matching over the population. The schema was written by hand; the wiki backs and checks it.</dd>
+            <dt>What is staged</dt>
+            <dd>Every participant is synthetic and marked as such. The current population is a stand-in, generated by an AI model, until the one from ClientSynth replaces it.</dd>
+            <dt>Try this</dt>
+            <dd>Put a question to Ask first, then look for the same requirement in a match.</dd>
+          </dl>
+          <div class="band__cta">
+            <a href="about.html" class="btn btn--outline">Ask for access &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 · A closer look at a twin: precision machining -->
+      <h2 class="demo-stage reveal">3 &middot; A closer look at a twin <span>precision machining</span></h2>
+      <p class="demo-stage__note reveal">Two views of a second market, a three-sided one. Every participant in both is synthetic.</p>
+      <div class="demo-grid reveal">
+        <div class="card demo-card">
+          <span class="demo-access demo-access--open">Open to everyone</span>
+          <h3>Scripted walkthrough</h3>
+          <p>
+            A guided tour of a three-sided marketplace: a machine shop, a buyer and an inspection lab, from anonymous
+            match to revealed identity to Deal Brief.
+          </p>
+          <dl>
+            <dt>What is real</dt>
+            <dd>The workflow and the screens, step for step.</dd>
+            <dt>What is staged</dt>
+            <dd>Everything you see was written in advance. No matching runs and no AI model is consulted.</dd>
+            <dt>Try this</dt>
+            <dd>Follow one deal as the shop, then start again as the buyer.</dd>
+          </dl>
+          <div class="band__cta">
+            <a href="demo.html" class="btn btn--primary">Open the walkthrough &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card demo-card">
+          <!-- DECISION: needs a public static host and a ruling that the capacity-exchange front end
+               and cache may be published. Until then this card has no link. -->
+          <span class="demo-access demo-access--soon">Opening soon</span>
+          <h3>Twin on precomputed matches</h3>
+          <p>
+            The capacity-exchange twin: a synthetic population, matched by the real matching logic, with the results
+            computed once and frozen.
+          </p>
+          <dl>
+            <dt>What is real</dt>
+            <dd>The matches, scores, Deal Briefs and stories are the engine&rsquo;s own output over the population.</dd>
+            <dt>What is staged</dt>
+            <dd>Nothing is computed while you watch, so the same choices give the same results every time.</dd>
+            <dt>Try this</dt>
+            <dd>Open a match report, then flip the same deal to the other side&rsquo;s priorities.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <p class="reveal" style="color: var(--dp-muted); font-size: 0.875rem; line-height: 1.6; margin-top: var(--space-2xl); max-width: 70ch;">
+        No sponsored marketplace with real participants exists yet. That stage is a design, not a result.
+        <a href="marketforge.html" style="color: #818cf8;">Where each part stands &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+        </div>
+        <ul class="footer__links">
+          <li><a href="search.html" class="footer__link">Search</a></li>
+          <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+          <li><a href="contribute.html" class="footer__link">Contribute</a></li>
+          <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="reveal.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+
+</html>

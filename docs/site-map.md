@@ -10,6 +10,8 @@ Snapshot of the site as it stands in the repository on 2026-11-06 (commit e7f751
 
 Sections 7 and 8 end with what those changes resolved and what they did not.
 
+**Change on 2026-11-22 (owner's decision):** Home has a MarketMap band ("What about my market?", `#marketmap`) between the Blog band and the Cost band, the first band without a nav item of its own. It links marketmaps.html, About (to ask for an invite code) and the web app at teardown.deeperpoint.com, where running a MarketMap is by invite code for now. The bands after it swapped sides to keep the alternation. marketmaps.html itself is unchanged.
+
 **Changes on 2026-11-21 (owner's decisions; the sections below still describe the 2026-11-06 state):**
 
 - The catalog is the Catalog of Market Ideas. An entry is an idea, none is built, and the index and every entry page say so. A blog Market Scenario is a story, and the blog builder puts a fiction notice above each one.
