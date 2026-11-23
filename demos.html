@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demos &mdash; DeeperPoint</title>
-  <meta name="description" content="Working pieces of the DeeperPoint toolkit you can operate: a MarketMap, one market followed from its wiki and question page to its twin, and a scripted walkthrough and precomputed twin of a second market.">
+  <meta name="description" content="Working pieces of the DeeperPoint toolkit you can operate, in the order a market is built: a MarketMap, then a wiki with its question page and guide, then three twins from scripted to live.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
@@ -29,6 +29,14 @@
     .demo-access--open { color: var(--dp-emerald); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); }
     .demo-access--invite { color: var(--dp-amber); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); }
     .demo-access--soon { color: var(--dp-muted); background: rgba(148, 163, 184, 0.08); border: 1px solid rgba(148, 163, 184, 0.3); }
+    .demo-card { scroll-margin-top: 90px; }
+    .demo-card--soon { opacity: 0.72; }
+    .demo-card p a { color: #818cf8; }
+    .demo-market { color: var(--dp-muted); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin: -0.3rem 0 0.6rem; }
+    .demo-index { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: var(--space-lg) auto 0; padding: 0; max-width: 60rem; }
+    .demo-index a { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-decoration: none; text-transform: none; letter-spacing: 0; }
+    .demo-index a span { font-weight: 400; opacity: 0.8; }
+    .demo-index a:hover { filter: brightness(1.25); }
     /* The request form (a dialog shared by the three "by invitation" cards) */
     .request { width: min(30rem, calc(100vw - 2rem)); margin: auto; padding: 0; border: 1px solid var(--dp-steel); border-radius: var(--radius-md); background: var(--dp-navy); color: var(--dp-silver); }
     .request::backdrop { background: rgba(4, 7, 15, 0.72); backdrop-filter: blur(3px); }
@@ -89,17 +97,25 @@
         <h1 class="section__title">Things you can operate</h1>
         <p class="section__desc section__desc--centered">
           The catalog and the blog describe markets that do not exist yet. These are working pieces of the toolkit,
-          shown on two markets: a diagnosis that applies to any market, one market followed from its wiki to its
-          twin, and a closer look at a second twin. Each one says what is real, what is staged and who can open it
-          today.
+          in the order a market is built: a diagnosis, then what the market knows, then twins that show it running.
+          Each one says what is real, what is staged and who can open it today.
         </p>
+        <ul class="demo-index" aria-label="The demos on this page">
+          <li><a class="demo-access--invite" href="#marketmap">MarketMap <span>&middot; one run on request</span></a></li>
+          <li><a class="demo-access--invite" href="#wiki">The wiki <span>&middot; by request</span></a></li>
+          <li><a class="demo-access--invite" href="#ask">Ask <span>&middot; by request</span></a></li>
+          <li><a class="demo-access--invite" href="#guide">Two paths guide <span>&middot; by request</span></a></li>
+          <li><a class="demo-access--open" href="#walkthrough">Scripted walkthrough <span>&middot; open</span></a></li>
+          <li><a class="demo-access--soon" href="#precomputed-twin">Precomputed twin <span>&middot; soon</span></a></li>
+          <li><a class="demo-access--invite" href="#job-matching-twin">Job-matching twin <span>&middot; by request</span></a></li>
+        </ul>
       </div>
 
       <!-- 1 · Diagnose -->
       <h2 class="demo-stage reveal">1 &middot; Diagnose <span>before anything is built</span></h2>
       <p class="demo-stage__note reveal">Which frictions keep this market thin, and which interventions could release them?</p>
       <div class="demo-grid reveal">
-        <div class="card demo-card">
+        <div class="card demo-card" id="marketmap">
           <span class="demo-access demo-access--invite">Examples open &middot; one run on request</span>
           <h3>MarketMap</h3>
           <p>
@@ -122,31 +138,51 @@
         </div>
       </div>
 
-      <!-- 2 · One market along the whole path: job matching -->
-      <h2 class="demo-stage reveal">2 &middot; One market, along the path <span>Indigenous job matching</span></h2>
+      <!-- 2 · What the market knows: the wiki, Ask and the guide (job matching) -->
+      <h2 class="demo-stage reveal">2 &middot; What the market knows <span>Indigenous job matching</span></h2>
       <p class="demo-stage__note reveal">
-        A market is built in one direction: first a wiki of what the market knows, then a twin filled with synthetic
-        participants. Here are both stages for the same market, so you can see what the second takes from the first.
+        A market is built on what it knows. Here are three services over one body of knowledge: the wiki itself,
+        a question page over it, and a guide written from it.
       </p>
-      <p class="demo-disclaimer reveal">
+      <p class="demo-disclaimer reveal" id="about-this-market">
         <strong>About this market.</strong> It was inspired by conversations with Indigenous contacts, but it is
         entirely DeeperPoint&rsquo;s own construction, built from public information only. It does not speak for any
         Indigenous person, community or organization.
       </p>
       <div class="demo-grid reveal">
-        <div class="card demo-card">
-          <span class="demo-access demo-access--invite">By invitation</span>
-          <h3>The wiki, and Ask</h3>
+        <div class="card demo-card" id="wiki">
+          <span class="demo-access demo-access--invite">By request</span>
+          <h3>The wiki</h3>
           <p>
-            A wiki on workplace cultures and what stands between Indigenous job seekers and employers, with a
-            question page over it. The answers come only from the wiki&rsquo;s shared pages, with citations, and it
-            says so when the wiki cannot answer.
+            A wiki on workplace cultures and what stands between Indigenous job seekers and employers. Its pages
+            are drafted with an AI model from public sources and ruled on by a person.
           </p>
           <dl>
             <dt>What is real</dt>
-            <dd>A live wiki of sourced pages, and live answers drawn from it.</dd>
+            <dd>A live wiki of sourced pages.</dd>
             <dt>What to keep in mind</dt>
-            <dd>It is built over one wiki so far. That testers&rsquo; questions improve the wiki is the design; the evidence is not in yet.</dd>
+            <dd>It is one wiki so far, and it is never finished: what the later stages cannot answer comes back to it.</dd>
+            <dt>Try this</dt>
+            <dd>Open a page on something you know well, and check its sources.</dd>
+          </dl>
+          <div class="band__cta">
+            <a href="domain-wiki.html" class="btn btn--primary">What a domain wiki is &rarr;</a>
+            <a href="about.html" class="btn btn--outline" data-request="wiki">Ask for access &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card demo-card" id="ask">
+          <span class="demo-access demo-access--invite">By request</span>
+          <h3>Ask</h3>
+          <p>
+            A question page over the wiki. The answers come only from the wiki&rsquo;s shared pages, with
+            citations, and it says so when the wiki cannot answer.
+          </p>
+          <dl>
+            <dt>What is real</dt>
+            <dd>Live answers, written by an AI model from the wiki&rsquo;s pages.</dd>
+            <dt>What to keep in mind</dt>
+            <dd>That testers&rsquo; questions improve the wiki is the design; the evidence is not in yet.</dd>
             <dt>Try this</dt>
             <dd>Ask something you know the answer to, then follow the citations and see whether they hold.</dd>
           </dl>
@@ -156,34 +192,38 @@
           </div>
         </div>
 
-        <div class="card demo-card">
-          <span class="demo-access demo-access--invite">By invitation</span>
-          <h3>The job-matching twin</h3>
+        <div class="card demo-card" id="guide">
+          <span class="demo-access demo-access--invite">Preview &middot; by request</span>
+          <h3>The Two paths guide</h3>
           <p>
-            The marketplace engine configured for this market and filled with synthetic job seekers and employers,
-            so the market can be watched before any real person joins.
+            A support worker describes one worker and one job, and gets a printable guide that sets two ways of
+            handling the start side by side: on your own, and with the supports the wiki lists.
           </p>
           <dl>
             <dt>What is real</dt>
-            <dd>The engine&rsquo;s matching over the population. The schema was written by hand; the wiki backs and checks it.</dd>
-            <dt>What is staged</dt>
-            <dd>Every participant is synthetic and marked as such. The current population is a stand-in, generated by an AI model, until the one from ClientSynth replaces it.</dd>
+            <dd>Each guide is written live by an AI model from the wiki&rsquo;s pages, and every item cites one.</dd>
+            <dt>What to keep in mind</dt>
+            <dd>It is a first demonstration, and no support worker has reviewed one yet. It never predicts an outcome or decides eligibility.</dd>
             <dt>Try this</dt>
-            <dd>Put a question to Ask first, then look for the same requirement in a match.</dd>
+            <dd>Describe a start you have seen go badly, and see which supports the guide names.</dd>
           </dl>
           <div class="band__cta">
-            <a href="about.html" class="btn btn--outline" data-request="twin">Ask for access &rarr;</a>
+            <a href="about.html" class="btn btn--outline" data-request="guide">Ask for access &rarr;</a>
           </div>
         </div>
       </div>
 
-      <!-- 3 · A closer look at a twin: precision machining -->
-      <h2 class="demo-stage reveal">3 &middot; A closer look at a twin <span>precision machining</span></h2>
-      <p class="demo-stage__note reveal">Two views of a second market, a three-sided one. Every participant in both is synthetic.</p>
+      <!-- 3 · Watch a market run: three twins, from staged to live -->
+      <h2 class="demo-stage reveal">3 &middot; Watch a market run <span>three twins, from staged to live</span></h2>
+      <p class="demo-stage__note reveal">
+        A twin is the marketplace engine filled with synthetic participants, so a market can be watched before any
+        real person joins. These three go from nothing computed, to computed once, to computed live.
+      </p>
       <div class="demo-grid reveal">
-        <div class="card demo-card">
+        <div class="card demo-card" id="walkthrough">
           <span class="demo-access demo-access--open">Open to everyone</span>
           <h3>Scripted walkthrough</h3>
+          <span class="demo-market">Precision machining</span>
           <p>
             A guided tour of a three-sided marketplace: a machine shop, a buyer and an inspection lab, from anonymous
             match to revealed identity to Deal Brief.
@@ -201,9 +241,10 @@
           </div>
         </div>
 
-        <div class="card demo-card">
+        <div class="card demo-card demo-card--soon" id="precomputed-twin">
           <span class="demo-access demo-access--soon">Opening soon</span>
           <h3>Twin on precomputed matches</h3>
+          <span class="demo-market">Precision machining</span>
           <p>
             The capacity-exchange twin: a synthetic population, matched by the real matching logic, with the results
             computed once and frozen.
@@ -216,6 +257,28 @@
             <dt>Try this</dt>
             <dd>Open a match report, then flip the same deal to the other side&rsquo;s priorities.</dd>
           </dl>
+        </div>
+
+        <div class="card demo-card" id="job-matching-twin">
+          <span class="demo-access demo-access--invite">By request</span>
+          <h3>The job-matching twin</h3>
+          <span class="demo-market">Indigenous job matching</span>
+          <p>
+            The marketplace engine configured for the market in section 2 and filled with synthetic job seekers and
+            employers. It is built on that section&rsquo;s wiki, and <a href="#about-this-market">the same note</a>
+            applies.
+          </p>
+          <dl>
+            <dt>What is real</dt>
+            <dd>The engine&rsquo;s matching, computed live over the population. The schema was written by hand; the wiki backs and checks it.</dd>
+            <dt>What is staged</dt>
+            <dd>Every participant is synthetic and marked as such. The current population is a stand-in, generated by an AI model, until the one from ClientSynth replaces it.</dd>
+            <dt>Try this</dt>
+            <dd>Put a question to Ask first, then look for the same requirement in a match.</dd>
+          </dl>
+          <div class="band__cta">
+            <a href="about.html" class="btn btn--outline" data-request="twin">Ask for access &rarr;</a>
+          </div>
         </div>
       </div>
 
@@ -276,6 +339,14 @@
       var dialog = document.getElementById("request-dialog");
       if (!dialog || typeof dialog.showModal !== "function") return;   // old browser: the links still go to About
 
+      function byHand(what) {     // no code to issue: the request goes to a person
+        return {
+          title: "Ask for access to " + what,
+          lede: "Access is set up by hand, so this goes to a person. You will hear back by email.",
+          note: "What brings you here <span>(optional)</span>",
+          send: "Send request \u2192"
+        };
+      }
       var COPY = {
         marketmap: {
           title: "Request a MarketMap invite code",
@@ -283,18 +354,10 @@
           note: "The company you would map <span>(optional)</span>",
           send: "Email me a code →"
         },
-        ask: {
-          title: "Ask for access to the wiki and Ask",
-          lede: "Access is set up by hand, so this goes to a person. You will hear back by email.",
-          note: "What brings you here <span>(optional)</span>",
-          send: "Send request →"
-        },
-        twin: {
-          title: "Ask for access to the job-matching twin",
-          lede: "Access is set up by hand, so this goes to a person. You will hear back by email.",
-          note: "What brings you here <span>(optional)</span>",
-          send: "Send request →"
-        }
+        wiki: byHand("the wiki"),
+        ask: byHand("Ask"),
+        guide: byHand("the Two paths guide"),
+        twin: byHand("the job-matching twin")
       };
       var ABOUT = '<a href="about.html">About page</a>';
       var SAID = {
