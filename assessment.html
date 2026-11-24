@@ -42,7 +42,7 @@
         .cm-table { width: 100%; border-collapse: collapse; min-width: 620px; }
         .cm-table th, .cm-table td { text-align: left; vertical-align: top; padding: 0.7rem 0.8rem; border-bottom: 1px solid rgba(148,163,184,0.2); color: var(--dp-silver); font-size: 0.975rem; line-height: 1.55; }
         .cm-table th { color: #fff; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.03em; }
-        .as-details { margin: 0 0 1rem; border: 1px solid rgba(148,163,184,0.25); border-radius: 12px; padding: 0.9rem 1.1rem; }
+        .as-details { scroll-margin-top: 5rem; margin: 0 0 1rem; border: 1px solid rgba(148,163,184,0.25); border-radius: 12px; padding: 0.9rem 1.1rem; }
         .as-details summary { cursor: pointer; color: #fff; font-weight: 600; }
         .as-details[open] summary { margin-bottom: 1rem; }
         .as-details p, .as-details li { font-size: 0.975rem; line-height: 1.65; }
@@ -230,9 +230,10 @@
             <div class="reveal dw-card" id="ask-your-own">
                 <h2>Do not take our model&rsquo;s word for it</h2>
                 <p>
-                    We chose the model, wrote the instruction and gave it two files you cannot see. The check on
-                    that is to ask a model of your own choosing, which can read only what is public. Copy the
-                    question below into any AI assistant that can browse the web.
+                    We chose the model, wrote the instruction and gave it files you cannot see. The check on
+                    that is to put the same question to a model of your own choosing, which can read only what
+                    is public. The box below is our instruction, shortened and pointed at the public pages. Copy
+                    it into any AI assistant that can browse the web.
                 </p>
                 <pre class="as-prompt" id="as-prompt">I am looking at a project called DeeperPoint for the first time and deciding whether it deserves more of my time. Please read its website, https://deeperpoint.com (the home page and the pages on why markets do not form, what it is building, the intervention matrix, cost, demos, MarketForge and About), and its public code at https://github.com/DeeperPoint. Search for alternatives yourself; do not rely on the project's own account of its competitors.
 
@@ -267,13 +268,9 @@ Use plain language. Begin with a short answer of three or four sentences.</pre>
                     the places to check. If it finds something this page should say and does not,
                     <a href="contribute.html">tell us</a>.
                 </p>
-            </div>
-
-            <div class="reveal dw-card" id="instruction">
-                <h2>The instruction the model was given</h2>
-                <p>In full, as given. Only the layout has been changed for this page.</p>
-                <details class="as-details">
-                    <summary>Read the instruction</summary>
+                <details class="as-details" id="instruction">
+                    <summary>Read the instruction our model was given, in full</summary>
+                    <p>As given. Only the layout has been changed for this page.</p>
                     <p>You are asked to assess the DeeperPoint initiative for a first-time visitor to its website, deeperpoint.com. The founder of DeeperPoint commissioned this assessment and will publish it on that website with this instruction printed beside it.</p>
                     <p>The visitor has just met the project and is deciding whether it deserves more of their time. They may be a founder, an investor, an industry association, a public official, a researcher or a developer. Assume they are not technical. They are asking three questions:</p>
                     <ol>
@@ -380,6 +377,11 @@ Use plain language. Begin with a short answer of three or four sentences.</pre>
             var btn = document.getElementById('as-copy');
             var out = document.getElementById('as-copied');
             var text = document.getElementById('as-prompt');
+            // The link near the top jumps to the instruction, which is folded shut: open it on arrival.
+            var ins = document.getElementById('instruction');
+            function openIns() { if (ins && location.hash === '#instruction') { ins.open = true; } }
+            window.addEventListener('hashchange', openIns);
+            openIns();
             if (!btn || !text) { return; }
             btn.addEventListener('click', function () {
                 function done(ok) { out.textContent = ok ? 'Copied.' : 'Select the text and copy it by hand.'; }
