@@ -1,6 +1,6 @@
 {
  "title": "Thin-Market Resistances",
- "built": "2026-11-06",
+ "built": "2026-11-24",
  "source": "DeeperPointWiki/canonical/InterventionMatrix.md v4.0",
  "matrix_url": "https://deeperpoint.com/intervention-matrix.html",
  "deck": "resistance-cards.pptx",
@@ -12,16 +12,16 @@
    "kind": "existential",
    "layer": "endogenous",
    "definition": "Whether participants feel secure enough to engage at all.",
-   "scene": "A Toronto professional owns a rental flat in Addis Ababa that needs ten thousand dollars of work. Her cousins can open the door for a contractor, but nobody on her side can judge the wiring or the invoice. She does nothing, and the flat decays.",
+   "scene": "A Timmins welding shop needs test welds broken and certified within fourteen days. A college lab in Sudbury, three hours south, has a calibrated machine, mostly idle, and no accreditation. The shop cannot stake a contract on a stranger's result. The lab will not carry a stranger's liability.",
    "scene_link": {
-    "label": "The House You Can't Visit",
-    "url": "https://deeperpoint.com/blog/diaspora-property-thin-market.html"
+    "label": "The Tensile Test That Almost Didn't Happen",
+    "url": "https://deeperpoint.com/blog/manufacturing-scenarios-testing.html"
    },
    "lead": [
     "AI Trusted Intermediary",
     "AI Memory"
    ],
-   "mechanism": "Thin markets never reach the repeated dealings that build trust, so the **trusted intermediary** supplies it structurally. Both sides disclose to the AI, not to each other: the owner her budget and her fears, the contractor his past jobs and prices. The AI confirms fit and brokers the introduction only then. Every completed job becomes verified history, so a tradesperson with twenty tracked jobs carries evidence a stranger can rely on.",
+   "mechanism": "Thin markets never reach the repeated dealings that build trust, so the **trusted intermediary** supplies it structurally. Both sides disclose to the AI, not to each other: the shop its budget and its deadline, the lab its calibration certificates and its accreditation gap. The AI confirms fit, finds the condition under which the result will stand, and brokers the introduction only then. Every completed test becomes verified history, so a lab with twenty tracked jobs carries evidence a stranger can rely on.",
    "traditional": [
     {
      "tool": "Broker who knows both sides",
@@ -501,16 +501,16 @@
    "kind": "resistance",
    "layer": "endogenous",
    "definition": "The human limit on how much choice a decision can absorb.",
-   "scene": "A procurement lead at a mid-sized plant needs one specialized coating supplier. The search returns four hundred, each with a datasheet, a certification list and a different way of describing the same process. She shortlists the three she already knows. The best fit was number ninety-one.",
+   "scene": "A woman leaves federal custody in Kitchener with $166, an expired licence and a parole appointment at nine. A dozen agencies can help her, each with its own intake, rules and deadlines, and each waiting on another's paperwork. Nobody holds the order. She is expected to work it out.",
    "scene_link": {
-    "label": "Everything Is Getting Harder to Buy",
-    "url": "https://deeperpoint.com/blog/everything-is-getting-harder-to-buy.html"
+    "label": "The Ninety-Day Map",
+    "url": "https://deeperpoint.com/blog/the-ninety-day-map.html"
    },
    "lead": [
     "AI Matching",
     "AI Input Translation"
    ],
-   "mechanism": "Too much apparent thickness fails a market as surely as too little; a shelf of fifty jams can paralyze the buyer. **Semantic matching** does the curation: it returns a short list with the reasons each candidate fits, and builds the buyer's preference model through conversation rather than a filter form. **Input translation** lightens the other end, so \"tell me what you need\" or \"upload your spec\" replaces data entry. **Memory** closes the loop by bringing the market to the buyer when something relevant appears.",
+   "mechanism": "Too much apparent thickness fails a market as surely as too little; a shelf of fifty jams can paralyze the buyer. **Semantic matching** does the curation: from forty-seven service categories it returns the few that fit her case, in the order they must be filed, with the reason for each. **Input translation** lightens the other end, so one forty-minute conversation with a support worker replaces a dozen intake forms. **Memory** holds how the system works, so the map does not leave with the worker who knew it.",
    "traditional": [
     {
      "tool": "Approved-vendor lists",
@@ -543,16 +543,16 @@
    "kind": "resistance",
    "layer": "endogenous",
    "definition": "Getting the goods or the service delivered once the match is made.",
-   "scene": "A smallholder in the Rift Valley and a hotel chef in Addis Ababa are a hundred and sixty kilometres apart. Between them sit five intermediaries, no cold chain, and a system that wastes a third of everything it touches. The match is easy. The tomatoes are not.",
+   "scene": "A Guelph food entrepreneur has a validated recipe for a frozen snack and a listing at a regional grocery chain. Of seven co-packers she finds, three lack the freezing line and two set minimum runs she cannot fill at launch. A Chilliwack plant runs two such lines under half full.",
    "scene_link": {
-    "label": "Tomatoes in the Sun",
-    "url": "https://deeperpoint.com/blog/ethiopia-produce-thin-market.html"
+    "label": "Two Lines Looking for Each Other",
+    "url": "https://deeperpoint.com/blog/two-lines-looking-for-each-other.html"
    },
    "lead": [
     "AI-Enabled Aggregation",
     "AI Matching"
    ],
-   "mechanism": "Fulfilment sets the natural boundary of a market: the economic shipping radius, the cold-chain window, the minimum load a carrier will touch. **Aggregation** moves the boundary by fluidly grouping small producers into a counterparty large enough to fill a truck, hit a minimum order, or justify a refrigerated run, clustered by geography and timing rather than by permanent membership. **Semantic matching** then treats logistics as a matching variable, weighing freight, perishability and customs before proposing a pairing rather than discovering them afterwards.",
+   "mechanism": "Fulfilment sets the natural boundary of a market: the minimum run a plant will schedule, the cold-chain window, the load a carrier will touch. **Aggregation** moves the boundary by fluidly grouping small brands into a counterparty large enough to fill a shared run, hit a minimum order, or justify a refrigerated truck, clustered by format and timing rather than by permanent membership. **Semantic matching** then treats production and logistics as matching variables, weighing equipment, allergens, minimums and freight before proposing a pairing rather than discovering them afterwards.",
    "traditional": [
     {
      "tool": "Storage and cold-chain infrastructure",
@@ -560,7 +560,7 @@
     },
     {
      "tool": "Central wholesale markets",
-     "limit": "until the farm is a hundred and sixty kilometres away"
+     "limit": "until the right plant is on the other side of the country"
     },
     {
      "tool": "Freight consolidators",
@@ -591,15 +591,15 @@
    "kind": "resistance",
    "layer": "endogenous",
    "definition": "Willing traders too small, one by one, to clear the commercial threshold.",
-   "scene": "No single Ontario machine shop can bid on a global clean-energy contract. The work needs manufacturing, testing, programme management, trade compliance and export finance, and each of those exists in a firm of twenty people that has never met the others. The prime goes to a conglomerate.",
+   "scene": "A community land trust in Sudbury holds a contaminated former dry-cleaning site it cannot develop. A six-person remediation firm, a lender, a city incentive and a federal housing fund each hold one piece of the deal. None is large enough, or sees enough, to assemble it. The lot sits idle.",
    "scene_link": {
-    "label": "The Virtual Tier-One",
-    "url": "https://deeperpoint.com/blog/ontario-roadmap-part3-pocket.html"
+    "label": "The Contaminated Lot",
+    "url": "https://deeperpoint.com/blog/the-contaminated-lot.html"
    },
    "lead": [
     "AI-Enabled Aggregation"
    ],
-   "mechanism": "Willingness and ability are present; scale is not, and the gap is where middlemen live. **Aggregation** fabricates the missing scale on demand: it identifies the small participants whose capabilities, geography and timing fit a specific requirement and assembles them into a virtual collective counterparty for that bid, without the permanent overhead of a cooperative. The **trusted intermediary** lets the members negotiate their shares confidentially, so a syndicate can form without anyone revealing their cost base to a future competitor.",
+   "mechanism": "Willingness and ability are present; scale is not, and the gap is where middlemen live. **Aggregation** fabricates the missing scale on demand: it identifies the small participants whose capabilities, geography and timing fit a specific requirement and assembles them into a virtual collective counterparty for that one project, without the permanent overhead of a cooperative. The **trusted intermediary** lets the members disclose their costs and financing limits confidentially, so the group can form before anyone has opened its books to the others.",
    "traditional": [
     {
      "tool": "Cooperatives and consortia",
