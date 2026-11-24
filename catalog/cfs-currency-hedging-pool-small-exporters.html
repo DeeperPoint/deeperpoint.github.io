@@ -1,0 +1,545 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Currency Hedging Pool for Small Exporters — DeeperPoint</title>
+  <meta name="description" content="Small exporters quote in US dollars or euros months before they are paid, and most carry the currency exposure unhedged. They lack the time, the knowledge and the spare collateral to arrange cover. Matching each exposure to a provider that fits, and later pooling small ones, would let them quote longer contracts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../demos.html" class="nav__link">Demos</a></li>
+        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../library.html" class="nav__link">Library</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Financial Services &middot; Trade Finance and Foreign Exchange</div>
+      <h1 class="detail-title">A Currency Hedging Pool for Small Exporters</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
+        <span class="blog-tag">foreign-exchange</span><span class="blog-tag">hedging</span><span class="blog-tag">small-exporters</span><span class="blog-tag">forward-contracts</span><span class="blog-tag">trade-finance</span><span class="blog-tag">export-development</span><span class="blog-tag">derivatives-rules</span>
+      </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>A small manufacturer or food producer that sells abroad usually quotes in the buyer&#x27;s currency and is paid months later. The Bank of Canada&#x27;s annual average rate for the US dollar rose from 1.2535 Canadian dollars in 2021 to 1.3978 in 2025, and the euro rose from 1.3696 in 2022 to 1.5782 in 2025. Moves in the other direction take the exporter&#x27;s margin with them. The standard protection is a forward contract, which Export Development Canada (EDC) calls the instrument most widely used by Canadian exporters. Small firms use it least. In an EDC research panel survey of 260 exporters published in 2009, just under half of firms with sales under $5 million did any hedging at all, against 79 per cent of firms with sales of $5 million to $25 million. EDC cautioned that the panel was not a representative sample, and no more recent published figure was found. The firms that did not hedge gave these reasons: 61 per cent lacked staff time, 57 per cent lacked knowledge, 21 per cent found the products too expensive, and 11 per cent said their bank restricted further borrowing if they bought them. Research for this entry did not find a published minimum contract size at a major Canadian bank, so the barrier is better described as attention, knowledge and collateral than as a size floor. A forward contract can require the exporter to post collateral with its financial institution. EDC&#x27;s Foreign Exchange Facility Guarantee can cover up to 100 per cent of that collateral for contracts of up to three years, but the exporter has to know it exists and arrange it through its bank. A pool that hedged for many small firms at once would face rules of its own. National Instrument 93-101, Derivatives: Business Conduct, in force since 28 September 2024, applies to anyone in the business of trading derivatives or advising others on them. Whether a pool&#x27;s operator is caught by it is a question for securities counsel, and the question alone is enough to stop an informal group of exporters from trying.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Macro &amp; FX Exposure: the price is fixed in a foreign currency at the quote and the Canadian dollar value is unknown until payment, so the margin can be gone before the invoice is settled</li><li>Cognitive Bandwidth: in EDC&#x27;s survey the main reasons for not hedging were no one with time to manage it and no one who knew how, well ahead of cost</li><li>Participant Fragmentation: each small exporter&#x27;s exposure is modest, its banking line is already committed to working capital, and collateral for a hedge competes with cash for the next order</li><li>Regulatory Friction: trading or advising on derivatives as a business is regulated across Canada, so exporters cannot simply club together and have one of them hedge for the rest</li><li>Defensive quoting: an exporter that cannot hedge adds a cushion to its price or declines long contracts, and the buyer never learns that currency was the reason</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;"><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#macro-fx-exposure" title="Margins eroded by currency and input-cost moves before settlement.">Macro &amp; FX Exposure</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#cognitive-bandwidth" title="The human limit on how much choice a decision can absorb.">Cognitive Bandwidth</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#participant-fragmentation" title="Willing traders too small, one by one, to clear the commercial threshold.">Participant Fragmentation</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#regulatory-friction" title="Rules that fragment a market or stop it forming at all.">Regulatory Friction</a></p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        AI Risk Insulation, AI Matching, AI-Enabled Aggregation. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>The matching engine, Cosolvent, works from descriptions in ordinary words. An exporter would describe its situation as it would to an adviser: which currency, how much, how long between quote and payment, what its bank has already said. A provider, whether a bank desk, a registered foreign exchange dealer or an adviser, would describe the clients and contract sizes it serves. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them, which matters here because an exporter&#x27;s order book and banking position are sensitive. Document reading can turn a sales contract or a bank facility letter into a profile. A match produces a Content Match Story, one account given to both parties while anonymous, and a Deal Brief, a non-binding summary for the exporter&#x27;s bank, accountant and lawyer. A domain wiki prepared with CommonContext would hold sourced plain-language material on forwards, collateral, the EDC guarantee and the derivatives rules. ClientSynth would generate invented exporters to test the matching. The pool itself is not built. Aggregation, which would combine several small exposures into one that a provider would price as a single larger client, is designed and not yet built, and so is risk insulation. Any pooled arrangement would be carried out by a regulated provider under its own registration. The marketplace would not trade, hold funds or give advice on derivatives.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>In 2024, 48,036 Canadian enterprises exported goods, and 73.3 per cent of them were small or medium-sized, with small businesses alone making up 65.7 per cent of exporters (Innovation, Science and Economic Development Canada, Key Small Business Statistics 2025). Small and medium-sized enterprises accounted for 37.9 per cent of the $712.8 billion in goods exports that year, and small businesses for 16.7 per cent. The United States took 79.4 per cent of small business exports by value, so the US dollar is the exposure most of these firms carry (same source). In EDC&#x27;s 2009 panel survey, three out of four exporters said they would accept lower profits to reduce risk, and two other exporter surveys it cites named exchange rate risk as the top constraint on export development.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">Ninety Days in US Dollars</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p><strong>Characters:</strong> Solange - co-owner of a maple products company, Saint-Georges, Quebec, Anwar - foreign exchange dealer at a regulated non-bank provider, Mississauga, Ontario, Gareth - export adviser at a regional manufacturers&#x27; association, Moncton, New Brunswick</p>
+        
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>A small Canadian exporter usually quotes in the buyer's currency. Most of the time that is the US dollar: it took 79.4 per cent of small business goods exports by value in 2024. The exporter is paid months later, and the Canadian dollar value of the sale is unknown until then.</p>
+<p>A forward contract fixes the rate. Larger firms use them more often. In an Export Development Canada survey published in 2009, fewer than half of exporters with sales under $5 million hedged at all. The reasons they gave were not mainly about price. They had no one with time to manage it and no one who knew how.</p>
+<p>A group of small exporters cannot easily fix this for themselves. Trading derivatives or advising on them as a business is regulated in Canada under a national rule in force since September 2024.</p>
+<p>So the exporter adds a cushion to the price and loses the sale, or carries the exposure and stops quoting long contracts.</p>
+<p>The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Solange</strong> co-owns a maple products company in Saint-Georges, Quebec. A grocery chain in the northeastern United States has asked her for a twelve-month supply contract priced in US dollars. She pays her producers in Canadian dollars at the start of the season. The last time she signed a contract like this, the exchange rate moved against her and the year's profit on that account went with it. She has since quoted ninety days at most.</p>
+<p>Her bank offered a forward contract and asked for collateral she would rather keep for inventory.</p>
+<p><strong>Gareth</strong>, an export adviser at a manufacturers' association in Moncton, has heard the same account from members in three provinces. The association sponsors a marketplace for this one problem.</p>
+<p>Solange describes her situation in plain words: the currency, the monthly amounts, the gap between shipping and payment, and what her bank said. She uploads the draft supply contract. The amounts and the buyer's name are marked as protected.</p>
+<p><strong>Anwar</strong> works for a regulated foreign exchange provider in Mississauga that serves smaller commercial clients. His firm's profile says what it does: forwards for exporters, the contract sizes it accepts, and its practice of working with a public guarantee in place of cash collateral where the client qualifies.</p>
+<p>The marketplace matches Solange's description to his firm's. Both receive the same <strong>Content Match Story</strong>, with no names. It says that a food exporter with a twelve-month US dollar contract and a seasonal cash cycle is looking for cover that does not tie up inventory money, and that a provider serving exposures of that kind accepts a guarantee for collateral. It lists what is still unknown: whether she qualifies for the guarantee, and the provider's price.</p>
+<p>Both agree to be introduced. The <strong>Deal Brief</strong> sets out the exposure by month, the cover discussed and the open questions, for her accountant and her bank.</p>
+<p>The marketplace also tells Gareth, without names, that eleven members have described US dollar exposures with similar timing. He takes that to Anwar's firm as a question: would it price them as one?</p>
+<p>Solange quotes the twelve-month contract.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>The provider existed and the guarantee existed. Solange had the need and no time to find either. Anwar's firm had no affordable way to find her.</p>
+<p>The marketplace did not trade, hold money or advise. It described each side to the other and kept the sensitive parts back until both agreed. That is the work <a href="../market-physics.html">thin-market infrastructure</a> does when a market fails on attention and information.</p>
+<p><em>Solange, Gareth, Anwar and their organizations are fictional. The export shares, the survey findings, the public collateral guarantee and the derivatives rule are real. Counting similar exposures across members and pooling them rely on aggregation, which is designed and not yet built. A pool would also need legal review. <a href="../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Exposure Intake for Export Advisers</div>
+        <p>In EDC&#x27;s survey 40 per cent of exporters said they had difficulty measuring their exposure. A sponsor that solves the measuring step for its clients reaches them before any product is discussed.</p>
+        <div class="opp-card__revenue">&#128181; A bank, credit union, trade association or regional export agency would pay a subscription for a tool that takes an exporter&#x27;s plain description and contracts and returns a statement of its currency exposure by month, for use by the sponsor&#x27;s own advisers.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Provider Matching for Small Hedges</div>
+        <p>A provider that serves small contracts has to find its clients one at a time, and exporters do not know which providers want their business. An introduction that arrives with the exposure already described saves both sides the first three conversations.</p>
+        <div class="opp-card__revenue">&#128181; Registered providers would pay a referral or listing fee to be introduced to exporters whose described exposure fits the contract sizes and terms they serve. The exporter would not pay to be matched.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Guarantee and Collateral Application Preparation</div>
+        <p>Collateral is one of the reasons small firms give for not hedging, and a public guarantee for it exists. The gap is the paperwork between the two. Completed applications are also the evidence a sponsor needs to show the service works.</p>
+        <div class="opp-card__revenue">&#128181; An exporter, or an association on its members&#x27; behalf, would pay a fee per application for help assembling what its bank and a guarantee provider ask for when a hedging facility is set up.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Pooled Exposure Service</div>
+        <p>One combined position is cheaper to serve than fifty small ones. A provider that can accept it gains clients it could not reach singly, and members gain terms none would be offered alone.</p>
+        <div class="opp-card__revenue">&#128181; A regulated foreign exchange provider would operate the pool and earn its usual dealing margin on the combined position. Members or their association would pay an administration fee. This depends on aggregation, which is designed and not yet built, and on legal review of the derivatives rules.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

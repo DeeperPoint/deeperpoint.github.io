@@ -1,0 +1,98 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: chc-innovation-into-health-authority
+title: "Selling an Innovation into a Health Authority: Making the Approval Path Visible Before the Pilot"
+card_title: "Selling an Innovation into a Health Authority"
+sector: canadian-healthcare-support
+sub_sector: "Health Technology Adoption and Procurement"
+forge_tier: 3
+status: published
+challenges: [decision-process-opacity, regulatory-friction, risk]
+tags: [health-technology, medical-devices, hospital-procurement, privacy-assessment, pilot-projects, health-authorities, innovation-adoption]
+
+market_example:
+  summary: "A Canadian medical-device or health-software firm wins over a clinician, then loses the sale with privacy, security, biomedical engineering, procurement and finance reviewers it never met. This idea is a marketplace where a health authority states its full approval path in confidence, so both sides know what a yes requires before a pilot starts."
+  problem: "Canadian medical-device and health-software firms sell to hospitals and regional health authorities through a clinical champion: a physician, a nurse lead or a department head who sees the problem and wants the product. That person does not decide alone. A privacy office must assess any system that touches patient information. In British Columbia the public-sector privacy statute requires public bodies, health authorities among them, to carry out privacy impact assessments, and Ontario Health's privacy office approves such assessments for the systems it runs while its security office handles third-party security risk and threat risk assessments. Biomedical engineering, procurement and finance each ask their own questions. Health Canada licensing comes first: a Class II, III or IV device cannot be sold in Canada without a medical device licence. The Competition Bureau's digital health care market study (October 2022) reported that procurement of digital health products can take years, that a product may be outdated by the time a process ends, that buyers prefer products that are tested and well known, and that a vendor faces 14 purchasing jurisdictions with differing requirements, so products often have to be customized for each organization. A C.D. Howe Institute memo (May 2025) found that the system lacks consistent ways to scale a successful pilot or move it to ongoing use, and that pilot money often comes from a ministry budget or a grant with no route to ongoing program funding. The federal government has put $42 million since 2019 into the CAN Health Network, which pairs firms with member health organizations for commercialization projects, a sign of how hard the path is without help. No public source measures how many sales fail at an approver the seller never met. The firms describe it, and the published process explains why it happens: the reviewers are real, their questions are reasonable, and the seller hears them only when the file has stopped."
+  dominant_forces:
+    - "Decision-Process Opacity: the clinical champion says yes, and privacy, security, biomedical engineering, procurement and finance each hold a veto in rooms the seller never enters. An objection surfaces only as silence."
+    - "Regulatory Friction: Health Canada device licensing, provincial privacy statutes and 14 purchasing jurisdictions with differing requirements mean a product cleared for one health authority is often assessed again from the start at the next."
+    - "Risk: the Competition Bureau found that buyers prefer tested and well-known products, and that some purchasers ask for Canadian clinical evidence. The first health authority to adopt carries the cost if the product fails in use."
+    - "Pilot funding with no successor budget: the C.D. Howe Institute memo found that pilot money often has no direct mechanism to become ongoing program funding, so a pilot can succeed and still have no budget line to buy from."
+  deeperpoint_fit: "The engine, Cosolvent, does three things today that bear on this market. It matches from descriptions in ordinary words, so a firm can say what its product does and a clinical team can say what its problem is without sharing a vocabulary of procurement categories. It reads documents into profiles, so a health authority's published privacy, security and procurement requirements, and a firm's licence, test reports and earlier assessments, become part of what is matched. Its trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them, which lets a health authority state its real approval path (who must sign, in what order, on what evidence) and lets a firm state its real gaps, without either becoming public. A match produces a Content Match Story, one account of why the two might deal, given to both while they are still anonymous. After both agree to reveal, it produces a Deal Brief: a non-binding summary written for the people the seller never meets, the privacy office, security, biomedical engineering, procurement and finance, and for each side's lawyers. CommonContext prepares the reference library, and a domain wiki holds the market's sourced knowledge: licence classes, provincial privacy statutes, purchasing thresholds. ClientSynth generates invented test participants so the market can be tried before real ones join. Following one file through months of reviews would need memory across sessions, which is designed and not yet built. Risk insulation, which would address a buyer's fear of being first, is also designed and not yet built. The engine does not reach inside a health authority. It carries only what participants tell it and what their documents say."
+  economic_upside: "CIHI's National Health Expenditure Trends, released in November 2026, projects total health spending in Canada of $433 billion in 2026, with hospitals the largest category at 25.6 per cent. ISED's medical devices industry profile (page dated July 2025) puts the Canadian medical devices market, excluding in vitro diagnostics, at an estimated US$10.06 billion in 2024, with exports of CAN$5.5 billion in 2024, and says most firms in the industry are small or medium-sized. ISED's Canadian Industry Statistics list 2,494 establishments in medical equipment and supplies manufacturing in 2025, 97 per cent of them with fewer than 100 employees. A federal news release of August 1, 2025 says the CAN Health Network had by then supported 99 companies through 127 commercialization projects with 50 member health organizations, and credits it with helping to generate more than $698 million in revenue. No source gives the value of sales lost at unseen approvers, and none is estimated here."
+
+sponsor_opportunities:
+  - title: "Approval-Path Profiles for Health Authorities"
+    type: saas
+    revenue_model: "A health authority, or the provincial agency that funds its innovation office, would pay an annual subscription per organization to keep its approval path, review requirements and budget rules current in a confidential profile."
+    strategic_logic: "A health authority spends staff time on pilots that cannot become purchases. A profile that states the path once, and is shown only to matched firms that agree to the terms, lets its innovation office screen earlier and spares its reviewers incomplete files."
+    recurring: true
+
+  - title: "Assessment Readiness Service for Vendors"
+    type: managed-service
+    revenue_model: "A firm would pay per engagement to have its licence, security test results and earlier privacy assessments read into a profile and compared with a named buyer's stated requirements, with the gaps listed."
+    strategic_logic: "Small firms cannot afford to learn each buyer's requirements by losing a deal. A service that lists the gaps before a pilot starts is worth paying for each time a firm approaches a new health authority, and the work feeds the domain wiki."
+    recurring: false
+
+  - title: "Operating Licence for an Innovation Network or Provincial Agency"
+    type: managed-service
+    revenue_model: "An innovation network, a provincial health agency or a regional development body would pay an annual fee, from its program budget, to run the marketplace for its member health organizations and the firms it supports."
+    strategic_logic: "Bodies that already broker pilots do the mapping of approvals by hand, one deal at a time. Running the marketplace turns that knowledge into something members can reuse, and gives the sponsor a record of where files stall."
+    recurring: true
+
+  - title: "Reusable Evidence Packages Across Health Authorities"
+    type: commerce-extension
+    revenue_model: "A firm would pay a fee each time a completed evidence package (assessments, test results, pilot outcomes) is released, with the first buyer's consent, to a further health authority. This extension is designed and not yet built."
+    strategic_logic: "The Competition Bureau found that products are often reassessed and customized for each organization. A package that a second buyer can start from shortens the second sale, which is where a small firm's survival is usually decided."
+    recurring: true
+
+story:
+  title: "The Reviewers She Never Met"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Amara - founder of a wound-imaging software firm, Kitchener, Ontario"
+    - "Denis - clinical lead for wound care at a regional health authority, Moncton, New Brunswick"
+    - "Lucie - privacy officer at the same health authority, Moncton, New Brunswick"
+  summary: "A software founder whose last hospital pilot succeeded and then died in silence is matched with a health authority that has stated, in confidence, every review a purchase must pass, so the gaps are closed before the pilot starts."
+  body: |
+    ## Act A - The Market Structure
+
+    A hospital does not buy the way a clinical lead decides. The clinician who sees the problem is one voice. A privacy office must assess any system that touches patient information. Security staff assess the vendor. Biomedical engineering asks how the product will be supported. Procurement asks whether the purchase must go to open competition. Finance asks which budget pays once the pilot grant ends.
+
+    The Competition Bureau reported in 2022 that procurement of digital health products in Canada can take years, across 14 purchasing jurisdictions. A C.D. Howe Institute memo of May 2025 found that the system lacks consistent ways to scale a successful pilot.
+
+    None of these reviewers is hostile. The seller simply never meets them, and learns of a question only when the file has stopped moving.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Amara** runs a nine-person firm in Kitchener, Ontario. Its software measures chronic wounds from a phone photograph, and it holds a Health Canada licence as a Class II device. Two years ago a hospital pilot went well. The purchase died eight months later. She never learned where.
+
+    **Denis** is the clinical lead for wound care at a regional health authority, based in Moncton, New Brunswick. His nurses measure wounds with paper rulers. He has asked for something better twice.
+
+    Before Denis looks for a vendor, his innovation office builds the authority's profile on the marketplace. It uploads the published privacy and security requirements and the procurement policy, and the engine reads them into the profile. **Lucie**, the privacy officer, adds protected details that are not published: the order of the reviews, the evidence each one needs, the value above which a purchase must be tendered, and the fact that the pilot grant cannot pay for a second year.
+
+    Denis describes his problem in plain words. Amara's profile was built the same way, from her licence, her last security test and the privacy assessment the earlier hospital completed.
+
+    The engine matches the two and writes a **Content Match Story**. Both receive the same account while still anonymous. It says why the product fits the wound-care problem. It also says that the buyer needs a privacy assessment covering photographs held on staff phones, that the seller's existing assessment does not cover that point, and that ongoing funding has not been identified.
+
+    Both agree to reveal who they are. The engine then produces a **Deal Brief**: a non-binding summary written for Lucie, the security analyst, biomedical engineering, procurement and finance, and for Amara's lawyer. It lists each review, what it will ask, and what Amara can supply now.
+
+    Amara spends three weeks closing the privacy gap before the pilot starts. Denis takes the funding question to his director in the first month and not the ninth. The pilot agreement states what result would lead to a tender, and when.
+
+    Nobody is promised a sale. Both know what a yes requires.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Health authorities are not hiding their process. Much of it is written down. The parts that decide the outcome sit in people's heads and in budget lines, and no seller is in the room when they are discussed.
+
+    A procurement portal publishes tenders. It does not tell a firm, before a pilot, what a privacy officer will ask afterwards.
+
+    A [trusted intermediary](../market-physics.html) changes what can be said early. The buyer can state its real path in confidence, and the seller can state its real gaps. [MarketForge](../marketforge.html) is the recipe for building a market of this kind.
+
+    *Amara, Denis, Lucie, the firm and the health authority are fictional. Health Canada device licensing, privacy impact assessments, the Competition Bureau's 2022 study and the C.D. Howe Institute's 2025 memo are real. The matching, the confidential profiles, the Content Match Story and the Deal Brief are in the engine today. Following a file through months of reviews would need memory across sessions, which is designed and not yet built.*

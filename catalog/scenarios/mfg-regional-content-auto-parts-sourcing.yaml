@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: mfg-regional-content-auto-parts-sourcing
+title: "Regional-Content Sourcing for Tier-Two and Tier-Three Auto Parts Makers"
+card_title: "Regional-Content Sourcing for Auto Parts"
+sector: manufacturing
+sub_sector: "Automotive Parts Supply Chain"
+forge_tier: 3
+status: published
+challenges: [geopolitical-trade-volatility, regulatory-friction, opacity]
+tags: [automotive, auto-parts, rules-of-origin, cusma, regional-content, tier-two-suppliers, sourcing]
+
+market_example:
+  summary: "Canadian auto parts makers must show that enough of each part's value comes from North America to cross the border without a 25% tariff. The rule is under review each year from 2026, and its next version is unknown. Smaller suppliers need qualifying sources of materials and components and cannot easily find them."
+  problem: "Under the Canada-United States-Mexico Agreement (CUSMA), a passenger vehicle or light truck needs 75% regional value content, and at least 70% of a vehicle producer's steel purchases and of its aluminum purchases must originate in North America. Vehicle makers pass those requirements down to parts makers, who pass them to their own suppliers. Since May 3, 2025 the stakes for a parts maker are direct: the United States applies a 25% tariff to auto parts that do not comply with CUSMA, while compliant parts have been exempt. So a tier-two or tier-three shop that buys a casting, a fastener, a resin or an electronic sub-component from outside the region may find that the part it ships no longer qualifies. The rule itself is unsettled. At the first joint review of the agreement on July 1, 2026 the United States did not confirm an extension, which makes the review an annual one until the parties agree or the agreement ends in 2036. The United States Trade Representative's automotive report of the same date said the United States intends to examine stronger rules of origin and less reliance on inputs from other countries. Proposals for a higher content threshold and for a share of content from the United States alone have been reported in the press but have not appeared in any published text, and as of November 22, 2026 no change to the automotive rules had taken legal effect. A parts maker therefore has to find a qualifying North American source without knowing whether that source will still qualify under next year's rule. Qualifying suppliers exist, but there is no place to search by what a supplier makes, where its own inputs come from, and what origin documents it can provide."
+  dominant_forces:
+    - "Geopolitical & Trade Volatility: the content rules are now reviewed every year on a political timetable, and the tariff that punishes non-compliance was set by proclamation. A supplier relationship built for one version of the rule may not qualify under the next"
+    - "Regulatory Friction: the rules of origin decide whether a part is saleable into the United States at all, and proving origin requires documents traced back through each level of supply"
+    - "Opacity: a small parts maker cannot see which North American suppliers make the input it needs, where their own materials come from, or whether they can certify origin. The suppliers cannot see who is looking"
+    - "Disclosure cost: to ask for a qualifying source, a parts maker must show a bill of materials and a cost breakdown, which reveal its margins and its customer's design"
+  deeperpoint_fit: "The engine, Cosolvent, matches from descriptions in ordinary words. A parts maker describes the input it needs to replace and the origin evidence its customer asks for; a supplier describes what it makes and where its materials come from. Its document reading turns specification sheets, certificates of origin and mill certificates into profiles, which is where the origin facts actually sit. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them: the bill of materials, the cost breakdown that a content calculation exposes, and the name of the vehicle program. Each candidate pairing produces a Content Match Story, one account of why the two parties might deal, given to both while anonymous, and then a Deal Brief, a non-binding summary for the parties' own lawyers, banks and advisers. The engine does not calculate regional value content or certify origin; those remain the work of the firm and its customs adviser. CommonContext would prepare the reference library (the agreement's automotive rules, the tariff proclamations, and the review documents as they are published), held in a domain wiki so that a change in the rule is recorded with its date and source. ClientSynth generates invented test participants for trials. Risk insulation, the intervention aimed most directly at this challenge, is designed and not yet built: it would let a supply agreement carry agreed terms for a change in the rule. Memory across sessions, aggregation of small buyers and two-sided matching are also designed and not yet built."
+  economic_upside: "Innovation, Science and Economic Development Canada reported in 2025 that Canada has nearly 700 auto parts manufacturers, that the automotive sector has more than 125,000 direct jobs and contributed $16.8 billion to gross domestic product in 2024, and that automotive trade with the United States was $152 billion in 2024, of which $75 billion was exports. The same note records the 25% United States tariff on non-compliant auto parts from May 3, 2025. Those figures describe the sector that depends on meeting the rule. No sourced figure was found for the value of inputs that parts makers would need to move to North American sources, and none is claimed here."
+
+sponsor_opportunities:
+  - title: "Qualifying-Source Matching Service"
+    type: saas
+    revenue_model: "An annual subscription paid by parts makers and by suppliers of materials and sub-components, or paid for members by a parts manufacturers' association or a provincial economic development agency. The basis is access to matching, not a share of the supply contract."
+    strategic_logic: "An association's smaller members carry the compliance burden with the fewest staff. A sponsor that funds the service keeps those members able to sell into the United States, and keeps the purchasing inside the region its mandate covers."
+    recurring: true
+
+  - title: "Origin Document Intake for Small Suppliers"
+    type: managed-service
+    revenue_model: "A fee per supplier, paid by the supplier, by the parts maker that wants to buy from it, or by a sponsor, for reading its certificates and material records into a profile and confirming the result with the firm."
+    strategic_logic: "A supplier that cannot show where its materials come from cannot be chosen, however good its product. Many small firms hold the evidence in paper and email. Turning it into a profile is a one-time job with a clear payer."
+    recurring: false
+
+  - title: "Rules-of-Origin Reference Library and Change Notices"
+    type: managed-service
+    revenue_model: "A subscription paid by a sponsor or by member firms for a maintained, sourced library of the automotive rules, the tariff measures and each review's published documents, with a dated notice when something changes."
+    strategic_logic: "With annual reviews, the rule is a moving reference. Large firms have trade counsel. Small ones need a plain, dated record of what the rule is today and what has only been reported."
+    recurring: true
+
+  - title: "Customs and Origin Adviser Referral"
+    type: commerce-extension
+    revenue_model: "A referral fee paid by customs brokers and trade advisers who take on firms introduced through the service, on a basis agreed with each adviser. No rate is assumed here."
+    strategic_logic: "A match creates an immediate need for someone qualified to confirm that the new input makes the part comply. The service knows which firms have just changed a source and can introduce them to advisers who do that work."
+    recurring: false
+
+story:
+  title: "The Bracket That Stopped Qualifying"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Anjali - purchasing manager at a tier-two metal stamping and assembly plant, Guelph, Ontario"
+    - "Luc - sales lead at an aluminum extrusion plant, Saguenay, Quebec"
+  summary: "A Guelph parts maker learns that an imported extrusion puts her seat bracket outside the content rule, and has to find a North American source without showing her costs to strangers."
+  body: |
+    ## Act A - The Market Structure
+
+    A car sold in North America crosses borders in pieces. Under the Canada-United States-Mexico Agreement a passenger vehicle needs 75% regional value content, and 70% of a vehicle maker's steel and aluminum purchases must come from the region. Vehicle makers push the requirement down to the firms that supply them, and those firms push it down again.
+
+    Since May 2025 the United States has charged a 25% tariff on auto parts that do not comply with the agreement. Compliant parts have been exempt.
+
+    The rule is not fixed. At the first joint review on July 1, 2026 the United States did not confirm an extension, so the agreement is now reviewed every year. Its trade office has said it will look at stronger rules of origin. Nothing had changed in law by late November 2026. Nobody knows what the next version will ask.
+
+    A small parts maker has to act anyway.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Anjali** buys materials for a stamping and assembly plant in Guelph, Ontario. The plant makes seat brackets for a tier-one supplier. In October her customer sends a new questionnaire: list every input and its country of origin. One aluminum extrusion comes from an overseas mill. With it, the bracket falls short of what the customer needs.
+
+    She has sixty days. The extruders she knows are distributors who cannot say where their billet was cast. To ask more widely she would have to send out her drawing and her costs.
+
+    She describes the need to the marketplace in plain terms: the alloy, the profile, the annual volume, and the origin evidence her customer wants. She uploads the specification sheet. The engine reads it into a profile. The drawing's customer markings, her cost breakdown and the vehicle program stay hidden.
+
+    **Luc** sells for an extrusion plant in Saguenay, Quebec. The plant buys its metal from a smelter in the same region and can show it. He had described the plant on the marketplace months earlier and uploaded its mill certificates and a sample certificate of origin.
+
+    The engine compares Anjali's need with the supplier profiles and finds his. Both receive the same **Content Match Story** while anonymous. It says the plant runs this alloy, has presses of the right size, and can document Canadian metal from smelter to shipment. It says what is not known: the plant has not made this profile, and a new die would be needed.
+
+    They agree to be named. Luc quotes the die and the lead time. Anjali takes the origin documents to her customs adviser, who does the content calculation. The engine does not do that work.
+
+    One question remains, and it is hers: what if next year's rule asks for something else? They agree on a two-year supply term with a review if the rule changes. The **Deal Brief** records it, with the open items, for her adviser and his lawyer. It binds neither of them. First parts ship in January.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The extrusion plant was one province away and qualified all along. Anjali could not find it, because no listing says where a supplier's metal was cast, and she could not ask openly without exposing her costs.
+
+    Supplier directories list products. The rule asks about origin. This is one of the [forces that keep a market thin](../market-physics.html): a rule set on a political timetable makes every sourcing decision provisional.
+
+    The [MarketForge](../marketforge.html) design handles the finding and the careful disclosure. Carrying the risk of a rule change is designed and not yet built.
+
+    *Anjali, Luc, their plants and the bracket are fictional. The agreement's content thresholds, the 25% United States tariff on non-compliant auto parts and the annual review are real. Matching, document reading, hidden details, the Content Match Story and the Deal Brief are in the engine today. Risk insulation is designed and not yet built; in this story the parties agreed the rule-change term themselves.*

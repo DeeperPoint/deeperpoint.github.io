@@ -1,0 +1,92 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: mfg-automation-integrators-exit-terms
+title: "Automation Integrators for Small Manufacturers, Matched on Exit Terms"
+card_title: "Automation Integrators With Exit Terms"
+sector: manufacturing
+sub_sector: "Factory Automation and Robotics"
+forge_tier: 2
+status: published
+challenges: [technological-obsolescence, risk, offering-complexity]
+tags: [automation, robotics, system-integrators, small-manufacturers, vendor-support, machine-vision, exit-terms]
+
+market_example:
+  summary: "Small Canadian plants adopt robots far less often than large ones. A small plant gets one chance at the investment and fears being left with a cell whose controller or software is no longer supported. This market would match plants with integrators on the terms that govern what happens when support ends."
+  problem: "Statistics Canada's Survey of Advanced Technology found that in 2022 robotics had been adopted by 1.6 per cent of small enterprises, 5.3 per cent of medium-sized ones and 9.1 per cent of large ones. Manufacturing led all sectors at 8.4 per cent. Among enterprises that did not adopt advanced technology, the obstacle named most often was low return on investment or a long payback period, at 40.6 per cent, and 34.7 per cent named difficulty integrating new technology with existing systems. Most of manufacturing is small: Innovation, Science and Economic Development Canada counted 51,353 manufacturing employer establishments in 2025, of which about 93 per cent had fewer than 100 employees. A robot cell or a vision system is not bought off a shelf. An integrator designs it around the plant's parts, writes the programs and commissions it. The mechanical parts then last a long time. One large robot maker states that robots have a working life that typically exceeds many other industrial machines and should not be limited by outdated software or controllers. That is the problem in one sentence: the arm outlasts the controller, the software and sometimes the integrator. Control vendors publish lifecycle stages that run from active to discontinued, and once a product is discontinued, new parts stop and updates end. A large manufacturer has engineers who can migrate a cell to a new controller. A small plant has the integrator who built it, and no one else who knows the code. So the question a small plant most needs answered before it buys is what it will hold if support ends: the source code, the drawings, the passwords, a parts list, training for its own staff, a path to another integrator. Those exit terms are rarely part of how integrators describe themselves, and a plant does not know to ask for them. The law has moved a little in the plant's favour. Two amendments to the Copyright Act received royal assent on November 7, 2024: Bill C-244 permits circumventing a technological protection measure to diagnose, maintain or repair a product, and Bill C-294 permits it, in certain circumstances, to make a program or device interoperable. Neither gives a plant the code or the documents. Those still have to be agreed in the contract. Finding an integrator at all can be hard: a trade press report in 2019 quoted a small parts maker that had trouble finding one, because local integrators tended to pursue larger contracts. The proposal for this entry said integrators' platforms change every few years. The sources support discontinuation as a known lifecycle stage but give no typical interval, so none is stated here."
+  dominant_forces:
+    - "Technological Obsolescence: the mechanical parts of a robot cell outlast its controller and software, and once a control product is discontinued, parts and updates stop while the plant is still paying for the cell"
+    - "Risk: a small plant gets one chance at the investment, and if the integrator closes or the platform is dropped, the plant may hold a cell that no one can change or repair"
+    - "Offering Complexity: each cell is custom, and the terms that matter at the end (source code, drawings, passwords, spare parts, training, hand-over to another integrator) are many and are not part of a standard quotation"
+  deeperpoint_fit: "Three parts of the Cosolvent engine exist today and apply here. A plant can describe its need in ordinary words (the part, the task, the cycle time, the staff it has, and what it wants to hold if support ends) and be matched against integrators who describe their work and their terms the same way. The trusted-intermediary pipeline keeps protected details, such as the plant's customer, its volumes and its budget, hidden until both sides agree to reveal them. The engine reads documents such as part drawings, an integrator's past statements of work and its standard terms into a profile. It produces a Content Match Story, one account of why two parties might deal, given to both while they are still anonymous, and a Deal Brief, a non-binding summary for the parties' own lawyers, banks and advisers. A domain wiki, prepared with CommonContext, would hold the sourced reference material: vendor lifecycle notices, the survey findings and the 2024 Copyright Act amendments. ClientSynth generates invented test participants so the market can be tried before real ones join. The part aimed most directly at obsolescence is not built. Risk insulation would let exit commitments, such as code held by a third party or a funded migration, be structured and backed; it is designed and not yet built. Memory across sessions, which would let the market recall how an integrator's earlier cells were supported, is also designed and not yet built."
+  economic_upside: "No sourced figure for the size of this market was found, and none is estimated here. The population that could take part is known: Innovation, Science and Economic Development Canada counted 51,353 manufacturing employer establishments in 2025, of which 30,465 had 5 to 99 employees. The gap in adoption is also known: Statistics Canada's 2022 survey put robotics adoption at 1.6 per cent for small enterprises against 9.1 per cent for large ones. The same Statistics Canada work describes Canada's robotics ecosystem as nearly 300 companies, most of them small, which is the supply side of this market."
+
+sponsor_opportunities:
+  - title: "Integrator Matching Service for Small Plants"
+    type: saas
+    revenue_model: "A manufacturing association, a regional development agency or an industrial cluster would pay an annual subscription to offer the service to its member plants. Integrators would pay a listing fee to describe their work and terms."
+    strategic_logic: "Small plants have no dependable way to find an integrator who wants a small job and will state its exit terms. An association that offers this gives its members a route to automation that does not depend on who they happen to know."
+    recurring: true
+
+  - title: "Exit Terms Review and Hand-Over Package"
+    type: managed-service
+    revenue_model: "The plant would pay a fixed fee per project for an independent adviser who reviews the proposed contract against a checklist of exit terms and, at commissioning, confirms that the code, drawings and passwords have been handed over."
+    strategic_logic: "The plant does not know what to ask for and has no engineer to check what it received. A review at the two points that matter, signing and commissioning, is the difference between owning a cell and renting one."
+    recurring: false
+
+  - title: "Third-Party Code Holding and Migration Commitments"
+    type: commerce-extension
+    revenue_model: "Integrators and plants would pay a fee per cell, per year, for source code and documentation to be held by a third party and released on stated events. Lenders or insurers could pay for standard terms that back a migration. This depends on the risk insulation part of the design, which is not yet built."
+    strategic_logic: "The fear that stops the purchase is being stranded. A commitment that survives the integrator, held by a party both sides trust, removes that fear more directly than any price reduction."
+    recurring: true
+
+  - title: "Legacy Parts and Controller Sourcing"
+    type: logistics-extension
+    revenue_model: "Plants would pay per order for discontinued controllers, drives and spare parts found and shipped through the service, and suppliers of tested used parts would pay a fee on each sale."
+    strategic_logic: "When a control product is discontinued, plants turn to used stock of uncertain quality. A sourcing service tied to the record of what each cell contains can find the right part quickly and reduce downtime."
+    recurring: true
+
+story:
+  title: "What Do We Hold If You Are Gone"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Lucie - owner of a metal stamping plant, Drummondville, Quebec"
+    - "Devon - partner at an automation integration firm, Cambridge, Ontario"
+  summary: "The owner of a small stamping plant who has put off a robot cell for three years finds an integrator willing to say, before the first meeting, what she would hold if his firm were gone."
+  body: |
+    ## Act A - The Market Structure
+
+    Small plants in Canada use robots far less than large ones. Statistics Canada found robotics in 1.6 per cent of small enterprises in 2022 and 9.1 per cent of large ones.
+
+    Part of the reason is fear of what comes after. A robot arm can work for a very long time. Its controller and software have a shorter supported life, and the firm that wrote the programs may not be there in ten years. A large manufacturer has engineers who can move a cell to a new controller. A small plant has one integrator and a cabinet of code nobody else has read.
+
+    The terms that would settle this are simple to state: the plant gets the source code, the drawings, the passwords and a parts list, and its own people are trained. They are rarely offered up front.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Lucie** owns a metal stamping plant with forty employees in Drummondville, Quebec. Her largest customer wants a bracket in volumes she cannot reach with two operators loading a press by hand. She has had a quotation for a robot cell in a drawer for three years.
+
+    She tells the marketplace why. In ordinary words she describes the part, the press, the rate she needs and the one electrician on her staff. Then she writes what has stopped her: a neighbouring shop bought a cell, the builder closed, and no one could change the program when the part changed. She wants to know what she would hold if her integrator were gone. She uploads the part drawing. Her customer's name and her budget stay hidden.
+
+    **Devon** is a partner at a six-person integration firm in Cambridge, Ontario. His firm prefers small cells. Its description says so, and it sets out the firm's standard terms: commented source code handed over at commissioning, electrical drawings, all passwords, a spare parts list with part numbers, and two days of training for the customer's staff. He uploaded three past statements of work, and the engine read them into the firm's profile.
+
+    The engine matches the two descriptions. Both receive the same Content Match Story while still anonymous. It says why they might deal: the task is one the firm has done before, the cell is the size the firm wants, and the hand-over terms answer the question Lucie asked. It says what is open: the firm is in another province, so service visits need a plan, and the controller's supported life has not been stated.
+
+    Both agree to reveal who they are. Devon tells her which controller he would use and where its maker says it sits in its lifecycle.
+
+    The marketplace produces a Deal Brief. It is not a contract. It lists the scope, the hand-over terms, the service plan and the open point about controller life. Lucie takes it to her lawyer and her bank.
+
+    The cell is commissioned in the autumn. Lucie's electrician has the code on a drive in the office safe.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Lucie could have found an integrator in a directory. What she could not find there was an answer to the one question that had kept the quotation in the drawer.
+
+    Exit terms are not a search field. They live in contracts and in the habits of each firm. Matching on them means reading what each side says in its own words and holding back what each side will not publish. That is the kind of [friction that keeps a market thin](../market-physics.html), and it is what [MarketForge](../marketforge.html) is designed to reduce.
+
+    *Lucie, Devon and their firms are fictional. The Statistics Canada adoption figures are real. The matching, the anonymous Content Match Story and the Deal Brief are parts of the design that exist today. The hand-over terms in this story were the integrator's own. The part of the design that would back such commitments if an integrator closed is designed and not yet built.*

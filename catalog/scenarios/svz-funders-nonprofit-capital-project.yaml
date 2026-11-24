@@ -1,0 +1,101 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: svz-funders-nonprofit-capital-project
+title: "Assembling Funders for a Non-Profit Capital Project: Seeing Which Commitment Is Waiting on Which"
+card_title: "Assembling Funders for a Non-Profit Capital Project"
+sector: social-enterprise
+sub_sector: "Capital Funding and Community Finance"
+forge_tier: 3
+status: published
+challenges: [decision-process-opacity, temporal-distance, participant-fragmentation]
+tags: [non-profit-capital, funder-stacking, foundations, community-finance, grant-applications, capital-campaigns, social-finance]
+
+market_example:
+  summary: "A non-profit planning a building needs several funders, each paying a share and each deciding in its own committee on its own calendar. Every commitment waits on the others, and the applicant cannot see which one is holding the rest. This idea is a marketplace where each funder states its conditions in confidence."
+  problem: "A non-profit capital project is rarely paid for by one source. A government program pays part, a foundation pays part, a lender covers the gap, and the organization raises the rest. Each funder sets rules that refer to the others. The Canada Cultural Spaces Fund is a clear example. Its application guidelines limit the program to 50 per cent of a project's eligible expenses, cap total government assistance at 100 per cent of project costs, and state that the program cannot recommend a project for approval until two-thirds of the total funding is confirmed, or 80 per cent for projects of $5 million or more. Canadian Heritage's published decision standard for the fund is 30 weeks. As of the program's update page dated October 30, 2026, its envelope is being reduced following Budget 2025, it is not funding construction projects, and funded projects must be complete before March 31, 2028. The Ontario Trillium Foundation's Capital grant, by its program page, offers $10,000 to $200,000 for terms of 6 or 12 months, and its 2026 application window ran from February 4 to March 4. The federal Green and Inclusive Community Buildings program, launched in 2021 with $1.5 billion over five years and open to not-for-profit organizations, is closed to applications. So a funder may require that others have committed before it decides, may open its door for one month a year, and may change its scope between the day a project is planned and the day it applies. Each decision is made by a committee, a board or a minister's office that the applicant does not attend. A program officer may support the project and still be unable to say when the committee will reach it or what it is waiting for. No source counts the capital projects that stall in this way. The published rules show why they would: each commitment is conditional on others, and nobody outside the committees can see the order in which they could be made."
+  dominant_forces:
+    - "Decision-Process Opacity: the program officer the applicant deals with supports the project. The decision belongs to a grants committee, a board, a credit committee or a minister's office, and the applicant cannot see which one is waiting or for what."
+    - "Temporal Distance: funders decide on their own calendars. One has a single month-long application window a year, another a 30-week decision standard, and a commitment won early can lapse before the last one arrives."
+    - "Participant Fragmentation: no one funder pays for the whole project. Each holds one share, with a ceiling set by its own rules, and none is placed to assemble the others."
+    - "Commitments that wait on each other: a program that will not recommend approval until two-thirds of the money is confirmed needs someone else to commit first, and the other funders often prefer to see the government share in place."
+    - "Programs that change mid-project: a capital project takes years to plan, and a funder's scope or budget can change in that time, as the Canada Cultural Spaces Fund's did after Budget 2025."
+  deeperpoint_fit: "The engine, Cosolvent, does three things today that bear on this market. It matches from descriptions in ordinary words, so a non-profit can describe its project and its funding gap without knowing each funder's program vocabulary. It reads documents into profiles: a funder's published guidelines, share limits and confirmed-funding rules on one side, and the applicant's budget, quotes, financial statements and existing commitment letters on the other. Its trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them. A funder can state what its committee needs to see, when it next meets and whether it would make a commitment conditional on another funder's, none of which it publishes, and an applicant can state which commitments are firm and which are hoped for. Each match is between the applicant and one funder. It produces a Content Match Story, one account of why the two might deal, given to both while anonymous, and after both agree to reveal, a Deal Brief: a non-binding summary written for that funder's committee or board and for the applicant's board, lender and lawyer. CommonContext prepares the reference library, and a domain wiki holds the market's sourced knowledge of program rules and dates. ClientSynth generates invented test participants so the market can be tried before real ones join. Matching today is one applicant to one funder at a time, and the applicant sets the briefs side by side. One shared view of the whole funding stack across all funders would be a further step, designed and not yet built. Tracking each funder's progress over the months a project takes would need memory across sessions, also designed and not yet built. The engine does not sit in any committee. It carries what each funder chooses to state."
+  economic_upside: "The Canada Revenue Agency's Report on the Charities Program 2025-2026 counts 85,348 registered charities in 2025, of which 4,653 were public foundations and 7,132 were private foundations. From self-reported returns for 2024, the same report gives private foundations assets of $132 billion and expenditures of $8 billion, public foundations assets of $61 billion and expenditures of $11 billion, and $15 billion in gifts to qualified donees by all charities. A federal news release of July 2024 said 196 projects worth more than $1.16 billion had been announced under the Green and Inclusive Community Buildings program. Employment and Social Development Canada describes the Social Finance Fund, launched in May 2023, as a $755 million repayable program that invests through fund managers in intermediaries, which can in turn lend to charities and social enterprises. No source gives the number or value of non-profit capital projects delayed by funders waiting on one another, and none is estimated here."
+
+sponsor_opportunities:
+  - title: "Funder Condition Profiles"
+    type: saas
+    revenue_model: "A foundation, a government program or a community lender would pay an annual subscription to hold a confidential profile of what its decision-makers need and when they meet, built from its guidelines and added to by its staff."
+    strategic_logic: "Funders spend staff time on applications that cannot proceed because another funder has not committed. A profile that states the conditions to matched applicants only brings forward the files that are ready and lets staff co-ordinate timing with other funders."
+    recurring: true
+
+  - title: "Capital Project Readiness Service for Non-Profits"
+    type: managed-service
+    revenue_model: "A non-profit, or a funder paying on its behalf, would pay per project to have its budget, quotes and commitment letters read into a profile and set against each matched funder's stated conditions, with the order of commitments laid out."
+    strategic_logic: "Most non-profits build once in a generation and have no staff who have done it before. A service that shows which commitment could come first is worth most at the start of a campaign, when a wrong order costs a year."
+    recurring: false
+
+  - title: "Operating Licence for a Community Foundation or Sector Body"
+    type: managed-service
+    revenue_model: "A community foundation, a provincial non-profit association or a regional development agency would pay an annual fee from its program budget to run the marketplace for the funders and non-profits in its area."
+    strategic_logic: "A local funder is often asked to commit first and has no view of the others. Running the marketplace gives it that view for the projects in its own community, and a reason for other funders to join."
+    recurring: true
+
+  - title: "Bridge Lending Referral Extension"
+    type: commerce-extension
+    revenue_model: "Community lenders and social finance intermediaries would pay a referral or listing fee to be offered to projects whose Deal Briefs show confirmed grants that will be paid later than the construction costs fall due."
+    strategic_logic: "A Deal Brief states which grants are confirmed, on what conditions and when they pay. That is the information a bridge lender needs to price a loan, and the lender reaches the borrower at the point the need appears."
+    recurring: true
+
+story:
+  title: "Who Goes First"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Rosalind - executive director of a community arts centre, Thunder Bay, Ontario"
+    - "Hamid - grants officer at a community foundation, Thunder Bay, Ontario"
+    - "Tomasz - lending officer at a community loan fund, Toronto, Ontario"
+  summary: "An arts centre director with three interested funders and no commitments learns, from two confidential matches, that the foundation and the lender would each commit on condition of the other, which gives her something firm to take to the federal program."
+  body: |
+    ## Act A - The Market Structure
+
+    A non-profit renovating a building needs several funders at once. A government program pays part, a foundation pays part, a lender covers the gap and the organization raises the rest.
+
+    The Canada Cultural Spaces Fund shows how the rules lock together. Its guidelines limit it to half of a project's eligible expenses and state that it cannot recommend a project for approval until two-thirds of the total funding is confirmed. A lender wants to see the grants before it lends, and the grant-makers want to see the loan.
+
+    Each decision is made by a committee or a board that the applicant does not attend.
+
+    So every funder waits for another to go first, and the applicant cannot see which commitment would release the rest.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Rosalind** directs a community arts centre in Thunder Bay, Ontario. The roof and the wiring of its hall must be replaced. She has a federal application ready, a foundation that likes the project and a lender that has asked good questions. After fourteen months she has no commitments. Each funder has asked her, in different words, who else is in.
+
+    She describes the project in plain words on the marketplace and uploads her budget, contractor quotes and financial statements. The engine reads them into her profile.
+
+    **Hamid** is a grants officer at a community foundation in Thunder Bay. The foundation's profile was built from its published guidelines. He has added protected details: when the grants committee next meets, and that it will approve a grant on condition that financing for the balance is in place.
+
+    **Tomasz** is a lending officer at a community loan fund in Toronto. His fund's profile carries its own protected detail: its credit committee will issue a term sheet on condition that a named share of the budget is covered by confirmed grants.
+
+    The engine matches Rosalind with each funder separately and writes a **Content Match Story** for each pair, given to both while still anonymous. Each says why the project fits that funder. Each also states the condition that funder would attach.
+
+    In both cases, both sides agree to reveal who they are. The engine produces two **Deal Briefs**, each a non-binding summary written for that funder's committee and for Rosalind's board and lawyer.
+
+    Rosalind sets the two briefs side by side. The foundation would commit if the loan were in place. The lender would commit if the grant were in place. Neither had said so to the other, because neither had been asked.
+
+    She calls Hamid and Tomasz together. Both committees meet within the same month, and each issues a commitment conditional on the other. With both letters, Rosalind can show the federal program where two-thirds of her funding will come from. Whether conditional letters are enough is the program's decision, and it is now a question she can ask.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    No funder here was unwilling. Each was following a sound rule: do not be the only one exposed. The rules lock together, and the one person who needs to see how they fit, the applicant, is the one person outside every committee.
+
+    Grant directories list programs. They do not say what a particular committee would accept as enough, or when it meets.
+
+    A [trusted intermediary](../market-physics.html) lets each funder state its condition to a matched applicant in confidence. [MarketForge](../marketforge.html) is the recipe for building a market of this kind.
+
+    *Rosalind, Hamid, Tomasz, the arts centre, the foundation and the loan fund are fictional. The Canada Cultural Spaces Fund's 50 per cent limit and its two-thirds rule are real, and as of October 2026 the fund's scope is being narrowed. The matching, the confidential profiles, the Content Match Story and the Deal Brief are in the engine today, one applicant and one funder at a time. One shared view of the whole funding stack is designed and not yet built.*

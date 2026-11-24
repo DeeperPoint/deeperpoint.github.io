@@ -1,0 +1,542 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Shipments on a New Trade Corridor: Canadian Exporters and Indonesian Importers under the Canada-Indonesia Comprehensive Economic Partnership Agreement — DeeperPoint</title>
+  <meta name="description" content="A new trade agreement lowers tariffs, but it does not produce a first shipment. Small Canadian exporters will not prepare for Indonesia without a committed buyer, and Indonesian importers will not commit to an untested supplier from a country they have never bought from. A sponsored exchange would let both describe a trial order before either invests.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../demos.html" class="nav__link">Demos</a></li>
+        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../library.html" class="nav__link">Library</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Export &middot; Trade Agreement Utilization</div>
+      <h1 class="detail-title">First Shipments on a New Trade Corridor: Canadian Exporters and Indonesian Importers under the Canada-Indonesia Comprehensive Economic Partnership Agreement</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
+        <span class="blog-tag">export</span><span class="blog-tag">trade-agreements</span><span class="blog-tag">indonesia</span><span class="blog-tag">cepa</span><span class="blog-tag">first-shipment</span><span class="blog-tag">small-exporters</span><span class="blog-tag">agri-food</span><span class="blog-tag">market-diversification</span>
+      </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Canada and Indonesia signed the Comprehensive Economic Partnership Agreement in Ottawa on September 24, 2025. The Prime Minister&#x27;s Office called it Canada&#x27;s first bilateral trade agreement with a member of the Association of Southeast Asian Nations. Global Affairs Canada&#x27;s page for the agreement, as modified on October 22, 2026, gave its status as signed and entering into force on December 1, 2026. The Trade Commissioner Service lists what changes on that day: Indonesia&#x27;s 5% tariff on dry peas, lentils and chickpeas, on most fresh and frozen pork, on canola oil and on frozen French fries is removed at entry into force, with other tariffs phased out over 5 to 15 years. The same pages say that halal requirements are central to food trade with Indonesia and that an importer must hold a valid declaration of origin to claim the lower rate. A tariff schedule creates eligibility. It does not create a trading relationship. Statistics Canada&#x27;s 2023 survey of small and medium enterprises found that 15.1% exported, and that 85.3% of those exporters sold to the United States. Most have never shipped to Southeast Asia. For such a firm a first container means halal certification, new labels, an origin declaration, a freight forwarder who knows the route, and payment terms with a stranger. It will not spend that money without a buyer who has agreed to an order. The Indonesian importer has suppliers it already knows in other countries. It will not give shelf space or a production run to a Canadian firm with no record in its market. Each waits for the other to take the first cost. Until a few shipments have been made, there are no reference customers, no shared containers and no forwarder with a regular booking, so the corridor stays empty for small firms while large commodity shippers use it as before.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Cold Start: the exporter will not pay to get ready without a committed buyer, and the importer will not commit to a supplier that is not ready. With no completed shipments on the corridor there are no references, no shared loads and nothing for the next firm to join.</li><li>Trust: neither side can check the other. The importer cannot judge a small Canadian plant&#x27;s quality or reliability from abroad, and the exporter cannot judge whether an unknown buyer will pay.</li><li>Geographic Distance: the parties are separated by language, legal system, payment practice and certification regimes as well as by an ocean. Halal certification and customs classification are decided under Indonesian rules.</li><li>Opacity: an exporter cannot see which importers buy its product, in what grade and volume. An importer cannot see which Canadian firms make what it needs and now qualify for a lower tariff.</li><li>Cognitive Bandwidth: the owner of a small plant has to work through tariff schedules, rules of origin, phase-out periods and import requirements for a market that may never produce an order.</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;"><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#cold-start" title="Buyers wait for sellers, sellers wait for buyers, nobody arrives first.">Cold Start</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#trust" title="Whether participants feel secure enough to engage at all.">Trust</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#geographic-distance" title="How far apart counterparties are, in space or in systems.">Geographic Distance</a></p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        AI Synthetic Bootstrapping, AI Memory, AI Trusted Intermediary, AI Matching, AI Input Translation, AI-Enabled Aggregation. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>The design fits the description, disclosure and documentation parts of this market today. It does not yet insulate either side from the risk of a first shipment. Cosolvent, the engine, matches from descriptions in ordinary words, so an exporter can describe its product, capacity and certifications as it would to a customer, and an importer can describe what it would try from a new origin and on what terms. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them: an exporter&#x27;s price floor and customer list, an importer&#x27;s current supplier and volumes. The engine reads documents into profiles, so specification sheets, audit reports and certificates do not have to be re-entered. Each match produces a Content Match Story, one account of why these two firms might deal, given to both while anonymous, so a first conversation starts from a stated fit instead of a cold email. A Deal Brief summarizes a proposed trial order without binding anyone, for each party&#x27;s own bank, lawyer, freight forwarder and certifier. CommonContext would prepare the reference library behind a domain wiki of the agreement&#x27;s tariff schedule, rules of origin and Indonesia&#x27;s import requirements, with sources. Parts that would matter most on a new corridor are designed and not yet built. Risk insulation would address non-payment and rejected cargo on a first order. Memory across sessions would hold an importer&#x27;s unmet request until a qualified exporter joins. Aggregation would pool small exporters into a shared container. Two-sided matching would weigh both parties&#x27; preferences at once. ClientSynth generates invented exporters and importers so a sponsor can test and demonstrate the corridor before real firms join; invented participants are kept out of any live market.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The Prime Minister&#x27;s Office release of September 24, 2025 reported two-way merchandise trade with Indonesia of $5.6 billion in 2024, Canadian merchandise exports of $2.3 billion, and said that over 95% of current Canadian exports would have tariffs reduced or eliminated once the agreement is fully implemented. The Canada Gazette order fixing the entry into force date, registered July 1, 2026, cites a federal projection that the agreement would raise Canada&#x27;s annual exports to Indonesia by $173 million. The Trade Commissioner Service valued Canadian agri-food and seafood exports to Indonesia at $1.2 billion in 2024, against total Indonesian agri-food and seafood imports of $39.0 billion from all sources. Statistics Canada&#x27;s Survey on Financing and Growth of Small and Medium Enterprises, 2023 found that 15.1% of such firms exported and that 85.3% of exporters sold to the United States. How much of the projected gain small firms would capture is not known, and no estimate is made here.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">One Container to Surabaya</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p><strong>Characters:</strong> Tomas - owner of a pulse processing plant, Moose Jaw, Saskatchewan, Nadia - export adviser at a provincial trade association, Regina, Saskatchewan</p>
+        
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>Canada and Indonesia signed a trade agreement on September 24, 2025. Global Affairs Canada's page, as of October 22, 2026, said it would enter into force on December 1, 2026. On that day Indonesia's 5% tariff on Canadian lentils, dry peas and chickpeas is removed, according to the Trade Commissioner Service.</p>
+<p>A lower tariff does not ship a container. Statistics Canada found that 15.1% of small and medium firms exported in 2023, and 85.3% of those sold to the United States. For a firm that has never sold in Southeast Asia, a first order means halal certification, an origin declaration, a new forwarder and payment terms with a stranger. It will not pay for those without a buyer. The buyer will not commit to a supplier that has not done them.</p>
+<p>The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Tomas</strong> owns a pulse processing plant in Moose Jaw. He splits and polishes red lentils and sells nearly all of them through two buyers in the United States. He once priced what it would cost to get ready for Indonesia, and put the quote in a drawer.</p>
+<p><strong>Nadia</strong> is an export adviser at a provincial trade association in Regina. The association runs a corridor exchange with a business chamber in Indonesia, which enrols importers on its side. Before real firms joined, Nadia's team ran the exchange in a test copy with invented exporters and importers to check how matches read. Those invented firms were never placed in the live exchange.</p>
+<p>Nadia asks Tomas for what he already has: his specification sheets, his last food safety audit and a paragraph in his own words. He writes that he can spare capacity for one extra container a month, that he has no halal certificate, and that he would get one for a real order. He marks his price floor and his customers' names private.</p>
+<p>A food maker in Surabaya has described what it would try from a new origin: split red lentils of a stated size and colour for a snack line, one container as a trial, halal certified, with samples first.</p>
+<p>The exchange matches the two descriptions. Both firms receive the same Content Match Story, with no names. It says a Canadian processor makes the grade the buyer described and has capacity for a monthly container. It states the gaps plainly: the processor is not yet halal certified, has never shipped to Indonesia, and the buyer wants samples before any order.</p>
+<p>Both agree to be introduced. Tomas sends samples. The buyer's test kitchen approves them. Nadia helps the two firms set down what a trial order would require, and the exchange produces a Deal Brief: the goods, the quantity, who arranges certification, who holds the origin declaration, the proposed payment terms, and the questions still open.</p>
+<p>Tomas takes it to his bank and to a freight forwarder. The bank asks for payment protection on a first order, and Tomas arranges that himself with an insurer. He then pays for the certification, because now there is an order behind it.</p>
+<p>The container leaves in February.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>The agreement changed the price of trading. It did not change who moves first.</p>
+<p>What helped was small. Each side could describe a trial in plain words, learn that a fit existed without exposing its prices or customers, and see the remaining gaps written down before spending anything. The risk of the first shipment was still carried by the firms, their bank and their insurer. These are the <a href="../market-physics.html">forces that keep a new corridor thin</a> for small firms. <a href="../marketforge.html">MarketForge</a> describes how a sponsor would build such an exchange.</p>
+<p><em>Tomas, Nadia, the trade association, the Indonesian chamber and the food maker in Surabaya are fictional. The agreement, its dates, the tariff on lentils and the survey figures are real. Protection against non-payment or rejected cargo is not provided by the platform: risk insulation is designed and not yet built, and in this story the exporter arranged it elsewhere.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Corridor Exchange for a Trade Association or Province</div>
+        <p>Associations and provinces are measured on export diversification and already run trade missions to new markets. An exchange gives a mission a list of described, anonymous matches before anyone books a flight, and keeps working after the mission ends.</p>
+        <div class="opp-card__revenue">&#128181; A provincial trade agency, sector association or bilateral business council would pay an annual licence to run a corridor exchange for its members, with a partner organization in Indonesia enrolling importers on the same terms.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">First-Shipment Readiness Service</div>
+        <p>The preparation cost is what stops a small firm. Doing it for one named buyer and one product, after a match, is far cheaper than preparing for a whole market on speculation, and each completed file can be reused by the next exporter of the same product.</p>
+        <div class="opp-card__revenue">&#128181; An exporter would pay a fixed fee per matched trial order, or the sponsor would pay on the exporter&#x27;s behalf, for an adviser who works through the origin declaration, halal certification, labelling and customs classification for that product and that buyer.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Logistics Extension</div>
+        <div class="opp-card__title">Trial-Order Freight Consolidation</div>
+        <p>A trial order is often less than a container. Matches on the exchange show a forwarder which small shipments are heading to the same port in the same month, which is the information needed to offer shared space on a route with no regular bookings yet.</p>
+        <div class="opp-card__revenue">&#128181; A freight forwarder would pay a referral or coordination fee to the exchange operator for trial shipments booked through it, and exporters would pay the forwarder its normal charges for space in a shared container.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Trade Finance and Insurance Referral</div>
+        <p>The Deal Brief sets out the parties, goods, terms and open questions of a trial order in the form a lender or insurer needs. Providers gain customers at the moment they first need payment protection in a new market. The exchange refers; it does not itself insure or finance.</p>
+        <div class="opp-card__revenue">&#128181; Banks, export credit insurers and trade finance providers would pay a referral fee for first-shipment files that arrive with a completed Deal Brief, or would sponsor the exchange in return for introductions to newly exporting firms.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

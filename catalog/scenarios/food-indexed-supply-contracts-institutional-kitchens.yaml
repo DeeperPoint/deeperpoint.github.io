@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: food-indexed-supply-contracts-institutional-kitchens
+title: "Indexed Supply Contracts for Institutional Kitchens"
+card_title: "Indexed Supply Contracts for Kitchens"
+sector: canadian-food-last-stage
+sub_sector: "Institutional Food Supply"
+forge_tier: 2
+status: published
+challenges: [macro-fx-exposure, temporal-distance, participant-fragmentation]
+tags: [institutional-food, forward-contracts, price-indexing, long-term-care, hospitals, regional-growers, input-costs]
+
+market_example:
+  summary: "A grower asked to fix a price before planting carries a year of fuel and fertilizer risk. A care home's kitchen works to a food budget that does not move. Matching growers and kitchens on forward contracts whose price follows a published index within agreed limits would let both commit before the season."
+  problem: "Hospital and long-term care kitchens work to food budgets set per resident or patient day, and most of what they buy arrives through group contracts. HealthPRO, a national group purchasing organization, has told suppliers that it has more than 250 members representing over 800 hospitals, and that its food contracts are traditionally renewed every five years, with strategy work starting 18 to 24 months ahead. In British Columbia, the health authorities buy food for 187 acute and long-term care facilities primarily through a provincial agreement with a large group purchasing organization and a broadline distributor. A regional grower or processor who wants to supply one kitchen directly has to agree a price and a volume before planting. Forward contracts of this kind do exist. In 2015 the City of Thunder Bay agreed to buy four fresh vegetables from a local farm for its three long-term care homes for the following year at a set price, and it later reported that 38 per cent of its food spending was local or regional. Few other published examples were found. A set price a year ahead is a wager on input costs. Statistics Canada reported that in the second quarter of 2022 farmers paid 80.8 per cent more for fertilizer and 78.5 per cent more for machinery fuel than a year earlier, and 29.8 per cent more for commercial feed. A grower holding a fixed-price contract through a year like that can end up supplying below cost. On the other side, as a food services manager at an Ontario long-term care operator told a trade publication, the resident per diem does not change each week based on prices in the world. A price that floats freely is as hard for the kitchen as a fixed one is for the grower. A contract whose price follows a published index, with a floor and a ceiling, sits between the two. Research for this entry found no published example of such an indexed contract between a Canadian institution and a regional grower, so the idea is untested here. It would also have to fit beside the group contracts an institution has already committed to. This entry is narrower than the catalog's Institutional Food Procurement entry, which covers how small producers get through institutional purchasing at all."
+  dominant_forces:
+    - "Macro & FX Exposure: fertilizer, fuel and feed prices can move by half or more inside one growing year, so a price fixed before planting can be below cost by harvest"
+    - "Temporal Distance: the grower must commit seed, land and labour months before the kitchen's budget year and menu cycle are settled, and the institution's group contracts are decided years ahead on a different calendar"
+    - "Participant Fragmentation: one farm's carrots or one home's weekly order is too small to justify drafting a custom price mechanism, and too small to matter beside a group contract covering hundreds of facilities"
+    - "Fixed budgets: the kitchen's funding per resident day does not rise with food prices, so it cannot accept a price that floats without limit"
+  deeperpoint_fit: "The matching engine, Cosolvent, works from descriptions in ordinary words. A grower or processor would describe what it can supply, in what form, over which months, and which input costs it cannot carry at a fixed price. A kitchen would describe what it uses, how much, how it must arrive, what its budget can absorb, and how much of its buying is free of group contract commitments. Document reading can turn a menu cycle, a usage report or a past supply agreement into a profile. The trusted-intermediary pipeline keeps protected details, such as a farm's cost of production or a home's food budget, hidden until both sides agree to reveal them. A match produces a Content Match Story, one account given to both parties while anonymous, and a Deal Brief, a non-binding summary for the grower's adviser and the institution's purchasing and finance staff, setting out the volume, the season and the proposed index, floor and ceiling. A domain wiki prepared with CommonContext would hold sourced material: the Statistics Canada farm input price series, published forward-contract examples such as Thunder Bay's, and the rules each kind of institution buys under. ClientSynth would generate invented growers and kitchens to test the matching. The index clause is a contract term the two parties agree. The engine does not carry the price risk. Risk insulation is designed and not yet built, and so is aggregation, which would let several small growers fill one kitchen's volume or several kitchens share one grower's crop."
+  economic_upside: "Canada had 2,076 long-term care homes in 2021, 627 of them in Ontario (Canadian Institute for Health Information). In British Columbia, six health authorities are responsible for food services in 187 acute and long-term care facilities, and 30.5 per cent of their food spending in 2024/25 went to British Columbia food, up from 28.7 per cent the year before (Government of British Columbia, B.C. food expenditures in health care, 2024/25 report). The City of Thunder Bay, which spent about $3 million a year on food for its long-term care homes, child care and other operations in 2006 with less than one per cent going to local growers, later reported 38 per cent local or regional food spending after adopting forward contracts (Nourish practice study and City of Thunder Bay). Statistics Canada's figure of an 80.8 per cent rise in fertilizer prices in the second quarter of 2022 over a year earlier shows the size of the move a fixed-price contract leaves with the grower (StatCan Plus, 29 November 2022). No sourced national total for institutional food spending was found, so none is given."
+
+sponsor_opportunities:
+  - title: "Forward Contract Matching for Institutions"
+    type: saas
+    revenue_model: "A municipality, health authority or regional food policy body would pay an annual subscription so that its kitchens and the region's growers can describe needs and supply and be matched before the planting season."
+    strategic_logic: "Public bodies set local food goals, and British Columbia's health authorities report against theirs every year. A sponsor that brings forward contracts within reach of an ordinary kitchen manager gets a result it can report."
+    recurring: true
+
+  - title: "Index Clause Library and Calculator"
+    type: saas
+    revenue_model: "Institutions, growers' associations and their advisers would pay for access to a maintained set of model index clauses, the published price series they refer to, and a calculator that shows what a given floor and ceiling would have meant in each of the past several years."
+    strategic_logic: "Neither a farm nor a care home will pay a lawyer to invent a price mechanism for one crop. A shared, tested clause removes the drafting cost that keeps each deal from being tried."
+    recurring: true
+
+  - title: "Season Planning and Contract Preparation"
+    type: managed-service
+    revenue_model: "The institution or its sponsor would pay per contract for help turning a kitchen's usage records into a volume commitment and turning a Deal Brief into a draft agreement for both parties' review."
+    strategic_logic: "Thunder Bay began by measuring how much of four vegetables it used in a year. Most kitchens have never done that count. The service does the count once and reuses it each season."
+    recurring: true
+
+  - title: "Storage and Delivery Coordination"
+    type: logistics-extension
+    revenue_model: "Growers or a regional food hub would pay a fee per contract for arranging the storage, washing, packing and scheduled delivery that an institution's receiving dock requires through the winter months."
+    strategic_logic: "A forward contract is only worth signing if the product can be held and delivered on the kitchen's schedule. A farm supplying Thunder Bay used grant funding to improve its long-term storage, and storage is the next obstacle once price is settled."
+    recurring: true
+
+story:
+  title: "A Price With a Floor and a Ceiling"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Wendell - vegetable grower, Bridgetown, Nova Scotia"
+    - "Priya - food services manager at a long-term care home, Kentville, Nova Scotia"
+  summary: "A grower who lost money on a fixed-price contract in a year of high fertilizer costs and a care home kitchen with a food budget that cannot move are matched on a forward contract whose price follows a published index within limits both can accept."
+  body: |
+    ## Act A - The Market Structure
+
+    A long-term care kitchen is funded by the resident day. The amount does not change when food prices do. Most of what the kitchen buys comes through group contracts and a broadline distributor, on terms settled years ahead.
+
+    A regional grower who wants to sell to that kitchen directly has to agree a price before planting. In 2015 the City of Thunder Bay agreed to buy four vegetables from a local farm for its three long-term care homes for the following year at a set price.
+
+    Statistics Canada reported that in the second quarter of 2022 farmers paid 80.8 per cent more for fertilizer and 78.5 per cent more for fuel than a year earlier. A grower holding a fixed-price contract through that year could end up supplying below cost.
+
+    A floating price is no better for the kitchen.
+
+    A price that follows a published index, between a floor and a ceiling, shares the movement. Drafting one for a single farm and a single home is work neither is equipped to do.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Wendell** grows carrots, onions and potatoes near Bridgetown, Nova Scotia. Three years ago he supplied a school program at a price fixed in February. Fertilizer and diesel rose through the spring. He lost money on every load.
+
+    He describes his farm to the marketplace in his own words: the three crops, washed and bagged, September to April, about a third of his storage uncommitted. He adds that he will not fix a price a year ahead again unless it moves with his input costs. He marks his cost of production as protected.
+
+    **Priya** manages food services at a long-term care home in Kentville. Her group contract covers most of her purchases and leaves her free to buy some fresh produce on her own. Her budget per resident day is fixed for the year. She uploads twelve months of usage records and writes what she needs: a steady weekly supply of root vegetables through the winter, and a price she can defend to her finance officer. She marks her budget as protected.
+
+    The marketplace reads her records into a profile and matches it against the growers' descriptions. Wendell and Priya receive the same **Content Match Story**, without names. It says that a grower with winter storage and a kitchen with a steady winter need are about forty minutes apart, and that each has ruled out one kind of price: he will not fix, she cannot float. It points to the marketplace's reference library, where a model clause ties price to Statistics Canada's farm input price index, with a floor and a ceiling.
+
+    Both agree to be introduced. They settle on a base price, the index, and limits of a few cents a kilogram either way.
+
+    The **Deal Brief** sets out the weekly volumes, the months, the clause and a table showing what the price would have been in each of the last five years.
+
+    He orders seed for two more hectares of carrots.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The farm and the kitchen were forty minutes apart and had never dealt. Each had reason to refuse the only two contracts on offer.
+
+    The marketplace carried none of the price risk. The clause divides it between the two parties, and they chose the limits. The platform's part was to find the pair, keep each side's numbers private until they chose to talk, and put a model clause in front of them. That is what [thin-market infrastructure](../market-physics.html) does in a market that fails on the terms of the deal.
+
+    *Wendell, Priya, the farm and the care home are fictional, and so is the model clause. The Thunder Bay forward contract and the Statistics Canada input price figures are real. No published Canadian example of an indexed contract of this kind was found. Risk insulation and aggregation are designed and not yet built. [DeeperPoint](../marketforge.html) is building the infrastructure this story describes.*

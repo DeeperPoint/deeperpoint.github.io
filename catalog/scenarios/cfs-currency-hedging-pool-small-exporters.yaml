@@ -1,0 +1,101 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: cfs-currency-hedging-pool-small-exporters
+title: "A Currency Hedging Pool for Small Exporters"
+card_title: "Currency Hedging Pool for Small Exporters"
+sector: canadian-financial-services
+sub_sector: "Trade Finance and Foreign Exchange"
+forge_tier: 3
+status: published
+challenges: [macro-fx-exposure, cognitive-bandwidth, participant-fragmentation, regulatory-friction]
+tags: [foreign-exchange, hedging, small-exporters, forward-contracts, trade-finance, export-development, derivatives-rules]
+
+market_example:
+  summary: "Small exporters quote in US dollars or euros months before they are paid, and most carry the currency exposure unhedged. They lack the time, the knowledge and the spare collateral to arrange cover. Matching each exposure to a provider that fits, and later pooling small ones, would let them quote longer contracts."
+  problem: "A small manufacturer or food producer that sells abroad usually quotes in the buyer's currency and is paid months later. The Bank of Canada's annual average rate for the US dollar rose from 1.2535 Canadian dollars in 2021 to 1.3978 in 2025, and the euro rose from 1.3696 in 2022 to 1.5782 in 2025. Moves in the other direction take the exporter's margin with them. The standard protection is a forward contract, which Export Development Canada (EDC) calls the instrument most widely used by Canadian exporters. Small firms use it least. In an EDC research panel survey of 260 exporters published in 2009, just under half of firms with sales under $5 million did any hedging at all, against 79 per cent of firms with sales of $5 million to $25 million. EDC cautioned that the panel was not a representative sample, and no more recent published figure was found. The firms that did not hedge gave these reasons: 61 per cent lacked staff time, 57 per cent lacked knowledge, 21 per cent found the products too expensive, and 11 per cent said their bank restricted further borrowing if they bought them. Research for this entry did not find a published minimum contract size at a major Canadian bank, so the barrier is better described as attention, knowledge and collateral than as a size floor. A forward contract can require the exporter to post collateral with its financial institution. EDC's Foreign Exchange Facility Guarantee can cover up to 100 per cent of that collateral for contracts of up to three years, but the exporter has to know it exists and arrange it through its bank. A pool that hedged for many small firms at once would face rules of its own. National Instrument 93-101, Derivatives: Business Conduct, in force since 28 September 2024, applies to anyone in the business of trading derivatives or advising others on them. Whether a pool's operator is caught by it is a question for securities counsel, and the question alone is enough to stop an informal group of exporters from trying."
+  dominant_forces:
+    - "Macro & FX Exposure: the price is fixed in a foreign currency at the quote and the Canadian dollar value is unknown until payment, so the margin can be gone before the invoice is settled"
+    - "Cognitive Bandwidth: in EDC's survey the main reasons for not hedging were no one with time to manage it and no one who knew how, well ahead of cost"
+    - "Participant Fragmentation: each small exporter's exposure is modest, its banking line is already committed to working capital, and collateral for a hedge competes with cash for the next order"
+    - "Regulatory Friction: trading or advising on derivatives as a business is regulated across Canada, so exporters cannot simply club together and have one of them hedge for the rest"
+    - "Defensive quoting: an exporter that cannot hedge adds a cushion to its price or declines long contracts, and the buyer never learns that currency was the reason"
+  deeperpoint_fit: "The matching engine, Cosolvent, works from descriptions in ordinary words. An exporter would describe its situation as it would to an adviser: which currency, how much, how long between quote and payment, what its bank has already said. A provider, whether a bank desk, a registered foreign exchange dealer or an adviser, would describe the clients and contract sizes it serves. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them, which matters here because an exporter's order book and banking position are sensitive. Document reading can turn a sales contract or a bank facility letter into a profile. A match produces a Content Match Story, one account given to both parties while anonymous, and a Deal Brief, a non-binding summary for the exporter's bank, accountant and lawyer. A domain wiki prepared with CommonContext would hold sourced plain-language material on forwards, collateral, the EDC guarantee and the derivatives rules. ClientSynth would generate invented exporters to test the matching. The pool itself is not built. Aggregation, which would combine several small exposures into one that a provider would price as a single larger client, is designed and not yet built, and so is risk insulation. Any pooled arrangement would be carried out by a regulated provider under its own registration. The marketplace would not trade, hold funds or give advice on derivatives."
+  economic_upside: "In 2024, 48,036 Canadian enterprises exported goods, and 73.3 per cent of them were small or medium-sized, with small businesses alone making up 65.7 per cent of exporters (Innovation, Science and Economic Development Canada, Key Small Business Statistics 2025). Small and medium-sized enterprises accounted for 37.9 per cent of the $712.8 billion in goods exports that year, and small businesses for 16.7 per cent. The United States took 79.4 per cent of small business exports by value, so the US dollar is the exposure most of these firms carry (same source). In EDC's 2009 panel survey, three out of four exporters said they would accept lower profits to reduce risk, and two other exporter surveys it cites named exchange rate risk as the top constraint on export development."
+
+sponsor_opportunities:
+  - title: "Exposure Intake for Export Advisers"
+    type: saas
+    revenue_model: "A bank, credit union, trade association or regional export agency would pay a subscription for a tool that takes an exporter's plain description and contracts and returns a statement of its currency exposure by month, for use by the sponsor's own advisers."
+    strategic_logic: "In EDC's survey 40 per cent of exporters said they had difficulty measuring their exposure. A sponsor that solves the measuring step for its clients reaches them before any product is discussed."
+    recurring: true
+
+  - title: "Provider Matching for Small Hedges"
+    type: commerce-extension
+    revenue_model: "Registered providers would pay a referral or listing fee to be introduced to exporters whose described exposure fits the contract sizes and terms they serve. The exporter would not pay to be matched."
+    strategic_logic: "A provider that serves small contracts has to find its clients one at a time, and exporters do not know which providers want their business. An introduction that arrives with the exposure already described saves both sides the first three conversations."
+    recurring: true
+
+  - title: "Guarantee and Collateral Application Preparation"
+    type: managed-service
+    revenue_model: "An exporter, or an association on its members' behalf, would pay a fee per application for help assembling what its bank and a guarantee provider ask for when a hedging facility is set up."
+    strategic_logic: "Collateral is one of the reasons small firms give for not hedging, and a public guarantee for it exists. The gap is the paperwork between the two. Completed applications are also the evidence a sponsor needs to show the service works."
+    recurring: false
+
+  - title: "Pooled Exposure Service"
+    type: managed-service
+    revenue_model: "A regulated foreign exchange provider would operate the pool and earn its usual dealing margin on the combined position. Members or their association would pay an administration fee. This depends on aggregation, which is designed and not yet built, and on legal review of the derivatives rules."
+    strategic_logic: "One combined position is cheaper to serve than fifty small ones. A provider that can accept it gains clients it could not reach singly, and members gain terms none would be offered alone."
+    recurring: true
+
+story:
+  title: "Ninety Days in US Dollars"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Solange - co-owner of a maple products company, Saint-Georges, Quebec"
+    - "Anwar - foreign exchange dealer at a regulated non-bank provider, Mississauga, Ontario"
+    - "Gareth - export adviser at a regional manufacturers' association, Moncton, New Brunswick"
+  summary: "A small food exporter who has stopped quoting twelve-month supply contracts in US dollars is matched with a provider that serves contracts her size, and with other exporters whose exposures could one day be pooled."
+  body: |
+    ## Act A - The Market Structure
+
+    A small Canadian exporter usually quotes in the buyer's currency. Most of the time that is the US dollar: it took 79.4 per cent of small business goods exports by value in 2024. The exporter is paid months later, and the Canadian dollar value of the sale is unknown until then.
+
+    A forward contract fixes the rate. Larger firms use them more often. In an Export Development Canada survey published in 2009, fewer than half of exporters with sales under $5 million hedged at all. The reasons they gave were not mainly about price. They had no one with time to manage it and no one who knew how.
+
+    A group of small exporters cannot easily fix this for themselves. Trading derivatives or advising on them as a business is regulated in Canada under a national rule in force since September 2024.
+
+    So the exporter adds a cushion to the price and loses the sale, or carries the exposure and stops quoting long contracts.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Solange** co-owns a maple products company in Saint-Georges, Quebec. A grocery chain in the northeastern United States has asked her for a twelve-month supply contract priced in US dollars. She pays her producers in Canadian dollars at the start of the season. The last time she signed a contract like this, the exchange rate moved against her and the year's profit on that account went with it. She has since quoted ninety days at most.
+
+    Her bank offered a forward contract and asked for collateral she would rather keep for inventory.
+
+    **Gareth**, an export adviser at a manufacturers' association in Moncton, has heard the same account from members in three provinces. The association sponsors a marketplace for this one problem.
+
+    Solange describes her situation in plain words: the currency, the monthly amounts, the gap between shipping and payment, and what her bank said. She uploads the draft supply contract. The amounts and the buyer's name are marked as protected.
+
+    **Anwar** works for a regulated foreign exchange provider in Mississauga that serves smaller commercial clients. His firm's profile says what it does: forwards for exporters, the contract sizes it accepts, and its practice of working with a public guarantee in place of cash collateral where the client qualifies.
+
+    The marketplace matches Solange's description to his firm's. Both receive the same **Content Match Story**, with no names. It says that a food exporter with a twelve-month US dollar contract and a seasonal cash cycle is looking for cover that does not tie up inventory money, and that a provider serving exposures of that kind accepts a guarantee for collateral. It lists what is still unknown: whether she qualifies for the guarantee, and the provider's price.
+
+    Both agree to be introduced. The **Deal Brief** sets out the exposure by month, the cover discussed and the open questions, for her accountant and her bank.
+
+    The marketplace also tells Gareth, without names, that eleven members have described US dollar exposures with similar timing. He takes that to Anwar's firm as a question: would it price them as one?
+
+    Solange quotes the twelve-month contract.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The provider existed and the guarantee existed. Solange had the need and no time to find either. Anwar's firm had no affordable way to find her.
+
+    The marketplace did not trade, hold money or advise. It described each side to the other and kept the sensitive parts back until both agreed. That is the work [thin-market infrastructure](../market-physics.html) does when a market fails on attention and information.
+
+    *Solange, Gareth, Anwar and their organizations are fictional. The export shares, the survey findings, the public collateral guarantee and the derivatives rule are real. Counting similar exposures across members and pooling them rely on aggregation, which is designed and not yet built. A pool would also need legal review. [DeeperPoint](../marketforge.html) is building the infrastructure this story describes.*

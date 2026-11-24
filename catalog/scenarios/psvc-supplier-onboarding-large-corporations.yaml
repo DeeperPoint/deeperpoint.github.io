@@ -1,0 +1,98 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: psvc-supplier-onboarding-large-corporations
+title: "Supplier Onboarding at Large Corporations: Showing a Small Firm the Reviews That Follow Selection"
+card_title: "Supplier Onboarding at Large Corporations"
+sector: professional-services
+sub_sector: "Vendor Risk and Procurement"
+forge_tier: 2
+status: published
+challenges: [decision-process-opacity, cognitive-bandwidth, participant-fragmentation]
+tags: [supplier-onboarding, vendor-risk, third-party-risk, small-business, procurement, insurance-requirements, professional-services]
+
+market_example:
+  summary: "A business unit at a large company chooses a small professional-services firm. The engagement then waits on vendor-risk, security, privacy, insurance and procurement reviews that the supplier cannot see. This idea is a marketplace where the buyer states those reviews in confidence at the start, so the supplier arrives with a complete file."
+  problem: "When a manager at a large company chooses a small supplier, the choice starts a second process run by other people. For banks and insurers the process is expected by their regulator. OSFI's Guideline B-10 on third-party risk management, in effect since May 1, 2024, expects a federally regulated financial institution to carry out due diligence before entering a third-party arrangement, in proportion to its risk and criticality. For higher-risk arrangements the factors include the supplier's financial strength, its information security program, its business continuity plans, its reliance on subcontractors and its insurance coverage, and the written agreement is expected to include audit rights and a duty to maintain insurance. OSFI's 2025-26 annual report says it supervises approximately 350 such institutions. Privacy law reaches every sector: under PIPEDA's accountability principle, as the Office of the Privacy Commissioner explains it, an organization remains responsible for personal information it passes to a third party for processing and must protect it by contractual or other means. The Fighting Against Forced Labour and Child Labour in Supply Chains Act, in force since January 1, 2024, adds reporting on supply chains for larger entities. Public Safety Canada received 4,178 entity reports by the May 31, 2025 deadline, and 84.1 per cent of reporting entities said they had policies and due diligence processes in place. Each of these duties becomes a questionnaire, a certificate or a contract clause handled by a risk, security, privacy, legal or procurement team that the supplier has never met. The business unit that made the choice often cannot say how long the reviews will take or what will satisfy them. No Canadian source measures how long onboarding takes or how many selected suppliers drop out. The sources establish the reviews and who is expected to perform them. That the supplier cannot see the queue is the working premise of this idea, drawn from how the process is organized and not from a published count."
+  dominant_forces:
+    - "Decision-Process Opacity: the business unit selected the supplier and wants to start. Vendor risk, information security, privacy, legal and procurement then decide in turn, and the supplier cannot see which team holds the file or what answer is missing."
+    - "Cognitive Bandwidth: a firm of a few people receives questionnaires, policy requests and contract terms written for suppliers many times its size, from each large buyer separately, with nobody on staff whose job is to answer them."
+    - "Participant Fragmentation: one small engagement often cannot carry the cost of the insurance, attestations and staff time that the buyer's standard review asks for, so a capable firm declines or is dropped."
+    - "Requirements set for the highest-risk case: OSFI expects due diligence to be proportionate to risk and criticality. A supplier that cannot learn which tier it falls in prepares for the heaviest review, or for none."
+  deeperpoint_fit: "The engine, Cosolvent, does three things today that bear on this market. It matches from descriptions in ordinary words, so a manager can describe the work and a small firm can describe what it does without either using the buyer's vendor categories. It reads documents into profiles: the buyer's supplier requirements, questionnaire and insurance schedule on one side, and the supplier's policies, certificates and earlier completed questionnaires on the other. Its trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them. A buyer's risk team can state how it sorts suppliers into tiers and what each tier must supply, which it would not publish, and a supplier can state what it lacks. A match produces a Content Match Story, one account of why the two might deal, given to both while anonymous, and after both agree to reveal, a Deal Brief: a non-binding summary written for the buyer's vendor-risk, security, privacy, legal and procurement teams, and for the supplier's insurance broker and lawyer. CommonContext prepares the reference library, and a domain wiki holds the market's sourced knowledge, such as regulator guidelines and privacy guidance. ClientSynth generates invented test participants so the market can be tried before real ones join. A supplier's answers carried from one buyer to the next would need memory across sessions, which is designed and not yet built. Aggregation, which would let several small firms meet a requirement together, is designed and not yet built. The engine does not see inside the buyer's review queue. It carries what the buyer's teams choose to state."
+  economic_upside: "ISED's Key Small Business Statistics 2025 counts 1,099,521 businesses with employees in Canada in 2024, of which 1,079,188 (98.2 per cent) were small, 16,953 were medium-sized and 3,380 (0.3 per cent) were large. ISED's Canadian Industry Statistics list 530,194 establishments in professional, scientific and technical services in 2025, of which 157,994 had employees. OSFI's 2025-26 annual report says it supervises approximately 350 federally regulated financial institutions, each expected to run third-party due diligence. Public Safety Canada's 2025 annual report records 4,178 entity reports under the supply chains Act by May 31, 2025. These figures show how many buyers run formal supplier reviews and how many small firms might face them. No source gives the value of engagements delayed or lost in onboarding, and none is estimated here."
+
+sponsor_opportunities:
+  - title: "Supplier Requirement Profiles for Large Buyers"
+    type: saas
+    revenue_model: "A large buyer would pay an annual subscription to hold a confidential profile of its supplier tiers and what each tier must supply, built from the documents its risk and procurement teams already use."
+    strategic_logic: "A buyer's risk team spends its time on incomplete files and on suppliers prepared for the wrong tier. Stating the tiers once, to matched suppliers only, shortens the team's queue and lets business units start work sooner."
+    recurring: true
+
+  - title: "Onboarding File Preparation for Small Suppliers"
+    type: managed-service
+    revenue_model: "A small supplier would pay per engagement to have its policies, certificates and earlier questionnaires read into a profile and set against a named buyer's stated requirements, with the gaps and the documents needed listed."
+    strategic_logic: "A firm of a few people has nobody to do this work and cannot afford to lose a client it has already won. The service is bought at the moment the need is sharpest, and each engagement adds to what the domain wiki knows."
+    recurring: false
+
+  - title: "Operating Licence for a Supplier Development Body"
+    type: managed-service
+    revenue_model: "A supplier council, a chamber of commerce or a regional development agency would pay an annual fee from its membership or program budget to run the marketplace for its member suppliers and corporate members."
+    strategic_logic: "Bodies that introduce small suppliers to large buyers see the introductions fail later, in onboarding. Running the marketplace lets them support members through the stage where the deals are lost."
+    recurring: true
+
+  - title: "Insurance and Attestation Referral Extension"
+    type: commerce-extension
+    revenue_model: "Insurance brokers, auditors and security assessors would pay a referral or listing fee to be offered to suppliers whose Deal Brief shows a specific gap, such as a missing certificate of insurance or a security attestation."
+    strategic_logic: "The gap list in a Deal Brief is a precise statement of what a supplier needs to buy and by when. Providers reach a customer with a defined need, and the supplier closes the gap before the buyer's review begins."
+    recurring: true
+
+story:
+  title: "Selected in March, Started in March"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Leila - partner in a six-person plain-language writing firm, Sherbrooke, Quebec"
+    - "Marcus - communications director at an insurance company, Winnipeg, Manitoba"
+    - "Ines - third-party risk analyst at the same company, Winnipeg, Manitoba"
+  summary: "A six-person writing firm that once waited five months to start work for a bank is matched with an insurer whose risk team has stated, in confidence, how it sorts suppliers and what each kind must supply."
+  body: |
+    ## Act A - The Market Structure
+
+    When a manager at a large company chooses a small supplier, a second process begins, run by people the supplier has not met. For banks and insurers the regulator expects it. OSFI's Guideline B-10, in effect since May 1, 2024, expects a federally regulated financial institution to carry out due diligence on a third party before the arrangement begins, in proportion to its risk and criticality. The factors include financial strength, information security, business continuity, subcontractors and insurance coverage.
+
+    Privacy law adds its own duty in every sector. Under PIPEDA, an organization remains responsible for personal information it passes to a third party for processing.
+
+    Each duty becomes a questionnaire, a certificate or a contract clause, handled by a risk, security, privacy, legal or procurement team. The manager who chose the supplier often cannot say what those teams will ask or how long they will take.
+
+    The reviews are reasonable. What fails is that the supplier, already chosen, cannot see them.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Leila** is a partner in a six-person firm in Sherbrooke, Quebec, that rewrites policy wordings and customer letters in plain English and French. Two years ago a bank's marketing team chose her firm in January. The work began in June. In between came a long security questionnaire, a request for an insurance certificate she did not hold, and weeks of silence.
+
+    **Marcus** directs communications at an insurance company in Winnipeg, Manitoba. A new plain-language rule for policy documents has given him a deadline.
+
+    The insurer's profile on the marketplace was built from its supplier requirements, which the engine read in. **Ines**, a third-party risk analyst, added protected details the company does not publish: how it sorts suppliers into tiers, and what each tier must supply. A supplier that receives no customer information falls in the lightest tier.
+
+    Marcus describes the work in plain words. Leila's profile holds her firm's privacy policy, her insurance certificates and the questionnaire she completed for the bank.
+
+    The engine matches them and writes a **Content Match Story**, given to both while still anonymous. It says why the firm fits the work. It also says that the work as described includes sample letters with real customer names, which would place the supplier in a heavier tier, and that the supplier's insurance does not include the cover that tier requires.
+
+    Both agree to reveal who they are. Marcus and Leila change the scope: his team will send templates with the names removed. The engine produces a **Deal Brief**: a non-binding summary written for Ines, the privacy office, legal and procurement, and for Leila's insurance broker and lawyer. It lists the tier, the short questionnaire that goes with it, the certificate required and the privacy terms.
+
+    Leila's broker issues the certificate that week. Ines receives one complete file and reviews it once.
+
+    The work begins in the month Marcus chose the firm.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    A large company cannot publish how it sorts suppliers by risk, and a risk analyst has no time to coach each small firm. A supplier portal collects answers. It does not tell a firm, before it is asked, which questions will apply and why.
+
+    A [trusted intermediary](../market-physics.html) lets the risk team state its rules to a matched supplier in confidence, and lets the supplier state what it lacks while there is still time to close the gap or change the scope. [MarketForge](../marketforge.html) is the recipe for building a market of this kind.
+
+    *Leila, Marcus, Ines, the writing firm, the bank, the insurer and the plain-language rule are fictional. OSFI's Guideline B-10 and PIPEDA's accountability principle are real. The matching, the confidential profiles, the Content Match Story and the Deal Brief are in the engine today. Carrying a supplier's answers from one buyer to the next would need memory across sessions, which is designed and not yet built.*

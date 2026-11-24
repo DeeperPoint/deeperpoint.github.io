@@ -1,0 +1,91 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: con-escalation-terms-small-trades
+title: "Escalation Terms for Small Trades on Public Builds"
+card_title: "Escalation Terms for Small Trades"
+sector: construction
+sub_sector: "Public Building Subcontracting"
+forge_tier: 2
+status: published
+challenges: [macro-fx-exposure, opacity, participant-fragmentation]
+tags: [subcontractors, public-construction, price-escalation, material-costs, tariffs, stipulated-price, tendering]
+
+market_example:
+  summary: "Small trade contractors price multi-year public jobs at a fixed sum, then carry every move in steel, lumber and copper until the work is done. Many pad the bid or stay away. Matching trades to general contractors and owners by the price-adjustment terms each can accept would keep more capable bidders in the pool."
+  problem: "Public schools, housing and transit buildings in Canada are mostly built under stipulated-price contracts. A trade contractor quotes a fixed sum, often months before it buys material and years before it finishes. Material prices can move more than the margin in that time. Statistics Canada reported that residential building construction costs rose 19.1 per cent in 2022 and non-residential costs rose 12.5 per cent, the largest annual increases since those indexes began. In July 2022 the Ottawa Construction Association told buyers that material prices had risen 15, 35, 50 per cent or more within a year. In spring 2025 the Canadian Construction Association (CCA) estimated that the steel and aluminum tariffs announced to that date would add three to five per cent to total project costs, more where steel is the main component, and warned that a weaker Canadian dollar would raise the cost of imported materials on top of that. Tools to share this exposure exist. The CCA publishes an example material price escalation clause for the CCDC 2 prime contract and shows how to adapt it to the CCA 1 subcontract. Statistics Canada publishes a Price Adjustment Guide for Contract Escalation. Ontario's Ministry of Transportation consulted in 2023 on a payment adjustment tied to a steel price index. The tools rarely reach the small trade. The CCA's 2025 tariff bulletin says prime contracts may allow a general contractor to claim tariff costs while subcontracts often do not. Its 2024 bulletin on price instability tells trades to ask for protective clauses, adds that they probably will not get them, and advises a trade that finds the risk too high not to bid and not to sign. A trade usually bids without seeing the prime contract whose terms flow down to it."
+  dominant_forces:
+    - "Macro & FX Exposure: a fixed subcontract price is set long before materials are bought, and tariffs, exchange rates and commodity prices can move by more than a small trade's margin before the work is paid for"
+    - "Opacity: a trade often cannot see the prime contract, so it does not know whether the owner has agreed to share price risk, which index applies, or who upstream will decide a claim"
+    - "Participant Fragmentation: one small trade cannot buy a year of steel or copper forward, store it, or negotiate its own contract wording with a public owner, so it takes the terms offered or stays out"
+    - "Bid padding: where no adjustment term exists, the CCA says contractors and their competitors will likely inflate prices to cover the risk, so the owner pays for volatility whether or not it arrives"
+  deeperpoint_fit: "The matching engine, Cosolvent, works from descriptions in ordinary words. A trade would describe the work it does, the materials that dominate its costs, how long it can hold a price and what adjustment terms it needs. A general contractor or owner would describe the job and the risk terms it can offer. The engine's document reading can turn a tender package or a subcontract form into a profile, so the price-adjustment terms become part of what is matched. The trusted-intermediary pipeline keeps protected details, such as a trade's cost breakdown or a contractor's estimate, hidden until both sides agree to reveal them. Each match produces a Content Match Story, one account given to both parties while they are still anonymous, and then a Deal Brief, a non-binding summary for each party's own lawyer and surety. A domain wiki prepared with CommonContext would hold the sourced reference material: the CCA example clause, the Statistics Canada guide and price indexes, and public owners' published special provisions. ClientSynth would generate invented trades and contractors to test the matching before real firms join. The engine does not carry price risk. Risk insulation and aggregation, which would let several small trades buy material together, are designed and not yet built. Public tenders would still be awarded under each owner's procurement rules. The service would help trades find work whose terms they can live with, and show owners which terms draw bids."
+  economic_upside: "Canada had 155,709 construction employer businesses in December 2024, of which 154,179, or 99.0 per cent, had fewer than 100 employees (Innovation, Science and Economic Development Canada, Key Small Business Statistics 2025). Statistics Canada reported 2022 construction cost increases of 19.1 per cent for residential and 12.5 per cent for non-residential buildings (The Daily, 8 February 2023). The CCA's spring 2025 tariff bulletin put the effect of the steel and aluminum tariffs then announced at three to five per cent of total project cost. The Ottawa Construction Association's July 2022 worked example shows the scale for one trade: a 7.81 per cent index rise over four months on a $400,000 drywall package is a $31,240 adjustment. No source found measures how many trades decline public bids for this reason, so no figure is given for that."
+
+sponsor_opportunities:
+  - title: "Tender Risk-Terms Reading Service"
+    type: saas
+    revenue_model: "Trade contractors or their local construction association would pay a subscription. For each tender of interest the service would read the documents and report, in plain words, what price-adjustment terms apply and what flows down to the subcontract."
+    strategic_logic: "The CCA tells trades to read the prime contract before bidding. Few small trades have the time or the documents. An association that sponsors the service gives its members the reading they are told to do and learns which owners' terms keep bidders away."
+    recurring: true
+
+  - title: "Escalation Clause Reference Library"
+    type: saas
+    revenue_model: "Public owners, general contractors and construction associations would pay an annual fee for access to a maintained library of published clauses, the indexes they refer to, and worked examples of how an adjustment is calculated."
+    strategic_logic: "The clauses and indexes are public but scattered across association bulletins, statistical guides and owners' special provisions. Keeping them current in one place is steady work that each owner and contractor now repeats alone."
+    recurring: true
+
+  - title: "Claim Record Preparation"
+    type: managed-service
+    revenue_model: "A trade would pay per project for help assembling the record a price-adjustment claim needs: the bid-time quotes, supplier notices, invoices and index readings, in the order the contract's notice provisions require."
+    strategic_logic: "The CCA bulletin says a trade must give written notice, keep detailed records and bring evidence. A small trade that keeps the record from the first day is more likely to be paid, and less likely to fail in the middle of a public job."
+    recurring: false
+
+  - title: "Material Supplier Introductions"
+    type: commerce-extension
+    revenue_model: "Material suppliers willing to hold a quoted price for a stated period would pay a listing or referral fee to be introduced to trades bidding on jobs that need that material."
+    strategic_logic: "How long a supplier will hold a price decides how much exposure the trade carries. Suppliers who offer longer holds have something trades want and no direct way to reach them at bid time."
+    recurring: true
+
+story:
+  title: "The Bid She Almost Skipped"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Renata - owner of a twelve-person electrical contracting firm, Brandon, Manitoba"
+    - "Colm - estimator for a general contractor, Winnipeg, Manitoba"
+  summary: "An electrical contractor who has stopped bidding on multi-year public work finds a school project whose general contractor is prepared to pass down the owner's copper adjustment term."
+  body: |
+    ## Act A - The Market Structure
+
+    A public school is usually built for a fixed sum. The owner signs a stipulated-price contract with a general contractor. The general contractor signs fixed-price subcontracts with the trades. Each trade then buys its material over the next two or three years at whatever the price is on the day.
+
+    Statistics Canada reported that non-residential building costs rose 12.5 per cent in 2022, the largest annual increase since that index began. A move of that size can be larger than a small trade's margin on the job.
+
+    The Canadian Construction Association publishes an example escalation clause for the standard prime contract. Its bulletins also say that the protection often stops at the prime contract, and that a trade facing too much risk should not bid.
+
+    So trades pad their bids or stay away, and owners pay for the padding or receive fewer bids. The trade usually cannot see the prime contract, so it cannot tell a job with shared risk from one without.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Renata** runs a twelve-person electrical firm in Brandon, Manitoba. Two years ago she wired a recreation centre at a fixed price. Copper rose after she signed. She finished the job and made nothing on it. Since then she has bid only on work that finishes within six months.
+
+    She describes her firm to the marketplace in her own words: commercial and institutional electrical work, crews for jobs up to eighteen months, copper wire and cable as the cost she cannot control, and a rule that she will hold a price for ninety days and no longer unless the contract adjusts for copper.
+
+    **Colm** estimates for a general contractor in Winnipeg that is bidding on a school addition in western Manitoba. The owner's tender includes a price-adjustment term for a short list of materials, copper among them, tied to a published index with a threshold. Colm has two electrical prices so far. He suspects both carry a cushion for copper. He uploads the tender's general conditions and his firm's subcontract form, and adds one line: the firm will pass the owner's adjustment term down to the trade unchanged.
+
+    The marketplace reads the documents into a profile and matches it against the trades' descriptions. Renata and Colm each receive the same **Content Match Story**. Neither is named in it. It says that an electrical contractor within reach of the site will take on an eighteen-month job where copper is adjusted by index, and that a general contractor bidding such a job will pass that term down. It states plainly what is not yet known: the threshold, and whether the trade's bonding covers a job of this size.
+
+    Both agree to be introduced. Renata sees the clause itself for the first time. She prices the job at current copper cost, with no cushion. Her number is the lowest of the three. A **Deal Brief** sets out the adjustment term, the index, the notice period and the records she must keep, for her lawyer and her surety to review.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The clause existed before Renata saw it. What was missing was any way for her to learn, before spending a week on an estimate, that this job came with it.
+
+    The marketplace took no risk in this story. The index clause did that work, and the owner who wrote it did. The platform's part was to make the terms part of what is matched, and to keep each side's numbers private until both chose to talk. That is the role [thin-market infrastructure](../market-physics.html) plays when a market fails on information and not on supply.
+
+    *Renata, Colm, their firms and the school project are fictional. The cost figures from Statistics Canada and the Canadian Construction Association's guidance on escalation clauses are real. Risk insulation is designed and not yet built, and the story does not rely on it. [DeeperPoint](../marketforge.html) is building the infrastructure this story describes.*

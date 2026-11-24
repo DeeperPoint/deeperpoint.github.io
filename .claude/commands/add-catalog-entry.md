@@ -5,8 +5,9 @@ description: Add one or more new entries to the MarketForge Opportunity Catalog 
 # /add-catalog-entry — Complete Workflow
 
 Use this workflow whenever adding new YAML scenario entries to the catalog.
-It encodes all schema rules and the mandatory local build step that the
-GitHub Action does NOT run automatically.
+It encodes all schema rules and the local build step. (Checked 2026-11-24: the
+deploy Action now runs `build_catalog.py` as well, but the generated pages are
+tracked in git, so build locally and commit them with the YAML.)
 
 **Input:** `$ARGUMENTS` — the scenario(s) to add (a slug/topic or source doc); add-many is supported.
 
@@ -15,16 +16,19 @@ GitHub Action does NOT run automatically.
 ## Critical Rules (learned from past mistakes)
 
 > [!CAUTION]
-> The GitHub Action only runs `build_blog.py`. It does **not** run
-> `build_catalog.py`. You MUST run the catalog builder locally and commit
-> the generated HTML files along with the YAML source.
+> Run `build_catalog.py` locally, then `python update_nav.py`, and commit the
+> generated HTML with the YAML source. The builder writes its own navigation
+> into every catalog page; `update_nav.py` puts the site's current navigation
+> back. Skip it and about 250 existing pages show as modified.
 
 | Mistake | Consequence | Prevention |
 |---|---|---|
 | YAML placed in `catalog/` root | File ignored silently; count stays the same | Always write to `catalog/scenarios/` |
 | `status: draft` | File silently skipped; count stays the same | Use `status: published` |
 | Using `vertical:` instead of `sector:` | Entry appears in catalog but in sector "other" | Use `sector:` — see valid values below |
-| Not running `build_catalog.py` locally | HTML never generated; site unchanged | Always run step 4 before committing |
+| Not running `build_catalog.py` locally | Generated pages in git fall out of step with the YAML | Always run step 4 before committing |
+| Not running `update_nav.py` after the build | Every existing catalog page shows as modified, with the builder's older navigation | Run it straight after the build |
+| No `challenges:` line | The idea page has no "Challenges That Bind It" panel and the Home page box cannot match on it | Add two to four slugs from `cards/cards.json`, most binding first |
 
 ---
 
@@ -69,6 +73,7 @@ sector: <value-from-table-above>          # NOT 'vertical:'
 sub_sector: "Human-readable sub-category"
 forge_tier: 1                             # 1=Easy, 2=Moderate, 3=Complex
 status: published                         # NOT 'draft'
+challenges: [slug, slug, slug]            # two to four slugs from cards/cards.json, most binding first (rubric: DeeperPointWiki/work/2026-11-24-catalog-tagging/rubric.md)
 tags: [tag1, tag2, tag3]
 # hidden: true                            # optional - suppresses without deleting
 
@@ -128,7 +133,7 @@ story:
     Link to market-physics.html and marketforge.html.]
 
     *Characters are fictional. [Relevant domain facts] are real.
-    [DeeperPoint](../../marketforge.html) is building the infrastructure
+    [DeeperPoint](../marketforge.html) is building the infrastructure
     this story describes.*
 ```
 
@@ -153,9 +158,10 @@ indentation or quoting issue before proceeding.
 ```powershell
 # From deeperpoint.github.io root:
 python scripts/build_catalog.py
+python update_nav.py
 ```
 
-**Expected output ends with:**
+**Expected output of the build ends with:**
 ```
 Catalog build complete. NNN scenarios published.
   Access at: https://deeperpoint.com/catalog/
@@ -207,6 +213,15 @@ sme-service-consortium
 social-enterprise
 ```
 
+The list above is partial (checked 2026-11-24). Sectors also in use, with their file prefixes:
+`arts-cultural-markets` (art-), `canadian-agriculture` (cag-), `canadian-education` (edu-),
+`canadian-energy` (cen-), `canadian-export` (export-), `canadian-financial-services` (cfs-),
+`canadian-forestry` (for-), `canadian-justice-system` (cjs-), `canadian-natural-resources` (cnr-),
+`canadian-research-institutions` (cri-), `developing-economy` (dev-),
+`environmental-circular-economy` (eco-), `global-health-pharma` (ghp-), `pets-and-animals` (pet-),
+`professional-services` (psvc-), `senior-expert-marketplace` (sem-), `talent-deep-match` (tdm-).
+For the current list run `grep -h "^sector:" catalog/scenarios/*.yaml | sort | uniq -c`.
+
 To add a new sector, use a lowercase hyphenated identifier. The builder will
 display it title-cased in the sector filter dropdown automatically.
 
@@ -247,5 +262,9 @@ derived from content: "Full story on the blog" when `blog_slug` names a post,
 - Do **not** manually edit `catalog/index.html`. The builder regenerates it entirely.
 - Do **not** commit the old `catalog/*.yaml` root-level files if they exist; they are
   ignored by the builder. The canonical location is `catalog/scenarios/`.
-- The GitHub Action rebuilds the blog but NOT the catalog. Any catalog changes
-  pushed without running `build_catalog.py` locally will not appear on the live site.
+- The deploy Action builds the blog and the catalog on every push (checked 2026-11-24). The
+  generated catalog pages are still tracked in git, so commit them.
+- Research before writing. Every number, date, programme, law and company in an entry needs a
+  source; do not estimate market size, prices or platform revenue. Say "would" for anything the
+  engine does not do yet, and use "Content Match Story", not "Generative Match Story".
+- Story links are relative to the catalog folder: `../market-physics.html`, `../marketforge.html`.

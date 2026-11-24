@@ -1,0 +1,95 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: muni-replacement-suppliers-public-buyers
+title: "Replacement Canadian Suppliers for Public Buyers Directed Away from a Foreign Source"
+card_title: "Replacement Suppliers for Public Buyers"
+sector: municipal-government
+sub_sector: "Public Procurement"
+forge_tier: 2
+status: published
+challenges: [geopolitical-trade-volatility, opacity, participant-fragmentation]
+tags: [public-procurement, buy-canadian, buy-ontario, school-boards, hospitals, municipalities, tariff-response, local-suppliers]
+
+market_example:
+  summary: "Since March 2025 Ontario hospitals, school boards and ministries may not sign new contracts with United States businesses, and cities such as Toronto have limited smaller tenders to Canadian suppliers. Buyers need Canadian sources in categories they never had to search. Suppliers hesitate to add capacity for a policy tied to a trade dispute."
+  problem: "Public buyers in Canada have been told, by different rules, to shift purchasing toward domestic suppliers. Ontario's Procurement Restriction Policy, announced on March 4, 2025 and released on April 4, 2025, bars ministries, agencies and designated broader public sector bodies, including hospitals, school boards, universities and colleges, from new purchases of goods and services from United States businesses, whatever the value. A United States business is one with its head office in the United States and fewer than 250 full-time employees in Canada. The exception is narrow: the business must be the only viable source and the purchase must be one that cannot be delayed. That policy does not cover municipalities, which have acted separately. Toronto City Council voted in March 2025 to make Canadian suppliers the only eligible bidders on competitive purchases below set thresholds. From April 13, 2026 the Buy Ontario Procurement Directive adds preferences for Ontario and Canadian businesses by contract value, and a separate municipal directive brought Ontario municipalities under made-in-Ontario requirements for fleet vehicles on April 13, 2026 and for capital infrastructure on May 15, 2026. The federal Buy Canadian Policy took effect on December 16, 2025. In most categories a Canadian supplier was already the usual choice. The difficulty lies in the remainder: categories where the usual source was American and the buyer has never needed to look elsewhere. A Canadian firm that could fill the category is often small, unknown to the buyer and not on any vendor list. And the Ontario government said the restriction would be reassessed if the United States tariffs were lifted, so a supplier asked to add a line or hire staff for this demand cannot tell how long the demand will last."
+  dominant_forces:
+    - "Geopolitical & Trade Volatility: the demand exists because of a trade dispute, and Ontario has said the restriction will be reassessed if the tariffs are lifted. Suppliers hesitate to add capacity for a market that a settlement could remove"
+    - "Opacity: a buyer who has always purchased a category from a United States source does not know which Canadian firms make an equivalent, and those firms do not know which public bodies are now looking"
+    - "Participant Fragmentation: the Canadian alternative is often a small firm that cannot meet a large public body's full volume, insurance or vendor requirements alone, and each school board or hospital buys the category in quantities too small to justify a search of its own"
+    - "Equivalence burden: the buyer must be satisfied that the replacement product meets the specification the incumbent product was written around, before it can rule the incumbent out"
+  deeperpoint_fit: "The engine, Cosolvent, matches from descriptions in ordinary words. A buyer describes what the product has to do, not the brand it has always bought; a supplier describes what it makes. Its document reading turns product data sheets, safety data sheets and the buyer's existing specification into profiles, so that equivalence can be compared point by point. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them. For a supplier that means its current customers, its capacity and its pricing; for a buyer it means the incumbent contract's terms. Each candidate pairing produces a Content Match Story, one account of why the two parties might deal, given to both while anonymous, and then a Deal Brief, a non-binding summary for the parties' own lawyers, banks and advisers. The service would sit beside public tendering, not replace it: it helps a buyer learn that Canadian sources exist before writing a tender, and the purchase itself still follows the buyer's procurement rules. CommonContext would prepare the reference library (the provincial and federal policies, their definitions and thresholds), held in a domain wiki, and ClientSynth generates invented test participants for trials. Three things this market would want are designed and not yet built: aggregation, which would pool several small suppliers or several boards' demand; risk insulation, which would let a contract carry agreed terms for a policy reversal; and memory across sessions. Two-sided matching is also designed and not yet built."
+  economic_upside: "Ontario's Premier said on March 4, 2025 that the provincial government and its agencies spend about $30 billion a year on procurement. The City of Toronto says it procures about $3 billion in goods and services each year, and a City letter of March 2026 reported that 96% of suppliers awarded contracts through open competitive procurements in 2025 were Canadian. CBC reported in March 2025 that United States firms had won $210 million in Toronto contracts over the previous two years. Public Services and Procurement Canada reported that, as of June 25, 2026, the federal Buy Canadian Policy had applied to solicitations valued at more than $3 billion. These figures show that the displaced share is a small part of a very large total, concentrated in particular categories. No sourced figure was found for the value of purchases that Ontario hospitals and school boards have had to move, and none is claimed here."
+
+sponsor_opportunities:
+  - title: "Replacement Supplier Matching Service for Public Buyers"
+    type: saas
+    revenue_model: "An annual subscription paid by public bodies, or paid once for a group of them by a shared purchasing organization, a provincial supply agency or a municipal association. Suppliers would join without charge at first. The basis is access to matching, not a share of contract value."
+    strategic_logic: "The policies tell buyers what they may not buy and leave them to find the alternative. An agency or purchasing group that funds a shared service spares each board and hospital its own search and gives small Canadian suppliers one place to be found."
+    recurring: true
+
+  - title: "Supplier Profile and Equivalence Documentation"
+    type: managed-service
+    revenue_model: "A fee per supplier, paid by the supplier or by a sponsor such as a regional economic development office, for reading product and safety documents into a profile and setting them beside the buyer's specification."
+    strategic_logic: "Small manufacturers lose public work at the equivalence step, because nobody on staff writes the comparison. A development office that pays for it once makes a local firm eligible for many buyers."
+    recurring: false
+
+  - title: "Procurement Policy Reference Library"
+    type: managed-service
+    revenue_model: "A subscription paid by a sponsor or by member bodies for a maintained, sourced library of the domestic-preference and restriction policies that apply to each kind of public buyer, with a dated notice when one changes or is withdrawn."
+    strategic_logic: "The rules differ for ministries, hospitals, school boards and municipalities, and changed several times between March 2025 and May 2026. Buyers and suppliers both need a plain record of what applies today, and of any reversal on the day it happens."
+    recurring: true
+
+  - title: "Delivery and Stocking Coordination for Small Suppliers"
+    type: logistics-extension
+    revenue_model: "A fee per contract or per delivery schedule, paid by the supplier, for arranging warehousing and scheduled delivery to many sites. No rate is assumed here."
+    strategic_logic: "A school board has dozens of sites and expects delivery to each. A small maker that wins the category often has no distribution. The service that made the match knows the sites and the schedule."
+    recurring: true
+
+story:
+  title: "The Floor Finish Nobody Had to Look For"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Hannah - purchasing manager at a school board, Sudbury, Ontario"
+    - "Omar - owner of a cleaning-products manufacturer, Brantford, Ontario"
+  summary: "A school board buyer may no longer renew with the American company that supplied her custodial products, and the Ontario maker who could replace it is not sure the demand will last long enough to pay for a second filling line."
+  body: |
+    ## Act A - The Market Structure
+
+    Since March 4, 2025 Ontario's Procurement Restriction Policy has barred ministries, hospitals, school boards, colleges and universities from new purchases from United States businesses. The test is simple: head office in the United States and fewer than 250 full-time employees in Canada. The exception is narrow. Municipalities are not covered by that policy, but cities such as Toronto adopted limits of their own, and in 2026 the Buy Ontario directives added more.
+
+    A buyer whose category was always supplied from the United States has no list of anyone else. The Canadian firms that could do it are often small, and they have a doubt of their own. Ontario has said the restriction will be reassessed if the tariffs are lifted. Why add a production line for a customer who may be free to go back?
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Hannah** manages purchasing for a school board in Sudbury, Ontario. For a decade the board's floor finish and cleaners came from an American company with a sales office in Mississauga and forty staff in Canada. The contract ends in June. Under the policy she cannot sign a new one.
+
+    Her custodial supervisors want the same results on the same floors. She does not know who in Canada makes such products. Three distributors she calls offer the same American brand.
+
+    She describes the need to the marketplace by what the products must do: the floor types, the dilution equipment already in the schools, the safety requirements, delivery to forty-one sites. She uploads the current specification. The engine reads it into a profile.
+
+    **Omar** owns a cleaning-products plant in Brantford, Ontario, with nineteen employees. He sells to commercial cleaning companies. He described his plant on the marketplace in the spring and uploaded his product data sheets and safety data sheets. His customer list and his capacity stay hidden.
+
+    The engine compares Hannah's need with the supplier profiles and finds his. Both receive the same **Content Match Story**, still anonymous. It sets his products beside her specification, line by line. Four of five match. The fifth, a gym-floor finish, he does not make. It also notes that the supplier is small and that the volume may be more than it now produces.
+
+    They agree to be named and meet. Omar is frank: to supply the whole board he needs a second filling line, and he will not buy one for a one-year contract that a trade settlement could end.
+
+    Hannah cannot promise what the province will do. She can choose the term she tenders. The **Deal Brief** sets out what the two have learned: the four matching products, the gap, the volume, and his need for a three-year term. It is a summary for her procurement lawyer and his bank, and it commits no one.
+
+    She writes the tender for three years and by function, not by brand. Omar bids, and wins four of the five lines.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The policy told Hannah what she could not buy. It did not tell her who else existed. Omar was in the same province, selling to someone else, with no reason to think a school board was looking.
+
+    A category that was always imported has no vendor list. This is one of the [forces that keep a market thin](../market-physics.html): demand created by a trade dispute can be withdrawn by its settlement, and suppliers know it.
+
+    The [MarketForge](../marketforge.html) design covers the finding and the comparison. Pooling several boards' demand, and carrying the risk of a policy reversal, are designed and not yet built.
+
+    *Hannah, Omar, the contract and the plant are fictional. Ontario's Procurement Restriction Policy and the Buy Ontario directives are real. Matching, document reading, hidden details, the Content Match Story and the Deal Brief are in the engine today. Aggregation and risk insulation are designed and not yet built; in this story the buyer set the contract term herself, through her own tender.*

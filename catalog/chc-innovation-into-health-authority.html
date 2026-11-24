@@ -1,0 +1,544 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selling an Innovation into a Health Authority: Making the Approval Path Visible Before the Pilot — DeeperPoint</title>
+  <meta name="description" content="A Canadian medical-device or health-software firm wins over a clinician, then loses the sale with privacy, security, biomedical engineering, procurement and finance reviewers it never met. This idea is a marketplace where a health authority states its full approval path in confidence, so both sides know what a yes requires before a pilot starts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../demos.html" class="nav__link">Demos</a></li>
+        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../library.html" class="nav__link">Library</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Healthcare Support &middot; Health Technology Adoption and Procurement</div>
+      <h1 class="detail-title">Selling an Innovation into a Health Authority: Making the Approval Path Visible Before the Pilot</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#ec4899;border:1px solid #ec489944;">Complex</span>
+        <span class="blog-tag">health-technology</span><span class="blog-tag">medical-devices</span><span class="blog-tag">hospital-procurement</span><span class="blog-tag">privacy-assessment</span><span class="blog-tag">pilot-projects</span><span class="blog-tag">health-authorities</span><span class="blog-tag">innovation-adoption</span>
+      </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Canadian medical-device and health-software firms sell to hospitals and regional health authorities through a clinical champion: a physician, a nurse lead or a department head who sees the problem and wants the product. That person does not decide alone. A privacy office must assess any system that touches patient information. In British Columbia the public-sector privacy statute requires public bodies, health authorities among them, to carry out privacy impact assessments, and Ontario Health&#x27;s privacy office approves such assessments for the systems it runs while its security office handles third-party security risk and threat risk assessments. Biomedical engineering, procurement and finance each ask their own questions. Health Canada licensing comes first: a Class II, III or IV device cannot be sold in Canada without a medical device licence. The Competition Bureau&#x27;s digital health care market study (October 2022) reported that procurement of digital health products can take years, that a product may be outdated by the time a process ends, that buyers prefer products that are tested and well known, and that a vendor faces 14 purchasing jurisdictions with differing requirements, so products often have to be customized for each organization. A C.D. Howe Institute memo (May 2025) found that the system lacks consistent ways to scale a successful pilot or move it to ongoing use, and that pilot money often comes from a ministry budget or a grant with no route to ongoing program funding. The federal government has put $42 million since 2019 into the CAN Health Network, which pairs firms with member health organizations for commercialization projects, a sign of how hard the path is without help. No public source measures how many sales fail at an approver the seller never met. The firms describe it, and the published process explains why it happens: the reviewers are real, their questions are reasonable, and the seller hears them only when the file has stopped.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Decision-Process Opacity: the clinical champion says yes, and privacy, security, biomedical engineering, procurement and finance each hold a veto in rooms the seller never enters. An objection surfaces only as silence.</li><li>Regulatory Friction: Health Canada device licensing, provincial privacy statutes and 14 purchasing jurisdictions with differing requirements mean a product cleared for one health authority is often assessed again from the start at the next.</li><li>Risk: the Competition Bureau found that buyers prefer tested and well-known products, and that some purchasers ask for Canadian clinical evidence. The first health authority to adopt carries the cost if the product fails in use.</li><li>Pilot funding with no successor budget: the C.D. Howe Institute memo found that pilot money often has no direct mechanism to become ongoing program funding, so a pilot can succeed and still have no budget line to buy from.</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;"><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#decision-process-opacity" title="The counterparty you can see fronts a coalition you cannot.">Decision-Process Opacity</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#regulatory-friction" title="Rules that fragment a market or stop it forming at all.">Regulatory Friction</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#risk" title="The chance that a transaction ends in loss rather than gain.">Risk</a></p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        AI Trusted Intermediary, AI Risk Insulation. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>The engine, Cosolvent, does three things today that bear on this market. It matches from descriptions in ordinary words, so a firm can say what its product does and a clinical team can say what its problem is without sharing a vocabulary of procurement categories. It reads documents into profiles, so a health authority&#x27;s published privacy, security and procurement requirements, and a firm&#x27;s licence, test reports and earlier assessments, become part of what is matched. Its trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them, which lets a health authority state its real approval path (who must sign, in what order, on what evidence) and lets a firm state its real gaps, without either becoming public. A match produces a Content Match Story, one account of why the two might deal, given to both while they are still anonymous. After both agree to reveal, it produces a Deal Brief: a non-binding summary written for the people the seller never meets, the privacy office, security, biomedical engineering, procurement and finance, and for each side&#x27;s lawyers. CommonContext prepares the reference library, and a domain wiki holds the market&#x27;s sourced knowledge: licence classes, provincial privacy statutes, purchasing thresholds. ClientSynth generates invented test participants so the market can be tried before real ones join. Following one file through months of reviews would need memory across sessions, which is designed and not yet built. Risk insulation, which would address a buyer&#x27;s fear of being first, is also designed and not yet built. The engine does not reach inside a health authority. It carries only what participants tell it and what their documents say.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>CIHI&#x27;s National Health Expenditure Trends, released in November 2026, projects total health spending in Canada of $433 billion in 2026, with hospitals the largest category at 25.6 per cent. ISED&#x27;s medical devices industry profile (page dated July 2025) puts the Canadian medical devices market, excluding in vitro diagnostics, at an estimated US$10.06 billion in 2024, with exports of CAN$5.5 billion in 2024, and says most firms in the industry are small or medium-sized. ISED&#x27;s Canadian Industry Statistics list 2,494 establishments in medical equipment and supplies manufacturing in 2025, 97 per cent of them with fewer than 100 employees. A federal news release of August 1, 2025 says the CAN Health Network had by then supported 99 companies through 127 commercialization projects with 50 member health organizations, and credits it with helping to generate more than $698 million in revenue. No source gives the value of sales lost at unseen approvers, and none is estimated here.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Reviewers She Never Met</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p><strong>Characters:</strong> Amara - founder of a wound-imaging software firm, Kitchener, Ontario, Denis - clinical lead for wound care at a regional health authority, Moncton, New Brunswick, Lucie - privacy officer at the same health authority, Moncton, New Brunswick</p>
+        
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>A hospital does not buy the way a clinical lead decides. The clinician who sees the problem is one voice. A privacy office must assess any system that touches patient information. Security staff assess the vendor. Biomedical engineering asks how the product will be supported. Procurement asks whether the purchase must go to open competition. Finance asks which budget pays once the pilot grant ends.</p>
+<p>The Competition Bureau reported in 2022 that procurement of digital health products in Canada can take years, across 14 purchasing jurisdictions. A C.D. Howe Institute memo of May 2025 found that the system lacks consistent ways to scale a successful pilot.</p>
+<p>None of these reviewers is hostile. The seller simply never meets them, and learns of a question only when the file has stopped moving.</p>
+<p>The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Amara</strong> runs a nine-person firm in Kitchener, Ontario. Its software measures chronic wounds from a phone photograph, and it holds a Health Canada licence as a Class II device. Two years ago a hospital pilot went well. The purchase died eight months later. She never learned where.</p>
+<p><strong>Denis</strong> is the clinical lead for wound care at a regional health authority, based in Moncton, New Brunswick. His nurses measure wounds with paper rulers. He has asked for something better twice.</p>
+<p>Before Denis looks for a vendor, his innovation office builds the authority's profile on the marketplace. It uploads the published privacy and security requirements and the procurement policy, and the engine reads them into the profile. <strong>Lucie</strong>, the privacy officer, adds protected details that are not published: the order of the reviews, the evidence each one needs, the value above which a purchase must be tendered, and the fact that the pilot grant cannot pay for a second year.</p>
+<p>Denis describes his problem in plain words. Amara's profile was built the same way, from her licence, her last security test and the privacy assessment the earlier hospital completed.</p>
+<p>The engine matches the two and writes a <strong>Content Match Story</strong>. Both receive the same account while still anonymous. It says why the product fits the wound-care problem. It also says that the buyer needs a privacy assessment covering photographs held on staff phones, that the seller's existing assessment does not cover that point, and that ongoing funding has not been identified.</p>
+<p>Both agree to reveal who they are. The engine then produces a <strong>Deal Brief</strong>: a non-binding summary written for Lucie, the security analyst, biomedical engineering, procurement and finance, and for Amara's lawyer. It lists each review, what it will ask, and what Amara can supply now.</p>
+<p>Amara spends three weeks closing the privacy gap before the pilot starts. Denis takes the funding question to his director in the first month and not the ninth. The pilot agreement states what result would lead to a tender, and when.</p>
+<p>Nobody is promised a sale. Both know what a yes requires.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Health authorities are not hiding their process. Much of it is written down. The parts that decide the outcome sit in people's heads and in budget lines, and no seller is in the room when they are discussed.</p>
+<p>A procurement portal publishes tenders. It does not tell a firm, before a pilot, what a privacy officer will ask afterwards.</p>
+<p>A <a href="../market-physics.html">trusted intermediary</a> changes what can be said early. The buyer can state its real path in confidence, and the seller can state its real gaps. <a href="../marketforge.html">MarketForge</a> is the recipe for building a market of this kind.</p>
+<p><em>Amara, Denis, Lucie, the firm and the health authority are fictional. Health Canada device licensing, privacy impact assessments, the Competition Bureau's 2022 study and the C.D. Howe Institute's 2025 memo are real. The matching, the confidential profiles, the Content Match Story and the Deal Brief are in the engine today. Following a file through months of reviews would need memory across sessions, which is designed and not yet built.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Approval-Path Profiles for Health Authorities</div>
+        <p>A health authority spends staff time on pilots that cannot become purchases. A profile that states the path once, and is shown only to matched firms that agree to the terms, lets its innovation office screen earlier and spares its reviewers incomplete files.</p>
+        <div class="opp-card__revenue">&#128181; A health authority, or the provincial agency that funds its innovation office, would pay an annual subscription per organization to keep its approval path, review requirements and budget rules current in a confidential profile.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Assessment Readiness Service for Vendors</div>
+        <p>Small firms cannot afford to learn each buyer&#x27;s requirements by losing a deal. A service that lists the gaps before a pilot starts is worth paying for each time a firm approaches a new health authority, and the work feeds the domain wiki.</p>
+        <div class="opp-card__revenue">&#128181; A firm would pay per engagement to have its licence, security test results and earlier privacy assessments read into a profile and compared with a named buyer&#x27;s stated requirements, with the gaps listed.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Operating Licence for an Innovation Network or Provincial Agency</div>
+        <p>Bodies that already broker pilots do the mapping of approvals by hand, one deal at a time. Running the marketplace turns that knowledge into something members can reuse, and gives the sponsor a record of where files stall.</p>
+        <div class="opp-card__revenue">&#128181; An innovation network, a provincial health agency or a regional development body would pay an annual fee, from its program budget, to run the marketplace for its member health organizations and the firms it supports.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Reusable Evidence Packages Across Health Authorities</div>
+        <p>The Competition Bureau found that products are often reassessed and customized for each organization. A package that a second buyer can start from shortens the second sale, which is where a small firm&#x27;s survival is usually decided.</p>
+        <div class="opp-card__revenue">&#128181; A firm would pay a fee each time a completed evidence package (assessments, test results, pilot outcomes) is released, with the first buyer&#x27;s consent, to a further health authority. This extension is designed and not yet built.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

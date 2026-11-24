@@ -1,0 +1,543 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second-Life Electric Vehicle Batteries for Stationary Storage — DeeperPoint</title>
+  <meta name="description" content="Used electric vehicle batteries could store power for farms, small utilities and buildings, but buyers hold back. New storage batteries fell 45 per cent in price in one year, and a buyer cannot easily verify a used pack&#x27;s condition. This market would match holders of used packs with storage buyers on verified condition and terms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../demos.html" class="nav__link">Demos</a></li>
+        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../library.html" class="nav__link">Library</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Environmental Circular Economy &middot; Battery Reuse and Energy Storage</div>
+      <h1 class="detail-title">Second-Life Electric Vehicle Batteries for Stationary Storage</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">second-life-batteries</span><span class="blog-tag">energy-storage</span><span class="blog-tag">ev-batteries</span><span class="blog-tag">circular-economy</span><span class="blog-tag">battery-repurposing</span><span class="blog-tag">farms</span><span class="blog-tag">fleet-operators</span>
+      </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>A battery pack retired from a vehicle usually has useful capacity left. Repurposing it for stationary storage is an established idea, and Canada has a firm doing it: Moment Energy, a British Columbia repurposer, holds UL 1974 certification for its process and in November 2026 opened orders for a 200 kilowatt, 500 kilowatt-hour storage unit built from vehicle packs, with first deliveries expected in the first quarter of 2027. The difficulty is on the buying side, and it comes from the price of new batteries. BloombergNEF&#x27;s 2025 battery price survey, published in December 2025, put the average pack price for stationary storage at 70 US dollars per kilowatt-hour, 45 per cent lower than in 2024, and said it expected prices to fall again in 2026. A University of Mannheim study of used-battery values finds that the fair value of a used pack drops as new battery prices fall. The World Resources Institute has written that a narrowing cost advantage and a shorter remaining life are putting the economics of second-life batteries under increasing pressure. A farm or a building owner who installs a used pack pays for wiring, permits and a concrete pad. If a new pack costs less in three years than the used one cost today, that installation has been paid for around an asset worth little. The second difficulty is knowing what is being bought. Packs differ by maker, chemistry, age and how they were driven and charged. UL 1974 covers how a repurposer sorts and grades packs, but it is not mandatory for deploying second-life systems in North America. The rules around the supply are also unsettled. A January 2026 review by the law firm Gowling WLG found no federal regime specifically governing electric vehicle batteries at end of life. A voluntary EV Battery Recovery Program, coordinated by Call2Recycle and supported by 16 vehicle manufacturers, went national in June 2025 after a pilot in Quebec. The proposal for this entry named recyclers as holders of used packs. The sources show a mixed channel: the recovery program may send collected packs to remanufacturing, repurposing, recycling or manufacturers&#x27; own research centres, so a storage buyer has no single place to look.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Technological Obsolescence: new stationary storage packs fell 45 per cent in price between 2024 and 2025 by BloombergNEF&#x27;s survey, and a used pack&#x27;s value falls with them, so a buyer fears paying for an installation around an asset that is soon worth little</li><li>Trust: a buyer cannot check a used pack&#x27;s state of health or history alone, and the certification that covers sorting and grading is not mandatory in North America</li><li>Offering Complexity: each pack differs by maker, chemistry, age, remaining capacity and usage history, and each site differs in power, energy, climate and permitting needs</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;"><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#technological-obsolescence" title="An asset made obsolete before its cost is recovered.">Technological Obsolescence</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#trust" title="Whether participants feel secure enough to engage at all.">Trust</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#offering-complexity" title="How many distinct details matter for each offering.">Offering Complexity</a></p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        AI Risk Insulation, AI Trusted Intermediary, AI Memory, AI Matching. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>Three parts of the Cosolvent engine exist today and apply here. A storage buyer can describe a site in ordinary words (what the storage is for, how much power and energy, indoor or outdoor, the term it expects) and be matched against packs and systems described the same way by fleet operators, repurposers and recovery channels. The trusted-intermediary pipeline keeps protected details, such as a fleet&#x27;s identity, a pack&#x27;s source or a buyer&#x27;s budget, hidden until both sides agree to reveal them. The engine reads documents such as test reports, grading records and site electrical drawings into a profile. It produces a Content Match Story, one account of why two parties might deal, given to both while they are still anonymous, and a Deal Brief, a non-binding summary for the parties&#x27; own engineers, insurers and lawyers. A domain wiki, prepared with CommonContext, would hold the sourced reference material: price surveys, safety standards and the provincial rules. ClientSynth generates invented test participants so the market can be tried before real ones join. The part aimed most directly at this market&#x27;s main problem is not built. Risk insulation would let a seller&#x27;s buy-back or capacity commitment be structured so that the buyer is protected if new prices fall further; it is designed and not yet built. Aggregation, which would pool small lots of packs from several fleets into one supply, is also designed and not yet built.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>No sourced figure for the size of the Canadian second-life market was found, and none is estimated here. The supply is known to be coming: Gowling WLG&#x27;s January 2026 review reported that about 93,000 electric vehicle batteries in Canada will need recycling by 2040 and nearly 500,000 by 2045. The price that second-life packs must beat is also known: BloombergNEF&#x27;s December 2025 survey put new stationary storage packs at an average of 70 US dollars per kilowatt-hour. A Stanford Graduate School of Business working paper estimates that the fair market value of lithium iron phosphate batteries leaving vehicles generally exceeds 40 per cent of the value of a new battery, which suggests that reuse can hold value for some chemistries.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">What Will It Be Worth in Five Years</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p><strong>Characters:</strong> Hendrik - dairy farmer, Woodstock, Ontario, Simone - fleet manager at a delivery company, Laval, Quebec, Arjun - engineer at a battery repurposing firm, Surrey, British Columbia</p>
+        
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>A battery pack that is no longer good enough for a vehicle can still store power for years. Repurposing packs for stationary storage is a real business, and a Canadian firm holds safety certification for doing it.</p>
+<p>The buyers hesitate, for a reason that has nothing to do with the sellers. BloombergNEF's survey found that new storage battery packs fell 45 per cent in price between 2024 and 2025. A study from the University of Mannheim finds that a used pack's value falls as new prices fall. A buyer who pays today for a used pack, a pad, wiring and permits may find in three years that a new pack would have cost less.</p>
+<p>There is a second doubt. Every used pack has its own maker, chemistry and history. The standard that covers sorting and grading is not mandatory in North America.</p>
+<p>So sites that could use storage wait, and packs with years of use left may never reach them.</p>
+<p>The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Hendrik</strong> runs a dairy farm near Woodstock, Ontario. He has solar panels on the barn and milking equipment that cannot stop when the power does. He wants storage. He has read that battery prices keep falling.</p>
+<p>He describes his site to the marketplace in ordinary words: backup for milking and cooling, a few hours each day of shifting solar output, an outdoor location, cold winters. He adds the question that worries him: what will this be worth in five years? He uploads his electrical drawings and a year of power bills. The engine reads them into his profile.</p>
+<p><strong>Arjun</strong> is an engineer at a repurposing firm in Surrey, British Columbia. His firm has described its systems, its grading process and its terms. One term is that packs can be swapped inside the enclosure as they wear. Some of its packs come from <strong>Simone</strong>, who manages a delivery fleet in Laval, Quebec, and retires vans on a schedule.</p>
+<p>The engine matches Hendrik's description to Arjun's. Both receive the same Content Match Story while still anonymous. It says why they might deal: the system size suits the farm's load, the enclosure is rated for the climate, and the swap term speaks to Hendrik's question, because the pad, wiring and enclosure keep their use when a pack is replaced. It also says what is open: the price of a replacement pack is not fixed, and Hendrik's insurer has not been asked.</p>
+<p>Both agree to reveal who they are. Arjun sends the grading records for the packs he would supply.</p>
+<p>The marketplace produces a Deal Brief. It is not a contract. It lists the system, the test records, the swap term and the two open questions. Hendrik takes it to his insurer and his electrician. Arjun takes it to his firm's counsel, who drafts a schedule of replacement pack prices.</p>
+<p>Hendrik signs in the spring.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>A listing site would have shown Hendrik a used battery and a price. It would not have answered his question.</p>
+<p>The answer lay in one seller's terms and one pack's records, and it had to be set beside one buyer's worry. That takes a description in each side's own words, records a buyer can read, and an intermediary both sides trust with details they will not post in public. These are the <a href="../market-physics.html">frictions that keep this market thin</a>, and they are what <a href="../marketforge.html">MarketForge</a> is designed to reduce.</p>
+<p><em>Hendrik, Simone, Arjun and their businesses are fictional. The price survey, the Mannheim study and the certification standard are real. The matching, the anonymous Content Match Story and the Deal Brief are parts of the design that exist today. The replacement price schedule in this story was written by the parties. The part of the design that would structure protection against falling prices, and the part that would pool small lots of packs, are designed and not yet built.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Used Pack and Storage Site Matching Service</div>
+        <p>Holders of used packs and buyers of small storage have no common place to meet, and each pack and site has to be described in detail. A sponsor with an interest in reuse or in rural energy would give both sides a way to find each other.</p>
+        <div class="opp-card__revenue">&#128181; Repurposers and fleet operators would pay a subscription to list packs and systems, and a utility, a farm organization or a provincial energy agency could sponsor access for buyers. The basis would be an annual fee by participant type.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Independent Pack Condition and Grading Reports</div>
+        <p>The buyer&#x27;s doubt about condition is one of the main reasons deals do not happen. A report from a party with no stake in the sale addresses that doubt, and every listing that carries one becomes easier to match.</p>
+        <div class="opp-card__revenue">&#128181; The seller, or the buyer where the buyer asks for it, would pay a fee per pack or per lot for an independent test of state of health and a review of the pack&#x27;s history, done by an accredited laboratory arranged through the service.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Buy-Back and Capacity Commitment Terms</div>
+        <p>Falling prices for new batteries are the reason buyers wait. A commitment that fixes what the pack will be worth, or what it will deliver, moves that exposure to a party better able to carry it.</p>
+        <div class="opp-card__revenue">&#128181; Sellers, insurers or lenders would pay a fee on each completed deal that uses standard terms for a buy-back price or a guaranteed capacity over a stated number of years. This depends on the risk insulation part of the design, which is not yet built.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Logistics Extension</div>
+        <div class="opp-card__title">Pack Collection, Transport and End-of-Life Return</div>
+        <p>Used vehicle batteries are regulated as dangerous goods in transport. Small sellers and buyers do not have the handling arrangements, and a deal is not complete until the pack has a planned route to recycling.</p>
+        <div class="opp-card__revenue">&#128181; Sellers and buyers would pay per shipment for transport arranged through the service, including the return of a pack to a recycler at the end of its second life. Fees would be set per movement.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

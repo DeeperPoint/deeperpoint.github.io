@@ -1,0 +1,100 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: muni-pilot-to-purchase
+title: "From Municipal Pilot to Municipal Purchase: Stating the Purchase Path Before the Pilot Begins"
+card_title: "From Municipal Pilot to Municipal Purchase"
+sector: municipal-government
+sub_sector: "Procurement and Innovation"
+forge_tier: 2
+status: published
+challenges: [decision-process-opacity, risk, regulatory-friction]
+tags: [municipal-procurement, pilot-projects, cleantech, civic-technology, trade-agreement-thresholds, council-approval, innovation-procurement]
+
+market_example:
+  summary: "A cleantech or civic-technology firm runs a successful pilot with one municipal department, then waits while council, legal, procurement and a possible tender decide out of its sight. This idea is a marketplace where a municipality states its purchase path in confidence before the pilot, so both sides know what follows a good result."
+  problem: "A municipal pilot is usually approved by one department on a small budget. A purchase is a different decision made by different people. The Brookfield Institute's 2019 report for the Municipal Innovation Exchange, a project of Guelph, London, Barrie and MaRS, describes municipal procurement as involving the business unit that drives the purchase, the procurement office, and other affected departments such as information technology and legal, and notes that procurement offices are often brought in only after the need has been assessed. The same report says pilots are used to experiment outside the procurement process, and that they are hard to regulate and raise questions of fairness. It found that every city works under different policies, bylaws and dollar thresholds, and that in one of the three cities it studied, council approval was required for requests for proposals above $100,000 and for sole-source purchases above $50,000. Above the municipal bylaw sits the Canadian Free Trade Agreement. For 2026 and 2027 its thresholds for municipalities are $139,000 for goods, $139,000 for services and $347,400 for construction, as listed in Nova Scotia's procurement table of February 2026, and since September 2026 local governments must post covered notices on CanadaBuys, according to the Union of BC Municipalities. A purchase above the threshold generally goes to open competition, so the firm that proved the idea may have to bid for it against others. The City of Calgary's Innovation Through Procurement page states that a challenge statement may not result in a procurement. A University of Calgary School of Public Policy paper (July 2020) names risk aversion as one of the biggest barriers to buying innovation in the public sector. No source counts how many municipal pilots end without a purchase. What the sources show is a path with several approvers and at least one rule that no pilot can waive, none of which the firm can see from where it stands."
+  dominant_forces:
+    - "Decision-Process Opacity: the department that ran the pilot wanted the product. The purchase then depends on procurement, legal, information technology, finance and council, and the firm cannot see which of them holds the file or what question is unanswered."
+    - "Risk: the public buyer carries the blame if a new product fails, and the University of Calgary paper names risk aversion as one of the biggest barriers. The firm carries the cost of a pilot with no assured contract."
+    - "Regulatory Friction: trade-agreement thresholds and municipal bylaws require open competition above set values, so a successful pilot cannot simply be extended into a purchase, and each municipality's thresholds and approval rules differ."
+    - "Budget timing: a pilot is paid from a department's operating money, and a purchase usually needs a line in a budget that council approves once a year. A good result that arrives after the budget closes waits a year."
+  deeperpoint_fit: "The engine, Cosolvent, does three things today that bear on this market. It matches from descriptions in ordinary words: a public works manager can describe a problem and a firm can describe what its product did in a pilot, without either knowing the other's category names. It reads documents into profiles, so a municipality's procurement bylaw, budget calendar and published policies, and a firm's pilot report and test data, become part of what is matched. Its trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them. That lets municipal staff state the real purchase path (who must review, what council needs, when the budget closes, where the tender threshold falls) and lets a firm state what its earlier pilots did and did not prove. A match produces a Content Match Story, one account of why the two might deal, given to both while anonymous, and after both agree to reveal, a Deal Brief: a non-binding summary written for procurement, legal, information technology, finance and the author of the council report, and for the firm's own advisers. CommonContext prepares the reference library, and a domain wiki holds the market's sourced knowledge: trade-agreement thresholds, posting rules, published bylaws. ClientSynth generates invented test participants so the market can be tried before real ones join. The engine does not replace a tender or give any firm an advantage in one: it makes the path known before the pilot. Tracking where a file stands across months would need memory across sessions, which is designed and not yet built. Risk insulation, which would address the buyer's fear of a failed first purchase, is designed and not yet built."
+  economic_upside: "A University of Calgary School of Public Policy briefing paper (July 2020) reports, from OECD figures for 2015, that public procurement was 13.4 per cent of Canada's GDP and that local government made 21.1 per cent of general government expenditures, and states that almost 90 per cent of public procurement in Canada is undertaken by provincial and municipal governments. The Federation of Canadian Municipalities says on its website (read November 2026) that it has about 2,000 member municipalities representing more than 90 per cent of Canadians. Each of those is a possible buyer for a product that one municipality has already tested. No source gives the number or value of municipal pilots that end without a purchase, and none is estimated here."
+
+sponsor_opportunities:
+  - title: "Purchase-Path Profiles for Municipalities"
+    type: saas
+    revenue_model: "A municipality, or a provincial municipal association on behalf of its members, would pay an annual subscription per municipality to hold a confidential profile of its purchase path, built from its bylaw, thresholds and budget calendar."
+    strategic_logic: "Staff who run pilots spend time on products their own rules will not let them buy. A profile read once from documents the municipality already publishes costs little to keep current and screens out pilots with no route to purchase."
+    recurring: true
+
+  - title: "Pilot Agreement Design Service"
+    type: managed-service
+    revenue_model: "A municipality, or the agency funding the pilot, would pay per pilot for an agreement that states the success criteria, the review steps that follow, the budget date and whether a tender will be required."
+    strategic_logic: "The Brookfield Institute's report recommends building off-ramps and multiple stages of contracting into innovation procurement. A sponsor that writes those stages into each pilot, drawing on the Deal Brief, sells a service that both sides want before they start."
+    recurring: false
+
+  - title: "Operating Licence for a Regional Innovation Agency"
+    type: managed-service
+    revenue_model: "A regional innovation centre, an economic development agency or a municipal association would pay an annual fee from its program budget to run the marketplace for the municipalities and firms in its region."
+    strategic_logic: "Agencies that fund pilots are judged on whether the firms they support win customers. A marketplace that shows which pilots have a purchase path gives the agency a better use of its pilot money and a record of results."
+    recurring: true
+
+  - title: "Pilot Evidence Packages for Further Municipalities"
+    type: commerce-extension
+    revenue_model: "A firm would pay a fee each time its pilot evidence package (results, test data, the host's review findings) is released, with the host municipality's consent, to another municipality with the same problem. This extension is designed and not yet built."
+    strategic_logic: "An interviewee in the Brookfield Institute's report said the challenge was not to invent new things but to scale across cities. Evidence that a second municipality can rely on shortens its own review and gives the firm a second customer."
+    recurring: true
+
+story:
+  title: "What Happens After the Pilot Works"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Jonas - co-founder of a road-salt sensor firm, Waterloo, Ontario"
+    - "Shauna - public works manager, Red Deer, Alberta"
+    - "Farid - procurement officer, Red Deer, Alberta"
+  summary: "A sensor firm whose last pilot met every target and led nowhere is matched with a city that has stated, in confidence, each step between a good pilot and a purchase, including the tender the firm will have to win."
+  body: |
+    ## Act A - The Market Structure
+
+    A municipal pilot and a municipal purchase are two decisions made by different people. A department can approve a small trial from its own budget. A purchase passes through the procurement office, legal, information technology and finance, and often needs a budget line that council approves once a year.
+
+    The Brookfield Institute's 2019 report for the Municipal Innovation Exchange found that pilots are used to experiment outside the procurement process, and that they are hard to regulate and raise questions of fairness.
+
+    One rule sits above the local bylaws. Under the Canadian Free Trade Agreement, a municipal purchase of goods or services worth $139,000 or more in 2026 and 2027 is covered by its open-competition rules. A firm that proves its product in a pilot may then have to bid for the contract against others.
+
+    None of this is secret. It is simply invisible from the firm's side of the table.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Jonas** co-founded a twelve-person firm in Waterloo, Ontario. Its sensors read pavement temperature so that plough trucks spread only the salt a road needs. Last winter a town in Manitoba ran a pilot. Salt use fell, the roads supervisor was delighted, and nothing followed. Jonas sent five emails and never learned why.
+
+    **Shauna** manages public works in Red Deer, Alberta. Her salt budget has been overspent three winters running.
+
+    The city's profile on the marketplace was built from its procurement bylaw and budget calendar, which the engine read in. **Farid**, the procurement officer, added protected details: which reviews a connected device must pass, what the council report must contain, and the month when next year's capital requests close.
+
+    Shauna describes her problem in plain words. Jonas's profile holds his Manitoba pilot report and test data.
+
+    The engine matches them and writes a **Content Match Story**, given to both while still anonymous. It says why the product fits the problem. It also says that a city-wide purchase would exceed the trade-agreement threshold and go to open tender, that a device on the city network needs an information technology review, and that a budget request must be filed by a set month.
+
+    Both agree to reveal who they are. The engine produces a **Deal Brief**: a non-binding summary written for Farid, legal, information technology, finance and the author of the council report, and for Jonas's lawyer.
+
+    The pilot agreement that follows is different from the one in Manitoba. It names the result that counts as success. It says Shauna will file a budget request if that result is met, and that the purchase will then be tendered.
+
+    Jonas may lose that tender. He decides the pilot is still worth running, because this time he knows the date, the criteria and the people.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The Manitoba town did nothing wrong. Its supervisor wanted the product and had no authority to buy it. Nobody was assigned to tell the firm what the next step was, so nobody did.
+
+    A tender portal shows purchases that have already been decided. It does not tell a firm, before it spends a winter proving its product, whether a purchase is possible and who will decide.
+
+    A [trusted intermediary](../market-physics.html) lets staff state the real path without publishing it, and lets a firm say what its evidence does not yet show. It does not shorten the rules or tilt a tender. [MarketForge](../marketforge.html) is the recipe for building a market of this kind.
+
+    *Jonas, Shauna, Farid, the firm, the Manitoba town and the details of Red Deer's process are fictional. The Canadian Free Trade Agreement threshold, the Brookfield Institute's report and the Municipal Innovation Exchange are real. The matching, the confidential profiles, the Content Match Story and the Deal Brief are in the engine today. Tracking a file across months would need memory across sessions, which is designed and not yet built.*

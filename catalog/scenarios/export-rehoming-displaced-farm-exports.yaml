@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: export-rehoming-displaced-farm-exports
+title: "Re-Homing Prairie Canola, Pulse and Pork Exports Displaced by a Sudden Duty"
+card_title: "Re-Homing Displaced Farm Exports"
+sector: canadian-export
+sub_sector: "Agri-Food Export Diversification"
+forge_tier: 3
+status: published
+challenges: [geopolitical-trade-volatility, temporal-distance, offering-complexity]
+tags: [canola, pulses, pork, export-diversification, tariffs, china, india, prairies]
+
+market_example:
+  summary: "When China put 100% tariffs on Canadian canola oil, canola meal and peas in March 2025, exporters had twelve days of notice. Product already grown or contracted needed a new buyer within weeks, in countries with different specifications. This idea matches a displaced cargo to buyers elsewhere without first announcing that the seller is under pressure."
+  problem: "Prairie exporters of canola, pulses and pork sell much of their volume to a few countries. On March 8, 2025 China's commerce ministry concluded an investigation, and from March 20, 2025 it applied 100% tariffs to Canadian canola oil, canola meal and peas and 25% tariffs to pork and certain fish and seafood. A provisional duty of 75.8% on canola seed followed on August 14, 2025. India, the other large buyer of Canadian peas, applied a 30% import duty on yellow peas from November 1, 2025, ending duty-free access that had been extended to March 31, 2026. Relief came the same way the duties did, by announcement: from March 1, 2026 China cut the combined tariff on canola seed to about 15% and suspended the tariffs on canola meal and peas, at first only to the end of 2026 and, by a November 2026 announcement, to the end of 2028. As of June 2026 the 100% tariff on canola oil was still in place. An exporter caught by such a change holds product that is grown, graded or contracted and has weeks to place it. Buyers in other countries exist, but each has its own grade, protein, moisture, packaging and plant-health requirements, and the exporter's trading contacts are in the market that just closed. Buyers who learn that a cargo is distressed bid accordingly. And a new relationship built in a hurry may be dropped when the old market reopens."
+  dominant_forces:
+    - "Geopolitical & Trade Volatility: duties of 100%, 75.8% and 30% arrived on a few days or weeks of notice in 2025, and were cut or suspended in 2026 for limited terms. A whole corridor opens and closes by announcement"
+    - "Temporal Distance: a cargo that is harvested, in storage or already contracted must find a new buyer in weeks, while finding and qualifying a buyer in an unfamiliar country normally takes a season or more"
+    - "Offering Complexity: each destination has its own requirements for grade, protein, moisture, cleaning, packaging and plant-health certification, so a cargo prepared for one buyer is not simply a cargo for another"
+    - "Bargaining weakness under disclosure: once alternative buyers know why the product is available, the seller's urgency becomes the buyer's discount"
+  deeperpoint_fit: "The engine, Cosolvent, matches from descriptions in ordinary words, so an exporter can describe the lot as a trader would (crop, grade, protein, where it sits, when it can load) and a buyer can describe what a plant needs, and the two are compared on meaning, not on matching keywords. Its document reading turns grade certificates, lab reports and buyer specification sheets into profiles. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them: the seller's name, the reason the lot is free, and the price it had been sold for. That answers the bargaining problem directly, because a buyer sees a lot that fits before seeing a seller under pressure. Each candidate pairing produces a Content Match Story, one account of why the two parties might deal, given to both while anonymous, and then a Deal Brief, a non-binding summary for the parties' own lawyers, banks and advisers. CommonContext would prepare the reference library of destination requirements and current tariff notices, held in a domain wiki, and ClientSynth generates invented test participants for trials. Risk insulation, the intervention aimed most directly at this challenge, is designed and not yet built: it would let a contract carry agreed terms for a duty that lands between signing and sailing. Memory across sessions, aggregation of small lots and two-sided matching are also designed and not yet built."
+  economic_upside: "Agriculture and Agri-Food Canada reported in June 2026 that China is Canada's second-largest agri-food export market, with exports of $9.6 billion in 2024. The same note gives the cost of the 2025 duties product by product: canola meal exports to China fell from $918 million in 2024 to $288 million in 2025, dried peas from $303 million to $240 million, and pork from $469 million to $354 million. Canola seed exports to China were $1.5 billion in 2025, 28% of Canada's canola seed exports to all countries. Global Affairs Canada reported in November 2026 that after the March 2026 relief, canola seed exports to China from March to August 2026 were $1.74 billion, about $524 million more than in the same months of 2025. The difference between those years is a measure of what a closed corridor costs and of the volume that needed another home. No estimate of platform revenue is made here."
+
+sponsor_opportunities:
+  - title: "Displaced Cargo Matching Service"
+    type: saas
+    revenue_model: "An annual subscription paid by exporters and processors, or paid for a commodity's exporters as a group by a grower or exporter association or a provincial trade office. Overseas buyers would join without charge at first. The basis is access to matching, not a share of the cargo's value."
+    strategic_logic: "Associations and trade offices are asked for help each time a market closes and have only contact lists to give. A service that keeps buyers' requirements on file before the next disruption is the kind of standing capacity they are funded to build."
+    recurring: true
+
+  - title: "Destination Requirements Library"
+    type: managed-service
+    revenue_model: "A subscription paid by a sponsor or by member exporters for a maintained, sourced library of each destination's tariff, grade and plant-health requirements, updated when a notice changes them."
+    strategic_logic: "The requirements are public but scattered across notices in several languages. An exporter with three weeks cannot assemble them. A maintained library is used most on the worst days, which is when a sponsor's members judge its value."
+    recurring: true
+
+  - title: "Lot Documentation and Buyer Specification Intake"
+    type: managed-service
+    revenue_model: "A fee per lot or per buyer, paid by the exporter or a sponsor, for reading certificates, lab results and specification sheets into profiles and confirming them with the party."
+    strategic_logic: "A match is only as good as the description behind it. Small exporters and overseas buyers will not fill in long forms, but both already hold documents that say what is needed."
+    recurring: false
+
+  - title: "Re-Routing Freight and Inspection Coordination"
+    type: logistics-extension
+    revenue_model: "A fee per re-homed shipment, paid by the exporter, for arranging the change of port, container or vessel booking and the inspection the new destination requires. No rate is assumed here."
+    strategic_logic: "A cargo that was booked to one port has to be re-booked to another once a new buyer is found. The service that made the match already knows the lot, the destination and the deadline."
+    recurring: false
+
+story:
+  title: "Twelve Days of Notice"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Priya - export trader at a pulse processing plant, Moose Jaw, Saskatchewan"
+    - "Tomas - purchasing agent for overseas food manufacturers, Vancouver, British Columbia"
+  summary: "A Saskatchewan pulse trader holds cleaned yellow peas for a buyer whose country has just imposed a duty, and has weeks to find a new home for them without telling the market she is stuck."
+  body: |
+    ## Act A - The Market Structure
+
+    Prairie canola, pulses and pork go mainly to a handful of countries. When one of them closes, it closes fast.
+
+    On March 8, 2025 China announced tariffs on Canadian farm products. Twelve days later they were in force: 100% on canola oil, canola meal and peas, 25% on pork. In August 2025 a 75.8% duty landed on canola seed. In November 2025 India, the other large buyer of Canadian peas, put a 30% duty on yellow peas.
+
+    Then the door swung back. From March 1, 2026 China cut the canola seed tariff to about 15% and suspended the tariffs on meal and peas. The suspension has an end date.
+
+    An exporter caught in the middle holds product already cleaned, graded and promised. Other buyers exist. They want different grades and paperwork, and when they hear why the peas are available, they offer less.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Priya** trades pulses for a processing plant in Moose Jaw, Saskatchewan. She has 2,000 tonnes of yellow peas cleaned and bagged for a buyer whose government announced a duty on Monday. The buyer has asked to cancel. The peas are sitting in the warehouse and the next crop needs the space in seven weeks.
+
+    She could call the brokers she knows. By the second call, everyone would know her position.
+
+    Instead she describes the lot to the marketplace as she would to a colleague: yellow peas, the grade, the protein and moisture, bagged, ready to load from the end of the month. She uploads the grade certificate and the lab report. The engine reads them into a profile. Her plant's name, the cancelled contract and the old price stay hidden.
+
+    **Tomas** works in Vancouver, British Columbia, buying ingredients for food manufacturers abroad. One client, a snack maker in South Asia, has asked him for peas with a protein level its usual supplier cannot meet this year. He has described that need on the marketplace, and uploaded the client's specification sheet.
+
+    The engine compares Priya's lot with the buyers' descriptions on file and finds his. Both receive the same **Content Match Story**, still anonymous. It says the protein and moisture are inside the client's range and the loading date fits. It also says where the fit is not settled: the client wants bulk, and this lot is bagged, and the destination needs a fumigation certificate that the lot does not yet have.
+
+    Tomas sees a lot that fits. He does not see a seller in trouble. He agrees to be named, and so does she.
+
+    They work out the rest on the phone. She will rebag at her cost. He will arrange the fumigation at port. The price is a fair one for the grade. The **Deal Brief** lists the terms, the open items and the documents each side still owes, for her bank and his client's lawyer. It is not a contract. The contract follows nine days later, and the peas load in week five.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    The peas were good and the buyer existed. What Priya lacked was time, a way to compare her lot with a stranger's specification, and a way to be found without being marked down.
+
+    Trade missions work over years. A duty works over days. This is one of the [forces that keep a market thin](../market-physics.html): the corridor itself is unstable.
+
+    The [MarketForge](../marketforge.html) design keeps buyers' requirements on file before the disruption, and reveals the seller only when both agree. It does not yet protect a new contract against the next duty.
+
+    *Priya, Tomas, the plant, the snack maker and the cargo are fictional. China's tariffs of 2025, India's duty on yellow peas and the relief of March 2026 are real. Matching, document reading, hidden details, the Content Match Story and the Deal Brief are in the engine today. Risk insulation, for a duty that lands between signing and sailing, is designed and not yet built, and this story does not rely on it.*

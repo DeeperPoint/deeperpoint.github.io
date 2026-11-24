@@ -1,0 +1,544 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indexed Supply Contracts for Institutional Kitchens — DeeperPoint</title>
+  <meta name="description" content="A grower asked to fix a price before planting carries a year of fuel and fertilizer risk. A care home&#x27;s kitchen works to a food budget that does not move. Matching growers and kitchens on forward contracts whose price follows a published index within agreed limits would let both commit before the season.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../demos.html" class="nav__link">Demos</a></li>
+        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../library.html" class="nav__link">Library</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Canadian Food Last Stage &middot; Institutional Food Supply</div>
+      <h1 class="detail-title">Indexed Supply Contracts for Institutional Kitchens</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">institutional-food</span><span class="blog-tag">forward-contracts</span><span class="blog-tag">price-indexing</span><span class="blog-tag">long-term-care</span><span class="blog-tag">hospitals</span><span class="blog-tag">regional-growers</span><span class="blog-tag">input-costs</span>
+      </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Hospital and long-term care kitchens work to food budgets set per resident or patient day, and most of what they buy arrives through group contracts. HealthPRO, a national group purchasing organization, has told suppliers that it has more than 250 members representing over 800 hospitals, and that its food contracts are traditionally renewed every five years, with strategy work starting 18 to 24 months ahead. In British Columbia, the health authorities buy food for 187 acute and long-term care facilities primarily through a provincial agreement with a large group purchasing organization and a broadline distributor. A regional grower or processor who wants to supply one kitchen directly has to agree a price and a volume before planting. Forward contracts of this kind do exist. In 2015 the City of Thunder Bay agreed to buy four fresh vegetables from a local farm for its three long-term care homes for the following year at a set price, and it later reported that 38 per cent of its food spending was local or regional. Few other published examples were found. A set price a year ahead is a wager on input costs. Statistics Canada reported that in the second quarter of 2022 farmers paid 80.8 per cent more for fertilizer and 78.5 per cent more for machinery fuel than a year earlier, and 29.8 per cent more for commercial feed. A grower holding a fixed-price contract through a year like that can end up supplying below cost. On the other side, as a food services manager at an Ontario long-term care operator told a trade publication, the resident per diem does not change each week based on prices in the world. A price that floats freely is as hard for the kitchen as a fixed one is for the grower. A contract whose price follows a published index, with a floor and a ceiling, sits between the two. Research for this entry found no published example of such an indexed contract between a Canadian institution and a regional grower, so the idea is untested here. It would also have to fit beside the group contracts an institution has already committed to. This entry is narrower than the catalog&#x27;s Institutional Food Procurement entry, which covers how small producers get through institutional purchasing at all.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Macro &amp; FX Exposure: fertilizer, fuel and feed prices can move by half or more inside one growing year, so a price fixed before planting can be below cost by harvest</li><li>Temporal Distance: the grower must commit seed, land and labour months before the kitchen&#x27;s budget year and menu cycle are settled, and the institution&#x27;s group contracts are decided years ahead on a different calendar</li><li>Participant Fragmentation: one farm&#x27;s carrots or one home&#x27;s weekly order is too small to justify drafting a custom price mechanism, and too small to matter beside a group contract covering hundreds of facilities</li><li>Fixed budgets: the kitchen&#x27;s funding per resident day does not rise with food prices, so it cannot accept a price that floats without limit</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;"><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#macro-fx-exposure" title="Margins eroded by currency and input-cost moves before settlement.">Macro &amp; FX Exposure</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#temporal-distance" title="The gap between when one side is ready and the other is available.">Temporal Distance</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#participant-fragmentation" title="Willing traders too small, one by one, to clear the commercial threshold.">Participant Fragmentation</a></p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        AI Risk Insulation, AI Memory, AI-Enabled Aggregation. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>The matching engine, Cosolvent, works from descriptions in ordinary words. A grower or processor would describe what it can supply, in what form, over which months, and which input costs it cannot carry at a fixed price. A kitchen would describe what it uses, how much, how it must arrive, what its budget can absorb, and how much of its buying is free of group contract commitments. Document reading can turn a menu cycle, a usage report or a past supply agreement into a profile. The trusted-intermediary pipeline keeps protected details, such as a farm&#x27;s cost of production or a home&#x27;s food budget, hidden until both sides agree to reveal them. A match produces a Content Match Story, one account given to both parties while anonymous, and a Deal Brief, a non-binding summary for the grower&#x27;s adviser and the institution&#x27;s purchasing and finance staff, setting out the volume, the season and the proposed index, floor and ceiling. A domain wiki prepared with CommonContext would hold sourced material: the Statistics Canada farm input price series, published forward-contract examples such as Thunder Bay&#x27;s, and the rules each kind of institution buys under. ClientSynth would generate invented growers and kitchens to test the matching. The index clause is a contract term the two parties agree. The engine does not carry the price risk. Risk insulation is designed and not yet built, and so is aggregation, which would let several small growers fill one kitchen&#x27;s volume or several kitchens share one grower&#x27;s crop.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Canada had 2,076 long-term care homes in 2021, 627 of them in Ontario (Canadian Institute for Health Information). In British Columbia, six health authorities are responsible for food services in 187 acute and long-term care facilities, and 30.5 per cent of their food spending in 2024/25 went to British Columbia food, up from 28.7 per cent the year before (Government of British Columbia, B.C. food expenditures in health care, 2024/25 report). The City of Thunder Bay, which spent about $3 million a year on food for its long-term care homes, child care and other operations in 2006 with less than one per cent going to local growers, later reported 38 per cent local or regional food spending after adopting forward contracts (Nourish practice study and City of Thunder Bay). Statistics Canada&#x27;s figure of an 80.8 per cent rise in fertilizer prices in the second quarter of 2022 over a year earlier shows the size of the move a fixed-price contract leaves with the grower (StatCan Plus, 29 November 2022). No sourced national total for institutional food spending was found, so none is given.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">A Price With a Floor and a Ceiling</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p><strong>Characters:</strong> Wendell - vegetable grower, Bridgetown, Nova Scotia, Priya - food services manager at a long-term care home, Kentville, Nova Scotia</p>
+        
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>A long-term care kitchen is funded by the resident day. The amount does not change when food prices do. Most of what the kitchen buys comes through group contracts and a broadline distributor, on terms settled years ahead.</p>
+<p>A regional grower who wants to sell to that kitchen directly has to agree a price before planting. In 2015 the City of Thunder Bay agreed to buy four vegetables from a local farm for its three long-term care homes for the following year at a set price.</p>
+<p>Statistics Canada reported that in the second quarter of 2022 farmers paid 80.8 per cent more for fertilizer and 78.5 per cent more for fuel than a year earlier. A grower holding a fixed-price contract through that year could end up supplying below cost.</p>
+<p>A floating price is no better for the kitchen.</p>
+<p>A price that follows a published index, between a floor and a ceiling, shares the movement. Drafting one for a single farm and a single home is work neither is equipped to do.</p>
+<p>The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Wendell</strong> grows carrots, onions and potatoes near Bridgetown, Nova Scotia. Three years ago he supplied a school program at a price fixed in February. Fertilizer and diesel rose through the spring. He lost money on every load.</p>
+<p>He describes his farm to the marketplace in his own words: the three crops, washed and bagged, September to April, about a third of his storage uncommitted. He adds that he will not fix a price a year ahead again unless it moves with his input costs. He marks his cost of production as protected.</p>
+<p><strong>Priya</strong> manages food services at a long-term care home in Kentville. Her group contract covers most of her purchases and leaves her free to buy some fresh produce on her own. Her budget per resident day is fixed for the year. She uploads twelve months of usage records and writes what she needs: a steady weekly supply of root vegetables through the winter, and a price she can defend to her finance officer. She marks her budget as protected.</p>
+<p>The marketplace reads her records into a profile and matches it against the growers' descriptions. Wendell and Priya receive the same <strong>Content Match Story</strong>, without names. It says that a grower with winter storage and a kitchen with a steady winter need are about forty minutes apart, and that each has ruled out one kind of price: he will not fix, she cannot float. It points to the marketplace's reference library, where a model clause ties price to Statistics Canada's farm input price index, with a floor and a ceiling.</p>
+<p>Both agree to be introduced. They settle on a base price, the index, and limits of a few cents a kilogram either way.</p>
+<p>The <strong>Deal Brief</strong> sets out the weekly volumes, the months, the clause and a table showing what the price would have been in each of the last five years.</p>
+<p>He orders seed for two more hectares of carrots.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>The farm and the kitchen were forty minutes apart and had never dealt. Each had reason to refuse the only two contracts on offer.</p>
+<p>The marketplace carried none of the price risk. The clause divides it between the two parties, and they chose the limits. The platform's part was to find the pair, keep each side's numbers private until they chose to talk, and put a model clause in front of them. That is what <a href="../market-physics.html">thin-market infrastructure</a> does in a market that fails on the terms of the deal.</p>
+<p><em>Wendell, Priya, the farm and the care home are fictional, and so is the model clause. The Thunder Bay forward contract and the Statistics Canada input price figures are real. No published Canadian example of an indexed contract of this kind was found. Risk insulation and aggregation are designed and not yet built. <a href="../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Forward Contract Matching for Institutions</div>
+        <p>Public bodies set local food goals, and British Columbia&#x27;s health authorities report against theirs every year. A sponsor that brings forward contracts within reach of an ordinary kitchen manager gets a result it can report.</p>
+        <div class="opp-card__revenue">&#128181; A municipality, health authority or regional food policy body would pay an annual subscription so that its kitchens and the region&#x27;s growers can describe needs and supply and be matched before the planting season.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Index Clause Library and Calculator</div>
+        <p>Neither a farm nor a care home will pay a lawyer to invent a price mechanism for one crop. A shared, tested clause removes the drafting cost that keeps each deal from being tried.</p>
+        <div class="opp-card__revenue">&#128181; Institutions, growers&#x27; associations and their advisers would pay for access to a maintained set of model index clauses, the published price series they refer to, and a calculator that shows what a given floor and ceiling would have meant in each of the past several years.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Season Planning and Contract Preparation</div>
+        <p>Thunder Bay began by measuring how much of four vegetables it used in a year. Most kitchens have never done that count. The service does the count once and reuses it each season.</p>
+        <div class="opp-card__revenue">&#128181; The institution or its sponsor would pay per contract for help turning a kitchen&#x27;s usage records into a volume commitment and turning a Deal Brief into a draft agreement for both parties&#x27; review.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Logistics Extension</div>
+        <div class="opp-card__title">Storage and Delivery Coordination</div>
+        <p>A forward contract is only worth signing if the product can be held and delivered on the kitchen&#x27;s schedule. A farm supplying Thunder Bay used grant funding to improve its long-term storage, and storage is the next obstacle once price is settled.</p>
+        <div class="opp-card__revenue">&#128181; Growers or a regional food hub would pay a fee per contract for arranging the storage, washing, packing and scheduled delivery that an institution&#x27;s receiving dock requires through the winter months.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

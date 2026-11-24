@@ -1,0 +1,543 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Long-Lead Fleet Purchases for Municipalities — DeeperPoint</title>
+  <meta name="description" content="A small town approves a fire truck budget in Canadian dollars, then waits years for a vehicle whose price can follow the US dollar. Councils defer, and old trucks stay in service. Matching towns to builders, dealers and each other by specification, delivery date and price terms would shorten the wait and narrow the exposure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../demos.html" class="nav__link">Demos</a></li>
+        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../library.html" class="nav__link">Library</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Municipal Government &middot; Fire and Fleet Procurement</div>
+      <h1 class="detail-title">Long-Lead Fleet Purchases for Municipalities</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#f59e0b;border:1px solid #f59e0b44;">Moderate</span>
+        <span class="blog-tag">fire-apparatus</span><span class="blog-tag">municipal-fleet</span><span class="blog-tag">exchange-rate</span><span class="blog-tag">lead-times</span><span class="blog-tag">council-budgets</span><span class="blog-tag">cooperative-purchasing</span><span class="blog-tag">build-slots</span>
+      </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Fire apparatus is built to order by specialized manufacturers, and many units sold in Canada are built in the United States or priced with reference to the US dollar. The wait is long. A City of Toronto staff report in May 2024 gave the production lead time for pumpers as 18 to 36 months. In April 2025 Calgary&#x27;s fire chief said the department had been told its first new engine would take four years. In December 2025 the International Association of Fire Fighters reported that Surrey, British Columbia faced a three-year wait for engines and at least four years for an aerial truck, against 12 to 18 months before the pandemic, and that Shawinigan, Quebec had bought used trucks to cover the gap. The price moves while the town waits. In May 2020 the council of Plympton-Wyoming, Ontario, which had approved up to $1,350,000 for two pumpers two months earlier, approved a contract of $1,603,500, an increase of 18.7 per cent that the fire chief&#x27;s report attributed mainly to the US dollar exchange rate. The same association report says a Fort St. John, British Columbia truck ordered in 2022 rose from $1.2 million to more than $1.5 million before delivery. Joint purchasing has answered part of this. The Canoe Procurement Group of Canada holds firefighting apparatus contracts, valid to December 2029, that members can buy through without running their own tender. For transit buses in Ontario, the Metrolinx Transit Procurement Initiative runs joint procurements whose stated benefits include multi-year price protection, and its 12 and 18 metre bus contracts are with New Flyer and Nova Bus, which it describes as Canadian manufacturers. Research for this entry did not support the idea that a single small order is too small for a builder to schedule. What remains for a small municipality buying a fire truck is the gap between the day its council approves a figure and the day the truck is priced and delivered, and the lack of any view of earlier options: a build slot freed by a cancelled order, a dealer&#x27;s stock unit, a used truck another department is retiring, or a neighbour ordering the same specification.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Macro &amp; FX Exposure: the budget is approved in Canadian dollars and the vehicle is priced, in whole or in part, against the US dollar and input costs that move during a wait of two to four years</li><li>Temporal Distance: the town needs the truck when the old one ages out, the builder&#x27;s next open slot is years later, and earlier slots or finished units appear and disappear without the town hearing of them</li><li>Decision-Process Opacity: the fire chief who talks to the dealer does not hold the money. Council approves a figure once a year, and a price that has moved must go back to a meeting the builder cannot see or hurry</li><li>Deferral: when a price exceeds the approved budget the easiest decision is to wait, and the Canadian Association of Fire Chiefs&#x27; 2024 census found more than 56 per cent of responding departments deferring equipment purchases</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;"><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#macro-fx-exposure" title="Margins eroded by currency and input-cost moves before settlement.">Macro &amp; FX Exposure</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#temporal-distance" title="The gap between when one side is ready and the other is available.">Temporal Distance</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#decision-process-opacity" title="The counterparty you can see fronts a coalition you cannot.">Decision-Process Opacity</a></p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        AI Risk Insulation, AI Memory, AI Trusted Intermediary. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>The matching engine, Cosolvent, works from descriptions in ordinary words. A fire department would describe what it needs as a chief would say it: the type of truck, pump and tank size, the roads and hall it must fit, when the old unit must retire, and how firm its council approval is. A builder or dealer would describe open build slots, stock and demonstrator units, and the price terms attached to each. A department retiring a serviceable truck could describe that too. Document reading can turn a specification, a dealer&#x27;s quotation or a council report into a profile. The trusted-intermediary pipeline keeps protected details, such as a town&#x27;s approved budget or a dealer&#x27;s price, hidden until both sides agree to reveal them. A match produces a Content Match Story, one account given to both parties while anonymous, and a Deal Brief, a non-binding summary that a chief can put in front of the treasurer, the purchasing officer and council. A domain wiki prepared with CommonContext would hold sourced material on lead times, cooperative contracts and how other councils have handled exchange-rate terms. ClientSynth would generate invented towns and dealers to test the matching. Combining two or more towns&#x27; orders into one run is aggregation, and protecting a budget against the exchange rate is risk insulation. Both are designed and not yet built. Purchases would still follow each municipality&#x27;s procurement by-law or a cooperative contract.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>The Canadian Association of Fire Chiefs&#x27; 2024 Great Canadian Fire Census, answered by 614 departments, found 46 per cent in need of a new fire truck, pumper or emergency vehicle, 60 per cent using pumpers more than 15 years old, and total fire department budgets of $6.25 billion, up from $5.89 billion in 2023 (as reported by the Ontario Association of Fire Chiefs, December 2024). The International Association of Fire Fighters reported in December 2025 that a typical engine in Winnipeg, which cost $300,000 to $500,000 in the mid-2010s, now costs over $1 million, and a ladder truck $2 million or more. In Plympton-Wyoming&#x27;s 2020 purchase the exchange rate was linked to about $218,409 of the increase on two trucks (Petrolia Lambton Independent, 8 May 2020). On the transit side, the Metrolinx Transit Procurement Initiative reports $80 million saved and 3,253 buses purchased through joint procurement since 2006 (annual report, fiscal 2025-26), which shows what coordination has been worth where it exists.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Pumper With a Date on It</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p><strong>Characters:</strong> Marguerite - fire chief of a volunteer department, Shelburne, Nova Scotia, Dev - sales manager at a fire apparatus dealer, Truro, Nova Scotia, Lucien - treasurer, Shelburne, Nova Scotia</p>
+        
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>A fire truck is built to order. A City of Toronto report in 2024 put the production lead time for a pumper at 18 to 36 months. Other Canadian cities have since reported waits of three and four years.</p>
+<p>The price is often tied to the US dollar. In 2020 the council of Plympton-Wyoming, Ontario approved $1.35 million for two pumpers and, two months later, a contract of $1,603,500. The chief's report pointed to the exchange rate.</p>
+<p>A council approves a capital budget once a year, in Canadian dollars. If the price moves, the purchase goes back to council. A small town that cannot absorb the change defers. The 2024 census of Canadian fire departments found more than half of those responding deferring equipment purchases, and 60 per cent running pumpers more than 15 years old.</p>
+<p>Earlier options exist. Orders are cancelled and slots open. Dealers hold stock units. Departments retire trucks with years left in them. None of this is posted anywhere a small-town chief would see it in time.</p>
+<p>The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Marguerite</strong> is the chief of a volunteer department in Shelburne, Nova Scotia. Her first-due pumper is twenty-four years old. Council approved a replacement budget in the spring. The quotation she obtained then has expired, and the new one is higher and names a delivery date three years away.</p>
+<p><strong>Lucien</strong>, the town treasurer, has told her what council will want to know: one number, one date, and how far the number can move.</p>
+<p>The provincial fire chiefs' association sponsors a marketplace for apparatus. Marguerite describes what she needs in her own words: a pumper with a four-person cab, a pump and tank sized for a town with hydrants in the core and none outside it, short enough for a hall built in 1978, needed before the old truck's next pump test. She marks the approved budget as protected.</p>
+<p><strong>Dev</strong> manages sales for an apparatus dealer in Truro. A municipality in another province has withdrawn from an order after amalgamating two halls. The chassis is ordered and the build slot is eleven months out. Dev describes the unit, the date, and the terms: a price in Canadian dollars that is firm if the contract is signed within sixty days. He marks the price as protected.</p>
+<p>The marketplace matches the two descriptions. Marguerite and Dev receive the same <strong>Content Match Story</strong>, without names. It says that a department needing a short-wheelbase pumper within a year has a described need close to a unit already in a builder's schedule, and that the seller is offering a firm Canadian dollar price for a prompt signature. It lists the differences: the tank is larger than she asked for, and the overall length has to be checked against her hall door.</p>
+<p>Both agree to be introduced. The drawings show the truck fits her hall.</p>
+<p>The <strong>Deal Brief</strong> gives Lucien what he asked for: the price, the date, the sixty-day window, and the one remaining exposure, a pump option still quoted in US dollars. He attaches it to the staff report.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Nothing in this story changed the exchange rate or the builder's backlog. What changed was that a slot with a date and a firm price reached the one department whose need it fit, while the offer was still open.</p>
+<p>Two parts of the gap stayed open. The marketplace did not combine Shelburne's order with another town's, and it did not protect the budget against the dollar. It made the terms visible early enough for a council to decide. That is the role of <a href="../market-physics.html">thin-market infrastructure</a> in a market where timing, not supply, is what fails.</p>
+<p><em>Marguerite, Lucien, Dev, the dealer and the cancelled order are fictional. The lead times, the Plympton-Wyoming purchase and the census findings are real. Combining orders and insulating a budget against the exchange rate are designed and not yet built. <a href="../marketforge.html">DeeperPoint</a> is building the infrastructure this story describes.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Apparatus Availability Board</div>
+        <p>Associations already hear, one phone call at a time, who is waiting and who has a truck to release. A sponsor that puts those descriptions in one place gives members a service they now get by chance.</p>
+        <div class="opp-card__revenue">&#128181; A provincial fire chiefs&#x27; association, a municipal association or a cooperative purchasing group would pay an annual subscription so that its member departments can describe needs and see matched build slots, stock units and retiring trucks.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Council Report Preparation</div>
+        <p>A small department has no purchasing staff, and the chief writes the report. A clear account of the exposure, prepared before the vote, is what lets a council approve a range or a contingency and avoid a second approval months later.</p>
+        <div class="opp-card__revenue">&#128181; A municipality would pay per purchase for a draft staff report built from the Deal Brief: the options found, the delivery dates, the price terms and the exchange-rate exposure of each, in the form its council expects.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Dealer and Builder Listings</div>
+        <p>A cancelled order is a cost to the builder until it is resold, and the buyer who needs that exact unit may be three provinces away. Being matched by specification is worth more to a dealer than an advertisement.</p>
+        <div class="opp-card__revenue">&#128181; Builders and dealers would pay a listing or success fee to have open slots, cancelled-order units and demonstrators matched to departments whose described needs they fit.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Logistics Extension</div>
+        <div class="opp-card__title">Used Apparatus Transfer Coordination</div>
+        <p>At least one department facing a wait of several years has bought used trucks to bridge the gap, and each such transfer is arranged from scratch. A sponsor that standardizes the steps makes a serviceable truck reach the next hall sooner.</p>
+        <div class="opp-card__revenue">&#128181; The receiving municipality would pay a coordination fee per transfer covering the inspection record, the pump test, transport and registration between provinces. Any sale price would be settled between the two municipalities.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

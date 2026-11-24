@@ -1,0 +1,540 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rides for Rural Communities Without Transit: Matching Residents Who Need to Reach Appointments and Work with Volunteer and Paid Drivers — DeeperPoint</title>
+  <meta name="description" content="In communities with no bus, residents who cannot drive depend on neighbours and volunteer drivers to reach medical appointments and work. Ride services stall for want of density: riders stop asking after unanswered requests, and drivers stop checking after empty weeks. A sponsored exchange would keep requests and offers open until they meet. It needs public or charitable sponsorship.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    /* --- Header --- */
+    .cat-header {
+      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-bottom: var(--space-2xl, 2rem);
+      text-align: center;
+    }
+    .cat-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .cat-title {
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .cat-desc {
+      font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
+      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+    }
+
+    /* --- Search bar --- */
+    .cat-search-wrap {
+      position: relative; max-width: 580px; margin: 0 auto 1.25rem;
+    }
+    .cat-search-icon {
+      position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+      color: #475569; font-size: 1rem; pointer-events: none;
+    }
+    .cat-search {
+      width: 100%; padding: .65rem 1rem .65rem 2.6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 8px; color: #f1f5f9; font-size: .9rem; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .cat-search::placeholder { color: #475569; }
+    .cat-search:focus {
+      outline: none; border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    }
+
+    /* --- Filter row --- */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      justify-content: center; align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    /* --- Custom dropdown (fdd) --- */
+    .fdd { position: relative; }
+    .fdd__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(99,102,241,.35);
+      background: rgba(15,23,42,.6); color: #cbd5e1;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: background .15s, border-color .15s;
+      font-family: inherit; white-space: nowrap;
+    }
+    .fdd__btn:hover, .fdd--open .fdd__btn {
+      background: rgba(99,102,241,.15); border-color: #6366f1; color: #c7d2fe;
+    }
+    .fdd__arrow { font-size: .6rem; transition: transform .15s; }
+    .fdd--open .fdd__arrow { transform: rotate(180deg); }
+    .fdd__panel {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 200; min-width: 260px; max-width: 340px;
+      background: #1e293b; border: 1px solid rgba(99,102,241,.35);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+    .fdd--open .fdd__panel { display: block; }
+    .fdd__search-wrap { padding: .5rem .6rem; border-bottom: 1px solid rgba(99,102,241,.15); }
+    .fdd__search {
+      width: 100%; padding: .35rem .6rem;
+      background: rgba(15,23,42,.7); border: 1px solid rgba(99,102,241,.25);
+      border-radius: 6px; color: #f1f5f9; font-size: .78rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .fdd__search:focus { outline: none; border-color: #6366f1; }
+    .fdd__list { max-height: 240px; overflow-y: auto; padding: .35rem 0; }
+    .fdd__item {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .45rem .85rem; cursor: pointer;
+      font-size: .8rem; color: #cbd5e1; text-align: left;
+      transition: background .1s;
+    }
+    .fdd__item:hover { background: rgba(99,102,241,.12); }
+    .fdd__item input[type=checkbox] { accent-color: #6366f1; width: 14px; height: 14px; flex-shrink: 0; }
+    .fdd__count {
+      padding: .35rem .85rem .5rem;
+      font-size: .68rem; color: #64748b; border-top: 1px solid rgba(99,102,241,.1);
+    }
+
+    /* --- Tier buttons (in filter row) --- */
+    .tier-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(245,158,11,.35); }
+    .tier-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(245,158,11,.25);
+      color: #fcd34d; cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .tier-btn:last-child { border-right: none; }
+    .tier-btn:hover { background: rgba(245,158,11,.1); }
+    .tier-btn.active { background: rgba(245,158,11,.2); color: #f59e0b; }
+
+    /* --- Clear all button --- */
+    .btn-clear {
+      padding: .45rem 1rem; border-radius: 8px;
+      border: 1px solid rgba(239,68,68,.35);
+      background: transparent; color: #fca5a5;
+      font-size: .78rem; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background .15s;
+      display: none;
+    }
+    .btn-clear:hover { background: rgba(239,68,68,.12); }
+
+    /* --- Active filter chips --- */
+    .filter-chips {
+      display: flex; flex-wrap: wrap; gap: .35rem;
+      justify-content: center; min-height: 0; margin-bottom: .75rem;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: 3px 10px 3px 10px;
+      background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.35);
+      border-radius: 20px; font-size: .72rem; color: #c7d2fe; font-weight: 500;
+    }
+    .filter-chip__x {
+      background: none; border: none; color: #818cf8;
+      font-size: .85rem; cursor: pointer; padding: 0; line-height: 1;
+      font-family: inherit;
+    }
+    .filter-chip__x:hover { color: #fca5a5; }
+
+    /* --- Count --- */
+    .cat-count {
+      text-align: center; font-size: .82rem;
+      color: var(--color-text-muted, #94a3b8);
+      margin-bottom: 1.5rem;
+    }
+    #visible-count { font-weight: 700; color: #a5b4fc; }
+
+    /* --- Grid --- */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin-bottom: 4rem;
+    }
+    .cat-grid--empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 3rem 1rem; color: #64748b;
+    }
+
+    /* --- Scenario card --- */
+    .scenario-card {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
+      text-decoration: none; color: inherit; display: block;
+      transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer;
+    }
+    .scenario-card:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .scenario-card--hidden { display: none; }
+    .scenario-card__top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .5rem; margin-bottom: .75rem;
+    }
+    .scenario-card__sector {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #818cf8;
+    }
+    .scenario-card__tier {
+      font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+    }
+    .scenario-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.35; margin-bottom: .5rem;
+    }
+    .scenario-card__summary {
+      font-size: .82rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.55; margin-bottom: 1rem;
+    }
+    .scenario-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .75rem; }
+    .scenario-card__tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 8px; background: rgba(99,102,241,.12);
+      border: 1px solid rgba(99,102,241,.2); color: #a5b4fc;
+    }
+    .scenario-card__footer {
+      display: flex; align-items: center; gap: .75rem;
+      font-size: .75rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .scenario-card__story-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* --- Detail page --- */
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: #818cf8; text-decoration: none;
+      margin-bottom: var(--space-xl, 2rem); transition: color .15s;
+    }
+    .detail-back:hover { color: #a5b4fc; }
+    .detail-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .4rem;
+    }
+    .detail-title {
+      font-size: 2rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9);
+      line-height: 1.25; margin-bottom: .75rem;
+    }
+    .detail-meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 2rem; }
+
+    /* --- Tabs --- */
+    .tab-nav {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(99,102,241,.25);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      padding: .65rem 1.5rem; font-size: .85rem; font-weight: 600;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      color: var(--color-text-muted, #94a3b8); cursor: pointer;
+      transition: color .15s, border-color .15s; white-space: nowrap; margin-bottom: -1px;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--color-text-secondary, #cbd5e1); }
+    .tab-btn.active { color: #a5b4fc; border-bottom-color: #6366f1; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* --- Panel sections --- */
+    .panel-section {
+      background: rgba(15,23,42,.5); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.25rem;
+    }
+    .panel-section__label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #818cf8; margin-bottom: .6rem;
+    }
+    .panel-section__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .75rem;
+    }
+    .panel-section p {
+      font-size: .88rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.65; margin-bottom: .75rem;
+    }
+    .panel-section p:last-child { margin-bottom: 0; }
+    .force-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+    .force-list li {
+      font-size: .85rem; color: var(--color-text-secondary, #cbd5e1);
+      line-height: 1.6; padding: .4rem .85rem;
+      border-left: 2px solid rgba(6,182,212,.35);
+      background: rgba(6,182,212,.03);
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* --- Sponsor opportunity card --- */
+    .opp-card {
+      border: 1px solid rgba(99,102,241,.2); border-radius: 10px; padding: 1.1rem 1.25rem;
+      margin-bottom: .85rem; background: rgba(99,102,241,.05);
+    }
+    .opp-card__title {
+      font-size: .92rem; font-weight: 700; color: var(--color-text-primary, #f1f5f9); margin-bottom: .4rem;
+    }
+    .opp-card__type {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #f59e0b; margin-bottom: .5rem;
+    }
+    .opp-card p { font-size: .83rem; color: var(--color-text-secondary, #cbd5e1); line-height: 1.55; margin-bottom: .4rem; }
+    .opp-card p:last-child { margin-bottom: 0; }
+    .opp-card__revenue { font-size: .8rem; font-weight: 600; color: #4ade80; margin-top: .5rem; }
+
+    /* --- Inline story body (rendered markdown) --- */
+    .story-body { font-size: .9rem; line-height: 1.7; color: var(--color-text-secondary, #cbd5e1); }
+    .story-body h2 {
+      font-size: 1.05rem; font-weight: 700; color: #a5b4fc;
+      margin: 2rem 0 .75rem; letter-spacing: .02em;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .story-body em { color: #c7d2fe; font-style: italic; }
+    .story-body hr {
+      border: none; border-top: 1px solid rgba(99,102,241,.2); margin: 1.75rem 0;
+    }
+    .story-body a { color: #818cf8; text-decoration: underline; text-decoration-color: rgba(129,140,248,.35); }
+    .story-body a:hover { color: #a5b4fc; }
+    .story-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .story-body li { margin-bottom: .4rem; }
+    .story-body blockquote {
+      border-left: 3px solid rgba(99,102,241,.4); padding-left: 1rem;
+      margin: 1rem 0; color: #94a3b8; font-style: italic;
+    }
+    .story-blog-link {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.5rem; padding: .5rem 1.25rem;
+      border-radius: 20px; border: 1px solid rgba(99,102,241,.4);
+      color: #818cf8; text-decoration: none; font-size: .82rem;
+      font-weight: 600; transition: background .15s;
+    }
+    .story-blog-link:hover { background: rgba(99,102,241,.15); }
+    .idea-note {
+      border-left: 3px solid rgba(245,158,11,.55); background: rgba(245,158,11,.07);
+      padding: .7rem 1rem; margin: 0 0 1.5rem; border-radius: 0 8px 8px 0;
+      font-size: .85rem; line-height: 1.55; color: var(--color-text-secondary, #cbd5e1);
+    }
+    .idea-note strong { color: #fbbf24; font-weight: 600; }
+
+    /* --- Curated collections panel --- */
+    .collections-panel {
+      margin: 0 auto 1rem;
+      max-width: 840px;
+      padding: 0 1rem;
+    }
+    .collections-panel__label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #64748b;
+      margin-bottom: .55rem; text-align: center;
+    }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: .4rem;
+      justify-items: stretch;
+    }
+    .col-card {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .45rem .7rem;
+      background: rgba(15,23,42,.55);
+      border: 1px solid rgba(99,102,241,.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      text-align: left;
+      width: 100%;
+    }
+    .col-card:hover {
+      background: rgba(99,102,241,.14);
+      border-color: rgba(99,102,241,.5);
+    }
+    .col-card.active {
+      background: rgba(99,102,241,.2);
+      border-color: #6366f1;
+    }
+    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
+    .col-card__body { min-width: 0; }
+    .col-card__name {
+      font-size: .75rem; font-weight: 700;
+      color: #c7d2fe; line-height: 1.2;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .col-card__count {
+      font-size: .63rem; color: #64748b; line-height: 1;
+    }
+    @media (max-width: 480px) {
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+      .collections-panel { padding: 0 .75rem; }
+    }
+
+    /* --- Story placeholder --- */
+    .story-placeholder {
+      text-align: center; padding: 3rem 1.5rem; color: var(--color-text-muted, #94a3b8);
+    }
+    .story-placeholder__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .story-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 1.25rem; padding: .5rem 1.25rem; border-radius: 20px;
+      border: 1px solid rgba(99,102,241,.4); color: #818cf8; text-decoration: none;
+      font-size: .85rem; font-weight: 600; transition: background .15s;
+    }
+    .story-cta:hover { background: rgba(99,102,241,.15); }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__logo">Deeper<span>Point</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="../index.html" class="nav__link">Home</a></li>
+        <li><a href="../market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="../platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="../catalog/index.html" class="nav__link nav__link--active">Catalog</a></li>
+        <li><a href="../demos.html" class="nav__link">Demos</a></li>
+        <li><a href="../blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="../cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="../library.html" class="nav__link">Library</a></li>
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="../search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="scenario-detail" style="padding-top:calc(var(--space-4xl,4rem) + 60px);">
+    <div class="container container--narrow">
+      <a href="index.html" class="detail-back">&larr; Catalog</a>
+      <div class="detail-label">Remote Town Renewal &middot; Community Transportation</div>
+      <h1 class="detail-title">Rides for Rural Communities Without Transit: Matching Residents Who Need to Reach Appointments and Work with Volunteer and Paid Drivers</h1>
+      <div class="detail-meta">
+        <span class="scenario-card__tier" style="background:rgba(0,0,0,.25);color:#22c55e;border:1px solid #22c55e44;">Easy</span>
+        <span class="blog-tag">rural-transportation</span><span class="blog-tag">volunteer-drivers</span><span class="blog-tag">medical-travel</span><span class="blog-tag">community-transit</span><span class="blog-tag">seniors</span><span class="blog-tag">ride-matching</span><span class="blog-tag">rural-services</span>
+      </div>
+      <p class="idea-note"><strong>An idea, not a built market.</strong> This entry describes a marketplace that could exist; nobody has built it yet. The market figures are estimates and the story is fiction.</p>
+      <nav class="tab-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="market">&#128200; Market Analysis</button>
+        <button class="tab-btn" role="tab" data-tab="story">&#128214; Story</button>
+        <button class="tab-btn" role="tab" data-tab="sponsor">&#128181; Sponsor or Investor Opportunities</button>
+      </nav>
+      <div id="tab-market" class="tab-panel active">
+      <div class="panel-section">
+        <div class="panel-section__label">The Thin Market Problem</div>
+        <p>Statistics Canada&#x27;s 2021 Census counted 6.6 million people living in rural areas. Many of their communities have no scheduled transport of any kind. The Saskatchewan Transportation Company closed in May 2017. Greyhound Canada withdrew from Western Canada in 2018 and ended all its remaining Canadian routes on May 13, 2021. What is left for a resident who cannot drive is a relative, a neighbour, a taxi from the nearest town, or a volunteer driver programme run by a charity. Those programmes work, and they are fragile. Global News reported in March 2024 that one New Brunswick charity, serving about 700 clients with about 100 volunteers, sometimes had to deny trips because nobody was available. CBC News has reported that the same charity gave about 10,000 rides a year with about 70 volunteer drivers before the pandemic and about 6,000 with about 35 afterward. The structural problem is density. In a city, a ride request meets a driver within minutes because thousands of both are present. In a rural county a request for Thursday at nine may reach four possible drivers, none of whom is going that way that day. The rider hears nothing, or hears no. After two or three such answers she stops asking and arranges her life around not going. The driver who offered his Tuesdays sees no requests for a month and stops looking. Each side reads the silence as proof the service does not work, and by leaving makes it true. Yet the trips are there: people in the same area already drive to the regional hospital, the college and the plant every week, with empty seats, and are not known to anyone who needs one.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Dominant Forces</div>
+        <ul class="force-list"><li>Cold Start: a rider who gets no answer stops asking, and a driver who gets no requests stops checking. The service needs many of both before either has a good experience, and neither stays long enough for the numbers to build.</li><li>Geographic Distance: the hospital, the specialist and the employer are in a regional centre, and riders and drivers are spread along different roads. A driver a few roads over is of no use if he is heading the other way.</li><li>Temporal Distance: an appointment is at a fixed hour on a fixed day, and a volunteer is free on other days. The trip a driver is already making and the trip a rider needs seldom coincide without someone looking for the overlap.</li><li>Trust: riders are often older or unwell and are getting into a stranger&#x27;s car, and a driver is taking a stranger into his own. Both rely on an organization to have checked the other.</li><li>Opacity: regular private trips with empty seats are known only to the people making them. No one holds a picture of who drives where and when.</li></ul>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;"><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#cold-start" title="Buyers wait for sellers, sellers wait for buyers, nobody arrives first.">Cold Start</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#geographic-distance" title="How far apart counterparties are, in space or in systems.">Geographic Distance</a><a class="blog-tag" style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;" href="../cards/index.html#temporal-distance" title="The gap between when one side is ready and the other is available.">Temporal Distance</a></p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        AI Synthetic Bootstrapping, AI Memory, AI Matching, AI Input Translation, AI Trusted Intermediary, AI-Enabled Aggregation. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">How DeeperPoint Helps</div>
+        <p>The design fits how these trips are described and how much each side should see of the other. The cold start depends on a part that is not built. Cosolvent, the engine, matches from descriptions in ordinary words. A rider or a coordinator taking her call can state the need as it is: the eye clinic every second Thursday morning, a walker that must fit in the trunk, home by two. A driver can state what he already does: in to the hospital for a seven o&#x27;clock shift on weekdays, back after three, room for two. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them, such as a rider&#x27;s address and health condition or a driver&#x27;s home and plate. The engine reads documents into profiles, so a charity&#x27;s existing driver screening records and vehicle insurance confirmations can be loaded without retyping. Each match produces a Content Match Story, one account of why this trip and this driver fit, given to both while anonymous. A Deal Brief has a smaller role here: it would summarize a proposed standing arrangement, such as a weekly paid run by a local operator, for the charity&#x27;s board, insurer or funder, without binding anyone. CommonContext would prepare the reference library behind a domain wiki of provincial rules on volunteer driving, insurance, reimbursement and medical travel assistance. What this market needs most is memory: a request that stays open and is matched when a suitable driver joins three weeks later, and a driver&#x27;s offer that waits for a rider. Memory across sessions is designed and not yet built. Grouping several riders into one trip is aggregation, also designed and not yet built; a coordinator would do it by hand. ClientSynth generates invented riders and drivers so a sponsor can test and demonstrate the service before launch. Invented participants are kept out of any live market, so they cannot be used to make a thin service look busy.</p>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section__label">Economic Upside</div>
+        <p>Statistics Canada&#x27;s 2021 Census put the rural population at 6.6 million. The federal Rural Transit Solutions Fund, launched in 2021, committed $250 million over five years, and its 2023 backgrounder lists on-demand services, publicly owned ride shares and volunteer community car-pooling among eligible solutions, with capital contributions of up to $3 million, or up to $5 million for zero-emission projects. A 2020 Queen&#x27;s University planning report described one New Brunswick volunteer driver programme that grew from about 1,000 to about 10,000 rides a year after it began in 2014. These figures show public money and proven demand. They do not measure the value of appointments kept or jobs held, and no such figure is estimated here. The entry carries little commercial value per ride and depends on public, health-system or charitable sponsorship.</p>
+      </div></div>
+      <div id="tab-story" class="tab-panel">
+      <div class="panel-section">
+        <div class="panel-section__label">Narrative Story</div>
+        <div class="panel-section__title">The Thursday Seat</div>
+        <p class="idea-note"><strong>This story is fiction.</strong> Its people and firms are invented to show how a match could work.</p>
+        <p><strong>Characters:</strong> Edna - retired resident who no longer drives, Hillsborough, New Brunswick, Marcel - hospital maintenance worker and new volunteer driver, Riverside-Albert, New Brunswick, Paulette - ride coordinator at a community transportation charity, Moncton, New Brunswick</p>
+        
+        <div class="story-body">
+          <h2>Act A - The Market Structure</h2>
+<p>Statistics Canada counted 6.6 million rural residents in 2021. Scheduled transport has thinned around them. Greyhound Canada ended its last Canadian routes on May 13, 2021. For a resident who cannot drive, what remains is family, neighbours, an expensive taxi, or a volunteer driver programme.</p>
+<p>Those programmes run on density they seldom have. A request for Thursday at nine may reach four drivers, none heading that way. Global News reported in March 2024 that one New Brunswick charity sometimes had to deny trips because nobody was available. A rider who is refused twice stops asking. A driver who sees no requests for a month stops looking. Each takes the silence as proof, and leaves.</p>
+<p>The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.</p>
+<hr />
+<h2>Act B - The Story</h2>
+<p><strong>Edna</strong> lives outside Hillsborough and gave up her licence last year. She needs to be at an eye clinic in Moncton every second Thursday morning. In the spring she phoned the charity twice. Both times no driver was free. Her niece took two days off work to drive her, and Edna did not phone again.</p>
+<p><strong>Paulette</strong> coordinates rides for the charity. When it began using a ride exchange, she entered the requests she had on paper, including the ones she had been unable to fill. Edna's went in as Paulette had taken it down: eye clinic, every second Thursday, there by nine, a walker that folds, home by early afternoon. Edna's address and the reason for the appointments were marked private. The request stayed open.</p>
+<p><strong>Marcel</strong> does maintenance at a hospital in Moncton and lives in Riverside-Albert, farther down the same road. In June a notice in the staff room asks employees who drive in from the county to offer their empty seats. He signs up with the charity, which checks his licence, his insurance and his record, and loads those documents into his profile. He adds a few lines of his own: in for seven on weekdays, home after three, room for two, glad to go a few minutes out of his way but not twenty.</p>
+<p>The exchange matches his description against the open requests. Edna's has been waiting eleven weeks. Both receive the same Content Match Story, without names. It says a screened driver already makes this trip on the rider's clinic day and passes near her road. It says the rider would arrive two hours before her appointment and wait an hour after it, and asks whether that is acceptable. It says the walker fits.</p>
+<p>Paulette phones Edna to read it to her. Edna says she would rather sit in a waiting room for two hours than ask her niece again. Marcel agrees too. Only then does each learn the other's name, and Marcel the turn-off to her lane.</p>
+<p>He picks her up on the second Thursday of July. Paulette has two more open requests on the same road, and asks Marcel whether his second seat is still free. That grouping she does herself, by phone.</p>
+<hr />
+<h2>Act C - Why This Market Stays Broken Without Infrastructure</h2>
+<p>Edna's ride existed in the spring. It was in a car that passed her road five days a week. Nobody knew, and by the time the driver came forward she had stopped asking.</p>
+<p>A dispatch app built for cities answers a request now or not at all. Rural rides need the opposite: a request that stays open, an offer that waits, and enough said in plain words to find the overlap between a trip already being made and a trip that is needed. These are the <a href="../market-physics.html">forces that keep small markets thin</a>. <a href="../marketforge.html">MarketForge</a> describes how a sponsor would build such a service.</p>
+<p><em>Edna, Marcel, Paulette and the charity in this story are fictional. The census figure, the end of Greyhound Canada's routes and the Global News report are real. Matching a request that had waited eleven weeks relies on memory across sessions, which is designed and not yet built. Grouping riders into one trip is also not built, and was done here by the coordinator.</em></p>
+        </div>
+        
+      </div></div>
+      <div id="tab-sponsor" class="tab-panel">
+      <div class="opp-card">
+        <div class="opp-card__type">Saas</div>
+        <div class="opp-card__title">Ride Exchange for a Community Transportation Charity or Regional Service Commission</div>
+        <p>These organizations already screen drivers and take riders&#x27; calls. Most keep the matching in a coordinator&#x27;s head and a spreadsheet. An exchange that holds open requests and regular private trips lets one coordinator serve more riders with the same volunteers.</p>
+        <div class="opp-card__revenue">&#128181; A charity, municipality or regional service commission would pay an annual subscription, sized to its service area, for a private exchange of ride needs and driver offers that its own coordinators operate.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Managed Service</div>
+        <div class="opp-card__title">Health-System Appointment Travel Coordination</div>
+        <p>A missed appointment costs the health system a clinic slot and often a later emergency visit. Clinics know the appointment weeks ahead, which is the notice a volunteer programme needs. Referrals from clinics also supply a steady flow of requests, which keeps drivers engaged.</p>
+        <div class="opp-card__revenue">&#128181; A regional health authority or hospital foundation would pay an annual contract for a coordinator who receives travel needs from clinics at the time of booking and arranges rides through local programmes.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Logistics Extension</div>
+        <div class="opp-card__title">Paid Operator Standing Runs</div>
+        <p>Where requests cluster, a weekly paid run is more dependable than volunteers. The exchange shows an operator where that demand is before it commits a vehicle, and federal rural transit funding lists on-demand services as eligible.</p>
+        <div class="opp-card__revenue">&#128181; A local taxi or shuttle operator would pay a coordination fee per scheduled run when the exchange shows enough regular riders on one route and day to fill a vehicle. Riders, or a subsidy programme on their behalf, would pay the operator&#x27;s fare.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-card__type">Commerce Extension</div>
+        <div class="opp-card__title">Volunteer Driver Insurance and Reimbursement Administration</div>
+        <p>Insurance questions and unpaid fuel costs are common reasons volunteers stop. A sponsor that handles both removes two reasons for drivers to leave, which protects the density the service depends on.</p>
+        <div class="opp-card__revenue">&#128181; An insurer or broker would pay a referral fee for group volunteer driver coverage placed through the sponsor, and the sponsor would pay a per-driver administration charge for mileage reimbursement records.</div>
+      </div></div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.
+          &nbsp;&mdash;&nbsp; <em style="color:#64748b">Lab catalog &mdash; internal use</em>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../reveal.js"></script>
+</body>
+</html>

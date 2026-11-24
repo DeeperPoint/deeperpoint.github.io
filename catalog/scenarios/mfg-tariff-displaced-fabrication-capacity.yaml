@@ -1,0 +1,97 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: mfg-tariff-displaced-fabrication-capacity
+title: "Tariff-Displaced Steel and Aluminum Fabrication Capacity Matched to Domestic Demand"
+card_title: "Tariff-Displaced Fabrication Capacity"
+sector: manufacturing
+sub_sector: "Steel and Aluminum Fabrication"
+forge_tier: 2
+status: published
+challenges: [geopolitical-trade-volatility, opacity, temporal-distance]
+tags: [steel, aluminum, fabrication, tariffs, section-232, buy-canadian, idle-capacity]
+
+market_example:
+  summary: "Canadian steel and aluminum fabricators that built their order books on United States customers lost work when Section 232 tariffs reached 50% in 2025 and were rewritten twice in 2026. Domestic buyers who now need Canadian steel cannot see which shops have the capability and the open weeks. This idea matches the two."
+  problem: "Many Canadian fabricators cut, weld and assemble steel and aluminum for customers in the United States. The United States ended Canada's exemption from its Section 232 steel and aluminum tariffs in March 2025 and raised the rate to 50% in June 2025. In August 2025 it added more than 400 product codes of goods made from steel and aluminum. From April 6, 2026 the tariff applies to the full value of many of those goods, not only to the metal in them, and a proclamation of June 1, 2026 changed the rates and thresholds again. A fabricator's United States order book can therefore change with one announcement. The head of the Canadian Institute of Steel Construction said in 2025 that for many Quebec fabricators the door to work south of the border had been shut. At the same time Canada has created domestic demand: a 25% tariff on listed imported steel products such as prefabricated buildings, bridges and wind towers from December 26, 2025, and a federal Buy Canadian Policy that requires Canadian steel and aluminum on larger federal contracts. But the fabricator with open capacity and the Canadian buyer who needs it do not know each other. The fabricator's sales contacts are American. The buyer has always bought from an importer. And neither side will retool, certify for a new product or sign a long contract while the tariff that created the opening may be lifted or raised again."
+  dominant_forces:
+    - "Geopolitical & Trade Volatility: the United States changed its steel and aluminum tariff rules in March 2025, June 2025, August 2025, April 2026 and June 2026. Each change moved orders, and nobody can plan a retooling around the next one"
+    - "Opacity: a Canadian buyer cannot see which fabricators have the equipment, the certifications and the open weeks for a given job, and a shop short of work does not advertise the fact"
+    - "Temporal Distance: capacity opens suddenly when a United States order is cancelled, while public and industrial buyers procure on their own calendars. Idle shop weeks cannot be stored until the tender arrives"
+    - "Reversal risk: a fabricator that commits its capacity to a domestic customer may be unable to take back its United States customer if the tariff is lifted, and a buyer who switches supplier may lose the price advantage that justified the switch"
+  deeperpoint_fit: "The engine, Cosolvent, matches from descriptions in ordinary words. A fabricator describes what the shop can build and what has opened up; a buyer describes the job. Its document reading turns equipment lists, welding certifications and past project sheets into a profile, so a shop does not have to fill in a form written for another trade. The trusted-intermediary pipeline keeps protected details hidden until both sides agree to reveal them: the name of the lost customer, the size of the gap in the order book, and pricing. That matters to a shop that does not want competitors or buyers to know it is short of work. Each candidate pairing produces a Content Match Story, one account of why the two parties might deal, given to both while they are still anonymous, and then a Deal Brief, a non-binding summary for the parties' own lawyers, banks and advisers. CommonContext would prepare the reference library (tariff proclamations and annexes, Canada's steel measures, Buy Canadian rules) and a domain wiki would hold it. ClientSynth generates invented test participants so the market can be tried before real firms join. Risk insulation, the intervention aimed most directly at this challenge, is designed and not yet built: it would let a deal carry agreed terms for what happens if the tariff changes. Memory across sessions, aggregation of small shops and two-sided matching are also designed and not yet built. Until then the parties would write any tariff-change clause themselves, with the Deal Brief as their starting summary."
+  economic_upside: "United States imports of steel from Canada were about US$4.5 billion in 2025, 18% of all United States steel imports, and imports of aluminum from Canada about US$7.5 billion, 43% (Congressional Research Service, September 2026, figures excluding derivative products). The federal government said in November 2025 that Canada's steel industry had about 23,000 direct jobs, that exports were down 24% year over year, and that about 1,000 jobs had been lost since the tariffs began. The Canadian Institute of Steel Construction told a House of Commons committee in April 2026 that steel construction directly employs about 30,000 workers. Innovation, Science and Economic Development Canada said in May 2026 that the tool, mould and die industry employs about 13,000 workers in Southern Ontario and sends about 90% of its exports to the United States. On the demand side, the federal government said in November 2025 that its 25% tariff on steel derivative products initially covers more than $10 billion in imports, and officials estimated the steel measures could create more than $1 billion in domestic demand for Canadian steel. No figure is available for how much fabrication capacity is idle, and none is claimed here."
+
+sponsor_opportunities:
+  - title: "Fabrication Capacity Matching Service"
+    type: saas
+    revenue_model: "An annual subscription paid by fabricators and by buyers of fabricated steel and aluminum, or paid on their behalf by an industry association or a regional development agency for a region's shops. The basis is access to matching, not a share of any contract."
+    strategic_logic: "An association or agency that already supports tariff-hit firms has no tool that shows which shops can do which work. A sponsor that funds the service gives its members a route to domestic orders, and the service keeps its value after any single tariff change because the next change displaces capacity again."
+    recurring: true
+
+  - title: "Capability Profile Preparation for Fabricators"
+    type: managed-service
+    revenue_model: "A fee per shop, paid by the fabricator or by a sponsor, for reading its equipment lists, certifications and project records into a profile and checking the result with the owner."
+    strategic_logic: "Small shops sold through a few long-standing customers and have no written account of what they can do. Preparing that account is the step that makes them findable, and it is work a sponsor can pay for once per shop."
+    recurring: false
+
+  - title: "Tariff and Domestic-Content Reference Library"
+    type: managed-service
+    revenue_model: "A subscription paid by a sponsor or by member firms for a maintained, sourced library of the tariff rules and Canadian content requirements that apply to fabricated products, updated when a proclamation or order changes."
+    strategic_logic: "The rules changed five times in fifteen months. A small shop cannot follow them, and a buyer cannot tell whether a product is covered. A maintained library is a service firms would return to each time the rules move."
+    recurring: true
+
+  - title: "Canadian Steel Sourcing and Freight Coordination"
+    type: logistics-extension
+    revenue_model: "A fee per matched job, paid by the buyer or the fabricator, for arranging mill supply and interprovincial freight for the fabricated goods. No price is assumed here."
+    strategic_logic: "A match between a Quebec shop and a buyer in another province still has to move steel across the country. A service that already knows the job, the shop and the delivery date is well placed to arrange the freight."
+    recurring: false
+
+story:
+  title: "The Shop That Built for Ohio"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Mathieu - owner of a structural steel fabrication shop, Saint-Georges, Quebec"
+    - "Renee - procurement lead at a bridge and civil contractor, Moncton, New Brunswick"
+  summary: "A Quebec fabricator loses the American customer that filled half his shop, and a New Brunswick contractor who must now use Canadian steel cannot find a shop that can build her girders in time."
+  body: |
+    ## Act A - The Market Structure
+
+    A fabrication shop sells hours on its cutting tables, welding bays and cranes. For many Canadian shops the buyers were across the border.
+
+    The United States ended Canada's exemption from its Section 232 steel and aluminum tariffs in March 2025 and raised the rate to 50% in June 2025. In April 2026 it began charging the tariff on the full value of many products made from the metals, and in June 2026 it changed the rates again.
+
+    Canada answered with measures of its own. Since December 26, 2025 a 25% tariff applies to listed imported steel products, including prefabricated buildings and bridges. The federal Buy Canadian Policy requires Canadian steel on larger federal contracts.
+
+    So capacity is open on one side and demand has appeared on the other. They do not meet. The shop's contacts are American, the buyer's supplier was an importer, and both hesitate, because the tariff could change next quarter.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Mathieu** owns a structural steel shop in Saint-Georges, Quebec. For eleven years about half his work went to one building contractor in Ohio. After the tariff doubled, the contractor stopped sending drawings. Mathieu has two welding bays standing empty and no wish to tell anyone.
+
+    He describes the shop to the marketplace in his own words: plate girders up to a certain length, the cranes he has, the bays that are free from September. He uploads his welding certifications and three old project sheets. The engine reads them into a profile. The Ohio customer's name and the size of the gap stay hidden.
+
+    **Renee** buys steel for a bridge contractor in Moncton, New Brunswick. Her firm has won a federally funded overpass. The steel must be Canadian. The importer she has used for years cannot supply it, and the two fabricators she knows are booked into next year.
+
+    She describes the job: girder dimensions, the coating, delivery in November. The engine compares her description with the fabricator profiles and returns a short list. One is a Quebec shop she has never heard of.
+
+    Both receive the same **Content Match Story** while still anonymous. It says the shop has built girders of this size before, holds the certifications the job calls for, and has open bays in the weeks she needs. It also says what is unknown: the shop has not done this coating, and would subcontract it.
+
+    Both agree to be named. Mathieu's worry comes out at once: if the tariff is lifted, Ohio may call, and he will have sold his autumn. Renee's is the mirror of it: if the rules change, will he drop her?
+
+    They settle it themselves. A fixed delivery date, a deposit, and a clause that holds the price whatever happens at the border. The **Deal Brief** sets the terms out in two pages for his banker and her firm's lawyer. It binds no one. The contract is signed three weeks later.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Nothing was wrong with Mathieu's shop or Renee's job. What was missing was a way for a shop to say what it can build without saying it is in trouble, and a way for a buyer to find it in the weeks that count.
+
+    A directory lists names, not welding bays and open weeks, and a shop will not post its empty order book in public. This is one of the [forces that keep a market thin](../market-physics.html): a corridor that can change overnight makes both sides wait.
+
+    The [MarketForge](../marketforge.html) design answers the finding and the disclosing. Carrying the tariff risk inside the deal is designed and not yet built.
+
+    *Mathieu, Renee, their firms and the overpass are fictional. The United States tariff changes, Canada's 25% tariff on steel derivative products and the federal Buy Canadian Policy are real. Matching, document reading, hidden details, the Content Match Story and the Deal Brief are in the engine today. Risk insulation is designed and not yet built; in this story the parties wrote the tariff clause themselves.*

@@ -1,0 +1,96 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: chc-shared-diagnostic-equipment-small-hospitals
+title: "Shared and Refreshed Diagnostic Imaging Equipment for Small Hospitals"
+card_title: "Shared Diagnostic Equipment for Small Hospitals"
+sector: canadian-healthcare-support
+sub_sector: "Diagnostic Imaging and Capital Equipment"
+forge_tier: 3
+status: published
+challenges: [technological-obsolescence, participant-fragmentation, geographic-distance, opacity]
+tags: [diagnostic-imaging, rural-hospitals, equipment-leasing, technology-refresh, mobile-imaging, capital-planning, health-authorities]
+
+market_example:
+  summary: "Small hospitals keep CT and MRI scanners past their guideline life, or go without, because a low-volume site cannot recover the cost of a unit before it ages out. Long refresh contracts exist, but only for large hospital networks. This market would match small sites with lessors, vendors and larger hospitals offering shared or refreshed equipment."
+  problem: "Imaging equipment has a stated working life. The Canadian Association of Radiologists' lifecycle guidance, published in 2013, sets life expectancy at 8 years for high-use machines, 10 for medium-use and 12 for low-use, with a maximum of 15 years. Canada's fleet runs older than that. The Canadian Medical Imaging Inventory for 2022 to 2023 found that one-third of CT and MRI units were at least 10 years old. A commentary by Fraser Institute analysts in Canadian Healthcare Technology in March 2026, using the same inventory, reported that nearly 8 per cent of CT scanners and almost 14 per cent of MRI machines were past 15 years. Large hospitals have found one answer. Under a managed equipment services contract a vendor replaces and maintains the equipment over a long term for a steady payment, so the vendor carries the refresh. William Osler Health System signed a 15-year contract of this kind with Siemens in 2015 covering 190 pieces of imaging equipment, reported at the time as the first such deal for a Canadian hospital. Hamilton Health Sciences signed a 15-year agreement in 2020, valued at about 270 million dollars, covering about 500 systems. Mackenzie Health signed an 18-year agreement with Philips valued at 300 million dollars. Each of these is a large urban network. A small hospital with one scanner and a low daily volume has nothing of that size to offer, so it tends to run the unit it has for as long as it will run. The other answer is sharing. The 2022 to 2023 inventory counted 7 publicly funded mobile MRI units serving 12 sites in 5 provinces, and an earlier inventory report put the average distance between sites sharing a mobile unit at 193 kilometres. Sharing works, but the inventory's own report on mobile imaging notes that hospitals can face scheduling conflicts over the same unit. Research for this entry did not find evidence that scanners become clinically outdated in five years. What the sources show is the opposite habit: equipment kept well past its guideline life because no replacement path exists at small scale."
+  dominant_forces:
+    - "Technological Obsolescence: a low-use scanner has a guideline life of 12 years and a ceiling of 15, and a small site's volume may not recover the cost within that window, so the site keeps an aged unit or does not buy"
+    - "Participant Fragmentation: refresh contracts in Canada have been signed for networks with 190 to 500 devices, and a hospital with one or two units is far below the size a vendor will structure a deal around"
+    - "Geographic Distance: sites that share a mobile unit are on average 193 kilometres apart, and a unit may spend from half a day to a few weeks in one community before it moves on"
+    - "Opacity: a small site cannot easily see which larger hospitals are about to replace mid-life units, or which lessors would place one, and the larger hospital does not know which small site could use it"
+  deeperpoint_fit: "Three parts of the Cosolvent engine exist today and apply here. A hospital can describe its need in ordinary words (the age of its scanner, its daily volume, its room, its staff, the term it could commit to) and be matched against offers described the same way by lessors, vendors and larger hospitals. The trusted-intermediary pipeline keeps protected details, such as budgets and replacement dates, hidden until both sides agree to reveal them. The engine reads documents such as service records and capital plans into a profile. It produces a Content Match Story, one account of why two parties might deal, given to both while they are still anonymous, and a Deal Brief, a non-binding summary for the parties' own finance staff, biomedical engineers and lawyers. A domain wiki, prepared with CommonContext, would hold the sourced reference material: lifecycle guidance, inventory findings and the terms of published refresh contracts. ClientSynth generates invented test participants so the market can be tried before real hospitals join. Two parts that matter most here are not built. Risk insulation, the part aimed at obsolescence, would let a refresh or residual-value commitment be structured so that a small site is not left holding an aged unit; it is designed and not yet built. Aggregation would pool several small sites into one request large enough for a vendor to price; it is also designed and not yet built."
+  economic_upside: "No sourced figure for the size of this market was found, and none is estimated here. The scale of the installed base is known: the Canadian Medical Imaging Inventory for 2022 to 2023 counted more than 500 CT units and more than 400 MRI units in Canada, with one-third of them at least 10 years old. Published refresh contracts show what large networks commit: about 270 million dollars over 15 years at Hamilton Health Sciences (2020) and 300 million dollars over 18 years at Mackenzie Health. The Fraser Institute reported median waits in 2025 of 8.8 weeks for a CT scan and 18.1 weeks for an MRI, which is the cost to patients of capacity that is old or absent."
+
+sponsor_opportunities:
+  - title: "Small-Site Imaging Needs and Offers Registry"
+    type: saas
+    revenue_model: "A provincial health authority, a hospital association or a group purchasing organization would pay an annual subscription to run the registry for its member sites. Lessors and vendors would pay a listing fee to describe equipment and terms."
+    strategic_logic: "No shared record exists of which small sites hold equipment past guideline life and which larger hospitals or lessors hold mid-life units they would place. A sponsor that already serves small hospitals would give its members a replacement path they do not have now."
+    recurring: true
+
+  - title: "Replacement Planning Service for Small Hospitals"
+    type: managed-service
+    revenue_model: "A hospital or its health authority would pay a fee per engagement for a planner who turns the site's service records and volumes into a replacement brief and takes it to market. The basis would be a fixed fee per site."
+    strategic_logic: "A small site has no capital planning office. The work of describing the need, comparing lease, shared and refurbished options and preparing the case for the funder is the step that most often does not get done."
+    recurring: false
+
+  - title: "Refresh and Residual-Value Terms for Small Sites"
+    type: commerce-extension
+    revenue_model: "Lessors and equipment vendors would pay a fee on each completed placement, and could pay for standard term sheets that fix how a unit is swapped or taken back at a stated age. This depends on the risk insulation part of the design, which is not yet built."
+    strategic_logic: "The large refresh contracts move obsolescence from the hospital to the vendor. A standard, smaller form of the same commitment is what would let a small site sign. The sponsor that defines the standard terms would sit at the centre of each deal."
+    recurring: true
+
+  - title: "Mobile Unit Routing and Relocation Coordination"
+    type: logistics-extension
+    revenue_model: "Health authorities sharing a mobile unit would pay a coordination fee per rotation, and sites receiving a relocated fixed unit would pay per move for transport, site preparation and commissioning arranged through the service."
+    strategic_logic: "Shared units already travel long distances between communities, and sites compete for the same dates. A sponsor that coordinates the calendar and the moves reduces idle days for the owner and missed days for the sites."
+    recurring: true
+
+story:
+  title: "The Scanner That Was Already Fourteen"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Maren - diagnostic imaging manager at a small hospital, Dauphin, Manitoba"
+    - "Olu - asset manager at an equipment leasing firm, Mississauga, Ontario"
+    - "Priya - imaging director at a large hospital, Winnipeg, Manitoba"
+  summary: "A small-hospital imaging manager with a fourteen-year-old CT scanner finds a mid-life unit coming out of a large hospital, on a lease term short enough that she will not be left holding it."
+  body: |
+    ## Act A - The Market Structure
+
+    A scanner has a working life. The Canadian Association of Radiologists' guidance gives a low-use machine 12 years and no machine more than 15. Canada's national imaging inventory for 2022 to 2023 found that one-third of CT and MRI units were at least 10 years old.
+
+    Large hospitals have a way out. Under a managed equipment services contract, a vendor replaces and maintains the equipment for 15 years or more and carries the refresh. The contracts made public in Ontario cover 190 to 500 devices each.
+
+    A small hospital has one scanner. It is too small for that kind of contract. It will not sign a ten-year lease on a machine it may have to run for fifteen. So it keeps what it has.
+
+    Meanwhile hospitals with refresh contracts replace units on schedule. A small site that could use one of those units has no way to hear of it.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Maren** runs diagnostic imaging at a small hospital in Dauphin, Manitoba. Her CT scanner is fourteen years old. Parts are getting harder to find. She has been told there may be capital money in two years, or there may not.
+
+    She describes her position to the marketplace in ordinary words: one scanner, low daily volume, a room that fits a unit of the same size, two technologists, and a wish for a term of no more than six years. She uploads the service history and her replacement memo. The engine reads both into her profile. Her budget ceiling stays hidden.
+
+    **Olu** manages equipment for a leasing firm in Mississauga. He has described what his firm places: mid-life scanners taken from large hospitals at refresh, re-leased on short terms with service included. He has one coming. **Priya**, an imaging director in Winnipeg, is replacing a six-year-old CT under her hospital's refresh plan, and Olu's firm will take it.
+
+    The engine matches Maren's description to Olu's. Both receive the same Content Match Story while still anonymous. It says why they might deal: the unit has about six years left under the low-use guidance, the term Maren wants ends before the guideline ceiling, the room fits, and the unit is already in the province. It also says what is unsettled: who pays to move and commission it, and what happens if the unit fails early.
+
+    Both agree to reveal who they are. Maren calls Priya's department and learns how the unit has been used and serviced.
+
+    The marketplace then produces a Deal Brief. It is not a contract. It sets out the unit, the term, the open questions and a take-back clause that Olu and Maren have discussed themselves. Maren sends it to her health authority's finance office and its biomedical engineers. Olu sends it to his firm's counsel.
+
+    Four months later the lease is signed. The old scanner is retired at fifteen years.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    Nothing was missing here except the meeting. The unit existed. The need existed. The term that made the deal safe for a small site was one a lessor would offer, once it knew whom to offer it to.
+
+    Vendors structure refresh deals for networks, not for one room. A registry of listings would not help either, because what mattered was the fit between a remaining life and a term, described in each side's own words. That is the kind of [friction that keeps a market thin](../market-physics.html), and it is what [MarketForge](../marketforge.html) is designed to reduce.
+
+    *Maren, Olu, Priya and their organizations are fictional. The lifecycle guidance, the inventory findings and the large refresh contracts are real. The matching, the anonymous Content Match Story and the Deal Brief are parts of the design that exist today. The take-back clause in this story was negotiated by the parties. The part of the design that would structure such obsolescence protection, and the part that would pool several small sites into one request, are designed and not yet built.*

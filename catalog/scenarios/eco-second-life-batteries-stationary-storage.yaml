@@ -1,0 +1,95 @@
+# Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+id: eco-second-life-batteries-stationary-storage
+title: "Second-Life Electric Vehicle Batteries for Stationary Storage"
+card_title: "Second-Life Batteries for Stationary Storage"
+sector: environmental-circular-economy
+sub_sector: "Battery Reuse and Energy Storage"
+forge_tier: 2
+status: published
+challenges: [technological-obsolescence, trust, offering-complexity]
+tags: [second-life-batteries, energy-storage, ev-batteries, circular-economy, battery-repurposing, farms, fleet-operators]
+
+market_example:
+  summary: "Used electric vehicle batteries could store power for farms, small utilities and buildings, but buyers hold back. New storage batteries fell 45 per cent in price in one year, and a buyer cannot easily verify a used pack's condition. This market would match holders of used packs with storage buyers on verified condition and terms."
+  problem: "A battery pack retired from a vehicle usually has useful capacity left. Repurposing it for stationary storage is an established idea, and Canada has a firm doing it: Moment Energy, a British Columbia repurposer, holds UL 1974 certification for its process and in November 2026 opened orders for a 200 kilowatt, 500 kilowatt-hour storage unit built from vehicle packs, with first deliveries expected in the first quarter of 2027. The difficulty is on the buying side, and it comes from the price of new batteries. BloombergNEF's 2025 battery price survey, published in December 2025, put the average pack price for stationary storage at 70 US dollars per kilowatt-hour, 45 per cent lower than in 2024, and said it expected prices to fall again in 2026. A University of Mannheim study of used-battery values finds that the fair value of a used pack drops as new battery prices fall. The World Resources Institute has written that a narrowing cost advantage and a shorter remaining life are putting the economics of second-life batteries under increasing pressure. A farm or a building owner who installs a used pack pays for wiring, permits and a concrete pad. If a new pack costs less in three years than the used one cost today, that installation has been paid for around an asset worth little. The second difficulty is knowing what is being bought. Packs differ by maker, chemistry, age and how they were driven and charged. UL 1974 covers how a repurposer sorts and grades packs, but it is not mandatory for deploying second-life systems in North America. The rules around the supply are also unsettled. A January 2026 review by the law firm Gowling WLG found no federal regime specifically governing electric vehicle batteries at end of life. A voluntary EV Battery Recovery Program, coordinated by Call2Recycle and supported by 16 vehicle manufacturers, went national in June 2025 after a pilot in Quebec. The proposal for this entry named recyclers as holders of used packs. The sources show a mixed channel: the recovery program may send collected packs to remanufacturing, repurposing, recycling or manufacturers' own research centres, so a storage buyer has no single place to look."
+  dominant_forces:
+    - "Technological Obsolescence: new stationary storage packs fell 45 per cent in price between 2024 and 2025 by BloombergNEF's survey, and a used pack's value falls with them, so a buyer fears paying for an installation around an asset that is soon worth little"
+    - "Trust: a buyer cannot check a used pack's state of health or history alone, and the certification that covers sorting and grading is not mandatory in North America"
+    - "Offering Complexity: each pack differs by maker, chemistry, age, remaining capacity and usage history, and each site differs in power, energy, climate and permitting needs"
+  deeperpoint_fit: "Three parts of the Cosolvent engine exist today and apply here. A storage buyer can describe a site in ordinary words (what the storage is for, how much power and energy, indoor or outdoor, the term it expects) and be matched against packs and systems described the same way by fleet operators, repurposers and recovery channels. The trusted-intermediary pipeline keeps protected details, such as a fleet's identity, a pack's source or a buyer's budget, hidden until both sides agree to reveal them. The engine reads documents such as test reports, grading records and site electrical drawings into a profile. It produces a Content Match Story, one account of why two parties might deal, given to both while they are still anonymous, and a Deal Brief, a non-binding summary for the parties' own engineers, insurers and lawyers. A domain wiki, prepared with CommonContext, would hold the sourced reference material: price surveys, safety standards and the provincial rules. ClientSynth generates invented test participants so the market can be tried before real ones join. The part aimed most directly at this market's main problem is not built. Risk insulation would let a seller's buy-back or capacity commitment be structured so that the buyer is protected if new prices fall further; it is designed and not yet built. Aggregation, which would pool small lots of packs from several fleets into one supply, is also designed and not yet built."
+  economic_upside: "No sourced figure for the size of the Canadian second-life market was found, and none is estimated here. The supply is known to be coming: Gowling WLG's January 2026 review reported that about 93,000 electric vehicle batteries in Canada will need recycling by 2040 and nearly 500,000 by 2045. The price that second-life packs must beat is also known: BloombergNEF's December 2025 survey put new stationary storage packs at an average of 70 US dollars per kilowatt-hour. A Stanford Graduate School of Business working paper estimates that the fair market value of lithium iron phosphate batteries leaving vehicles generally exceeds 40 per cent of the value of a new battery, which suggests that reuse can hold value for some chemistries."
+
+sponsor_opportunities:
+  - title: "Used Pack and Storage Site Matching Service"
+    type: saas
+    revenue_model: "Repurposers and fleet operators would pay a subscription to list packs and systems, and a utility, a farm organization or a provincial energy agency could sponsor access for buyers. The basis would be an annual fee by participant type."
+    strategic_logic: "Holders of used packs and buyers of small storage have no common place to meet, and each pack and site has to be described in detail. A sponsor with an interest in reuse or in rural energy would give both sides a way to find each other."
+    recurring: true
+
+  - title: "Independent Pack Condition and Grading Reports"
+    type: managed-service
+    revenue_model: "The seller, or the buyer where the buyer asks for it, would pay a fee per pack or per lot for an independent test of state of health and a review of the pack's history, done by an accredited laboratory arranged through the service."
+    strategic_logic: "The buyer's doubt about condition is one of the main reasons deals do not happen. A report from a party with no stake in the sale addresses that doubt, and every listing that carries one becomes easier to match."
+    recurring: true
+
+  - title: "Buy-Back and Capacity Commitment Terms"
+    type: commerce-extension
+    revenue_model: "Sellers, insurers or lenders would pay a fee on each completed deal that uses standard terms for a buy-back price or a guaranteed capacity over a stated number of years. This depends on the risk insulation part of the design, which is not yet built."
+    strategic_logic: "Falling prices for new batteries are the reason buyers wait. A commitment that fixes what the pack will be worth, or what it will deliver, moves that exposure to a party better able to carry it."
+    recurring: true
+
+  - title: "Pack Collection, Transport and End-of-Life Return"
+    type: logistics-extension
+    revenue_model: "Sellers and buyers would pay per shipment for transport arranged through the service, including the return of a pack to a recycler at the end of its second life. Fees would be set per movement."
+    strategic_logic: "Used vehicle batteries are regulated as dangerous goods in transport. Small sellers and buyers do not have the handling arrangements, and a deal is not complete until the pack has a planned route to recycling."
+    recurring: true
+
+story:
+  title: "What Will It Be Worth in Five Years"
+  status: draft
+  blog_slug: ""
+  characters:
+    - "Hendrik - dairy farmer, Woodstock, Ontario"
+    - "Simone - fleet manager at a delivery company, Laval, Quebec"
+    - "Arjun - engineer at a battery repurposing firm, Surrey, British Columbia"
+  summary: "A dairy farmer who wants storage but fears buying a used battery just before new ones get cheaper finds a repurposer whose terms answer the question he was asking."
+  body: |
+    ## Act A - The Market Structure
+
+    A battery pack that is no longer good enough for a vehicle can still store power for years. Repurposing packs for stationary storage is a real business, and a Canadian firm holds safety certification for doing it.
+
+    The buyers hesitate, for a reason that has nothing to do with the sellers. BloombergNEF's survey found that new storage battery packs fell 45 per cent in price between 2024 and 2025. A study from the University of Mannheim finds that a used pack's value falls as new prices fall. A buyer who pays today for a used pack, a pad, wiring and permits may find in three years that a new pack would have cost less.
+
+    There is a second doubt. Every used pack has its own maker, chemistry and history. The standard that covers sorting and grading is not mandatory in North America.
+
+    So sites that could use storage wait, and packs with years of use left may never reach them.
+
+    The following is a fictional account of how a marketplace built on DeeperPoint's design could close this gap.
+
+    ---
+
+    ## Act B - The Story
+
+    **Hendrik** runs a dairy farm near Woodstock, Ontario. He has solar panels on the barn and milking equipment that cannot stop when the power does. He wants storage. He has read that battery prices keep falling.
+
+    He describes his site to the marketplace in ordinary words: backup for milking and cooling, a few hours each day of shifting solar output, an outdoor location, cold winters. He adds the question that worries him: what will this be worth in five years? He uploads his electrical drawings and a year of power bills. The engine reads them into his profile.
+
+    **Arjun** is an engineer at a repurposing firm in Surrey, British Columbia. His firm has described its systems, its grading process and its terms. One term is that packs can be swapped inside the enclosure as they wear. Some of its packs come from **Simone**, who manages a delivery fleet in Laval, Quebec, and retires vans on a schedule.
+
+    The engine matches Hendrik's description to Arjun's. Both receive the same Content Match Story while still anonymous. It says why they might deal: the system size suits the farm's load, the enclosure is rated for the climate, and the swap term speaks to Hendrik's question, because the pad, wiring and enclosure keep their use when a pack is replaced. It also says what is open: the price of a replacement pack is not fixed, and Hendrik's insurer has not been asked.
+
+    Both agree to reveal who they are. Arjun sends the grading records for the packs he would supply.
+
+    The marketplace produces a Deal Brief. It is not a contract. It lists the system, the test records, the swap term and the two open questions. Hendrik takes it to his insurer and his electrician. Arjun takes it to his firm's counsel, who drafts a schedule of replacement pack prices.
+
+    Hendrik signs in the spring.
+
+    ---
+
+    ## Act C - Why This Market Stays Broken Without Infrastructure
+
+    A listing site would have shown Hendrik a used battery and a price. It would not have answered his question.
+
+    The answer lay in one seller's terms and one pack's records, and it had to be set beside one buyer's worry. That takes a description in each side's own words, records a buyer can read, and an intermediary both sides trust with details they will not post in public. These are the [frictions that keep this market thin](../market-physics.html), and they are what [MarketForge](../marketforge.html) is designed to reduce.
+
+    *Hendrik, Simone, Arjun and their businesses are fictional. The price survey, the Mannheim study and the certification standard are real. The matching, the anonymous Content Match Story and the Deal Brief are parts of the design that exist today. The replacement price schedule in this story was written by the parties. The part of the design that would structure protection against falling prices, and the part that would pool small lots of packs, are designed and not yet built.*
