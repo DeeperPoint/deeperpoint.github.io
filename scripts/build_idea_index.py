@@ -17,9 +17,9 @@ Two things here are rules of thumb, and the page says so:
   * The match is on words, after a crude stemmer. stem() below and stem() in your-market.js
     must stay identical; `python scripts/build_idea_index.py --stems` prints a sample the
     JavaScript can be checked against.
-  * The catalog YAML carries no challenge tags. An idea's frictions are counted from its
-    own text with the LEXICON below, then compared across ideas so that a word every idea
-    uses does not win everywhere.
+  * An idea's frictions are its `challenges:` tags (added 2026-11-24, by Claude Opus 5.5
+    against the fifteen cards). An idea without tags falls back to a count of its own text
+    against the LEXICON below. The LEXICON also catches a friction the visitor names outright.
 
 Run by scripts/build_catalog.py at the end of every catalog build, and on its own:
     python scripts/build_idea_index.py
@@ -195,9 +195,22 @@ def build(ideas):
         sd = math.sqrt(sum((x - mean) ** 2 for x in col) / n) or 1.0
         for row in friction_raw:
             row[i] = (row[i] - mean) / sd
-    for doc, row in zip(docs, friction_raw):
+    slug_index = {f["slug"]: i for i, f in enumerate(frictions)}
+    for d, doc, row in zip(ideas, docs, friction_raw):
+        tagged = [slug_index[s] for s in (d.get("challenges") or []) if s in slug_index]
+        if tagged:                       # the idea's own tags win over the word count
+            doc["frictions"] = tagged[:3]
+            continue
         ranked = sorted(range(len(row)), key=lambda i: -row[i])
         doc["frictions"] = [i for i in ranked[:3] if row[i] > 0.5]
+
+    # How common each friction is across the catalog, and so how much it tells one idea from
+    # another. Opacity binds nearly every idea; the page says so once instead of listing it
+    # every time, and ranks the rest by `weight`.
+    held = Counter(i for doc in docs for i in doc["frictions"])
+    for i, f in enumerate(frictions):
+        f["share"] = round(held[i] / n, 2)
+        f["weight"] = round(min(math.log(n / held[i]), 2.5), 2) if held[i] else 0.0   # capped: one rare tag must not swamp the rest
 
     df = Counter()
     for tf in tfs:

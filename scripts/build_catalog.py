@@ -1114,6 +1114,44 @@ def loadBlogStory(blog_slug):
     return title, str(meta.get("summary", ""))
 
 
+_CARDS = None
+
+
+def challengesPanel(slugs):
+    """The idea's challenge tags (the `challenges:` list in its YAML), each linked to its card,
+    with the interventions the matrix rates against them. The interventions are read from
+    cards/cards.json, never stored on the idea, so they cannot drift from the canon."""
+    global _CARDS
+    if not slugs:
+        return ""
+    if _CARDS is None:
+        import json
+        cards = json.loads((SITE_ROOT / "cards" / "cards.json").read_text(encoding="utf-8"))["cards"]
+        _CARDS = {c["slug"]: c for c in cards}
+    link = 'style="display:inline-block; margin:0 0.4rem 0.4rem 0; text-decoration:none;"'
+    chips, answers = [], []
+    for slug in slugs:
+        c = _CARDS.get(slug)
+        if not c:
+            continue
+        chips.append(f'<a class="blog-tag" {link} href="../cards/index.html#{slug}" '
+                     f'title="{escHtml(c["definition"])}">{escHtml(c["title"])}</a>')
+        m = c.get("matrix", {})
+        for name in m.get("strongest") or m.get("lowers") or []:
+            if name not in answers:
+                answers.append(name)
+    if not chips:
+        return ""
+    return f"""
+      <div class="panel-section">
+        <div class="panel-section__label">Challenges That Bind It</div>
+        <p style="margin-bottom:0.5rem;">{"".join(chips)}</p>
+        <p style="font-size:0.875rem; color: var(--dp-silver);">Interventions the
+        <a href="../intervention-matrix.html" style="color:#818cf8;">matrix</a> rates against them:
+        {escHtml(", ".join(answers))}. Tagged by an AI model against the fifteen cards; most binding first.</p>
+      </div>"""
+
+
 def buildDetailPage(s):
     """Generate the three-tab detail page for a single scenario."""
     sid = s.get("id", "unknown")
@@ -1131,6 +1169,7 @@ def buildDetailPage(s):
     # --- Tab 1: Market Example ---
     forces = me.get("dominant_forces", [])
     forces_html = "".join(f"<li>{escHtml(f)}</li>" for f in forces)
+    challenges_html = challengesPanel(s.get("challenges") or [])
     tab1 = f"""
       <div class="panel-section">
         <div class="panel-section__label">The Thin Market Problem</div>
@@ -1139,7 +1178,7 @@ def buildDetailPage(s):
       <div class="panel-section">
         <div class="panel-section__label">Dominant Forces</div>
         <ul class="force-list">{forces_html}</ul>
-      </div>
+      </div>{challenges_html}
       <div class="panel-section">
         <div class="panel-section__label">How DeeperPoint Helps</div>
         <p>{escHtml(me.get('deeperpoint_fit', ''))}</p>

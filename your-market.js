@@ -96,7 +96,8 @@
     var f = {};
     ranked.forEach(function (r) {
       index.docs[r[0]].frictions.forEach(function (fi, rank) {
-        f[fi] = (f[fi] || 0) + (r[1] / ranked[0][1]) * (3 - rank);
+        // weight: rarer frictions say more about this idea than one nearly every idea shares
+        f[fi] = (f[fi] || 0) + (r[1] / ranked[0][1]) * (3 - rank) * index.frictions[fi].weight;
       });
     });
     index.frictions.forEach(function (fr, fi) {
@@ -142,6 +143,14 @@
               "<p>" + esc(fr.definition) + "</p></a></li>";
           }).join("") + "</ul>";
       }
+      // Say the near-universal friction once, in words, when it is not already in the list.
+      index.frictions.forEach(function (fr, fi) {
+        if (fr.share >= 0.75 && m.frictions.indexOf(fi) === -1) {
+          html += '<p class="ym-caveat">Nearly every idea in the catalog (' + Math.round(fr.share * 100) +
+            '%) also faces <a href="cards/index.html#' + fr.slug + '">' + esc(fr.title) + "</a>: " +
+            esc(fr.definition.charAt(0).toLowerCase() + fr.definition.slice(1)) + "</p>";
+        }
+      });
       html += '<div id="ym-summary" class="ym-summary" hidden></div>';
       html += '<p class="ym-caveat">This is a word match against ' + index.count + " catalog ideas, none of them built. " +
         "It says what markets like this one usually face, not what yours does. A " +
