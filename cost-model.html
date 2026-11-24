@@ -197,10 +197,10 @@
                             <tr><th>What is built</th><th class="num">Hours</th><th class="num">Weeks at 20 hours a week</th><th class="num">Cash (US$)</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>The wiki alone</td><td class="num">55 to 110</td><td class="num">3 to 6</td><td class="num">$40 to $500</td></tr>
-                            <tr><td>The wiki and a question page</td><td class="num">85 to 160</td><td class="num">4 to 8</td><td class="num">$44 to $550</td></tr>
-                            <tr><td>A twin, where the industry already has a wiki</td><td class="num">160 to 245</td><td class="num">8 to 12</td><td class="num">$65 to $750</td></tr>
-                            <tr class="cm-key"><td>A new wiki and a first twin</td><td class="num">215 to 355</td><td class="num">11 to 18</td><td class="num">$85 to $1,150</td></tr>
+                            <tr><td>The wiki alone</td><td class="num">55 to 110</td><td class="num">3 to 6</td><td class="num">US$40 to US$500</td></tr>
+                            <tr><td>The wiki and a question page</td><td class="num">85 to 160</td><td class="num">4 to 8</td><td class="num">US$44 to US$550</td></tr>
+                            <tr><td>A twin, where the industry already has a wiki</td><td class="num">160 to 245</td><td class="num">8 to 12</td><td class="num">US$65 to US$750</td></tr>
+                            <tr class="cm-key"><td>A new wiki and a first twin</td><td class="num">215 to 355</td><td class="num">11 to 18</td><td class="num">about US$100 to US$1,200</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -208,7 +208,8 @@
                     For a market of moderate complexity: three or four kinds of participant, two or three
                     jurisdictions, deals with five to eight negotiable terms. A simple market is about 0.4 times
                     these hours. A complex one is about 2.2 to 2.5 times. The weeks are a floor; waiting for
-                    decisions and reviews adds to them. Cash is in US dollars.
+                    decisions and reviews adds to them. Cash is in US dollars. The last row is rounded; the
+                    estimator below works to the dollar and gives US$85 to US$1,150 for the same build.
                 </p>
             </div>
 
@@ -333,13 +334,14 @@
             <div class="reveal dw-card">
                 <h2>How good these numbers are</h2>
                 <p>
-                    Not very, yet, and it is better to say so. One wiki has been built by this method and two
-                    twins. No sponsored marketplace exists. Nobody logged hours on any of them.
+                    Not very, yet, and it is better to say so. One wiki has been built by this method. Three
+                    twins are being built, in more than one configuration: scripted, computed once in advance, and
+                    run live by an AI model. No sponsored marketplace exists. Nobody logged hours on any of them.
                 </p>
                 <ul>
                     <li>The wiki figure is inferred from the working record of one wiki: about 45 batches of research over five weeks, producing some 450 shared pages.</li>
                     <li>The twin figure is the written plan for the second twin, step by step. That twin is still being built.</li>
-                    <li>The multipliers for simple and complex markets are estimates. Both twins so far are of moderate complexity.</li>
+                    <li>The multipliers for simple and complex markets are estimates. The twins so far are of moderate complexity.</li>
                     <li>An earlier estimate expected a second build to cost about two-thirds of the first. The second twin&rsquo;s plan came out higher instead, for reasons it names. The saving from experience has not been seen yet.</li>
                 </ul>
                 <p>
@@ -433,7 +435,7 @@
                     el('cm-o-labour').textContent = 'Enter a rate';
                 }
                 if (!wiki && twin) { note += 'The twin figure includes 34 to 50 hours of knowledge work specific to your market, on top of the industry’s wiki. '; }
-                if (el('cm-cx').value !== 'moderate') { note += 'Simple and complex markets are extrapolated; both twins built so far are moderate. '; }
+                if (el('cm-cx').value !== 'moderate') { note += 'Simple and complex markets are extrapolated; the twins so far are moderate. '; }
                 el('cm-o-note').textContent = note;
             }
             ids.forEach(function (id) {

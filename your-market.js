@@ -1,5 +1,5 @@
 /**
- * your-market.js — "What market should exist?" on the Home page.
+ * your-market.js — the sentence box in the Home band "What about my market?" (titled "What market should exist?" until 2026-11-24).
  * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
  *
  * Stage 1 (live): a visitor's sentence is matched against the catalog ideas here in the

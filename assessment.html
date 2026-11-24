@@ -1,0 +1,340 @@
+<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- The assessment text and the instruction on this page are copies of
+     DeeperPointComms/pieces/2026-11-24-site-assessment/assessment.md and instruction.md.
+     The page tells the visitor how the text was made and that the founder has not edited it:
+     if the text is changed by hand, change the "How this was written" card to say so.
+     The Home band "Should I take this seriously?" links to #credible, #alternatives, #fit and
+     #ask-your-own; keep those ids. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Should I Take This Seriously? An AI Model&rsquo;s Assessment | DeeperPoint</title>
+    <meta name="description"
+        content="An AI model&rsquo;s assessment of DeeperPoint, commissioned by its founder under a published instruction to be balanced and honest: whether the thinking is credible, what else does the same job and at what cost, and where to look elsewhere.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20261124c">
+    <style>
+        .dw-card { background: var(--glass-bg); padding: var(--space-xl); border-radius: var(--radius-lg); border: 1px solid var(--glass-border); margin-bottom: var(--space-xl); scroll-margin-top: 5rem; }
+        .dw-card h2 { font-family: var(--font-display); color: #fff; margin: 0 0 1rem; font-size: 1.5rem; line-height: 1.25; }
+        .dw-card p, .dw-card li { color: var(--dp-silver); font-size: 1.0625rem; line-height: 1.7; }
+        .dw-card p { margin: 0 0 1rem; }
+        .dw-card p:last-child { margin-bottom: 0; }
+        .dw-card ol, .dw-card ul { padding-left: 1.5rem; margin: 0 0 1rem; }
+        .dw-card ul:last-child, .dw-card ol:last-child { margin-bottom: 0; }
+        .dw-card li { margin-bottom: 0.6rem; }
+        .dw-card strong { color: #fff; }
+        .dw-card a:not(.btn) { color: var(--dp-cyan); }
+        .as-note { border-color: rgba(34, 211, 238, 0.4); background: rgba(6, 182, 212, 0.06); }
+        .as-byline { font-size: 0.9375rem !important; color: var(--dp-cloud, #94a3b8) !important; }
+        .as-jump { list-style: none; padding: 0 !important; margin: 0 !important; display: grid; gap: 0.25rem; }
+        .as-jump li { margin: 0; }
+        .as-jump a { display: block; padding: 0.4rem 0.75rem; border-left: 2px solid rgba(34, 211, 238, 0.4); text-decoration: none; }
+        .as-jump a:hover, .as-jump a:focus-visible { background: rgba(255, 255, 255, 0.04); color: #fff !important; }
+        .cm-scroll { overflow-x: auto; margin: 0 0 1rem; }
+        .cm-table { width: 100%; border-collapse: collapse; min-width: 620px; }
+        .cm-table th, .cm-table td { text-align: left; vertical-align: top; padding: 0.7rem 0.8rem; border-bottom: 1px solid rgba(148,163,184,0.2); color: var(--dp-silver); font-size: 0.975rem; line-height: 1.55; }
+        .cm-table th { color: #fff; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.03em; }
+        .as-details { margin: 0 0 1rem; border: 1px solid rgba(148,163,184,0.25); border-radius: 12px; padding: 0.9rem 1.1rem; }
+        .as-details summary { cursor: pointer; color: #fff; font-weight: 600; }
+        .as-details[open] summary { margin-bottom: 1rem; }
+        .as-details p, .as-details li { font-size: 0.975rem; line-height: 1.65; }
+        .as-prompt { white-space: pre-wrap; word-break: break-word; margin: 0 0 1rem; padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid rgba(148,163,184,0.3); background: #0f172a; color: #e2e8f0; font-family: inherit; font-size: 0.95rem; line-height: 1.6; max-height: 26rem; overflow-y: auto; }
+        .as-copied { margin-left: 0.75rem; color: var(--dp-emerald); font-size: 0.9rem; }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+        <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Deeper<span>Point</span></a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="market-physics.html" class="nav__link">Why Markets Don&rsquo;t Form</a></li>
+        <li><a href="platform.html" class="nav__link">What We&rsquo;re Building</a></li>
+        <li><a href="catalog/index.html" class="nav__link">Catalog</a></li>
+        <li><a href="demos.html" class="nav__link">Demos</a></li>
+        <li><a href="blog/index.html" class="nav__link">Blog</a></li>
+        <li><a href="cost-model.html" class="nav__link">Cost</a></li>
+        <li><a href="library.html" class="nav__link">Library</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="contribute.html" class="nav__link nav__link--cta">Contribute</a></li>
+        <li><a href="search.html" class="nav__link nav__link--icon" aria-label="Search the site">🔍</a></li>
+      </ul>
+        </div>
+    </nav>
+
+    <header class="spoke-hero" style="padding-top: calc(var(--space-4xl) + 60px);">
+        <div class="container container--narrow">
+            <div class="text-center">
+                <span class="spoke-hero__badge spoke-hero__badge--match">A second opinion</span>
+                <h1 class="spoke-hero__headline">Should I Take This Seriously?</h1>
+                <p class="spoke-hero__desc" style="margin: 0 auto;">
+                    Every project describes itself well. We asked an AI model to assess this one, under a written
+                    instruction to be balanced and honest about its strengths and its weaknesses. This page gives
+                    the answer as the model wrote it, the instruction it was given, and the same question for you
+                    to put to any model you choose.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container container--narrow">
+
+            <div class="reveal dw-card as-note" id="how">
+                <h2>How this was written</h2>
+                <p>
+                    Claude Fable 5.2, an AI model made by Anthropic, wrote this assessment on 24 November 2026 at
+                    the request of DeeperPoint&rsquo;s founder. It is commissioned, not independent. The model
+                    was told not to favour the project or its founder, and the
+                    <a href="#instruction">instruction is printed in full</a> below.
+                </p>
+                <p>
+                    A second, separate run of the same model then checked each sentence against the sources, and
+                    its corrections were applied. They went both ways: some softened a judgment that was harsher
+                    than the sources, and some removed a claim in the project&rsquo;s favour that the sources did
+                    not support. Two of the four sources are the project&rsquo;s own files and are not public,
+                    and the assessment says where it leans on them.
+                </p>
+                <p>
+                    The founder has not edited the text. He did change the instruction once, after reading a
+                    first version: he asked that the comparison keep to thin markets, leaving out products made
+                    for markets that are already busy, and that the model judge the claim that one answer can
+                    serve many markets. The assessment was then written afresh. That first version also pointed
+                    out places where this site contradicted itself, and those pages were corrected.
+                </p>
+                <ul class="as-jump">
+                    <li><a href="#credible">Is the thinking behind this reasonable and credible?</a></li>
+                    <li><a href="#alternatives">Does anyone else offer a comparable or better approach, and at what cost?</a></li>
+                    <li><a href="#fit">Where does this approach shine, and where should I look for another approach?</a></li>
+                    <li><a href="#ask-your-own">Do not take our model&rsquo;s word for it: ask one yourself</a></li>
+                </ul>
+            </div>
+
+            <div class="reveal dw-card" id="short-answer">
+                <h2>The short answer</h2>
+                <p>DeeperPoint is a reasoned design, with early working software behind it, for helping the buyers and sellers of a thin market (one where willing buyers and sellers exist but rarely manage to find, trust and deal with each other); it is not a proven product. Its diagnosis rests on established economics, but its central claim, that one reusable piece of software can answer the problems many different thin markets share, is the project&rsquo;s own, and nobody outside the project has tested it. No real market runs on it: there are no real participants, no completed deals and no sponsor (an organisation that would own and run a market). The software is free to license, but reaching even a demonstration takes a few hundred hours of skilled work from a developer and someone who knows your market, and the project rests on one retired, self-funding founder.</p>
+            </div>
+
+            <div class="reveal dw-card" id="credible">
+                <h2>Is the thinking behind this reasonable and credible?</h2>
+                <p><strong>Where the ideas come from.</strong> The site traces the problem to eighty years of economics research: the cost of transacting (Coase), the cost of finding information (Stigler), hidden quality driving out good sellers (Akerlof), the chicken-and-egg problem of platforms with two sides (Rochet and Tirole) and the deliberate design of markets (Roth). These are established ideas. The project&rsquo;s own file on originality says thin-market theory is not DeeperPoint&rsquo;s invention.</p>
+                <p><strong>What is the project&rsquo;s own.</strong> Three things. First, a table, the intervention matrix, that sorts the obstacles into fourteen challenges and sets seven uses of AI (the site calls them interventions) against them. Every rating in it is the project&rsquo;s judgment. Second, a way of introducing parties: an AI-written account of why two of them might do business, shown to both anonymously before either is named (the Content Match Story), which grows into a non-binding summary they hand to their lawyers and bankers (the Deal Brief). Third, a build order: write down what the market knows as a wiki of sourced pages, then build a &ldquo;twin&rdquo; (the software set up for that market and filled with invented, labelled participants), then admit real ones. The originality file reports finding no precedent for the matrix&rsquo;s mapping or for the story, and rates the wider framing only partly original. That search was the project&rsquo;s own. Its verdicts were first drawn up in May 2026 and reviewed against web sources on 5 November 2026; on 21 November 2026 the project re-checked facts about competitors against public web pages, not the academic literature, and the file lists items it could not confirm. It is not an independent review, and a visitor cannot see it. The same file says the matching technique itself is not original and that the field is crowded.</p>
+                <p><strong>What exists today.</strong> The project&rsquo;s profile, which is not public, records these as built and under test, dated 28 October 2026: matching, keeping protected details hidden until both sides agree to reveal them, reading documents into profiles, the story and the Deal Brief. Matching is a one-way search, with a facilitator bridging the two sides; matching that weighs both sides&rsquo; preferences is not built. Three twins are being built and none is finished. The one twin open to everyone is a scripted walkthrough, of which the site says: &ldquo;No matching runs and no AI model is consulted.&rdquo; A job-matching twin with matching computed live, a wiki and a question page over it can be seen by request, and a tool that diagnoses a single venture against the matrix is in use, one run on request. Not built: memory of participants over time, pooling of small suppliers, protection against tariff and currency swings, and any marketplace with real participants. Three of the seven interventions exist in the main software&rsquo;s code; a fourth, invented test populations, comes from a separate tool.</p>
+                <p><strong>Has anyone outside tested it?</strong> No. The sources show no peer review (scrutiny by independent experts), no pilot (a trial with real participants) and no outside adopter. The project&rsquo;s code is open source, meaning anyone may read, copy and change it, and it sits in seven public repositories (online code stores), two of them no longer maintained and one the website itself. Together they show two stars (bookmarks by other users) and two forks (independent copies), and both forks are of an older version that is no longer maintained. The site&rsquo;s figure of US$5 to US$10 trillion a year in unrealized markets is, by the site&rsquo;s own wording, DeeperPoint&rsquo;s estimate.</p>
+                <p><strong>The generality claim.</strong> I conclude that it is sound in one half and unproven in the other. The sound half: the obstacles are general. The cited theories were not written about any one industry. The unproven half: that an answer can be built once and reused. The evidence is 254 catalogued market ideas, which the site describes as &ldquo;none built yet&rdquo;; worked examples on paper; and twins in two fields, precision machining and job matching, with invented participants. The originality file says it did not check whether those twins needed changes to the software&rsquo;s code, and the site&rsquo;s cost figures assume a market can be handled by configuration. The cost page reports that a second build was expected to cost about two-thirds of the first and its plan came out higher: &ldquo;The saving from experience has not been seen yet.&rdquo; The project also says which part does not transfer: &ldquo;The engine is generic; the knowledge is not.&rdquo; So if the claim holds, a sponsor is spared building the software and the screens, and the market&rsquo;s own work remains: by the site&rsquo;s estimate 215 to 355 hours for a first build, 55 to 110 of them for the wiki. The sources give no figure for what the reused part would have cost to build.</p>
+                <p><strong>The founder.</strong> Mustafa (Vic) Uzumeri holds a PhD and retired after a 25-year university career; the site&rsquo;s About page lists five decades of work in transport planning, manufacturing and operations research, training production and supply-chain data standards. The sources present him as a practitioner, not a market economist: the research that page lists is on manufacturing and operations, and its first marketplace project is a 2022 grain-export venture, preceded by 2020 and 2021 work on data in the US trucking spot market.</p>
+            </div>
+
+            <div class="reveal dw-card" id="alternatives">
+                <h2>Does anyone else offer a comparable or better approach, and at what cost?</h2>
+                <p>The sources name no other free, reusable software aimed at thin markets. That finding comes from the project&rsquo;s own search described above. These are the alternatives I conclude a visitor would weigh. Statements about named companies come from the project&rsquo;s file and its dates.</p>
+                <div class="cm-scroll">
+                    <table class="cm-table">
+                        <thead>
+                            <tr><th>Alternative</th><th>What it does better today</th><th>One market or many</th><th>Public price</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>A broker or agent</strong></td><td>A person with existing trust and contacts who can carry a deal to the end. The site&rsquo;s matrix credits brokers with interpreting complex offers and navigating regulation</td><td>Any market, one deal at a time. The site says brokers engage only when the deal is big enough</td><td>None in the sources</td></tr>
+                            <tr><td><strong>An association&rsquo;s directory or introductions</strong></td><td>It exists, and members already trust the association</td><td>One membership</td><td>None in the sources</td></tr>
+                            <tr><td><strong>Doing nothing</strong></td><td>No cost and no risk. Correct where the missing deals are worth less than the effort</td><td>Not applicable</td><td>Nothing, apart from the deals that do not happen</td></tr>
+                            <tr><td><strong>Boardy</strong>, an AI introduction service</td><td>It is live with real users: by its own figures, more than 351,000 introductions. Like DeeperPoint it works from conversation and names nobody until both agree</td><td>One: its own network of founders, investors and operators. It is not offered for others to run</td><td>Free, with daily limits; some extras paid (21 November 2026)</td></tr>
+                            <tr><td><strong>A platform built for one industry</strong>, such as GrowinCo for contract manufacturing of packaged goods</td><td>Fitted to a single industry</td><td>One</td><td>None in the sources</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Left out: general marketplace builders (Sharetribe is the one a visitor would expect to see), large manufacturing marketplaces and supplier search tools (Xometry, Thomasnet), and AI negotiators for big buyers (Pactum). Sharetribe is a finished, supported product that could serve many markets (from US$39 a month to build and US$259 a month live, November 2026), but it assumes that listings and search are enough; the project&rsquo;s file found no confidential matching and no curated knowledge on its pages, and the sources show no thin market running on it. The others serve markets that are already busy, or one large buyer, and offer no way to stand up a platform for a thin market.</p>
+                <p><strong>What adopting DeeperPoint costs.</strong> The licence fee is zero. Free to license is not free to adopt. The site&rsquo;s estimate, as of 24 November 2026, is 215 to 355 hours of skilled work and about US$100 to US$1,200 in AI fees and tools for a wiki and a first twin of a moderately complex market. Asked how good the numbers are, the site answers: &ldquo;Not very, yet, and it is better to say so.&rdquo; One wiki has been built this way and nobody logged hours. The figures leave out recruiting participants, legal review, support, keeping the wiki current, reviewers&rsquo; time, any change to the software itself, and a real marketplace&rsquo;s own screens and payment handling, which the sponsor builds. The costs that are not money: a person who knows the market must give time that cannot be delegated; a developer and paid AI tools are needed; the sources describe no support organisation; and you would be the first real user.</p>
+            </div>
+
+            <div class="reveal dw-card" id="fit">
+                <h2>Where does this approach shine, and where should I look for another approach?</h2>
+                <p>These are my conclusions from the design. No results exist to check them against.</p>
+                <p>It is the stronger choice where:</p>
+                <ul>
+                    <li>The parties will not show their hand first. Matching before identities are revealed is built and under test here, with invented participants. Boardy also names nobody until both agree, but only inside its own network; no alternative above offers it for a market a sponsor could run.</li>
+                    <li>Deals turn on specialised rules that have more than one lawful route. In the job-matching twin, the profile records one wiki page opening a route for 10 of 55 invented workers whom a certificate rule would have blocked.</li>
+                    <li>The sponsor is an association or public body that wants to own its market and its data, has an expert and a developer available, and wants the right to keep the code if the project ends.</li>
+                    <li>You want to be able to stop early if the market looks unpromising. A build can stop after the wiki or the twin.</li>
+                </ul>
+                <p>Choose something else where:</p>
+                <ul>
+                    <li>Listings and search would be enough to bring your buyers and sellers together: your market is probably not thin, and a general marketplace builder such as Sharetribe is made for that.</li>
+                    <li>The deals are few and large: a broker.</li>
+                    <li>You want introductions among founders and investors: Boardy.</li>
+                    <li>Your members mainly need to see each other: a directory.</li>
+                    <li>You have nobody who knows the market and can give it sustained time: do not start. The site gives no separate figure for the expert&rsquo;s hours, but says this part cannot be handed off and that every stage stops for the expert&rsquo;s decision.</li>
+                    <li>You need proof before committing: wait for a pilot. None is scheduled in the sources.</li>
+                </ul>
+                <p><strong>Who it depends on.</strong> The site describes one founder, retired and self-funded, with no investors and no board. The public record of the main software shows four accounts have made changes to its code (116, 84, 58 and 30 recorded changes; the founder&rsquo;s is the 30). The record does not say who the others are or whether they remain involved, and the site names only the founder. If the founder stops, the code stays free to copy, and nobody is committed to maintaining it.</p>
+            </div>
+
+            <div class="reveal dw-card" id="limits">
+                <h2>What this assessment cannot tell you</h2>
+                <p>I am an AI model reading documents, commissioned by the founder. I have not run the software, so &ldquo;built&rdquo; here means the project&rsquo;s records say so. Two of my sources, the profile and the originality file, are not public; the detail of the build state and every statement about a named alternative rest on them. I did not check competitors myself, and their prices will change. I am not a peer reviewer of the economics and cannot judge the quality of the code. I cannot verify the hour estimates. I cannot know whether a market built this way would attract participants or complete a deal.</p>
+                <p class="as-byline">
+                    Written by Claude Fable 5.2, Anthropic&rsquo;s AI model, at the request of Mustafa Uzumeri,
+                    DeeperPoint, 24 November 2026. The assessment ends here; the rest of this page is ours.
+                </p>
+            </div>
+
+            <div class="reveal dw-card" id="ask-your-own">
+                <h2>Do not take our model&rsquo;s word for it</h2>
+                <p>
+                    We chose the model, wrote the instruction and gave it two files you cannot see. The check on
+                    that is to ask a model of your own choosing, which can read only what is public. Copy the
+                    question below into any AI assistant that can browse the web.
+                </p>
+                <pre class="as-prompt" id="as-prompt">I am looking at a project called DeeperPoint for the first time and deciding whether it deserves more of my time. Please read its website, https://deeperpoint.com (the home page and the pages on why markets do not form, what it is building, the intervention matrix, cost, demos, MarketForge and About), and its public code at https://github.com/DeeperPoint. Search for alternatives yourself; do not rely on the project's own account of its competitors.
+
+The subject is thin markets: markets where willing buyers and sellers exist but rarely manage to find, trust and deal with each other. Judge the project, and every alternative, as an answer to that problem. Leave out products made for markets that are already busy, and general online marketplace builders, unless they demonstrate a practical way to stand up a working platform for a typical thin market; if you leave out one I would expect to see, say why in a line.
+
+The project holds, citing economics research, that many of the challenges that keep markets thin are common to very different situations, so that an answer can be built once and reused across many markets. Judge whether that is sound and how far the evidence goes. For each alternative, say whether it could serve many different thin markets or was built for one.
+
+Then answer three questions:
+1. Is the thinking behind this reasonable and credible?
+2. Does anyone else offer a comparable or better approach, and at what cost?
+3. Where does this approach shine, and where should I look for another approach?
+
+Be balanced, thorough and honest about the project's strengths and weaknesses. Do not favour the project or its founder, and do not be harsher than the facts warrant either.
+- State strengths and limitations equally flatly. If the honest answer to a question is lopsided, say so.
+- Say whose judgment each evaluation is: the project claims, the site says, you conclude.
+- Do not report plans as progress. Something that is not built is "not built".
+- Name the alternatives I would really weigh, including the ones that are not software (a broker, an association's directory, doing nothing). For each, say what it does better than DeeperPoint today and what it costs, with the date of the price.
+- Tell me plainly: whether any real market runs on it with real participants and completed deals; which parts work, which are demonstrations with invented participants, and which are not built; what adopting it would cost me beyond the licence; whether anyone outside the project has tested its central idea; and who the project depends on.
+- Say what you could not check, and what you cannot judge from reading documents.
+Use plain language. Begin with a short answer of three or four sentences.</pre>
+                <p>
+                    <button type="button" class="btn btn--primary" id="as-copy">Copy the question</button>
+                    <span class="as-copied" id="as-copied" role="status" aria-live="polite"></span>
+                </p>
+                <p>
+                    A model working only from public pages will know less than ours did about what is built, and
+                    it may get facts wrong in either direction. Where its answer and this page disagree, the
+                    <a href="cost-model.html">cost page</a>, the <a href="demos.html">demos page</a> and the
+                    <a href="https://github.com/DeeperPoint" target="_blank" rel="noopener">public code</a> are
+                    the places to check. If it finds something this page should say and does not,
+                    <a href="contribute.html">tell us</a>.
+                </p>
+            </div>
+
+            <div class="reveal dw-card" id="instruction">
+                <h2>The instruction the model was given</h2>
+                <p>In full, as given. Only the layout has been changed for this page.</p>
+                <details class="as-details">
+                    <summary>Read the instruction</summary>
+                    <p>You are asked to assess the DeeperPoint initiative for a first-time visitor to its website, deeperpoint.com. The founder of DeeperPoint commissioned this assessment and will publish it on that website with this instruction printed beside it.</p>
+                    <p>The visitor has just met the project and is deciding whether it deserves more of their time. They may be a founder, an investor, an industry association, a public official, a researcher or a developer. Assume they are not technical. They are asking three questions:</p>
+                    <ol>
+                        <li>Is the thinking behind this reasonable and credible?</li>
+                        <li>Does anyone else offer a comparable or better approach, and at what cost?</li>
+                        <li>Where does this approach shine, and where should I look for another approach?</li>
+                    </ol>
+                    <p><strong>The subject is thin markets.</strong> A thin market is one where willing buyers and sellers exist but rarely manage to find, trust and deal with each other. Judge DeeperPoint, and every alternative, as an answer to that problem. There are a great many products and designs for markets that are already busy, and for general online marketplaces. Leave them out unless they demonstrate a practical way to stand up a working platform for a typical thin market; if you leave out one a visitor would expect to see, say why in a line.</p>
+                    <p><strong>The generality claim.</strong> The project holds, citing the economics research, that many of the challenges that keep markets thin are common to very different situations, so that an answer to them can be built once and reused across many markets. Judge whether that premise is sound and how far the evidence for it goes. Then say, for each alternative, whether it exploits or can deal with that generality: could it serve many different thin markets, or was it built for one?</p>
+                    <p>Be balanced, thorough and honest about DeeperPoint&rsquo;s strengths and weaknesses. Do not favour the project or its founder. The assessment has failed if the visitor comes away more impressed, or less impressed, than the facts warrant, even if every sentence in it is true.</p>
+                    <p><strong>How to judge</strong></p>
+                    <ul>
+                        <li>State strengths and limitations equally flatly. Do not follow a limitation with a sentence that takes it back, or a strength with a reflexive doubt.</li>
+                        <li>Do not manufacture balance. If the honest answer to a question is lopsided, say so.</li>
+                        <li>Say whose judgment each evaluation is: the project claims, the site says, you conclude. Where you say nothing comparable was found, say how hard anyone looked.</li>
+                        <li>Do not report plans as progress. Something that is not built is &ldquo;not built&rdquo;.</li>
+                        <li>Say what you cannot judge. You are an AI model reading documents. You are not a peer reviewer, you have not run the software, and you cannot know whether a market built this way would work.</li>
+                        <li>Words that sell are out (unique, revolutionary, breakthrough, powerful, cutting-edge, robust, seamless), and so are words that prejudge the other way.</li>
+                    </ul>
+                    <p><strong>What the answer must contain</strong></p>
+                    <ul>
+                        <li>For question 1: where the ideas come from, which of them are established and which are the project&rsquo;s own, and whether anyone outside the project has tested the central claim.</li>
+                        <li>For question 1, also: your judgment of the generality claim.</li>
+                        <li>For question 2: the alternatives for a thin market that a visitor would really weigh, by name, including the ones that are not software (a broker or agent, an association&rsquo;s directory, doing nothing). For each: what it does better than DeeperPoint today, whether it can serve many different thin markets or one, and what it costs where a price is public, with the date of the price. Then what adopting DeeperPoint costs, including the costs that are not money.</li>
+                        <li>For question 3: the situations where this approach is the stronger choice, and, as specifically, the situations where the visitor should choose something else and what that something is.</li>
+                        <li>Stated plainly somewhere, whatever the answers are: whether any real market runs on it with real participants and completed deals; which parts work, which are demonstrations with invented participants, and which are not built; that free to license is not the same as free to adopt; whether the central idea has been tested by anyone outside the project; and who the project depends on and what that means for its continuity.</li>
+                    </ul>
+                    <p><strong>Form</strong></p>
+                    <ul>
+                        <li>Plain language a non-technical reader could repeat to a colleague. Explain a project term once, in a clause, the first time it appears. No model names, databases or version numbers.</li>
+                        <li>Begin with &ldquo;The short answer&rdquo;: three or four sentences that would survive being the only thing read, and that include the most important limitation.</li>
+                        <li>Then one section for each of the three questions, with the question as its heading.</li>
+                        <li>End with &ldquo;What this assessment cannot tell you&rdquo;.</li>
+                        <li>1,300 to 1,800 words. A table only if a comparison needs one.</li>
+                        <li>Every date, price and count comes from the sources. Give each price with its date.</li>
+                    </ul>
+                    <p><strong>Sources (the commissioned assessment)</strong></p>
+                    <p>Use these and nothing from memory:</p>
+                    <ul>
+                        <li>the public website as it stood on the day, including its home, platform, market-physics, intervention-matrix, cost, demos, MarketForge and About pages;</li>
+                        <li>the project&rsquo;s own profile document, which records what is built and what is not, with dates (not public);</li>
+                        <li>the project&rsquo;s own file on originality and competitors, last checked against public sources on 21 November 2026 (not public);</li>
+                        <li>the public record of the project&rsquo;s code repositories at github.com/DeeperPoint: which are public, their licences, how many people have written the code, and how much outside attention they show.</li>
+                    </ul>
+                    <p>Where a statement rests only on a source the visitor cannot see, say so.</p>
+                </details>
+                <p class="as-byline">
+                    The checked text is about 2,050 words, over the 1,800 the instruction allowed, because the
+                    corrections added detail and none was cut to make room. The clause about how many people have
+                    written the code was added to the list of sources after the first check found it mattered.
+                </p>
+                <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+                    <a href="index.html#credible" class="btn btn--outline">&larr; Back to the home page</a>
+                    <a href="about.html" class="btn btn--outline">Who is behind this &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copyright">© 2026 Mustafa Uzumeri / DeeperPoint. All rights reserved.</div>
+                <ul class="footer__links">
+                    <li><a href="search.html" class="footer__link">Search</a></li>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="https://deeperpoint.com" class="footer__link" target="_blank" rel="noopener">deeperpoint.com</a></li>
+                    <li><a href="contribute.html" class="footer__link">Contribute</a></li>
+                    <li><a href="https://github.com/DeeperPoint" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('as-copy');
+            var out = document.getElementById('as-copied');
+            var text = document.getElementById('as-prompt');
+            if (!btn || !text) { return; }
+            btn.addEventListener('click', function () {
+                function done(ok) { out.textContent = ok ? 'Copied.' : 'Select the text and copy it by hand.'; }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text.textContent).then(function () { done(true); }, function () { done(false); });
+                } else { done(false); }
+            });
+        })();
+    </script>
+    <script src="reveal.js"></script>
+    <script src="nav-mobile.js"></script>
+    <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

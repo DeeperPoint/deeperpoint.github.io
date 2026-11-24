@@ -13,7 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261124b">
+  <link rel="stylesheet" href="styles.css?v=20261124c">
 </head>
 
 <body>
@@ -73,7 +73,7 @@
         <div style="margin-top: 1.25rem;">
           <a href="contribute.html"
             style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 100px; color: var(--dp-emerald); font-size: 0.8125rem; font-weight: 600; text-decoration: none;">
-            🔓 Open source &middot; MIT &middot; contributors welcome
+            🔓 Open source &middot; contributors welcome
           </a>
         </div>
       </div>
@@ -139,16 +139,18 @@
     </div>
   </section>
 
-  <!-- 1 · The problem — the visitor's own market. The page's call to action: your-market.js matches
-       the sentence against the catalog in the browser (catalog/idea-index.json, written by
-       scripts/build_idea_index.py). Nothing is sent unless the visitor chooses to send the idea. -->
+  <!-- 1 · The problem — the visitor's own market, in two steps. First the page's call to action:
+       your-market.js matches a sentence against the catalog in the browser (catalog/idea-index.json,
+       written by scripts/build_idea_index.py); nothing is sent unless the visitor chooses to send the
+       idea. Then the MarketMap, for a venture that already exists (merged into this band on
+       2026-11-24; it was a band of its own, "What about my market?", under Examples). -->
   <section class="band band--amber band--ask" id="your-market">
     <div class="band__solo reveal">
       <span class="band__stage">1 &middot; The problem <span>&middot; Your market</span></span>
-      <h2 class="band__title">What market should exist?</h2>
+      <h2 class="band__title">What about my market?</h2>
       <p>
-        Describe one in a sentence: who has something, and who needs it. You will see the closest ideas in
-        the catalog, and what tends to stand in the way of markets like it.
+        Start with a sentence about a market that should exist: who has something, and who needs it. You
+        will see the closest ideas in the catalog, and what tends to stand in the way of markets like it.
       </p>
       <form class="ym-form" id="ym-form" role="search" aria-label="Ask about a market idea">
         <label class="ym-label" for="ym-input">Your market idea</label>
@@ -162,6 +164,24 @@
       </p>
       <noscript><p class="ym-fine">This box needs JavaScript. The <a href="catalog/index.html">catalog</a> can be browsed without it.</p></noscript>
       <div class="ym-out" id="ym-out" aria-live="polite" hidden></div>
+      <div class="ym-next" id="marketmap">
+        <h3>Already have a venture? Ask for a MarketMap.</h3>
+        <p>
+          A MarketMap reads a company&rsquo;s public web page, and any documents you add, and sets the venture
+          against the same frictions: which challenges bind it, which interventions could release them, and how
+          strong the evidence is. The frictions it names are the ones a market&rsquo;s wiki, then its twin, then
+          the marketplace itself would be built to address.
+        </p>
+        <p class="ym-fine">
+          An AI-written analysis of public material, so check it against what you know. Running one is by request:
+          ask for a code on the demos page and it is emailed to you at once. A code covers one map.
+        </p>
+        <div class="band__cta">
+          <a href="marketmaps.html" class="btn btn--outline">See a worked MarketMap &rarr;</a>
+          <a href="demos.html#marketmap" class="btn btn--outline">Request an invite code &rarr;</a>
+          <a href="https://teardown.deeperpoint.com/" class="btn btn--outline" target="_blank" rel="noopener">I have a code &rarr;</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -175,7 +195,7 @@
       </figure>
       <div class="band__text">
         <span class="band__stage">2 &middot; The solution <span>&middot; What We&rsquo;re Building</span></span>
-        <h2 class="band__title">What are you building?</h2>
+        <h2 class="band__title">What is DeeperPoint building?</h2>
         <p>
           A free, open-source market engine, built once and dressed for each market: semantic matching, confidential
           disclosure, and a Deal Brief that hands off to the parties&rsquo; own professionals.
@@ -189,6 +209,33 @@
           <a href="platform.html" class="btn btn--primary">What we&rsquo;re building &rarr;</a>
           <a href="marketforge.html" class="btn btn--outline">The path, stage by stage &rarr;</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · The solution — the commissioned assessment (assessment.html; no nav item). The three lines
+       are that page's three section headings: keep the wording and the anchors in step with it. -->
+  <section class="band band--cyan" id="credible">
+    <div class="band__solo reveal">
+      <span class="band__stage">2 &middot; The solution <span>&middot; A second opinion</span></span>
+      <h2 class="band__title">Should I take this seriously?</h2>
+      <p>
+        A fair question about any project that describes itself. We asked an AI model to answer it, under a
+        written instruction to be balanced and honest about the strengths and the weaknesses, and we publish
+        the answer with the instruction beside it.
+      </p>
+      <ul class="band__seats">
+        <li><a href="assessment.html#credible">Is the thinking behind this reasonable and credible?</a></li>
+        <li><a href="assessment.html#alternatives">Does anyone else offer a comparable or better approach, and at what cost?</a></li>
+        <li><a href="assessment.html#fit">Where does this approach shine, and where should I look for another?</a></li>
+      </ul>
+      <p class="ym-fine">
+        Commissioned by the founder, so not independent. The page gives you the same question to put to any
+        AI model you choose.
+      </p>
+      <div class="band__cta">
+        <a href="assessment.html" class="btn btn--primary">Read the assessment &rarr;</a>
+        <a href="assessment.html#ask-your-own" class="btn btn--outline">Ask a model yourself &rarr;</a>
       </div>
     </div>
   </section>
@@ -267,42 +314,9 @@
     </div>
   </section>
 
-  <!-- 3 · Examples — MarketMap (no nav item; reached from here and from the demos page) -->
-  <section class="band band--amber" id="marketmap">
-    <div class="band__inner reveal">
-      <figure class="band__media">
-        <img src="images/home/marketmap.jpg" width="1200" height="800" loading="lazy"
-          alt="The owner of a small company leans over a table of printed pages, pencil in hand, studying a diagram of dots joined by lines.">
-        <figcaption>AI-generated illustration</figcaption>
-      </figure>
-      <div class="band__text">
-        <span class="band__stage">3 &middot; Examples <span>&middot; MarketMap</span></span>
-        <h2 class="band__title">What about my market?</h2>
-        <p>
-          A MarketMap reads a company&rsquo;s public web page, and any documents you add, and sets the venture
-          against the same frictions as everything else on this site: which challenges bind it, which interventions
-          could release them, and how strong the evidence is.
-        </p>
-        <p>
-          It is also a first step. The frictions a map names are the ones a market&rsquo;s wiki, then its twin, then
-          the marketplace itself would be built to address.
-        </p>
-        <p class="band__small">
-          An AI-written analysis of public material, so check it against what you know. Running one is by request:
-          ask for a code on the demos page and it is emailed to you at once. A code covers one map.
-        </p>
-        <div class="band__cta">
-          <a href="marketmaps.html" class="btn btn--primary">See a worked MarketMap &rarr;</a>
-          <a href="demos.html#marketmap" class="btn btn--outline">Request an invite code &rarr;</a>
-          <a href="https://teardown.deeperpoint.com/" class="btn btn--outline" target="_blank" rel="noopener">I have a code &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 4 · Cost — nav: Cost -->
   <section class="band band--cyan" id="cost">
-    <div class="band__inner band__inner--flip reveal">
+    <div class="band__inner reveal">
       <figure class="band__media">
         <img src="images/home/cost.jpg" width="1200" height="800" loading="lazy"
           alt="A planner arranges a row of blank sticky notes into a timeline on an office wall.">
@@ -329,7 +343,7 @@
 
   <!-- 5 · Documentation — nav: Library -->
   <section class="band band--emerald" id="documentation">
-    <div class="band__inner reveal">
+    <div class="band__inner band__inner--flip reveal">
       <figure class="band__media">
         <img src="images/home/library.jpg" width="1200" height="800" loading="lazy"
           alt="A reader works through a bound report at a table stacked with reports and binders.">
@@ -356,7 +370,7 @@
 
   <!-- Who — nav: About -->
   <section class="band band--amber" id="about">
-    <div class="band__inner band__inner--flip reveal">
+    <div class="band__inner reveal">
       <figure class="band__media">
         <img src="images/home/about.jpg" width="1200" height="800" loading="lazy"
           alt="A well-used desk with old notebooks, an engineering drawing, a slide rule and an open laptop.">
@@ -378,7 +392,7 @@
 
   <!-- Take part — nav: Contribute -->
   <section class="band band--emerald" id="contribute">
-    <div class="band__inner reveal">
+    <div class="band__inner band__inner--flip reveal">
       <figure class="band__media">
         <img src="images/home/contribute.jpg" width="1200" height="800" loading="lazy"
           alt="Five people of different ages work around a table in a room whose door stands open; one chair is empty.">
@@ -390,8 +404,9 @@
         <p>
           Yes. The frictions that keep markets thin are common across thousands of markets, so the layer that fights
           them can be built <strong>once</strong> and reused. DeeperPoint is building that layer as
-          <strong>free, MIT-licensed, open-source software</strong>: no licence fee, no usage tier, and no upsell
-          behind the demo.
+          <strong>free, open-source software</strong>: no licence fee, no usage tier, and no upsell
+          behind the demo. Its four bodies of code are either MIT-licensed or have their source freely
+          available with one condition.
         </p>
         <p>
           Code, knowledge of a market, a market to test on, and honest critique all have a place to land.
