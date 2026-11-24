@@ -20,7 +20,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 │   └── mf-commoncontext.html        # CommonContext — AI-curated domain knowledge
 ├── whitepaper.html             # Full whitepaper on thin market theory
 ├── testbeds.html               # Thin market example summaries
-├── examples.html               # Redirect to library.html#examples (the Examples hub merged into the Library, 2026-11-05)
+├── examples.html               # Redirect to demos.html (the Examples hub merged into the Library on 2026-11-05; the examples left the Library for the Demos page on 2026-11-23)
 ├── library.html                # Library: the documents (whitepaper, cards and deck, matrix, ebook with its précis and pitch deck, mission) and the worked examples (catalog, test beds, MarketMaps, scenarios, diagnostic, demo)
 ├── contribute.html             # Contribute: the open door (nav button and footer link on every page)
 ├── market-diagnostic.html      # Interactive Market Engineer's Diagnostic Checklist

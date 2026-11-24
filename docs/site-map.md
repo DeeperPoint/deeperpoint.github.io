@@ -117,7 +117,7 @@ Not linked from anywhere
    catalog/*.html ×59              orphan entries (see 4.2)
 
 Redirects
-   examples.html → library.html#examples      project.html → platform.html
+   examples.html → demos.html      project.html → platform.html
    thin-markets.html → market-physics.html    mf-curation.html → mf-commoncontext.html
    blog/knowledgeslot-schema-scoped-rag.html → blog/commoncontext-schema-scoped-rag.html
 ```
