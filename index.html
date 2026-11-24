@@ -13,7 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261124">
+  <link rel="stylesheet" href="styles.css?v=20261124b">
 </head>
 
 <body>
@@ -69,6 +69,7 @@
           <li><a href="#cost"><b>4</b> Cost</a></li>
           <li><a href="#documentation"><b>5</b> Documentation</a></li>
         </ol>
+        <p class="hero__ask"><a href="#your-market">Have a market in mind? See what stands in its way &rarr;</a></p>
         <div style="margin-top: 1.25rem;">
           <a href="contribute.html"
             style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 100px; color: var(--dp-emerald); font-size: 0.8125rem; font-weight: 600; text-decoration: none;">
@@ -138,6 +139,32 @@
     </div>
   </section>
 
+  <!-- 1 · The problem — the visitor's own market. The page's call to action: your-market.js matches
+       the sentence against the catalog in the browser (catalog/idea-index.json, written by
+       scripts/build_idea_index.py). Nothing is sent unless the visitor chooses to send the idea. -->
+  <section class="band band--amber band--ask" id="your-market">
+    <div class="band__solo reveal">
+      <span class="band__stage">1 &middot; The problem <span>&middot; Your market</span></span>
+      <h2 class="band__title">What market should exist?</h2>
+      <p>
+        Describe one in a sentence: who has something, and who needs it. You will see the closest ideas in
+        the catalog, and what tends to stand in the way of markets like it.
+      </p>
+      <form class="ym-form" id="ym-form" role="search" aria-label="Ask about a market idea">
+        <label class="ym-label" for="ym-input">Your market idea</label>
+        <input id="ym-input" name="idea" type="text" maxlength="200" autocomplete="off"
+          placeholder="e.g. retired nurses for rural clinics that need short-term cover">
+        <button type="submit" class="btn btn--primary">See what stands in its way &rarr;</button>
+      </form>
+      <p class="ym-fine" id="ym-privacy">
+        Matched in your browser against the catalog. No AI model runs, and nothing you type is sent or stored
+        unless you choose to send it.
+      </p>
+      <noscript><p class="ym-fine">This box needs JavaScript. The <a href="catalog/index.html">catalog</a> can be browsed without it.</p></noscript>
+      <div class="ym-out" id="ym-out" aria-live="polite" hidden></div>
+    </div>
+  </section>
+
   <!-- 2 · The solution — nav: What We're Building -->
   <section class="band band--emerald" id="solution">
     <div class="band__inner reveal">
@@ -178,8 +205,8 @@
         <span class="band__stage">3 &middot; Ideas <span>&middot; Catalog</span></span>
         <h2 class="band__title">Show me the markets</h2>
         <p>
-          Hundreds of ideas for thin markets across 29 sectors, none built yet, each tagged with the challenges
-          that bind it and the interventions that would release it.
+          Hundreds of ideas for thin markets across 29 sectors, none built yet, each with the
+          forces that hold it back.
         </p>
         <div class="band__cta">
           <a href="catalog/index.html" class="btn btn--primary">Browse the catalog &rarr;</a>
@@ -377,6 +404,18 @@
     </div>
   </section>
 
+  <!-- Close: back to the call to action -->
+  <section class="band band--amber band--ask band--close" id="close">
+    <div class="band__solo reveal">
+      <h2 class="band__title">Have a market in mind?</h2>
+      <p>One sentence is enough to see what the catalog holds that is like it, and what stands in its way.</p>
+      <div class="band__cta">
+        <a href="#your-market" class="btn btn--primary">Ask about your market idea &rarr;</a>
+        <a href="demos.html" class="btn btn--outline">See the demos &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -397,6 +436,7 @@
 
   <script src="reveal.js"></script>
   <script src="nav-mobile.js"></script>
+  <script src="your-market.js?v=20261124"></script>
   <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 

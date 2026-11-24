@@ -1368,6 +1368,10 @@ def main():
     if redirect_count:
         print(f"  Wrote: {redirect_count} redirect stubs from catalog/redirects.yaml")
 
+    # The word index behind "What market should exist?" on the Home page.
+    import build_idea_index
+    build_idea_index.write_index(scenarios)
+
     print(f"Catalog build complete. {len(scenarios)} ideas published.")
     print(f"  Access at: {SITE_URL}/catalog/")
 
