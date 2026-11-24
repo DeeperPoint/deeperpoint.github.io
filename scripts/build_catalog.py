@@ -1151,6 +1151,13 @@ def buildIndexPage(scenarios):
         exists yet. The story attached to each idea is fiction: its people and firms are invented to
         show how a match could work, and the market figures are estimates.
       </p>
+      <p class="idea-note" style="max-width: 60rem; margin-left: auto; margin-right: auto; text-align: left;">
+        <strong>Why ideas, and so many of them?</strong> The best evidence for this approach would be a
+        collection of working, commercial marketplaces built with it. Assembling that would be costly
+        and would take years. Working the approach through hundreds of different markets on paper was
+        the method we could afford now: a low-cost check that the same reasoning holds up across
+        unrelated sectors, each idea set out in enough detail to be argued with.
+      </p>
 
       <!-- Search -->
       <div class="cat-search-wrap">
