@@ -9,10 +9,13 @@ Changes from v1:
     promotes the story to the blog via a separate workflow.
   - Catalog index page has full-text search + multi-select sector/tag dropdowns
     + tier buttons, designed to handle 20–300+ entries without degrading UX.
+  - 2026-11-24: the index page is a dense list of titles grouped by sector, with a
+    reading panel beside it (a bottom sheet on phones), search that says where it
+    matched, and the old cards kept as a second view. The page leads with the count.
 
 YAML schema for each scenario file:
     id, title, sector, sub_sector, forge_tier, status, tags
-    card_title: "Short scan-friendly title for the index card (≤60 chars, 1 line ideal)"
+    card_title: "Short title for the index title list (≤60 chars; avoid ending in 'Matching')"
     hidden: true        <- optional; suppresses the scenario from the catalog without deleting the YAML
     market_example:
       summary:          <- CARD ABSTRACT: ~40–60 words. One tight paragraph that names the thin market
@@ -70,7 +73,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
   <style>
     /* --- Header --- */
     .cat-header {
-      padding-top: calc(var(--space-4xl, 4rem) + 60px);
+      padding-top: calc(var(--space-2xl, 2rem) + 60px);
       padding-bottom: var(--space-2xl, 2rem);
       text-align: center;
     }
@@ -84,7 +87,7 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     }
     .cat-desc {
       font-size: .95rem; color: var(--color-text-secondary, #cbd5e1);
-      max-width: 820px; margin: 0 auto 2rem; padding: 0 1.5rem; line-height: 1.65;
+      max-width: 820px; margin: 0 auto 1.25rem; padding: 0 1.5rem; line-height: 1.65;
     }
 
     /* --- Search bar --- */
@@ -209,17 +212,6 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
       margin-bottom: 1.5rem;
     }
     #visible-count { font-weight: 700; color: #a5b4fc; }
-
-    /* --- Grid --- */
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.25rem; margin-bottom: 4rem;
-    }
-    .cat-grid--empty {
-      grid-column: 1 / -1; text-align: center;
-      padding: 3rem 1rem; color: #64748b;
-    }
 
     /* --- Scenario card --- */
     .scenario-card {
@@ -378,55 +370,148 @@ PAGE_HEAD = """<!-- Copyright (c) 2026 Mustafa Uzumeri. All rights reserved. -->
     }
     .idea-note strong { color: #fbbf24; font-weight: 600; }
 
-    /* --- Curated collections panel --- */
-    .collections-panel {
-      margin: 0 auto 1rem;
-      max-width: 840px;
-      padding: 0 1rem;
+    /* --- Lead number --- */
+    .cat-lead {
+      font-family: 'Outfit', 'Inter', sans-serif; font-size: 1.15rem; font-weight: 500;
+      color: var(--color-text-secondary, #cbd5e1); margin: 0 auto 1.1rem; line-height: 1.4;
     }
-    .collections-panel__label {
-      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: #64748b;
-      margin-bottom: .55rem; text-align: center;
+    .cat-lead__num {
+      display: block; font-size: 5rem; font-weight: 700; line-height: 1; color: #f59e0b;
+      letter-spacing: -.02em; margin-bottom: .35rem;
     }
-    .collections-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: .4rem;
-      justify-items: stretch;
+    .cat-lead strong { color: var(--color-text-primary, #f1f5f9); font-weight: 600; }
+    .cat-wide { max-width: 1560px; }
+
+    /* --- View buttons (list / cards) --- */
+    .view-btns { display: inline-flex; border-radius: 8px; overflow: hidden; border: 1px solid rgba(99,102,241,.35); }
+    .view-btn {
+      padding: .45rem .85rem; font-size: .78rem; font-weight: 600;
+      background: transparent; border: none; border-right: 1px solid rgba(99,102,241,.25);
+      color: #a5b4fc; cursor: pointer; font-family: inherit; transition: background .15s;
     }
-    .col-card {
-      display: flex; align-items: center; gap: .5rem;
-      padding: .45rem .7rem;
-      background: rgba(15,23,42,.55);
-      border: 1px solid rgba(99,102,241,.22);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background .15s, border-color .15s;
-      text-align: left;
-      width: 100%;
+    .view-btn:last-child { border-right: none; }
+    .view-btn:hover { background: rgba(99,102,241,.1); }
+    .view-btn.active { background: rgba(99,102,241,.25); color: #e0e7ff; }
+
+    /* --- Title list with a reading panel beside it --- */
+    .cat-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 2rem;
+      align-items: start; text-align: left; margin-bottom: 4rem;
     }
-    .col-card:hover {
-      background: rgba(99,102,241,.14);
-      border-color: rgba(99,102,241,.5);
+    .idea-groups { columns: 270px; column-gap: 2rem; }
+    .idea-group { break-inside: avoid; margin: 0 0 1.1rem; }
+    .idea-group--hidden { display: none; }
+    .idea-group__head {
+      list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: .5rem;
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: #818cf8; padding: .3rem 0; margin-bottom: .3rem;
+      border-bottom: 1px solid rgba(99,102,241,.25);
     }
-    .col-card.active {
-      background: rgba(99,102,241,.2);
-      border-color: #6366f1;
+    .idea-group__head::-webkit-details-marker { display: none; }
+    .idea-group__name { flex: 1; }
+    .idea-group__count { color: #64748b; letter-spacing: .04em; white-space: nowrap; }
+    .idea-group__caret { display: none; color: #64748b; transition: transform .15s; }
+    .idea-group[open] .idea-group__caret { transform: rotate(90deg); }
+    .idea {
+      display: block; text-decoration: none; color: var(--color-text-secondary, #cbd5e1);
+      font-size: .84rem; line-height: 1.35; padding: .22rem .5rem;
+      border-radius: 6px; border-left: 2px solid transparent;
     }
-    .col-card__icon { font-size: .9rem; flex-shrink: 0; }
-    .col-card__body { min-width: 0; }
-    .col-card__name {
-      font-size: .75rem; font-weight: 700;
-      color: #c7d2fe; line-height: 1.2;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    .idea:hover { background: rgba(99,102,241,.12); color: #f1f5f9; }
+    .idea:focus-visible { outline: 2px solid #6366f1; outline-offset: 1px; }
+    .idea--active, .idea--active:hover { background: rgba(99,102,241,.22); border-left-color: #6366f1; color: #fff; }
+    .idea--hidden { display: none; }
+    .idea__title { display: block; }
+    .idea__meta, .idea__summary, .idea__tags, .idea__footer { display: none; }
+    .idea__hit { display: block; font-size: .72rem; line-height: 1.4; color: #94a3b8; margin-top: .1rem; }
+    .idea__hit:empty { display: none; }
+    .idea__hit b { color: #818cf8; font-weight: 600; }
+    .cat-layout mark { background: rgba(245,158,11,.3); color: #fde68a; border-radius: 2px; padding: 0 1px; }
+    .cat-empty { text-align: center; padding: 3rem 1rem; color: #64748b; display: none; }
+
+    .idea-panel {
+      position: sticky; top: 90px; max-height: calc(100vh - 110px); overflow: auto;
+      background: rgba(15,23,42,.85); border: 1px solid rgba(99,102,241,.3);
+      border-radius: 16px; padding: 1.4rem 1.5rem;
     }
-    .col-card__count {
-      font-size: .63rem; color: #64748b; line-height: 1;
+    .idea-panel__empty { font-size: .88rem; line-height: 1.6; color: var(--color-text-muted, #94a3b8); margin: 0; }
+    .idea-panel__empty strong { color: var(--color-text-primary, #f1f5f9); }
+    .idea-panel__close {
+      display: none; position: absolute; top: .5rem; right: .75rem; background: none; border: none;
+      color: #94a3b8; font-size: 1.8rem; line-height: 1; cursor: pointer; padding: .25rem .5rem;
     }
-    @media (max-width: 480px) {
-      .collections-grid { grid-template-columns: repeat(2, 1fr); }
-      .collections-panel { padding: 0 .75rem; }
+    .idea-panel__title {
+      font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin: 0 0 .4rem;
+      color: var(--color-text-primary, #f1f5f9);
+    }
+    .idea-panel__full { font-size: .78rem; line-height: 1.45; color: var(--color-text-muted, #94a3b8); margin: 0 0 .75rem; }
+    .idea-panel__summary { font-size: .9rem; line-height: 1.6; color: var(--color-text-secondary, #cbd5e1); margin: 0 0 1rem; }
+    .idea-panel__cta {
+      display: inline-flex; align-items: center; margin-top: 1rem; padding: .55rem 1.2rem;
+      border-radius: 20px; background: #6366f1; color: #fff; font-size: .85rem; font-weight: 600;
+      text-decoration: none; transition: background .15s;
+    }
+    .idea-panel__cta:hover { background: #4f46e5; }
+    .idea-panel__nav { display: flex; justify-content: space-between; gap: .5rem; margin-top: 1.1rem;
+      padding-top: .85rem; border-top: 1px solid rgba(99,102,241,.2); }
+    .idea-panel__nav button {
+      background: none; border: none; color: #818cf8; font-size: .78rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; padding: .3rem 0;
+    }
+    .idea-panel__nav button:hover { color: #c7d2fe; }
+    .idea-backdrop { display: none; }
+
+    /* --- Card view: the same entries drawn as cards, no panel --- */
+    .cat-layout--cards { grid-template-columns: minmax(0, 1fr); }
+    .cat-layout--cards .idea-panel { display: none; }
+    .cat-layout--cards .idea-groups { columns: auto; }
+    .cat-layout--cards .idea-group__items {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem; margin: .9rem 0 2rem;
+    }
+    .cat-layout--cards .idea {
+      background: rgba(15,23,42,.6); border: 1px solid rgba(99,102,241,.2);
+      border-radius: 16px; padding: 1.4rem 1.5rem; color: inherit;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .cat-layout--cards .idea:hover {
+      transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99,102,241,.18);
+      border-color: rgba(99,102,241,.45);
+    }
+    .cat-layout--cards .idea__meta { display: flex; }
+    .cat-layout--cards .idea__summary { display: block; }
+    .cat-layout--cards .idea__tags { display: flex; }
+    .cat-layout--cards .idea__footer { display: flex; }
+    .cat-layout--cards .idea__title {
+      font-size: 1.05rem; font-weight: 700; line-height: 1.35; margin-bottom: .5rem;
+      color: var(--color-text-primary, #f1f5f9);
+    }
+    .cat-layout--cards .idea__hit { font-size: .78rem; margin: 0 0 .6rem; }
+
+    /* --- Phones and narrow windows: sectors fold, the panel becomes a bottom sheet --- */
+    @media (max-width: 900px) {
+      .cat-header { padding-top: calc(2rem + 80px); }
+      .cat-desc { padding: 0; }
+      .cat-lead__num { font-size: 3.6rem; }
+      .cat-layout { grid-template-columns: minmax(0, 1fr); }
+      .idea-groups { columns: auto; }
+      .idea-group { margin-bottom: .2rem; }
+      .idea-group__head { padding: .85rem 0; font-size: .74rem; margin-bottom: 0; }
+      .idea-group[open] .idea-group__head { margin-bottom: .4rem; }
+      .idea-group__caret { display: inline-block; }
+      .idea { padding: .6rem .5rem; font-size: .92rem; }
+      .idea-panel {
+        position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 300;
+        max-height: 72vh; border-radius: 16px 16px 0 0; border-bottom: none;
+        background: #111827; box-shadow: 0 -12px 40px rgba(0,0,0,.6);
+        padding: 1.5rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
+        transform: translateY(105%); transition: transform .2s;
+      }
+      .idea-panel--open { transform: none; }
+      .idea-panel__close { display: block; }
+      .idea-panel .scenario-card__top { padding-right: 2.5rem; }
+      .idea-backdrop--open { display: block; position: fixed; inset: 0; z-index: 290; background: rgba(0,0,0,.55); }
+      .cat-layout--cards .idea-group__items { grid-template-columns: minmax(0, 1fr); }
     }
 
     /* --- Story placeholder --- */
@@ -615,20 +700,29 @@ def storyDot(story):
 # ---------------------------------------------------------------------------
 
 
-def buildIndexPage(scenarios):
-    """Generate the filterable catalog index page."""
+def sectorLabel(sector):
+    """Readable name for a sector slug: 'pets-and-animals' -> 'Pets and Animals'."""
+    return sector.replace("-", " ").title().replace(" And ", " and ")
 
-    # Collect unique sectors and tags for filter controls
-    sectors = sorted({s.get("sector", "other") for s in scenarios})
+
+def buildIndexPage(scenarios):
+    """Generate the catalog index: a dense list of titles grouped by sector, with a
+    reading panel beside it, search that says where it matched, and a card view."""
+
+    # Group by sector; sectors and the titles inside them run alphabetically.
+    by_sector = {}
+    for s in scenarios:
+        by_sector.setdefault(s.get("sector", "other"), []).append(s)
+    sectors = sorted(by_sector, key=sectorLabel)
     all_tags = sorted({t for s in scenarios for t in s.get("tags", [])})
+    total = len(scenarios)
 
     # --- Sector dropdown options ---
     sector_options = ""
     for sec in sectors:
-        label = sec.replace("-", " ").title()
         sector_options += (
             f'<label class="fdd__item">'
-            f'<input type="checkbox" class="sector-cb" value="{escHtml(sec)}"> {escHtml(label)}'
+            f'<input type="checkbox" class="sector-cb" value="{escHtml(sec)}"> {escHtml(sectorLabel(sec))}'
             f"</label>\n"
         )
 
@@ -641,84 +735,161 @@ def buildIndexPage(scenarios):
             f"</label>\n"
         )
 
-    # --- Scenario cards ---
-    cards_html = ""
-    total = len(scenarios)
-    for s in scenarios:
-        sid = escHtml(s.get("id", ""))
-        title = escHtml(s.get("title", "Untitled"))
-        card_title = escHtml(s.get("card_title") or s.get("title", "Untitled"))
-        sector = s.get("sector", "other")
-        sector_label = sector.replace("-", " ").title()
-        tier = s.get("forge_tier", 2)
-        me = s.get("market_example", {})
-        summary = escHtml(me.get("summary", ""))
-        tags = s.get("tags", [])
-        story = s.get("story", {})
-        sponsor_count = len(s.get("sponsor_opportunities", []))
-        # Search text: title + summary + tags (lowercased for client-side match)
-        search_text = " ".join([s.get("title", ""), me.get("summary", ""), " ".join(tags)]).lower()
-        tags_html = "".join(f'<span class="scenario-card__tag">{escHtml(t)}</span>' for t in tags)
-        s_label = f"{sponsor_count} sponsor/investor opp" + ("s" if sponsor_count != 1 else "")
-        cards_html += f"""
-        <a href="{sid}.html" class="scenario-card reveal"
-           data-sector="{escHtml(sector)}"
-           data-tier="{tier}"
-           data-tags="{escHtml(' '.join(tags))}"
-           data-search="{escHtml(search_text)}">
-          <div class="scenario-card__top">
-            <div class="scenario-card__sector">{escHtml(sector_label)}</div>
-            {tierBadge(tier)}
-          </div>
-          <div class="scenario-card__title">{card_title}</div>
-          <div class="scenario-card__summary">{summary}</div>
-          <div class="scenario-card__tags">{tags_html}</div>
-          <div class="scenario-card__footer">
-            {storyDot(story)}
-            <span style="margin-left:auto">{s_label}</span>
-          </div>
-        </a>"""
+    # --- One entry per idea. The list view shows only the title; the card view and the
+    #     reading panel draw on the rest, so each idea is written into the page once. ---
+    groups_html = ""
+    for sec in sectors:
+        label = escHtml(sectorLabel(sec))
+        members = sorted(by_sector[sec], key=lambda s: (s.get("card_title") or s.get("title", "")).lower())
+        items_html = ""
+        for s in members:
+            sid = escHtml(s.get("id", ""))
+            title = escHtml(s.get("title", "Untitled"))
+            card_title = escHtml(s.get("card_title") or s.get("title", "Untitled"))
+            tier = s.get("forge_tier", 2)
+            me = s.get("market_example", {})
+            summary = escHtml(me.get("summary", ""))
+            tags = s.get("tags", [])
+            sponsor_count = len(s.get("sponsor_opportunities", []))
+            tags_html = "".join(f'<span class="scenario-card__tag">{escHtml(t)}</span>' for t in tags)
+            s_label = f"{sponsor_count} sponsor/investor opp" + ("s" if sponsor_count != 1 else "")
+            items_html += f"""
+            <a href="{sid}.html" class="idea" data-id="{sid}" data-tier="{tier}"
+               data-tags="{escHtml(' '.join(tags))}" data-title="{title}">
+              <span class="idea__meta scenario-card__top"><span class="scenario-card__sector">{label}</span>{tierBadge(tier)}</span>
+              <span class="idea__title">{card_title}</span>
+              <span class="idea__hit"></span>
+              <span class="idea__summary scenario-card__summary">{summary}</span>
+              <span class="idea__tags scenario-card__tags">{tags_html}</span>
+              <span class="idea__footer scenario-card__footer">{storyDot(s.get("story", {}))}<span style="margin-left:auto">{s_label}</span></span>
+            </a>"""
+        groups_html += f"""
+          <details class="idea-group" open data-sector="{escHtml(sec)}">
+            <summary class="idea-group__head">
+              <span class="idea-group__caret" aria-hidden="true">&#9656;</span>
+              <span class="idea-group__name">{label}</span>
+              <span class="idea-group__count">{len(members)}</span>
+            </summary>
+            <div class="idea-group__items">{items_html}
+            </div>
+          </details>"""
 
-    # --- Inline JS for search + filters ---
-    filter_js = """
+    # --- Inline JS: search, filters, the reading panel and the view switch ---
+    filter_js = r"""
   <script>
   (function () {
-    var cards = Array.from(document.querySelectorAll('.scenario-card'));
+    var layout = document.getElementById('cat-layout');
+    var panel = document.getElementById('idea-panel');
+    var backdrop = document.getElementById('idea-backdrop');
     var countEl = document.getElementById('visible-count');
     var chipsEl = document.getElementById('filter-chips');
     var clearBtn = document.getElementById('btn-clear');
-    var totalEl = document.getElementById('total-count');
-    if (totalEl) totalEl.textContent = cards.length;
+    var emptyEl = document.getElementById('no-results');
+    var searchInput = document.getElementById('cat-search');
+    var narrow = window.matchMedia('(max-width: 900px)');
+    var placeholder = panel.innerHTML;
+
+    // -- Read the ideas out of the page --
+    var groups = [], ideas = [];
+    Array.prototype.forEach.call(document.querySelectorAll('.idea-group'), function (el) {
+      var g = { el: el, sector: el.dataset.sector, total: 0, vis: 0,
+                label: el.querySelector('.idea-group__name').textContent,
+                countEl: el.querySelector('.idea-group__count') };
+      g.labelLow = g.label.toLowerCase();
+      groups.push(g);
+      Array.prototype.forEach.call(el.querySelectorAll('.idea'), function (a) {
+        var it = { el: a, group: g, id: a.dataset.id, tier: a.dataset.tier, shown: true,
+                   tags: a.dataset.tags ? a.dataset.tags.split(' ') : [],
+                   titleEl: a.querySelector('.idea__title'), hitEl: a.querySelector('.idea__hit'),
+                   full: a.dataset.title || '',
+                   summary: a.querySelector('.idea__summary').textContent };
+        it.title = it.titleEl.textContent;
+        it.titleLow = it.title.toLowerCase();
+        it.fullLow = it.full.toLowerCase();
+        it.summaryLow = it.summary.toLowerCase();
+        g.total++;
+        ideas.push(it);
+      });
+    });
 
     // -- State --
     var query = '';
     var activeSectors = {};
     var activeTags = {};
     var activeTier = 'all';
+    var active = null;
+    var view = 'list';
 
-    // -- Core filter logic --
-    function cardVisible(card) {
-      if (query && card.dataset.search.indexOf(query) === -1) return false;
-      var sec = card.dataset.sector;
-      if (Object.keys(activeSectors).length && !activeSectors[sec]) return false;
-      var cardTags = card.dataset.tags ? card.dataset.tags.split(' ') : [];
-      if (Object.keys(activeTags).length) {
-        var hit = false;
-        for (var i = 0; i < cardTags.length; i++) { if (activeTags[cardTags[i]]) { hit = true; break; } }
-        if (!hit) return false;
+    // -- Text helpers --
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function mark(text, q) {
+      if (!q) return esc(text);
+      var low = text.toLowerCase(), out = '', i = 0, j;
+      while ((j = low.indexOf(q, i)) !== -1) {
+        out += esc(text.slice(i, j)) + '<mark>' + esc(text.slice(j, j + q.length)) + '</mark>';
+        i = j + q.length;
       }
-      if (activeTier !== 'all' && card.dataset.tier !== activeTier) return false;
+      return out + esc(text.slice(i));
+    }
+    function snippet(text, q) {
+      var j = text.toLowerCase().indexOf(q);
+      var start = Math.max(0, j - 45), end = Math.min(text.length, j + q.length + 70);
+      if (start > 0) { var sp = text.indexOf(' ', start); if (sp !== -1 && sp < j) start = sp + 1; }
+      if (end < text.length) { var ep = text.lastIndexOf(' ', end); if (ep > j + q.length) end = ep; }
+      return (start > 0 ? '&hellip;' : '') + mark(text.slice(start, end), q) + (end < text.length ? '&hellip;' : '');
+    }
+
+    // -- Where does the search text occur in this idea? null when it does not. --
+    function findHit(it) {
+      if (!query) return { where: 'none' };
+      if (it.titleLow.indexOf(query) !== -1) return { where: 'title' };
+      if (it.fullLow.indexOf(query) !== -1) return { where: 'Full title', text: it.full };
+      for (var i = 0; i < it.tags.length; i++) {
+        var spaced = it.tags[i].replace(/-/g, ' ');
+        if (it.tags[i].indexOf(query) !== -1) return { where: 'Tag', text: it.tags[i] };
+        if (spaced.indexOf(query) !== -1) return { where: 'Tag', text: spaced };
+      }
+      if (it.group.labelLow.indexOf(query) !== -1) return { where: 'Sector', text: it.group.label };
+      if (it.summaryLow.indexOf(query) !== -1) return { where: 'Summary', text: it.summary };
+      return null;
+    }
+    function showHit(it, hit) {
+      it.titleEl.innerHTML = hit.where === 'title' ? mark(it.title, query) : esc(it.title);
+      it.hitEl.innerHTML = hit.text ? '<b>' + hit.where + ':</b> ' + snippet(hit.text, query) : '';
+    }
+
+    // -- Filters --
+    function passesFilters(it) {
+      if (Object.keys(activeSectors).length && !activeSectors[it.group.sector]) return false;
+      if (Object.keys(activeTags).length) {
+        var ok = false;
+        for (var i = 0; i < it.tags.length; i++) { if (activeTags[it.tags[i]]) { ok = true; break; } }
+        if (!ok) return false;
+      }
+      if (activeTier !== 'all' && it.tier !== activeTier) return false;
       return true;
     }
 
     function applyFilters() {
       var vis = 0;
-      cards.forEach(function (c) {
-        var show = cardVisible(c);
-        c.classList.toggle('scenario-card--hidden', !show);
-        if (show) vis++;
+      var filtering = !!query || activeTier !== 'all' ||
+        Object.keys(activeSectors).length > 0 || Object.keys(activeTags).length > 0;
+      groups.forEach(function (g) { g.vis = 0; });
+      ideas.forEach(function (it) {
+        var hit = passesFilters(it) ? findHit(it) : null;
+        it.shown = !!hit;
+        it.el.classList.toggle('idea--hidden', !hit);
+        if (hit) { vis++; it.group.vis++; showHit(it, hit); }
+      });
+      groups.forEach(function (g) {
+        g.el.classList.toggle('idea-group--hidden', g.vis === 0);
+        g.countEl.textContent = g.vis === g.total ? g.total : g.vis + ' of ' + g.total;
+        if (filtering && g.vis) g.el.open = true;
       });
       if (countEl) countEl.textContent = vis;
+      if (emptyEl) emptyEl.style.display = vis ? 'none' : 'block';
       renderChips();
       updateDropdownLabels();
     }
@@ -735,8 +906,8 @@ def buildIndexPage(scenarios):
       var tierLabels = {'1':'Easy','2':'Moderate','3':'Complex'};
       if (activeTier !== 'all') chips.push({ type: 'tier', value: activeTier, label: (tierLabels[activeTier] || ('Tier ' + activeTier)) });
       chipsEl.innerHTML = chips.map(function (c) {
-        return '<span class="filter-chip" data-type="' + c.type + '" data-value="' + c.value + '">' +
-          c.label + '<button class="filter-chip__x" title="Remove">&times;</button></span>';
+        return '<span class="filter-chip" data-type="' + c.type + '" data-value="' + esc(c.value) + '">' +
+          esc(c.label) + '<button class="filter-chip__x" title="Remove">&times;</button></span>';
       }).join('');
       chipsEl.querySelectorAll('.filter-chip__x').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -748,7 +919,7 @@ def buildIndexPage(scenarios):
           applyFilters();
         });
       });
-      if (clearBtn) clearBtn.style.display = chips.length ? 'inline-flex' : 'none';
+      if (clearBtn) clearBtn.style.display = (chips.length || query) ? 'inline-flex' : 'none';
     }
 
     function updateDropdownLabels() {
@@ -758,7 +929,6 @@ def buildIndexPage(scenarios):
       document.getElementById('tag-label').textContent    = tagCount ? 'Tags (' + tagCount + ')' : 'All Tags';
     }
 
-    // -- Helpers --
     function setCheckbox(selector, value, checked) {
       document.querySelectorAll(selector).forEach(function (cb) {
         if (cb.value === value) cb.checked = checked;
@@ -770,8 +940,78 @@ def buildIndexPage(scenarios):
       });
     }
 
+    // -- Reading panel --
+    function part(it, cls) { return it.el.querySelector(cls).innerHTML; }
+    function openIdea(it) {
+      if (active) active.el.classList.remove('idea--active');
+      active = it;
+      it.el.classList.add('idea--active');
+      it.group.el.open = true;
+      panel.innerHTML =
+        '<button class="idea-panel__close" type="button" aria-label="Close">&times;</button>' +
+        '<div class="scenario-card__top">' + part(it, '.idea__meta') + '</div>' +
+        '<h2 class="idea-panel__title">' + esc(it.title) + '</h2>' +
+        (it.full && it.full !== it.title ? '<p class="idea-panel__full">' + esc(it.full) + '</p>' : '') +
+        '<p class="idea-panel__summary">' + mark(it.summary, query) + '</p>' +
+        '<div class="scenario-card__tags">' + part(it, '.idea__tags') + '</div>' +
+        '<div class="scenario-card__footer">' + part(it, '.idea__footer') + '</div>' +
+        '<a class="idea-panel__cta" href="' + it.el.getAttribute('href') + '">Read the full idea &rarr;</a>' +
+        '<div class="idea-panel__nav">' +
+          '<button type="button" data-step="-1">&larr; Previous</button>' +
+          '<button type="button" data-step="1">Next &rarr;</button></div>';
+      panel.scrollTop = 0;
+      panel.classList.add('idea-panel--open');
+      backdrop.classList.add('idea-backdrop--open');
+      try { history.replaceState(null, '', '#' + it.id); } catch (e) {}
+    }
+    function closeIdea() {
+      if (active) active.el.classList.remove('idea--active');
+      active = null;
+      panel.innerHTML = placeholder;
+      panel.classList.remove('idea-panel--open');
+      backdrop.classList.remove('idea-backdrop--open');
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+    }
+    function step(n) {
+      var shown = ideas.filter(function (it) { return it.shown; });
+      if (!shown.length) return;
+      var i = shown.indexOf(active);
+      var next = i === -1 ? shown[0] : shown[i + n];
+      if (!next) return;
+      openIdea(next);
+      if (narrow.matches) next.el.scrollIntoView({ block: 'center' });
+      else next.el.focus();
+    }
+
+    document.getElementById('idea-groups').addEventListener('click', function (e) {
+      var a = e.target.closest('.idea');
+      if (!a || view === 'cards') return;                               // card view: follow the link
+      if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;  // new tab etc.
+      e.preventDefault();
+      for (var i = 0; i < ideas.length; i++) { if (ideas[i].el === a) { openIdea(ideas[i]); break; } }
+    });
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('.idea-panel__close')) { closeIdea(); return; }
+      var s = e.target.closest('[data-step]');
+      if (s) step(parseInt(s.dataset.step, 10));
+    });
+    backdrop.addEventListener('click', closeIdea);
+
+    // -- List / cards --
+    function setView(v) {
+      view = v === 'cards' ? 'cards' : 'list';
+      layout.classList.toggle('cat-layout--cards', view === 'cards');
+      document.querySelectorAll('.view-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.value === view);
+      });
+      if (view === 'cards') closeIdea();
+      try { localStorage.setItem('dp-catalog-view', view); } catch (e) {}
+    }
+    document.querySelectorAll('.view-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { setView(this.dataset.value); });
+    });
+
     // -- Search --
-    var searchInput = document.getElementById('cat-search');
     if (searchInput) {
       searchInput.addEventListener('input', function () {
         query = this.value.toLowerCase().trim();
@@ -801,8 +1041,8 @@ def buildIndexPage(scenarios):
     document.querySelectorAll('.fdd__search').forEach(function (inp) {
       inp.addEventListener('input', function () {
         var q = this.value.toLowerCase();
-        var panel = this.closest('.fdd__panel');
-        panel.querySelectorAll('.fdd__item').forEach(function (item) {
+        var box = this.closest('.fdd__panel');
+        box.querySelectorAll('.fdd__item').forEach(function (item) {
           item.style.display = item.textContent.toLowerCase().includes(q) ? '' : 'none';
         });
       });
@@ -829,12 +1069,15 @@ def buildIndexPage(scenarios):
     }
 
     // -- Dropdown toggle --
+    function closeDropdowns() {
+      document.querySelectorAll('.fdd').forEach(function (f) { f.classList.remove('fdd--open'); });
+    }
     document.querySelectorAll('.fdd__btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var fdd = btn.closest('.fdd');
         var isOpen = fdd.classList.contains('fdd--open');
-        document.querySelectorAll('.fdd').forEach(function (f) { f.classList.remove('fdd--open'); });
+        closeDropdowns();
         if (!isOpen) {
           fdd.classList.add('fdd--open');
           var si = fdd.querySelector('.fdd__search');
@@ -842,41 +1085,49 @@ def buildIndexPage(scenarios):
         }
       });
     });
-    document.addEventListener('click', function () {
-      document.querySelectorAll('.fdd').forEach(function (f) { f.classList.remove('fdd--open'); });
+    document.querySelectorAll('.fdd__panel').forEach(function (p) {
+      p.addEventListener('click', function (e) { e.stopPropagation(); });
     });
+    document.addEventListener('click', closeDropdowns);
+
+    // -- Keys: Escape closes; up and down walk the list while an idea is open --
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') document.querySelectorAll('.fdd').forEach(function (f) { f.classList.remove('fdd--open'); });
+      var tag = (e.target.tagName || '').toLowerCase();
+      if (e.key === 'Escape') {
+        closeDropdowns();
+        if (active && tag !== 'input') closeIdea();
+        return;
+      }
+      if (!active || view === 'cards' || tag === 'input' || tag === 'textarea') return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); step(1); }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); step(-1); }
     });
 
-    // -- Select collection (curated preset) --
-    window.selectCollection = function (sectors, tags, activeCardId) {
-      query = ''; activeSectors = {}; activeTags = {}; activeTier = 'all';
-      if (searchInput) searchInput.value = '';
-      document.querySelectorAll('.sector-cb, .tag-cb').forEach(function (cb) { cb.checked = false; });
-      updateTierBtns();
-      sectors.forEach(function (s) {
-        activeSectors[s] = true;
-        setCheckbox('.sector-cb', s, true);
-      });
-      tags.forEach(function (t) {
-        activeTags[t] = true;
-        setCheckbox('.tag-cb', t, true);
-      });
-      document.querySelectorAll('.col-card').forEach(function (c) { c.classList.remove('active'); });
-      var card = document.getElementById(activeCardId);
-      if (card) card.classList.add('active');
-      var countEl = document.querySelector('.cat-count');
-      if (countEl) countEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      applyFilters();
-    };
-
+    // -- Start --
+    var saved = null;
+    try { saved = localStorage.getItem('dp-catalog-view'); } catch (e) {}
+    setView(saved);
+    if (narrow.matches) groups.forEach(function (g) { g.el.open = false; });   // phones start folded
+    var asked = '';
+    try { asked = new URLSearchParams(location.search).get('q') || ''; } catch (e) {}
+    if (asked && searchInput) { searchInput.value = asked; query = asked.toLowerCase().trim(); }   // catalog/?q=term
     applyFilters();
+    var wanted = decodeURIComponent(location.hash.slice(1));
+    if (wanted && view === 'list') {
+      for (var k = 0; k < ideas.length; k++) {
+        if (ideas[k].id === wanted) {
+          openIdea(ideas[k]);
+          var box = ideas[k].el.getBoundingClientRect();
+          if (box.top < 80 || box.bottom > window.innerHeight) ideas[k].el.scrollIntoView({ block: 'center' });
+          break;
+        }
+      }
+    }
   })();
   </script>"""
 
     head = renderHead(
-        title="Catalog of Market Ideas \u2014 Thin Markets Waiting to Be Built",
+        title="Catalog of Market Ideas — Thin Markets Waiting to Be Built",
         description=f"{total} ideas for thin markets that could exist if the right matching infrastructure were built. None has been built. Each idea has a market analysis, sponsor revenue models and a short fictional story showing how a match would work.",
         css_path="../styles.css",
         root="../",
@@ -884,142 +1135,28 @@ def buildIndexPage(scenarios):
 
     content = f"""
   <section class="section cat-header" id="catalog-index">
-    <div class="container">
+    <div class="container cat-wide">
       <h1 class="cat-title">Catalog of Market Ideas</h1>
-      <p class="cat-desc">
-        Each entry is an idea: a thin market that could be transformed by the right matching
-        infrastructure &#8212; but has not been yet. Individual ideas are speculative and
-        details can always be argued. The point is not any single entry: it is the sheer
-        number of plausible opportunities across entirely different sectors, geographies, and
-        participant types. That pattern is harder to dismiss than any one idea. Browse by
-        sector, tag, or build complexity, and see how many you find compelling.
+      <p class="cat-lead">
+        <span class="cat-lead__num">{total}</span>
+        ideas for thin markets that nobody has built yet, across <strong>{len(sectors)} sectors</strong>
       </p>
-      <p class="idea-note" style="max-width: 60rem;">
+      <p class="cat-desc">
+        Each entry is an idea: a thin market that the right matching infrastructure could open up.
+        Any single idea can be argued with. The point is how many plausible ones there are, across
+        unrelated sectors, places and kinds of participant. Click a title to read its summary.
+      </p>
+      <p class="idea-note" style="max-width: 60rem; margin-left: auto; margin-right: auto; text-align: left;">
         <strong>These are ideas, not built markets.</strong> None of the marketplaces described here
         exists yet. The story attached to each idea is fiction: its people and firms are invented to
         show how a match could work, and the market figures are estimates.
       </p>
 
-      <!-- Curated Collections -->
-      <div class="collections-panel">
-        <div class="collections-panel__label">&#128204; Browse by collection</div>
-        <div class="collections-grid">
-          <button class="col-card" id="col-resources"
-            onclick="selectCollection(['canadian-natural-resources','canadian-energy','canadian-forestry'], [], 'col-resources')"
-            title="Resources, Energy &amp; Forestry">
-            <span class="col-card__icon">&#9935;&#65039;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Resources &amp; Energy</span>
-              <span class="col-card__count">24 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-manufacturing"
-            onclick="selectCollection(['manufacturing','construction','logistics'], [], 'col-manufacturing')"
-            title="Manufacturing, Construction &amp; Logistics">
-            <span class="col-card__icon">&#9881;&#65039;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Manufacturing &amp; Build</span>
-              <span class="col-card__count">11 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-finance"
-            onclick="selectCollection(['canadian-financial-services'], [], 'col-finance')"
-            title="Finance, Insurance &amp; Risk">
-            <span class="col-card__icon">&#128176;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Finance &amp; Risk</span>
-              <span class="col-card__count">20 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-justice"
-            onclick="selectCollection(['canadian-justice-system','social-enterprise'], [], 'col-justice')"
-            title="Justice, Social Enterprise &amp; Reintegration">
-            <span class="col-card__icon">&#9878;&#65039;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Justice &amp; Social</span>
-              <span class="col-card__count">21 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-agfood"
-            onclick="selectCollection(['canadian-agriculture','canadian-food-last-stage'], [], 'col-agfood')"
-            title="Agriculture &amp; Food">
-            <span class="col-card__icon">&#127806;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Agriculture &amp; Food</span>
-              <span class="col-card__count">18 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-northern"
-            onclick="selectCollection(['remote-town-renewal','municipal-government'], [], 'col-northern')"
-            title="Northern, Remote &amp; Municipal">
-            <span class="col-card__icon">&#127956;&#65039;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Northern &amp; Municipal</span>
-              <span class="col-card__count">23 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-talent"
-            onclick="selectCollection(['senior-expert-marketplace','talent-deep-match','professional-services'], [], 'col-talent')"
-            title="Talent &amp; Professional Services">
-            <span class="col-card__icon">&#129489;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Talent &amp; Professional</span>
-              <span class="col-card__count">22 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-health"
-            onclick="selectCollection(['canadian-healthcare-support','global-health-pharma'], [], 'col-health')"
-            title="Healthcare &amp; Global Health">
-            <span class="col-card__icon">&#129657;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Healthcare &amp; Pharma</span>
-              <span class="col-card__count">14 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-culture"
-            onclick="selectCollection(['arts-cultural-markets','canadian-sport','canadian-education'], [], 'col-culture')"
-            title="Arts, Sport &amp; Education">
-            <span class="col-card__icon">&#127891;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Arts, Sport &amp; Education</span>
-              <span class="col-card__count">32 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-govdef"
-            onclick="selectCollection(['canadian-defence-sector','canadian-gov-expert-networks','canadian-export'], [], 'col-govdef')"
-            title="Defence, Government &amp; Export">
-            <span class="col-card__icon">&#128737;&#65039;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Defence, Gov &amp; Export</span>
-              <span class="col-card__count">25 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-global"
-            onclick="selectCollection(['developing-economy','global-knowledge-equity','canada-mexico-trade','diaspora-connections'], [], 'col-global')"
-            title="Global Trade &amp; Development">
-            <span class="col-card__icon">&#127758;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Global &amp; Diaspora</span>
-              <span class="col-card__count">30 ideas</span>
-            </span>
-          </button>
-          <button class="col-card" id="col-research"
-            onclick="selectCollection(['canadian-research-institutions','environmental-circular-economy','pets-and-animals'], [], 'col-research')"
-            title="Research, Environment &amp; Specialized">
-            <span class="col-card__icon">&#128300;</span>
-            <span class="col-card__body">
-              <span class="col-card__name">Research &amp; Environment</span>
-              <span class="col-card__count">20 ideas</span>
-            </span>
-          </button>
-        </div>
-      </div>
-
       <!-- Search -->
       <div class="cat-search-wrap">
         <span class="cat-search-icon">&#128269;</span>
         <input id="cat-search" class="cat-search" type="search"
-               placeholder="Search by title, summary, or tag&hellip;" autocomplete="off">
+               placeholder="Search titles, summaries, tags and sectors&hellip;" autocomplete="off">
       </div>
 
       <!-- Filter row -->
@@ -1067,6 +1204,12 @@ def buildIndexPage(scenarios):
           <button class="tier-btn" data-value="3" title="Complex (~156–356 hrs to prototype)">Complex</button>
         </div>
 
+        <!-- List or cards -->
+        <div class="view-btns" role="group" aria-label="Show as a list of titles or as cards">
+          <button class="view-btn active" type="button" data-value="list">Titles</button>
+          <button class="view-btn" type="button" data-value="cards">Cards</button>
+        </div>
+
         <!-- Clear all -->
         <button class="btn-clear" id="btn-clear" type="button">&#10005; Clear filters</button>
       </div>
@@ -1076,14 +1219,23 @@ def buildIndexPage(scenarios):
 
       <!-- Count -->
       <div class="cat-count">
-        Showing <span id="visible-count">{total}</span> of <span id="total-count">{total}</span> ideas
+        Showing <span id="visible-count">{total}</span> of {total} ideas
       </div>
 
-      <!-- Grid -->
-      <div class="cat-grid">
-        {cards_html}
-        <div class="cat-grid--empty" id="no-results" style="display:none">No ideas match your filters.</div>
+      <!-- Titles by sector, with the reading panel beside them -->
+      <div class="cat-layout" id="cat-layout">
+        <div>
+          <div class="idea-groups" id="idea-groups">{groups_html}
+          </div>
+          <div class="cat-empty" id="no-results">No ideas match your search or filters.</div>
+        </div>
+        <aside class="idea-panel" id="idea-panel" aria-live="polite">
+          <p class="idea-panel__empty"><strong>Click any title</strong> to read its summary here.
+          The list stays in place, so you can move from one idea to the next; the up and down arrow
+          keys do the same.</p>
+        </aside>
       </div>
+      <div class="idea-backdrop" id="idea-backdrop"></div>
     </div>
   </section>
 {filter_js}

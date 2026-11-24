@@ -66,7 +66,7 @@ Use this template exactly. Do not invent field names.
 # Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
 id: <sector-prefix>-<slug>
 title: "Full descriptive title"
-card_title: "Short scan-friendly title (≤60 chars)"
+card_title: "Short scan-friendly title (≤60 chars)"   # shown in the catalog title list; name the market, and avoid ending in "Matching" (nearly every idea is a matching market)
 sector: <value-from-table-above>          # NOT 'vertical:'
 sub_sector: "Human-readable sub-category"
 forge_tier: 1                             # 1=Easy, 2=Moderate, 3=Complex
