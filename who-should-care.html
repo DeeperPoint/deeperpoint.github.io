@@ -162,13 +162,6 @@
             border-left: 3px solid var(--arrow, var(--dp-violet));
         }
 
-        .persona-next {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.625rem;
-            margin-top: var(--space-md);
-        }
-
         .status-note {
             color: var(--dp-silver);
             font-size: 0.875rem;
@@ -322,7 +315,7 @@
                     style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 0.375rem;">Who Should Care?</h1>
                 <p class="spoke-hero__sub" style="color: var(--dp-blue-light); font-size: 1rem; margin-bottom: 0;">
                     A thin market looks different from each seat. Pick the one closest to yours to see how the
-                    problem shows up there, what DeeperPoint offers, and where to start.
+                    problem shows up there and what DeeperPoint offers.
                 </p>
                 <p class="status-note">
                     Where things stand: the engine is open source, and the <a href="demos.html">demos</a> show a
@@ -414,19 +407,6 @@
          * the Home page band "Is this my problem?" links here that way, so keep the slugs and
          * the symptom lines in step with index.html.
          */
-        const LINKS = {
-            marketmap: { label: "See a worked MarketMap", href: "marketmaps.html" },
-            demos: { label: "See the demos", href: "demos.html" },
-            walkthrough: { label: "Open the scripted walkthrough", href: "demo.html" },
-            jobdemo: { label: "The job-matching demos", href: "demos.html#about-this-market" },
-            cost: { label: "What a build costs", href: "cost-model.html" },
-            platform: { label: "What we’re building", href: "platform.html" },
-            wiki: { label: "What a domain wiki is", href: "domain-wiki.html" },
-            catalog: { label: "Browse the catalog", href: "catalog/index.html" },
-            guides: { label: "The build guides", href: "https://github.com/DeeperPoint/MarketForge", external: true },
-            contribute: { label: "How to contribute", href: "contribute.html" }
-        };
-
         const PERSONAS = [
             {
                 slug: "founders",
@@ -451,8 +431,7 @@
                     "A twin filled with synthetic participants, marked as synthetic, lets you and your investors watch the market behave before real users arrive",
                     "Confidential disclosure lets participants be matched first and identified later, as their confidence grows"
                 ],
-                opportunity: "A thin market isn’t a sign your idea is wrong. It is the reason incumbent platforms haven’t solved it. The engine is free and MIT-licensed; the wiki, the front end and the operations are yours to build.",
-                next: ["marketmap", "demos", "cost"]
+                opportunity: "A thin market isn’t a sign your idea is wrong. It is the reason incumbent platforms haven’t solved it. The engine is free and MIT-licensed; the wiki, the front end and the operations are yours to build."
             },
             {
                 slug: "investors",
@@ -476,8 +455,7 @@
                     "A twin shows how a market would behave before there is traction. It is a demonstration with synthetic participants, not evidence of demand",
                     "The cost of a first wiki and twin is published as hour and fee ranges, with a note on how few builds they rest on"
                 ],
-                opportunity: "Thin-market problems that are now siloed, expensive and often misdiagnosed could be treated as one shared problem across a portfolio. The diagnosis is available today; shared infrastructure across investees is a proposal, not yet a track record.",
-                next: ["marketmap", "cost", "demos"]
+                opportunity: "Thin-market problems that are now siloed, expensive and often misdiagnosed could be treated as one shared problem across a portfolio. The diagnosis is available today; shared infrastructure across investees is a proposal, not yet a track record."
             },
             {
                 slug: "associations",
@@ -502,8 +480,7 @@
                     "MIT licence, no fee and no usage tier. Fork rights mean no vendor can raise the price after you have built on it",
                     "A published cost model: roughly 215 to 355 hours of skilled work for a wiki and a first twin, on first estimates"
                 ],
-                opportunity: "An association that sponsors its members’ market offers something a newsletter cannot: trades they would not otherwise have found. No sponsored marketplace exists yet, so the first sponsors will also shape how it is done.",
-                next: ["cost", "guides", "contribute"]
+                opportunity: "An association that sponsors its members’ market offers something a newsletter cannot: trades they would not otherwise have found. No sponsored marketplace exists yet, so the first sponsors will also shape how it is done."
             },
             {
                 slug: "trade-officials",
@@ -528,8 +505,7 @@
                     "The Deal Brief is a non-binding summary the parties hand to their own bankers, carriers and attorneys, who produce the real trade documents",
                     "A trade association or agency can sponsor the market on behalf of exporters too small to do it alone"
                 ],
-                opportunity: "An agreement that produces real trade, not only the right to trade, is the difference between a diplomatic achievement and an economic one. The missing piece is the market itself, and it can be built on shared, open infrastructure.",
-                next: ["catalog", "demos", "cost"]
+                opportunity: "An agreement that produces real trade, not only the right to trade, is the difference between a diplomatic achievement and an economic one. The missing piece is the market itself, and it can be built on shared, open infrastructure."
             },
             {
                 slug: "canadian-businesses",
@@ -554,8 +530,7 @@
                     "The Deal Brief sets out what the parties agree on, for their own professionals to turn into documents",
                     "A chamber of commerce or regional association can sponsor the market and pool its members"
                 ],
-                opportunity: "The economic case for internal free trade in Canada is well established. The barrier is not only legal. Discovery, trust and deal flow across provincial lines are the missing link between policy reform and economic gain. The ebook in the library makes the Canadian case in full.",
-                next: ["demos", "catalog", "marketmap"]
+                opportunity: "The economic case for internal free trade in Canada is well established. The barrier is not only legal. Discovery, trust and deal flow across provincial lines are the missing link between policy reform and economic gain. The ebook in the library makes the Canadian case in full."
             },
             {
                 slug: "agencies",
@@ -580,8 +555,7 @@
                     "A first demonstration of a guide a support worker can print for one worker and one job. No support worker has reviewed one yet",
                     "Matching on what a person can do and what a job needs, with disclosure in steps"
                 ],
-                opportunity: "The knowledge that makes a placement hold is the scarce resource. Written down as a wiki, it can be asked, checked and passed on. The wiki and the question page are useful on their own, before any marketplace exists.",
-                next: ["jobdemo", "wiki", "cost"]
+                opportunity: "The knowledge that makes a placement hold is the scarce resource. Written down as a wiki, it can be asked, checked and passed on. The wiki and the question page are useful on their own, before any marketplace exists."
             },
             {
                 slug: "accelerators",
@@ -606,8 +580,7 @@
                     "The wiki method gives each founder a way to build the domain knowledge their matching depends on",
                     "The build guides are public, so the method can be taught as part of a program"
                 ],
-                opportunity: "A program that understands thin markets can become the natural home for a class of startups other programs mishandle. What one cohort learns carries over to the next.",
-                next: ["marketmap", "guides", "demos"]
+                opportunity: "A program that understands thin markets can become the natural home for a class of startups other programs mishandle. What one cohort learns carries over to the next."
             },
             {
                 slug: "researchers",
@@ -632,8 +605,7 @@
                     "The Deal Brief is the summary both sides hand to the technology transfer office and counsel, who draft the option, licence or sponsored-research agreement",
                     "A university network or consortium can sponsor the market and present its members’ capabilities together"
                 ],
-                opportunity: "The gap between funded research and a commercial product is among the most expensive failures in innovation. Matching researchers to industry partners at the right moment would capture value that is now lost by default.",
-                next: ["platform", "demos", "contribute"]
+                opportunity: "The gap between funded research and a commercial product is among the most expensive failures in innovation. Matching researchers to industry partners at the right moment would capture value that is now lost by default."
             },
             {
                 slug: "platform-developers",
@@ -658,8 +630,7 @@
                     "The Deal Brief carries users from discovery to a summary of what they are ready to agree on",
                     "The engine is headless and MIT-licensed, so you can take the parts you need into your own stack"
                 ],
-                opportunity: "Most vertical platforms plateau at discovery. They help users find each other, but not trust each other, judge fit or reach a deal. The engine is built to cover that stretch, so you can add it without becoming a marketplace company.",
-                next: ["walkthrough", "platform", "contribute"]
+                opportunity: "Most vertical platforms plateau at discovery. They help users find each other, but not trust each other, judge fit or reach a deal. The engine is built to cover that stretch, so you can add it without becoming a marketplace company."
             }
         ];
 
@@ -688,15 +659,6 @@
             pill.addEventListener('click', () => showPersona(p.slug, true));
             tabStrip.appendChild(pill);
         });
-
-        function nextLink(key, p, first) {
-            const l = LINKS[key];
-            const ext = l.external ? ' target="_blank" rel="noopener"' : '';
-            const style = first
-                ? ` style="background: ${p.color}; border-color: ${p.color}; color: #0b1020;"`
-                : '';
-            return `<a href="${l.href}" class="btn ${first ? 'btn--primary' : 'btn--outline'}"${style}${ext}>${l.label} &rarr;</a>`;
-        }
 
         // ── Render detail panel ──
         // setHash: true when the visitor picked the persona here, so the address can be shared.
@@ -735,8 +697,6 @@
                     <p>${p.opportunity}</p>
                 </div>
 
-                <h4>Where to Start</h4>
-                <div class="persona-next">${p.next.map((k, i) => nextLink(k, p, i === 0)).join('')}</div>
             `;
 
             document.getElementById('detail-center').scrollTop = 0;
