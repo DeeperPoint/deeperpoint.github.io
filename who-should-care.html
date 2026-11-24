@@ -199,10 +199,11 @@
                 gap: var(--space-sm);
             }
 
+            /* The panel grows to hold its whole text; the page scrolls, not the panel. */
             .detail-center {
-                max-height: calc(100vh - 180px);
-                position: sticky;
-                top: 90px;
+                align-self: start;
+                overflow-y: visible;
+                scroll-margin-top: 90px;
             }
 
             .sidebar {
@@ -212,18 +213,15 @@
                 top: 90px;
             }
 
-            .sidebar::-webkit-scrollbar,
-            .detail-center::-webkit-scrollbar {
+            .sidebar::-webkit-scrollbar {
                 width: 4px;
             }
 
-            .sidebar::-webkit-scrollbar-track,
-            .detail-center::-webkit-scrollbar-track {
+            .sidebar::-webkit-scrollbar-track {
                 background: transparent;
             }
 
-            .sidebar::-webkit-scrollbar-thumb,
-            .detail-center::-webkit-scrollbar-thumb {
+            .sidebar::-webkit-scrollbar-thumb {
                 background: rgba(255, 255, 255, 0.1);
                 border-radius: 2px;
             }
@@ -699,13 +697,14 @@
 
             `;
 
-            document.getElementById('detail-center').scrollTop = 0;
-
             if (setHash) {
                 history.replaceState(null, '', '#' + p.slug);
-                // On a phone the pills sit above the panel; bring the panel's top into view.
-                if (window.matchMedia('(max-width: 899px)').matches) {
-                    document.getElementById('detail-center').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Bring the panel's top back into view: always on a phone, where the pills sit
+                // above it, and on a wide screen when the reader has scrolled down the last one.
+                const panel = document.getElementById('detail-center');
+                const phone = window.matchMedia('(max-width: 899px)').matches;
+                if (phone || panel.getBoundingClientRect().top < 0) {
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
         }
