@@ -2547,6 +2547,11 @@ body.nav-open {
 .band__text p strong { color: #fff; }
 .band__text p.band__small { font-size: 0.9375rem; color: var(--dp-silver); }
 .band__cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+/* The seats list in the Home band "Is this my problem?": one line per persona, each a deep link */
+.band__seats { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 0.125rem; }
+.band__seats a { display: block; padding: 0.4rem 0.75rem; border-left: 2px solid rgba(148, 163, 184, 0.25); color: var(--dp-cloud); font-size: 1rem; line-height: 1.45; text-decoration: none; }
+.band__seats a:hover, .band__seats a:focus-visible { border-left-color: var(--accent); background: rgba(255, 255, 255, 0.04); color: #fff; }
+.band__seats span { display: block; margin-top: 0.1rem; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
 .band--violet { --accent: #a78bfa; }
 .band--emerald { --accent: var(--dp-emerald); }
 .band--amber { --accent: var(--dp-amber); }

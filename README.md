@@ -61,7 +61,8 @@ the same list in their templates and must be changed with it.
 | **Library** | `library.html` | The documents (whitepaper, cards and deck, matrix, ebook with its précis and pitch deck beneath it, mission essay, search) and the worked examples (test beds, MarketMaps, scenario stories, diagnostic, demo); Examples merged in on 2026-11-05 |
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |
-| *(hidden)* | `who-should-care.html`, `guide-*.html` | Who It's For and its five guides: out of the nav and the search index since 2026-11-05 as duplicative of the catalog; the pages remain |
+| *(Home band, no nav item)* | `who-should-care.html` | Who Should Care: nine personas, each with a slug (`who-should-care.html#founders`). Hidden on 2026-11-05, rewritten and indexed again on 2026-11-24. The Home band "Is this my problem?" (image `images/home/who.jpg`) carries one symptom line per persona, each a deep link; keep those lines in step with the `PERSONAS` list in the page |
+| *(hidden)* | `guide-*.html` | The five guides: out of the nav and the search index since 2026-11-05; no live page links them since 2026-11-24; the pages remain |
 | **Contribute** (button) | `contribute.html` | The open door: the public repos, the help that is not code, how to start. Also linked from every footer |
 
 ## Ideas, stories and redirects

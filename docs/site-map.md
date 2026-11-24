@@ -606,7 +606,7 @@ Three pages define a thin market in their own words: Home ("willing buyers and s
 
 - Only one body link reaches architecture.html (from platform), testbeds.html (from library) and market-diagnostic.html (from library).
 - The fifteen standalone card pages (cards/<slug>.html) are reached only through the viewer, whose Open card alone and PNG links are rewritten by script for the card on stage; in the static HTML only Trust's are present. Nothing else on the site links them since Home and Market Physics switched to viewer deep links (2026-11-06).
-- who-should-care.html is hidden from nav and search, but 20 blog posts still call it ("Who should build this? →").
+- who-should-care.html was rewritten on 2026-11-24 (nine personas with deep-link slugs, noindex removed, the guides section dropped) and is linked from the Home band "Is this my problem?" as well as from 20 blog posts. It has no nav item. The five guides stay hidden, and nothing live links them now. Sections 3.8 and the tree above describe the page as it was before that date.
 - mission.html links to the orphan post *Thin Markets Are Why Canada Can't Diversify Its Trade*, which has no Markdown source and survives only because the HTML is committed.
 - The search index (Pagefind) is built over every HTML file deployed, so the 59 orphan catalog pages, the 22 orphan posts and the 6 retired series pages all appear in search results. Pages carrying a noindex meta (the hackathon page, Who It's For, the guides and the redirect stubs) are the only ones it skips.
 

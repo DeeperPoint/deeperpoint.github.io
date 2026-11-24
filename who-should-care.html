@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who Should Care | DeeperPoint</title>
     <meta name="description"
-        content="Discover which stakeholders benefit most from solving thin market problems — from startup founders to trade officials, investors to social service agencies.">
-    <meta name="robots" content="noindex">
+        content="Nine seats from which a thin market looks like your own problem, from founders and investors to trade officials, associations and workforce agencies, and what DeeperPoint offers each.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261124">
     <style>
         /* ═══════════════════════════════════════════
            PERSONA PAGE LAYOUT
@@ -81,27 +80,6 @@
             padding: var(--space-xl);
             overflow-y: auto;
             position: relative;
-        }
-
-        .detail-center__placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            min-height: 300px;
-            text-align: center;
-            color: var(--dp-muted);
-            gap: 0.75rem;
-        }
-
-        .detail-center__placeholder span {
-            font-size: 2.5rem;
-        }
-
-        .detail-center__placeholder p {
-            font-size: 1rem;
-            max-width: 300px;
         }
 
         /* ── Detail content styles ── */
@@ -171,6 +149,35 @@
             position: absolute;
             left: 0;
             font-weight: 600;
+            color: var(--arrow, inherit);
+        }
+
+        .persona-symptom {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            line-height: 1.45;
+            color: #fff;
+            margin: 0 0 var(--space-md);
+            padding-left: 0.875rem;
+            border-left: 3px solid var(--arrow, var(--dp-violet));
+        }
+
+        .persona-next {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+            margin-top: var(--space-md);
+        }
+
+        .status-note {
+            color: var(--dp-silver);
+            font-size: 0.875rem;
+            line-height: 1.65;
+            margin: 0.875rem 0 0;
+        }
+
+        .status-note a {
+            color: var(--dp-blue-light);
         }
 
         .opportunity-box {
@@ -237,25 +244,10 @@
 
             .tab-strip {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 0.375rem;
-                overflow-x: auto;
                 padding: 0.5rem 0;
                 margin-bottom: var(--space-md);
-                -webkit-overflow-scrolling: touch;
-                scroll-behavior: smooth;
-            }
-
-            .tab-strip::-webkit-scrollbar {
-                height: 3px;
-            }
-
-            .tab-strip::-webkit-scrollbar-track {
-                background: transparent;
-            }
-
-            .tab-strip::-webkit-scrollbar-thumb {
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 2px;
             }
 
             .tab-pill {
@@ -268,8 +260,6 @@
                 color: var(--dp-silver);
                 cursor: pointer;
                 transition: all var(--transition-fast);
-                white-space: nowrap;
-                flex-shrink: 0;
                 font-family: var(--font-body);
             }
 
@@ -331,8 +321,14 @@
                 <h1 class="spoke-hero__headline"
                     style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 0.375rem;">Who Should Care?</h1>
                 <p class="spoke-hero__sub" style="color: var(--dp-blue-light); font-size: 1rem; margin-bottom: 0;">
-                    Thin markets affect a wide range of decision-makers. Select a stakeholder group to see how the
-                    problem shows up in their world — and what DeeperPoint offers them.
+                    A thin market looks different from each seat. Pick the one closest to yours to see how the
+                    problem shows up there, what DeeperPoint offers, and where to start.
+                </p>
+                <p class="status-note">
+                    Where things stand: the engine is open source, and the <a href="demos.html">demos</a> show a
+                    wiki, a question page and twins you can operate. No sponsored marketplace with real
+                    participants exists yet, so what follows describes what the toolkit is built to do, not
+                    results it has delivered.
                 </p>
             </div>
         </div>
@@ -353,48 +349,9 @@
 
                 <!-- Centre Detail Panel -->
                 <div class="detail-center" id="detail-center">
-                    <div class="detail-center__placeholder" id="placeholder">
-                        <span>←</span>
-                        <p>Select a stakeholder group to see how thin markets affect them</p>
-                    </div>
-                    <div id="detail-content" style="display:none;"></div>
+                    <div id="detail-content" aria-live="polite"></div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Deep-dive guides -->
-    <section class="section" id="guides" style="padding-top: var(--space-lg); padding-bottom: 0;">
-        <div class="container" style="max-width: 1100px;">
-            <div class="reveal" style="margin-bottom: var(--space-md);">
-                <h2 style="font-family: var(--font-display); color: #fff; font-size: 1.35rem; margin-bottom: 0.5rem;">Deep-Dive Guides</h2>
-                <p style="color: var(--dp-silver); font-size: 0.9375rem; line-height: 1.6; margin: 0;">
-                    Five of these audiences have a dedicated written guide — a practical walkthrough of how to apply
-                    the DeeperPoint toolkit from their seat.
-                </p>
-            </div>
-            <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-sm);">
-                <a href="guide-founders.html" class="card" style="text-decoration: none; padding: var(--space-md);">
-                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚀</div>
-                    <h3 style="font-family: var(--font-display); color: var(--dp-violet); font-size: 1rem; margin: 0;">Founder's Guide &rarr;</h3>
-                </a>
-                <a href="guide-investors.html" class="card" style="text-decoration: none; padding: var(--space-md);">
-                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💼</div>
-                    <h3 style="font-family: var(--font-display); color: var(--dp-blue-light); font-size: 1rem; margin: 0;">Investor's Guide &rarr;</h3>
-                </a>
-                <a href="guide-accelerators.html" class="card" style="text-decoration: none; padding: var(--space-md);">
-                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
-                    <h3 style="font-family: var(--font-display); color: var(--dp-amber); font-size: 1rem; margin: 0;">Accelerator Guide &rarr;</h3>
-                </a>
-                <a href="guide-associations.html" class="card" style="text-decoration: none; padding: var(--space-md);">
-                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🏛️</div>
-                    <h3 style="font-family: var(--font-display); color: var(--dp-emerald); font-size: 1rem; margin: 0;">Association Guide &rarr;</h3>
-                </a>
-                <a href="guide-government.html" class="card" style="text-decoration: none; padding: var(--space-md);">
-                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌐</div>
-                    <h3 style="font-family: var(--font-display); color: var(--dp-cyan); font-size: 1rem; margin: 0;">Trade Policy Guide &rarr;</h3>
-                </a>
             </div>
         </div>
     </section>
@@ -406,9 +363,9 @@
 
                 <div class="crosslink" style="border-left-color: var(--dp-cyan); background: rgba(6,182,212,0.05);">
                     <div class="crosslink__text">
-                        <h3 style="color: var(--dp-cyan);">Browse the catalog of examples</h3>
-                        <p>Explore over 100 searchable thin market scenarios to see how the DeeperPoint framework
-                            applies across verticals — and draw your own conclusions.</p>
+                        <h3 style="color: var(--dp-cyan);">Look for your market in the catalog</h3>
+                        <p>Hundreds of ideas for thin markets across 29 sectors, none built yet, each tagged with
+                            the challenges that bind it and the interventions that would release it.</p>
                     </div>
                     <a href="catalog/index.html" class="btn btn--primary"
                         style="background: var(--dp-cyan); border-color: var(--dp-cyan); color: #fff;">Browse
@@ -417,8 +374,8 @@
                 <div class="crosslink" style="border-left-color: var(--dp-violet); background: rgba(139,92,246,0.05);">
                     <div class="crosslink__text">
                         <h3 style="color: var(--dp-violet);">Read the whitepaper</h3>
-                        <p>A comprehensive treatment of market physics, engineering interventions, and the AI revolution
-                            in market design.</p>
+                        <p>The argument in full: why markets stay thin, the traditional responses, and the AI
+                            interventions.</p>
                     </div>
                     <a href="whitepaper.html" class="btn btn--primary"
                         style="background: var(--dp-violet); border-color: var(--dp-violet); color: #fff;">Read
@@ -452,175 +409,257 @@
         /**
          * Who Should Care — Persona Detail Page
          * Copyright (c) 2026 Mustafa Uzumeri. All rights reserved.
+         *
+         * Each persona has a slug. who-should-care.html#<slug> opens the page on that persona;
+         * the Home page band "Is this my problem?" links here that way, so keep the slugs and
+         * the symptom lines in step with index.html.
          */
+        const LINKS = {
+            marketmap: { label: "See a worked MarketMap", href: "marketmaps.html" },
+            demos: { label: "See the demos", href: "demos.html" },
+            walkthrough: { label: "Open the scripted walkthrough", href: "demo.html" },
+            jobdemo: { label: "The job-matching demos", href: "demos.html#about-this-market" },
+            cost: { label: "What a build costs", href: "cost-model.html" },
+            platform: { label: "What we’re building", href: "platform.html" },
+            wiki: { label: "What a domain wiki is", href: "domain-wiki.html" },
+            catalog: { label: "Browse the catalog", href: "catalog/index.html" },
+            guides: { label: "The build guides", href: "https://github.com/DeeperPoint/MarketForge", external: true },
+            contribute: { label: "How to contribute", href: "contribute.html" }
+        };
+
         const PERSONAS = [
             {
-                id: 1,
-                icon: '🚀',
-                name: 'Startup Founders',
-                subtitle: 'Early-stage ventures in specialized markets',
-                color: '#8b5cf6',
-                colorBg: 'rgba(139, 92, 246, 0.12)',
-                situation: 'You have an idea for a platform that connects buyers and sellers in a niche you know well. The problem is visceral to you — you may have lived it. But when you try to build the marketplace, you hit a wall: not enough participants on either side to make it feel real, and the participants you do have can\'t easily express what they need or offer in a way your software can match.',
+                slug: "founders",
+                icon: "🚀",
+                name: "Startup Founders",
+                subtitle: "Early-stage ventures in specialized markets",
+                color: "#8b5cf6",
+                colorBg: "rgba(139, 92, 246, 0.12)",
+                symptom: "My marketplace has too few people on either side to feel real.",
+                situation: "You have an idea for a platform that connects buyers and sellers in a niche you know well. The problem is visceral to you, and you may have lived it. But when you try to build the marketplace, you hit a wall: not enough participants on either side to make it feel real, and the participants you do have can’t easily express what they need or offer in a way your software can match.",
                 challenges: [
-                    'Cold-start problem — you need supply to attract demand and demand to attract supply, simultaneously',
-                    'Participants can\'t express their needs precisely enough for keyword or filter-based matching to work',
-                    'Trust barriers make early participants reluctant to share the information the platform needs to match them well',
-                    'Every new vertical requires rebuilding the domain knowledge layer from scratch',
-                    'Investor pressure to show traction before the market is thick enough to produce it organically'
+                    "Cold start: you need supply to attract demand and demand to attract supply, at the same time",
+                    "Participants can’t express their needs precisely enough for keyword or filter matching to work",
+                    "Early participants are reluctant to share the information the platform needs to match them well",
+                    "Every new vertical means rebuilding the domain knowledge from scratch",
+                    "Investors want traction before the market is thick enough to produce it"
                 ],
-                howHelps: [
-                    'Cosolvent provides a headless marketplace engine — matching, deal assembly, role permissions — so you build your vertical\'s frontend, not infrastructure',
-                    'Semantic matching handles the "I\'ll know it when I see it" problem that kills filter-based platforms in niche markets',
-                    'ClientSynthAI lets you populate a working prototype with realistic synthetic participants — demonstrating the platform\'s physics to investors before real users arrive',
-                    'CommonContext prepares your domain wiki and reference documents for the matching engine, so that work is not rebuilt each time',
-                    'The three-layer trust architecture lets participants share enough to be matched without exposing sensitive details prematurely'
+                offers: [
+                    "A MarketMap sets your venture against the fourteen challenges and seven interventions, so you know which frictions bind before you build",
+                    "Cosolvent is a free, headless engine for matching, confidential disclosure and the Deal Brief. You build your market’s knowledge and its front end, not the plumbing",
+                    "Semantic matching works from what participants say in their own words, which is where filters fail in a niche",
+                    "A twin filled with synthetic participants, marked as synthetic, lets you and your investors watch the market behave before real users arrive",
+                    "Confidential disclosure lets participants be matched first and identified later, as their confidence grows"
                 ],
-                opportunity: 'The thin market isn\'t a sign your idea is wrong — it\'s the reason incumbent platforms haven\'t solved it. With the right infrastructure, being first to crack a thin market creates a durable, defensible position. DeeperPoint gives you that infrastructure without the infrastructure build. <a href="demo.html" style="color: var(--dp-violet);">See a working proof of concept →</a>'
+                opportunity: "A thin market isn’t a sign your idea is wrong. It is the reason incumbent platforms haven’t solved it. The engine is free and MIT-licensed; the wiki, the front end and the operations are yours to build.",
+                next: ["marketmap", "demos", "cost"]
             },
             {
-                id: 2,
-                icon: '💼',
-                name: 'VCs & Investors',
-                subtitle: 'Portfolio managers with cross-cutting thin market exposure',
-                color: '#3b82f6',
-                colorBg: 'rgba(59, 130, 246, 0.12)',
-                situation: 'Across your portfolio, you have multiple companies that face the same class of problem: they\'re trying to build functioning markets in verticals where participants are too few, too dispersed, or too specialized for conventional marketplace mechanics to work. Each portfolio company is solving this independently — at great cost, with limited success, and without realizing that the core infrastructure challenge is the same.',
+                slug: "investors",
+                icon: "💼",
+                name: "VCs & Investors",
+                subtitle: "Portfolios with repeated thin-market exposure",
+                color: "#3b82f6",
+                colorBg: "rgba(59, 130, 246, 0.12)",
+                symptom: "Several of my portfolio companies stall the same way.",
+                situation: "Across your portfolio, several companies face the same class of problem: they are trying to build working markets in verticals where participants are too few, too dispersed or too specialized for conventional marketplace mechanics. Each company is solving this alone, at great cost, without seeing that the core challenge is the same.",
                 challenges: [
-                    'Portfolio-wide exposure to thin market risk that is not being addressed systematically',
-                    'Each investee is rebuilding matching, trust, and deal-flow infrastructure from scratch — compounding burn across the portfolio',
-                    'Thin market mechanics are poorly understood by founders, making it hard to diagnose root causes of slow growth',
-                    'Conventional venture metrics (DAU, GMV ramp) don\'t capture thin market health — leading to premature pivots away from valid ideas',
-                    'No shared infrastructure or shared knowledge across investees facing similar vertical challenges'
+                    "Thin-market risk runs across the portfolio and is not being addressed as one problem",
+                    "Each investee rebuilds matching, trust and deal flow from scratch, and the burn compounds",
+                    "Founders rarely understand thin-market mechanics, so slow growth is hard to diagnose",
+                    "Conventional metrics (DAU, GMV ramp) don’t capture thin-market health, which leads to premature pivots away from valid ideas",
+                    "Investees facing similar challenges share neither infrastructure nor knowledge"
                 ],
-                howHelps: [
-                    'A single DeeperPoint infrastructure layer — Cosolvent + CommonContext + ClientSynthAI — can be deployed across multiple portfolio companies facing thin markets',
-                    'Shared domain knowledge curation reduces the cost of building the semantic layer each vertical requires',
-                    'ClientSynthAI generates synthetic market populations for each portfolio company\'s vertical, enabling investor-grade demonstrations without needing live traction',
-                    'The MarketForge diagnostic framework gives you a vocabulary and methodology to evaluate thin market health across investees',
-                    'Co-investment or consortium structures become viable when the technical infrastructure is shared and proven'
+                offers: [
+                    "A MarketMap gives you one vocabulary for comparing investees: which challenges bind each, which interventions could release them, and how strong the evidence is",
+                    "One open-source engine can sit under several portfolio companies. Each adds only its own market’s knowledge and front end",
+                    "A twin shows how a market would behave before there is traction. It is a demonstration with synthetic participants, not evidence of demand",
+                    "The cost of a first wiki and twin is published as hour and fee ranges, with a note on how few builds they rest on"
                 ],
-                opportunity: 'Portfolio-wide thin market challenges that are currently siloed, expensive, and often misdiagnosed become a shared opportunity. A systematic infrastructure play across your portfolio can compress time-to-traction, reduce burn, and create a defensible technology position across multiple verticals simultaneously. <a href="demo.html" style="color: var(--dp-blue-light);">See what the engine produces →</a>'
+                opportunity: "Thin-market problems that are now siloed, expensive and often misdiagnosed could be treated as one shared problem across a portfolio. The diagnosis is available today; shared infrastructure across investees is a proposal, not yet a track record.",
+                next: ["marketmap", "cost", "demos"]
             },
             {
-                id: 3,
-                icon: '🌐',
-                name: 'Trade Officials',
-                subtitle: 'Government officials opening new bilateral trade corridors',
-                color: '#06b6d4',
-                colorBg: 'rgba(6, 182, 212, 0.12)',
-                situation: 'Your government has successfully negotiated a free trade agreement or preferential access arrangement. The legal barriers are down. But the economic reality is sobering: the businesses in your country that should be exporting into this new market don\'t know how to find buyers, can\'t evaluate counterparty credibility across cultural and linguistic distances, and face regulatory and documentation requirements they\'ve never encountered. The market exists on paper. It\'s thin in practice.',
+                slug: "associations",
+                icon: "🏛️",
+                name: "Associations & Market Sponsors",
+                subtitle: "The trusted body that could sponsor its members’ market",
+                color: "#f472b6",
+                colorBg: "rgba(244, 114, 182, 0.12)",
+                symptom: "My members would trade with each other if they could do it without showing their hand.",
+                situation: "Your members are capable, small, and largely invisible to each other and to buyers. They hold idle capacity, surplus stock or scarce skills that they will not advertise, because showing a gap to a competitor feels like showing weakness. You are the one party they all already trust, and you have no tool that turns that trust into trades.",
                 challenges: [
-                    'Exporters and importers lack the discovery infrastructure to find credible counterparties in unfamiliar markets',
-                    'Trust and credibility verification across jurisdictions is costly and unreliable',
-                    'Regulatory complexity — documentation, standards, phytosanitary requirements, tariff schedules — creates search friction that small and mid-sized businesses can\'t absorb',
-                    'Geographic and cultural distance compounds the information asymmetry between potential trading partners',
-                    'SMEs that would benefit most from new trade corridors have the fewest resources to navigate them'
+                    "Members will not disclose capacity or shortfalls where competitors can see them",
+                    "No single member can afford to build market software",
+                    "An outside platform that builds it will sit between your members and their customers and charge for the position",
+                    "How the market really works is known to a few experienced people and written down nowhere",
+                    "It is getting harder to show members value for their dues"
                 ],
-                howHelps: [
-                    'A domain wiki holds the trade corridor\'s regulatory environment — standards, documentation requirements, certification bodies — and CommonContext prepares it for the engine, making it navigable for SMEs',
-                    'Semantic matching connects exporters and importers across jurisdictions based on what they actually offer and need, not just keyword searches',
-                    'The deal assembly framework maps to international commercial documents (letters of credit, B/L, phytosanitary certificates) so the platform speaks the language of trade',
-                    'Trusted intermediary protocol enables credibility verification across jurisdictions — integrating with existing trade finance and certification infrastructure',
-                    'User aggregation allows SME cooperatives and trade associations to participate collectively, making thin-volume exporters economically viable counterparties'
+                offers: [
+                    "The sponsor’s seat is designed for a body like yours: you own the market’s knowledge and its front end, and the open-source engine sits underneath",
+                    "The first step is small. A domain wiki of what the market knows, drafted with an AI model and ruled on by someone who knows it",
+                    "Confidential disclosure: members are matched on anonymized descriptions, and identities are revealed step by step",
+                    "MIT licence, no fee and no usage tier. Fork rights mean no vendor can raise the price after you have built on it",
+                    "A published cost model: roughly 215 to 355 hours of skilled work for a wiki and a first twin, on first estimates"
                 ],
-                opportunity: 'A free trade agreement that generates real trade — not just legal rights to trade — is the difference between a diplomatic achievement and an economic one. Thin market infrastructure turns new trade corridors into functioning markets, channeling the economic gains to the SMEs that need them most.'
+                opportunity: "An association that sponsors its members’ market offers something a newsletter cannot: trades they would not otherwise have found. No sponsored marketplace exists yet, so the first sponsors will also shape how it is done.",
+                next: ["cost", "guides", "contribute"]
             },
             {
-                id: 4,
-                icon: '🍁',
-                name: 'Canadian Businesses',
-                subtitle: 'Companies navigating dissolving interprovincial trade barriers',
-                color: '#10b981',
-                colorBg: 'rgba(16, 185, 129, 0.12)',
-                situation: 'Canadian governments are dismantling interprovincial trade barriers — a long-overdue reform that creates new legal access to customers and suppliers across provincial lines. But legal access is not the same as market access. A manufacturer in Manitoba that has never sold into Quebec faces a market that is effectively thin for them: they don\'t know the buyers, the buyers don\'t know them, and the regulatory differences — even when reduced — still create friction that neither side has systems to absorb.',
+                slug: "trade-officials",
+                icon: "🌐",
+                name: "Trade Officials",
+                subtitle: "Officials opening new trade corridors",
+                color: "#06b6d4",
+                colorBg: "rgba(6, 182, 212, 0.12)",
+                symptom: "We signed the agreement. The trade didn’t follow.",
+                situation: "Your government has negotiated a free trade agreement or preferential access. The legal barriers are down. But the businesses that should be exporting into the new market don’t know how to find buyers, can’t judge a counterparty’s credibility across cultural and linguistic distance, and face documentation they have never met. The market exists on paper. It is thin in practice.",
                 challenges: [
-                    'Unknown market: businesses lack the discovery infrastructure to find credible interprovincial counterparties',
-                    'Residual regulatory differences — provincial professional licensing, product standards, labeling requirements — remain even after federal harmonization',
-                    'No established relationships or trust signals across provincial lines for businesses new to a region',
-                    'Procurement systems in other provinces may not be structured to accommodate unfamiliar suppliers, even when they are now legally eligible',
-                    'Smaller businesses face disproportionate friction — they can\'t absorb the search and compliance costs that large enterprises manage routinely'
+                    "Exporters and importers have no way to find credible counterparties in an unfamiliar market",
+                    "Checking credibility across jurisdictions is costly and unreliable",
+                    "Documentation, standards, phytosanitary rules and tariff schedules create search costs that small and mid-sized businesses can’t absorb",
+                    "Geographic and cultural distance widens the information gap between potential partners",
+                    "The SMEs that would gain most from a new corridor have the fewest resources to navigate it"
                 ],
-                howHelps: [
-                    'Semantic matching surfaces credible interprovincial suppliers and buyers by capability, not just geography — bypassing the cold-start of unfamiliar markets',
-                    'A domain wiki holds provincial regulatory differences in key sectors — construction standards, food labeling, professional certification reciprocity — and CommonContext prepares it for the engine, making compliance navigable',
-                    'The three-layer trust architecture lets businesses share enough information to evaluate fit without premature exposure of pricing or proprietary details',
-                    'Deal assembly captures the interprovincial trade documentation structure — harmonized certificates, compliance declarations, delivery terms — reducing bilateral friction',
-                    'User aggregation allows regional business associations and chambers of commerce to pool their members, creating critical mass in thin interprovincial niches'
+                offers: [
+                    "A domain wiki holds the corridor’s regulatory environment as sourced pages, and a question page can answer from them with citations",
+                    "Semantic matching connects exporters and importers on what they actually offer and need, across languages",
+                    "Confidential disclosure lets both sides test the fit before either reveals who they are",
+                    "The Deal Brief is a non-binding summary the parties hand to their own bankers, carriers and attorneys, who produce the real trade documents",
+                    "A trade association or agency can sponsor the market on behalf of exporters too small to do it alone"
                 ],
-                opportunity: 'The economic case for internal free trade in Canada is well-established — estimates range into tens of billions of dollars in foregone GDP annually. The barrier is not just legal; it is infrastructural. Thin market platforms that make interprovincial discovery, trust, and deal-flow efficient are the missing link between policy reform and economic gain.'
+                opportunity: "An agreement that produces real trade, not only the right to trade, is the difference between a diplomatic achievement and an economic one. The missing piece is the market itself, and it can be built on shared, open infrastructure.",
+                next: ["catalog", "demos", "cost"]
             },
             {
-                id: 5,
-                icon: '⚡',
-                name: 'Accelerators & Incubators',
-                subtitle: 'Managers of startup cohorts with repeated thin market challenges',
-                color: '#f59e0b',
-                colorBg: 'rgba(245, 158, 11, 0.12)',
-                situation: 'Your cohort includes founders working on platforms in specialized verticals — cleantech supply chains, medtech procurement, specialty food distribution, legal tech for underserved communities, and more. Many of them are hitting the same wall at the same stage: the market they\'re trying to serve is thin, the conventional marketplace playbook isn\'t working, and neither the founders nor your mentors have a clear vocabulary for why. The problem gets misread as a product problem or a sales problem, when it\'s a market structure problem.',
+                slug: "canadian-businesses",
+                icon: "🍁",
+                name: "Canadian Businesses",
+                subtitle: "Companies facing falling interprovincial barriers",
+                color: "#10b981",
+                colorBg: "rgba(16, 185, 129, 0.12)",
+                symptom: "The barrier came down and I still can’t find a buyer one province over.",
+                situation: "Canadian governments are dismantling interprovincial trade barriers. But legal access is not market access. A manufacturer in Manitoba that has never sold into Quebec faces a market that is thin for them: they don’t know the buyers, the buyers don’t know them, and the regulatory differences that remain still create friction neither side has a system to absorb.",
                 challenges: [
-                    'Founders in thin market verticals stall at the same stage for reasons that are structural, not executional — but the structural diagnosis is rarely available',
-                    'Mentors and advisors apply conventional marketplace frameworks (Airbnb, eBay, Uber) that don\'t fit thin market dynamics',
-                    'Each cohort member rebuilds marketplace infrastructure independently, compounding burn across your portfolio',
-                    'Investor pitch prep for thin market startups is difficult when the market\'s "thinness" looks like small TAM rather than a structural opportunity',
-                    'Demo days and pilot presentations are hampered by the cold-start problem — no real users means nothing live to show'
+                    "No way to find credible counterparties in another province",
+                    "Differences in licensing, product standards and labelling remain after harmonization",
+                    "No relationships or trust signals across provincial lines for a business new to a region",
+                    "Procurement in other provinces may not be set up for unfamiliar suppliers, even eligible ones",
+                    "Smaller businesses carry the search and compliance costs that large ones absorb routinely"
                 ],
-                howHelps: [
-                    'The thin market diagnostic framework gives you a shared vocabulary for identifying and describing the structural forces at work in each cohort member\'s vertical',
-                    'Cosolvent provides shared marketplace infrastructure that cohort members can fork and customize — eliminating redundant infrastructure builds across the cohort',
-                    'ClientSynthAI generates vertical-specific synthetic populations for demo days — giving investors a credible, working demonstration even before real users are onboarded',
-                    'The wiki method and CommonContext give each cohort member a way to build the domain knowledge their matching engine requires',
-                    'The MarketForge framework positions thin market challenges as an engineering problem with known solutions — strengthening investor narratives for the whole cohort'
+                offers: [
+                    "Semantic matching finds suppliers and buyers by capability, not only by geography",
+                    "A domain wiki holds the provincial differences in a sector as sourced pages that members can put questions to",
+                    "Confidential disclosure lets a business show enough to be matched without exposing pricing or proprietary detail early",
+                    "The Deal Brief sets out what the parties agree on, for their own professionals to turn into documents",
+                    "A chamber of commerce or regional association can sponsor the market and pool its members"
                 ],
-                opportunity: 'Accelerators and incubators that develop genuine thin market expertise become the go-to program for a class of high-value, high-defensibility startups that other programs consistently mishandle. The infrastructure compounds: what you build for one cohort member becomes a shared asset for the next.'
+                opportunity: "The economic case for internal free trade in Canada is well established. The barrier is not only legal. Discovery, trust and deal flow across provincial lines are the missing link between policy reform and economic gain. The ebook in the library makes the Canadian case in full.",
+                next: ["demos", "catalog", "marketmap"]
             },
             {
-                id: 6,
-                icon: '🎓',
-                name: 'Academic Researchers',
-                subtitle: 'Research teams seeking industry partners for commercialization',
-                color: '#c084fc',
-                colorBg: 'rgba(192, 132, 252, 0.12)',
-                situation: 'Your lab has produced research with clear commercial potential — a new materials process, a diagnostic algorithm, a novel sensor design. Technology transfer offices are overwhelmed and under-resourced. Industry contacts are relationship-dependent. The companies that would most benefit from licensing or co-developing your research don\'t know you exist, and you don\'t know them. The research commercialization market is structurally thin.',
+                slug: "agencies",
+                icon: "🤝",
+                name: "Workforce & Service Agencies",
+                subtitle: "Organizations matching people to jobs, placements or support",
+                color: "#2dd4bf",
+                colorBg: "rgba(45, 212, 191, 0.12)",
+                symptom: "Our best matches depend on what a few experienced staff carry in their heads.",
+                situation: "You match people to jobs, placements or services, one case at a time. The person in front of you can do more than a résumé says, and the employer or program needs something a posting does not capture. Good matches depend on what your most experienced staff know, and that knowledge leaves when they do.",
                 challenges: [
-                    'Technology transfer offices operate on relationship networks that systematically exclude emerging researchers and researchers at smaller institutions',
-                    'Industry partners can\'t evaluate research relevance without detailed technical context — and most discovery surfaces are too shallow to provide it',
-                    'IP protection concerns create information withholding that makes meaningful matching difficult before agreements are in place',
-                    'The mismatch between research timelines and industry product cycles creates timing friction that kills otherwise viable partnerships',
-                    'Researchers in non-flagship institutions, non-English-language environments, or emerging disciplines are invisible to industry partner search processes'
+                    "Each side describes skills and needs in a different vocabulary",
+                    "Every match is a one-off, with little volume and little repetition",
+                    "What makes a placement hold (the supports, the workplace culture, the first weeks) is rarely written down",
+                    "Personal information has to be shared with care, and only when it is needed",
+                    "Funding counts placements, not the groundwork that makes them last"
                 ],
-                howHelps: [
-                    'Cosolvent turns research outputs into machine-readable capability profiles — enabling semantic matching against industry application needs without sacrificing IP control',
-                    'The three-layer architecture enables a research team to reveal enough about a capability to attract relevant industry interest while protecting patentable details until NDAs are in place',
-                    'Trusted intermediary protocol manages the information asymmetry between researchers (who know what they have) and industry (who know what they need)',
-                    'Deal assembly maps to the standard instruments of research commercialization: option agreements, licensing terms, sponsored research agreements, co-development milestones',
-                    'User aggregation allows research consortia, university networks, and national labs to present unified capability profiles to industry — creating the critical mass that thin individual research profiles cannot'
+                offers: [
+                    "A worked example: the demos follow skills-based job matching from its wiki to a twin, through one specific case built solely from public sources",
+                    "A domain wiki writes down what your experienced staff know, as sourced pages a person has ruled on",
+                    "Ask, a question page that answers only from the wiki’s pages, with citations, and says so when it cannot answer",
+                    "A first demonstration of a guide a support worker can print for one worker and one job. No support worker has reviewed one yet",
+                    "Matching on what a person can do and what a job needs, with disclosure in steps"
                 ],
-                opportunity: 'The gap between funded research and commercialized product is one of the most expensive failures in modern innovation ecosystems. Matching researchers to industry partners at the right moment — before the research ages out of relevance and before industry locks in an inferior solution — creates economic value that currently evaporates by default.'
+                opportunity: "The knowledge that makes a placement hold is the scarce resource. Written down as a wiki, it can be asked, checked and passed on. The wiki and the question page are useful on their own, before any marketplace exists.",
+                next: ["jobdemo", "wiki", "cost"]
             },
             {
-                id: 7,
-                icon: '⚙️',
-                name: 'Platform Developers',
-                subtitle: 'Teams building vertical platforms that need matching and trust infrastructure',
-                color: '#06b6d4',
-                colorBg: 'rgba(6, 182, 212, 0.12)',
-                situation: 'You already have a working vertical platform — a professional services directory, a procurement portal, an industry network, a specialized talent board. Your users are there. But your matching is keyword search. Your trust model is "here\'s a list, good luck." Transactions that should happen on your platform stall because participants can\'t assess fit, can\'t build confidence, and can\'t move from discovery to deal without leaving your platform and starting from scratch offline.',
+                slug: "accelerators",
+                icon: "⚡",
+                name: "Accelerators & Incubators",
+                subtitle: "Cohort managers who see the same stall repeatedly",
+                color: "#f59e0b",
+                colorBg: "rgba(245, 158, 11, 0.12)",
+                symptom: "My cohort keeps hitting the same wall.",
+                situation: "Your cohort includes founders building platforms in specialized verticals: cleantech supply chains, medtech procurement, specialty food distribution, legal services for underserved communities. Many hit the same wall at the same stage. The market is thin, the conventional marketplace playbook isn’t working, and neither the founders nor your mentors have a vocabulary for why. It gets read as a product problem or a sales problem when it is a market-structure problem.",
                 challenges: [
-                    'Your search and filtering surfaces are too shallow for the complexity of what your users actually need to match on — intent, capability, and context don\'t reduce to keywords',
-                    'Trust between strangers on your platform is nonexistent — users browse but won\'t engage because there\'s no mechanism for progressive disclosure or structured qualification',
-                    'You\'re losing transactions to offline channels: users discover each other on your platform, then complete the deal via email, phone, or referral — your platform gets no credit and no data',
-                    'Building matching intelligence, deal-flow workflows, and trust scaffolding from scratch would take months and pull your team away from your core vertical expertise',
-                    'Your platform looks like a directory when it should feel like an intermediary — and the gap between those two things is exactly where your users abandon the process'
+                    "Founders in thin markets stall for structural reasons, and the structural diagnosis is rarely available",
+                    "Mentors apply frameworks from thick markets (Airbnb, eBay, Uber) that don’t fit",
+                    "Each cohort member rebuilds marketplace infrastructure independently",
+                    "In a pitch, a thin market looks like a small TAM instead of a structural opening",
+                    "Demo days suffer from cold start: no real users, nothing live to show"
                 ],
-                howHelps: [
-                    'Cosolvent\'s semantic matching API replaces keyword search with intent-aware matching — your platform can surface fits that users couldn\'t find by browsing, across dimensions they couldn\'t articulate in a search box',
-                    'The Content Match Story feature generates an AI-authored narrative explaining why a specific pairing is promising — your platform doesn\'t just list results, it argues for them, giving both sides a reason to engage',
-                    'The three-layer information architecture (anonymous → qualified → identified) lets your users assess fit before revealing identity — building trust incrementally instead of demanding it upfront',
-                    'Deal assembly workflows provide structured multi-step negotiation infrastructure via API — move users from discovery to commitment without building transaction management from scratch',
-                    'Cosolvent is headless and OpenAPI-first: integrate specific capabilities into your existing stack without adopting a full marketplace framework — use what you need, leave the rest'
+                offers: [
+                    "The fifteen cards and the MarketMap give founders and mentors a shared vocabulary for the forces at work in each vertical",
+                    "Cosolvent is shared, MIT-licensed infrastructure a cohort member can fork and configure",
+                    "ClientSynth generates synthetic participants, marked as synthetic, so a twin can be shown working before real users arrive",
+                    "The wiki method gives each founder a way to build the domain knowledge their matching depends on",
+                    "The build guides are public, so the method can be taught as part of a program"
                 ],
-                opportunity: 'Most vertical platforms plateau at discovery. They can help users find each other, but they can\'t help users trust each other, evaluate fit, or move to a deal. The platforms that solve this — that bridge the gap between "I found someone" and "we have a deal" — capture the transaction instead of losing it to offline channels. Cosolvent provides that bridge as composable API infrastructure, so you add marketplace intelligence to your platform without becoming a marketplace company. <a href="demo.html" style="color: var(--dp-cyan);">See the headless engine in action →</a>'
+                opportunity: "A program that understands thin markets can become the natural home for a class of startups other programs mishandle. What one cohort learns carries over to the next.",
+                next: ["marketmap", "guides", "demos"]
+            },
+            {
+                slug: "researchers",
+                icon: "🎓",
+                name: "Academic Researchers",
+                subtitle: "Research teams seeking industry partners",
+                color: "#c084fc",
+                colorBg: "rgba(192, 132, 252, 0.12)",
+                symptom: "The companies that could use our work don’t know we exist.",
+                situation: "Your lab has produced research with clear commercial potential: a new materials process, a diagnostic algorithm, a sensor design. The technology transfer office is stretched. Industry contacts depend on who knows whom. The companies that would gain most from licensing or co-developing the work don’t know you exist, and you don’t know them. The market for research commercialization is structurally thin.",
+                challenges: [
+                    "Technology transfer runs on relationship networks that leave out emerging researchers and smaller institutions",
+                    "Industry can’t judge relevance without technical context, and most discovery surfaces are too shallow to give it",
+                    "IP concerns make researchers withhold the very detail that matching needs",
+                    "Research timelines and product cycles rarely line up",
+                    "Researchers outside flagship institutions, or working in other languages, are invisible to industry search"
+                ],
+                offers: [
+                    "Semantic matching works from plain-language descriptions of a capability and a need, without a shared taxonomy",
+                    "Confidential disclosure lets a team reveal enough to attract interest while protecting patentable detail until agreements are in place",
+                    "The Content Match Story is an anonymized narrative that shows both sides why a match works, before identities are exposed",
+                    "The Deal Brief is the summary both sides hand to the technology transfer office and counsel, who draft the option, licence or sponsored-research agreement",
+                    "A university network or consortium can sponsor the market and present its members’ capabilities together"
+                ],
+                opportunity: "The gap between funded research and a commercial product is among the most expensive failures in innovation. Matching researchers to industry partners at the right moment would capture value that is now lost by default.",
+                next: ["platform", "demos", "contribute"]
+            },
+            {
+                slug: "platform-developers",
+                icon: "⚙️",
+                name: "Platform Developers",
+                subtitle: "Teams with a working vertical platform and shallow matching",
+                color: "#22d3ee",
+                colorBg: "rgba(34, 211, 238, 0.12)",
+                symptom: "Users find each other on our platform, then close the deal somewhere else.",
+                situation: "You already have a working vertical platform: a professional directory, a procurement portal, an industry network, a specialized talent board. Your users are there. But your matching is keyword search, and your trust model is a list. Transactions that should happen on your platform stall, because participants can’t assess fit or build confidence, and they leave to finish the deal offline.",
+                challenges: [
+                    "Search and filters are too shallow for what users need to match on. Intent, capability and context don’t reduce to keywords",
+                    "Users browse but won’t engage, because nothing supports disclosure in steps or structured qualification",
+                    "Users meet on your platform and close by email or phone, so you get no credit and no data",
+                    "Building matching, deal flow and trust scaffolding yourself would take months away from your vertical",
+                    "The platform works as a directory when it should work as an intermediary"
+                ],
+                offers: [
+                    "Cosolvent’s semantic matching surfaces fits that users could not find by browsing",
+                    "The Content Match Story explains why a pairing is promising, so the platform argues for a result instead of only listing it",
+                    "Confidential disclosure lets users assess fit before revealing identity, building trust in steps",
+                    "The Deal Brief carries users from discovery to a summary of what they are ready to agree on",
+                    "The engine is headless and MIT-licensed, so you can take the parts you need into your own stack"
+                ],
+                opportunity: "Most vertical platforms plateau at discovery. They help users find each other, but not trust each other, judge fit or reach a deal. The engine is built to cover that stretch, so you can add it without becoming a marketplace company.",
+                next: ["walkthrough", "platform", "contribute"]
             }
         ];
 
@@ -632,42 +671,45 @@
             // Sidebar button
             const btn = document.createElement('button');
             btn.className = 'sidebar-btn';
-            btn.id = `btn-${p.id}`;
+            btn.dataset.slug = p.slug;
             btn.style.setProperty('--btn-color', p.color);
             btn.style.setProperty('--btn-bg', p.colorBg);
             btn.innerHTML = `<span class="sidebar-btn__icon">${p.icon}</span><span class="sidebar-btn__label">${p.name}</span>`;
-            btn.addEventListener('click', () => showPersona(p.id));
+            btn.addEventListener('click', () => showPersona(p.slug, true));
             sidebar.appendChild(btn);
 
             // Mobile pill
             const pill = document.createElement('button');
             pill.className = 'tab-pill';
-            pill.id = `pill-${p.id}`;
+            pill.dataset.slug = p.slug;
             pill.style.setProperty('--btn-color', p.color);
             pill.style.setProperty('--btn-bg', p.colorBg);
             pill.textContent = `${p.icon} ${p.name}`;
-            pill.addEventListener('click', () => showPersona(p.id));
+            pill.addEventListener('click', () => showPersona(p.slug, true));
             tabStrip.appendChild(pill);
         });
 
+        function nextLink(key, p, first) {
+            const l = LINKS[key];
+            const ext = l.external ? ' target="_blank" rel="noopener"' : '';
+            const style = first
+                ? ` style="background: ${p.color}; border-color: ${p.color}; color: #0b1020;"`
+                : '';
+            return `<a href="${l.href}" class="btn ${first ? 'btn--primary' : 'btn--outline'}"${style}${ext}>${l.label} &rarr;</a>`;
+        }
+
         // ── Render detail panel ──
-        function showPersona(id) {
-            const p = PERSONAS.find(x => x.id === id);
-            if (!p) return;
+        // setHash: true when the visitor picked the persona here, so the address can be shared.
+        function showPersona(slug, setHash) {
+            const p = PERSONAS.find(x => x.slug === slug) || PERSONAS[0];
 
-            // Update active states
-            document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-pill').forEach(b => b.classList.remove('active'));
-            const activeBtn = document.getElementById(`btn-${id}`);
-            const activePill = document.getElementById(`pill-${id}`);
-            if (activeBtn) activeBtn.classList.add('active');
-            if (activePill) activePill.classList.add('active');
-
-            document.getElementById('placeholder').style.display = 'none';
+            document.querySelectorAll('.sidebar-btn, .tab-pill').forEach(b => {
+                b.classList.toggle('active', b.dataset.slug === p.slug);
+                b.setAttribute('aria-pressed', b.dataset.slug === p.slug ? 'true' : 'false');
+            });
 
             const content = document.getElementById('detail-content');
-            content.style.display = 'block';
-
+            content.style.setProperty('--arrow', p.color);
             content.innerHTML = `
                 <div class="persona-header">
                     <div class="persona-icon" style="background: ${p.colorBg};">${p.icon}</div>
@@ -677,46 +719,44 @@
                     </div>
                 </div>
 
+                <p class="persona-symptom">&ldquo;${p.symptom}&rdquo;</p>
+
                 <h4>The Situation</h4>
                 <p>${p.situation}</p>
 
-                <h4 style="color: ${p.color};">Thin Market Challenges They Face</h4>
-                <ul>${p.challenges.map(c => `<li style="--arrow-color: ${p.color};">${c}</li>`).join('')}</ul>
+                <h4 style="color: ${p.color};">How the Thin Market Shows Up</h4>
+                <ul>${p.challenges.map(c => `<li>${c}</li>`).join('')}</ul>
 
-                <h4>How DeeperPoint Helps</h4>
-                <ul>${p.howHelps.map(h => `<li>${h}</li>`).join('')}</ul>
+                <h4>What DeeperPoint Offers</h4>
+                <ul style="--arrow: var(--dp-silver);">${p.offers.map(h => `<li>${h}</li>`).join('')}</ul>
 
                 <div class="opportunity-box" style="background: ${p.colorBg.replace('0.12', '0.06')}; border: 1px solid ${p.colorBg.replace('0.12', '0.2')};">
                     <h4 style="color: ${p.color};">The Opportunity</h4>
                     <p>${p.opportunity}</p>
                 </div>
+
+                <h4>Where to Start</h4>
+                <div class="persona-next">${p.next.map((k, i) => nextLink(k, p, i === 0)).join('')}</div>
             `;
 
-            // Apply arrow colours via CSS variable
-            content.querySelectorAll('ul li').forEach(li => {
-                const col = li.style.getPropertyValue('--arrow-color') || '#8b5cf6';
-                if (li.style.getPropertyValue('--arrow-color')) {
-                    li.style.removeProperty('--arrow-color');
-                    li.style.setProperty('--arrow', `'→'`);
-                }
-            });
-
-            // Coloured arrows for challenges list
-            content.querySelectorAll('h4[style*="' + p.color + '"] + ul li::before').forEach(() => { });
-            // Simple inline approach: style the first ul's ::before via a scoped class
-            const challengeUl = content.querySelector('ul:first-of-type');
-            if (challengeUl) {
-                challengeUl.querySelectorAll('li').forEach(li => {
-                    li.style.setProperty('--li-arrow-color', p.color);
-                });
-            }
-
-            // Scroll to top of panel
             document.getElementById('detail-center').scrollTop = 0;
+
+            if (setHash) {
+                history.replaceState(null, '', '#' + p.slug);
+                // On a phone the pills sit above the panel; bring the panel's top into view.
+                if (window.matchMedia('(max-width: 899px)').matches) {
+                    document.getElementById('detail-center').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
         }
 
-        // Activate first persona by default on load
-        showPersona(1);
+        function slugFromHash() {
+            return decodeURIComponent(location.hash.replace(/^#/, ''));
+        }
+
+        // Open on the persona named in the address, or on the first one.
+        showPersona(slugFromHash(), false);
+        window.addEventListener('hashchange', () => showPersona(slugFromHash(), false));
     </script>
     <script data-goatcounter="https://deeperpoint.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
