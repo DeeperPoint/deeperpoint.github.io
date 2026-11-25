@@ -2552,6 +2552,11 @@ body.nav-open {
 .band__seats a { display: block; padding: 0.4rem 0.75rem; border-left: 2px solid rgba(148, 163, 184, 0.25); color: var(--dp-cloud); font-size: 1rem; line-height: 1.45; text-decoration: none; }
 .band__seats a:hover, .band__seats a:focus-visible { border-left-color: var(--accent); background: rgba(255, 255, 255, 0.04); color: #fff; }
 .band__seats span { display: block; margin-top: 0.1rem; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+/* The same list laid out three across under the picture, so the band is not nine rows deep */
+.band__seats--grid { max-width: var(--max-width); margin: var(--space-xl) auto 0; padding: 0 var(--space-xl); grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem 1.25rem; }
+.band__seats--grid a { height: 100%; font-size: 0.9375rem; }
+@media (max-width: 1000px) { .band__seats--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .band__seats--grid { grid-template-columns: 1fr; padding: 0 var(--space-md); } }
 /* "What market should exist?" on the Home page: a band with no picture, one column (your-market.js) */
 .band__solo { max-width: 860px; margin: 0 auto; padding: 0 var(--space-xl); }
 .band__solo > p { color: var(--dp-cloud); font-size: 1.0625rem; line-height: 1.7; margin: 0 0 1rem; }
