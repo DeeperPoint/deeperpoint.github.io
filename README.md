@@ -9,7 +9,7 @@ DeeperPoint is a self-funded, open research and engineering project exploring ho
 
 ```
 ├── index.html                  # Landing page: hero, then one full-width band per nav link, in the order problem, solution, examples, cost, documentation (images in images/home/)
-├── your-market.js              # Home page call to action, in the band "What about my market?" (titled "What market should exist?" until 2026-11-24, when the MarketMap band was merged into it): matches a visitor's sentence against the catalog in the browser; index in catalog/idea-index.json, written by scripts/build_idea_index.py at every catalog build
+├── your-market.js              # Not loaded by any page since 2026-11-24, when the Home band "What about my market?" was removed. It was that band's sentence box: matches a visitor's sentence against the catalog in the browser; index in catalog/idea-index.json, written by scripts/build_idea_index.py at every catalog build
 ├── market-physics.html         # Why Markets Stay Thin — thin market theory, a strip of the cards, the AI interventions
 ├── cards/                      # The fifteen resistance cards: synced from DeeperPointComms/library/resistance-cards, never edited here
 ├── platform.html               # Platform — the open-source engine, deal pipeline, Deal Brief

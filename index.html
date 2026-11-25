@@ -69,7 +69,6 @@
           <li><a href="#cost"><b>4</b> Cost</a></li>
           <li><a href="#documentation"><b>5</b> Documentation</a></li>
         </ol>
-        <p class="hero__ask"><a href="#your-market">Have a market in mind? See what stands in its way &rarr;</a></p>
         <div style="margin-top: 1.25rem;">
           <a href="contribute.html"
             style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 100px; color: var(--dp-emerald); font-size: 0.8125rem; font-weight: 600; text-decoration: none;">
@@ -139,52 +138,6 @@
     </div>
   </section>
 
-  <!-- 1 · The problem — the visitor's own market, in two steps. First the page's call to action:
-       your-market.js matches a sentence against the catalog in the browser (catalog/idea-index.json,
-       written by scripts/build_idea_index.py); nothing is sent unless the visitor chooses to send the
-       idea. Then the MarketMap, for a venture that already exists (merged into this band on
-       2026-11-24; it was a band of its own, "What about my market?", under Examples). -->
-  <section class="band band--amber band--ask" id="your-market">
-    <div class="band__solo reveal">
-      <span class="band__stage">1 &middot; The problem <span>&middot; Your market</span></span>
-      <h2 class="band__title">What about my market?</h2>
-      <p>
-        Start with a sentence about a market that should exist: who has something, and who needs it. You
-        will see the closest ideas in the catalog, and what tends to stand in the way of markets like it.
-      </p>
-      <form class="ym-form" id="ym-form" role="search" aria-label="Ask about a market idea">
-        <label class="ym-label" for="ym-input">Your market idea</label>
-        <input id="ym-input" name="idea" type="text" maxlength="200" autocomplete="off"
-          placeholder="e.g. retired nurses for rural clinics that need short-term cover">
-        <button type="submit" class="btn btn--primary">See what stands in its way &rarr;</button>
-      </form>
-      <p class="ym-fine" id="ym-privacy">
-        Matched in your browser against the catalog. No AI model runs, and nothing you type is sent or stored
-        unless you choose to send it.
-      </p>
-      <noscript><p class="ym-fine">This box needs JavaScript. The <a href="catalog/index.html">catalog</a> can be browsed without it.</p></noscript>
-      <div class="ym-out" id="ym-out" aria-live="polite" hidden></div>
-      <div class="ym-next" id="marketmap">
-        <h3>Already have a venture? Ask for a MarketMap.</h3>
-        <p>
-          A MarketMap reads a company&rsquo;s public web page, and any documents you add, and sets the venture
-          against the same frictions: which challenges bind it, which interventions could release them, and how
-          strong the evidence is. The frictions it names are the ones a market&rsquo;s wiki, then its twin, then
-          the marketplace itself would be built to address.
-        </p>
-        <p class="ym-fine">
-          An AI-written analysis of public material, so check it against what you know. Running one is by request:
-          ask for a code on the demos page and it is emailed to you at once. A code covers one map.
-        </p>
-        <div class="band__cta">
-          <a href="marketmaps.html" class="btn btn--outline">See a worked MarketMap &rarr;</a>
-          <a href="demos.html#marketmap" class="btn btn--outline">Request an invite code &rarr;</a>
-          <a href="https://teardown.deeperpoint.com/" class="btn btn--outline" target="_blank" rel="noopener">I have a code &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 2 · The solution — nav: What We're Building -->
   <section class="band band--emerald" id="solution">
     <div class="band__inner reveal">
@@ -223,7 +176,7 @@
       </figure>
       <div class="band__text">
         <span class="band__stage">3 &middot; Ideas <span>&middot; Catalog</span></span>
-        <h2 class="band__title">Show me the markets</h2>
+        <h2 class="band__title">What markets could be built?</h2>
         <p>
           Hundreds of ideas for thin markets across 29 sectors, none built yet, each with the
           forces that hold it back.
@@ -392,18 +345,6 @@
     </div>
   </section>
 
-  <!-- Close: back to the call to action -->
-  <section class="band band--amber band--ask band--close" id="close">
-    <div class="band__solo reveal">
-      <h2 class="band__title">Have a market in mind?</h2>
-      <p>One sentence is enough to see what the catalog holds that is like it, and what stands in its way.</p>
-      <div class="band__cta">
-        <a href="#your-market" class="btn btn--primary">Ask about your market idea &rarr;</a>
-        <a href="demos.html" class="btn btn--outline">See the demos &rarr;</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -424,7 +365,6 @@
 
   <script src="reveal.js"></script>
   <script src="nav-mobile.js"></script>
-  <script src="your-market.js?v=20261124"></script>
   <script data-goatcounter="https://deeperpoint.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
