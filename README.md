@@ -63,7 +63,6 @@ the same list in their templates and must be changed with it.
 | **Blog** | `blog/index.html` | Updates and articles |
 | **About** | `about.html` | About DeeperPoint and the author |
 | *(Home band, no nav item)* | `who-should-care.html` | Who Should Care: nine personas, each with a slug (`who-should-care.html#founders`). Hidden on 2026-11-05, rewritten and indexed again on 2026-11-24. The Home band "Is this my problem?" (image `images/home/who.jpg`) carries one symptom line per persona, each a deep link; keep those lines in step with the `PERSONAS` list in the page |
-| *(Home band, no nav item)* | `assessment.html` | "Should I take this seriously?": an AI model's assessment of the project, commissioned by the founder, with the instruction printed in full and a question the visitor can put to a model of their own. Added 2026-11-24. The text and the instruction are copies of `DeeperPointComms/pieces/2026-11-24-site-assessment/`; the page says how the text was made and that the founder has not edited it, so a hand edit to the text must be recorded in its "How this was written" card. The Home band `#credible` links to `#credible`, `#alternatives`, `#fit` and `#ask-your-own`. Dated; to be redone when the project or the competitors change |
 | *(hidden)* | `guide-*.html` | The five guides: out of the nav and the search index since 2026-11-05; no live page links them since 2026-11-24; the pages remain |
 | **Contribute** (button) | `contribute.html` | The open door: the public repos, the help that is not code, how to start. Also linked from every footer |
 
