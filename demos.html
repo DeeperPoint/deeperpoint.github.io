@@ -343,14 +343,16 @@
       var dialog = document.getElementById("request-dialog");
       if (!dialog || typeof dialog.showModal !== "function") return;   // old browser: the links still go to About
 
-      function byHand(what) {     // no code to issue: the request goes to a person
+      function byHand(what, lede) {     // no code to issue: access is granted by email address
         return {
           title: "Ask for access to " + what,
-          lede: "Access is set up by hand, so this goes to a person. You will hear back by email.",
+          lede: lede || "Access is set up by hand, so this goes to a person. You will hear back by email.",
           note: "What brings you here <span>(optional)</span>",
           send: "Send request \u2192"
         };
       }
+      // The wiki, Ask and the guide share one sign-in: the service adds the address to their access list.
+      var SIGN_IN = "Give the email address you will sign in with. You will get an email with the link and how the sign-in works.";
       var COPY = {
         marketmap: {
           title: "Request a MarketMap invite code",
@@ -358,15 +360,16 @@
           note: "The company you would map <span>(optional)</span>",
           send: "Email me a code →"
         },
-        wiki: byHand("the wiki"),
-        ask: byHand("Ask"),
-        guide: byHand("the Two paths guide"),
+        wiki: byHand("the wiki", SIGN_IN),
+        ask: byHand("Ask", SIGN_IN),
+        guide: byHand("the Two paths guide", SIGN_IN),
         twin: byHand("the job-matching twin")
       };
       var ABOUT = '<a href="about.html">About page</a>';
       var SAID = {
         sent: "Your code is on its way to {email}. It covers one MarketMap. If it has not arrived in a few minutes, check your spam folder.",
         received: "Thank you. Your request has been sent, and you will hear back by email.",
+        granted: "You have access. An email is on its way to {email} with the link and how to sign in. If it has not arrived in a few minutes, check your spam folder.",
         already: "A code was already sent to this address in the last 30 days. Check your inbox, or write to us from the " + ABOUT + ".",
         full: "Today’s codes have all been issued. Please try again tomorrow.",
         resting: 'MarketMap has used its allowance for this period, so no codes are being issued until it resets. The <a href="marketmaps.html">worked MarketMaps</a> are open to read.',
@@ -449,7 +452,7 @@
         fetch(API + "/invite/request", { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(body) })
           .then(function (r) { return r.json(); })
           .then(function (d) {
-            var done = d.outcome === "sent" || d.outcome === "received";
+            var done = d.outcome === "sent" || d.outcome === "received" || d.outcome === "granted";
             say(d.outcome, done, email);
             if (done) { fields.hidden = true; send.hidden = true; config = null; }
             else if (d.outcome === "full" || d.outcome === "resting") closed(d.outcome);
