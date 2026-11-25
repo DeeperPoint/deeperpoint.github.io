@@ -351,7 +351,7 @@
           send: "Send request \u2192"
         };
       }
-      // The wiki, Ask and the guide share one sign-in: the service adds the address to their access list.
+      // The wiki, Ask, the guide and the twin share one access list: the service adds the address to it.
       var SIGN_IN = "Give the email address you will sign in with. You will get an email with the link and how the sign-in works.";
       var COPY = {
         marketmap: {
@@ -363,7 +363,7 @@
         wiki: byHand("the wiki", SIGN_IN),
         ask: byHand("Ask", SIGN_IN),
         guide: byHand("the Two paths guide", SIGN_IN),
-        twin: byHand("the job-matching twin")
+        twin: byHand("the job-matching twin", SIGN_IN)
       };
       var ABOUT = '<a href="about.html">About page</a>';
       var SAID = {
