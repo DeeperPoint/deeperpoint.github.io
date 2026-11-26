@@ -40,24 +40,6 @@
     .demo-index a { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-decoration: none; text-transform: none; letter-spacing: 0; }
     .demo-index a span { font-weight: 400; opacity: 0.8; }
     .demo-index a:hover { filter: brightness(1.25); }
-    /* The request form (a dialog shared by the three "by invitation" cards) */
-    .request { width: min(30rem, calc(100vw - 2rem)); margin: auto; padding: 0; border: 1px solid var(--dp-steel); border-radius: var(--radius-md); background: var(--dp-navy); color: var(--dp-silver); }
-    .request::backdrop { background: rgba(4, 7, 15, 0.72); backdrop-filter: blur(3px); }
-    .request__body { padding: var(--space-lg); }
-    .request h2 { font-family: var(--font-display); color: #fff; font-size: 1.25rem; margin: 0 0 0.4rem; }
-    .request p { font-size: 0.9rem; line-height: 1.55; margin: 0 0 var(--space-md); }
-    .request label { display: block; color: var(--dp-cloud); font-size: 0.8rem; font-weight: 600; margin: 0 0 0.3rem; }
-    .request label span { color: var(--dp-muted); font-weight: 400; }
-    .request input { width: 100%; box-sizing: border-box; margin: 0 0 var(--space-md); padding: 0.6rem 0.75rem; font: inherit; font-size: 0.95rem; color: #fff; background: var(--dp-midnight); border: 1px solid var(--dp-steel); border-radius: var(--radius-sm); }
-    .request input:focus { outline: 2px solid var(--dp-blue-light); outline-offset: 1px; }
-    .request__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-    .request__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-sm); }
-    .request__actions button { cursor: pointer; font-family: inherit; }
-    .request__fine { color: var(--dp-muted); font-size: 0.78rem; margin: var(--space-md) 0 0; }
-    .request__msg { margin: 0 0 var(--space-md); padding: 0.75rem 0.9rem; border-left: 3px solid var(--dp-amber); background: rgba(245, 158, 11, 0.07); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--dp-cloud); font-size: 0.9rem; line-height: 1.55; }
-    .request__msg--ok { border-left-color: var(--dp-emerald); background: rgba(16, 185, 129, 0.08); }
-    .request__msg a { color: #818cf8; }
-    .request [hidden] { display: none; }
   </style>
 </head>
 
@@ -107,10 +89,11 @@
           <strong>Why most of these ask for your email.</strong> Sorry for the extra step. Several of these demos
           run live AI models, and every question costs real money. An open page would let bots and spammers spend
           it within days. So each demo asks for your email address once and sends you a six-digit code. Enter the
-          code and you are in for 24 hours. Nobody has to approve you, and your address is used only to let you in.
+          code and you are in for 24 hours. Nobody has to approve you. Your address is used to let you in and, for
+          MarketMap, to count your daily run.
         </p>
         <ul class="demo-index" aria-label="The demos on this page">
-          <li><a class="demo-access--invite" href="#marketmap">MarketMap <span>&middot; one run on request</span></a></li>
+          <li><a class="demo-access--invite" href="#marketmap">MarketMap <span>&middot; one run a day, email sign-in</span></a></li>
           <li><a class="demo-access--invite" href="#wiki">The wiki <span>&middot; email sign-in</span></a></li>
           <li><a class="demo-access--invite" href="#ask">Ask <span>&middot; email sign-in</span></a></li>
           <li><a class="demo-access--invite" href="#guide">Two paths guide <span>&middot; email sign-in</span></a></li>
@@ -125,7 +108,7 @@
       <p class="demo-stage__note reveal">Which frictions keep this market thin, and which interventions could release them?</p>
       <div class="demo-grid reveal">
         <div class="card demo-card" id="marketmap">
-          <span class="demo-access demo-access--invite">Examples open &middot; one run on request</span>
+          <span class="demo-access demo-access--invite">Examples open &middot; one run a day by email sign-in</span>
           <h3>MarketMap</h3>
           <p>
             Reads a company&rsquo;s public web page, and any documents you add, and sets the venture against the
@@ -141,9 +124,9 @@
           </dl>
           <div class="band__cta">
             <a href="marketmaps.html" class="btn btn--primary">See worked MarketMaps &rarr;</a>
-            <a href="about.html" class="btn btn--outline" data-request="marketmap">Request an invite code &rarr;</a>
-            <a href="https://teardown.deeperpoint.com/" class="btn btn--outline" target="_blank" rel="noopener">I have a code &rarr;</a>
+            <a href="https://marketmap.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener">Run a MarketMap &rarr;</a>
           </div>
+          <p class="demo-signin">One run a day for each email address. The report is emailed to you.</p>
         </div>
       </div>
 
@@ -290,9 +273,8 @@
             <dd>Put a question to Ask first, then look for the same requirement in a match.</dd>
           </dl>
           <div class="band__cta">
-            <a href="https://dev-yohannes-app1.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener">Open the twin &rarr;</a>
+            <a href="https://jobmatch.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener">Open the twin &rarr;</a>
           </div>
-          <p class="demo-signin">On the sign-in page, choose the option that sends a code by email.</p>
         </div>
       </div>
 
@@ -318,161 +300,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- The request form. Without JavaScript the buttons that open it stay plain links to the About page. -->
-  <dialog class="request" id="request-dialog" aria-labelledby="request-title">
-    <form class="request__body" id="request-form" novalidate>
-      <h2 id="request-title">Request access</h2>
-      <p id="request-lede"></p>
-      <div class="request__msg" id="request-msg" role="status" hidden></div>
-      <div id="request-fields">
-        <label for="request-name">Your name</label>
-        <input id="request-name" name="name" type="text" autocomplete="name" maxlength="80" required>
-        <label for="request-email">Email</label>
-        <input id="request-email" name="email" type="email" autocomplete="email" maxlength="120" required>
-        <label for="request-note" id="request-note-label"></label>
-        <input id="request-note" name="note" type="text" maxlength="300">
-        <div class="request__trap" aria-hidden="true">
-          <label for="request-website">Leave this empty</label>
-          <input id="request-website" name="website" type="text" tabindex="-1" autocomplete="off">
-        </div>
-        <div id="request-check"></div>
-      </div>
-      <div class="request__actions">
-        <button type="submit" class="btn btn--primary" id="request-send">Send &rarr;</button>
-        <button type="button" class="btn btn--outline" id="request-close">Close</button>
-      </div>
-      <p class="request__fine">Your name and email are used only to answer this request.</p>
-    </form>
-  </dialog>
-
-  <script>
-    (function () {
-      "use strict";
-      var API = "https://teardown.deeperpoint.com";
-      var dialog = document.getElementById("request-dialog");
-      if (!dialog || typeof dialog.showModal !== "function") return;   // old browser: the links still go to About
-
-      function byHand(what, lede) {     // no code to issue: access is granted by email address
-        return {
-          title: "Ask for access to " + what,
-          lede: lede || "Access is set up by hand, so this goes to a person. You will hear back by email.",
-          note: "What brings you here <span>(optional)</span>",
-          send: "Send request \u2192"
-        };
-      }
-      // The wiki, Ask, the guide and the twin share one access list: the service adds the address to it.
-      var SIGN_IN = "Give the email address you will sign in with. You will get an email with the link and how the sign-in works.";
-      var COPY = {
-        marketmap: {
-          title: "Request a MarketMap invite code",
-          lede: "We will email you a code for one MarketMap, straight away. You paste it into the MarketMap tool along with the company’s web address.",
-          note: "The company you would map <span>(optional)</span>",
-          send: "Email me a code →"
-        },
-        wiki: byHand("the wiki", SIGN_IN),
-        ask: byHand("Ask", SIGN_IN),
-        guide: byHand("the Two paths guide", SIGN_IN),
-        twin: byHand("the job-matching twin", SIGN_IN)
-      };
-      var ABOUT = '<a href="about.html">About page</a>';
-      var SAID = {
-        sent: "Your code is on its way to {email}. It covers one MarketMap. If it has not arrived in a few minutes, check your spam folder.",
-        received: "Thank you. Your request has been sent, and you will hear back by email.",
-        granted: "You have access. An email is on its way to {email} with the link and how to sign in. If it has not arrived in a few minutes, check your spam folder.",
-        already: "A code was already sent to this address in the last 30 days. Check your inbox, or write to us from the " + ABOUT + ".",
-        full: "Today’s codes have all been issued. Please try again tomorrow.",
-        resting: 'MarketMap has used its allowance for this period, so no codes are being issued until it resets. The <a href="marketmaps.html">worked MarketMaps</a> are open to read.',
-        limit: "There have been several requests from this connection today. Please try again tomorrow.",
-        check: "The bot check did not pass. Please try again.",
-        invalid: "Please give your name and a valid email address.",
-        email: "We could not send the email. Please try again, or write to us from the " + ABOUT + ".",
-        network: "The request did not get through. Please try again, or write to us from the " + ABOUT + "."
-      };
-
-      var form = document.getElementById("request-form");
-      var fields = document.getElementById("request-fields");
-      var msg = document.getElementById("request-msg");
-      var send = document.getElementById("request-send");
-      var demo = "marketmap";
-      var config = null;          // from /invite/config, fetched when the form opens
-      var widget = null;          // the bot check, when the service has it on
-
-      function say(key, ok, email) {
-        msg.innerHTML = (SAID[key] || SAID.network).replace("{email}", (email || "").replace(/[<>&"]/g, ""));
-        msg.className = "request__msg" + (ok ? " request__msg--ok" : "");
-        msg.hidden = false;
-      }
-
-      function closed(key) {       // no code can be issued just now: say why, hide the form
-        say(key, false);
-        fields.hidden = true;
-        send.hidden = true;
-      }
-
-      function botCheck(siteKey) {
-        if (!siteKey || widget !== null) return;
-        widget = false;            // loading
-        var s = document.createElement("script");
-        s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-        s.onload = function () { widget = window.turnstile.render("#request-check", { sitekey: siteKey, theme: "dark" }); };
-        document.head.appendChild(s);
-      }
-
-      function applyConfig() {
-        if (!config) return;
-        botCheck(config.turnstile_site_key);
-        if (demo === "marketmap" && !config.marketmap_open) closed(config.marketmap_reason);
-      }
-
-      function open(which) {
-        demo = COPY[which] ? which : "marketmap";
-        document.getElementById("request-title").textContent = COPY[demo].title;
-        document.getElementById("request-lede").textContent = COPY[demo].lede;
-        document.getElementById("request-note-label").innerHTML = COPY[demo].note;
-        send.textContent = COPY[demo].send;
-        send.disabled = false;
-        send.hidden = false;
-        fields.hidden = false;
-        msg.hidden = true;
-        dialog.showModal();
-        if (config) return applyConfig();
-        fetch(API + "/invite/config").then(function (r) { return r.json(); })
-          .then(function (c) { config = c; applyConfig(); })
-          .catch(function () {});   // unknown: let the request itself find out
-      }
-
-      document.querySelectorAll("[data-request]").forEach(function (link) {
-        link.addEventListener("click", function (e) { e.preventDefault(); open(link.dataset.request); });
-      });
-      document.getElementById("request-close").addEventListener("click", function () { dialog.close(); });
-      dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var name = form.elements.name.value.trim();
-        var email = form.elements.email.value.trim();
-        if (!name || !/^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$/.test(email)) return say("invalid", false);
-        var body = { demo: demo, name: name, email: email, note: form.elements.note.value.trim(), website: form.elements.website.value };
-        var checked = typeof widget === "string" && window.turnstile;
-        if (checked) body.turnstile = window.turnstile.getResponse(widget) || "";
-        send.disabled = true;
-        msg.hidden = true;
-        // text/plain keeps this a "simple" cross-origin request: no preflight
-        fetch(API + "/invite/request", { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(body) })
-          .then(function (r) { return r.json(); })
-          .then(function (d) {
-            var done = d.outcome === "sent" || d.outcome === "received" || d.outcome === "granted";
-            say(d.outcome, done, email);
-            if (done) { fields.hidden = true; send.hidden = true; config = null; }
-            else if (d.outcome === "full" || d.outcome === "resting") closed(d.outcome);
-            else send.disabled = false;
-            if (!done && checked) window.turnstile.reset(widget);
-          })
-          .catch(function () { say("network", false); send.disabled = false; });
-      });
-    })();
-  </script>
 
   <script src="reveal.js"></script>
   <script src="nav-mobile.js"></script>
