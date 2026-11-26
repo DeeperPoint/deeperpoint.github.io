@@ -30,6 +30,7 @@
     .demo-access--invite { color: var(--dp-amber); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); }
     .demo-why { max-width: 760px; margin: var(--space-lg) auto 0; padding: 0.85rem 1.1rem; text-align: left; font-size: 0.9375rem; line-height: 1.6; color: var(--dp-cloud); background: rgba(245, 158, 11, 0.07); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: var(--radius-md, 10px); }
     .demo-why strong { color: #fff; }
+    .demo-signin { margin: 0.6rem 0 0; font-size: 0.8125rem; color: var(--dp-silver); }
     .demo-access--soon { color: var(--dp-muted); background: rgba(148, 163, 184, 0.08); border: 1px solid rgba(148, 163, 184, 0.3); }
     .demo-card { scroll-margin-top: 90px; }
     .demo-card--soon { opacity: 0.72; }
@@ -105,17 +106,17 @@
         <p class="demo-why">
           <strong>Why most of these ask for your email.</strong> Sorry for the extra step. Several of these demos
           run live AI models, and every question costs real money. An open page would let bots and spammers spend
-          it within days. The request is approved automatically, takes about a minute, and your address is used
-          only to let you in.
+          it within days. So each demo asks for your email address once and sends you a six-digit code. Enter the
+          code and you are in for 24 hours. Nobody has to approve you, and your address is used only to let you in.
         </p>
         <ul class="demo-index" aria-label="The demos on this page">
           <li><a class="demo-access--invite" href="#marketmap">MarketMap <span>&middot; one run on request</span></a></li>
-          <li><a class="demo-access--invite" href="#wiki">The wiki <span>&middot; by request</span></a></li>
-          <li><a class="demo-access--invite" href="#ask">Ask <span>&middot; by request</span></a></li>
-          <li><a class="demo-access--invite" href="#guide">Two paths guide <span>&middot; by request</span></a></li>
+          <li><a class="demo-access--invite" href="#wiki">The wiki <span>&middot; email sign-in</span></a></li>
+          <li><a class="demo-access--invite" href="#ask">Ask <span>&middot; email sign-in</span></a></li>
+          <li><a class="demo-access--invite" href="#guide">Two paths guide <span>&middot; email sign-in</span></a></li>
           <li><a class="demo-access--open" href="#walkthrough">Scripted walkthrough <span>&middot; open</span></a></li>
           <li><a class="demo-access--soon" href="#precomputed-twin">Precomputed twin <span>&middot; soon</span></a></li>
-          <li><a class="demo-access--invite" href="#job-matching-twin">Job-matching twin <span>&middot; by request</span></a></li>
+          <li><a class="demo-access--invite" href="#job-matching-twin">Job-matching twin <span>&middot; email sign-in</span></a></li>
         </ul>
       </div>
 
@@ -162,7 +163,7 @@
       </p>
       <div class="demo-grid reveal">
         <div class="card demo-card" id="wiki">
-          <span class="demo-access demo-access--invite">By request</span>
+          <span class="demo-access demo-access--invite">Email sign-in</span>
           <h3>The wiki</h3>
           <p>
             A wiki on workplace cultures and what stands between Indigenous job seekers and employers. Its pages
@@ -178,12 +179,12 @@
           </dl>
           <div class="band__cta">
             <a href="domain-wiki.html" class="btn btn--primary">What a domain wiki is &rarr;</a>
-            <a href="about.html" class="btn btn--outline" data-request="wiki">Ask for access &rarr;</a>
+            <a href="https://workplace.cosolvent.com/index.html" class="btn btn--outline" target="_blank" rel="noopener">Open the wiki &rarr;</a>
           </div>
         </div>
 
         <div class="card demo-card" id="ask">
-          <span class="demo-access demo-access--invite">By request</span>
+          <span class="demo-access demo-access--invite">Email sign-in</span>
           <h3>Ask</h3>
           <p>
             A question page over the wiki. The answers come only from the wiki&rsquo;s shared pages, with
@@ -199,12 +200,12 @@
           </dl>
           <div class="band__cta">
             <a href="marketforge.html#ask" class="btn btn--primary">How Ask works &rarr;</a>
-            <a href="about.html" class="btn btn--outline" data-request="ask">Ask for access &rarr;</a>
+            <a href="https://workplace.cosolvent.com/ask/" class="btn btn--outline" target="_blank" rel="noopener">Open Ask &rarr;</a>
           </div>
         </div>
 
         <div class="card demo-card" id="guide">
-          <span class="demo-access demo-access--invite">Preview &middot; by request</span>
+          <span class="demo-access demo-access--invite">Preview &middot; email sign-in</span>
           <h3>The Two paths guide</h3>
           <p>
             A support worker describes one worker and one job, and gets a printable guide that sets two ways of
@@ -219,7 +220,7 @@
             <dd>Describe a start you have seen go badly, and see which supports the guide names.</dd>
           </dl>
           <div class="band__cta">
-            <a href="about.html" class="btn btn--outline" data-request="guide">Ask for access &rarr;</a>
+            <a href="https://workplace.cosolvent.com/ask/guide.html" class="btn btn--outline" target="_blank" rel="noopener">Open the guide &rarr;</a>
           </div>
         </div>
       </div>
@@ -272,7 +273,7 @@
         </div>
 
         <div class="card demo-card" id="job-matching-twin">
-          <span class="demo-access demo-access--invite">By request</span>
+          <span class="demo-access demo-access--invite">Email sign-in</span>
           <h3>The job-matching twin</h3>
           <span class="demo-market">Skills-based job matching</span>
           <p>
@@ -289,8 +290,9 @@
             <dd>Put a question to Ask first, then look for the same requirement in a match.</dd>
           </dl>
           <div class="band__cta">
-            <a href="about.html" class="btn btn--outline" data-request="twin">Ask for access &rarr;</a>
+            <a href="https://dev-yohannes-app1.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener">Open the twin &rarr;</a>
           </div>
+          <p class="demo-signin">On the sign-in page, choose the option that sends a code by email.</p>
         </div>
       </div>
 
