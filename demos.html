@@ -40,6 +40,23 @@
     .demo-index a { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; text-decoration: none; text-transform: none; letter-spacing: 0; }
     .demo-index a span { font-weight: 400; opacity: 0.8; }
     .demo-index a:hover { filter: brightness(1.25); }
+    /* How sign-in works: opens on the first demo click, and from the note */
+    .signin-link { background: none; border: 0; padding: 0; font: inherit; color: #818cf8; text-decoration: underline; cursor: pointer; }
+    .signin-help { width: min(36rem, calc(100vw - 1.5rem)); max-height: 90vh; margin: auto; padding: var(--space-lg); overflow-y: auto; border: 1px solid var(--dp-steel); border-radius: var(--radius-md, 10px); background: var(--dp-navy); color: var(--dp-cloud); font-size: 1rem; line-height: 1.6; }
+    .signin-help::backdrop { background: rgba(4, 7, 15, 0.75); }
+    .signin-help h2 { font-family: var(--font-display); color: #fff; font-size: 1.35rem; margin: 0 0 0.6rem; }
+    .signin-help h3 { font-family: var(--font-display); color: #fff; font-size: 1.1rem; margin: var(--space-lg) 0 0.4rem; }
+    .signin-help p { margin: 0 0 var(--space-md); }
+    .signin-help ol, .signin-help ul { margin: 0 0 var(--space-md); padding-left: 1.4rem; }
+    .signin-help li { margin: 0 0 0.6rem; }
+    .signin-help img { display: block; max-width: 100%; height: auto; margin: 0.6rem 0 0.9rem; border-radius: 6px; background: #fff; }
+    .signin-help__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); position: sticky; bottom: calc(-1 * var(--space-lg)); margin: 0 calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)); padding: var(--space-md) var(--space-lg); background: var(--dp-navy); border-top: 1px solid var(--dp-steel); }
+    .signin-help__actions button { cursor: pointer; font-family: inherit; }
+    .signin-help [hidden] { display: none; }
+    button[data-signin-help] { display: none; cursor: pointer; font-family: inherit; }
+    .signin-ready button.signin-link[data-signin-help] { display: inline-block; margin-top: 0.5rem; font-size: 0.8125rem; }
+    .signin-ready .signin-again button[data-signin-help] { display: inline-flex; }
+    .signin-again { text-align: center; margin: var(--space-md) 0 0; }
   </style>
 </head>
 
@@ -86,11 +103,14 @@
           Each one says what is real, what is staged and who can open it today.
         </p>
         <p class="demo-why">
-          <strong>Why most of these ask for your email.</strong> Sorry for the extra step. Several of these demos
-          run live AI models, and every question costs real money. An open page would let bots and spammers spend
-          it within days. So each demo asks for your email address once and sends you a six-digit code. Enter the
-          code and you are in for 24 hours. Nobody has to approve you. Your address is used to let you in and, for
-          MarketMap, to count your daily run.
+          <strong>Why we ask for your email.</strong> Sorry for the extra step. Several of these demos run live AI
+          models, and every question costs real money. An open page would let bots and spammers spend it within
+          days. So you sign in once with your email address, and that one sign-in covers the demos for about 24
+          hours. Nobody has to approve you. Your address is used to let you in and to keep count where a demo has
+          limits.
+        </p>
+        <p class="signin-again">
+          <button type="button" class="btn btn--outline" data-signin-help>How sign-in works</button>
         </p>
         <ul class="demo-index" aria-label="The demos on this page">
           <li><a class="demo-access--invite" href="#marketmap">MarketMap <span>&middot; one run a day, email sign-in</span></a></li>
@@ -124,9 +144,10 @@
           </dl>
           <div class="band__cta">
             <a href="marketmaps.html" class="btn btn--primary">See worked MarketMaps &rarr;</a>
-            <a href="https://marketmap.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener">Run a MarketMap &rarr;</a>
+            <a href="https://marketmap.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener" data-signin>Run a MarketMap &rarr;</a>
           </div>
           <p class="demo-signin">One run a day for each email address. The report is emailed to you.</p>
+          <p class="demo-signin"><button type="button" class="signin-link" data-signin-help>How sign-in works</button></p>
         </div>
       </div>
 
@@ -162,8 +183,9 @@
           </dl>
           <div class="band__cta">
             <a href="domain-wiki.html" class="btn btn--primary">What a domain wiki is &rarr;</a>
-            <a href="https://workplace.cosolvent.com/index.html" class="btn btn--outline" target="_blank" rel="noopener">Open the wiki &rarr;</a>
+            <a href="https://workplace.cosolvent.com/index.html" class="btn btn--outline" target="_blank" rel="noopener" data-signin>Open the wiki &rarr;</a>
           </div>
+          <p class="demo-signin"><button type="button" class="signin-link" data-signin-help>How sign-in works</button></p>
         </div>
 
         <div class="card demo-card" id="ask">
@@ -183,8 +205,9 @@
           </dl>
           <div class="band__cta">
             <a href="marketforge.html#ask" class="btn btn--primary">How Ask works &rarr;</a>
-            <a href="https://workplace.cosolvent.com/ask/" class="btn btn--outline" target="_blank" rel="noopener">Open Ask &rarr;</a>
+            <a href="https://workplace.cosolvent.com/ask/" class="btn btn--outline" target="_blank" rel="noopener" data-signin>Open Ask &rarr;</a>
           </div>
+          <p class="demo-signin"><button type="button" class="signin-link" data-signin-help>How sign-in works</button></p>
         </div>
 
         <div class="card demo-card" id="guide">
@@ -203,8 +226,9 @@
             <dd>Describe a start you have seen go badly, and see which supports the guide names.</dd>
           </dl>
           <div class="band__cta">
-            <a href="https://workplace.cosolvent.com/ask/guide.html" class="btn btn--outline" target="_blank" rel="noopener">Open the guide &rarr;</a>
+            <a href="https://workplace.cosolvent.com/ask/guide.html" class="btn btn--outline" target="_blank" rel="noopener" data-signin>Open the guide &rarr;</a>
           </div>
+          <p class="demo-signin"><button type="button" class="signin-link" data-signin-help>How sign-in works</button></p>
         </div>
       </div>
 
@@ -273,8 +297,9 @@
             <dd>Put a question to Ask first, then look for the same requirement in a match.</dd>
           </dl>
           <div class="band__cta">
-            <a href="https://jobmatch.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener">Open the twin &rarr;</a>
+            <a href="https://jobmatch.cosolvent.com/" class="btn btn--outline" target="_blank" rel="noopener" data-signin>Open the twin &rarr;</a>
           </div>
+          <p class="demo-signin"><button type="button" class="signin-link" data-signin-help>How sign-in works</button></p>
         </div>
       </div>
 
@@ -300,6 +325,85 @@
       </div>
     </div>
   </footer>
+
+  <!-- Without JavaScript, or in a browser with no <dialog>, the demo links simply open. -->
+  <dialog class="signin-help" id="signin-help" aria-labelledby="signin-help-title">
+    <h2 id="signin-help-title">Before the demo opens</h2>
+    <p>
+      We ask for your email address first, to stop automated programs running up our AI costs. The sign-in screen
+      comes from Cloudflare, a security company we use. There is no password to create.
+    </p>
+    <ol>
+      <li>
+        Type your email address and press <strong>Send login code</strong>.
+        <img src="images/signin-help/1-email.png" width="490" height="424" loading="lazy"
+          alt="The sign-in box, with a space for your email address and a blue button marked Send login code">
+      </li>
+      <li>
+        Open the email from Cloudflare (noreply@notify.cloudflare.com). Check your spam folder if you do not see it.
+        <img src="images/signin-help/2-inbox.png" width="546" height="39" loading="lazy"
+          alt="The email in an inbox, from Cloudflare, with the subject Cloudflare Access login code">
+      </li>
+      <li>
+        <strong>Reading email on this device?</strong> Press the orange <strong>Log in</strong> button.<br>
+        <strong>Reading it elsewhere, such as on your phone?</strong> Type the six numbers into the page where you started.
+        <img src="images/signin-help/3-code.png" width="652" height="382" loading="lazy"
+          alt="The email itself, showing a six-digit code and an orange button marked Log in">
+      </li>
+    </ol>
+    <p>The code lasts 10 minutes. If the page says it was already used, press <strong>Request new code</strong>.</p>
+
+    <h3>After you sign in</h3>
+    <p>One sign-in covers the demos on this page for about 24 hours, on the same device and browser.</p>
+    <p>Some demos limit how much one person can use them, because each use costs money:</p>
+    <ul>
+      <li><strong>Wiki:</strong> read as much as you like.</li>
+      <li><strong>Ask:</strong> up to 20 new questions in an hour, and 60 in a day.</li>
+      <li><strong>Two paths guide:</strong> up to 6 guides in an hour, and 15 in a day.</li>
+      <li><strong>MarketMap:</strong> one report every 24 hours.</li>
+    </ul>
+    <p>
+      Ask, the guide and MarketMap also have a daily total shared by all visitors. If it is used up, please try
+      again the next day.
+    </p>
+    <div class="signin-help__actions">
+      <a class="btn btn--primary" id="signin-help-go" href="#" target="_blank" rel="noopener">Continue to the demo &rarr;</a>
+      <button type="button" class="btn btn--outline" id="signin-help-close">Close</button>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      "use strict";
+      var dialog = document.getElementById("signin-help");
+      if (!dialog || typeof dialog.showModal !== "function") return;
+      document.documentElement.classList.add("signin-ready");
+      var go = document.getElementById("signin-help-go");
+      var KEY = "dp-signin-help-seen";
+      function seen() { try { return window.localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
+      function remember() { try { window.localStorage.setItem(KEY, "1"); } catch (e) {} }
+
+      function show(href) {
+        go.hidden = !href;
+        if (href) go.href = href;
+        dialog.showModal();
+        dialog.scrollTop = 0;
+      }
+      document.querySelectorAll("a[data-signin]").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          if (seen() || e.ctrlKey || e.metaKey || e.shiftKey) return;
+          e.preventDefault();
+          show(link.href);
+        });
+      });
+      document.querySelectorAll("[data-signin-help]").forEach(function (button) {
+        button.addEventListener("click", function () { show(""); });
+      });
+      go.addEventListener("click", function () { remember(); dialog.close(); });
+      document.getElementById("signin-help-close").addEventListener("click", function () { dialog.close(); });
+      dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
+    })();
+  </script>
 
   <script src="reveal.js"></script>
   <script src="nav-mobile.js"></script>
